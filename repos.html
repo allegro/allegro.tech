@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <title>Allegro | open source</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<header>
+    <h1><img src="img/logo-allegro.svg" alt="Allegro"/>
+        <span>Open Source</span>
+    </h1>
+
+    <p>Follow us on <a href="https://twitter.com/AllegroTechBlog">Twitter</a></p>
+</header>
+<div id="repos" class="repos"></div>
+<script type="t/template" id="reposTemplate">
+    <ul>
+        {{@items}}
+        <li><a href="{{=_val.html_url}}">
+            <h2>{{=_val.name}}</h2></a>
+
+            <p class="star-gazers"><a href="{{=_val.html_url}}/stargazers"><span>★</span> {{=_val.stargazers_count}}</a>
+            </p>
+
+            <p>{{=_val.description}}</p>
+            <strong class="lang {{=_val.language}}">{{=_val.language}}</strong>
+        </li>
+        {{/@items}}
+    </ul>
+</script>
+<script src="js/vendor/t.min.js"></script>
+<script src="js/vendor/reqwest.min.js"></script>
+<script src="js/s.js"></script>
+</body>
+</html>
