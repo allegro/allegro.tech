@@ -17,6 +17,7 @@ html, body{
 .wrapper {
     margin:0;
     display:flex;
+    flex-wrap: wrap;
     justify-content:space-around;
     min-height: 100%;
 }
@@ -70,7 +71,7 @@ html, body{
 .section-opensource {
     padding:2em;
     background-color:rgba(150,90,0,.1);
-    flex: 10;
+    flex: 10 1 160px;
 }
 
 .section-opensource,
@@ -119,12 +120,13 @@ html, body{
 
 .repos-section {
     display:flex;
+    flex-wrap: wrap;
 }
 
 .repos-box {
     margin: 0 10px;
 
-    flex:1;
+    flex:1 1 160px;
     border-radius:5px;
 }
 
