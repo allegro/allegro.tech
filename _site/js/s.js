@@ -25,7 +25,7 @@
             ]
         };
     },
-    
+
     showRepo = function (repositories) {
         var repoFiltered = {},
             repoStructure = getRepoSchema();

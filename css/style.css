@@ -3,19 +3,27 @@ html, body, ul, li, .site-header h1, .site-header p {
     margin: 0;
 }
 
+
+
 body {
     background:#fff;
     font: 1em/1.3 Arial, sans-serif;
 }
 
+html, body{
+    height: 100%;
+}
+
 .wrapper {
-    margin:40px 20px 20px 40px;
+    margin:0;
     display:flex;
     justify-content:space-around;
+    min-height: 100%;
 }
 
 .site-header {
-    flex:0 0 200px;
+    flex: 1 0 100px;
+    padding: 2em;
 }
 
 .site-header img {
@@ -60,24 +68,27 @@ body {
 }
 
 .section-opensource {
-    padding:20px;
-    border-radius:20px;
+    padding:2em;
     background-color:rgba(150,90,0,.1);
-    flex:1;
+    flex: 10;
+}
+
+.section-opensource,
+.section-twitter  {
+    position: relative;
 }
 
 .section-opensource > header,
 .section-twitter > header  {
-    margin-bottom:30px;
+    margin-bottom:60px;
 }
 
+
+
 .section-twitter {
-    margin-left:20px;
-    width:300px;
-    padding:20px;
-    border-radius:20px;
+    padding:2em;
     background-color:rgba(27,178,233,.1);
-    flex:0 0 300px;
+    flex:2 0 200px;
 }
 
 .section-title {
@@ -90,9 +101,15 @@ body {
     display:table-cell;
     vertical-align:middle;
     text-align:center;
-    font:normal 15px/1.1 Arial,sans-serif;
+    font:normal 13px/1.1 Arial,sans-serif;
     text-transform:uppercase;
     letter-spacing:.1em;
+
+    box-sizing: border-box;
+    left: -50px;
+    padding-top: 45px;
+    position: absolute;
+    top: -50px;
 }
 
 .section-twitter .section-title {
@@ -105,38 +122,29 @@ body {
 }
 
 .repos-box {
-    margin-left:10px;
-    padding:20px;
+    margin: 0 10px;
+
     flex:1;
-    background-color:rgba(155, 54, 0, .1);
     border-radius:5px;
 }
 
-.repos-box:first-child {
-    margin-left:0;
-}
 
 .repos-box > h3 {
-    width:60px;
-    height:60px;
-    border-radius:30px;
-    background-color:#9B3600;
-    color:rgba(255,255,255,.9);
-    display:table-cell;
-    vertical-align:middle;
-    text-align:center;
-    text-decoration:none;
-    font:normal 11px/1.1 Arial,sans-serif;
-    text-transform:uppercase;
-    letter-spacing:.1em;
+    font: 800 18px/1.1 Arial,sans-serif;
+    padding: 0 2em 0 0;
+    color: #292f33;
+    margin: 0;
+    padding: 20px 0 0 20px ;
 }
 
 .repos-box > ul {
     list-style:none;
+    /*background-color:rgba(155, 54, 0, .1);*/
+     padding: 20px;
 }
 
 .repo-box {
-    margin:30px;
+    margin:30px 0;
     position:relative;
 }
 
