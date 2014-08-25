@@ -23,7 +23,7 @@ html, body{
 }
 
 .site-header {
-    flex: 1 0 100px;
+    flex: 1 0 200px;
     padding: 2em;
 }
 
@@ -125,8 +125,7 @@ html, body{
 
 .repos-box {
     margin: 0 10px;
-
-    flex:1 1 160px;
+    flex:1 1 200px;
     border-radius:5px;
 }
 
