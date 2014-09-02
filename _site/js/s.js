@@ -22,7 +22,8 @@
                 ],
                 tools: [
                     'grunt-maven-npm',
-                    'grunt-maven-plugin'
+                    'grunt-maven-plugin',
+                    'tipboard'
                 ],
                 for_fun: [
                     'confitura-jamjars'
@@ -34,7 +35,7 @@
             var repoFiltered = {},
                 repoStructure = getRepoSchema();
 
-            repositories.forEach(function (element) {
+            repositories.sort(function (a,b){ return b.stargazers_count - a.stargazers_count}).forEach(function (element) {
                 for (repo in repoStructure) {
                     if (repoStructure[repo].indexOf(element.name) !== -1) {
                         if (!repoFiltered[repo]) repoFiltered[repo] = [];
