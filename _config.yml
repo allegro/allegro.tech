@@ -1,6 +1,7 @@
 # Site settings
-title: Allegro | open source
-email: kariera@allegro.pl
+title: Allegro Open Source
+menu: false
+# email: kariera@allegro.pl
 description: ""
 baseurl: ""
 url: "http://allegro.github.io"
@@ -10,3 +11,4 @@ github_username:  allegro
 # Build settings
 markdown: kramdown
 permalink: pretty
+

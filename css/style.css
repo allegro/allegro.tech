@@ -10,7 +10,7 @@ body {
     background-size: cover;
 }
 
-.content{
+.content {
     max-width: 940px;
     padding: 0 20px;
     margin: 0 auto;
@@ -20,18 +20,9 @@ html, body {
     height: 100%;
 }
 
-.wrapper {
-    margin: 0;
-    /*display: flex;*/
-    flex-wrap: wrap;
-    justify-content: space-around;
-    min-height: 100%;
-}
-
 .site-header {
-    flex: 1 0 200px;
     padding: 1em 0;
-    background: rgba(255,255,255,0.95);
+    background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -76,8 +67,7 @@ html, body {
 }
 
 .section-opensource {
-    flex: 10 1 160px;
-    background: rgba(122, 122, 22, 0.4);
+    background: rgba(22, 22, 22, 0.4);
 }
 
 .section-opensource,
@@ -88,58 +78,37 @@ html, body {
 
 .section-opensource > header,
 .section-twitter > header {
- /*   background:linear-gradient(#333 23%, transparent 23%), linear-gradient(transparent 74%, #333 78%);*/
     background-size: 2px 2px;
-    padding:  3em 0;
-    /*padding: 100px 0;*/
+    padding: 3em 0;
     color: #fff;
     text-shadow: 1px 1px 0 #444;
 }
 
-.section-opensource section{
+.section-opensource section {
     background: rgba(232, 247, 253, 0.79);
-     padding: 2em 0;
+    padding: 2em 0;
 }
 
 .section-twitter section {
     background-color: rgba(255, 255, 255, 0.89);
-    flex: 2 0 200px;
     padding: 2em 0;
 }
 
-
 .section-title {
-/*    margin-bottom: 20px;
-    background-color: #FF5A00;
-    color: rgba(255, 255, 255, .9);
-    vertical-align: middle;
-    text-align: center;
-    font: normal 13px/1.1 Arial, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-
-    box-sizing: border-box;
-    padding: 5px 10px;*/
-    /*left: -50px;*/
-    /*padding-top: 45px;*/
-    /*position: absolute;*/
-    /*top: -50px;*/
-        margin: 1.5em 0;
-
-}
-
-.section-twitter .section-title {
-    /*margin: 5px -2em;*/
+    margin: 1.5em 0;
 
 }
 
 .repos-section {
+    display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
     display: flex;
     flex-wrap: wrap;
 }
 
 .repos-box {
     margin: 0 10px;
+    -webkit-flex: 1 1 200px;
     flex: 1 1 200px;
     border-radius: 5px;
 }
@@ -149,6 +118,7 @@ html, body {
     color: #fff;
     margin: 15px 0;
     padding: 10px;
+    border-radius: 0.3em;
 }
 
 .repos-box li a {
@@ -165,13 +135,12 @@ html, body {
 
 .repos-box > ul {
     list-style: none;
-    /*background-color:rgba(155, 54, 0, .1);*/
-    /*padding: 20px;*/
 }
 
 .repo-box {
     position: relative;
 }
+
 .repo-box > header {
     max-width: 200px;
 }
@@ -213,50 +182,33 @@ html, body {
     font-size: 12px;
 }
 
-.repos li:hover .star-gazers {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.repos li:hover .star-gazers span {
-    color: inherit;
-}
-
-.repos ul {
-    display: flex;
-    flex-wrap: wrap;
-    clear: both;
-    margin: 0 0.5em;
-}
-
-.repos li {
-    list-style: none;
-    flex: 1 1 12%;
-    min-width: 160px;
-    background: rgba(255, 255, 255, 0.7);
-    transition: 0.7s;
-    margin: 0 0.5em 1em;
-    padding: 1em;
-    border-radius: 0.5em;
-    position: relative;
-
-}
-
-.site-footer{
+.site-footer {
     background: #222;
     padding: 1em 0;
 }
 
 .site-footer, .site-footer a {
     color: #fff;
+    text-decoration: none;
 }
 
-.site-footer li{
+.site-footer li {
     list-style: none;
     display: inline-block;
     font-size: 90%;
 }
 
 .site-footer li + li:before {
-    content: ' ★ '
+    content: ' • ';
+    color: #aaa;
+}
+
+.github-icon-svg,
+.twitter-icon-svg {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 3px;
 }
 

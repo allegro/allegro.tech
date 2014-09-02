@@ -1,13 +1,8 @@
 <footer class="site-footer">
-
   <div class="content">
-
-
-
-
       <ul>
         <li>{{ site.title }}</li>
-        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        {% if site.email %}<li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>{% endif %}
                 {% if site.github_username %}<li>
           <a href="https://github.com/{{ site.github_username }}">
             <span class="icon github">
@@ -45,16 +40,5 @@
           </a>
         </li>{% endif %}
       </ul>
-
-
-
-
-
-
-    <div class="footer-col-3 column">
-      <p class="text">{{ site.description }}</p>
-    </div>
-
   </div>
-
 </footer>
