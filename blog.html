@@ -3,19 +3,33 @@ layout: default
 title: Blog
 ---
 
-<div class="home">
 
-  <h1>Posts</h1>
+<section class="section-opensource">
+    <header>
+        <div class="content"><h2 class="section-title">Allegro Tech Blog</h2>
+      <p> Nowadays it is extremely hard to choose right technology to solve problems coming out in your application.
+Open source communities offers great number of specialised languages, tools, frameworks and data processing engines.
+Closing yourself in on adopting new technologies lefts your architecture obsolete and opportunities for greater performance limited.
+</p>
+<p>
+Therefore we have decided to start sharing our experience with building one of the biggest, highly distributed applications in central-eastern Europe.
+In following months we will also open source our tools we use every day in development and operations.</p>
 
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+<p>We hope so that our contribution will be valuable for the community.</p>
+        </div>
+    </header>
+    <section>
+        <div class="content">
+        <h2>Latest posts</h2>
+        <ul class="posts">
+            {% for post in site.posts %}
+            <li>
+                <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> | {{site.data.members[post.author].name}}
+                <p>{{ post.excerpt | strip_html }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        </div>
+    </section>
+</section>

@@ -10,5 +10,8 @@ github_username:  allegro
 
 # Build settings
 markdown: kramdown
-permalink: pretty
+kramdown:
+    input: GFM
+    coderay_line_numbers: nil
+permalink: /:title.html
 

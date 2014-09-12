@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cassandra Modeling Kata - Allegro Open Source</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="">
+    <link rel="canonical" href="http://allegro.github.io/cassandra-modeling-kata.html">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+    <body>
+        <header class="site-header">
+    <div class="content"><h1>
+        <a href="/"><img src="/img/logo-allegro.svg" alt="Allegro"/></a>
+    </h1>
+
+    
+    <nav class="site-nav">
+        <ul class="site-navlist">
+        
+          <li><a class="page-link" href="/blog.html">Blog</a></li>
+        
+          
+        
+          
+        
+        </ul>
+    </nav>
+    
+
+    </div>
+</header>
+
+        <section class="post">
+    <header class="post-header">
+        <div class="content">
+            <h1>Cassandra Modeling Kata</h1>
+     <!--        <p></p> -->
+            <p class="post-meta">Sep 17, 2014 • <a href="#author">Rafał Mysłek</a></p>
+        </div>
+    </header>
+    <article class="post-content">
+      <div class="content"> <h2 id="what-is-apache-cassandra">What is Apache Cassandra?</h2>
+
+<p>Apache Cassandra is an open source, distributed, high performance, cloud-friendly NoSQL database offering high availability with its masterless and no single-point-of-failure architecture.<br />
+If you are new to Apache Cassandra and NoSQL, I highly recommend reading this great introductions:</p>
+
+<ul>
+  <li><a href="http://planetcassandra.org/what-is-apache-cassandra/">What is Apache Cassandra</a></li>
+  <li><a href="http://planetcassandra.org/what-is-nosql/">NoSQL Databases Defined and Explained</a></li>
+</ul>
+
+<p>At Allegro we operate in a highly distributed (Microservices), data-intensive cloud environment and Apache Cassandra is a great asset in our <a href="http://martinfowler.com/bliki/PolyglotPersistence.html">PolyglotPersistence</a> toolbox.<br />
+Apache Cassandra is becoming our No. 1 choice for cloud-based solutions due to its high availability, linear scaling and flexible data modeling capabilities.</p>
+
+<p>In this kata, I will introduce basic Apache Cassandra modeling techniques. Next, we will use these techniques in practice - to develop a simple e-commerce application.</p>
+
+<p>The complete source code for the application is available at the <a href="https://github.com/allegro/cassandra-modeling-kata">Allegro Github</a>.</p>
+
+<h2 id="data-modeling-in-a-nutshell">Data Modeling in a Nutshell</h2>
+
+<p>Apache Cassandra is a <a href="http://planetcassandra.org/what-is-nosql/#nosql-database-types">Column store</a>. Initially, Apache Cassandra offered only the <a href="http://wiki.apache.org/cassandra/ThriftInterface">Thrift</a> client API.<br />
+Since version 1.2 Apache Cassandra provides <a href="http://wiki.apache.org/cassandra/API">CQL</a> - SQL-like query abstraction layer. The preferred interface to interact with Cassandra in versions 1.2 and 2.x is CQL.</p>
+
+<p>In this kata, we will use <strong>DataStax Java Driver version 2.x</strong> - all the examples are in CQL3. However, to effectively use CQL, it is crucial to understand how CQL maps to the internal<br />
+Cassandra storage - I highly recommend watching this webinar: <a href="https://www.youtube.com/watch?v=UP74jC1kM3w">Understanding How CQL3 Maps to Cassandra’s Internal Data Structure</a>.</p>
+
+<p>After getting familiar with the mapping of CQL to the Cassandra internal storage, the next step should be reading/watching <strong>Patrick McFadin’s data modeling series</strong>:</p>
+
+<ul>
+  <li><a href="http://www.slideshare.net/patrickmcfadin/the-data-model-is-dead-long-live-the-data-model">The Data Model is Dead; Long live the Data Model</a></li>
+  <li><a href="http://www.slideshare.net/patrickmcfadin/become-a-super-modeler">Become a Super Modeler</a></li>
+  <li><a href="http://www.slideshare.net/planetcassandra/c-summit-2013-the-worlds-next-top-data-model-by-patrick-mcfadin">The World’s Next Top Data Model</a></li>
+  <li><a href="http://www.slideshare.net/DataStax/cassandra-community-webinar-data-model-on-fire">Apache Cassandra 2.0: Data Model on Fire</a></li>
+</ul>
+
+<p>Now, before we jump into coding, let’s sum up the Cassandra modeling fundamentals:</p>
+
+<ul>
+  <li><strong>Rule #1:</strong> Derive you data model from queries - not the other way around.</li>
+  <li><strong>Rule #2:</strong> De-normalize data for fast access - no joins, no foreign keys!</li>
+  <li><strong>Rule #3:</strong> Forget about distributed (2-phase commit) transactions - instead use row level isolation, atomic batches and lightweight transactions.</li>
+</ul>
+
+<h2 id="data-modeling-in-action">Data Modeling in Action</h2>
+
+<h3 id="what-we-will-build">What we will build</h3>
+
+<p>Imagine that you are running a popular e-commerce platform - <strong>AlleDeals</strong>. The platform is going global and you must support the rapidly growing user base. You have a legacy relational, highly normalized database. The database is not scalable enough.</p>
+
+<p>Our goal is to port the relational data model to NoSQL Apache Cassandra, so it can <strong>scale horizontally</strong>. As a proof of concept, we will remodel the core domain entities: <strong>Item</strong> and <strong>Purchase</strong>.</p>
+
+<h3 id="what-we-will-use">What we will use</h3>
+
+<p>We will use the following tools and frameworks:</p>
+
+<ul>
+  <li>Gradle</li>
+  <li>DataStax Java Driver 2.x</li>
+  <li>Spring Data Cassandra</li>
+  <li>JUnit</li>
+  <li>AssertJ</li>
+  <li>Achilles CQL embedded cassandra server</li>
+</ul>
+
+<h3 id="how-we-will-deliver">How we will deliver</h3>
+
+<p>We will build and deliver the new data model in the following six short iterations. In each iteration, we will apply different Cassandra modeling techniques.</p>
+
+<h3 id="iteration-1---user-registration-static-table">Iteration #1 - User Registration (Static table)</h3>
+
+<p>The prerequisite in the selling/buying workflow is user registration. The user registration can be accomplished with a simple <a href="http://planetcassandra.org/blog/datastax-developer-blog-a-thrift-to-cql3-upgrade-guide/">Static table</a>.<br />
+A static table is very similar to relational table - each row generally has the same, static set of columns:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">CREATE</span> <span style="color:#339;font-weight:bold">TABLE</span> cass_user (
+    user_id uuid,
+    login <span style="color:#0a8;font-weight:bold">varchar</span>,
+    age <span style="color:#0a8;font-weight:bold">int</span>,
+    <span style="color:#088;font-weight:bold">PRIMARY</span> <span style="color:#339;font-weight:bold">KEY</span> (user_id)
+);
+</pre></div>
+</div>
+</div>
+
+<p>The <strong>primary key</strong> of the User table is <code>user_id</code>. In Apache Cassandra, a primary key consists of two parts - mandatory <a href="http://www.datastax.com/documentation/cql/3.1/cql/ddl/ddl_compound_keys_c.html">partitioning key</a> and optional <a href="http://www.datastax.com/documentation/cql/3.1/cql/ddl/ddl_compound_keys_c.html">clustering key</a>. The partitioning key determines the physical location of the row in the Apache Cassandra cluster.<br />
+The clustering key specifies the sort order of columns within a row (partition) - clustering keys are used in Dynamic tables (wide rows) discussed in the next iterations. The User table defines only the partitioning key, which means that each user will be stored in a separate physical row.<br />
+The <code>user_id</code> is defined as the <a href="http://www.datastax.com/documentation/cql/3.1/cql/cql_reference/uuid_type_r.html">uuid</a> - this is the preferred type used in Apache Cassandra (there are no global sequences or auto-increment fields).</p>
+
+<p>In the Java code, the User table should be mapped to the following Spring Data Cassandra User class:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#007">@Table</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">cass_user</span><span style="color:#710">&quot;</span></span>)
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">User</span> {
+
+<span style="color:#007">@PrimaryKey</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">UUID</span> userId;
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">String</span> login;
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">int</span> age;
+
+}
+</pre></div>
+</div>
+</div>
+
+<p>The Spring Data Cassandra is relatively new in the <a href="http://projects.spring.io/spring-data/">Spring Data</a> ecosystem. The Spring Data Cassandra version 1.0 GA is available since May 2014.</p>
+
+<p>Thanks to its powerful entity mapping system and auto-generating query machanism, Spring Data dramatically speeds up data access / repository implementatiion. To map and query the user table in the Java code, you need to:</p>
+
+<ul>
+  <li>create the User class with fields matching the user table</li>
+  <li>annotate the User class with the <code>@Table</code> annotation</li>
+  <li>annotate the User userId field with the <code>@PrimaryKey</code> annotation</li>
+  <li>create the UserRepository interface extending from the <code>TypedIdCassandraRepository</code> repository</li>
+</ul>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">UserRepository</span> <span style="color:#088;font-weight:bold">extends</span> TypedIdCassandraRepository&lt;User, <span style="color:#0a8;font-weight:bold">UUID</span>&gt; {
+
+}
+</pre></div>
+</div>
+</div>
+
+<p>And that’s all! You don’t have to type a single line of code to save and get a User from Cassandra. Let’s write an integration test to verify this.</p>
+
+<p>In a test-driven development cycle, <strong>integration tests should be fast and isolated</strong> - they should be run within an in-memory database. For Apache Cassandra this can be achieved with <a href="https://github.com/doanduyhai/Achilles/wiki/CQL-embedded-cassandra-server">Achilles CQL embedded cassandra server</a>. The CQL embedded cassandra server is an <strong>embedded database</strong>, a counterpart of the embbedded SQL <a href="http://www.h2database.com/html/main.html">H2 Database</a>. The setup of the CQL embedded cassandra server is very straightforward, for details please refer to the <a href="https://github.com/doanduyhai/Achilles/wiki/CQL-embedded-cassandra-server">Achilles wiki</a>.</p>
+
+<p>Now, you can write your first Cassandra integration test:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#007">@RunWith</span>(SpringJUnit4ClassRunner.class)
+<span style="color:#007">@CassandraIntegrationTest</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserRepositoryIntegrationTest</span> {
+
+    <span style="color:#007">@Inject</span>
+    <span style="color:#088;font-weight:bold">private</span> UserRepository userRepository;
+
+    <span style="color:#007">@Test</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> shouldInsertUser() <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+        <span style="color:#777">//given</span>
+        <span style="color:#0a8;font-weight:bold">UUID</span> uuid = <span style="color:#0a8;font-weight:bold">UUID</span>.randomUUID();
+        <span style="color:#0a8;font-weight:bold">String</span> login = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">cassandra_kata</span><span style="color:#710">&quot;</span></span>;
+        <span style="color:#339;font-weight:bold">int</span> age = <span style="color:#00D">34</span>;
+        User user = <span style="color:#080;font-weight:bold">new</span> User(uuid, login, age);
+
+        <span style="color:#777">//when</span>
+        userRepository.save(user);
+
+        <span style="color:#777">//then</span>
+        User foundUser = userRepository.findOne(uuid);
+        assertThat(foundUser.getLogin()).isEqualTo(login);
+        assertThat(foundUser.getAge()).isEqualTo(age);
+    }
+}
+</pre></div>
+</div>
+</div>
+
+<p>Now, run the test in your IDE and you should see a nice green bar :-)</p>
+
+<h3 id="iteration-2---listing-an-item-static-table">Iteration #2 - Listing an Item (Static table)</h3>
+
+<p>As soon as a user is successfully registered in the system, the fun part begins - he or she can start selling and buying items :-)</p>
+
+<p>The central entity is the <strong>AlleDeals</strong> core domain model is an <strong>Item</strong>. As you already learned, <strong>Apache Cassandra data models are query-driven</strong>. So let’s consider the queries, which will be performed against the Item table:</p>
+
+<ul>
+  <li><strong>Query #1:</strong> Show item details (get item by id)</li>
+  <li><strong>Query #2:</strong> List user items (find items by user)</li>
+  <li><strong>Query #3:</strong> List tagged items (find items by tag)</li>
+</ul>
+
+<p>In this iteration, we will implement the “Show item details” query. This will be the Item <strong>Masterdata</strong> table - the single-source-of-truth about the items. In the next two iterations, we will model two auxiliary tables for the items <strong>Listing</strong>.</p>
+
+<p>You may ask, why we need different model for item Listing? In CQL there is a <strong>strong relationship between the table primary key definition and the queries, which can be performed against the table</strong>. The only allowed columns in the CQL <a href="http://www.datastax.com/documentation/cql/3.1/cql/cql_reference/select_r.html">WHERE</a> clause are those defined in the table primary key or are indexed (secondary table index).</p>
+
+<p>The primary key for the “Show item details” query should be the <code>item_id</code> - you will always request details for a specific item identified by its unique identifier. The primary key for the items Listing will depend on the given search criteria: either <code>user_id</code> or <code>tag name</code> respectively. This is the reason why we need separate tables - <strong>each table will be specialized for a specific query</strong>.</p>
+
+<p>The definition of the Master Item table can be defined as follows:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">CREATE</span> <span style="color:#339;font-weight:bold">TABLE</span> cass_master_item (
+    item_id timeuuid,
+    user_id uuid,
+    item_name <span style="color:#0a8;font-weight:bold">varchar</span>,
+    item_desc <span style="color:#0a8;font-weight:bold">text</span>,
+    unit_price <span style="color:#0a8;font-weight:bold">decimal</span>,
+    offered_units <span style="color:#0a8;font-weight:bold">int</span>,
+    available_units <span style="color:#0a8;font-weight:bold">int</span>,
+    start_date <span style="color:#0a8;font-weight:bold">timestamp</span>,
+    end_date <span style="color:#0a8;font-weight:bold">timestamp</span>,
+    auction_finished <span style="color:#0a8;font-weight:bold">boolean</span>,
+    <span style="color:#088;font-weight:bold">PRIMARY</span> <span style="color:#339;font-weight:bold">KEY</span> (item_id)
+);
+</pre></div>
+</div>
+</div>
+
+<p>This is a Static table with a simple primary key composed only of the partitioning key. Please note the data type used for the <code>item_id</code>, it is defined as <a href="http://www.datastax.com/documentation/cql/3.1/cql/cql_reference/uuid_type_r.html">timeuuid</a>. The timeuuid data type is extremely useful for <a href="http://planetcassandra.org/getting-started-with-time-series-data-modeling/">Time Series Data</a>, which you will soon implement for the items Listings.</p>
+
+<p>In the Java code, the Master Item table should be mapped to the following Spring Data Cassandra <code>Item</code> class:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#007">@Table</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">cass_master_item</span><span style="color:#710">&quot;</span></span>)
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Item</span> {
+
+    <span style="color:#007">@PrimaryKey</span>
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">UUID</span> itemId;
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">user_id</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">UUID</span> userId;
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">item_name</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">String</span> name;
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">item_desc</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">String</span> description;
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">unit_price</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">BigDecimal</span> unitPrice;
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">offered_units</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Integer</span> offeredUnits;
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">available_units</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Integer</span> availableUnits;
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">start_date</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#007">@CassandraType</span>(type = DataType.Name.TIMESTAMP)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Date</span> startDate;
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">end_date</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#007">@CassandraType</span>(type = DataType.Name.TIMESTAMP)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Date</span> endDate;
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">auction_finished</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Boolean</span> finished;
+
+}
+</pre></div>
+</div>
+</div>
+
+<p>The corresponding Master Item repository should be implemented as follows:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">ItemRepository</span> <span style="color:#088;font-weight:bold">extends</span> TypedIdCassandraRepository&lt;Item, <span style="color:#0a8;font-weight:bold">UUID</span>&gt; {
+
+}
+</pre></div>
+</div>
+</div>
+
+<p>And that’s all - you can save and query items right away. Write an integration test to verify!</p>
+
+<h3 id="iteration-3---list-items-by-user-dynamic-table">Iteration #3 - List Items by User (Dynamic table)</h3>
+
+<p>In the previous iteration we have built the Item Masterdata. The Item Masterdata can be queried only by a unique item identifier. The next step is to implement the first item Listing - <strong>User Items</strong>.</p>
+
+<p>The User Items table should be defined as a <a href="http://planetcassandra.org/blog/datastax-developer-blog-a-thrift-to-cql3-upgrade-guide/">Dynamic table</a>. The <a href="http://www.datastax.com/documentation/cql/3.1/cql/ddl/ddl_compound_keys_c.html">compound primary key</a> of the User Items table should consists of: <code>user_id</code> as the partitioning key<br />
+and <code>item_id</code> as the clustering key. The <code>item_id</code> should be defined as the <a href="http://www.datastax.com/documentation/cql/3.1/cql/cql_reference/uuid_type_r.html">timeuuid</a> data type. A value of timeuuid data type includes the time of its generation and are sorted by timestamp. The User Items should be sorted by the <code>item_id</code> ( incl. creation timestamp) in reverse order (latest item first on row):</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">CREATE</span> <span style="color:#339;font-weight:bold">TABLE</span> cass_user_item (
+    user_id uuid,
+    item_id timeuuid,
+    item_name <span style="color:#0a8;font-weight:bold">varchar</span>,
+    unit_price <span style="color:#0a8;font-weight:bold">decimal</span>,
+    available_units <span style="color:#0a8;font-weight:bold">int</span>,
+    end_date <span style="color:#0a8;font-weight:bold">timestamp</span>,
+    auction_finished <span style="color:#0a8;font-weight:bold">boolean</span>,
+    <span style="color:#088;font-weight:bold">PRIMARY</span> <span style="color:#339;font-weight:bold">KEY</span> (user_id, item_id)
+)
+WITH CLUSTERING <span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span> (item_id <span style="color:#088;font-weight:bold">desc</span>);
+</pre></div>
+</div>
+</div>
+
+<p>The <strong>User Items</strong> table should be a short <a href="http://planetcassandra.org/getting-started-with-time-series-data-modeling/">Time series</a> wide row. To keep the row short, data (columns) in the User Items table should be stored with an <a href="http://www.datastax.com/documentation/cql/3.1/cql/cql_using/use_expire_c.html">expiration date</a>, e.g. 30 days.</p>
+
+<p>To store the whole <strong>User Items History</strong>, a separate table should be created. This is because <strong>Cassandra stores an entire row of data on a node by partition key</strong>. Assuming that there are users selling tens of thousands of items per month, the data should be spread over multiple nodes.<br />
+Therefore, User Items History table should be defined with a <a href="http://www.datastax.com/documentation/cql/3.1/cql/cql_reference/refCompositePk.html">composite partitioning key</a>, e.g. <code>user_id</code> combined with <code>year_month</code>.</p>
+
+<p>In the Java code, the User Items <strong>compound primary key</strong> is represented by <code>UserItemKey</code>, a special <a href="http://docs.spring.io/spring-data/cassandra/docs/current/reference/htmlsingle/#cassandra-template.id-handling">PrimaryKeyClass</a>:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#007">@PrimaryKeyClass</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserItemKey</span> <span style="color:#088;font-weight:bold">implements</span> <span style="color:#0a8;font-weight:bold">Serializable</span> {
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">long</span> serialVersionUID = -<span style="color:#00D">791316285695123492L</span>;
+
+    <span style="color:#007">@PrimaryKeyColumn</span>(name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">user_id</span><span style="color:#710">&quot;</span></span>, ordinal = <span style="color:#00D">0</span>, type = PrimaryKeyType.PARTITIONED)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">UUID</span> userId;
+
+    <span style="color:#007">@PrimaryKeyColumn</span>(name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">item_id</span><span style="color:#710">&quot;</span></span>, ordinal = <span style="color:#00D">1</span>, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">UUID</span> itemId;
+
+}
+</pre></div>
+</div>
+</div>
+
+<p>Next, the User Items class should be defined as follows:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#007">@Table</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">cass_user_item</span><span style="color:#710">&quot;</span></span>)
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserItem</span> {
+    <span style="color:#007">@PrimaryKey</span>
+    <span style="color:#088;font-weight:bold">private</span> UserItemKey id;
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">item_name</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">String</span> name;
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">unit_price</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">BigDecimal</span> unitPrice;
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">available_units</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Integer</span> availableUnits;
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">auction_finished</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Boolean</span> finished;
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">end_date</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Date</span> endDate;
+}
+</pre></div>
+</div>
+</div>
+
+<p>The corresponding User Item repository should be implemented as follows:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">UserItemRepository</span> <span style="color:#088;font-weight:bold">extends</span> TypedIdCassandraRepository&lt;UserItem, UserItemKey&gt; {
+
+}
+</pre></div>
+</div>
+</div>
+
+<p>So far we have implemented the <strong>Item Masterdata</strong> and <strong>User Items</strong> tables, each serving its specific purpose. The final step is to keep both these tables in sync. This can be achieved with a Cassandra <a href="http://www.datastax.com/documentation/cql/3.1/cql/cql_reference/batch_r.html">Batch</a>.</p>
+
+<p>To implement a batch insert, you have to implement a <a href="http://docs.spring.io/spring-data/cassandra/docs/1.0.2.RELEASE/reference/html/repositories.html#repositories.custom-implementations">custom repository</a> interface:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">ItemRepositoryCustom</span> {
+
+    Item saveItem(Item item);
+}
+</pre></div>
+</div>
+</div>
+
+<p>Next, add the custom repository to the main repository definition:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">ItemRepository</span> <span style="color:#088;font-weight:bold">extends</span> TypedIdCassandraRepository&lt;Item, <span style="color:#0a8;font-weight:bold">UUID</span>&gt;, ItemRepositoryCustom {
+
+}
+</pre></div>
+</div>
+</div>
+
+<p>Finally, implement the batch insert with the <a href="http://www.datastax.com/documentation/developer/java-driver/2.0/java-driver/reference/queryBuilderOverview.html">DataStax QueryBuilder API</a>:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">ItemRepositoryImpl</span> <span style="color:#088;font-weight:bold">implements</span> ItemRepositoryCustom {
+
+    <span style="color:#088;font-weight:bold">private</span> CassandraOperations cassandraOperations;
+
+    <span style="color:#007">@Inject</span>
+    ItemRepositoryImpl(CassandraOperations cassandraOperations) {
+        <span style="color:#950">this</span>.cassandraOperations = cassandraOperations;
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> Item saveItem(Item item) {
+        Session session = cassandraOperations.getSession();
+
+        <span style="color:#0a8;font-weight:bold">PreparedStatement</span> masterItem = session.prepare(masterItemInsert());
+        <span style="color:#0a8;font-weight:bold">PreparedStatement</span> userItem = session.prepare(userItemInsertWithTtl());
+
+        BatchStatement batch = <span style="color:#080;font-weight:bold">new</span> BatchStatement();
+
+        <span style="color:#777">//master item</span>
+        batch.add(masterItem.bind(item.getId(), item.getUserId(), item.getName(), item.getDescription(),
+            item.getUnitPrice(), item.getOfferedUnits(), item.getStartDate(), item.getEndDate(), item.getTags()));
+        <span style="color:#777">//user item</span>
+        batch.add(userItem.bind(item.getUserId(), item.getId(), item.getName(), item.getUnitPrice(),
+            item.getOfferedUnits(), item.getEndDate()));
+
+        cassandraOperations.execute(batch)
+
+        <span style="color:#080;font-weight:bold">return</span> item;
+    }
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="iteration-4---list-items-by-tag-collections">Iteration #4 - List Items by Tag (Collections)</h3>
+
+<p>The second items Listing is built on the item metadata - <strong>tags</strong>. To list items by a tag, the data model must be enhanced with the following new features:</p>
+
+<ul>
+  <li><strong>Item Masterdata</strong> - new column to store item tags</li>
+  <li><strong>Tag Item</strong> - new table to store items by a tag</li>
+</ul>
+
+<p>The first requirement can be fulfilled with the <a href="http://www.datastax.com/documentation/cql/3.0/cql/cql_using/use_collections_c.html">Cassandra Collections</a>. This is simple as adding a new column with one of the Cassandra’s supported Collections types: <strong>set</strong>, <strong>list</strong>, <strong>map</strong>. Please note that Collections are designed to store only a small amount of data. The only elements supported by Collections are the simple types, e.g. int, text, uuid, etc. Currently, it is not possible to use nested Collections, i.e. you can not store a list as a map value, etc.</p>
+
+<p>For the item tags, set is the most suitable Collection type:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">CREATE</span> <span style="color:#339;font-weight:bold">TABLE</span> cass_master_item (
+    id timeuuid,
+    user_id uuid,
+    item_name <span style="color:#0a8;font-weight:bold">varchar</span>,
+    item_desc <span style="color:#0a8;font-weight:bold">text</span>,
+    unit_price <span style="color:#0a8;font-weight:bold">decimal</span>,
+    offered_units <span style="color:#0a8;font-weight:bold">int</span>,
+    available_units <span style="color:#0a8;font-weight:bold">int</span>,
+    start_date <span style="color:#0a8;font-weight:bold">timestamp</span>,
+    end_date <span style="color:#0a8;font-weight:bold">timestamp</span>,
+    tags <span style="color:#B06;font-weight:bold">set</span>&lt;<span style="color:#0a8;font-weight:bold">text</span>&gt;,
+    auction_finished <span style="color:#0a8;font-weight:bold">boolean</span>,
+    <span style="color:#088;font-weight:bold">PRIMARY</span> <span style="color:#339;font-weight:bold">KEY</span> (id)
+);
+</pre></div>
+</div>
+</div>
+
+<p>In the Java code, the Cassandra set is mapped to <strong>java.util.Set</strong>:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#007">@Table</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">cass_master_item</span><span style="color:#710">&quot;</span></span>)
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Item</span> {
+
+    <span style="color:#777">//other columns skipped here</span>
+
+    <span style="color:#007">@Column</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">tags</span><span style="color:#710">&quot;</span></span>)
+        <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Set</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>&gt; tags;
+
+}
+</pre></div>
+</div>
+</div>
+
+<p>After Item Masterdata has been enhanced with tags, the second requirement can be implemented. Tagged items will be stored in a new Dynamic Table (wide row) - Tag Items:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">CREATE</span> <span style="color:#339;font-weight:bold">TABLE</span> cass_tag_item (
+    tag <span style="color:#0a8;font-weight:bold">varchar</span>,
+    item_id timeuuid,
+    item_name <span style="color:#0a8;font-weight:bold">varchar</span>,
+    unit_price <span style="color:#0a8;font-weight:bold">decimal</span>,
+    available_units <span style="color:#0a8;font-weight:bold">int</span>,
+    end_date <span style="color:#0a8;font-weight:bold">timestamp</span>,
+    auction_finished <span style="color:#0a8;font-weight:bold">boolean</span>,
+    <span style="color:#088;font-weight:bold">PRIMARY</span> <span style="color:#339;font-weight:bold">KEY</span> (tag, item_id)
+)
+WITH CLUSTERING <span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span> (item_id <span style="color:#088;font-weight:bold">desc</span>);
+</pre></div>
+</div>
+</div>
+
+<p>Please note that the <strong>Tag Items</strong> table has pretty much same structure as the <strong>User Items</strong> table. The only difference is the primary key definition, and more specifically the partitioning key (row key). Do you remember Iteration #2?  Let me recall this - <strong>each table will be specialized for a specific query</strong>. The <strong>User Items</strong> row will be looked up by the <code>user_id</code> and the <strong>Tag Items</strong> row will be looked up by <code>tag</code>.</p>
+
+<p>If you have strong background in the relational world, you will most likely disapprove this solution. Store redundant data just to perform different queries? Yes, in Apache Cassandra this is perfectly OK because of:</p>
+
+<ul>
+  <li>Cassandra is optimized for writes, see the the <a href="http://planetcassandra.org/nosql-performance-benchmarks/#netflix">banchmarks</a></li>
+  <li>Lookup by row key is fast and efficient</li>
+  <li>Nowadays storage is cheap, execution time is the expensive factor - <strong>online shoppers want speed! :-)</strong></li>
+</ul>
+
+<p>The only remaining task to finish the <strong>Tag Items</strong> Listing, is to put everything in one <a href="http://www.datastax.com/documentation/cql/3.1/cql/cql_reference/batch_r.html">Batch</a>, so <strong>Item Masterdata</strong>, <strong>User Items</strong> and <strong>Tag Items</strong> are all kept in sync.</p>
+
+<p>BatchStatement batch = new BatchStatement();</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#777">//master item</span>
+batch.add(masterItem.bind(item.getId(), item.getUserId(), item.getName(), item.getDescription(),
+    item.getUnitPrice(), item.getOfferedUnits(), item.getStartDate(), item.getEndDate(), item.getTags()));
+<span style="color:#777">//user item</span>
+batch.add(userItem.bind(item.getUserId(), item.getId(), item.getName(), item.getUnitPrice(),
+    item.getOfferedUnits(), item.getEndDate()));
+
+<span style="color:#777">//tag items</span>
+<span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">String</span> tag : item.getTags()) {
+    batch.add(tagItem.bind(tag, item.getId(), item.getName(), item.getUnitPrice(), item.getOfferedUnits(), item.getEndDate()));
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="iteration-5----purchasing-an-item-lightweight-transactions">Iteration #5 -  Purchasing an Item (Lightweight Transactions)</h3>
+
+<p>The final step in the listing/buying workflow is - <strong>purchase</strong>. A purchase is by definition a <strong>transactional operation</strong> - <a href="http://en.wikipedia.org/wiki/ACID">ACID</a> to be more specific. In contrast, NoSQL databases are <a href="http://en.wikipedia.org/wiki/Eventual_consistency">BASE</a> by design.</p>
+
+<p>And how does Apache Cassandra support transactions and concurrency? Below is a quote from the <a href="http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_about_transactions_c.html">Cassandra’s documentation</a>:</p>
+
+<blockquote>
+  <p><strong>Cassandra does not use RDBMS ACID transactions with rollback or locking mechanisms</strong>, but instead offers atomic, isolated, and durable transactions with eventual/tunable consistency that lets the user decide how strong or eventual they want each transaction’s consistency to be.</p>
+
+  <p>As a non-relational database, <strong>Cassandra does not support joins or foreign keys</strong>, and consequently does not offer consistency in the ACID sense.</p>
+
+  <p><strong>Cassandra supports atomicity and isolation at the row-level</strong>, but trades transactional isolation and atomicity for high availability and fast write performance. <strong>Cassandra writes are durable</strong>.</p>
+</blockquote>
+
+<p>The key concept in Apache Cassandra transactions and concurrency control is: <strong>row-level atomicity and isolation (in this context row = partition)</strong>. This means that <strong>DML operations on rows sharing the same partition key for a table are performed atomically and in isolation</strong>.</p>
+
+<p>To take advantage of the Cassandra’s transactional support, the purchase process should be split into the following steps:</p>
+
+<ul>
+  <li><strong>Step 1:</strong> purchase masterdata is saved with a short expiration date (e.g. 24h TTL). If the next step fails (including retries), the purchase will be automatically garbage-collected by Cassandra.</li>
+  <li><strong>Step 2:</strong> purchase is bound to item using <a href="http://www.datastax.com/dev/blog/lightweight-transactions-in-cassandra-2-0">Lightweight Transactions</a> as an <a href="http://en.wikipedia.org/wiki/Optimistic_concurrency_control">optimistic lock</a>. The purchase-to-item link is applied on item row-level using <a href="http://www.datastax.com/documentation/cql/3.1/cql/cql_using/use_collections_c.html">Collections</a>, thus taking advantage of the Cassandra’s row-level isolation.</li>
+  <li><strong>Step 3:</strong> purchase bound to item triggers an event to complete the process (i.e. assign purchase to user account, update Listings, etc).</li>
+</ul>
+
+<p>For <strong>Step 1</strong>, the following Static table can be used:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">CREATE</span> <span style="color:#339;font-weight:bold">TABLE</span> cass_master_purchase (
+    id timeuuid,
+    item_id timeuuid,
+    user_id uuid,
+    unit_price <span style="color:#0a8;font-weight:bold">decimal</span>,
+    quantity <span style="color:#0a8;font-weight:bold">int</span>,
+    status <span style="color:#0a8;font-weight:bold">varchar</span>,
+    <span style="color:#088;font-weight:bold">PRIMARY</span> <span style="color:#339;font-weight:bold">KEY</span> (id)
+);
+</pre></div>
+</div>
+</div>
+
+<p>After the “Buy now” button is clicked, a new purchase (status = Created) is saved with an <strong>expiration date</strong> set to 24h. Only after the purchase is successfully bound to an item, the expiration date is reset and the purchase is permanent. Otherwise, the purchase is automatically garbage-collected by Cassandra.</p>
+
+<p>For <strong>Step 2</strong>, the Item Masterdata table has to be enhanced with a new Collection data type - the <strong>purchases map</strong>, where key is the <code>purchase_id</code> and value is the <code>quantity</code>:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">CREATE</span> <span style="color:#339;font-weight:bold">TABLE</span> cass_master_item (
+    id timeuuid,
+    user_id uuid,
+    item_name <span style="color:#0a8;font-weight:bold">varchar</span>,
+    item_desc <span style="color:#0a8;font-weight:bold">text</span>,
+    unit_price <span style="color:#0a8;font-weight:bold">decimal</span>,
+    offered_units <span style="color:#0a8;font-weight:bold">int</span>,
+    available_units <span style="color:#0a8;font-weight:bold">int</span>,
+    start_date <span style="color:#0a8;font-weight:bold">timestamp</span>,
+    end_date <span style="color:#0a8;font-weight:bold">timestamp</span>,
+    tags <span style="color:#B06;font-weight:bold">set</span>&lt;<span style="color:#0a8;font-weight:bold">text</span>&gt;,
+    purchases map&lt;timeuuid, <span style="color:#0a8;font-weight:bold">int</span>&gt;, =&gt; Takes advantage <span style="color:#080;font-weight:bold">of</span> <span style="color:#339;font-weight:bold">row</span> level isolation
+    auction_finished <span style="color:#0a8;font-weight:bold">boolean</span>,
+    <span style="color:#088;font-weight:bold">PRIMARY</span> <span style="color:#339;font-weight:bold">KEY</span> (id)
+);
+</pre></div>
+</div>
+</div>
+
+<p>For popular items, the challange is to properly handle the <a href="http://en.wikipedia.org/wiki/Race_condition">race conditions</a>. This can be acomplished with the Cassandra’s Lightweight Transactions - <strong>UPDATE..IF</strong>:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#339;font-weight:bold">int</span> availableUnitsBefore = item.getAvailableUnits();
+<span style="color:#339;font-weight:bold">int</span> availableUnitsAfter = availableUnitsBefore - purchase.getQuantity();
+<span style="color:#339;font-weight:bold">boolean</span> auctionFinished = availableUnitsAfter == <span style="color:#00D">0</span>;
+
+<span style="color:#777">//update the item with &quot;optimistic locking&quot; - lightweight transactions UPDATE..IF</span>
+<span style="color:#080;font-weight:bold">return</span> update(MASTER_ITEM_TABLE)
+        .with(set(AVAILABLE_UNITS, availableUnitsAfter))
+        .and(set(AUCTION_FINISHED, auctionFinished))
+        .and(put(PURCHASES, purchase.getId(), purchase.getQuantity()))
+        .where(eq(ID, item.getId()))
+        .onlyIf(eq(AVAILABLE_UNITS, availableUnitsBefore));
+</pre></div>
+</div>
+</div>
+
+<p>In this example, the <strong>optimistic lock</strong> is applied on the <strong>available units</strong> column. If the value (snapshot) has changed between the purchase is created and bound to an item, the operation is rejected. If the item is still available, the operation should be retried.</p>
+
+<p>For <strong>Step 3</strong>, after a purchase is linked with an item and the item availability is updated, <strong>an event should be triggered to complete the purchase</strong>.</p>
+
+<p>In the example code, Google Guava <a href="https://code.google.com/p/guava-libraries/wiki/EventBusExplained">EventBus</a> is used. In a production system, the event should be published to a <a href="http://en.wikipedia.org/wiki/Reliable_messaging">reliable messaging system</a> with <strong>guaranteed message delivery</strong>.</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre>Purchase purchase = <span style="color:#080;font-weight:bold">new</span> Purchase(UUIDs.timeBased(), item.getId(), user.getId(), item.getUnitPrice(), quantity);
+purchaseRepository.savePurchase(purchase, TTL_24H);
+
+<span style="color:#080;font-weight:bold">if</span> (purchaseRepository.bindPurchaseToItem(purchase, item)) {
+    eventPublisher.publish(<span style="color:#080;font-weight:bold">new</span> PurchaseBoundEvent(purchase));
+}
+</pre></div>
+</div>
+</div>
+
+<p>And that’s all for this iteration. We will handle the <strong>PurchaseBoundEvent</strong> in the next iteration, so stay tuned! :-)</p>
+
+<h3 id="iteration-6---complete-a-purchase">Iteration #6 - Complete a Purchase</h3>
+
+<p>After a purchase is placed, the following <strong>background tasks</strong> must be perfomed (this is a very simplistic example):</p>
+
+<ul>
+  <li><strong>Task 1:</strong> purchase masterdata expiration date is reset; purchase is made permanent</li>
+  <li><strong>Task 2:</strong> purchase is assigned to user account</li>
+  <li><strong>Task 3:</strong> item listings are updated</li>
+</ul>
+
+<p>To keep the purchase data consistent, <strong>Task 1</strong> and <strong>Task 2</strong> will be combined into one Batch operation. The purchase update operation should be triggered by the <strong>PurchaseBoundEvent</strong>:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#007">@Component</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">PurchaseEventSubscriber</span> {
+
+    <span style="color:#088;font-weight:bold">private</span> PurchaseService purchaseService;
+
+    <span style="color:#007">@Subscribe</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> onEvent(PurchaseBoundEvent event) {
+        Purchase purchase = event.getPurchase();
+
+        purchaseService.completePurchase(purchase);
+    }
+}
+</pre></div>
+</div>
+</div>
+
+<p>And, the Batch update should be carried out in the repository:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre>BatchStatement batch = <span style="color:#080;font-weight:bold">new</span> BatchStatement();
+
+batch.add(purchaseStatusUpdate.bind(Purchase.STATUS_COMPLETED, purchase.getId()));
+batch.add(userPurchaseInsert.bind(purchase.getUserId(), purchase.getId(), purchase.getItemId(), purchase.getUnitPrice(), purchase.getQuantity()));
+</pre></div>
+</div>
+</div>
+
+<p>To keep the item Listings up to date with the Item Masterdata, there must be a separate event subscriber for item changes:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#007">@Component</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">ItemEventSubscriber</span> {
+
+    <span style="color:#088;font-weight:bold">private</span> ItemService itemService;
+
+    <span style="color:#007">@Subscribe</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> onEvent(PurchaseBoundEvent event) {
+        Purchase purchase = event.getPurchase();
+
+        itemService.updateListings(purchase.getItemId());
+    }
+}
+</pre></div>
+</div>
+</div>
+
+<p>And the corresponding repository:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> updateListingItems(<span style="color:#0a8;font-weight:bold">UUID</span> itemId) {
+    Item item = itemRepository.findOne(itemId);
+
+    updateUserItem(item);
+    updateTagItems(item);
+}
+</pre></div>
+</div>
+</div>
+
+<p>The exercise is complete! The purchase is placed in the system, item masterdata and the corresponding Listings are updated. The whole process (though very simplified) has been accomplished. Well done! :-)</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>In this kata, you have learned that Apache Cassandra is a great, powerful NoSQL storage system with a very flexible modeling capabilities. Although, this is not a <a href="http://en.wikipedia.org/wiki/No_Silver_Bullet">Silver Bullet</a> - there are other specialized NoSQL storage systems (e.g. document, graph oriented) and of course the good old relational databases. Nowadays, we operate in the <a href="http://martinfowler.com/bliki/PolyglotPersistence.html">Polyglot Persistence</a> environment. Therefore, remember - <strong>use the right tool for the right job!</strong> :-)</p>
+ </div>
+    </article>
+</section>
+<div id="author" class="author"><div class="content">
+    <img src="/img/authors/rafal.myslek.jpg" alt="rafal.myslek"/>
+    <h3>Rafał Mysłek</h3>
+     
+    <a href="https://twitter.com/rmyslek">
+            <span class="icon twitter">
+              <svg xml:space="preserve" enable-background="new 0 0 16 16" viewBox="0 0 16 16" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="twitter-icon-svg" version="1.1">
+                <path d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27
+                c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767
+                c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206
+                C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271
+                c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469
+                c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z" fill="#333"/>
+              </svg>
+            </span>
+            <span class="username">rmyslek</span>
+          </a>
+
+
+ 
+    <p>
+    Rafał is a software engineer with 10+ years of experience in Java/Spring technologies. He is an enthusiast of modern, lightweight (Microservices), distributed (Cloud), scalable (NoSQL) solutions. At Allegro, he leads a software development team delivering solutions for the financial department.
+    </p>
+
+</div></div>
+
+        <footer class="site-footer">
+  <div class="content">
+      <ul>
+        <li>Allegro Open Source</li>
+        
+                <li>
+          <a href="https://github.com/allegro">
+            <span class="icon github">
+              <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+                c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+                c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+                c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+                C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+                c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+                c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+                c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+                c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+              </svg>
+            </span>
+            <span class="username">allegro</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/AllegroTechBlog">
+            <span class="icon twitter">
+              <svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill="#C2C2C2" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27
+                c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767
+                c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206
+                C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271
+                c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469
+                c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+              </svg>
+            </span>
+            <span class="username">AllegroTechBlog</span>
+          </a>
+        </li>
+                <li><a href="/feed.xml">RSS</a></li>
+      </ul>
+  </div>
+</footer>
+
+
+
+    </body>
+</html>

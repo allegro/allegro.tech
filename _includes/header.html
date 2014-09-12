@@ -1,9 +1,8 @@
 <header class="site-header">
     <div class="content"><h1>
-        <img src="/img/logo-allegro.svg" alt="Allegro"/>
+        <a href="/"><img src="/img/logo-allegro.svg" alt="Allegro"/></a>
     </h1>
 
-    {% if page.menu %}
     {% unless site.pages.empty? %}
     <nav class="site-nav">
         <ul class="site-navlist">
@@ -13,6 +12,6 @@
         </ul>
     </nav>
     {% endunless %}
-    {% endif %}
+
     </div>
 </header>
