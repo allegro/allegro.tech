@@ -9,7 +9,7 @@ twitter_username: AllegroTechBlog
 github_username:  allegro
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 kramdown:
     input: GFM
     coderay_line_numbers: nil
