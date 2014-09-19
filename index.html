@@ -13,25 +13,13 @@ layout: default
         <div class="content repos-section" id="repos-section" ></div>
     </section>
 </section>
-
-
 <section class="section-opensource">
     <section>
         <div class="content">
-        <h2>Blog</h2>
-        <ul class="posts">
-            {% for post in site.posts %}
-            <li>
-                <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> | {{site.data.members[post.author].name}}
-                <p>{{ post.excerpt | strip_html }}</p>
-            </li>
-            {% endfor %}
-        </ul>
-        </div>
+            {% include posts.html %}
+         </div>
     </section>
 </section>
-
 <section class="section-twitter">
     <section>
         <div class="content">
@@ -43,3 +31,4 @@ layout: default
 <script src="js/vendor/reqwest.min.js"></script>
 <script src="js/s.js"></script>
 <script src="//platform.twitter.com/widgets.js"></script>
+
