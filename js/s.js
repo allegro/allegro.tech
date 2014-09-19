@@ -15,7 +15,7 @@
                 ralph: ['ralph', 'ralph_assets', 'ralph_beast'],
                 selena: ['selena', 'selena-agent'],
                 tools: ['grunt-maven-npm', 'grunt-maven-plugin', 'tipboard'],
-                for_fun: ['confitura-jamjars']
+                for_fun: ['confitura-jamjars', 'jPiknik-dagger']
             };
         },
         showRepo = function (repositories) {
