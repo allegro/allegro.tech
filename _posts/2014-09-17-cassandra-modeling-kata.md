@@ -427,7 +427,7 @@ Please note that the **Tag Items** table has pretty much same structure as the *
 
 If you have strong background in the relational world, you will most likely disapprove this solution. Store redundant data just to perform different queries? Yes, in Apache Cassandra this is perfectly OK because of:
 
-* Cassandra is optimized for writes, see the the [banchmarks](http://planetcassandra.org/nosql-performance-benchmarks/#netflix)
+* Cassandra is optimized for writes, see the the [benchmarks](http://planetcassandra.org/nosql-performance-benchmarks/#netflix)
 * Lookup by row key is fast and efficient
 * Nowadays storage is cheap, execution time is the expensive factor - **online shoppers want speed! :-)**
 
