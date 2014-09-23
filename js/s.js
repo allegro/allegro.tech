@@ -14,7 +14,7 @@
             return {
                 ralph: ['ralph', 'ralph_assets', 'ralph_beast'],
                 selena: ['selena', 'selena-agent'],
-                tools: ['grunt-maven-npm', 'grunt-maven-plugin', 'tipboard'],
+                tools: ['grunt-maven-npm', 'grunt-maven-plugin', 'tipboard', 'axion-release-plugin'],
                 for_fun: ['confitura-jamjars', 'jPiknik-dagger', 'devops-challenge']
             };
         },
