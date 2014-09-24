@@ -1,9 +1,18 @@
 rafal.myslek:
-        name: Rafał Mysłek
-        bio: Rafał is a software engineer with 10+ years of experience in Java/Spring technologies. He is an enthusiast of modern, lightweight (Microservices), distributed (Cloud), scalable (NoSQL) solutions. At Allegro, he leads a software development team delivering solutions for the financial department.
-        twitter: rmyslek
+    name: Rafał Mysłek
+    bio: Rafał is a software engineer with 10+ years of experience in Java/Spring technologies. He is an enthusiast of modern, lightweight (Microservices), distributed (Cloud), scalable (NoSQL) solutions. At Allegro, he leads a software development team delivering solutions for the financial department.
+    twitter: rmyslek
 
 piotr.orlowski:
-        name: Piotr Orłowski
-        bio: Piotr is an engineer with 17 years of experience in IT. In Allegro IT he is in charge of marketing intelligence department and responsible for providing basics for microservices architecure. He is interested in scalable architecture, performance and likes more functionality than code :)
-        twitter: nigraspl
+    name: Piotr Orłowski
+    bio: Piotr is an engineer with 17 years of experience in IT. In Allegro IT he is in charge of marketing intelligence department and responsible for providing basics for microservices architecure. He is interested in scalable architecture, performance and likes more functionality than code :)
+    twitter: nigraspl
+
+adam.dubiel:
+    name: Adam Dubiel
+    bio: Adam is the library guy - both when it comes to books and designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. In Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier.
+
+rafal.glowinski:
+    name: Rafał Głowiński
+    bio: Rafał is an experienced software developer who has spent most of his career working in Java and related technologies. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis. At Allegro, he leads a software development team delivering solutions for the financial department.
+
