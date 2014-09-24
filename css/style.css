@@ -293,6 +293,7 @@ html, body {
     background: rgba(232, 247, 253, 0.79);
     padding: 2em 0 1em;
     overflow: hidden;
+    font-size: 0.9em;
 }
 
 .author a{
