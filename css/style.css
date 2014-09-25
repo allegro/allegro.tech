@@ -56,7 +56,8 @@ html, body {
 }
 
 .site-navlist > li > a:hover,
-.site-navlist > li > a:focus {
+.site-navlist > li > a:focus,
+.comment-count:hover, .comment-count:focus {
     background-color: #FF5A00;
     color: rgba(255, 255, 255, .9);
 }
@@ -322,6 +323,18 @@ html, body {
     list-style: none;
 }
 
+.comments{
+    background: rgba(255,255,255,0.95);
+    padding: 2em 0;
+}
+.comment-count{
+      background-color: #4e4e4e;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 70%;
+    padding: 2px 7px;
+    text-decoration: none;
+}
 
 .post-header {
       background: rgba(53, 53, 53, 0.5);

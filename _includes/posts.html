@@ -1,0 +1,22 @@
+        <h2>Latest posts</h2>
+        <ul class="posts">
+            {% for post in site.posts %}
+            <li>
+                <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> | {{site.data.members[post.author].name}} <a class="comment-count" href="{{ post.url | prepend: site.baseurl }}#disqus_thread"></a>
+                <p>{{ post.excerpt | strip_html }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'allegrotechio'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
