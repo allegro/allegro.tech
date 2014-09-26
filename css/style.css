@@ -4,12 +4,19 @@ html, body, ul, li, .site-header h1, .site-header p {
 }
 
 body {
-    background: #fff url(../img/pixel22.jpg) no-repeat;
+    background: #fff;
     font: 1em/1.5 'Open Sans', Arial, sans-serif;
-    background-attachment: fixed;
-    background-size: cover;
     color: #222;
 }
+
+@media all and (min-width:990px){
+    body {
+        background: #fff url(../img/pixel22.jpg) no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+}
+
 
 .content {
     max-width: 940px;
@@ -62,31 +69,24 @@ html, body {
     color: rgba(255, 255, 255, .9);
 }
 
-/*.site-navlist > li {
-    margin: 20px 0 20px 28px;
+.section-opensource > header,
+.section-twitter > header,
+.post-header{
+    background: #353535;
+    background: radial-gradient(rgba(23, 33, 23, 0.7), rgba(53, 53, 53, 1));
 }
 
-.site-navlist > li > a {
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    background-color: #4e4e4e;
-    color: rgba(255, 255, 255, .9);
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    text-decoration: none;
-    font: normal 11px/1.1 Arial, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    transition: all 1s ease;
+@media all and (min-width:990px){
+    .section-opensource > header,
+    .section-twitter > header,
+    .post-header {
+         background: rgba(53,53,53,0.5);
+    }
 }
 
-.site-navlist > li > a:hover,
-.site-navlist > li > a:focus {
-    background-color: #FF5A00;
-    color: rgba(255, 255, 255, .9);
-}*/
+
+
+
 
 .section-opensource {
     background: rgba(22, 22, 22, 0.4);
@@ -100,11 +100,9 @@ html, body {
 
 .section-opensource > header,
 .section-twitter > header {
-    background-size: 2px 2px;
     padding: 3em 0;
     color: #fff;
     text-shadow: 1px 1px 0 #444;
-    background: rgba(53, 53, 53, 0.5)
 }
 
 .section-opensource section {
@@ -328,16 +326,16 @@ html, body {
     padding: 2em 0;
 }
 .comment-count{
-      background-color: #4e4e4e;
+    background-color: #4e4e4e;
     border-radius: 3px;
     color: #fff;
     font-size: 70%;
     padding: 2px 7px;
     text-decoration: none;
+    display: inline-block;
 }
 
 .post-header {
-      background: rgba(53, 53, 53, 0.5);
       padding: 3em 0;
       color: #ccc;
  }
