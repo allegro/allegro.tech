@@ -177,7 +177,7 @@ I bet it is easier to read and understand this test written using catch-exceptio
 catch-exception library cannot catch exceptions that are thrown from constructors, but it is still a very nice tool to use.
 
 
-## Mockito ([http://mockito.org](http://mockito.org))
+## Mockito
 Over the years, [Mockito](http://mockito.org) has become an "industry standard" among Java libraries used for mocking which is not surprising. It has been
 released in 2008 (http://monkeyisland.pl/2008/01/14/mockito/) and since that time has almost completely superseded other mocking frameworks
 like JMock or EasyMock. According to Wikipedia: "A research performed in 2013 on 10,000 GitHub projects found that Mockito is the 9th most
