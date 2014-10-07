@@ -53,7 +53,7 @@
         },
         initShareWidget = function() {
             // share
-            [].slice.call(document.querySelectorAll('.social a')).forEach(function(item) {
+            [].slice.call(document.querySelectorAll('a.share-button')).forEach(function(item) {
                 item.addEventListener('click', function(e) {
                     window.open(this.href, 'share', 'width=500,height=296');
                     e.preventDefault();
