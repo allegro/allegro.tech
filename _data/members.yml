@@ -19,3 +19,8 @@ rafal.glowinski:
 michal.kosmulski:
     name: Michał Kosmulski
     bio: Michał is interested in all things high-performance, whether it be low-level stuff like analyzing how OS caches affect I/O operations or high-level like proper application design and functional programming. At Allegro, he works in a team which develops software for the financial department but he also likes to mess around with the core libraries shared by different teams.
+
+bartosz.walacik:
+    name: Bartosz Walacik
+    bio: A Software Craftsman with 10+ years of professional experience. He focused on lightweight and modern technologies around JVM. At Allegro, he works as a development team leader, delivering marketing intelligence solutions. Leader of [JaVers](http://javers.org) an open source project. Spock advocate. Lately, editor in chief of [allegrotech.io/blog](http://allegrotech.io/blog).
+    twitter: bartoszwalacik
