@@ -1,4 +1,4 @@
-rafal.myslek:
+﻿rafal.myslek:
     name: Rafał Mysłek
     bio: Rafał is a software engineer with 10+ years of experience in Java/Spring technologies. He is an enthusiast of modern, lightweight (Microservices), distributed (Cloud), scalable (NoSQL) solutions. At Allegro, he leads a software development team delivering solutions for the financial department.
     twitter: rmyslek
@@ -16,3 +16,6 @@ rafal.glowinski:
     name: Rafał Głowiński
     bio: Rafał is an experienced software developer who has spent most of his career working in Java and related technologies. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis. At Allegro, he leads a software development team delivering solutions for the financial department.
 
+michal.kosmulski:
+    name: Michał Kosmulski
+    bio: Michał is interested in all things high-performance, whether it be low-level stuff like analyzing how OS caches affect I/O operations or high-level like proper application design and functional programming. At Allegro, he works in a team which develops software for the financial department but he also likes to mess around with the core libraries shared by different teams.
