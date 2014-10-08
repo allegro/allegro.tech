@@ -296,10 +296,10 @@ html, body {
     font-size: 0.9em;
 }
 
-.author a{
+.author .username{
+    font-size: 0.9em;
     text-decoration: none;
     color: #222;
-    font-size: 0.9em;
 }
 
 .author h3{

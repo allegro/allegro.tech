@@ -18,7 +18,7 @@ comments: true
     <img src="/img/authors/{{page.author}}.jpg" alt="{{page.author}}"/>
     <h3>{{site.data.members[page.author].name}}</h3>
     {%if site.data.members[page.author].twitter %}
-    <a href="https://twitter.com/{{site.data.members[page.author].twitter}}">
+    <a  class="username" href="https://twitter.com/{{site.data.members[page.author].twitter}}">
     <span class="icon twitter">
     <svg xml:space="preserve" enable-background="new 0 0 16 16" viewBox="0 0 16 16" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="twitter-icon-svg" version="1.1">
     <path d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
@@ -30,7 +30,7 @@ comments: true
     c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z" fill="#333"/>
     </svg>
     </span>
-    <span class="username">{{site.data.members[page.author].twitter}}</span>
+    <span>{{site.data.members[page.author].twitter}}</span>
     </a>
     {% endif %}
     {%if site.data.members[page.author].github %}
@@ -51,9 +51,7 @@ comments: true
     <span class="username">{{site.data.members[page.author].github}}</span>
     </a>
     {% endif %}
-    <p>
-    {{site.data.members[page.author].bio}}
-    </p>
+    {{site.data.members[page.author].bio | markdownify}}
 </div></section>
 {% if page.comments %}
 <section class="comments">
