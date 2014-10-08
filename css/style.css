@@ -437,6 +437,43 @@ html, body {
 
 .post pre.terminal code { background-color: #333; }
 
+
+/* social */
+
+
+.social{
+    text-align: right;
+}
+
+.social ul,
+.social h4{
+    list-style: none;
+    display: inline-block;
+    font-size: 90%;
+}
+
+.social ul{
+    margin-left: 10px;
+}
+
+.social li{
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+.ico {
+    fill-rule:evenodd;
+    clip-rule:evenodd;
+    fill:rgba(0, 39, 59, 0.35)
+}
+
+.ico:hover {
+    fill: #3f4549
+}
+
+
+
 /* Syntax highlighting styles */
 /* ----------------------------------------------------------*/
 
