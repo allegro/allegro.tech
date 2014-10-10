@@ -5,7 +5,6 @@ title:  "Cassandra Modeling Kata"
 ---
 
 ## What is Apache Cassandra?
-
 Apache Cassandra is an open source, distributed, high performance, cloud-friendly NoSQL database offering high availability with its masterless and no single-point-of-failure architecture.
 If you are new to Apache Cassandra and NoSQL, I highly recommend reading these great introductions:
 
