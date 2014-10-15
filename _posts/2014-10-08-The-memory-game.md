@@ -5,14 +5,13 @@ author: michal.kosmulski
 tags: [java, JVM, JLS, JVMS, memory]
 ---
 
-## Introduction
 CPU time and memory are the two primary resources every performance-sensitive application needs to use wisely. Java is now the language
 of choice for many such systems. While most developers have at least basic understanding of computational complexity, I believe that few,
 especially among those who primarily use Virtual-Machine based languages such as Java, understand well how their applications manage memory.
 This is not only a very interesting topic in itself, but can also help in improving performance of Java applications or in understanding
 better the behavior of common Java-based databases such as [Apache Cassandra](http://cassandra.apache.org/).
 
-For many systems, memory usage is probably more likely to become an issue that CPU usage.
+For many systems, memory usage is probably more likely to become an issue than CPU usage.
 
 While rumors of Java being slow are greatly exaggerated, memory usage of applications written for the Java Platform does indeed tend to be
 higher than of similar applications written in lower-level languages like C++. Usually, this is not a problem: the gains in developer
