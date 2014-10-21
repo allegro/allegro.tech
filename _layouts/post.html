@@ -7,18 +7,24 @@ comments: true
         <div class="content">
             <h1>{{ page.title }}</h1>
             <!--        <p>{{ page.categories }}</p> -->
-            <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • <a href="#author">{{site.data.members[page.author].name}}</a>{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+            <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}
+            {% for author in page.author %}
+            • <a href="#author">{{site.data.members[author].name}}</a>
+            {% endfor %}
+            {% if page.meta %} • {{ page.meta }}{% endif %}</p>
         </div>
     </header>
     <article class="post-content">
     <div class="content"> {{ content }} </div>
     </article>
 </section>
-<section id="author" class="author"><div class="content">
-    <img src="/img/authors/{{page.author}}.jpg" alt="{{page.author}}"/>
-    <h3>{{site.data.members[page.author].name}}</h3>
-    {%if site.data.members[page.author].twitter %}
-    <a  class="username" href="https://twitter.com/{{site.data.members[page.author].twitter}}">
+ <section id="author" class="post-author">
+  {% for author in page.author %}
+ <div class="content">
+    <img src="/img/authors/{{author}}.jpg" alt="{{author}}"/>
+    <h3>{{site.data.members[author].name}}</h3>
+    {%if site.data.members[author].twitter %}
+    <a  class="username" href="https://twitter.com/{{site.data.members[author].twitter}}">
     <span class="icon twitter">
     <svg xml:space="preserve" enable-background="new 0 0 16 16" viewBox="0 0 16 16" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="twitter-icon-svg" version="1.1">
     <path d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
@@ -30,11 +36,11 @@ comments: true
     c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z" fill="#333"/>
     </svg>
     </span>
-    <span>{{site.data.members[page.author].twitter}}</span>
+    <span>{{site.data.members[author].twitter}}</span>
     </a>
     {% endif %}
-    {%if site.data.members[page.author].github %}
-    <a href="https://github.com/{{site.data.members[page.author].github}}">
+    {%if site.data.members[author].github %}
+    <a href="https://github.com/{{site.data.members[author].github}}">
     <span class="icon github">
     <svg xml:space="preserve" enable-background="new 0 0 16 16" viewBox="0 0 16 16" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="github-icon-svg" version="1.1">
     <path d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
@@ -48,11 +54,13 @@ comments: true
     c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z" fill="#333" clip-rule="evenodd" fill-rule="evenodd"/>
     </svg>
     </span>
-    <span class="username">{{site.data.members[page.author].github}}</span>
+    <span class="username">{{site.data.members[author].github}}</span>
     </a>
     {% endif %}
-    {{site.data.members[page.author].bio | markdownify}}
-</div></section>
+    {{site.data.members[author].bio | markdownify}}
+</div>
+{% endfor %}
+</section>
 {% if page.comments %}
 <section class="comments">
     <div class="content">

@@ -2,9 +2,14 @@
         <ul class="posts">
             {% for post in site.posts %}
             <li>
-                <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> | {{site.data.members[post.author].name}} <a class="comment-count" href="{{ post.url | prepend: site.baseurl }}#disqus_thread"></a>
+                <span class="post-date">{{ post.date | date: "<strong>%b %-d</strong> %Y" }}</span>
+                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
                 <p>{{ post.excerpt | strip_html }}</p>
+                <div class="post-meta">
+                {% for author in post.author %}
+                 <span class="author"><img src="/img/authors/{{author}}.jpg" alt="{{author}}"/> {{site.data.members[author].name}}</span>
+                {% endfor %}
+                <a class="comment-count" href="{{ post.url | prepend: site.baseurl }}#disqus_thread"></a></div>
             </li>
             {% endfor %}
         </ul>
