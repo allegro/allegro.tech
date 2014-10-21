@@ -136,15 +136,15 @@ html, body {
     margin: 15px 0;
     padding: 10px;
 }
-.repos-box + .repos-box li{
+.repos-box2 li{
     background: #90f5d7
 }
 
-.repos-box + .repos-box + .repos-box li{
+.repos-box3 li{
     background: #82c7e4
 }
 
-.repos-box + .repos-box + .repos-box + .repos-box li{
+.repos-box4 li{
     background: #90aaf4
 }
 
@@ -261,7 +261,8 @@ html, body {
 }
 
 
-.author-github-icon-svg, .author-twitter-icon-svg {
+.author-github-icon-svg,
+.author-twitter-icon-svg {
     display: inline-block;
     height: 16px;
     position: relative;
