@@ -261,6 +261,14 @@ html, body {
 }
 
 
+.author-github-icon-svg, .author-twitter-icon-svg {
+    display: inline-block;
+    height: 16px;
+    position: relative;
+    top: 3px;
+    width: 16px;
+}
+
 
 /*========= Blog =====*/
 
