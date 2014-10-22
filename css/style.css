@@ -461,12 +461,18 @@ html, body {
 }
 
 .post-header a{
-    color: #ddd;
-    text-decoration: none;
+    color: #ddd;;
 }
+
+.post-header a:hover{
+    color: #aaa;
+}
+
 .post-header a:before{
     content: ' • ';
     color: #ccc;
+    padding: 0 5px;
+    display: inline-block;
 }
 
 .post-header .meta {
@@ -476,13 +482,16 @@ html, body {
 }
 
 
-.post-content a{
+.post-content a,
+.post-author a{
     color: #4ba7f8;
     text-decoration: none;
 }
 
 .post-content a:hover,
-.post-content a:focus {
+.post-content a:focus,
+.post-author a:hover,
+.post-author a:focus {
     text-decoration: underline;
 }
 
