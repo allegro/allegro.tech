@@ -71,7 +71,7 @@ html, body {
 .section-opensource > header,
 .section-twitter > header,
 .post-header{
-    background: #545a61 url('../img/top-bg.jpg') no-repeat bottom center;
+    background: #545a61 url('../img/top-bg.jpg') no-repeat top center;
     /*background: radial-gradient(rgba(23, 33, 23, 0.7), rgba(53, 53, 53, 1));*/
 }
 
@@ -129,28 +129,69 @@ html, body {
     border-radius: 5px;
 }
 
-.repos-box li {
-    background: #90d7f4;
+.repos-box li{
     color: #333;
     margin: 15px 0;
-    padding: 10px;
-}
-.repos-box2 li{
-    background: #90f5d7
-}
-
-.repos-box3 li{
-    background: #82c7e4
-}
-
-.repos-box4 li{
-    background: #90aaf4
 }
 
 
-
-.repos-box li a {
+.repos-box a {
     color: inherit;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    background-size: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-size .3s ease-out;
+}
+
+
+.repos-box1 a {
+    background-color: #90d7f4;
+}
+.repos-box2 a{
+    background-color: #90f5d7
+}
+
+.repos-box3 a{
+    background-color: #82c7e4
+}
+
+.repos-box4 a{
+    background-color: #90aaf4
+}
+
+
+.repos-box a:hover,
+.repos-box a:focus{
+    background-size: 100%;
+}
+
+.repos-box1 a:hover,
+.repos-box1 a:focus{
+  background-image: radial-gradient(#90d7f4, rgba(255,255,255,0));
+}
+
+.repos-box2 a:hover,
+.repos-box2 a:focus{
+  background-image: radial-gradient(#90f5d7, rgba(255,255,255,0));
+}
+
+.repos-box3 a:hover,
+.repos-box3 a:focus{
+  background-image: radial-gradient(#82c7e4, rgba(255,255,255,0));
+}
+
+.repos-box4 a:hover,
+.repos-box4 a:focus{
+  background-image: radial-gradient(#90aaf4, rgba(255,255,255,0));
+}
+
+
+
+.repos-box .star-gazers a{
+    padding: 5px 10px;
 }
 
 .repos-box > ul {
@@ -176,19 +217,7 @@ html, body {
     margin: 0;
 }
 
-.repo-box a {
-    color: #9B3600;
-    text-decoration: none;
-}
-
-.repo-box a:hover,
-.repo-box a:focus {
-    text-decoration: underline;
-}
-
 .star-gazers {
-    margin: 0 -10px;
-    padding: 0 10px;
     color: #555;
     border-top: 1px solid rgba(0,0,0,0.07);
 }
@@ -196,6 +225,7 @@ html, body {
 .star-gazers a:before {
     content:'★ ';
     font-size: 150%;
+    line-height: 1;
 }
 
 .site-footer {
