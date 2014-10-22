@@ -447,7 +447,8 @@ html, body {
 
 .post-header {
       padding: 3em 0;
-      color: #ccc;
+      color: #fff;
+      font-weight: 300;
  }
 
 .post-header h1 {
@@ -459,8 +460,13 @@ html, body {
     padding: 0 0 0.5em;
 }
 
-.post-header *{
-    color: inherit;
+.post-header a{
+    color: #ddd;
+    text-decoration: none;
+}
+.post-header a:before{
+    content: ' • ';
+    color: #ccc;
 }
 
 .post-header .meta {
