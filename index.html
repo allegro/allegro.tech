@@ -9,14 +9,15 @@ layout: default
             </p>
         </div>
     </header>
-    <section>
+        <section>
         <div class="content repos-section" id="repos-section" ></div>
     </section>
 </section>
 <section class="section-posts">
     <section>
         <div class="content">
-            {% include posts.html %}
+            {% include posts.html limit="3" %}
+            <p class="buttons"><a href="/blog.html" class="page-link">See all Blog Entries</a></p>
          </div>
     </section>
 </section>

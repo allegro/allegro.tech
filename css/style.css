@@ -36,6 +36,7 @@ html, body {
 
 .site-header h1{
     display: inline-block;
+    max-width: 68%;
 }
 
 .site-header img {
@@ -43,45 +44,58 @@ html, body {
     height: 40px;
     display: block;
     border:0;
+    max-width: 100%;
 }
 
-.site-nav {
-    float: right;
-    padding: 5px 0;
+
+
+@media all and (min-width:420px){
+    .site-nav {
+        float: right;
+        padding: 5px 0;
+    }
 }
+
 
 .site-navlist {
     list-style: none;
 }
 
-.site-nav a{
+.page-link{
     text-decoration: none;
-    color: #4ba7f8;
-    border: 2px solid #4ba7f8;
+    background: #4ba7f8;
+    color: #fff;
     padding: 5px 15px;
     border-radius: 3px
 }
 
-.site-navlist > li > a:hover,
-.site-navlist > li > a:focus {
-    background: #4ba7f8;
-    color: #fff;
+.page-link:hover,
+.page-link:focus {
+    color: #4ba7f8;
+    background: none;
+    border: 2px solid #4ba7f8;
+}
+
+.buttons {
+    text-align: right;
 }
 
 .section-opensource > header,
 .section-twitter > header,
-.post-header{
-    background: #545a61 url('../img/top-bg.jpg') no-repeat top center;
+.post-header,
+.section-latest > header{
+    background: #333;
     /*background: radial-gradient(rgba(23, 33, 23, 0.7), rgba(53, 53, 53, 1));*/
 }
 
-/*@media all and (min-width:990px){
+@media all and (min-width:320px){
     .section-opensource > header,
     .section-twitter > header,
-    .post-header {
-         background: rgba(53,53,53,0.5);
+    .post-header,
+    .section-latest > header{
+         background: #545a61 url('../img/top-bg.jpg') no-repeat top center;
     }
-}*/
+}
 
 
 .section-opensource,
@@ -93,12 +107,15 @@ html, body {
 .section-twitter > header {
     padding: 3em 0;
     color: #fff;
-    text-shadow: 1px 1px 0 #444;
-    font-size: 2rem;
     font-weight: 300;
 }
 
-.section-opensource section {
+.section-latest > header{
+    padding: 3em 0;
+}
+
+.section-opensource section,
+.section-latest section {
     padding: 2em 0;
 }
 
@@ -109,11 +126,25 @@ html, body {
 
 .section-title {
     margin: 0;
-    font-size: 6rem;
+    font-size: 3rem;
     line-height: 1.1;
     color: #9ef490;
     font-weight: 100;
 }
+
+
+@media all and (min-width:480px){
+    .section-title{
+        font-size: 6rem;
+    }
+
+    .section-opensource > header,
+    .section-twitter > header {
+        font-size: 2rem;
+    }
+}
+
+
 
 .repos-section {
     display: -webkit-flex;
@@ -170,22 +201,22 @@ html, body {
 
 .repos-box1 a:hover,
 .repos-box1 a:focus{
-  background-image: radial-gradient(#90d7f4, rgba(255,255,255,0));
+  background-image: radial-gradient(rgba(167, 230, 255, 1), #90d7f4);
 }
 
 .repos-box2 a:hover,
 .repos-box2 a:focus{
-  background-image: radial-gradient(#90f5d7, rgba(255,255,255,0));
+  background-image: radial-gradient(rgba(209, 255, 241, 1),#90f5d7);
 }
 
 .repos-box3 a:hover,
 .repos-box3 a:focus{
-  background-image: radial-gradient(#82c7e4, rgba(255,255,255,0));
+  background-image: radial-gradient(rgba(147, 223, 255, 1),#82c7e4);
 }
 
 .repos-box4 a:hover,
 .repos-box4 a:focus{
-  background-image: radial-gradient(#90aaf4, rgba(255,255,255,0));
+  background-image: radial-gradient(rgba(191, 208, 255, 1), #90aaf4);
 }
 
 
@@ -481,7 +512,7 @@ html, body {
       font-weight: 300;
  }
 
-.post-header h1 {
+.post-title {
   font-size: 4rem;
   color: #9ef490;
   line-height: 1.2;

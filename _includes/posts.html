@@ -1,7 +1,7 @@
-        <h2>Latest posts</h2>
+        <h2>Latest Blog Entries</h2>
         <ul class="posts">
-            {% for post in site.posts %}
-            <li>
+            {% for post in site.posts limit:include.limit %}
+            <li {% if forloop.first %} class="latest" {% endif %}>
                 <span class="post-date">{{ post.date | date: "<strong>%b %-d</strong> %Y" }}</span>
                 <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
                 <p>{{ post.excerpt | strip_html }}</p>
