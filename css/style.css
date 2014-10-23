@@ -48,6 +48,10 @@ html, body {
 }
 
 
+.site-nav{
+    padding: 10px 0 0;
+}
+
 
 @media all and (min-width:420px){
     .site-nav {
@@ -579,6 +583,10 @@ html, body {
 .post-content h4 {
   font-size: 20px;
   letter-spacing: -1px;
+}
+
+.post-content img{
+    max-width: 100%;
 }
 
 .post-content blockquote {
