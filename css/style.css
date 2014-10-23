@@ -73,6 +73,16 @@ html, body {
     border-radius: 3px
 }
 
+.page-link:after{
+    content: ' ▶';
+    font-size: 70%;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 2px 7px;
+    font-weight: 100;
+}
+
 .page-link:hover,
 .page-link:focus {
     color: #4ba7f8;
