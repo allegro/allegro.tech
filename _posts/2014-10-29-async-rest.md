@@ -272,7 +272,7 @@ from Facebook with data from GitHub:
     
 ```
 
-You can process and combine as many `CompletableFuture` as you want. 
+You can process and combine as many `CompletableFutures` as you want.
 Each of them can be a call to different external resource, like database, REST service or file system. 
 Let's see another example:
 
