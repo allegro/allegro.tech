@@ -211,7 +211,7 @@ In other languages this concept is called a *promise* or *deferred object*. Firs
 ```
 
 Method [`runAsync`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html#runAsync-java.lang.Runnable-) 
-returns [`CompletableFuture`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html) 
+returns `CompletableFuture`
 that is asynchronously completed by a task running in the [`ForkJoinPool.commonPool()`]
 (http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html#commonPool--). 
 Custom `Executor` can be provided as second argument so different thread pools can be used. Multiple `CompletableFuture` instances 
@@ -305,7 +305,7 @@ Let's see another example:
                         c.getLogin(), Collectors.counting())))
                     
                 //resume response
-                .th enApply(contributors -> 
+                .thenApply(contributors ->
                     asyncResponse.resume(contributors))
                     
                 // handle exceptions
