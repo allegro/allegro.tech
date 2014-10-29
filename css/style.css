@@ -67,10 +67,9 @@ html, body {
 
 .page-link{
     text-decoration: none;
-    background: #4ba7f8;
-    color: #fff;
+    color: #4ba7f8;
     padding: 5px 15px;
-    border-radius: 3px
+    border-radius: 3px;
 }
 
 .page-link:after{
@@ -85,16 +84,16 @@ html, body {
 
 .page-link:hover,
 .page-link:focus {
-    color: #4ba7f8;
-    background: none;
-    border: 2px solid #4ba7f8;
+    color: #fff;
+    background: #4ba7f8;
+
 }
 
 .buttons {
     text-align: right;
 }
 
-.section-opensource > header,
+
 .section-twitter > header,
 .post-header,
 .section-latest > header{
@@ -103,11 +102,14 @@ html, body {
 }
 
 @media all and (min-width:320px){
-    .section-opensource > header,
     .section-twitter > header,
     .post-header,
+    .section-blog > header,
     .section-latest > header{
          background: #545a61 url('../img/top-bg.jpg') no-repeat top center;
+    }
+    .manifesto > header{
+        background-image: radial-gradient(#123350, #333);
     }
 }
 
@@ -118,23 +120,26 @@ html, body {
 }
 
 .section-opensource > header,
-.section-twitter > header {
-    padding: 3em 0;
+.section-twitter > header,
+.section-blog > header {
+    padding: 3em 0 1em;
     color: #fff;
     font-weight: 300;
 }
 
 .section-latest > header{
     padding: 3em 0;
+
 }
 
 .section-opensource section,
-.section-latest section {
+.section-latest section,
+.section-blog > header {
     padding: 2em 0;
 }
 
 .section-twitter section {
-    background-color: rgba(255, 255, 255, 0.89);
+    background-color: #f3f3f3;
     padding: 2em 0;
 }
 
@@ -146,6 +151,10 @@ html, body {
     font-weight: 100;
 }
 
+.section-title-opensource {
+    color: #333;
+}
+
 
 @media all and (min-width:480px){
     .section-title{
@@ -153,6 +162,7 @@ html, body {
     }
 
     .section-opensource > header,
+    .section-blog > header,
     .section-twitter > header {
         font-size: 2rem;
     }
