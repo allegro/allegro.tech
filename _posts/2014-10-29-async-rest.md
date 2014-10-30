@@ -176,7 +176,7 @@ can be registered:
 ```
 
 In examples above the call to `get()` after calling `async()` returns immediately without blocking the caller's thread. 
-Unfortunately, there is a  [bug](https://java.net/jira/browse/JERSEY-2477) in Jersey (reference JAX-RS implementation) 
+Unfortunately, there is a [bug](https://java.net/jira/browse/JERSEY-2477) in Jersey (reference JAX-RS implementation) 
 that causes client to put each request in its own thread, which then blocks waiting for a response. Additionally, 
 when the response comes back yet another thread is started for each request, so there are two threads per request 
 plus the thread pool of the underlying http client. In comments under this bug it is mentioned that Jersey 
@@ -352,10 +352,10 @@ to methods and code remains readable. But debugging and error handling in this c
 Asynchronous processing is more complicated than synchronous processing, but with new Java 8 features (streams, 
 lambda expressions and `CompletableFuture`) it looks similar to a functional processing of data. You can easily chain operations 
 and fetch result at the end of processing. Java 8 functional API is far from perfect but still allows writing more 
-expressive code then before. There is also a third party library: [RxJava](https://github.com/ReactiveX/RxJava) 
+expressive code than before. There is also a third party library: [RxJava](https://github.com/ReactiveX/RxJava) 
 that implements a concept called *reactive programming*. RxJava is defined as "a library for composing asynchronous 
 and event-based programs using observable sequences for the Java VM". In my opinion is more powerful and provides better, 
-more consistent API then standard Java 8. With asynchronous processing you can make your REST application more scalable: 
+more consistent API than standard Java 8. With asynchronous processing you can make your REST application more scalable: 
 both latency and throughput can be improved. To take full advantage clients with non-blocking IO should be used 
 (like [AsyncHttpClient](https://github.com/AsyncHttpClient/async-http-client) based on [Netty](http://netty.io/)).
 
