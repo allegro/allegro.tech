@@ -328,6 +328,13 @@ html, body {
     padding-bottom: 5px;
 }
 
+.github-icon-svg:hover,
+.twitter-icon-svg:hover,
+.rss-icon-svg:hover{
+    opacity: 0.8
+}
+
+
 @media all and (min-width:760px){
     .github-icon-svg,
     .twitter-icon-svg ,
