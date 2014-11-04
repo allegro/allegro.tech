@@ -1,0 +1,23 @@
+---
+layout: default
+title: Authors
+---
+<section class="section-blog">
+    <header>
+        <div class="content"><h1 class="section-title">Authors</h1>
+              <p> At Allegro, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis quia porro nesciunt eos vitae ea exercitationem delectus, illo quis ducimus nam suscipit reiciendis quo quaerat modi, quam magni ex accusamus.</p>
+        </div>
+    </header>
+ </section>
+<section id="author">
+
+    <div class="content">
+        <ul class="post-author-list">
+            {% for author in site.data.members %}
+                {%assign authorKey = author[0]%}
+                {%assign authorData = author[1]%}
+                <li  class="post-author">{% include single_author.html showLinkToPost=true %}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

@@ -328,10 +328,14 @@ html, body {
     padding-bottom: 5px;
 }
 
-.github-icon-svg:hover,
-.twitter-icon-svg:hover,
-.rss-icon-svg:hover{
+.site-footer a:hover svg,
+.site-footer a:focus svg{
     opacity: 0.8
+}
+
+.site-footer a:hover span.username,
+.site-footer a:focus span.username{
+    text-decoration: underline;
 }
 
 
@@ -462,9 +466,18 @@ html, body {
 }
 
 .posts .post-meta .author{
-    display: inline-block;
     margin: 0 5px 5px;
     float: left;
+}
+
+.posts .post-meta .author a{
+    color: #999;
+    font-size: 1.4rem;
+
+}
+
+.posts .post-meta .author a:hover{
+    color: #333;
 }
 
 .comment-count{
@@ -487,6 +500,21 @@ html, body {
 
 .post-meta{
     margin: 0;
+}
+
+
+.post-author-list{
+    margin-top: 2em;
+}
+
+.post-author-list li{
+    padding: 0;
+    border-bottom: 1px solid #eee;
+    margin: 2em 0;
+}
+
+.post-author-list li:last-child{
+    border: 0;
 }
 
 .post-author{
@@ -522,7 +550,7 @@ html, body {
     height: 100px;
     background: rgba(255,255, 255, 0.9);
     box-shadow: 1px 1px 2px #bbb;
-    padding: 5px;
+    border: 5px solid #fff;
     border-radius: 50%;
     margin: 0 15px 0 0;
 }
@@ -558,13 +586,6 @@ html, body {
 
 .post-header a:hover{
     color: #aaa;
-}
-
-.post-header a:before{
-    content: ' • ';
-    color: #ccc;
-    padding: 0 5px;
-    display: inline-block;
 }
 
 .post-header .meta {
@@ -643,8 +664,8 @@ html, body {
 
 .post code { padding: 1px 5px; }
 
-.post ul,
-.post ol { margin-left: 1.35em; }
+.post-content ul,
+.post-content ol { margin-left: 1.35em; }
 
 .post pre code {
   border: 0;
@@ -663,6 +684,23 @@ html, body {
 }
 
 .post pre.terminal code { background-color: #333; }
+
+
+
+.breadcrumb li,
+.breadcrumb {
+    padding: 0;
+    margin:0;
+    list-style: none;
+    display: inline;
+}
+
+.breadcrumb span:before{
+    content: ' • ';
+    color: #ccc;
+    padding: 0 5px;
+    display: inline-block;
+}
 
 
 /* social */
