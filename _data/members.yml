@@ -34,3 +34,7 @@ slawomir.bolimowski:
     name: Sławomir Bolimowski
     bio: Sławek is a software engineer with 10 years experience. He is intrested in creating well designed and highly scalable web applications. At Allegro, he works in a team which develop solutions for the financial department.
 
+jaroslaw.grabowski:
+    name: Jarosław Grabowski
+    bio: Jarek works at Allegro Group building big data collecting and processing system. For over three years his daily job has been to implement and troubleshoot Pig, Hive and Cascading jobs run on one of the biggest Hadoop clusters in Poland.
+
