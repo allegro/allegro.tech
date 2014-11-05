@@ -42,7 +42,7 @@ Forget about ‘hadoop fs -ls’ and ‘hadoop fs -cat’ commands and schema ca
 for you, allow you to visualize data distribution, help you sanitize datasets and suggest possible datasets 
 correlations. Operations that developers do manually to understand the nature of dataset can be performed in more automated, 
 simplified manner by almost anyone.
-* Moreover, there is a significant trend to emphasise on custom, innovative ways to visualize data. A 
+* There is a significant trend to emphasise on custom, innovative ways to visualize data. A 
 really good example of such data visualization virtuosity is work of a team from The New York Times that does amazing 
 stuff with D3.js, here is 
 [one example](http://www.nytimes.com/interactive/2014/06/05/upshot/how-the-recession-reshaped-the-economy-in-255-charts.html).
@@ -85,7 +85,7 @@ insights
 
 Data visualization and data discovery become subjects of interest for growing number of initiatives. This is especially 
 apparent in Hadoop World New York that is considered to be less technical and more commercial (half of attendees are 
-business folks) than the one in West Coast edition and Hadoop Summit editions. 
+business folks) than the West Coast edition and Hadoop Summit editions. 
 
 Apache Spark hype seems to be in full swing. Cloudera intensively promotes Spark in opposition to Hive based on Tez that
  is identified with Hortonworks. Future will show whether both of these projects will find a place for themselves in Big 
