@@ -105,7 +105,7 @@ but waiting to send an another network packet via slow TCP connections.
 Your CTO calls to you, asks what's going on and gives you a very boring lecture about a mission critical systems
 and how much money company will loose per every second of a system unavailability.
 
-Bit don't worry! There is a smart way to made your system resistant to *Slow Connections*.
+But don't worry! There is a smart way to make your system resistant to *Slow Connections*.
 It's an *Asynchronous approach to requests processing*.
 
 ## Capacity in classical Java Servlet approach
