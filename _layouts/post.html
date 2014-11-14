@@ -5,8 +5,9 @@ comments: true
 <section class="post">
     <header class="post-header">
         <div class="content">
+            <time class="entry-date" datetime="{{ page.date}}"><span>{{ page.date | date: "<strong>%b %-d</strong> %Y" }}</span></time>
             <h1 class="post-title">{{ page.title }}</h1>
-            <div class="post-meta"><span>{{ page.date | date: "<strong>%b %-d</strong> %Y" }}</span>
+            <div class="post-meta">
                 <ul class="breadcrumb">
                     <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
                     <a href="/blog" itemprop="url"><span itemprop="title">Allegro Tech Blog</a></span>
