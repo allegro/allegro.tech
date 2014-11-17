@@ -511,6 +511,7 @@ html, body {
     padding: 0;
     border-bottom: 1px solid #eee;
     margin: 2em 0;
+    list-style: none;
 }
 
 .post-author-list li:last-child{
