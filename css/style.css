@@ -695,7 +695,7 @@ html, body {
     display: inline;
 }
 
-.breadcrumb span:before{
+.breadcrumb li + li span:before{
     content: ' • ';
     color: #ccc;
     padding: 0 5px;
