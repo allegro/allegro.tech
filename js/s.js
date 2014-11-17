@@ -13,7 +13,7 @@
         },
         getRepoSchema = function() {
             return {
-                ralph: ['ralph', 'ralph_assets', 'ralph_beast'],
+                ralph: ['ralph', 'ralph_assets', 'ralph_pricing', 'ralph_beast'],
                 selena: ['selena', 'selena-agent'],
                 tools: ['grunt-maven-npm', 'grunt-maven-plugin', 'tipboard', 'axion-release-plugin'],
                 for_fun: ['confitura-jamjars', 'jPiknik-dagger', 'devops-challenge','jdd-14-dev-contest']
