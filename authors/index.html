@@ -1,0 +1,25 @@
+---
+layout: default
+title: Authors
+---
+<section class="section-blog">
+    <header>
+        <div class="content"><h1 class="section-title">Authors</h1>
+        </div>
+    </header>
+ </section>
+<section id="author">
+
+    <div class="content">
+        <ul class="post-author-list">
+            {%assign authors = site.data.members | sort%}
+            {% for author in authors%}
+                {%assign authorKey = author[0]%}
+                {%assign authorData = author[1]%}
+                <li  class="post-author">
+                    {% include single_author.html showLinkToPost=true %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
