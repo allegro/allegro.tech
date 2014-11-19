@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Don't loose your user's context when installing Android applications
+title: Don't lose your user's context when installing Android applications
 author: krzysztof.kocel
 tags: [android, java, google play, usability]
 ---
@@ -18,7 +18,7 @@ Have you ever seen this comic?
 </center>
 
 Even though web developers did their homework, it is still a common scenario to install an application and
-just loose context of where you were just before.
+just lose context of where you were just before.
 
 Let's say a user is browsing through offers on a real estate page. She notices a banner at the top which advertises her to install a mobile application.
 
