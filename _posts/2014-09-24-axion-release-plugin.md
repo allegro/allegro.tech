@@ -84,7 +84,7 @@ $ ./gradlew cV # gradle magic - currentVersion
 1.0.1
 ```
 
-**axion-gradle-plugin** is highly configurable. In [README.md](https://github.com/allegro/axion-release-plugin/blob/master/README.md) you can find examples how to:
+**axion-release-plugin** is highly configurable. In [README.md](https://github.com/allegro/axion-release-plugin/blob/master/README.md) you can find examples how to:
 
 * define custom serializer/deserializer to interpret version tag
 * define custom version creators to, for example, include branch name in version
@@ -103,7 +103,7 @@ of them, though, gave us full set of features, including easy integration with C
   version based on position in VCS
 * [townsfolk gradle-release](https://github.com/townsfolk/gradle-release) : more maven-release-plugin type, oldschool versioning
 
-Feel free to decide which option is best from you (althogh we encourage you to try **axion-gradle-plugin** first!).
+Feel free to decide which option is best from you (althogh we encourage you to try **axion-release-plugin** first!).
 
 ## Where can i find it?
 
