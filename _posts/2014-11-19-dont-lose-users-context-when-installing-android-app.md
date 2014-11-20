@@ -3,6 +3,7 @@ layout: post
 title: Don't lose your user's context when installing Android applications
 author: krzysztof.kocel
 tags: [android, java, google play, usability]
+redirect_from: "/dont-loose-users-context-when-installing-android-app.html"
 ---
 We live in a mobile-oriented world so it's crucial to provide the best usability experience possible.
 In this post we show how you can preserve user's context when installing a mobile application from a website.
