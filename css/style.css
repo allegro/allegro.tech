@@ -429,7 +429,7 @@ html, body {
     }
 
     .section-twitter .content {
-        padding: 0 140px 0 210px;
+        padding: 0;
     }
 
     .section-twitter iframe{
