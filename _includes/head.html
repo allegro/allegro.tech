@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html |  truncate: 150}}{% else %}{{ site.description }}{% endif %}">
 
     <!-- OG TAGS -->
     <meta property="og:site_name" content="{{ site.name }}"/>
