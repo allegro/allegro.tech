@@ -4,7 +4,8 @@ gems:
 title: Allegro Open Source
 menu: false
 # email: kariera@allegro.pl
-description: ""
+description: "We use Open Source solutions on daily basis here at Allegro Group, why not work on our karma and give something in return? Welcome at our open source technology blog."
+name: Allegro Tech Blog
 baseurl: ""
 url: "http://allegrotech.io"
 twitter_username: AllegroTechBlog
