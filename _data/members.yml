@@ -40,6 +40,10 @@ jaroslaw.grabowski:
 
 krzysztof.kocel:
     name: Krzysztof Kocel
-    bio: Krzysztof works at Allegro Group since 2012. He is interested in mobile security and reducing data usage. At Allegro, his main responsibility is developement of otoMoto and otoDom mobile applications. 
+    bio: Krzysztof works at Allegro Group since 2012. He is interested in mobile security and reducing data usage. At Allegro, his main responsibility is developement of otoMoto and otoDom mobile applications.
 
+mateusz.gajewski:
+    name: Mateusz 'Serafin' Gajewski
+    bio: 'Mateusz is a solutions architect responsible for financial and payments systems. His main areas of research interest are: scalable, distributed computing in cloud environments, reactive programming and failure resilience.'
+    twitter: wendigo
 
