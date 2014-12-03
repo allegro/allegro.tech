@@ -6,7 +6,7 @@ tags: [cloud, aws, conference]
 ---
 
 Two weeks ago we attended [AWS](http://aws.amazon.com/) [re:invent](https://reinvent.awsevents.com/) conference in Las Vegas. 
-Our company was represented by Wojciech Lesicki (Product Owner of our private cloud infrastructure), Sebastian Pietrowski (Head of Architecture and Operations) and Mateusz Gajewski (Solutions Architect). 
+Our company was represented by Wojciech Lesicki (Product Owner of our cloud infrastructure), Sebastian Pietrowski (Head of Architecture and Operations) and Mateusz Gajewski (Solutions Architect). 
 This post summarises new product announcements made during the keynotes, our impressions on breakout sessions, bootcamps and conference itself.
 
 # Conference itself
@@ -150,3 +150,6 @@ We think that most of customers can benefit from new volumes as most of the data
 # After thoughts
 
 For us re:invent conference was a great experience as it gathered a lot of knowledge on cloud computing and positive vibe in a single place. We've learned a lot both from keynotes, new products announcements, sessions, bootcamps and chit-chats with people we met. We are looking forward for new re:inventions in 2015!
+
+
+***Update 02.12.2004***: Previously I wrote that Wojciech Lesicki is Product Owner of our private cloud infrastructure. Basically he is responsible for both private and public cloud infrastructures. I'm sorry for this mental shortcut.
