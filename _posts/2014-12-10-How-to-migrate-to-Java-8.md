@@ -245,7 +245,7 @@ meaning that you can pass “a piece of code” to a method and execute it from 
 A common simple use case is filtering lists according to certain criteria. Usually, you create a new list, iterate over
 the source list, check each element if it matches a criterion, and add it to the new list if it does. The loop itself
 usually takes more space than the actual logic of choosing the proper element. Functional programming simplifies such code by hiding
-the iteration, instead providing a single function, usually called <tt>filter()<tt> which accepts the function used to
+the iteration, instead providing a single function, usually called <tt>filter()</tt> which accepts the function used to
 check which elements match our criteria as an argument.
 
 It means you can replace
