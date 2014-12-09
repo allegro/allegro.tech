@@ -366,7 +366,7 @@ Using lambda expressions and stream API with functional transformations such as 
 shorter and more readable. We were surprised how many pieces of code this syntax could improve. In many cases,
 [method references](https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html) came in handy and made the code even more
 compact. We could also get rid of Guava constructs based on <tt>FluentIterable</tt> that we had used before and replace
-<tt>Iterables.transform(list, SOME_FUNCTION_CONSTANT)</tt> with <tt>list.stream().map(LAMBDA_EXPRESSION).collect(toList())</tt> etc.
+<tt>Iterables.transform(list, SOME\_FUNCTION\_CONSTANT)</tt> with <tt>list.stream().map(LAMBDA\_EXPRESSION).collect(toList())</tt> etc.
 
 By the way, we miss <tt>Iterables</tt> a little — it's easy to transform a collection to a stream in Java 8, but getting a stream
 from <tt>Iterable</tt> is [rather clunky](http://stackoverflow.com/questions/23932061/convert-iterable-to-stream-using-java-8-jdk).
@@ -523,9 +523,9 @@ List<PriceList> categoryPriceLists = defaultToPriceLists.get(FALSE);
 * <tt>flatMap()</tt> requires a function that returns <tt>Stream</tt> which is very inconvenient and makes Optionals less useful than in Scala.
 Suppose you have a list of lists of Integers and want to transform each list into the first positive element in the list, or no entry if
 the list does not include any positive elements. So, a list such as <tt>( (-1, -2, 3), (-4, -5, -6), (7, 8, 9))</tt> should be transformed to <tt>(3, 7)</tt>.
-In Scala, it's as simple as <tt>listOfLists.flatMap(x => x.find(x => x > 0))<tt>. In Java 8, the operation performed by <tt>find()</tt>
+In Scala, it's as simple as <tt>listOfLists.flatMap(x =&gt; x.find(x =&gt; x &gt; 0))<tt>. In Java 8, the operation performed by <tt>find()</tt>
 can be performed by combining <tt>filter()</tt> and <tt>findFirst()</tt> but you can't use <tt>flatMap()</tt> with the <tt>Optional</tt> returned
-by <tt>findFirst()</tt>, so you end up with something like: <tt>listOfLists.stream().map(list -> list.stream().filter(x -> x > 0).findFirst()).filter(Optional::isPresent).map(Optional::get).collect(toList())</tt>
+by <tt>findFirst()</tt>, so you end up with something like: <tt>listOfLists.stream().map(list -&gt; list.stream().filter(x -&gt; x &gt; 0).findFirst()).filter(Optional::isPresent).map(Optional::get).collect(toList())</tt>
 Not exactly my definition of concise.
 * Conversions between primitives and objects tend to be awkward. There are separate stream classes for primitives. Methods such as
 [<tt>boxed()</tt>](https://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#boxed--) help a bit.
