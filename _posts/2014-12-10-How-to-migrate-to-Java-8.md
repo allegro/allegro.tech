@@ -531,7 +531,7 @@ Not exactly my definition of concise.
 [<tt>boxed()</tt>](https://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html#boxed--) help a bit.
 Fortunately, we did not have to move between objects and primitives that much.
 * You can't perform function composition on method references, which would be cool. You can replace <tt>map(x -> f(x))</tt> with <tt>map(this::f)</tt>
-but you can't replace <tt>map(x -> f(g(x)))<tt> with <tt>map(this::f.compose(this::g))</tt> even though there is a
+but you can't replace <tt>map(x -> f(g(x)))</tt> with <tt>map(this::f.compose(this::g))</tt> even though there is a
 [<tt>compose()</tt>](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html#compose-java.util.function.Function-) method
 in the <tt>Function</tt> interface.
 * If your closure would like to throw an exception, it can't. You have to wrap your code into a try-catch block, or move it to a separate
