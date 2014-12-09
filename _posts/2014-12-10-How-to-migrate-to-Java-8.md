@@ -523,7 +523,7 @@ List<PriceList> categoryPriceLists = defaultToPriceLists.get(FALSE);
 * <tt>flatMap()</tt> requires a function that returns <tt>Stream</tt> which is very inconvenient and makes Optionals less useful than in Scala.
 Suppose you have a list of lists of Integers and want to transform each list into the first positive element in the list, or no entry if
 the list does not include any positive elements. So, a list such as <tt>( (-1, -2, 3), (-4, -5, -6), (7, 8, 9))</tt> should be transformed to <tt>(3, 7)</tt>.
-In Scala, it's as simple as <tt>listOfLists.flatMap(x =&gt; x.find(x =&gt; x &gt; 0))<tt>. In Java 8, the operation performed by <tt>find()</tt>
+In Scala, it's as simple as <tt>listOfLists.flatMap(x =&gt; x.find(x =&gt; x &gt; 0))</tt>. In Java 8, the operation performed by <tt>find()</tt>
 can be performed by combining <tt>filter()</tt> and <tt>findFirst()</tt> but you can't use <tt>flatMap()</tt> with the <tt>Optional</tt> returned
 by <tt>findFirst()</tt>, so you end up with something like: <tt>listOfLists.stream().map(list -&gt; list.stream().filter(x -&gt; x &gt; 0).findFirst()).filter(Optional::isPresent).map(Optional::get).collect(toList())</tt>
 Not exactly my definition of concise.
