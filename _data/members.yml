@@ -56,5 +56,8 @@ kamil.borzym:
     name: Kamil Borzym
     bio: Kamil is an iOS software developer. He is very curious of how things work internally, so he likes to decompile frameworks and apps. He is responsible for development of otoMoto and otoDom iOS applications.
 
-
+piotr.betkier:
+    name: Piotr Betkier
+    bio: Software engineer interested in building resilient distributed systems. Strong supporter of continuous integration & delivery, believes in Unix philosophy. IT communities enthusiast.
+    twitter: piotrbetkier
 
