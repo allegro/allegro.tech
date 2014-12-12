@@ -8,7 +8,7 @@ tags: [swift, runtime, vtable, virtual, method, table, dispatching]
 Two weeks ago, I attended [Swift Warsaw](http://swiftwarsaw.com/) as a speaker, holding a presentation on "Swift Runtime
 — Swift Method Dispatching". I promised to summarise the talk in an article, so hereby I keep my promise.
 
-#Swift Method Dispatching
+##Swift Method Dispatching
 
 When announcing [Swift](https://developer.apple.com/swift/), Apple described it as being much faster than Objective-C.
 On the web, there is a number of [comparsions](http://www.jessesquires.com/apples-to-apples-part-two/) juxtaposing speed
@@ -21,7 +21,7 @@ Leaving the assessment of method dispatch performance aside, let’s focus on un
 Before looking into the Swift method dispatching, it is worth making a short recollection of the Objective-C method
 dispatching.
 
-## Objective-C Method Dispatching
+### Objective-C Method Dispatching
 
 During the compilation process, Clang translates each method invocation into a call to the `objc_msgSend` function (or
 one of its variations), passing an object, method selector and parameters as arguments.
@@ -81,7 +81,7 @@ selector and parameters (that is why `objc_msgSend` is often called a trampoline
 
 Before looking at the Swift method dispatching, let's get familiar with two important notions.
 
-## Name Mangling
+### Name Mangling
 
 Swift allows a programmer to define many entities with the same name, e.g. the same class names in different modules or
 the same method names in different classes. Moreover, Swift allows method overloading. Linker resolves external
@@ -123,7 +123,7 @@ If you would like to read more about method mangling, there is no better article
 Before diving into the Swift method dispatching, let's take a look at one more thing. Namely, let's see how Swift
 compiler translates a code into a binary executable.
 
-## Compilation
+### Compilation
 
 Swift compilation consists of several phases.
 
@@ -142,7 +142,7 @@ article](http://arstechnica.com/apple/2014/10/os-x-10-10/22/).
 
 Now, let's get to the the point...
 
-## Virtual Method Table
+### Virtual Method Table
 
 [Virtual Method Table](http://en.wikipedia.org/wiki/Virtual_method_table) is a mechanism used in Swift and many other
 languages to support run time method binding. We are going to investigate what it looks like in Swift.
@@ -369,7 +369,7 @@ __TMdC4Test5Smith
 }
 ```
 
-## Optimizations
+### Optimizations
 
 All the _SIL_ and _assembly_ code listings in this article were produced without the optimization `-O` compiler flag.
 This is because the purpose was to find out how Swift dispatches methods in the worst case scenario. But you should be
@@ -381,7 +381,7 @@ instance,
 
 so the final code can be even faster :)
 
-## Summary
+### Summary
 
 Let's wrap up! That was a long journey through the depths of Swift. You saw that Swift uses vtables for method
 dispatching. Because of that, method dispatching in Swift is much simpler and faster — so more battery saving.
