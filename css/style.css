@@ -663,6 +663,13 @@ html, body {
   overflow:auto;
 }
 
+.post p code {
+    font-size: 18px;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
 .post code { padding: 1px 5px; }
 
 .post-content ul,
