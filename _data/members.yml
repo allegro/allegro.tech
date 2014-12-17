@@ -61,3 +61,7 @@ piotr.betkier:
     bio: Software engineer interested in building resilient distributed systems. Strong supporter of continuous integration & delivery, believes in Unix philosophy. IT communities enthusiast.
     twitter: piotrbetkier
 
+maciej.arciuch:
+    name: Maciej Arciuch
+    bio: Maciek works at Allegro on developing a scalable, distributed data collection and analysis system. Former Java EE developer, now a Scala, Spark and functional programming enthusiast.
+
