@@ -1,4 +1,4 @@
-rafal.myslek:
+﻿rafal.myslek:
     name: Rafał Mysłek
     bio: Rafał is a software engineer with 10+ years of experience in Java/Spring technologies. He is an enthusiast of modern, lightweight (Microservices), distributed (Cloud), scalable (NoSQL) solutions. At Allegro, he leads a software development team delivering solutions for the financial department.
     twitter: rmyslek
@@ -60,4 +60,8 @@ piotr.betkier:
     name: Piotr Betkier
     bio: Software engineer interested in building resilient distributed systems. Strong supporter of continuous integration & delivery, believes in Unix philosophy. IT communities enthusiast.
     twitter: piotrbetkier
+
+maciej.arciuch:
+    name: Maciej Arciuch
+    bio: Maciek works at Allegro on developing a scalable, distributed data collection and analysis system. Former Java EE developer, now a Scala, Spark and functional programming enthusiast.
 
