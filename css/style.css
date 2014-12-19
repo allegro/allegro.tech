@@ -498,6 +498,28 @@ html, body {
     padding: 2em 0;
 }
 
+.post-content table{
+    width: 100%;
+}
+
+.post-content table,
+.post-content td,
+.post-content th{
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+
+.post-content td,
+.post-content th{
+    padding: 5px 10px;
+    text-align: left;
+}
+
+.post-content th{
+    background: #eee
+}
+
+
 .post-meta{
     margin: 0;
 }
