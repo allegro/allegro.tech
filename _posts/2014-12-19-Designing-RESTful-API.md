@@ -4,7 +4,6 @@ title: Designing RESTful API
 author: przemyslaw.debek
 tags: [rest, restful, api, http, hateoas, microservices]
 ---
-
 In distributed environments it is crucial to have a common, standardized language which services can use to exchange
 information between each other. At Allegro, to meet this goal, we’ve chosen the REST architecture.
 
@@ -85,10 +84,11 @@ In each of the six scenarios we will add some functionality by implementing good
 Registering a bank account is neither an idempotent nor a safe operation. The account ID is generated server-side
 so the POST method is a proper choice. We'll use JSON content type.
 
-```json
+```
 POST /accounts HTTP/1.1
 Content-Type: application/json
-
+```
+```json
 {
 	"firstName": "John",
 	"lastName": "Doe",
@@ -116,10 +116,11 @@ GET /accounts/97695c60-4675-11e4-916c-0800200c9a66 HTTP/1.1
 
 The application should return HTTP response with Status Code = 200.
 
-```json
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
-
+```
+```json
 {
 	"id": "97695c60-4675-11e4-916c-0800200c9a66"
 	"firstName": "John",
@@ -181,9 +182,11 @@ It is a simple case when HTTP GET to /accounts returns all registered bank accou
 GET /accounts HTTP/1.1
 ```
 
-```json
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
+```
+```json
 [
 	{
 		"id": "97695c60-4675-11e4-916c-0800200c9a67"
@@ -224,7 +227,7 @@ Content-Type: application/json
 In case of an empty result set we still should return 200 OK, but with an empty array in the body. 404 Not Found
 is tempting, but inappropriate - the 4xx codes family indicates client side errors, and in this case none occured.
 
-```json
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
 []
@@ -241,9 +244,12 @@ the offset is 0 and the limit is 10. The result set collection is enriched by pa
 GET /accounts?currency=PLN&firstName=John&fields=firstName,lastName,balance HTTP/1.1
 ```
 
-```json
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
+```
+
+```json
 {
 	"content": [
 		{
@@ -289,9 +295,11 @@ Content-Type: application/json
 
 Blocking an account is a perfect use case for the PATCH method because we are updating the account partially.
 
-```json
+```
 PATCH /accounts/97695c60-4675-11e4-916c-0800200c9a66 HTTP/1.1
+```
 
+```json
 {
 	"state": "BLOCKED"
 }
