@@ -4,7 +4,8 @@ title: Designing RESTful API
 author: przemyslaw.debek
 tags: [rest, restful, api, http, hateoas, microservices]
 ---
-In distributed environments it is crucial to have a common, standardized language, which services can use to exchange
+
+In distributed environments it is crucial to have a common, standardized language which services can use to exchange
 information between each other. At Allegro, to meet this goal, we’ve chosen the REST architecture.
 
 This article will guide you through REST API concepts and good practices that we use in our projects. In order to show
@@ -14,7 +15,7 @@ you how to use them, we will create a simple REST service in the financial domai
 
 First of all, let's start with a little bit of theory. REST abbreviation stands for Representational State Transfer.
 It is a set of rules, good practices and constraints for designing APIs over HTTP protocol. The base term in discussed
-concept is a resource. A resource is an entity identified by an unique id.  All operations are performed in context
+concept is a resource. A resource is an entity identified by a unique ID.  All operations are performed in context
 of this resource. Resources are reachable by URIs (Unified Resource identifiers). The transport protocol is
 HTTP (with all of its features in use). API responses allow navigating through system by providing
 hyperlinks ([HATEOAS (Hypermedia as the Engine of Application State)](http://spring.io/understanding/HATEOAS)).
@@ -22,13 +23,10 @@ hyperlinks ([HATEOAS (Hypermedia as the Engine of Application State)](http://spr
 To learn more about REST and HTTP visit:
 
 
-[Roy Fielding's doctoral dissertation (original idea for REST)](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)
-
-[HTTP RFC](https://www.ietf.org/rfc/rfc2616.txt)
-
-[PATCH RFC](http://tools.ietf.org/html/rfc5789)
-
-[The RESTful CookBook](http://restcookbook.com)
+* [Roy Fielding's doctoral dissertation (original idea for REST)](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)
+* [HTTP RFC](https://www.ietf.org/rfc/rfc2616.txt)
+* [PATCH RFC](http://tools.ietf.org/html/rfc5789)
+* [The RESTful CookBook](http://restcookbook.com)
 
 Things not covered by this article (but worth further reading):
 
@@ -39,27 +37,27 @@ Things not covered by this article (but worth further reading):
 
 ###Naming conventions
 
-What distinguish RESTful API's from others at first sight is the naming convention. Resources must be constructed with 
-nouns - there is no place for verbs in path params. It is reasonable that choosen nouns come from the service's domain. 
-Mandatory parameters of a request should be a part of path params and optional need to be passed as query params. 
+What distinguishes RESTful API's from others at first sight is the naming convention. Resources must be constructed with
+nouns - there is no place for verbs in path params. It is reasonable that choosen nouns come from the service's domain.
+Mandatory parameters of a request should be a part of path params and optional need to be passed as query params.
 
 
-For instance an API for getting storm forecast for Warsaw should not be constructed this way: 
+For instance an API for getting storm forecast for Warsaw should not be constructed this way:
 
 ```
 GET /getStormForecastForWarsaw
-``` 
-But rather this way: 
+```
+But rather this way:
 
 ```
 GET /weather-forecast/warsaw/storms
-``` 
+```
 
-And when we want to narrow the results to the last few days, we should pass them through additional query params: 
+And when we want to narrow the results to the last few days, we should pass them through additional query params:
 
 ```
 GET /weather-forecast/warsaw/storms?from=2014-11-01&to=2014-11-12
-``` 
+```
 
 
 ###HTTP methods overview
@@ -71,7 +69,7 @@ of the resource at all.
 
 Method | Idempotency | Safety  | Usage
 -------|-------------|---------|----------------------------------------------
-GET    | YES         | YES     | Selecting resources  
+GET    | YES         | YES     | Selecting resources
 POST   | NO          | NO      | Creating resources (id generated server-side)
 PUT    | YES         | NO      | Creating resources (id generated client-side)
 PATCH  | NO          | NO      | Partial updates of resources
@@ -79,7 +77,7 @@ DELETE | YES         | NO      | Deleting resources
 
 ##An example
 
-As mentioned before we will build an e-banking platform, wich provides operations for creating and managing a bank account. 
+As mentioned before we will build an e-banking platform, wich provides operations for creating and managing a bank account.
 In each of the six scenarios we will add some functionality by implementing good practices and conventions of RESTfull API.
 
 ###Scenario #1: Creating a bank account
@@ -309,7 +307,7 @@ If your clients are not compatibile with PATCH, use POST instead. Certainly not 
 
 ##How to recognize a truly RESTful API?
 
-Basing on the example above we can extract some features that characterize a good RESTful API. It should:
+Based on the example above we can extract some features that characterize a good RESTful API. It should:
 
 * be divided into separate links, constructed with nouns
 * obey HTTP specification, use proper methods and error codes
@@ -319,5 +317,5 @@ Basing on the example above we can extract some features that characterize a goo
 ##Summary
 
 Following all REST rules seems to be easy at first, but when the complexity of your domain grows, things become
-complicated. At some level you need to find a compromise between constraints, specification in RFCs and common sense.
+complicated. At some point you need to find a compromise between constraints, specification in RFCs and common sense.
 Some say there is no such thing as a 100% pure RESTful API.
