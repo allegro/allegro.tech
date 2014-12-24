@@ -369,7 +369,8 @@ public class MongoHealthAspect {
   @Pointcut("execution(* org.springframework.data.mongodb.repository.MongoRepository.*(..))")
   private void mongoRepositoryMethod() {}
 
-    @Pointcut("execution(* pl.allegro.rubicon.quoting.db.mongo.MongoCommonPriceListRepositoryCustom.*(..))")
+    @Pointcut(
+    "execution(* pl.allegro.rubicon.quoting.db.mongo.MongoCommonPriceListRepositoryCustom.*(..))")
     private void customMongoRepositoryMethod() {}
 
       @Around("mongoRepositoryMethod() || customMongoRepositoryMethod()")
@@ -387,12 +388,14 @@ methods such as (for a more detailed configuration please consult the documentat
 ```java
 public interface JoinPoint {
   // Returns the currently executing object.
-  // This will always be the same object as that matched by the <code>this</code> pointcut designator.
+  // This will always be the same object as that matched by the <code>this</code>
+  // pointcut designator.
   Object getThis();
 
 
   // Returns the target object.
-  // This will always be the same object as that matched by the <code>target</code> pointcut designator.
+  // This will always be the same object as that matched by the <code>target</code>
+  // pointcut designator.
   Object getTarget();
 
   // Returns the arguments at this join point.
