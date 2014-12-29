@@ -95,9 +95,9 @@ cross-cutting concerns are:
 * [internationalization and localization](http://en.wikipedia.org/wiki/Internationalization_and_localization).
 
 [AspectJ](http://en.wikipedia.org/wiki/AspectJ) encapsulates cross-cutting expressions in a special class called
-an [aspect](http://en.wikipedia.org/wiki/Aspect_(computer_programming) (since we use Spring here, all aspects
+an [aspect](http://en.wikipedia.org/wiki/Aspect_(computer_programming)) (since we use Spring here, all aspects
 are well-known Java classes). For example, an aspect can alter the behavior of the base code (the non-aspect part
-of a program) by applying [advice](http://en.wikipedia.org/wiki/Advice_(programming) (additional behavior) at
+of a program) by applying [advice](http://en.wikipedia.org/wiki/Advice_(programming)) (additional behavior) at
 various [join points](http://en.wikipedia.org/wiki/Join_point) (points in a program) specified in a query called
 a [pointcut](http://en.wikipedia.org/wiki/Pointcut) (that detects whether a given join point matches). An aspect
 can also make binary-compatible structural changes to other classes, such as adding members or parents (this is not discussed here).
