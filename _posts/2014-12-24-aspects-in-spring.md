@@ -88,9 +88,9 @@ resulting in cross-cutting concerns as they "cut across" multiple abstractions i
 cross-cutting concern is logging, because logging strategy affects logged parts of the system. Other examples of
 cross-cutting concerns are:
 
-* [synchronization](http://en.wikipedia.org/wiki/Synchronization_(computer_science),
+* [synchronization](http://en.wikipedia.org/wiki/Synchronization_(computer_science)),
 * [memory management](http://en.wikipedia.org/wiki/Memory_management),
-* [persistence](http://en.wikipedia.org/wiki/Persistence_(computer_science),
+* [persistence](http://en.wikipedia.org/wiki/Persistence_(computer_science)),
 * [transaction processing](http://en.wikipedia.org/wiki/Transaction_processing),
 * [internationalization and localization](http://en.wikipedia.org/wiki/Internationalization_and_localization).
 
