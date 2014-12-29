@@ -87,6 +87,7 @@ Sometimes module divisions in a program do not allow for one concern to be compl
 resulting in cross-cutting concerns as they "cut across" multiple abstractions in a program. A good example of a
 cross-cutting concern is logging, because logging strategy affects logged parts of the system. Other examples of
 cross-cutting concerns are:
+
 * [synchronization](http://en.wikipedia.org/wiki/Synchronization_(computer_science),
 * [memory management](http://en.wikipedia.org/wiki/Memory_management),
 * [persistence](http://en.wikipedia.org/wiki/Persistence_(computer_science),
@@ -337,6 +338,7 @@ list of all types of advice [from the Spring documentation](http://docs.spring.i
 
 When it comes to **pointcuts** and their **designators**, we have only seen execution designator.
 Here is the complete list of all pointcut designators [from the Spring documentation](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/aop.html):
+
 * `execution` – for matching method execution join points
 * `within` – limits matching to join points within certain types (simply the execution of a method declared within a matching type when using Spring AOP)
 * `this` – limits matching to join points (the execution of methods when using Spring AOP) where the bean reference (Spring AOP proxy) is an instance of the given type
@@ -431,6 +433,7 @@ some of the basics here: what aspects are and how to use them in a Spring projec
 encouraged to follow the links from the Further reading section.
 
 ### Further reading
+
 * [Spring documentation](http://docs.spring.io/autorepo/docs/spring/3.0.6.RELEASE/spring-framework-reference/html/aop.html)
 * [AspectJ documentation](http://www.eclipse.org/aspectj/docs.php)
 * [Aspect Programming](http://www.aspectprogramming.com/)
