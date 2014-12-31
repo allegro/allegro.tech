@@ -5,7 +5,7 @@ author: adam.dubiel
 tags: [devoxx, conference]
 ---
 
-Devoxx ([http://devoxx.be](http://devoxx.be), formerly JavaPolis) is an annual Java-centric conference organized by [BeJUG](http://www.bejug.org/) that
+[Devoxx](http://devoxx.be) (formerly JavaPolis) is an annual Java-centric conference organized by [BeJUG](http://www.bejug.org/) that
 takes place in Antwerp, Belgium. Such a big Java event can‘t go unnoticed by Allegro. This year five representatives
 of our company had a chance to experience five full days of Devoxx.
 
