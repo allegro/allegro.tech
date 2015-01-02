@@ -10,7 +10,7 @@ When searching for a JDK 8 migration guide, you can often find blog posts that c
 of features found in release notes and offer no insight into issues you may encounter in practice. Having no migration guide during our own
 migration, we decided to create one. This is a report right from the trenches, no details spared, casualties included.
 
-### Why Java 8?
+## Why Java 8?
 Java 7 never failed us so far and we have always been able to achieve what we wanted. Migration to Java 8 was certainly
 not a necessity. However, we are always looking for tools facilitating our work, helping us write code better and faster. This makes new language
 features worth evaluating. Besides, we expect that various libraries and tools will soon start taking advantage of Java 8, so after some time
@@ -34,7 +34,7 @@ As you will see, an ecosystem of tools and infrastructure is an important part o
 much progress on Scala's side, the toolset for Java seems to still be more mature, and is more widely known and used by developers. This
 must be taken into account and may be a reason for sticking with Java, or for using it alongside other JVM languages.
 
-### Best way to migrate: write new code in a new way
+## Best way to migrate: write new code in a new way
 Applications we develop are [microservices](http://en.wikipedia.org/wiki/Microservices). The pros and cons of microservice-based
 architectures have been discussed countless times, but one thing  has not been stressed enough: with microservices you
 often get the chance to start a new project.
@@ -43,14 +43,14 @@ This is a very good thing. It allows you to try out new technologies on small pr
 migrating existing large applications. So a quick answer to “how we migrated to Java 8” could have been: we didn't.
 We simply started writing new code in Java 8, and it went almost seamlessly.
 
-### Reasons for migrating
+## Reasons for migrating
 But then, what is this article about? In order to fully take advantage of Java 8, we wanted to understand well both new features
 and potential pitfalls. The best way of learning this sort of things is learning by doing. With both new and older projects in mind,
 we wanted to acquire this knowledge fast in order to take advantage of it as soon as possible. We thought that migrating
 an existing, non-trivial application would pay off. The application we selected is still maintained and developed, so any gains
 in code readability and maintainability would have a practical impact.
 
-### Before we started
+## Before we started
 Even before an official release of JDK 1.8.0, people were looking at pre-release builds in order to check if their applications would compile and run.
 But serious software development takes much more than that. Creating high-quality software goes far beyond writing code. There are
 a lot of tools which facilitate this task: static code and bytecode analysis tools such as [FindBugs](http://findbugs.sourceforge.net/),
@@ -68,7 +68,7 @@ he just didn't want to deploy it company-wide until it was merged upstream.
 
 ![Example checklist in our Wiki, showing elements needed for Java 8 readiness](/img/articles/2014-12-10-java-8-wiki-checklist.png "Example checklist in our Wiki, showing elements needed for Java 8 readiness")
 
-### The test subject
+## The test subject
 The application we chose as our test subject was a RESTful service called Flexible Pricing which is used for calculating the fees users
 pay when they list items for sale and the commissions they pay when their items get bought. As you can imagine, this system
 is pretty critical to our e-commerce site [allegro.pl](http://www.allegro.pl/) as well as to our sites in other countries.
@@ -79,7 +79,7 @@ There are also a lot of [unit](http://allegrotech.io/java-testing-toolbox.html) 
 [integration tests](http://allegrotech.io/testing-restful-service-and-clients.html) and test coverage is pleasantly high,
 which soon proved to be crucial for a successful migration to Java 8.
 
-### Java 8: first blood
+## Java 8: first blood
 Once we decided to commit some time to verifying what kind of benefits migrating to JDK 8 would bring to us, the first thing to try
 was just installing the new JDK and checking if our application would compile and run.
 
@@ -100,7 +100,7 @@ Without delving much into the details of the change, we were able to work around
 So while <tt>assertThat(caughtException()).isInstanceOf(SomeClass.class)</tt> works in Java 7 but doesn't compile in Java 8,
 <tt>assertThat((Exception) caughtException()).isInstanceOf(SomeClass.class)</tt> works just fine with Java 8.
 
-### Deploying the app with Java 8
+## Deploying the app with Java 8
 After getting the app to compile and run, making sure that all tests passed and some manual testing, we wanted to deploy it without any
 further changes. It is a good idea to always test, as far as possible, only a single change at a time. It makes detecting and fixing issues
 much easier. Just imagine running an application with multiple changes only to find out that nothing works and trying to locate
@@ -136,7 +136,7 @@ which could influence memory consumption and GC behavior. We knew, for example, 
 [had been changed in JDK 8](https://docs.oracle.com/javase/8/docs/technotes/guides/collections/changes8.html) but we didn't analyze it in
 more detail.
 
-### Using Java 8 features
+## Using Java 8 features
 Now that we had successfully deployed Flexible Pricing on JDK 8, we wanted to benefit from all new features of Java 8. We were also
 eager to compare certain features to their Scala counterparts.
 
@@ -148,7 +148,7 @@ Oracle used them to extend the collections API without breaking compatibility. T
 to library designers, though. We avoid deep class hierarchies and
 [favor composition over inheritance](http://www.artima.com/lejava/articles/designprinciples4.html) in our application code anyway.
 
-## Optionals
+### Optionals
 [Optional](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) is a container which may contain an element, or be empty
 (hence the payload is optional). You can think of it as of a collection with a maximum capacity of one. The reason such a strange object
 is useful is because it explicitly conveys the information that an object may be present or absent.
@@ -237,7 +237,7 @@ public static <T> Optional<T> guavaToJavaOptional(com.google.common.base.Optiona
 }
 ```
 
-## Lambdas, lambdas burning bright
+### Lambdas, lambdas burning bright
 In a nutshell, [lambda expressions](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html), also called functional
 literals or closures, allow you to treat short fragments of code as values,
 meaning that you can pass “a piece of code” to a method and execute it from there. It's a very simple yet powerful concept.
@@ -295,10 +295,10 @@ collections.
 
 Many applications include a surprising amount of code which you can simplify this way.
 
-## Lambdas and SAM (Single Abstract Method) interfaces
+### Lambdas and functional interfaces
 
 One very nice thing JDK engineers implemented is the possibility of using lambda expression syntax to define any anonymous class which
-implements an interface with only a Single Abstract Method (SAM). Such interfaces are called “SAM types” in Java 8 jargon, and they
+implements an interface with only a Single Abstract Method (SAM). Such interfaces are called functional interfaces or “SAM types” in Java 8 jargon, and they
 are quite common in Java libraries (think of <tt>Runnable</tt>, <tt>Callable</tt> or some of the <tt>Function</tt> types found in Guava).
 
 Now instead of:
@@ -327,7 +327,7 @@ in Guava's Optional with Java 7, but this method requires a function to be passe
 this made it awkward to use. With function literals now available in the language, Optionals can
 show their true potential, and as you'll see in the part about transforming maps, SAM syntax allows Guava to fully shine.
 
-## A matter of style
+### A matter of style
 A common task that applications handle is receiving an optional parameter and replacing it with a default value when none is provided.
 Since most Java APIs do not use <tt>Optional</tt> class, a missing value is marked with a null reference. There are several approaches
 to setting a default value (examples assume static imports for the methods used).
@@ -361,7 +361,7 @@ return ofNullable(value).orElse(defaultValue);
 Personally, I prefer the snippet that uses <tt>Optional</tt>, but opinions are divided within the team. I'd be happy to learn what you think.
 Feel free to comment.
 
-## Functional transformations
+### Functional transformations
 Using lambda expressions and stream API with functional transformations such as <tt>map()</tt> and <tt>filter()</tt> allowed us to make our code
 shorter and more readable. We were surprised how many pieces of code this syntax could improve. In many cases,
 [method references](https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html) came in handy and made the code even more
@@ -373,7 +373,7 @@ from <tt>Iterable</tt> is [rather clunky](http://stackoverflow.com/questions/239
 Method references would be even cooler if they could be combined with static imports or provided a shorthand
 for writing <tt>this::someMethod</tt>.
 
-# Simple use cases
+#### Simple use cases
 There are areas where Java 8 provides very nice solutions, e.g. simple mapping between
 [DTOs](http://en.wikipedia.org/wiki/Data_transfer_object) and [business objects](http://en.wikipedia.org/wiki/Business_object):
 
@@ -419,7 +419,7 @@ object-orientation. Notice how method references play well with Guava. Since the
 we can use a method reference, while in Java 8 code we have to work on elements of <tt>Map.Entry</tt> type which results in more code.
 Despite our hopes, Guava is alive and kicking.
 
-# Advanced transformations
+#### Advanced transformations
 We really miss tuples (pairs, triples etc.), which would make some transformations easier and result in better code.
 In Scala, mapping and filtering maps is convenient in part because one iterates over pairs consisting of a key and a value.
 In Java, you get elements of type <tt>Map.Entry</tt>, which require long method names for accessing actual keys and values (<tt>getKey()</tt> and
@@ -434,7 +434,7 @@ We also had a situation where
 [<tt>List.sliding()</tt>](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List@sliding%28size:Int,step:Int%29:Iterator%5BRepr%5D)
 would have made our work much easier but it is not available in Java.
 
-# Single and nested loops
+#### Single and nested loops
 We found quite many cases when we were not able to modify code into fully functional expressions. These were mostly cases with
 two or more nested loops, where the most deeply-nested expression depended both on the external and on the internal item. They ended up as
 <tt>forEach</tt> loops with some procedural code inside — a rather ugly solution. Scala's for-comprehensions over two variables or simple
@@ -472,7 +472,7 @@ We did however, leave a few for-loops unchanged, in particular several iteration
 <tt>forEach()</tt> and you have to call <tt>Arrays.stream()</tt> in order to process them with lambdas, many gains in expression length are lost.
 We also left regular iteration over arrays in AOP code, which we wanted to keep as simple and fast as possible.
 
-# Partitioning lists
+#### Partitioning lists
 Tuples would have also made partitioning by a predicate much nicer. This operation resembles filtering, but instead of returning only elements
 that match a boolean expression, you get two separate lists: one with matches and one with non-matches. We had several use cases,
 but since Java's
@@ -519,7 +519,7 @@ List<PriceList> defaultPriceLists = defaultToPriceLists.get(TRUE);
 List<PriceList> categoryPriceLists = defaultToPriceLists.get(FALSE);
 ```
 
-# A few other random observations
+#### A few other random observations
 * <tt>flatMap()</tt> requires a function that returns <tt>Stream</tt> which is very inconvenient and makes Optionals less useful than in Scala.
 Suppose you have a list of lists of Integers and want to transform each list into the first positive element in the list, or no entry if
 the list does not include any positive elements. So, a list such as <tt>( (-1, -2, 3), (-4, -5, -6), (7, 8, 9))</tt> should be transformed to <tt>(3, 7)</tt>.
@@ -545,14 +545,14 @@ but in practice we hardly had to analyze any so this was not much of an issue.
 a line break after <tt>.stream()</tt> since it's just boilerplate, and after each <tt>map()</tt>, <tt>filter()</tt> etc. except for very short
 expressions.
 
-# Lambda expression wrap-up
+#### Lambda expression wrap-up
 At the end of the day, despite many shortcomings, the stream API allowed us to improve our code over Java 7, making
 it considerably more readable. However, one important lesson we learned is that there is no single “best” way of writing loops. What is better depends on each particular situation. Never
 apply changes automatically, just because closures are cool. We found cases where they were better choice than imperative code, but in some places we kept
 Guava transformations or even simple for-loops. Always look at each particular piece of code and consider if your change actually makes
 it better. The same applies, of course, to any other refactoring.
 
-## Date and Time package
+### Date and Time package
 After a success with lambdas and a very smooth migration from Guava Optionals to Java 8 Optionals, we expected the new
 [date-time package](http://docs.oracle.com/javase/8/docs/technotes/guides/datetime/index.html) (also known as [JSR-310](https://jcp.org/en/jsr/detail?id=310)) to be a sort of drop-in replacement
 for the [Joda Time](http://www.joda.org/joda-time/) library we had been using so far.
@@ -588,14 +588,14 @@ would have been able to finish the job, but we felt it made no sense at this poi
 and provide out-of-the-box support for Java 8 before we try again. Becoming aware of something not work well for us is also a valuable
 lesson.
 
-### Tests are your friends
+## Tests are your friends
 
 In this refactoring experiment we were once again able to confirm the fact that good test coverage and high quality tests are crucial
 to code refactoring. Whether it was Optionals, lambdas, or, most of all, date and time API changes, our modifications broke tests, caused
 them to fail and alerted us that something had gone wrong. Just trying to imagine what sort of bugs we would have introduced
 if the tests were not there sends shivers down my spine.
 
-### Summary
+## Summary
 We migrated a business-critical application from Java 7 to Java 8, deployed it, and have been running it in production for some time now.
 We think the best way to migrate to new platforms or to get started with new languages is to use them for new code, and you get such chances
 quite often in a microservice-based architecture compared to monolithic applications. However, refactoring an existing application
