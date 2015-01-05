@@ -9,13 +9,13 @@ piotr.orlowski:
     twitter: nigraspl
 
 adam.dubiel:
-	name: Adam Dubiel
-	bio: Adam is the library guy - both when it comes to books and designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. In Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier.
+    name: Adam Dubiel
+    bio: Adam is the library guy - both when it comes to books and designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. In Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier.
 
 rafal.glowinski:
-	name: Rafał Głowiński
-	bio: Rafał is an experienced software developer who has spent most of his career working in Java and related technologies. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis. At Allegro, he leads a software development team delivering solutions for the financial department.
-	twitter:
+    name: Rafał Głowiński
+    bio: Rafał is an experienced software developer who has spent most of his career working in Java and related technologies. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis. At Allegro, he leads a software development team delivering solutions for the financial department.
+    twitter:
 
 michal.kosmulski:
     name: Michał Kosmulski
@@ -26,9 +26,9 @@ przemyslaw.debek:
     bio: Przemek is a software engineer with ~3 years of experience in multiple technologies. He is interested in distributed, cloud-based architectures and NoSql databases. At Allegro, he works in a team which delivers solutions for the financial department.
 
 szymon.tur:
-	name: Szymon Tur
-	bio: Szymon is an iOS developer with several years of experience on this platform and web development background. Enthusiast of user friendly mobile applications and modern web solutions. At Allegro Szymon is a part of the team which is responsible for development of the iOS application for buyers.
-	twitter: szymon_t
+    name: Szymon Tur
+    bio: Szymon is an iOS developer with several years of experience on this platform and web development background. Enthusiast of user friendly mobile applications and modern web solutions. At Allegro Szymon is a part of the team which is responsible for development of the iOS application for buyers.
+    twitter: szymon_t
 
 bartosz.walacik:
     name: Bartosz Walacik
