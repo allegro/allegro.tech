@@ -1,24 +1,34 @@
-﻿rafal.myslek:
+rafal.myslek:
     name: Rafał Mysłek
     bio: Rafał is a software engineer with 10+ years of experience in Java/Spring technologies. He is an enthusiast of modern, lightweight (Microservices), distributed (Cloud), scalable (NoSQL) solutions. At Allegro, he leads a software development team delivering solutions for the financial department.
     twitter: rmyslek
 
 piotr.orlowski:
     name: Piotr Orłowski
-    bio: Piotr is an engineer with 17 years of experience in IT. In Allegro IT he is in charge of marketing intelligence department and responsible for providing basics for microservices architecure. He is interested in scalable architecture, performance and likes more functionality than code :)
+    bio: Piotr is an engineer with 17 years of experience in IT. In Allegro IT he is in charge of marketing intelligence department and responsible for providing basics for microservices architecture. He is interested in scalable architecture, performance and likes more functionality than code :)
     twitter: nigraspl
 
 adam.dubiel:
-    name: Adam Dubiel
-    bio: Adam is the library guy - both when it comes to books and designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. In Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier.
+	name: Adam Dubiel
+	bio: Adam is the library guy - both when it comes to books and designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. In Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier.
 
 rafal.glowinski:
-    name: Rafał Głowiński
-    bio: Rafał is an experienced software developer who has spent most of his career working in Java and related technologies. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis. At Allegro, he leads a software development team delivering solutions for the financial department.
+	name: Rafał Głowiński
+	bio: Rafał is an experienced software developer who has spent most of his career working in Java and related technologies. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis. At Allegro, he leads a software development team delivering solutions for the financial department.
+	twitter:
 
 michal.kosmulski:
     name: Michał Kosmulski
     bio: Michał is interested in all things high-performance, whether it be low-level stuff like analyzing how OS caches affect I/O operations or high-level like proper application design and functional programming. At Allegro, he works in a team which develops software for the financial department but he also likes to mess around with the core libraries shared by different teams.
+
+przemyslaw.debek:
+    name: Przemysław Dębek
+    bio: Przemek is a software engineer with ~3 years of experience in multiple technologies. He is interested in distributed, cloud-based architectures and NoSql databases. At Allegro, he works in a team which delivers solutions for the financial department.
+
+szymon.tur:
+	name: Szymon Tur
+	bio: Szymon is an iOS developer with several years of experience on this platform and web development background. Enthusiast of user friendly mobile applications and modern web solutions. At Allegro Szymon is a part of the team which is responsible for development of the iOS application for buyers.
+	twitter: szymon_t
 
 bartosz.walacik:
     name: Bartosz Walacik
@@ -32,44 +42,38 @@ andrzej.winnicki:
 
 slawomir.bolimowski:
     name: Sławomir Bolimowski
-    bio: Sławek is a software engineer with 10 years experience. He is intrested in creating well designed and highly scalable web applications. At Allegro, he works in a team which develop solutions for the financial department.
+    bio: Sławek is a software engineer with 10 years experience. He is interested in creating well designed and highly scalable web applications. At Allegro, he works in a team which develop solutions for the financial department.
 
 jaroslaw.grabowski:
     name: Jarosław Grabowski
     bio: Jarek works at Allegro Group building big data collecting and processing system. For over three years his daily job has been to implement and troubleshoot Pig, Hive and Cascading jobs run on one of the biggest Hadoop clusters in Poland.
 
+julian.szulc:
+    name: Julian Szulc
+    bio: Site Reliability Engineer responsible for Allegro Platform. In Allegro Group since 2011. Software Engineer with over 10 years of experience in building and maintaining complex IT system using C++, Python, PHP and Ruby. OpenWRT and Raspberry Pi enthusiast and amateur photographer.
+    twitter: julian.szulc 
+
 krzysztof.kocel:
     name: Krzysztof Kocel
     bio: Krzysztof works at Allegro Group since 2012. He is interested in mobile security and reducing data usage. At Allegro, his main responsibility is developement of otoMoto and otoDom mobile applications.
-
-mateusz.gajewski:
-    name: Mateusz 'Serafin' Gajewski
-    bio: 'Mateusz is a solutions architect responsible for financial and payments systems. His main areas of research interest are: scalable, distributed computing in cloud environments, reactive programming and failure resilience.'
-    twitter: wendigo
-
-szymon.tur:
-    name: Szymon Tur
-    bio: Szymon is an iOS developer with several years of experience on this platform and web development background. Enthusiast of user friendly mobile applications and modern web solutions. At Allegro Szymon is a part of the team which is responsible for development of the iOS application for buyers.
-    twitter: szymon_t
-
-kamil.borzym:
-    name: Kamil Borzym
-    bio: Kamil is an iOS software developer. He is very curious of how things work internally, so he likes to decompile frameworks and apps. He is responsible for development of otoMoto and otoDom iOS applications.
 
 piotr.betkier:
     name: Piotr Betkier
     bio: Software engineer interested in building resilient distributed systems. Strong supporter of continuous integration & delivery, believes in Unix philosophy. IT communities enthusiast.
     twitter: piotrbetkier
 
+mateusz.gajewski:
+    name: Mateusz 'Serafin' Gajewski
+    bio: Mateusz is a solutions architect responsible for financial and payments systems. His main areas of research interest are: scalable, distributed computing in cloud environments, reactive programming and failure resilience.
+
+kamil.borzym:
+    name: Kamil Borzym
+    bio: Kamil is an iOS software developer. He is very curious of how things work internally, so he likes to decompile frameworks and apps. He is responsible for development of otoMoto and otoDom iOS applications.
+
 maciej.arciuch:
     name: Maciej Arciuch
     bio: Maciek works at Allegro on developing a scalable, distributed data collection and analysis system. Former Java EE developer, now a Scala, Spark and functional programming enthusiast.
 
-przemyslaw.debek:
-    name: Przemysław Dębek
-    bio: Przemek is a software engineer with ~3 years of experience in multiple technologies. He is interested in distributed, cloud-based architectures and NoSql databases. At Allegro, he works in a team which delivers solutions for the financial department.
-
 piotr.glazar:
     name: Piotr Glazar
     bio: Piotr is a software engineer interested in both concurrent and functional programming. He is a big fan of high-quality code and clean architecure. At Allegro, he works in a team which develops solutions for the financial department.
-
