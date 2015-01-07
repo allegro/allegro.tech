@@ -1,4 +1,4 @@
-﻿rafal.myslek:
+rafal.myslek:
     name: Rafał Mysłek
     bio: Rafał is a software engineer with 10+ years of experience in Java/Spring technologies. He is an enthusiast of modern, lightweight (Microservices), distributed (Cloud), scalable (NoSQL) solutions. At Allegro, he leads a software development team delivering solutions for the financial department.
     twitter: rmyslek
@@ -76,5 +76,4 @@ piotr.glazar:
 julian.szulc:
     name: Julian Szulc
     bio: Site Reliability Engineer responsible for Allegro Platform. In Allegro Group since 2011. Software Engineer with over 10 years of experience in building and maintaining complex IT system using C++, Python, PHP and Ruby. OpenWRT and Raspberry Pi enthusiast and amateur photographer.
-    twitter: julian.szulc
 
