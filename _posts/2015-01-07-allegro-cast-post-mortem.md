@@ -33,6 +33,7 @@ million tasks waiting to be processed, which would take roughly 84 hours.
 Naturally, when the oldest tasks are transferred first, such a situation is
 unacceptable. As a result, one of offered features, i.e. the cart with numerous
 offers had no chance to work at all.
+
 The Site Reliability Engineering Team was working on minimising the damage and
 solving problems. We started with increasing the efficiency of task processing.
 As a result, we were able to establish new efficiency limits of the system,
@@ -43,6 +44,7 @@ to be sent on the night of 23rd October.
 Besides, we wanted to reduce the number of tasks waiting to be retrieved. We
 decided to remove those that could not be processed, i.e. cart purchases and
 overdue subscription.
+
 The third thing we needed to do, was finding the cause of this enormous number
 of tasks. For reasons which we still do not understand, after rebooting, daemons
 started to retrieve tasks dated 11th September 2014. When we noticed it, we set
