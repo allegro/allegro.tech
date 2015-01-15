@@ -61,7 +61,7 @@ func person(firstName name: String, familyName lastName: String, personAge age: 
 var me: String = person(firstName: "Szymon", familyName: "Tur", personAge: 27)
 ```
 
-Each function parameter could have two names: external and local. External parameter name (firstName, lastName, personAge) is used when you call a function
+Each function parameter could have two names: external and local. External parameter name (firstName, familyName, personAge) is used when you call a function
 while the local (name, lastName, age) inside the function body. If you want to use the same word as the external and local name you can use a shorter notation by adding **#** character before it.
 
 ```swift
