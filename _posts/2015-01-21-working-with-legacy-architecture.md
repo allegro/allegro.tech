@@ -7,7 +7,7 @@ tags: [architecture, legacy code, clean code, acl]
 
 Any programmer can admit that working with code that has been developed for years by many people is a difficult task.
 Keeping your own application architecture clean is troublesome, and it gets even more challenging in case of an application
-that has been written by other programmers several years ago. One can enjoy writing new applications and tools that do
+that was written by other programmers several years ago. One can enjoy writing new applications and tools that do
 not carry any burden, but each product evolves together with its business assumptions. Moreover, new features are added
 and the application needs to be constantly improved.
 
