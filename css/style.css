@@ -685,7 +685,8 @@ html, body {
   overflow:auto;
 }
 
-.post p code {
+.post p code,
+.post li code{
     font-size: 18px;
     border: none;
     background: none;
