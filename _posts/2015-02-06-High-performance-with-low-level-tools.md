@@ -22,7 +22,7 @@ draw your attention to the fact that the tools described here exist at all. I wo
 can be helpful not only in performance tuning but also in common debugging situations. If you’re interested, you can find more
 information in the man pages of the tools and on the Internet.
 
-## Table of Contents:
+### Table of Contents
 
 * [CPU, memory and I/O load](#cpu-mem)
 * [System and library call tracing](#system-and-library)
