@@ -42,7 +42,7 @@ First of all, pressing `h` key when the application is running will display help
 useful features including a multi-window mode. Some of the interesting and little known shortcuts are:
 
 * `z` to toggle color display.
-* `&lt;` and `&gt;` to move the column by which entries are sorted to the left and to the right. Sorting is by CPU usage by
+* `<` and `>` to move the column by which entries are sorted to the left and to the right. Sorting is by CPU usage by
 default. Pressing `x` toggles the highlighting of sort column. `M` sorts entries by memory usage.
 * `c` to toggle display of processes’ full command line.
 * `H` to display individual threads instead of processes.
