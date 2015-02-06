@@ -24,16 +24,18 @@ information in the man pages of the tools and on the Internet.
 
 Table of Contents:
 
-* [CPU, memory and I/O load](#top-htop)
-* [System and library call tracing](#strace)
-* [Detailed I/O tracing](#blktrace)
-* [Network and file descriptors](#netstat)
-* [Hardware properties](#hdparm)
-* [Multi-purpose tools](#sysdig)
+* [CPU, memory and I/O load](#cpu-mem)
+* [System and library call tracing](#system-and-library)
+* [Detailed I/O tracing](#detailed-i-o)
+* [Network and file descriptors](#network-and-file)
+* [Hardware properties](#hardware-properties)
+* [Multi-purpose tools](#multi-purpose)
 * [Pseudo-filesystems](#pseudofilesystems)
 * [Closing remarks](#summary)
 
-### `top` and `htop`<a id="top-htop"></a>
+## CPU, memory and I/O load <a id="cpu-mem"></a>
+
+### top and htop
 
 Almost everyone uses [`top`](http://linux.die.net/man/1/top) to display processes’ CPU usage, but this tool can do much more.
 First of all, pressing `h` key when the application is running will display help about available shortcuts. There are a lot of
@@ -59,7 +61,7 @@ manager. If you like using `htop` or any other non-standard tool, and use [Puppe
 configuration management utility, it may be convenient to add the corresponding packages to your manifests so that they are installed
 automatically on any new machines you set up.
 
-### `iotop`<a id="iotop"></a>
+### iotop
 
 If there’s `top` for monitoring CPU and memory usage, there’s also [`iotop`](http://guichaz.free.fr/iotop/) for monitoring
 I/O activity (to be more precise: block device activity). While tools like `vmstat` or `iostat` (mentioned below) only show
@@ -72,7 +74,7 @@ monitoring is displayed instead of current transfer rates.
 useful in combination with `-a`.
 * Left and right arrows change the column by which entries are sorted.
 
-### `vmstat`<a id="vmstat"></a>
+### vmstat
 
 [`vmstat`](http://linux.die.net/man/8/vmstat) displays essential system activity statistics such as memory usage, CPU and
 I/O activity, context switches, etc. Apart from the almost-obligatory refresh delay, useful command-line options include `-S M`
@@ -80,7 +82,7 @@ which switches memory display to use megabytes as unit and `-s` which dumps (jus
 recent kernel versions, `vmstat` can display a number of detailed I/O-related statistics thanks to `-d` and `-D`
 options.
 
-### `iostat`<a id="iostat"></a>
+### iostat
 
 [`iostat`](http://linux.die.net/man/1/iostat) displays detailed statistics about the system’s I/O activity and can be very helpful
 in explaining why certain activities overload the machine’s disks while other apparently similar workloads can be handled just fine.
@@ -95,7 +97,9 @@ name on the command line in order to not mess up the display with data for disks
 Unintuitively, on Debian and Ubuntu, `iostat` does not have a separate package and is installed using `apt-get` as part of
 the `sysstat` package.
 
-### `strace`<a id="strace"></a>
+## System and library call tracing <a id="system-and-library"></a>
+
+### strace
 
 Suppose you just deployed your application to production environment but it seems to not be running and you don’t see any logs.
 Such situations are more common when you send your logs from all machines to a central log server using tools such as
@@ -141,7 +145,7 @@ the result over to `grep`:
 strace ls 2>&1 | grep 'write'
 ```
 
-### `ltrace`<a id="ltrace"></a>
+### ltrace<a id="ltrace"></a>
 
 While `strace` traces system calls, [`ltrace`](http://linux.die.net/man/1/ltrace) can trace library calls. The libraries
 mentioned here are of course not dependencies of your Java application, but rather system-level libraries such as the standard C library.
@@ -149,7 +153,9 @@ This tool is probably more useful for C developers than Java developers, but som
 certain features are implemented (e.g. those related to synchronization or filesystem access). Command-line options and program behavior
 are very similar to `strace`.
 
-### `blktrace`<a id="blktrace"></a>
+## Detailed I/O tracing <a id="detailed-i-o"></a>
+
+### blktrace
 
 When it comes to debugging block I/O activity, [`blktrace`](http://linux.die.net/man/8/blktrace) provides the most detailed
 information. This powerful tool can record individual disk reads, writes and seeks so you get a very detailed view of what is happening
@@ -161,7 +167,9 @@ Due to the huge amount of data produced, `blktrace` only creates a binary log of
 the data in a human-readable format and analyze it. Tip: never store the log on the device you are analyzing or you’ll create a positive
 feedback loop.
 
-### `netstat`<a id="netstat"></a>
+## Network and file descriptors<a id="network-and-file"></a>
+
+### netstat
 
 For debugging network-related issues, such as determining what clients are connected to your application or which application is blocking a port
 and preventing your app from listening on it, [`netstat`](http://linux.die.net/man/8/netstat) is often the tool of choice.
@@ -179,7 +187,7 @@ often, using `-n` makes `netstat` much faster.
 With `-s` flag, `netstat` prints a summary of system-wide statistics related to the network stack. This information can be
 used to debug issues such as connection time-outs or resets.
 
-### `lsof`<a id="lsof"></a>
+### lsof<a id="lsof"></a>
 
 [`lsof`](http://linux.die.net/man/8/lsof) stands for “list open files” and it displays open files, including sockets, pipes and
 device special files (this is Linux / UNIX so [almost everything is a file](http://en.wikipedia.org/wiki/Everything_is_a_file)).
@@ -187,7 +195,9 @@ It can be used for similar purposes as `netstat` as well as for tracing what fil
 using. Displaying UNIX pipes can sometimes help in debugging
 [IPC (Inter-Process Communication)](http://en.wikipedia.org/wiki/Inter-process_communication) issues within a single machine.
 
-### `hdparm`<a id="hdparm"></a>
+## Hardware properties <a id="hardware-properties"></a>
+
+### hdparm
 
 [`hdparm`](http://linux.die.net/man/8/hdparm) can display lots of useful information about a disk drive when used with the
 `-i` or `-I` flags. It can also read and set a number of advanced options, some of which are extremely dangerous.
@@ -196,7 +206,7 @@ real benchmark, it provides an approximation of the disk’s transfer rate (labe
 server shows a number lower than your laptop, expect something to be wrong with the system. The value *cached reads* can be used as an
 approximation of memory and system bus speeds.
 
-### `lshw`, `lspci` and `lsusb`<a id="lsxxx"></a>
+### lshw, lspci and lsusb<a id="lsxxx"></a>
 
 There are a number of `lsXYZ` programs for listing different kinds of resources in a system. For learning about hardware attached
 to the machine, the most useful are: [`lshw`](http://www.ezix.org/project/wiki/HardwareLiSter) (“list hardware”),
@@ -205,19 +215,21 @@ devices”). Some support verbosity flags which make their output more detailed,
 example `lshw` can display each RAM chip individually along with information such as what slot it is inserted into on the
 motherboard.
 
-### `sysdig`<a id="sysdig"></a>
+## Multi-purpose tools <a id="multi-purpose"></a>
+
+### sysdig
 There’s a new kid on the block, called [`sysdig`](http://www.sysdig.org/). It offers convenient access to a number of interesting
 statistics, some of which would require a bit of shell scripting in order to be extracted using more generic tools. We haven’t fully
 evaluated `sysdig` yet, but it looks promising. Expect to find out more about it from another blog post of ours in some time.
 
-### Pseudo-filesystems<a id="pseudofilesystems"></a>
+## Pseudo-filesystems <a id="pseudofilesystems"></a>
 
 A lot of system information can be accessed on Linux through pseudo-file systems. Theses are structures which appear to be files within the
 directory structure, but do not contain files stored on disk but rather gateways to system information made available by the kernel. Most
 files in these filesystems are read-only but some can be written to in order to change kernel settings. For example, some files in
 `/proc` can be both read and written which can replace the use of [`sysctl`](http://linux.die.net/man/8/sysctl).
 
-#### `/proc`
+#### /proc
 
 The [`proc`](http://linux.die.net/man/5/proc) pseudo-filesystem was designed in order to make accessing information about individual
 processes more convenient, but over time more unrelated features were added. For each PID there exists a subdirectory `/proc/PID`
@@ -249,7 +261,7 @@ The directories `/proc/sys` and `/proc/net` allow reading and tuning of many sys
 There are many very interesting things to be found in `/proc` which are outside the scope of this article, but they are certainly
 worth a look. Do be careful, however, before trying to modify any settings. Some are really dangerous.
 
-#### `/sys`
+#### /sys
 
 One of the reasons for creating [`sysfs`](http://en.wikipedia.org/wiki/Sysfs) was that over time a lot of information was added to
 `/proc` which was not related to the original purpose of providing per-process information. Apart from introducing more order,
@@ -265,7 +277,7 @@ Many other performance-related parameters can be retrieved or set via `/sys` —
 strace lshw 2>&1 | egrep '/proc|/sys'
 ```
 
-### Summary<a id="summary"></a>
+## Summary<a id="summary"></a>
 
 Even when writing high-level code, at some point you have to deploy and run it on some hardware or virtual machine. Knowing what is going on
 inside an application is crucial to making it stable, fast and predictable. Adding extra logging to your code is not always practical and
