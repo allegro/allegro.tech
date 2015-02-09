@@ -92,7 +92,7 @@ filters.
 
 [`ContainerRequestFilter`](https://jax-rs-spec.java.net/nonav/2.0-SNAPSHOT/apidocs/javax/ws/rs/container/ContainerRequestFilter.html)
 is a server filter which allows us to manipulate requests. According
-to [filter and interceptor execution order](https://jersey.java.net/documentation/latest/user-guide.html#d0e8468),
+to [filter and interceptor execution order](https://jersey.java.net/documentation/latest/user-guide.html#d0e9762),
 we are only interested in pre-matching filters. Post-matching filters are not an option
 because the matching process has been already completed before they are fired, and a client
 request with the `application/vnd.allegro.public.v1+json` media type does not match any
@@ -370,7 +370,7 @@ public class PublicApiModelProcessorContextTest extends JerseyTest {
 
 ### Acknowledgments
 I would like to thank Łukasz Przybyła for his hard work and commitment while working on this
-task and the first implementation of `PublicApiModelProcessor`
+task and the first implementation of `PublicApiModelProcessor`.
 
 ### Summary
 [The Jersey framework](https://jersey.java.net/) is very flexible and really simplifies
