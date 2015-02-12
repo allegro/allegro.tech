@@ -216,7 +216,7 @@ code reviews or switching to REST).
 * system complexity – a consequence of having simple services is that we moved complexity of combining them to higher 
 level. Now we spend a lot of time on managing them and on designing business processes on them. We even have a new 
 “Solutions Architect” role in the company to do it. There are also a 
-[bunch of new challanges](http://contino.co.uk/microservices-not-a-free-lunch/) as network latency or fault tolerant 
+[bunch of new challanges](http://highscalability.com/blog/2014/4/8/microservices-not-a-free-lunch.html) as network latency or fault tolerant 
  which we have to address.
 * testing – testing in such an environment is not a trivial problem. To present a new feature created for the 
 “payment” area, you need to have a lot of other services working in your environment, e.g. service responsible 
