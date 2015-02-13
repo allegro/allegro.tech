@@ -769,6 +769,17 @@ html, body {
 }
 
 
+/* banner */
+
+.banner{
+    background: url("/img/banner/brain-bg.jpg") repeat-x;
+    overflow: hidden;
+}
+.banner img{
+    float: right;
+    max-width: 90%;
+}
+
 
 /* Syntax highlighting styles */
 /* ----------------------------------------------------------*/
