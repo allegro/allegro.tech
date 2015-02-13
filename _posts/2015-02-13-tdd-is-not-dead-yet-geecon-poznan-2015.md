@@ -55,7 +55,7 @@ what we expected and its performance depends on the environment in which it’s 
 of a `String.toLowerCase()` method with Turkish locale.
 
 ```
-assertEquals("billy", "BILL".toLowerCase(new Locale("tr","TR")));
+assertEquals("billy", "BILLY".toLowerCase(new Locale("tr","TR")));
 ```
 
 It’s easy, we should get “billy”, but the effect is quite surprising. Apparently the problem is known and is a nightmare
