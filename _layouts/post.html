@@ -5,35 +5,40 @@ comments: true
 <section class="post">
     <header class="post-header">
         <div class="content">
-            <time class="entry-date" datetime="{{ page.date}}"><span>{{ page.date | date: "<strong>%b %-d</strong> %Y" }}</span></time>
+            <time class="entry-date" datetime="{{ page.date}}"><span>{{ page.date | date: "<strong>%b %-d</strong> %Y" }}</span>
+            </time>
             <h1 class="post-title">{{ page.title }}</h1>
+
             <div class="post-meta">
                 <ul class="breadcrumb">
                     <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <a href="/blog" itemprop="url"><span itemprop="title">Allegro Tech Blog</a></span>
+                        <a href="/" itemprop="url"><span itemprop="title">Allegro Tech Blog</span></a>
                     </li>
-                    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    {% for author in page.author %}
-                    <a href="/authors/{{author}}"><span itemprop="title">{{site.data.members[author].name}}</span></a>
-                    {% endfor %}
+                    <li class="authors" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                        {% for author in page.author %}
+                        <a href="/authors/{{author}}" itemprop="author">
+                            {{site.data.members[author].name}}
+                        </a>
+                        {% endfor %}
                     </li>
-                    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">{{ page.title }}</span></li>
-                    </ul>
+                    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">{{ page.title }}</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </header>
     <article class="post-content">
-    <div class="content"> {{ content }} </div>
+        <div class="content"> {{ content }}</div>
     </article>
 </section>
- <section id="author" class="post-author">
-  {% for author in page.author %}
- <div class="content">
-    {%assign authorKey = author%}
-    {%assign authorData = site.data.members[author] %}
-    {% include single_author.html showLinkToPost=true %}
-</div>
-{% endfor %}
+<section id="author" class="post-author">
+    {% for author in page.author %}
+    <div class="content">
+        {%assign authorKey = author%}
+        {%assign authorData = site.data.members[author] %}
+        {% include single_author.html showLinkToPost=true %}
+    </div>
+    {% endfor %}
 </section>
 {% if page.comments %}
 <section class="comments">
@@ -41,15 +46,20 @@ comments: true
         <div class="social">
             <h4>Share this post</h4>
             <ul>
-                <li><a class="share-button" href="https://plus.google.com/share?url={{site.url}}{{page.url}}">   <span class="icon gooogle">
-                    <svg height="24px" id="Layer_1" style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M5.738,21.409c0,5.916,3.108,14.669,10.679,14.669  c2.199,0,4.455-0.561,5.902-2.211c1.651-1.891,2.299-4.381,2.299-5.655c0-6.363-3.688-16.256-10.99-16.256  c-2.29,0-4.752,1.147-6.163,2.915C5.969,16.727,5.738,19.108,5.738,21.409z M11.98,39.604c-3.995,0-6.568-0.854-8.98-2.858V13.899  c5.017-4.154,10.527-4.846,15.144-4.932h18.603l-4.941,3.986h-5.395c2.161,1.873,5.385,5.223,5.385,11.191  c0,6.536-3.444,9.633-7.142,12.545c-1.145,1.146-2.464,2.386-2.464,4.332c0,1.939,1.319,3,2.286,3.797l3.172,2.468  c3.872,3.271,8.931,6.278,8.929,12.374c0,1.635-0.27,2.669-0.785,4.337L30.527,64c0.019-0.249,0.017-0.413,0.017-0.891  c0-4.512-4.303-6.891-10.998-11.663c-0.701-0.091-1.141-0.091-2.017-0.091c-0.796,0-5.549,0.178-9.247,1.416  C7.012,53.234,4.817,53.531,3,55.999v-4.632c5.025-2.158,10.194-2.26,13.558-2.487c-1.234-1.593-2.64-3.271-2.64-6.005  c0-1.501,0.441-2.386,0.88-3.448C13.828,39.514,12.863,39.604,11.98,39.604z M3,4h60v16.071H51.797V8.909h-4.783v11.162H35.851  v4.687h11.163V36.02h4.783V24.758H63V64H3V4z" class="ico"/></svg>
+                <li><a class="share-button" href="https://plus.google.com/share?url={{site.url}}{{page.url}}">   <span
+                    class="icon gooogle">
+                    <svg height="24px" id="Layer_1" style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" ><path d="M5.738,21.409c0,5.916,3.108,14.669,10.679,14.669  c2.199,0,4.455-0.561,5.902-2.211c1.651-1.891,2.299-4.381,2.299-5.655c0-6.363-3.688-16.256-10.99-16.256  c-2.29,0-4.752,1.147-6.163,2.915C5.969,16.727,5.738,19.108,5.738,21.409z M11.98,39.604c-3.995,0-6.568-0.854-8.98-2.858V13.899  c5.017-4.154,10.527-4.846,15.144-4.932h18.603l-4.941,3.986h-5.395c2.161,1.873,5.385,5.223,5.385,11.191  c0,6.536-3.444,9.633-7.142,12.545c-1.145,1.146-2.464,2.386-2.464,4.332c0,1.939,1.319,3,2.286,3.797l3.172,2.468  c3.872,3.271,8.931,6.278,8.929,12.374c0,1.635-0.27,2.669-0.785,4.337L30.527,64c0.019-0.249,0.017-0.413,0.017-0.891  c0-4.512-4.303-6.891-10.998-11.663c-0.701-0.091-1.141-0.091-2.017-0.091c-0.796,0-5.549,0.178-9.247,1.416  C7.012,53.234,4.817,53.531,3,55.999v-4.632c5.025-2.158,10.194-2.26,13.558-2.487c-1.234-1.593-2.64-3.271-2.64-6.005  c0-1.501,0.441-2.386,0.88-3.448C13.828,39.514,12.863,39.604,11.98,39.604z M3,4h60v16.071H51.797V8.909h-4.783v11.162H35.851  v4.687h11.163V36.02h4.783V24.758H63V64H3V4z" class="ico"/></svg>
                     </span></a>
                 </li>
-                <li><a href="https://twitter.com/intent/tweet?url={{site.url}}{{page.url}}&amp;text={{page.title}} by @AllegroTechBlog"><span class="icon twitter">
-                    <svg height="24px" id="Layer_1" style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.567  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.674,5.657-5,6.978-8.221c0.713-1.715,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M3,4h60v60H3V4z"  class="ico" /></svg></span></a>
+                <li><a
+                    href="https://twitter.com/intent/tweet?url={{site.url}}{{page.url}}&amp;text={{page.title}} by @AllegroTechBlog"><span
+                    class="icon twitter">
+                    <svg height="24px" id="Layer_1" style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" ><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.567  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.674,5.657-5,6.978-8.221c0.713-1.715,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M3,4h60v60H3V4z"  class="ico" /></svg></span></a>
                 </li>
-                <li><a class="share-button" href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{page.url}}"><span class="icon facebook">
-                    <svg height="24px" id="Layer_1" style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M3,4h60v60H3V4z" class="ico" /></svg>
+                <li><a class="share-button"
+                       href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{page.url}}"><span
+                    class="icon facebook">
+                    <svg height="24px" id="Layer_1" style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" ><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M3,4h60v60H3V4z" class="ico" /></svg>
                     </span></a>
                 </li>
             </ul>
@@ -58,15 +68,16 @@ comments: true
     <div id="disqus_thread" class="content"></div>
 </section>
 <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'allegrotechio'; // required: replace example with your forum shortname
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
+    var disqus_shortname = 'allegrotechio';
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 {% endif %}
