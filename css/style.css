@@ -441,6 +441,7 @@ html, body {
     padding: 20px 20px 0 20px;
     color: #555;
     text-align: right;
+    overflow: hidden;
 }
 
 .posts .post-meta img {
