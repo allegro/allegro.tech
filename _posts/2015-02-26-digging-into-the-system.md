@@ -43,7 +43,7 @@ kernel level, what capabilities it has and how you can leverage its power in eve
 
 ### System calls
 
-Before going further, it is crucial to explain what a *system calls* is and how the usage of system calls affects performance.
+Before going further, it is crucial to explain what a *system call* is and how the usage of system calls affects performance.
 According to Wikipedia a *[system call](http://en.wikipedia.org/wiki/System_call)* can be defined as follows:
 
 > In computing, a system call is how a **program requests a service from an operating system's kernel**. This may
