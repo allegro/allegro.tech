@@ -20,23 +20,23 @@ Kirk states:
 
 > The final layer in the box is Hardware. This is a static layer that has a finite capacity. The CPU can only process
 > so many instructions per second, memory can only hold so much data, I/O channels are limited data transfer rates, disks
-> have a fixed capacity. It hardly needs to be said that if you don't have enough capacity in your hardware, your
-> application's performance will suffer. Given the direct impact that hardware has on performance, all investigations
+> have a fixed capacity. It hardly needs to be said that if you don’t have enough capacity in your hardware, your
+> application’s performance will suffer. Given the direct impact that hardware has on performance, all investigations
 > must start here.
 
 Our main task, when investigating this layer is to understand *what* and *how* shared hardware resources are used by
 our application. Given this knowledge we can move up “the box” understanding how each next layer utilises resources and
 what impact it has on overall performance as seen by the end user.
 
-If you are familiar with [Brendan Gregg's](http://www.brendangregg.com) [Linux Observability
+If you are familiar with [Brendan Gregg’s](http://www.brendangregg.com) [Linux Observability
 Tools](http://www.brendangregg.com/Perf/linux_observability_tools.png) diagram (presented below), you can clearly see
 that tool selection under Linux operating system is overwhelming.
 
 ![Linux Observability Tools](/img/articles/2015-02-26-digging-into-the-system/linux_observability_tools.png)
 
 Most of them require extensive knowledge on system internals, how to use them and how to read the results. These
-are exactly the reasons why I think sysdig is a great tool for everyone involved in performance troubleshooting: it's
-flexible, extensible and it's easy to learn.
+are exactly the reasons why I think sysdig is a great tool for everyone involved in performance troubleshooting: it’s
+flexible, extensible and extremely easy to learn.
 
 In the next couple of sections I will try to convince you to the above statement showing you how sysdig works on the
 kernel level, what capabilities it has and how you can leverage its power in everyday work.
@@ -46,7 +46,7 @@ kernel level, what capabilities it has and how you can leverage its power in eve
 Before going further, it is crucial to explain what a *system call* is and how the usage of system calls affects performance.
 According to Wikipedia a *[system call](http://en.wikipedia.org/wiki/System_call)* can be defined as follows:
 
-> In computing, a system call is how a **program requests a service from an operating system's kernel**. This may
+> In computing, a system call is how a **program requests a service from an operating system’s kernel**. This may
 > include hardware-related services (for example, accessing a hard disk drive), creation and execution of new processes,
 > and communication with integral kernel services such as process scheduling. **System calls provide an essential
 > interface between a process and the operating system.**
@@ -94,7 +94,7 @@ are traceable can be found using command `perf list 'syscalls:*'`. Output should
 ```
 
 As you can see, tracepoints allow capturing system call entry and exit points so the processing time on the kernel side can
-be determined (let's call it *latency*). There are many more tracepoints beside *syscalls* but they are not captured by
+be determined (let’s call it *latency*). There are many more tracepoints beside *syscalls* but they are not captured by
 sysdig as of version 0.1.93 so we will not cover them here (you can always play with [perf
 tool](http://www.brendangregg.com/perf.html) and get every possible piece of information directly from the kernel).
 
@@ -108,14 +108,14 @@ Sysdig consists of three main parts:
 * kernel module called *sysdig_probe* that is responsible for publishing captured events into the ring,
 * sysdig client tool that reads, filters and processes published events.
 
-This straightforward architecture enables sysdig's low overhead way of tracing system calls and scheduling events on
+This straightforward architecture enables sysdig’s low overhead way of tracing system calls and scheduling events on
 the kernel side as kernel module itself is only responsible on copying events details (please note that probe will halt
 kernel execution so having less work to do will yield greater throughput). Most of the work is then done in the user
 space where events are read from ring buffer, decoded, filtered, processed in anyway and displayed to the user.
 
 ## Using sysdig
 
-As we get through this boring introduction it is time to play with sysdig and unleash it's power.
+As we get through this boring introduction it is time to play with sysdig and unleash its power.
 
 Installation is quite easy and involves [issuing single command](http://www.sysdig.org/install/) as root:
 
@@ -161,7 +161,7 @@ As you can see from the summary (printed when using verbose flag: ```-v```) we h
 run on a system that basically does nothing (ssh is running).
 
 ### Understanding output
-Now let's decipher meaning of each column in a line (example #2):
+Now let’s decipher meaning of each column in a line (example #2):
 
 ```
 3 22:33:58.835496768 0 sshd (978) < accept fd=5(<4t>89.70.xx.xxx:52590->172.31.xx.xxx:22)
@@ -225,13 +225,13 @@ We have captured, wrote and read back exactly the same number of events - this i
 Most of the programs rely on system resources heavily (thus doing a lot of system calls) and the number of events
 sysdig is able to capture is overwhelming - reading it line by line would be cumbersome task.
 
-Here comes great usability of sysdig: it's filtering capabilities. Sysdig allows you to filter on fields using number
+Here comes great usability of sysdig: its filtering capabilities. Sysdig allows you to filter on fields using number
 of comparison operators: ```=, !=, <, <=, >, >=, contains``` and logical ones: ```and, or, not```.
 
 If you wonder what fields are associated with each generic event you should definitely run ```sysdig -l``` and for the
 list of event types and their arguments (*evt.args*) ```sysdig -L```.
 
-Having this knowledge let's try something simple and find out if someone has tried to connect to our sshd (we will
+Having this knowledge let’s try something simple and find out if someone has tried to connect to our sshd (we will
 filter event using process name, event type and event direction over previously collected trace file):
 
 ```
@@ -246,7 +246,7 @@ tuple=62.210.xxx.xxx:41037->172.31.xx.xxx:22 queuepct=0
 
 By accident I just discovered that someone has tried to log into my AWS instance.
 
-Let's try to see what login and password he or she has tried:
+Let’s try to see what login and password he or she has tried:
 
 ```
 ~# sysdig -AvDr filename  "proc.name=sshd and evt.type=read and fd.num=6 and evt.dir=<"
@@ -264,17 +264,17 @@ walters123
 vortal
 ```
 
-Busted! Someone is trying to brute-force my root account (so sad it's disabled) using dictionary passwords. Nice try but
-I'm not using password-based authentication unfortunately ;)
+Busted! Someone is trying to brute-force my root account (so sad it’s disabled) using dictionary passwords. Nice try but
+I’m not using password-based authentication unfortunately ;)
 
 ### Beyond filtering
 
-So far we have seen only very basic filtering capabilities. Let's move on to more complex examples and format some
+So far we have seen only very basic filtering capabilities. Let’s move on to more complex examples and format some
 output.
 
 As an example we will dump list of files read by [nginx](http://nginx.org/) on my private server.
 
-First of all let's create a trace file:
+First of all let’s create a trace file:
 
 ```
 ~# sysdig -s 65536 -vSzw nginx.scap "proc.name=nginx"
@@ -301,12 +301,12 @@ some stats omitted
 ...
 ```
 
-Notice that I'm using ```-z``` flag so that trace file will be compressed and I'm also prefiltering data so only events
+Notice that I’m using ```-z``` flag so that trace file will be compressed and I’m also prefiltering data so only events
 related to nginx process will be captured. ```-s``` flag determines how many bytes of buffer will be captured on I/O
 events (like reading from or writing to file).
 
-In this example I'm particularly interested in [open](http://linux.die.net/man/2/open) syscall to see what files have
-been “touched” by web server and how many times. I would like also to export directory of the file, it's filename and
+In this example I’m particularly interested in [open](http://linux.die.net/man/2/open) syscall to see what files have
+been “touched” by web server and how many times. I would like also to export directory of the file, its name and
 event timestamp in JSON format. Here is how it can be achieved:
 
 ```
@@ -323,10 +323,10 @@ sysdig -r nginx.scap -j -p "%evt.time %fd.directory %fd.filename" "evt.type=open
 {"evt.time":1422296765112198482,"fd.directory":"/var/www/site/assets/fonts/","fd.filename":"icons.woff"}]
 ```
 
-That's it - only single command with ```-j``` flag responsible for returning events in JSON format and ```-p```
+That’s it - only single command with ```-j``` flag responsible for returning events in JSON format and ```-p```
 allowing you to select (or format) which fields will be a part of the output.
 
-Given the powerful filtering and formatting syntax it's extremely easy to analyze and understand behaviour of your
+Given the powerful filtering and formatting syntax it’s extremely easy to analyze and understand behaviour of your
 applications.
 
 ### But there is one more thing
@@ -363,7 +363,7 @@ You can execute them over generated trace or live data using ```-c``` flag:
 18:26:05 in:3371 out:42211 tot:4
 ```
 
-Then to display more information about a chisel (and it's arguments) ```-i``` flag can be used:
+Then to display more information about a chisel (and its arguments) ```-i``` flag can be used:
 
 ```
 ~# sysdig -i iobytes_net
@@ -384,7 +384,7 @@ writing chisels is quite pleasant task.
 
 As a best recommendation I can share with you that it took me about an hour to write simple [socket inactivity
 detector](https://gist.github.com/wendigo/b5f0bfa6c271c8cd27a2) without prior knowledge and experience in writing
-chisels or Lua programming language. Cool, isn't it?
+chisels or Lua programming language. Cool, isn’t it?
 
 ## Summary
 
