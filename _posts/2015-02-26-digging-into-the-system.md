@@ -8,7 +8,7 @@ tags: [linux, performance, tools]
 This post is an introduction to [sysdig](http://sysdig.org) — an “open source, system-level exploration” tool that ease
 the task of performance troubleshooting in Linux operating system.
 
-### The Box
+## The Box
 
 When it comes to understanding performance characteristics of applications I use a method called “The Box”
 introduced to me by Kirk Pepperdine during [Java Performance Workshop](http://www.kodewerk.com/workshop.html). Box itself is an abstraction of the complete system
@@ -25,7 +25,7 @@ Kirk states:
 > must start here.
 
 Our main task, when investigating this layer is to understand *what* and *how* shared hardware resources are used by
-our application. Given this knowledge we can move up "the box" understanding how each next layer utilises resources and
+our application. Given this knowledge we can move up “the box” understanding how each next layer utilises resources and
 what impact it has on overall performance as seen by the end user.
 
 If you are familiar with [Brendan Gregg's](http://www.brendangregg.com) [Linux Observability
@@ -41,7 +41,7 @@ flexible, extensible and it's easy to learn.
 In the next couple of sections I will try to convince you to the above statement showing you how sysdig works on the
 kernel level, what capabilities it has and how you can leverage its power in everyday work.
 
-### System calls
+## System calls
 
 Before going further, it is crucial to explain what a *system call* is and how the usage of system calls affects performance.
 According to Wikipedia a *[system call](http://en.wikipedia.org/wiki/System_call)* can be defined as follows:
@@ -66,12 +66,12 @@ You can read more about system calls and how they are implemented in Linux in fo
 * [man: syscall](http://man7.org/linux/man-pages/man2/syscall.2.html)
 * [osdev: SYSENTER/SYSEXIT CPU instructions](http://wiki.osdev.org/SYSENTER).
 
-For the complete (hope so) list of system calls please refer either to
+For the complete list of system calls please refer either to
 [man](http://man7.org/linux/man-pages/man2/syscalls.2.html), [linux syscall reference](http://syscalls.kernelgrok.com/)
 or [system call quick
 reference](http://www.digilife.be/quickreferences/qrc/linux%20system%20call%20quick%20reference.pdf).
 
-### Tracepoints
+## Tracepoints
 
 Sysdig makes use of a kernel facility called [tracepoints](https://www.kernel.org/doc/Documentation/trace/tracepoints.txt) introduced in kernel version 2.6.28 (released December 2008).
 This mechanism allows developers to attach *probes* to specific functions inside the kernel. List of all tracepoints that
@@ -94,7 +94,7 @@ are traceable can be found using command `perf list 'syscalls:*'`. Output should
 ```
 
 As you can see, tracepoints allow capturing system call entry and exit points so the processing time on the kernel side can
-be determined (let's call it *latency*). There are many more tracepoints beside syscalls but they are not captured by
+be determined (let's call it *latency*). There are many more tracepoints beside *syscalls* but they are not captured by
 sysdig as of version 0.1.93 so we will not cover them here (you can always play with [perf
 tool](http://www.brendangregg.com/perf.html) and get every possible piece of information directly from the kernel).
 
@@ -113,17 +113,17 @@ the kernel side as kernel module itself is only responsible on copying events de
 kernel execution so having less work to do will yield greater throughput). Most of the work is then done in the user
 space where events are read from ring buffer, decoded, filtered, processed in anyway and displayed to the user.
 
-### Using sysdig
+## Using sysdig
 
 As we get through this boring introduction it is time to play with sysdig and unleash it's power.
 
-Installation is quite easy and involves [issuing single command](http://www.sysdig.org/install/):
+Installation is quite easy and involves [issuing single command](http://www.sysdig.org/install/) as root:
 
 ```
 curl -s https://s3.amazonaws.com/download.draios.com/stable/install-sysdig | sudo bash
 ```
 
-When the installation succeded you will note that kernel module is loaded and ring buffer is ready:
+When the installation succeeded you will note that kernel module is loaded and ring buffer is ready:
 
 ```
 ~# lsmod  | grep sysdig
@@ -160,7 +160,7 @@ Elapsed time: 0.291, Captured Events: 9095, 31256.98 eps
 As you can see from the summary (printed when using verbose flag: ```-v```) we have captured 9095 events during 0.2 s
 run on a system that basically does nothing (ssh is running).
 
-#### Understanding output
+### Understanding output
 Now let's decipher meaning of each column in a line (example #2):
 
 ```
@@ -190,7 +190,7 @@ Then you should definitely notice huge number of **Driver drops** in the example
 module is clever enough to drop events when the ring buffer is full and client is not able to keep up. **Thanks to that
 there is no danger of a sudden system slow down which makes sysdig suitable for production usage.**
 
-### Capturing and reading events
+## Capturing and reading events
 
 Instead of displaying events to the console (which causes high number of *Driver drops* as formatting and writing
 output takes small but significant amount of time) we will capture them, write to the disk and analyze later (**this is
@@ -220,10 +220,10 @@ Elapsed time: 0.547, Captured Events: 16640, 30402.69 eps
 
 We have captured, wrote and read back exactly the same number of events - this is actually pretty good sign.
 
-#### Filtering the data
+### Filtering the data
 
 Most of the programs rely on system resources heavily (thus doing a lot of system calls) and the number of events
-sysdig is able to capture is overhealming - reading it line by line would be cumbersome task.
+sysdig is able to capture is overwhelming - reading it line by line would be cumbersome task.
 
 Here comes great usability of sysdig: it's filtering capabilities. Sysdig allows you to filter on fields using number
 of comparison operators: ```=, !=, <, <=, >, >=, contains``` and logical ones: ```and, or, not```.
@@ -264,15 +264,15 @@ walters123
 vortal
 ```
 
-Busted! Someone is trying to bruteforce my root account (so sad it's disabled) using dictionary passwords. Nice try but
+Busted! Someone is trying to brute-force my root account (so sad it's disabled) using dictionary passwords. Nice try but
 I'm not using password-based authentication unfortunately ;)
 
-#### Beyond filtering
+### Beyond filtering
 
 So far we have seen only very basic filtering capabilities. Let's move on to more complex examples and format some
 output.
 
-As an example we will dump list of files read by nginx on my private server.
+As an example we will dump list of files read by [nginx](http://nginx.org/) on my private server.
 
 First of all let's create a trace file:
 
@@ -305,8 +305,8 @@ Notice that I'm using ```-z``` flag so that trace file will be compressed and I'
 related to nginx process will be captured. ```-s``` flag determines how many bytes of buffer will be captured on I/O
 events (like reading from or writing to file).
 
-In this example I'm particulary interested in [open](http://linux.die.net/man/2/open) syscalls to see what files have
-been "touched" by webserver and how many times. I would like also to export directory of the file, it's filename and
+In this example I'm particularly interested in [open](http://linux.die.net/man/2/open) syscall to see what files have
+been “touched” by web server and how many times. I would like also to export directory of the file, it's filename and
 event timestamp in JSON format. Here is how it can be achieved:
 
 ```
@@ -329,13 +329,13 @@ allowing you to select (or format) which fields will be a part of the output.
 Given the powerful filtering and formatting syntax it's extremely easy to analyze and understand behaviour of your
 applications.
 
-#### But there is one more thing
+### But there is one more thing
 
 Unfortunately sometimes you will need to analyze not a single event but sequences of ordered events in a stateful
 manner. If you are familiar with [dtrace](http://dtrace.org/) you probably know that it supports writing event-based
 scripts. Analogue concept in sysdig is called *chisel*.
 
-***Chisels*** are small, reusable scripts written in [lua programming language](http://www.lua.org/) and I can say that
+***Chisels*** are small, reusable scripts written in [Lua programming language](http://www.lua.org/) and I can say that
 they are quite easy to write :)
 
 Sysdig comes with a couple of useful chisels out of the box:
@@ -379,14 +379,14 @@ Args:
 
 Lua syntax is powerful and easy to understand and [chisel
 API](https://github.com/draios/sysdig/wiki/Sysdig-Chisel-API-Reference-Manual) consists of only handful of functions so
-writing chisels is quite pleasent task.
+writing chisels is quite pleasant task.
 
 
 As a best recommendation I can share with you that it took me about an hour to write simple [socket inactivity
 detector](https://gist.github.com/wendigo/b5f0bfa6c271c8cd27a2) without prior knowledge and experience in writing
 chisels or Lua programming language. Cool, isn't it?
 
-### Summary
+## Summary
 
 For me ***sysdig*** is great, easy to understand and use tool for **online/offline**, production profiling and analysis
 tasks. It comes with powerful filtering and formatting capabilities, [very good
