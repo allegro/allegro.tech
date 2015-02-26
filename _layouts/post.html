@@ -16,9 +16,7 @@ comments: true
                     </li>
                     <li class="authors" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
                         {% for author in page.author %}
-                        <a href="/authors/{{author}}" itemprop="author">
-                            {{site.data.members[author].name}}
-                        </a>
+                        <a href="/authors/{{author}}" itemprop="author">{{site.data.members[author].name}}</a>
                         {% endfor %}
                     </li>
                     <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">{{ page.title }}</span>
