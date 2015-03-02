@@ -41,7 +41,7 @@
             if (placeholderElement) {
                 reqwest({
                     // url: 'https://api.github.com/users/allegro/repos?per_page=9000',
-                    url: 'js/repositories.json',
+                    url: '../js/repositories.json',
                     type: 'json',
                     method: 'get',
                     error: function(err) {},
