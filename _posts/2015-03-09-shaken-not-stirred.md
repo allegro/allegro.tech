@@ -62,10 +62,10 @@ and they were even creating team names every iteration to build some identity of
 While work progressed we discovered more and more obstacles joining two separate 
 teams together:
 
-— Each team had its own culture, habits, style of work and cooperation.
-— Each team had its own coding standards and different definitions of “high quality”.
-— The more people, wider the perspective on problems to solve, but it also became more difficult to reach consensus or even any agreement.
-— The more people, the more difficult it was for the team to self-organise.
+* Each team had its own culture, habits, style of work and cooperation.
+* Each team had its own coding standards and different definitions of “high quality”.
+* The more people, wider the perspective on problems to solve, but it also became more difficult to reach consensus or even any agreement.
+* The more people, the more difficult it was for the team to self-organise.
 
 Furthermore, creating new teams with different members every sprint resulted in unconstructive 
 retrospectives that were focusing on high-level work improvements for the whole pool of developers 
@@ -123,12 +123,12 @@ and frustration of team members. However, if I were to evaluate the experiment, 
 it ended badly. We have learned a lot, drew conclusions and we know how to do it again, better. Scaling Scrum is always a difficult concept in practice. 
 Teams that are to work together, need time to work out the way they are the most productive towards a common goal.
 
-– Start with defining clear entry and exit conditions of any experiment you participate in.
-— Allow time to establish detailed working contract when there is more than one team working on the same goal.
-— Scrum events apply to scrum teams, if there are more teams involved at once, do not throw them into the same basket, it’s more effective to let them go through the whole sprint individually and then synchronise.
-— Keep teams stable, frequent shifts have detrimental effect on group dynamics.
-— Allow teams to have a responsibility for a product being developed, frequent context switches inhibit accountability and impede work.
-— Trust yourself and your teams.
+* Start with defining clear entry and exit conditions of any experiment you participate in.
+* Allow time to establish detailed working contract when there is more than one team working on the same goal.
+* Scrum events apply to scrum teams, if there are more teams involved at once, do not throw them into the same basket, it’s more effective to let them go through the whole sprint individually and then synchronise.
+* Keep teams stable, frequent shifts have detrimental effect on group dynamics.
+* Allow teams to have a responsibility for a product being developed, frequent context switches inhibit accountability and impede work.
+* Trust yourself and your teams.
 
 That is the thing about experiments: they cannot end well or bad. As long as they give you a chance 
 to verify your assumptions or ideas, they serve their purpose. And the more you try, the higher 
