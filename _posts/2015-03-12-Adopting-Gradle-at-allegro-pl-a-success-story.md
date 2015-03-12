@@ -48,7 +48,7 @@ At first, Gradle was chosen for toy projects like proofs of concept,
 small projects created to run a training and so on.
 
 When it turned out that Gradle gives us a kick, a few bravest teams adopted it for
-production projects. Then we asked [Gradleware](www.gradleware.com) to run a training for us and
+production projects. Then we asked [Gradleware](http://www.gradleware.com) to run a training for us and
 we think it was money well invested. Other teams started to follow.
 
 ## Where we are now
@@ -172,16 +172,16 @@ like the community, Gradle itself is very much alive, with releases every couple
 new features and enhancements.
 
 ### Flexibility
-One of the many things hurting you when using Maven are its limits. First of all, since you 
-work with a configuration in XML, a markup language, you are limited by what the plugins’ 
+One of the many things hurting you when using Maven are its limits. First of all, since you
+work with a configuration in XML, a markup language, you are limited by what the plugins’
 authors provided for you. Gradle allows you to
-perform simple modifications to the build process with just a few lines of Groovy code. 
-When you do need plugins, you configure them with Groovy code as well, so you can achieve 
+perform simple modifications to the build process with just a few lines of Groovy code.
+When you do need plugins, you configure them with Groovy code as well, so you can achieve
 things like configuring the parameters conditionally or computing them in runtime very easily.
 
-Maven imposes its idea for the build lifecycle that you cannot alter (or which is cumbersome 
+Maven imposes its idea for the build lifecycle that you cannot alter (or which is cumbersome
 to do, depending on which Maven version you use). So, unless your desired
-behaviour fits into this pre-defined flow, there’s not much you can do, even with plugins. 
+behaviour fits into this pre-defined flow, there’s not much you can do, even with plugins.
 Gradle, on the other hand, allows you to shape the build process the way you want.
 
 ### Custom plugins
@@ -284,7 +284,7 @@ Gradle comes with a feature called the Gradle daemon, which reduces the startup 
 When enabled, Gradle process will remain running after the tasks finished and will be reused the next time your call Gradle.
 This way you save the time on spawning a new JVM instance, a couple of seconds, which is relatively long for
 short-running tasks. There are plans to develop the daemon even more,
- e.g. make it do some work in the background preemptively, and 
+ e.g. make it do some work in the background preemptively, and
  make the builds much faster as a result.
 
 ## The pitfalls
