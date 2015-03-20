@@ -11,24 +11,27 @@ integration and so on. Number of tools, frameworks and even languages is enormou
 [Junit](http://junit.org/),
 [mockito](http://mockito.org/),
 [gebish](http://www.gebish.org/),
-[jbehave](http://jbehave.org/),
+[jBehave](http://jbehave.org/),
 [Cucumber](https://cukes.info/),
 [concordian](http://concordion.org/),
 [selenium](http://www.seleniumhq.org/),
 [testNG](http://testng.org/)
  and many others helps you verify your code is working properly.
 I believe all of you are familiar with TDD and BDD methodologies which are more than standard now. But all these
-solutions have one thing in common. Most of mentioned above kind of test check only your preprod environment.
+solutions have one thing in common. Most of mentioned above kinds of test check only your preprod environment.
 
 ###Does it work?
-Our team is working on new listing in allegro. Listing is that place in our marketplace service where we present
-offers' list. Testing data correctness is especially important for us because we don't want to display different info
-than this you can see on the offer's page. Every microservice we own has integration and of course unit tests. Whole listing
-is also verified by behavioral tests. After every commit our code is check by first two kind of tests and before
-release on production behavioral test must pass. Obviously each change is also verified by Software Quality Assurance
-stage. As you may know Allegro is available from your smartphone and tablet so we have to check if everything is
-working well on mobile devices. However when our Product Owner, after short listing failure, asked us if application
-is working properly again we had problem with answer.
+Our team works on new listing in Allegro. Listing is that place in our marketplace service where we present
+offers' list. Currently Allegro is divided into two listing versions. Old, legacy and written in PHP and new one
+based on microservices and java. Because our service has dedicated data storage different from old listing database
+sometimes information displayed on offers' list and offer's page are inconsistent. There are several cases
+that could happen — for example when something goes wrong with event bus which is our offers' info source.That's why
+testing data correctness is especially important for us. We simply don't want misleading our users. Every microservice
+we own has integration and of course unit tests. Whole listing is also verified by behavioral tests. After every commit
+our code is checked by first two kind of tests and before release on production behavioral test must pass. Obviously each
+change is also verified by Software Quality Assurance stage. As you may know Allegro is available from your
+smartphone and tablet so we have to check if everything is working well on mobile devices. However when our Product
+Owner, after short listing failure, asked us if application is working properly again we had problem with answer.
 
 ###Simple answer?
 Of course thanks to monitoring we can answer to question about current memory or CPU usage. Graphite metrics give us
@@ -46,16 +49,16 @@ application from every unsupported thing user do? Or from little change in exter
 Most of them we can find by well written integration tests but that's only majority not everything.
 
 ###Prod?
-Our listing is tested few million times per day. Naturally I am talking about our users who is searching, sorting and
-filtering offers every day. And they are finding bugs. They sometimes notify us about some malfunction but those reports
-are often incomplete. We don't know what browser does user use or which listing version is affected. Reproducing
+Our listing is tested few million times per day. Naturally I am talking about our users who search, sort and
+filter offers every day. And they find bugs. They sometimes notify us about some malfunction but those reports
+are often incomplete. We don't know what browser does user use or if he found bug on old or new listing. Reproducing
 error is pretty hard and sometimes even impossible. That leads us to testing prod on our own conditions. We of course
 know that this won't give us completely assurance. We treat this as just another step to provide as perfect
 data as we can. But how do we do that?
 
 ###Red Cucumber?
-So, we are on a prod. Without possibility to mock. With zero knowledge what do we find on next listing pages. What
-can we use? We already testing listings on preprod environment with behavior tests based on jbehave and selenium.
+So, we are on a prod. Without possibility to mock. With limited knowledge what do we find on next listing pages. What
+can we use? We have already tested listings on preprod environment with behavior tests based on jBehave and selenium.
 We could use the same configuration but why don't use something more exotic? Ruby and Cucumber sounds good enough in
 our every day java world. We wanted something that doesn't require a lot of configuration with complicated environment
 and ruby seems to fulfill those requirements. On the other hand we got everything we need to test production listings.
@@ -71,7 +74,7 @@ Alright, so how does production test look like? Let's see:
     Then All items should have price within given range
 ```
 
-Simple as that. Nothing extraordinary, common given-when-then construction and basic english. So in our example
+Simple as that. Nothing extraordinary, common given-when-then construction and basic English. So in our example
 we visit random new listing page then we filter offers by price from-to and in the end we check if every item has
 price in given range. That obviously does not guarantee that item has correct price. But it helps notice most of
 incorrect data. Maybe not after one run, but after a dozen or so. Another good example is test where we check if
@@ -104,7 +107,7 @@ Regardless someone released new version of service your application is working w
 Working with production tests is a piece of cake. Amount of code we wrote to cover several test cases is
 ridiculously low. Whole project consist of one steps definition file, one yaml file containing xpath descriptions and
 few .feature files with scenarios. Running test requires ruby with two gem packages — selenium-webdriver
-and Cucumber. Another thing you need is browser. For us it is firefox but there is no reason you can't use phantomjs or
+and Cucumber. Another thing you need is browser. For us it is Firefox but there is no reason you can't use phantomjs or
 anything else. We regularly run Cucumber features from CI environment. But what if one of tests fail? CI build generates
 log with detailed description of failure and screenshot of entire page which we can use to investigate cause.
 
@@ -122,8 +125,10 @@ from example above because fail of service which determine what items display on
 We can examine this later, information that problem exist is sufficient for now.
 
 ###So guys, does it work?
-Last thing we want to implement is running all scenarios even hundreds times per single build when we suspect that
-something may be wrong with our data. After test we want know scale of problem. We don't care about single cases
+
+Last thing we want to implement is running all scenarios even hundreds times per single build. And run builds all the
+time, not only after deploy. Verify huge number of pages, with all filters, search phrases and every kind of sorting
+should give us enough assurance. After test we want know scale of problem. We don't care about single cases
 and one, particular item. We just need answer for Product Owner: „yes, our data is totally correct”, or „no, 187 of
 519000 items have wrong data”. Right now we just get info that single items are broken and that may mean something
 bigger is broken. But it's piece of useful information, isn't it?
