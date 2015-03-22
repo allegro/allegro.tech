@@ -9,23 +9,23 @@ As a modern, agile and often fluent in multiple languages developer you must kno
 applications nowadays. Your application can be tested by several test types like unit, acceptance, behavioral,
 integration and so on. Number of tools, frameworks and even languages is enormous.
 [Junit](http://junit.org/),
-[mockito](http://mockito.org/),
-[gebish](http://www.gebish.org/),
+[Mockito](http://mockito.org/),
+[Geb](http://www.gebish.org/),
 [jBehave](http://jbehave.org/),
 [Cucumber](https://cukes.info/),
-[concordian](http://concordion.org/),
-[selenium](http://www.seleniumhq.org/),
-[testNG](http://testng.org/)
+[Concordian](http://concordion.org/),
+[Selenium](http://www.seleniumhq.org/),
+[TestNG](http://testng.org/)
  and many others helps you verify your code is working properly.
 I believe all of you are familiar with TDD and BDD methodologies which are more than standard now. But all these
 solutions have one thing in common. Most of mentioned above kinds of test check only your preprod environment.
 
 ###Does it work?
-Our team works on new listing in Allegro. Listing is that place in our marketplace service where we present
+Our team works on new listing in [Allegro](http://allegro.pl). Listing is that place in our marketplace service where we present
 offers' list. Currently Allegro is divided into two listing versions. Old, legacy and written in PHP and new one
-based on microservices and java. Because our service has dedicated data storage different from old listing database
+based on microservices and Java. Because our service has dedicated data storage different from old listing database
 sometimes information displayed on offers' list and offer's page are inconsistent. There are several cases
-that could happen — for example when something goes wrong with event bus which is our offers' info source.That's why
+that could happen — for example when something goes wrong with event bus which is our offers' info source. That's why
 testing data correctness is especially important for us. We simply don't want misleading our users. Every microservice
 we own has integration and of course unit tests. Whole listing is also verified by behavioral tests. After every commit
 our code is checked by first two kind of tests and before release on production behavioral test must pass. Obviously each
@@ -34,7 +34,7 @@ smartphone and tablet so we have to check if everything is working well on mobil
 Owner, after short listing failure, asked us if application is working properly again we had problem with answer.
 
 ###Simple answer?
-Of course thanks to monitoring we can answer to question about current memory or CPU usage. Graphite metrics give us
+Of course thanks to monitoring we can answer to question about current memory or CPU usage. [Graphite](https://github.com/graphite-project/graphite-web) metrics give us
 knowledge for example about how many events do we receive from other services and [NewRelic](http://newrelic.com/) collect essentials and most
 important data in one place. [PagerDuty](http://www.pagerduty.com/) notifies us about every listing's inaccessibility or any uncommon
 behavior of application. But do we display correct information on offers list? Does 273 page in child clothes category
@@ -58,9 +58,9 @@ data as we can. But how do we do that?
 
 ###Red Cucumber?
 So, we are on a prod. Without possibility to mock. With limited knowledge what do we find on next listing pages. What
-can we use? We have already tested listings on preprod environment with behavior tests based on jBehave and selenium.
+can we use? We have already tested listings on preprod environment with behavior tests based on jBehave and Selenium.
 We could use the same configuration but why don't use something more exotic? Ruby and Cucumber sounds good enough in
-our every day java world. We wanted something that doesn't require a lot of configuration with complicated environment
+our every day Java world. We wanted something that doesn't require a lot of configuration with complicated environment
 and ruby seems to fulfill those requirements. On the other hand we got everything we need to test production listings.
 Selenium satisfied all our needs and we decided not to change it.
 
@@ -105,9 +105,9 @@ Regardless someone released new version of service your application is working w
 
 ###Fail?
 Working with production tests is a piece of cake. Amount of code we wrote to cover several test cases is
-ridiculously low. Whole project consist of one steps definition file, one yaml file containing xpath descriptions and
+ridiculously low. Whole project consists of one steps definition file, one yaml file containing xpath descriptions and
 few .feature files with scenarios. Running test requires ruby with two gem packages — selenium-webdriver
-and Cucumber. Another thing you need is browser. For us it is Firefox but there is no reason you can't use phantomjs or
+and Cucumber. Another thing you need is browser. For us it is Firefox but there is no reason you can't use [PhantomJS](http://phantomjs.org/) or
 anything else. We regularly run Cucumber features from CI environment. But what if one of tests fail? CI build generates
 log with detailed description of failure and screenshot of entire page which we can use to investigate cause.
 
