@@ -22,10 +22,10 @@ solutions have one thing in common. Most of mentioned above kinds of test check 
 
 ###Does it work?
 Our team works on new listing in [Allegro](http://allegro.pl). Listing is that place in our marketplace service where we present
-offers' list. Currently Allegro is divided into two listing versions. Old, legacy and written in PHP and new one
-based on microservices and Java. Because our service has dedicated data storage different from old listing database
-sometimes information displayed on offers' list and offer's page are inconsistent. There are several cases
-that could happen — for example when something goes wrong with event bus which is our offers' info source. That's why
+offers' list. Currently Allegro is divided into two listing versions. "Old listing" - part of legacy PHP monolith
+application and ["new listing"](http://allegro.pl/komputery?nl=1) - based on Java microservices. Because our service has dedicated data storage different
+from old listing database sometimes information displayed on offers' list and offer's page are inconsistent. There are
+several cases that could happen — for example when something goes wrong with event bus which is our offers' info source. That's why
 testing data correctness is especially important for us. We simply don't want misleading our users. Every microservice
 we own has integration and of course unit tests. Whole listing is also verified by behavioral tests. After every commit
 our code is checked by first two kind of tests and before release on production behavioral test must pass. Obviously each
@@ -95,7 +95,7 @@ Another one? Lets take a look on test where we validate if sorting items does re
 ```groovy
   Scenario: Select sorting type should really sort items by given parameter
     Given I am on new listing
-    Then I sorting offers by price with delivery descending
+    Then I am sorting offers by price with delivery descending
     Then Every subsequent item should have lower price with delivery
 ```
 
