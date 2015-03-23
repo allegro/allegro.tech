@@ -42,7 +42,7 @@ using the following template:
 layout: author_index
 author: firstname.lastname
 ---
-``'
+```
 
 ## Format
 Articles have to be written in Markdown.
