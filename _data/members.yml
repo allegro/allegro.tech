@@ -91,6 +91,10 @@ krzysztof.debski:
     bio: Technical enthusiast, software engineer and product owner of Service Bootstrap developed in Allegro. He is open to all new technologies and programming languages and he has no fear to work on legacy systems and rewrite it in modern way.
     twitter: debskichris
 
+bartosz.galek:
+    name: Bartosz Gałek
+    bio: Software Developer at Allegro, engineer with devops flavor. Believes that there is always a place for improvement; likes to try new technologies and languages. Open source fan and occasional contributor.
+
 bartlomiej.ignasiak:
     name: Bartłomiej Ignasiak
     bio: At Allegro Group since 2009. At work he is interested in highly scalable architectures, microservices, Cassandra database, all technologies around JVM and all aspects of software creation. After hours he writes games and AI systems. At Allegro, he is a Solutions Architect for the users domain.
