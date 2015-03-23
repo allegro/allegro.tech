@@ -2,7 +2,7 @@
 
 ## Where to commit your texts
 Write your article in Markdown, save it to `_posts` folder.
-If this is your first post, you have prepare your Bio.
+If this is your first post, prepare your Bio.
 
 Launch the site using [jekyll](https://help.github.com/articles/using-jekyll-with-pages),
 does your article is rendered correctly?
@@ -25,7 +25,7 @@ _data/members.yml
 Don’t forget about your **photo**, add it here:
 
 ```
-img/authors
+img/authors/
 ```
 
 Then, prepare your **profile page**.
@@ -42,7 +42,7 @@ using the following template:
 layout: author_index
 author: firstname.lastname
 ---
-``
+``'
 
 ## Format
 Articles have to be written in Markdown.
