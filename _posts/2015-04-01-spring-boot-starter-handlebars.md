@@ -20,11 +20,13 @@ other helpful features.
 
 As you can expect for any Spring Boot starter the usage is pretty straightforward. Just add
 ``spring-boot-starter-handlebars`` to dependencies of your Spring Boot application.
-```gradle
+
+```groovy
 dependencies {
     compile 'pl.allegro.tech:spring-boot-starter-handlebars:0.1.0'
 }
 ```
+
 Then, your Handlebars templates will be picked up automatically from ``src/main/resources/templates``.
 
 Of course — you can still customize configuration settings. In
@@ -41,7 +43,7 @@ custom configuration.
     <title>Example</title>
 </head>
 <body>
-    <h1>{{message}}</h1>
+    <h1>{% raw %}{{message}}{% endraw %}</h1>
 </body>
 </html>
 ```
