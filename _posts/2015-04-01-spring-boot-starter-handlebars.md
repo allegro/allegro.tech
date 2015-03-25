@@ -13,8 +13,8 @@ template engines available today like Velocity, Thymeleaf, etc. Today we would l
 support for another popular template engine we actually got used to —
 [Handlebars](https://github.com/jknack/handlebars.java). Hopefully you might find this little piece of code useful.
 
-Follow [Spring Boot](http://projects.spring.io/spring-boot/) for further information about its [auto-configuration](http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-auto-configuration) and
-other helpful features.
+Follow [Spring Boot](http://projects.spring.io/spring-boot/) for further information about its [auto-configuration](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-auto-configuration)
+and other helpful features.
 
 ### Usage
 
@@ -35,7 +35,7 @@ custom configuration.
 
 #### Example Spring Boot app
 
-``index.hbs``
+``src/main/resources/templates/index.hbs``
 
 ```handlebars
 <html>
@@ -48,7 +48,7 @@ custom configuration.
 </html>
 ```
 
-``Application.java``
+``src/main/java/Application.java``
 
 ```java
 @Controller
@@ -71,5 +71,5 @@ Now start the app and go to http://localhost:8080.
 ### Where can I find it?
 
 spring-boot-starter-handlebars is published under Apache License 2.0 at [Allegro Github](https://github.com/allegro)
-page along with the other Allegro OpenSource projects. To find out more about the usage, read README.md in
+account along with the other Allegro OpenSource projects. To find out more about the usage, read README.md in
 [spring-boot-starter-handlebars repository](https://github.com/allegro/spring-boot-starter-handlebars).
