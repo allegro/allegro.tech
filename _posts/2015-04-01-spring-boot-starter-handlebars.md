@@ -5,8 +5,6 @@ author: pawel.lesiecki
 tags: [java, spring, open source]
 ---
 
-## Spring Boot Handlebars Starter
-
 Nowadays Spring Boot which makes easy to create standalone, production-grade Spring based applications and services gets
 more and more popular. Basically, among other things, it includes auto-configuration support for most of the Java-based
 template engines available today like Velocity, Thymeleaf, etc. Today we would like to add one more auto-configuration
