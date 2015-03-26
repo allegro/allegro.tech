@@ -55,9 +55,9 @@ The client have an integration test written in [Groovy](http://www.groovy-lang.o
 Describing integration tests in general or libraries used in code samples is out ot the scope of this article,
 but you can watch two interesting presentations of my colleagues from Allegro:
  - (in English) [Drop the clutter: lightweight tests with Spock](https://vimeo.com/120673753) by Piotr Betkier, presented at
- Geecon TDD in Poznan (2015)
+ [Geecon TDD](http://2015.tdd.geecon.org/) in Poznan (2015)
  - (in Polish) [Wykorzystanie języka Groovy w testach](https://www.youtube.com/watch?v=EGKOSUBGy8M) by Mirosław Gołda,
- presented at Torun JUG meeting (2015)
+ presented at [Toruń JUG](http://torun.jug.pl/) meeting (2015)
 
  You can also read about other tools used for testing in article
  [Testing RESTful services and their clients](http://allegrotech.io/testing-restful-service-and-clients.html) by Rafał Głowiński.
@@ -136,7 +136,7 @@ def "should handle server fault on retrieving resource"() {
 }
 ```
 
-This test fails — ProcessingException thrown by Jersey client is not catched and wrapped in ExampleResourcesUnavailableException.
+This test fails — `ProcessingException` thrown by Jersey client is not catched and wrapped in `ExampleResourcesUnavailableException`.
 This may lead to unexpected behaviour in application where client is used. Adding try/catch around request processing makes the test green:
 
 ```java
@@ -298,7 +298,7 @@ if (exampleResource.isSomeBooleanValue()) {
 }
 ```
 
-Because response validation and mapping to object was not too strict, `NullPointerException` was thrown in application code.
+Because response validation and mapping to object were not too strict, `NullPointerException` was thrown in application code.
 Bad response was not filtered in client — and application trusted that if anything is not OK with response, exception
 will be thrown in client.
 
