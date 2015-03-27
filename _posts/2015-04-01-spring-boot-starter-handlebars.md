@@ -5,19 +5,20 @@ author: pawel.lesiecki
 tags: [java, spring, open source]
 ---
 
-Nowadays Spring Boot which makes easy to create standalone, production-grade Spring based applications and services gets
-more and more popular. Basically, among other things, it includes auto-configuration support for most of the Java-based
-template engines available today like Velocity, Thymeleaf, etc. Today we would like to add one more auto-configuration
-support for another popular template engine we actually got used to —
-[Handlebars](https://github.com/jknack/handlebars.java). Hopefully you might find this little piece of code useful.
+Nowadays, Spring Boot that makes easy to create standalone, production-grade Spring based applications and services gets
+more and more popular. It offers e.g. auto-configuration support for most of the available Java-based template engines
+such as Velocity, Thymeleaf, etc. Today, we would like to add a solution that supports auto-configuration of other
+popular template engine we have recently got used to — [Handlebars](https://github.com/jknack/handlebars.java).
+Hopefully you might find this little piece of code useful.
 
 Follow [Spring Boot](http://projects.spring.io/spring-boot/) for further information about its [auto-configuration](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-auto-configuration)
 and other helpful features.
 
-### Usage
+### Use
 
-As you can expect for any Spring Boot starter the usage is pretty straightforward. Just add
-``spring-boot-starter-handlebars`` to dependencies of your Spring Boot application.
+As you can expect for any Spring Boot starter its use is pretty straightforward. Just add
+**spring-boot-starter-handlebars** to dependencies of your Spring Boot application and your Handlebars templates will be
+picked up automatically from ``src/main/resources/templates``.
 
 ```groovy
 dependencies {
@@ -25,13 +26,11 @@ dependencies {
 }
 ```
 
-Then, your Handlebars templates will be picked up automatically from ``src/main/resources/templates``.
+Naturally, you can customize configuration settings. Check
+[README.md](https://github.com/allegro/spring-boot-starter-handlebars/blob/master/README.md) to find custom
+configuration examples.
 
-Of course — you can still customize configuration settings. In
-[README.md](https://github.com/allegro/spring-boot-starter-handlebars/blob/master/README.md) you can find examples of
-custom configuration.
-
-#### Example Spring Boot app
+#### Example Spring Boot application
 
 ``src/main/resources/templates/index.hbs``
 
@@ -64,10 +63,10 @@ public static class Application {
     }
 }
 ```
-Now start the app and go to http://localhost:8080.
+Now start the application and go to http://localhost:8080.
 
 ### Where can I find it?
 
-spring-boot-starter-handlebars is published under Apache License 2.0 at [Allegro Github](https://github.com/allegro)
-account along with the other Allegro OpenSource projects. To find out more about the usage, read README.md in
+**spring-boot-starter-handlebars** is published under Apache License 2.0 at [Allegro Github](https://github.com/allegro)
+account along with the other Allegro OpenSource projects. To find out more about it, check README.md located in
 [spring-boot-starter-handlebars repository](https://github.com/allegro/spring-boot-starter-handlebars).
