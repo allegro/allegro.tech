@@ -67,72 +67,70 @@ This is one crazy mocked test. Yes, my team did it. It is very hard to read. It 
 
 There is another example.
 ```
-    CartClient cartClient = new CartClientRest(ClientBuilder.newClient(), "8089", new RestRetrier())
+CartClient cartClient = new CartClientRest(ClientBuilder.newClient(), "8089", new RestRetrier())
+@Unroll
+def "should return infromation about cart with id #id"() {
+    when:
+    stubFor(get(urlEqualTo("/carts/" + cartId))
+        .willReturn(aResponse()
+        .withStatus(200)
+        .withHeader("Content-Type", "application/json")
+        .withBody(output)))
 
-    @Unroll
-    def "should return infromation about cart with id #id"() {
-        when:
-        stubFor(get(urlEqualTo("/carts/" + cartId))
-                .willReturn(aResponse()
-                .withStatus(200)
-                .withHeader("Content-Type", "application/json")
-                .withBody(output)))
+    def cart = cartClient.get("http://localhost", cartId)
 
-        def cart = cartClient.get("http://localhost", cartId)
+    then:
+    cart.id                    == cartId
+    cart.cartItems[0].id       == id
+    cart.cartItems[0].quantity == quantity
+    cart.cartItems[0].price    == price
+    cart.cartItems.size()      == cartItemsSize
+    cart.endedItems.size()     == endedItemsSize
 
-        then:
-        cart.id                    == cartId
-        cart.cartItems[0].id       == id
-        cart.cartItems[0].quantity == quantity
-        cart.cartItems[0].price    == price
-        cart.cartItems.size()      == cartItemsSize
-        cart.endedItems.size()     == endedItemsSize
-
-        where:
-        output         || cartId    | quantity | id    | price | cartItemsSize | endedItemsSize
-        CARTS_OUTPUT_1 || "testId1" | 1        | "111" | 444   | 1             | 0
-        CARTS_OUTPUT_2 || "testId2" | 2        | "222" | 555   | 2             | 1
-    }
+    where:
+    output         || cartId    | quantity | id    | price | cartItemsSize | endedItemsSize
+    CARTS_OUTPUT_1 || "testId1" | 1        | "111" | 444   | 1             | 0
+    CARTS_OUTPUT_2 || "testId2" | 2        | "222" | 555   | 2             | 1
+}
 ```
 This is much better, client is not mocked. And the last one. You can see that there service is mocked but it is quite good test. Code used to configure mocks is very short. 
 ```
-    def "should remove address"() {
-        given:
-        addressesDao.save(AddressDbFixture.simple())
+def "should remove address"() {
+    given:
+    addressesDao.save(AddressDbFixture.simple())
 
-        when:
-        addressesClient.remove(buildId(AddressDbFixture.USER_ID, AddressDbFixture.ADDRESS_ID))
+    when:
+    addressesClient.remove(buildId(AddressDbFixture.USER_ID, AddressDbFixture.ADDRESS_ID))
 
-        then:
-        def address = addressesDao.get(AddressFixture.USER_ID, AddressFixture.ADDRESS_ID)
+    then:
+    def address = addressesDao.get(AddressFixture.USER_ID, AddressFixture.ADDRESS_ID)
 
-        !address.visible
-    }
+    !address.visible
+}
 
-    @Autowired
-    AddressesDao addressesDao
+@Autowired
+AddressesDao addressesDao
 
-    static def addressesClient = new AddressesClientImpl(new RestTemplate(), SERVICE_ADDRESS)
+static def addressesClient = new AddressesClientImpl(new RestTemplate(), SERVICE_ADDRESS)
 ```
 
 It extends this class:
 ```
-    @ContextConfiguration(loader = SpringApplicationContextLoader.class)
-    @WebAppConfiguration
-    @IntegrationTest
-    @ActiveProfiles(profiles = ['integration'])
-    abstract class IntegrationSpecification extends Specification {
+@ContextConfiguration(loader = SpringApplicationContextLoader.class)
+@WebAppConfiguration
+@IntegrationTest
+@ActiveProfiles(profiles = ['integration'])
+abstract class IntegrationSpecification extends Specification {
+    public static final String SERVICE_ADDRESS = "http://localhost:8080"
 
-        public static final String SERVICE_ADDRESS = "http://localhost:8080"
+    @ClassRule
+    @Shared
+    EmbeddedCassandra embeddedCassandra = new EmbeddedCassandra("cassandra/schema/schema.cql")
 
-        @ClassRule
-        @Shared
-        EmbeddedCassandra embeddedCassandra = new EmbeddedCassandra("cassandra/schema/schema.cql")
-
-        def setup() {
-            embeddedCassandra.executeScript("cassandra/schema/truncate_tables.cql");
-        }
+    def setup() {
+        embeddedCassandra.executeScript("cassandra/schema/truncate_tables.cql");
     }
+}
 ```
 
 This test is more reliable because it uses embedded cassandra and client that does not mock anything. You can still mock service if you want/have to but it is still good. You can think of it like integration test, but for me it is just test that does its job. In this example we start service before every test and shutdown after. Whole communication is working as in real environment so you can find your bugs much easier and much faster.
