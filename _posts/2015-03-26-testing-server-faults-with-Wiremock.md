@@ -52,6 +52,7 @@ The client have an integration test written in [Groovy](http://www.groovy-lang.o
 [Spock](http://spockframework.github.io/spock/docs/1.0/index.html) and [Wiremock](http://wiremock.org/).
 Describing integration tests in general or libraries used in code samples is out of the scope of this article,
 but you can watch two interesting presentations of my colleagues from Allegro:
+
  * (in English) [Drop the clutter: lightweight tests with Spock](https://vimeo.com/120673753) by Piotr Betkier, presented at
  [Geecon TDD](http://2015.tdd.geecon.org/) in Poznan (2015)
  * (in Polish) [Wykorzystanie języka Groovy w testach](https://www.youtube.com/watch?v=EGKOSUBGy8M) by Mirosław Gołda,
@@ -164,6 +165,7 @@ public ExampleResource getExampleResource(String id)
 In microservices architecure, services should be fast. But sometimes they don't. Think of database overload, garbage
 collection pause or unusual network latency. Service response time becomes seconds, not milliseconds. There is one
 fundamental questsion in such a case: is response from the service critical? You can think about two options:
+
  * response is critical — for example you cannot render page for end user without having microservice's response.
 In this case it is probably better not to set timeout or have it at high value —
 user may prefer to have page rendered in few seconds more than usual instead of seeing error page;
@@ -303,9 +305,10 @@ will be thrown in client.
 ### Conclusion
 
 When testing and writing code of service clients, we should not only remember to checking response status code, but think about:
-- what should happen if service is inaccessible?
-- what should happen if response from service is delayed — should we wait a longer time or quickly use fallback?
-- how to deal with unexpected response?
-- not to trust an object returned from client or better — take more control over mapping HTTP response to business object.
+
+ * what should happen if service is inaccessible?
+ * what should happen if response from service is delayed — should we wait a longer time or quickly use fallback?
+ * how to deal with unexpected response?
+ * not to trust an object returned from client or better — take more control over mapping HTTP response to business object.
 
 These basic steps are essential to improve stability and fault-tolerance in SOA environment.
