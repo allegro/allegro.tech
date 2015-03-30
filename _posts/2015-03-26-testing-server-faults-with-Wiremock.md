@@ -5,14 +5,14 @@ author: filip.marszelewski
 tags: [wiremock, TDD, testing, integration tests, fault injection]
 ---
 
-SOA as modern approach to build distributed enterprise applications gives us many benefits,
+SOA (Service Oriented Architecture) as modern approach to build distributed enterprise applications gives us many benefits,
 including resiliency and fault-tolerance. On the other hands there are many new kinds of SOA-specific faults,
 like publishing, discovery, composition, binding or execution faults (as stated in:
 [A Fault Taxonomy for Service-Oriented Architecture](http://edoc.hu-berlin.de/series/informatik-berichte/215/PDF/215.pdf)). Error handling is one of the most
 important things to have services right designed and implemented
 (see article: [Error Handling Considerations in SOA Analysis & Design](http://www.infoq.com/articles/error-handling-soa-design)).
 In this article I want to focus only on small aspect of this broad subject: unexpected service behaviors which,
-if not properly handled by client, can lead to application inaccessibility.
+if not properly handled by the client, can lead to application inaccessibility.
 
 ### Example service client
 
@@ -20,43 +20,41 @@ Let's have an example service client. It is written in Java using [Jersey client
 It contains some bugs but it's not an academic example — following code was a part of real, production application
 used in one of the microservices in Allegro Group (class names are anonymized).
 Of course there are several ways and libraries useful for writing RESTful clients, but ideas mentioned in article are
-general, Java+Jersey stack was choosen only as a real-live sample.
+general, Java+Jersey stack was choosen only as a real-live example.
 
 ```java
 public class ExampleClient {
 
-	private final Client client;
-	private final String url;
+    private WebTarget webTarget;
 
-	public ExampleClient(Client client, String url) {
-		this.client = client;
-		this.url = url;
-	}
+    public ExampleClient(Client client, String url) {
+        this.webTarget = client.target(url);
+    }
 
-	public ExampleResource getExampleResource(String id)
-	    throws ExampleResourceNotFoundException, ExampleResourceUnavailableException {
-		Response response = this.client.target(url)
-				.path(String.format("resources/%s", id))
-				.request("application/json")
-				.get();
+    public ExampleResource getExampleResource(String id)
+        throws ExampleResourceNotFoundException, ExampleResourceUnavailableException {
+        Response response = webTarget
+            .path(String.format("resources/%s", id))
+            .request(MediaType.APPLICATION_JSON)
+            .get();
         if (response.getStatus() == Response.Status.NOT_FOUND.getStatusCode()) {
-			throw new ExampleResourceNotFoundException(response.readEntity(String.class));
-		}
+            throw new ExampleResourceNotFoundException(response.readEntity(String.class));
+        }
         if (response.getStatus() != Response.Status.OK.getStatusCode()) {
-			throw new ExampleResourceUnavailableException(response.readEntity(String.class));
-		}
+            throw new ExampleResourceUnavailableException(response.readEntity(String.class));
+        }
         return response.readEntity(ExampleResource.class);
-	}
+    }
 }
 ```
 
 The client have an integration test written in [Groovy](http://www.groovy-lang.org/) based on
 [Spock](http://spockframework.github.io/spock/docs/1.0/index.html) and [Wiremock](http://wiremock.org/).
-Describing integration tests in general or libraries used in code samples is out ot the scope of this article,
+Describing integration tests in general or libraries used in code samples is out of the scope of this article,
 but you can watch two interesting presentations of my colleagues from Allegro:
- - (in English) [Drop the clutter: lightweight tests with Spock](https://vimeo.com/120673753) by Piotr Betkier, presented at
+ * (in English) [Drop the clutter: lightweight tests with Spock](https://vimeo.com/120673753) by Piotr Betkier, presented at
  [Geecon TDD](http://2015.tdd.geecon.org/) in Poznan (2015)
- - (in Polish) [Wykorzystanie języka Groovy w testach](https://www.youtube.com/watch?v=EGKOSUBGy8M) by Mirosław Gołda,
+ * (in Polish) [Wykorzystanie języka Groovy w testach](https://www.youtube.com/watch?v=EGKOSUBGy8M) by Mirosław Gołda,
  presented at [Toruń JUG](http://torun.jug.pl/) meeting (2015)
 
  You can also read about other tools used for testing in article
@@ -65,47 +63,47 @@ but you can watch two interesting presentations of my colleagues from Allegro:
 ```groovy
 class ExampleClientSpec extends Specification {
 
-	public static final String ID = "1234"
-	def exampleClient = new ExampleClient(ClientBuilder.newClient(), 'http://localhost:8089')
+    public static final String ID = "1234"
+    def exampleClient = new ExampleClient(ClientBuilder.newClient(), 'http://localhost:8089')
 
-	@Rule
+    @Rule
     WireMockRule wireMockRule = new WireMockRule(8089);
 
-	def "should perform successful get request"() {
-		given:
-		wireMockRule.
-		stubFor(get(urlEqualTo("/resources/" + ID))
-			.willReturn(aResponse()
+    def "should perform successful get request"() {
+        given:
+        wireMockRule.
+        stubFor(get(urlEqualTo("/resources/" + ID))
+            .willReturn(aResponse()
             .withStatus(200)
-            .withHeader("Content-Type", "application/json")
+            .withHeader("Content-Type", MediaType.APPLICATION_JSON)
             .withBody('{"type":"Monitory", "attributeGroupId": "46541684664"}')))
 
-		when:
-		def resource = exampleClient.getExampleResource(ID)
+        when:
+        def resource = exampleClient.getExampleResource(ID)
 
-		then:
-		resource.getType() == "Monitory"
-		resource.getAttributeGroupId() == "46541684664"
-	}
+        then:
+        resource.getType() == "Monitory"
+        resource.getAttributeGroupId() == "46541684664"
+    }
 
-	@Unroll
-	def "should throw #exception on #statusCode response while retrieving resource"() {
-		given:
-		stubFor(get(urlEqualTo("/resources/" + ID))
-			.willReturn(aResponse()
-			.withStatus(statusCode)
-			.withHeader("Content-Type", "application/json")))
+    @Unroll
+    def "should throw #exception on #statusCode response while retrieving resource"() {
+        given:
+        stubFor(get(urlEqualTo("/resources/" + ID))
+            .willReturn(aResponse()
+            .withStatus(statusCode)
+            .withHeader("Content-Type", MediaType.APPLICATION_JSON)))
 
-		when:
-		exampleClient.getExampleResource(ID)
+        when:
+        exampleClient.getExampleResource(ID)
 
-		then:
-		thrown(exception)
+        then:
+        thrown(exception)
 
-		where:
-		statusCode | exception
-		404        | ExampleResourceNotFoundException
-		500        | ExampleResourceUnavailableException
+        where:
+        statusCode | exception
+        404        | ExampleResourceNotFoundException
+        500        | ExampleResourceUnavailableException
     }
 }
 ```
@@ -115,11 +113,11 @@ returned by REST service. But in real world, there are much more things that cou
 
 ### Server has gone away
 
-In SOA we use discovery service to get microservice address, which is not given directly in configuration properties.
-Despite non-responding instances or instances with long delays are cut off, it always take some time for monitoring
-tools to unregister such an instance from discovery service. After sudden instance crash (think about physical server failure,
-disconnection from network or DNS issue), there is a big chance for some time that your client will try to connect to non-functioning
-instance.
+In the service oriented approach we use discovery service to get actual instance URL. Microservice instances with
+long response time or not responding at all are cut off. However it takes some time to unregister such instances
+from discovery service by monitoring tools. After sudden crash (think about physical server failure,
+disconnection from network or DNS issue), for some time there is a big chance that your client will
+try to connect to a non-functioning instance.
 
 You can simulate this situation in Wiremock — just disable the stubbed server in a test case:
 
@@ -142,9 +140,9 @@ This may lead to unexpected behaviour in application where client is used. Addin
 ```java
 public ExampleResource getExampleResource(String id)
     throws ExampleResourceNotFoundException, ExampleResourceUnavailableException {
-    Invocation.Builder request = this.client.target(url)
-            .path(String.format("resources/%s", id))
-            .request("application/json");
+    Invocation.Builder request = webTarget
+        .path(String.format("resources/%s", id))
+        .request(MediaType.APPLICATION_JSON);
     Response response;
     try {
         response = request.get();
@@ -166,10 +164,10 @@ public ExampleResource getExampleResource(String id)
 In microservices architecure, services should be fast. But sometimes they don't. Think of database overload, garbage
 collection pause or unusual network latency. Service response time becomes seconds, not milliseconds. There is one
 fundamental questsion in such a case: is response from the service critical? You can think about two options:
-- response is critical — for example you cannot render page for end user without having microservice's response.
+ * response is critical — for example you cannot render page for end user without having microservice's response.
 In this case it is probably better not to set timeout or have it at high value —
 user may prefer to have page rendered in few seconds more than usual instead of seeing error page;
-- response is not critical — as a real example there is seo-service in Allegro Group, which serves metadata
+ * response is not critical — as a real example there is seo-service in Allegro Group, which serves metadata
  such as page title and description for [allegro.pl listing](http://allegro.pl/search?nl=1&string=java).
  This is important due to SEO positioning, but lack
  of response is invisible to user (default metadata can be used as a fallback) and if seo-service failure is short-term
@@ -185,7 +183,7 @@ def "should throw exception on response delay"() {
     stubFor(get(urlEqualTo("/resources/" + ID))
         .willReturn(aResponse()
         .withStatus(200)
-        .withHeader("Content-Type", "application/json")
+        .withHeader("Content-Type", MediaType.APPLICATION_JSON)
         .withBody('{"type":"Monitory","attributeGroupId":"46541684664"}')
         .withFixedDelay(2000)))
 
@@ -255,9 +253,9 @@ is in mapping response to `ExampleResource` class object. Let's fix this bug:
 ```java
 public ExampleResource getExampleResource(String id)
     throws ExampleResourceNotFoundException, ExampleResourceUnavailableException {
-    Invocation.Builder request = this.client.target(url)
-            .path(String.format("resources/%s", id))
-            .request("application/json");
+    Invocation.Builder request = webTarget
+        .path(String.format("resources/%s", id))
+        .request(MediaType.APPLICATION_JSON);
     Response response;
     try {
         response = request.get();
@@ -290,7 +288,7 @@ This example sounds a little bit exotic, but it was a real case. Due to error in
 
 What happened in client? Becasuse of `@JsonIgnoreProperties(ignoreUnknown = true)` in `ExampleResource` class, this JSON was
 properly mapped to `ExampleResource` object. But of course, every field was null. Let's assume that one of the fields
-is of type `Boolean` and in application code there is a decision made depending of value of this field:
+is of type `Boolean` and in application code there is a decision made depending on value of this field:
 
 ```java
 if (exampleResource.isSomeBooleanValue()) {
@@ -299,7 +297,7 @@ if (exampleResource.isSomeBooleanValue()) {
 ```
 
 Because response validation and mapping to object were not too strict, `NullPointerException` was thrown in application code.
-Bad response was not filtered in client — and application trusted that if anything is not OK with response, exception
+Bad response was not filtered in client and application trusted that if anything is not OK with response, exception
 will be thrown in client.
 
 ### Conclusion
