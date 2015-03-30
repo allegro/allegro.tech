@@ -63,7 +63,7 @@ def "should return transformed delivery methods for two sellers"() {
 
     DeliveriesClient deliveriesClient = new DeliveriesClientRest(client, "", retrier)
 ```
-    This is one crazy mocked test. Yes, my team did it. It is very hard to read. It does its job, unit tests functionality but it is not that reliable. And if you look at mocked things you will see that class is probably not so complicated. Most of the things are for rest client. This is good example of mocking something that you could leave unmocked or even should to make your test more reliable. Solution for this case? Unmock webtarget and use it on mocked service. That way you will test whole your class including rest communication. If it is possible you can make your service start before test and shutdown after and that would be great. 
+This is one crazy mocked test. Yes, my team did it. It is very hard to read. It does its job, unit tests functionality but it is not that reliable. And if you look at mocked things you will see that class is probably not so complicated. Most of the things are for rest client. This is good example of mocking something that you could leave unmocked or even should to make your test more reliable. Solution for this case? Unmock webtarget and use it on mocked service. That way you will test whole your class including rest communication. If it is possible you can make your service start before test and shutdown after and that would be great. 
 
 There is another example.
 ```
@@ -117,22 +117,22 @@ This is much better, client is not mocked. And the last one. You can see that th
 
 It extends this class:
 ```
-	@ContextConfiguration(loader = SpringApplicationContextLoader.class)
-	@WebAppConfiguration
-	@IntegrationTest
-	@ActiveProfiles(profiles = ['integration'])
-	abstract class IntegrationSpecification extends Specification {
+    @ContextConfiguration(loader = SpringApplicationContextLoader.class)
+    @WebAppConfiguration
+    @IntegrationTest
+    @ActiveProfiles(profiles = ['integration'])
+    abstract class IntegrationSpecification extends Specification {
 
-	    public static final String SERVICE_ADDRESS = "http://localhost:8080"
+        public static final String SERVICE_ADDRESS = "http://localhost:8080"
 
-	    @ClassRule
-	    @Shared
-	    EmbeddedCassandra embeddedCassandra = new EmbeddedCassandra("cassandra/schema/schema.cql")
+        @ClassRule
+        @Shared
+        EmbeddedCassandra embeddedCassandra = new EmbeddedCassandra("cassandra/schema/schema.cql")
 
-	    def setup() {
-	        embeddedCassandra.executeScript("cassandra/schema/truncate_tables.cql");
-	    }
-	}
+        def setup() {
+            embeddedCassandra.executeScript("cassandra/schema/truncate_tables.cql");
+        }
+    }
 ```
 
 This test is more reliable because it uses embedded cassandra and client that does not mock anything. You can still mock service if you want/have to but it is still good. You can think of it like integration test, but for me it is just test that does its job. In this example we start service before every test and shutdown after. Whole communication is working as in real environment so you can find your bugs much easier and much faster.
