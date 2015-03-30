@@ -63,9 +63,11 @@ def "should return transformed delivery methods for two sellers"() {
 
     DeliveriesClient deliveriesClient = new DeliveriesClientRest(client, "", retrier)
 ```
+
 This is one crazy mocked test. Yes, my team did it. It is very hard to read. It does its job, unit tests functionality but it is not that reliable. And if you look at mocked things you will see that class is probably not so complicated. Most of the things are for rest client. This is good example of mocking something that you could leave unmocked or even should to make your test more reliable. Solution for this case? Unmock webtarget and use it on mocked service. That way you will test whole your class including rest communication. If it is possible you can make your service start before test and shutdown after and that would be great. 
 
 There is another example.
+
 ```
 CartClient cartClient = new CartClientRest(ClientBuilder.newClient(), "8089", new RestRetrier())
 @Unroll
@@ -93,7 +95,10 @@ def "should return infromation about cart with id #id"() {
     CARTS_OUTPUT_2 || "testId2" | 2        | "222" | 555   | 2             | 1
 }
 ```
-This is much better, client is not mocked. And the last one. You can see that there service is mocked but it is quite good test. Code used to configure mocks is very short. 
+
+This is much better, client is not mocked. And the last one. You can see that there service is mocked but it is quite good test. Code used to configure mocks is 
+very short. 
+
 ```
 def "should remove address"() {
     given:
@@ -115,6 +120,7 @@ static def addressesClient = new AddressesClientImpl(new RestTemplate(), SERVICE
 ```
 
 It extends this class:
+
 ```
 @ContextConfiguration(loader = SpringApplicationContextLoader.class)
 @WebAppConfiguration
