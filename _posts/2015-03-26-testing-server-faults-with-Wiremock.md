@@ -164,7 +164,7 @@ public ExampleResource getExampleResource(String id)
 
 In microservices architecure, services should be fast. But sometimes they don't. Think of database overload, garbage
 collection pause or unusual network latency. Service response time becomes seconds, not milliseconds. There is one
-fundamental questsion in such a case: is response from the service critical? You can think about two options:
+fundamental question in such a case: is response from the service critical? You can think about two options:
 
  * response is critical — for example you cannot render page for end user without having microservice's response.
 In this case it is probably better not to set timeout or have it at high value —
@@ -219,7 +219,7 @@ JSON is widely used as a part of communication standard between microservices. I
 automagic features that map JSON to business object (for example, [Jackson](http://jackson.codehaus.org/)).
 There is no explicit conversion, we just call `readEntity` method giving as an argument a class that we want as an
 response, annotations on this class do the rest.
-Because of simplicity — it is easy to forget that assumption that server always returns JSON mappable to our business
+Because simplicity — it is easy to forget that assumption that server always returns JSON mappable to our business
 object is only a good belief. There are many reasons to fail here, like errors in implementation, misconfiguration
 or hardware failures. This can even be cause of failure during error handling, when you want to read detailed
 error message from response. I saw the situation where JSON with error message was expected, but server returned
