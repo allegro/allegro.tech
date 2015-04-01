@@ -21,6 +21,10 @@ As you can expect for any Spring Boot starter its use is pretty straightforward.
 picked up automatically from `src/main/resources/templates`.
 
 ```groovy
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     compile 'pl.allegro.tech.boot:spring-boot-starter-handlebars:0.1.0'
 }
