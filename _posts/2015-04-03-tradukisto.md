@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Allegro OpenSource: tradukisto"
+title: Allegro OpenSource: tradukisto
 author: dorian.sarnowski
 tags: [release, open source, java]
 ---
@@ -31,7 +31,7 @@ Esperanto was the first language we found in which a word “translator” sound
 
 ###Code Samples
 
-We've designed API of Tradukisto to be as simple as possible.
+We’ve designed API of Tradukisto to be as simple as possible.
 
 ```java
 ValueConverter converter = ValueConverters.POLISH_INTEGER;
