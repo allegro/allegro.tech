@@ -5,13 +5,13 @@ author: pawel.lesiecki
 tags: [java, spring, open source]
 ---
 
-Nowadays, Spring Boot gets more and more popular as it simplifies creating standalone, production-grade Spring based
+Nowadays, [Spring Boot](http://projects.spring.io/spring-boot/) gets more and more popular as it simplifies creating standalone, production-grade Spring based
 applications. It offers e.g. auto-configuration support for most of the available Java-based template engines
 such as Velocity, Thymeleaf, etc. Today, we would like to publish the new Spring Boot starter that supports
 auto-configuration of other popular template engine we have recently got used to —
 [Handlebars](https://github.com/jknack/handlebars.java). Hopefully you might find this little piece of code useful.
 
-Follow [Spring Boot](http://projects.spring.io/spring-boot/) for further information about its [auto-configuration](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-auto-configuration)
+Follow Spring Boot for further information about its [auto-configuration](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-auto-configuration)
 and other helpful features.
 
 ## Usage
