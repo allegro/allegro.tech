@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Allegro OpenSource: tradukisto
+title: "Allegro OpenSource: tradukisto"
 author: dorian.sarnowski
 tags: [release, open source, java]
 ---
