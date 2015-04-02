@@ -72,5 +72,5 @@ Now start the application and go to http://localhost:8080.
 ## Where can I find it?
 
 **spring-boot-starter-handlebars** is published under Apache License 2.0 at [Allegro Github](https://github.com/allegro)
-account along with the other Allegro OpenSource projects and released to [Maven Central](https://maven-repository.com/artifact/pl.allegro.tech.boot/spring-boot-starter-handlebars/0.1.0).
+account along with the other Allegro OpenSource projects and released to [Maven Central](http://search.maven.org/#artifactdetails|pl.allegro.tech.boot|spring-boot-starter-handlebars|0.1.0|jar).
 To find out more about it, check README.md located in [spring-boot-starter-handlebars repository](https://github.com/allegro/spring-boot-starter-handlebars).
