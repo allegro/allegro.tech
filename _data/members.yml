@@ -131,6 +131,10 @@ marcin.konkel:
     bio:  Marcin is a Scrum Master at Allegro Group, passionate about agile, coaching and project management. He helps teams to be more agile, removing impediments and cooperating with the organisation to foster change and improve the working environment. Currently working with mobile development teams. He is also experienced as a Project Manager in coordinating globally dispersed (USA, Europe, India, China) as well as local project teams in financial / IT environment. Personally an avid photographer travelling to distant and less distant places to capture moments that stole his attention. He writes on coaching and self-development&#x3a; [medium.com/@m_konkel](http://medium.com/@m_konkel) and on travelling&#x3a; [marcinkonkel.com](http://marcinkonkel.com).
     twitter: m_konkel
 
+dorian.sarnowski:
+    name: Dorian Sarnowski
+    bio: Dorian is a software engineer with 4+ years of professional experience in creating web applications. He is an enthusiast of clean code, automated testing and agile methodologies. At Allegro, he works in a team which delivers solutions for the financial department. Personally passionate of rock’n’roll history and bass player.
+
 joanna.antkowiak:
     name: Joanna Antkowiak
     bio: At Allegro, Joanna works as an Event Specialist in PromoIT team.
@@ -138,3 +142,15 @@ joanna.antkowiak:
 miroslaw.golda:
     name: Mirosław Gołda
     bio: Mirosław is a software developer with programming experience in Java, PHP, JavaScript and Node.js who joined Allegro Group in 2011. He likes playing around with various programming languages and technologies. Recently it's Groovy and Selenium WebDriver.
+
+piotr.ciemielewski:
+    name: Piotr Ciemielewski
+    bio: At Allegro Group since 2009. Software Engineer with 5+ years of professional experience mostly in Java and PHP. He also used to work as a Scrum Master. Now leading development team delivering product informations for Allegro.
+
+maciej.adamczak:
+    name: Maciej Adamczak
+    bio: He’s been Product Owner for over 2 years, at Allegro Group for 7 years. After work he likes to spend his time at the shooting range, playing board games or online matches. Fan of Terry Pratchett, Monty Python and South Park.
+
+marcin.borkowski:
+    name: Marcin Borkowski
+    bio: Marcin Borkowski is an agile coaching enthusiast who believes that questions appear only because there are answers, and Scrum Master is a catalyst in the process of finding the right answers.
