@@ -1,4 +1,4 @@
-# ??? reasons why Java developer should consider learning Groovy
+# 7 reasons why Java developer should consider learning Groovy
 
 Groovy is a dynamic, object-oriented programming language for Java platform. Its name comes
 from slang, where "groovy" means "cool", "amazing" or "fashionable". This programming
@@ -36,44 +36,97 @@ IntStream.range(0, 10).forEach(i -> {
 }
 ```
 Sure, Java 8 and Stream API made a huge step towards better expressiveness, but I believe these examples
-are still way too verbose in pure Java world:
+are still way too verbose (or less expressive) in pure Java world:
 ```groovy
 ["Let's", "create", "a", "list"]
-//konstruktor bezargumentowy
-//generowanie getterow i setterow
-//more to come
+
+class Person {
+  int id
+  String name, surname
+  //let Goovy's compiler generate all setters and getters!
+}
+new Person(id: 1, name: 'John', surname: 'Doe') //named constructor parameters
 ```
 
 ### Groovy is functional
-Function in Groovy is a first-class citizen, what [Wikipedia](http://en.wikipedia.org/wiki/First-class_function)
-explains this way:
-
+Functional languages, although created in 1950s (Lisp), now are getting popular again. More and more such
+languages appear, like Clojure, Scala and our Groovy. In such languages functions are first-class citizens,
+what [Wikipedia](http://en.wikipedia.org/wiki/First-class_function) explains this way:
 ```
 this means the language supports passing functions as arguments to other functions, returning them as the
 values from other functions, and assigning them to variables or storing them in data structures
 ```
-
-TODO
+I wouldn't like to focus on functional aspects, but rather on the possibility to get familiar with new and completely
+different programming paradigm that Groovy gives. This paradigm for Java developers might be very confusing and new.
+Java 8, although is getting close to it with closures, is not fully a functional language.
+[This article](http://www.beyondjava.net/blog/java-8-functional-programming-language/) explains well why.
+Learning functional programming in Groovy, again, will be easy - it will just look like another feature. You will have
+to start thinking in a brand new way, but without learning new syntax, like it would happen with Clojure or Scala.
+But on the other hand - you'll often have a temptation to do things in an old, known way. Every coin has two sides,
+but to me ability to play with functional programming is definitely a virtue of Groovy.
 
 ### You can seamlessly integrate Groovy and Java
+These two languages just work with each other. You can make Java classes call Groovy code back and forth and it will
+work just fine. No special language constructions nor third party libraries. You can use this to write as following:
 
+```groovy
+import org.junit.Test
+import static org.junit.Assert.assertEquals
 
+public class JunitTest {
 
-### Beautiful tests
-- tests' names that are
+    @Test
+    public void 'jUnit test written in groovy'() throws Exception {
+        assertEquals(55, (0..10).sum())
+    }
+}
+```
+This is test written in Groovy, using jUnit framework (written for Java), ran by jUnit runner. Groovy and Java integrated
+seamlessly.
 
-### Spock, Gerb
+### Beautiful tests in Spock
+Example above shows that you can use good ol' jUnit spiced with Groovy's syntactic sugar. My favourite is naming
+methods as a string containing spaces - it's so much easier to read! But (Peter Niederwieser)[https://twitter.com/pniederw]
+wished to go one step further and created a full framework that helps to write better tests — [Spock](spockframework.org).
+It enforces you to use given-when-then sections, what helps you think of correct test construction; it gives concise and almost
+graphic way to write parametrized tests; when test fails - it shows graphically which assertion failed. Let the code speak:
+```groovy
+@Unroll
+    def 'should sum elements from 0 to #upperLimit correctly'() {
+        given:
+        def listOfElements = 0..upperLimit
+
+        when:
+        def assumedSum = (1 + upperLimit) * upperLimit / 2
+
+        then:
+        listOfElements.sum() == assumedSum
+
+        where:
+        upperLimit | _
+        0          | _
+        10         | _
+        1000       | _
+    }
+```
+There are more arguments in favour of Spock - its homepage [sums it up nicely](https://code.google.com/p/spock/wiki/WhySpock)
 
 ### Gradle
 [Gradle](http://gradle.org/) is a build tool that gains popularity rapidly. Google chose Gradle as build
-tool for Android - that's enough to say. Topic of Gradle is covered in
-[this blog post](/Adopting-Gradle-at-allegro-pl-a-success-story.html)). What I would like to add is fact that
-you don't need Groovy to use Gradle at basic level. But knowing it gives you an actual understanding what
+tool for Android - that's enough to say about its potential. Topic of Gradle is covered in
+[this blog post](/Adopting-Gradle-at-allegro-pl-a-success-story.html). What I would like to add is fact that
+you don't need to know Groovy to use Gradle at basic level. But knowing it gives you an actual understanding what
 happens under the hood and you can get on the pro level.
 
 ### Widening your horizons
 Last argument is not directly in favour of Groovy. Learning new things is always good, it widens your
-horizons, you start to see things in a different way. Groovy can give you insight into functional programming,
+horizons, you start seeing things in a different way. Groovy can give you insight into functional programming,
 shows that things can be more concise or just better than what you know.
 
+## Summarize
+In paragraphs above I tried to show some interesting features, applications and frameworks of Groovy. The same ones that
+made me actually like this language. Of course, this language has many drawbacks, its dynamic typing can often be pain in
+the neck — makes refactor much harder, even IntelliJ IDEA, that makes wonders in refactoring Java, loses its power with Groovy.
+If you don't have turned on static compilation, you'll see syntax errors only at runtime. But true power of Groovy lies in
+tests and scripting, when speed, ease and readability are most important matters.
 
