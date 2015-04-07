@@ -46,7 +46,7 @@ all dependencies lives) and uploading it to Nexus. We chose a handy
 
 When the artifact is ready, we can start placing it on a target server. For an automation of the process we used
 [Flightplan ✈](https://github.com/pstadler/flightplan). It’s a very helpful tool that allows to operate on a multiple
-target hosts and has a high level api for copying files over the network. If you’re familiar with
+target hosts and has a high level API for copying files over the network. If you’re familiar with
 [Fabric](http://www.fabfile.org/), you can think of Flightplan as a Javascript clone of it.
 
 The steps that are required to be taken for deployment are:
