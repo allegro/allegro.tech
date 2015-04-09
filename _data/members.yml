@@ -22,7 +22,7 @@ michal.kosmulski:
 
 bartosz.walacik:
     name: Bartosz Walacik
-    bio: A Software Craftsman with 10+ years of professional experience. He focused on lightweight and modern technologies around JVM. At Allegro, he works as a development team leader, delivering marketing intelligence solutions. Leader of [JaVers](http://javers.org) open source project. Spock advocate. Lately, editor in chief of [allegrotech.io/blog](http://allegrotech.io/blog).
+    bio: A Software Craftsman with 15+ years of professional experience. He focused on lightweight and modern technologies around JVM. At Allegro, he works as a development team leader, delivering marketing intelligence solutions. [JaVers](http://javers.org) project lead. Spock advocate. Lately, editor in chief of [allegrotech.io/blog](http://allegrotech.io/blog).
     twitter: bartoszwalacik
 
 andrzej.winnicki:
@@ -91,6 +91,10 @@ krzysztof.debski:
     bio: Technical enthusiast, software engineer and product owner of Service Bootstrap developed in Allegro. He is open to all new technologies and programming languages and he has no fear to work on legacy systems and rewrite it in modern way.
     twitter: debskichris
 
+bartosz.galek:
+    name: Bartosz Gałek
+    bio: Software Developer at Allegro, engineer with devops flavor. Believes that there is always a place for improvement; likes to try new technologies and languages. Open source fan and occasional contributor.
+
 bartlomiej.ignasiak:
     name: Bartłomiej Ignasiak
     bio: At Allegro Group since 2009. At work he is interested in highly scalable architectures, microservices, Cassandra database, all technologies around JVM and all aspects of software creation. After hours he writes games and AI systems. At Allegro, he is a Solutions Architect for the users domain.
@@ -121,6 +125,35 @@ kinga.krajewska:
     name: Kinga Krajewska
     bio: Scrum Master with 4+ years of professional experience, passionate about Agile product development, team dynamics and its evolution and coaching. At Allegro since 2013, currently working with teams from Finance and Payment Departments.
     twitter: kingakrajewska5
+
+marcin.konkel:
+    name: Marcin Konkel
+    bio:  Marcin is a Scrum Master at Allegro Group, passionate about agile, coaching and project management. He helps teams to be more agile, removing impediments and cooperating with the organisation to foster change and improve the working environment. Currently working with mobile development teams. He is also experienced as a Project Manager in coordinating globally dispersed (USA, Europe, India, China) as well as local project teams in financial / IT environment. Personally an avid photographer travelling to distant and less distant places to capture moments that stole his attention. He writes on coaching and self-development&#x3a; [medium.com/@m_konkel](http://medium.com/@m_konkel) and on travelling&#x3a; [marcinkonkel.com](http://marcinkonkel.com).
+    twitter: m_konkel
+
+dorian.sarnowski:
+    name: Dorian Sarnowski
+    bio: Dorian is a software engineer with 4+ years of professional experience in creating web applications. He is an enthusiast of clean code, automated testing and agile methodologies. At Allegro, he works in a team which delivers solutions for the financial department. Personally passionate of rock’n’roll history and bass player.
+
+joanna.antkowiak:
+    name: Joanna Antkowiak
+    bio: At Allegro, Joanna works as an Event Specialist in PromoIT team.
+
+piotr.ciemielewski:
+    name: Piotr Ciemielewski
+    bio: At Allegro Group since 2009. Software Engineer with 5+ years of professional experience mostly in Java and PHP. He also used to work as a Scrum Master. Now leading development team delivering product informations for Allegro.
+
+maciej.adamczak:
+    name: Maciej Adamczak
+    bio: He’s been Product Owner for over 2 years, at Allegro Group for 7 years. After work he likes to spend his time at the shooting range, playing board games or online matches. Fan of Terry Pratchett, Monty Python and South Park.
+
+marcin.borkowski:
+    name: Marcin Borkowski
+    bio: Marcin Borkowski is an agile coaching enthusiast who believes that questions appear only because there are answers, and Scrum Master is a catalyst in the process of finding the right answers.
+
+krzysztof.kwiatkowski:
+    name: Krzysztof Kwiatkowski
+    bio: A software engineer with 7+ years of professional experience. A Node.js enthusiast. At Allegro, he works as a front-end webdeveloper.
 
 karol.grabowski:
     name: Karol Grabowski
