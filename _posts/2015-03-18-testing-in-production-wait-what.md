@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Testing prod... wait, what?
+title: Testing in production... wait, what?
 author: karol.grabowski
 tags: [ruby, testing, cucumber, production]
 ---
