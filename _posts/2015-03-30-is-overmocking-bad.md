@@ -6,9 +6,10 @@ tags: [overmocking, java, testing, developer, mocking, spock]
 ---
 
 First question is what is overmocking? There are few answers. When you mock something that you can leave or even
-should leave unmocked — this is overmocking. Or when your classes are so big that tests are full of mocks then 
-that is overmocking too. You will see that in my examples. Another example is when you mock something that you 
-do not own, that is overmocking too.
+should leave unmocked — this is overmocking. Example of this could be a simple model object with only getters and
+setters. Other way to overmock your test is to mock all of the dependencies and base this test on verify method. 
+You will see that in my examples. Another example is when you mock something that you do not own, that is 
+overmocking too.
 
 The answer for the title question is — it depends. I would even say no, but it has some disadvantages. If you want 
 to unit test your code then mocking dependencies is a pretty much normal thing. Getting more and more mocks does 
@@ -29,6 +30,20 @@ constants. It is not important here. Clue is in the given section.
 ```groovy
 def "should return transformed delivery methods for two sellers"() {
     given:
+    def client = Mock(Client)
+    def webTarget = Mock(WebTarget)
+    def webTarget1 = Mock(WebTarget)
+    def webTarget2 = Mock(WebTarget)
+    def builder1 = Mock(Invocation.Builder)
+    def builder2 = Mock(Invocation.Builder)
+    def response1 = Mock(Response)
+    def response2 = Mock(Response)
+    def invocation1 = Mock(Invocation)
+    def invocation2 = Mock(Invocation)
+    def retrier = Mock(RestRetrier)
+    def host = 'test'
+    def deliveriesClient = new DeliveriesClientRest(client, "", retrier)
+
     client.target(host)                                         >> webTarget
     webTarget.path(_)                                           >> webTarget
     webTarget.queryParam("sellerId", SELLER_1)                  >> webTarget1
@@ -58,23 +73,6 @@ def "should return transformed delivery methods for two sellers"() {
     methods.get(SELLER_1) == TestDeliveryMethodsObjects.DELIVERY_METHODS_ONE_DELIVERY_METHOD
     methods.get(SELLER_2) == TestDeliveryMethodsObjects.DELIVERY_METHODS_ALL
 }
-
-
-    def client = Mock(Client)
-    def webTarget = Mock(WebTarget)
-    def webTarget1 = Mock(WebTarget)
-    def webTarget2 = Mock(WebTarget)
-    def builder1 = Mock(Invocation.Builder)
-    def builder2 = Mock(Invocation.Builder)
-    def response1 = Mock(Response)
-    def response2 = Mock(Response)
-    def invocation1 = Mock(Invocation)
-    def invocation2 = Mock(Invocation)
-    def retrier = Mock(RestRetrier)
-
-    def host = 'test'
-
-    DeliveriesClient deliveriesClient = new DeliveriesClientRest(client, "", retrier)
 ```
 
 This is one crazy mocked test. Yes, my team did it. It is very hard to read. It does its job, unit tests 
