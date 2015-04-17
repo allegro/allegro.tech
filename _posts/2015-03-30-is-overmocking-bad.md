@@ -8,8 +8,8 @@ tags: [overmocking, java, testing, developer, mocking, spock]
 First question is what is overmocking? There are few answers. When you mock something that you can leave or even
 should leave unmocked — this is overmocking. Example of this could be a simple model object with only getters and
 setters. Other way to overmock your test is to mock all of the dependencies and base this test on verify method. 
-You will see that in my examples. Another example is when you mock something that you do not own, that is 
-overmocking too.
+You will see that in my examples. Another example is when you mock something that you do not own, some external 
+library, that is overmocking too.
 
 The answer for the title question is — it depends. I would even say no, but it has some disadvantages. If you want 
 to unit test your code then mocking dependencies is a pretty much normal thing. Getting more and more mocks does 
@@ -21,7 +21,11 @@ post lets say that overmocking is bad habbit. What we can do about it?
 First, we can forget about unit tests and integration tests. Lets say that there are just tests. And it makes 
 a big difference because you think more about what functionality you want to test instead of how to test it or mock
 dependencies. And there is one more thing, if you mock your own classes then it is probably ok. But you should 
-avoid mocking things that you do not own, it may cause problems.
+avoid mocking things that you do not own, it may cause problems. You may find bugs on production environment because 
+you assume that piece of code works the way you want it to work. Since it is a mock, you can not be sure. More, if you
+decide to update version of some external library which you mocked in test. What happens next? Test works just fine,
+since library is mocked, but when you release it, program crashes. Conclusion? Useless test because it did not show
+the bug that should be shown.
 
 Take a look at some example. Rest client is my favourite but case with repository is good too. In the code, that is
 tested below, we try to fetch some additional data from external service by using rest client. Do not focus on the 
