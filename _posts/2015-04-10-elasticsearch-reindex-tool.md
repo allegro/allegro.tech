@@ -27,9 +27,7 @@ index. In our most frequently changed index we decreased reindexing time from 45
 
 The only external requirement is JDK 1.8.
 
-Clone our repo from github.
-
-Then create a package:
+Clone our repo from github and then create a package:
 
 `./gradlew jar`
 
