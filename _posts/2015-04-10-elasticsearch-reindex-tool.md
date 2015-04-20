@@ -33,14 +33,12 @@ Then create a package:
 
 `./gradlew jar`
 
-Example of reindexing:
-
-Without segmentation:
+#####Reindexing without segmentation:
 
 `./run.sh -s http://host:9300/index/type -t http://host1:9300/index1/type1  -sc cluster_name -tc
 cluster_name1`
 
-With segmentation by double field:
+#####Reindexing with segmentation by double field:
 
 `./run.sh -s http://host:9300/index/type -t http://host1:9300/index1/type1  -sc cluster_name -tc
 cluster_name1`
@@ -48,14 +46,15 @@ cluster_name1`
 `./run.sh -s http://host:9300/index/type -t http://host1:9300/index1/type1  -sc cluster_name -tc
  cluster_name1 -segmentationField rate.newCoolness -segmentationThresholds 0.0,0.5,0.59,0.6,0.7,0.9,1.0`
 
- Index querying will divide data into segments based on rate.newCoolness field: (0.0-0.5] (0.5-0.59] (0.59-0.6] (0.6-0.7] (0.7-0.9],(0.9-1.0]
+ Index querying will split data into segments based on rate.newCoolness field: (0.0-0.5] (0.5-0.59] (0.59-0.6] (0.6-0
+ .7] (0.7-0.9],(0.9-1.0]
 
-With segmentation by prefix on string field:
+#####Reindexing with segmentation by prefix on string field:
 
 `./run.sh -s http://host:9300/index/type -t http://host1:9300/index1/type1  -sc cluster_name -tc
  cluster_name1 -segmentationField userId -segmentationPrefixes 1,2,3,4,5,6,7`
 
- In this example, index querying will divide data into segments based on the first character of the userId field: 1,
+ In this example, index querying will spilt data into segments based on the first character of the userId field: 1,
  2,3,4,5,6,7
 
 Options:
@@ -76,7 +75,7 @@ Options:
        Segmentation thresholds (only double type)
 
 `segmentationField`, `segmentationThreshold` and `segmentationPrefixes` are optional parameters, allowing you to
-divide querying for field with double values or prefix for string field.
+split querying for field with double values or prefix for string field.
 
 During the reindexing process, progress message is displayed after each scroll query.
 
