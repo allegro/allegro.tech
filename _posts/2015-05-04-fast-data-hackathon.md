@@ -5,14 +5,13 @@ author: [pawel.leszczynski,pawel.zawistowski]
 tags: [hadoop, sql, hive, spark sql, presto, drill, impala]
 ---
 
-## Intro
-
 In the era of NoSQL, SQL language is becoming extremely popular in Hadoop Ecosystem.
 Several query engines are being developed to make SQL queries work better and faster
 in an environment that totally differs from traditional relational databases.
 Most of them claims to be the fastest on the market and suitable to any client’s needs.
 Although there are some 3rd party benchmarks like [Amplab](https://amplab.cs.berkeley.edu/benchmark/),
 it remains unclear whether its results are “portable”  and turn out to be the same in our ecosystem and with our queries.
+
 At Allegro we love working with newest technologies and deploying emerging ones
 on the production environment. In this case we had to decide which one to choose.
 Benchmarks and documentation available online were not sufficient for us to make a proper choice
