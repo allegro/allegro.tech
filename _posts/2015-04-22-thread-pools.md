@@ -87,43 +87,20 @@ are executed, but no new tasks are accepted. If you want to wait for submitted t
 should use the `awaitTermination()` method.
 
 ExecutorService is a very useful tool that allows us to execute all tasks in a convenient way.
-What are the benefits? We don’t have to create any worker thread manually.
+What are the benefits? We don't have to create any worker thread manually.
 A worker thread is a thread which is used internally by the ExecutorService.
-It is worth remembering that the ExecutorService manages for us the thread lifecycle.
-We shouldn’t think about any thread at all when we work with a thread pool.
+It is worth remembering that the Executor service manages for us the thread lifecycle.
+We shouldn't think about any thread at all when we work with a thread pool.
 We should instead think about tasks that are processed asynchronously.
-Moreover, we don’t have
-to recreate a thread when an unexpected exception occurs and we don’t have to worry about
+Moreover, we don't have
+to recreate a thread when an unexpected exception occurs and we don't have to worry about
 reusing a thread when it finishes a task it was assigned.
 Finally, after submitting a task we are provided with a useful future result
 abstraction — a [`Future`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html).
 Of course, since Java 8 we can use even better [`CompletableFuture`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html),
 but converting a `Future` into a `CompletableFuture` is out of the scope of this post.
 Please remember that working with `Futures` makes sense only when we submit a `Callable`,
-because `Callables` produce results while `Runnables` don’t.
-
-### Classes and interfaces
-
-An [`Executor`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html)
-is an object that executes submitted `Runnable` tasks. This interface consists of
-a single method — `void	execute(Runnable command)`. Remember that this doesn’t say
-anything about threading and concurrency — it just executes tasks. Here is an extract
-from the documentation:
-“The command may execute in a new thread, in a pooled thread, or in the calling
-thread, at the discretion of the Executor implementation.”
-
-Next, there is the [`ExecutorService`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html)
-interface which extends Executor. It provides methods to manage its termination
-and methods that produce `Futures` for tracking progress of asynchronous tasks.
-You have to remember important memory consistency effects (an extract
-from the documentation):
-“Actions in a thread prior to the submission of a Runnable or Callable task to
-an ExecutorService happen-before any actions taken by that task, which in turn
-happen-before the result is retrieved via Future.get().”
-
-Finally, there’s an implementation of the thread pool abstraction —
-[`ThreadPoolExecutor`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html)
-which is covered in more detail in the next section.
+because `Callables` produce results while `Runnables` don't.
 
 ### Internals
 
@@ -146,7 +123,7 @@ In order to create a `ThreadPoolExecutor` manually you have to provide at least 
 after being idle for the given amount of time.
 * `BlockingQueue<Runnable> workQueue` — submitted tasks wait in this queue to be executed.
 
-![](../img/articles/2015-04-22-thread-pools/thread-pool.png "Thread pool")
+![threadpool](/img/articles/2015-04-22-thread-pools/thread-pool.png "Thread pool")
 (An image from [Wikipedia](http://en.wikipedia.org/wiki/Thread_pool_patternhttp://en.wikipedia.org/wiki/Thread_pool_pattern))
 
 ### BlockingQueue
@@ -174,44 +151,31 @@ by default):
 * DiscardPolicy
 * DiscardOldestPolicy
 
-### Exception handling
-
-Many programmers who begin their adventure with thread pools
-often forget about proper exception handling. You can see on the standard error
-stream (or wherever you gather your logs) when the main thread dies
-due to an exception. This is different when you use thread pools in your
-application. Without care, an uncaught exception may silently cause a worker
-thread to die and nobody will notice that something wrong happened
-
-This kind of bugs is very hard to deal with but fortunately there is
-a mechanism designed to deal with unexpected exceptions —
-[`Thread.UncaughtExceptionHandler`](http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.UncaughtExceptionHandler.html).
-
 ### Thread factory
 
 Thread [Factories](http://en.wikipedia.org/wiki/Factory_(object-oriented_programming)) are often used to customize
-the creation of worker threads. In the following example
-we create an UncaughtExceptionHandler to log uncaught exceptions together with thread name and
+the creation of worker threads. You can, for example, add a custom
+[`Thread.UncaughtExceptionHandler`](http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.UncaughtExceptionHandler.html)
+or set thread name. In the following example we log uncaught exceptions together with thread name and
 thread sequential number:
 
 ```java
-@ThreadSafe
 public class LoggingThreadFactory implements ThreadFactory {
 
-  private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-  private static final String THREAD_NAME_PREFIX = "worker-thread-";
+    private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+    private static final String THREAD_NAME_PREFIX = "worker-thread-";
 
-  private final AtomicInteger threadCreationCounter = new AtomicInteger();
+    private final AtomicInteger threadCreationCounter = new AtomicInteger();
 
-  @Override
-  public Thread newThread(Runnable task) {
-    int threadNumber = threadCreationCounter.incrementAndGet();
-    Thread workerThread = new Thread(task, THREAD_NAME_PREFIX + threadNumber);
+    @Override
+    public Thread newThread(Runnable task) {
+        int threadNumber = threadCreationCounter.incrementAndGet();
+        Thread workerThread = new Thread(task, THREAD_NAME_PREFIX + threadNumber);
 
-    workerThread.setUncaughtExceptionHandler(thread, throwable -> logger.error("Thread {} {}", thread.getName(), throwable));
+        workerThread.setUncaughtExceptionHandler(thread, throwable -> logger.error("Thread {} {}", thread.getName(), throwable));
 
-    return workerThread;
-  }
+        return workerThread;
+    }
 }
 ```
 
@@ -223,11 +187,10 @@ However, this is not a textbook example of how this problem should be solved. My
 a thread pool can handle all of the synchronization issues and, as a result, programmers can instead focus on
 implementing the business logic.
 
-Producer periodically fetches new data from the database. For each piece of data
-we create a Runnable task by calling the `ConsumerTaskFactory.newConsumerTask()`
-method. Then, these tasks are submitted to the ExecutorService.
+Producer periodically fetches new data from the database to create business task objects and submits
+these tasks to the ExecutorService.
 Consumer, represented by a worker thread from a thread pool managed by the ExecutorService,
-processes ConsumerTasks (i.e. calculates prices and sends them back to the database).
+processes business tasks (i.e. calculates prices and sends them back to customers).
 
 To begin with, we start with a Spring configuration:
 
@@ -245,39 +208,39 @@ public class ProducerConsumerConfiguration {
 }
 ```
 
-Then, there is the `ConsumerTask` class together with the `ConsumerTaskFactory` component.
+Then, there is the `Consumer` class together with the `ConsumerFactory` component.
 The factory is used by the producer in order to create a piece of work that will
 be picked up by the worker thread at some point in the future.
 
 ```java
-public class ConsumerTask implements Runnable {
+public class Consumer implements Runnable {
 
-	private final BusinessData businessData;
+	private final BusinessTask businessTask;
 	private final BusinessLogic businessLogic;
 
-	public ConsumerTask(BusinessData businessData, BusinessLogic businessLogic) {
-		this.BusinessData = businessData;
+	public Consumer(BusinessTask businessTask, BusinessLogic businessLogic) {
+		this.businessTask = businessTask;
 		this.businessLogic = businessLogic;
 	}
 
 	@Override
 	public void run() {
-		businessLogic.processData(businessData);
+		businessLogic.processTask(businessTask);
 	}
 }
 ```
 
 ```java
 @Component
-public class ConsumerTaskFactory {
+public class ConsumerFactory {
 	private final BusinessLogic businessLogic;
 
-	public ConsumerTaskFactory(BusinessLogic businessLogic) {
+	public ConsumerFactory(BusinessLogic businessLogic) {
 		this.businessLogic = businessLogic;
 	}
 
-	public ConsumerTask newConsumerTask(BusinessData businessData) {
-		return new ConsumerTask(businessData, businessLogic);
+	public Consumer newConsumer(BusinessTask businessTask) {
+		return new Consumer(businessTask, businessLogic);
 	}
 }
 ```
@@ -292,32 +255,32 @@ public class Producer {
 
 	private final DataRepository dataRepository;
 	private final ExecutorService executorService;
-	private final ConsumerTaskFactory consumerTaskFactory;
+	private final ConsumerFactory consumerFactory;
 
 	@Autowired
 	public Producer(DataRepository dataRepository, ExecutorService executorService,
-					ConsumerTaskFactory consumerTaskFactory) {
+					ConsumerFactory consumerFactory) {
 		this.dataRepository = dataRepository;
 		this.executorService = executorService;
-		this.consumerTaskFactory = consumerTaskFactory;
+		this.consumerFactory = consumerFactory;
 	}
 
 	public void fetchAndSubmitForProcessing() {
 		List<Data> data = dataRepository.fetchNew();
 
 		data.stream()
-  		// create a business task from data fetched from the database
-  		.map(BusinessTask::fromData)
-  		// create a consumer for each business task
-  		.map(consumerTaskFactory::newConsumerTask)
-  		// submit the task for further processing in the future (submit is a non-blocking method)
-  		.forEach(executorService::submit);
+		// create a business task from data fetched from the database
+		.map(BusinessTask::fromData)
+		// create a consumer for each business task
+		.map(consumerFactory::newConsumer)
+		// submit the task for further processing in the future (submit is a non-blocking method)
+		.forEach(executorService::submit);
 	}
 }
 ```
 
 Thanks to the ExecutorService we could focus on implementing the business logic
-and we don’t have to worry about synchronization issues. The code presented above
+and we don't have to worry about synchronization issues. The code presented above
 uses only one producer and one consumer. However, it could be easily adapted
 to multi-producer and multi-consumer environment.
 
