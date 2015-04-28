@@ -216,4 +216,4 @@ does not cover because it is overmocked. What you should avoid is using anything
 some repository only for your tests or version of service only for your tests. That is bad practice. Everything
 you that need, should start and shutdown inside your tests. Few example tools that we use to test. For embedded mongo
 we use [fongo](https://github.com/fakemongo/fongo). For embedded cassandra we use [achilles](https://github.com/doanduyhai/Achilles).
-For stubing rest service we use [wiremock](http://wiremock.org). For activeMq we use [embedded broker](http://activemq.apache.org/how-do-i-embed-a-broker-inside-a-connection.html).
+For stubbing rest service we use [wiremock](http://wiremock.org). For activeMq we use [embedded broker](http://activemq.apache.org/how-do-i-embed-a-broker-inside-a-connection.html).
