@@ -27,9 +27,9 @@ be sure. Moreover, what happens when you decide to update version of some extern
 Test works just fine, since library is mocked, but when you release your program, it crashes. Conclusion? The test is
 useless because it did not detect bug that should be found.
 
-Take a look at an example. Testing rest client is my favourite but case with repository is good too. In the code, that is
-tested below, we try to fetch some additional data from external service by using rest client. Do not focus on the
-constants. It is not important here. Clue is in the given section, look at the number of mocks.
+Take a look at an example. Testing rest client is my favourite but case with repository is good too. In the code presented
+below we test fetching some additional data from an external service by using a rest client. Do not focus on the constants.
+It is not important here. Clue is in the given section, look at the number of mocks.
 
 ```groovy
 def "should return transformed delivery methods for two sellers"() {
