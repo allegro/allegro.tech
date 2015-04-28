@@ -5,31 +5,31 @@ author: pawel.czubachowski
 tags: [overmocking, java, testing, developer, mocking, spock]
 ---
 
-First question is what is overmocking? There are few answers. When you mock something that you can leave or even
+The first question is — what is overmocking? There are few answers. When you mock something that you can leave or even
 should leave unmocked — this is overmocking. Example of this could be a simple model object with only getters and
-setters. Other way to overmock your test is to mock all of the dependencies and base this test on verify method. 
-You will see that in my examples. Another example is when you mock something that you do not own, some external 
-library, that is overmocking too.
+setters. Other way to overmock your test is to mock all of the dependencies and base this test on verify method.
+You will see that in my examples. Overmocking can also happen when you mock something that you do not own like an external
+library.
 
-The answer for the title question is — it depends. I would even say no, but it has some disadvantages. If you want 
-to unit test your code then mocking dependencies is a pretty much normal thing. Getting more and more mocks does 
-not mean that overmocking is bad. It means that your code architecture is probably bad and you should think 
-about it instead of unmocking things and change your unit tests to integration tests. But there are cases where 
-answer for title question should be yes because tests without mocks are more reliable. And for the sake of this 
-post lets say that overmocking is bad habbit. What we can do about it?
+The answer for the title question is — it depends. I would even say that it is not always wrong, but it has some
+disadvantages. If you wantto unit test your code then mocking dependencies is a pretty much normal thing. Getting
+more and more mocks does not mean that overmocking is bad. It means that your code architecture might be wrong
+and you should think about redesigning it instead of unmocking things or change your unit tests to integration tests. But
+there are cases where answer for title question should be yes because tests without mocks are more reliable. And
+for the sake of this post let's say that overmocking is bad habit. What we can do about it?
 
-First, we can forget about unit tests and integration tests. Lets say that there are just tests. And it makes 
+First, we can forget about unit tests and integration tests. Let's say that there are just tests. It makes
 a big difference because you think more about what functionality you want to test instead of how to test it or mock
-dependencies. And there is one more thing, if you mock your own classes then it is probably ok. But you should 
-avoid mocking things that you do not own, it may cause problems. You may find bugs on production environment because 
-you assume that piece of code works the way you want it to work. Since it is a mock, you can not be sure. More, if you
-decide to update version of some external library which you mocked in test. What happens next? Test works just fine,
-since library is mocked, but when you release it, program crashes. Conclusion? Useless test because it did not show
-the bug that should be shown.
+dependencies. There is one more thing, if you mock your own classes then it is probably ok, but you should
+avoid mocking things that you do not own, it may cause problems in production environment. You may find bugs on production
+environment because you assume that piece of code works the way you want it to work. Since it is a mock, you cannot
+be sure. Moreover, what happens when you decide to update version of some external library which you mocked in test?
+Test works just fine, since library is mocked, but when you release your program, it crashes. Conclusion? The test is
+useless because it did not detect bug that should be found.
 
-Take a look at some example. Rest client is my favourite but case with repository is good too. In the code, that is
-tested below, we try to fetch some additional data from external service by using rest client. Do not focus on the 
-constants. It is not important here. Clue is in the given section. 
+Take a look at an example. Testing rest client is my favourite but case with repository is good too. In the code, that is
+tested below, we try to fetch some additional data from external service by using rest client. Do not focus on the
+constants. It is not important here. Clue is in the given section, look at the number of mocks.
 
 ```groovy
 def "should return transformed delivery methods for two sellers"() {
@@ -47,51 +47,93 @@ def "should return transformed delivery methods for two sellers"() {
     def retrier = Mock(RestRetrier)
     def host = 'test'
     def deliveriesClient = new DeliveriesClientRest(client, "", retrier)
+    def firstSeller = "123456"
+    def secondSeller = "654321"
 
-    client.target(host)                                         >> webTarget
-    webTarget.path(_)                                           >> webTarget
-    webTarget.queryParam("sellerId", SELLER_1)                  >> webTarget1
-    webTarget1.queryParam(_,_)                                  >> webTarget1
-    webTarget2.queryParam(_,_)                                  >> webTarget2
-    webTarget.queryParam("sellerId", SELLER_2)                  >> webTarget2
-    webTarget1.request(_)                                       >> builder1
-    webTarget2.request(_)                                       >> builder2
-    builder1.buildGet()                                         >> invocation1
-    builder2.buildGet()                                         >> invocation2
-    invocation1.submit()                                        >> ConcurrentUtils.constantFuture(response1)
-    invocation2.submit()                                        >> ConcurrentUtils.constantFuture(response2)
-    retrier.getWithRetry({it.getInvocation() == invocation1})   >> response1
-    retrier.getWithRetry({it.getInvocation() == invocation2})   >> response2
-    response1.getStatus()                                       >> 200
-    response1.readEntity(AllegroDeliveryMethods.class)          >> TestDeliveryMethodsObjects.DELIVERY_METHODS_ONE_DELIVERY_METHOD
-    response2.getStatus()                                       >> 200
-    response2.readEntity(AllegroDeliveryMethods.class)          >> TestDeliveryMethodsObjects.DELIVERY_METHODS_ALL
+    client.target(host)                                        >> webTarget
+    webTarget.path(_)                                          >> webTarget
+    webTarget.queryParam("sellerId", firstSeller)              >> webTarget1
+    webTarget1.queryParam(_,_)                                 >> webTarget1
+    webTarget2.queryParam(_,_)                                 >> webTarget2
+    webTarget.queryParam("sellerId", secondSeller)             >> webTarget2
+    webTarget1.request(_)                                      >> builder1
+    webTarget2.request(_)                                      >> builder2
+    builder1.buildGet()                                        >> invocation1
+    builder2.buildGet()                                        >> invocation2
+    invocation1.submit()                                       >> ConcurrentUtils.constantFuture(response1)
+    invocation2.submit()                                       >> ConcurrentUtils.constantFuture(response2)
+    retrier.getWithRetry({it.getInvocation() == invocation1})  >> response1
+    retrier.getWithRetry({it.getInvocation() == invocation2})  >> response2
+    response1.getStatus()                                      >> 200
+    response1.readEntity(AllegroDeliveryMethods.class)         >> TestDeliveryMethodsObjects.DELIVERY_METHODS_ONE_DELIVERY_METHOD
+    response2.getStatus()                                      >> 200
+    response2.readEntity(AllegroDeliveryMethods.class)         >> TestDeliveryMethodsObjects.DELIVERY_METHODS_ALL
 
     when:
     def methods = deliveriesClient.getDeliveryMethods(host, SELLER_ITEMS_TWO_SELLERS_THREE_ITEMS)
 
     then:
     methods.entrySet().size() == 2
-    methods.containsKey(SELLER_1)
-    methods.containsKey(SELLER_2)
-    methods.get(SELLER_1) == TestDeliveryMethodsObjects.DELIVERY_METHODS_ONE_DELIVERY_METHOD
-    methods.get(SELLER_2) == TestDeliveryMethodsObjects.DELIVERY_METHODS_ALL
+    methods.containsKey(firstSeller)
+    methods.containsKey(secondSeller)
+    methods.get(firstSeller) == TestDeliveryMethodsObjects.DELIVERY_METHODS_ONE_DELIVERY_METHOD
+    methods.get(secondSeller) == TestDeliveryMethodsObjects.DELIVERY_METHODS_ALL
 }
 ```
 
-This is one crazy mocked test. Yes, my team did it. It is very hard to read. It does its job, unit tests 
-functionality but it is not that reliable. And if you look at mocked things you will see that the class is probably
-not so complicated. Most of the things are for rest client. This is a good example of mocking something that you 
-could leave unmocked or even should to make your test more reliable. Solution for this case? Unmock webtarget 
-and use it on stubbed service. That way you will test whole your class including rest communication. If it is 
+This is one crazy mocked test. Yes, my team did it. It is very hard to read. It does its job, unit tests
+functionality but it is not that reliable. And if you look at mocked things you can see that the class is probably
+not so complicated. The rest client setup is the biggest part of the test. This is a good example of mocking something that you
+could leave unmocked or even should to make your test more reliable. Solution for this case? Unmock webtargets
+and use it on stubbed service. In this way you can test the whole class, including rest communication. If it is
 possible you can make your service start before test and shutdown after. That would be great.
 
 There is another example.
 
 ```groovy
 CartClient cartClient = new CartClientRest(ClientBuilder.newClient(), "8089", new RestRetrier())
+
 @Unroll
 def "should return information about cart with id #id"() {
+    given:
+    def outputForFirstCart = """
+                             {
+                                 "id":"testId1",
+                                 "cartItems":[
+                                     {
+                                         "id":"111",
+                                         "quantity":1,
+                                         "price":444
+                                     }
+                                 ],
+                                 "endedItems":[]
+                             }
+                             """
+    def outputForSecondCart = """
+                              {
+                                  "id":"testId2",
+                                  "cartItems":[
+                                      {
+                                          "id":"222",
+                                          "quantity":2,
+                                          "price":555
+                                      },
+                                      {
+                                          "id":"333",
+                                          "quantity":4,
+                                          "price":666
+                                      }
+                                  ],
+                                  "endedItems":[
+                                      {
+                                          "id":"111",
+                                          "quantity":1,
+                                          "price":222
+                                      }
+                                  ]
+                              }
+                              """
+
     when:
     stubFor(get(urlEqualTo("/carts/" + cartId))
         .willReturn(aResponse()
@@ -110,14 +152,14 @@ def "should return information about cart with id #id"() {
     cart.endedItems.size()     == endedItemsSize
 
     where:
-    output         || cartId    | quantity | id    | price | cartItemsSize | endedItemsSize
-    CARTS_OUTPUT_1 || "testId1" | 1        | "111" | 444   | 1             | 0
-    CARTS_OUTPUT_2 || "testId2" | 2        | "222" | 555   | 2             | 1
+    output              || cartId    | quantity | id    | price | cartItemsSize | endedItemsSize
+    outputForFirstCart  || "testId1" | 1        | "111" | 444   | 1             | 0
+    outputForSecondCart || "testId2" | 2        | "222" | 555   | 2             | 1
 }
 ```
 
-This is much better, client is not mocked. And the last one example. You can see that the service is stubbed 
-here, however it is a quite good test. Code used to configure mocks is very short.
+This test is much better because client is not mocked. And the last one example. You can see that the service is stubbed
+here, it is a quite good test. Code used to configure mocks is very short.
 
 ```groovy
 def "should remove address"() {
@@ -132,7 +174,7 @@ def "should remove address"() {
 
     !address.visible
 }
-    
+
 @Autowired
 AddressesDao addressesDao
 
@@ -159,17 +201,17 @@ abstract class IntegrationSpecification extends Specification {
 }
 ```
 
-This test is more reliable because it uses embedded cassandra and client that does not mock anything. You can 
-still mock the service if you want/have to but it is still good. You can think of it like integration test, but for 
-me it is just test that does its job. In this example we start service before every test and shutdown after. 
+This test is more reliable because it uses embedded cassandra and client that does not mock anything. You can
+still mock the service if you want/have to but it is still good. You can think of it like integration test, but for
+me it is just test that does its job. In this example we start service before every test and shutdown after.
 Whole communication is working as in real environment so you can find your bugs much easier and much faster.
 
-So what should you do with overmocking? In my opinion it is a sign that you should take a closer look to your 
-application architecture because something might be going in the wrong direction. If you have clients then try 
-to unmock them. If you have any storage then try to use embedded version of it. If you have submodule service 
-then start it before test and shutdown after. Or leave it as is if you want, but if you choose that way you 
-loose some reliability. And this is a big disadvantage because you should trust your tests and it should give
-as much confidence as possible that your code will not break on production in some cases that your test 
-does not cover. What you should avoid is using anything from the outside for example some repository only for 
-your tests or version of service only for your tests. That is bad practice. Everything you that need, should 
-start and shutdown inside your tests. 
+So what should you do with overmocking? In my opinion it is a sign that you should take a closer look at your
+application architecture because something might be going in the wrong direction. If you have clients then try
+to unmock them. If you have any storage then try to use an embedded version. If you have a submodule service
+then start it before test and shutdown after. Or leave it as is if you want, but if you decide to go that way you
+can loose some reliability. And this is a big disadvantage because you should trust your tests and it should give
+as much confidence as possible that your code will not break on production in some cases that your test
+does not cover because it is overmocked. What you should avoid is using anything from the outside for example
+some repository only for your tests or version of service only for your tests. That is bad practice. Everything
+you that need, should start and shutdown inside your tests.
