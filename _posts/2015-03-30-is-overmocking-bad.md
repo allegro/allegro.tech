@@ -22,7 +22,7 @@ First, we can forget about unit tests and integration tests. Let's say that ther
 a big difference because you think more about what functionality you want to test instead of how to test it or mock
 dependencies. There is one more thing, if you mock your own classes then it is probably ok, but you should
 avoid mocking things that you do not own, it may cause problems in production environment. You may find bugs on production
-environment because you assume that piece of code works the way you want it to work. Since it is a mock, you cannot
+environment because you assume that a piece of code works the way you want it to work. Since it is a mock, you cannot
 be sure. Moreover, what happens when you decide to update version of some external library which you mocked in test?
 Test works just fine, since library is mocked, but when you release your program, it crashes. Conclusion? The test is
 useless because it did not detect bug that should be found.
