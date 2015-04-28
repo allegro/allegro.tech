@@ -141,7 +141,7 @@ joanna.antkowiak:
 
 miroslaw.golda:
     name: Mirosław Gołda
-    bio: Mirosław is a software developer with programming experience in Java, PHP, JavaScript and Node.js who joined Allegro Group in 2011. He likes playing around with various programming languages and technologies. Recently it's Groovy and Selenium WebDriver.
+    bio: Mirosław is a software engineer with programming experience in Java, PHP, JavaScript and Node.js who joined Allegro Group in 2011. He likes playing around with various programming languages and technologies. Recently he's experimenting with various automated testing tools and frameworks.
 
 piotr.ciemielewski:
     name: Piotr Ciemielewski
@@ -154,3 +154,32 @@ maciej.adamczak:
 marcin.borkowski:
     name: Marcin Borkowski
     bio: Marcin Borkowski is an agile coaching enthusiast who believes that questions appear only because there are answers, and Scrum Master is a catalyst in the process of finding the right answers.
+
+krzysztof.kwiatkowski:
+    name: Krzysztof Kwiatkowski
+    bio: A software engineer with 7+ years of professional experience. A Node.js enthusiast. At Allegro, he works as a front-end webdeveloper.
+
+pawel.lesiecki:
+    name: Paweł Lesiecki
+    bio: Paweł is a full-stack software engineer and an enthusiast of new technologies.
+
+alicja.antkowiak:
+    name: Alicja Antkowiak
+    bio: Alicja is UX researcher in Allegro Group with cognitive science background. She is a big fan of data-driven decision-making and common sense.
+
+edyta.kopczynska:
+    name: Edyta Kopczyńska
+    bio: Edyta is the Product Owner for Allegro search engine. She has been in product development for 10 years. She enjoys using agile methods, UX design and metrics to create products that customers love.
+
+krystian.szczucki:
+    name: Krystian Szczucki
+    bio: Krystian has been an Analyst in Allegro Group for over 4 years. He is a follower of user-centered design and logical reasoning.
+
+piotr.plys:
+    name: Piotr Płyś
+    bio: UX designer with an inclination towards simple yet lovable interfaces. Believes that a loyal user is the most cherished thing in the world to be found on the Web.
+
+karol.grabowski:
+    name: Karol Grabowski
+    bio: Karol is a junior developer with less than two years of professional experience in Java technologies so far. At Allegro he works in a team responsible for migrating legacy Allegro listings to the SOA world. He belives that user is most important part of the whole service.
+
