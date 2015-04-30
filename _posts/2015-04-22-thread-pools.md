@@ -9,12 +9,12 @@ According to [Moore’s law](http://en.wikipedia.org/wiki/Moore%27s_law) the num
 in an integrated circuit doubles approximately every two years. However, the exponential
 processor transistor growth does not always translate into exponentially greater practical CPU
 performance. Processor manufacturers for years delivered processors with higher clock rates and
-instruction parallelism. As a result, a single-threaded code executed faster on newer generations of
+instruction parallelism. As a result, single-threaded code executed faster on newer generations of
 processors. Of course, it is impossible to speed up clock rates infinitely and processors like
-[AMD FX-9590](http://cpuboss.com/cpu/AMD-FX-9590) with Turbo clock speed at 5 GHz are rather unique.
+[AMD FX-9590](http://cpuboss.com/cpu/AMD-FX-9590) with turbo clock speed at 5 GHz are rather unique.
 Today, processor manufacturers favour [multi-core processors](http://en.wikipedia.org/wiki/Multi-core_processor).
 It is common to have a quad-core CPU in smartphones, not to mention laptops or even desktop PCs.
-Consequently, software has to be written in a multi-threaded manner to take the full advantage of the
+Consequently, software has to be written in a multi-threaded manner to take full advantage of the
 hardware. [Thread pools](http://en.wikipedia.org/wiki/Thread_pool_pattern) can help programmers
 harness multi-core CPUs.
 
@@ -23,29 +23,39 @@ harness multi-core CPUs.
 Good software design techniques suggest that [threads](http://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html)
 should not be created and
 destroyed manually. Thread creation and destruction are expensive processes which consume both CPU
-and memory, as it requires JVM and OS activity. Moreover, creating a new thread for each request in a
-server application can consume significant amount of RAM and CPU resources when requests are frequent and
-lightweight. Thread pools can handle thread lifecycle automatically according to the
+and memory, as they require JVM and OS activity. [Default Java thread stack size
+is 1 MB](http://www.oracle.com/technetwork/java/hotspotfaq-138619.html) for 64-bit JVMs.
+That is why creating a new thread for each request when requests are frequent and
+lightweight is a waste of resources. Thread pools can handle thread lifecycle automatically according to the
 strategy selected on thread pool creation. An important feature of a thread pool is that
-it allows applications to degradate gracefully. A server application can queue incoming
+it allows applications to degrade gracefully. A server application can queue incoming
 requests and handle them when it has enough resources, like memory or CPU, to do so.
-Otherwise, without thread pools, the server application may crash because it runs out of resources.
+Otherwise, without thread pools, the server application may crash.
+There are many reasons why there are no more resources. For example, multiple
+connections to the server caused by a [denial-of-service attack](http://en.wikipedia.org/wiki/Denial-of-service_attack)
+may result in many threads running in parallel which in turn
+leads to [thread starvation](http://en.wikipedia.org/wiki/Resource_starvation).
 Moreover, programmers who run threads manually must remember to handle exceptional
-situations when a thread dies due to an Exception.
+situations when a thread dies due to an exception.
 
-Thread pool can be easily created by the [`Executors`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executors.html)
+Even though you may not explicitly use thread pools in your application, they
+are heavily used in web servers like [Tomcat](http://tomcat.apache.org/)
+or [Undertow](http://undertow.io/). It is good to know how thread pools work
+and how you can tune them in order to optimize performance.
+
+Thread pools can be easily created using [`Executors`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executors.html)
 factory. All implementations of the [`ExecutorService`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html)
-interface:
+interface provided in JDK:
 
 * [`ForkJoinPool`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html)
 * [`ThreadPoolExecutor`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html)
 * [`ScheduledThreadPoolExecutor`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledThreadPoolExecutor.html)
 
-are the Java implementation of the thread pool abstraction.
+are Java implementations of the thread pool abstraction.
 The following code snippet presents the lifecycle of an ExecutorService:
 
 ```java
-  public List<Future<T>> executeTasks(Collection<Callable<T>> tasks) {
+public List<Future<T>> executeTasks(Collection<Callable<T>> tasks) {
     // create an ExecutorService
     final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
@@ -56,11 +66,11 @@ The following code snippet presents the lifecycle of an ExecutorService:
     executorService.shutdown();
 
     return executedTasks;
-  }
+}
 ```
 
-We begin with creating the simplest ExecutorService — a single threaded executor. It uses one
-thread to handle incoming tasks. Of course, you can customize your ExecutorService in a wide
+We begin with creating the simplest ExecutorService — a single-threaded executor. It uses one
+thread to handle all incoming tasks. Of course, you can customize your ExecutorService in a wide
 variety of ways or use one of the factory methods from the `Executors` class:
 
 * [`newCachedThreadPool()`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executors.html#newCachedThreadPool) — creates an ExecutorService that creates new threads as needed and reuses existing threads to handle incoming tasks.
@@ -76,20 +86,22 @@ contention.
 
 In the example presented above we invoke all tasks at once, but you can use other methods to execute a task:
 
-* `void execute(Runnable)`
-* `Future<T> submit(Callable<T>)`
-* `Future<?> submit(Runnable)`
+* [`void execute(Runnable)`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html#execute-java.lang.Runnable-)
+* [`Future<T> submit(Callable<T>)`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html#submit-java.util.concurrent.Callable-)
+* [`Future<?> submit(Runnable)`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html#submit-java.lang.Runnable-)
 
-Finally, we gently ask the executorService to shutdown. The [`shutdown()`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html#shutdown--)
-method is a non-blocking
+Finally, we gently ask the executorService to shutdown.
+[`Shutdown()`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html#shutdown--) is a non-blocking
 method. Calling it makes an ExecutorService enter a “shutdown mode” in which all previously submitted tasks
 are executed, but no new tasks are accepted. If you want to wait for submitted tasks to finish, you
-should use the `awaitTermination()` method.
+should use the [`awaitTermination()`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html#awaitTermination-long-java.util.concurrent.TimeUnit-) method.
 
 ExecutorService is a very useful tool that allows us to execute all tasks in a convenient way.
 What are the benefits? We don't have to create any worker thread manually.
 A worker thread is a thread which is used internally by the ExecutorService.
-It is worth remembering that the Executor service manages for us the thread lifecycle.
+It is worth remembering that the Executor service manages the thread lifecycle for us.
+It can increase the number of worker threads when the load increases. On the other
+hand it can tear down threads which are inactive for a given period of time.
 We shouldn't think about any thread at all when we work with a thread pool.
 We should instead think about tasks that are processed asynchronously.
 Moreover, we don't have
@@ -114,7 +126,7 @@ Every thread pool consists of several building blocks:
 There are many implementations of the ExecutorService interface, but let us focus on
 the commonly used [`ThreadPoolExecutor`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html).
 In fact, `newCachedThreadPool()`, `newFixedThreadPool()` and `newSingleThreadExecutor()` methods
-return an instance of the `ThreadPoolExecutor` class.
+return instances of the `ThreadPoolExecutor` class.
 In order to create a `ThreadPoolExecutor` manually you have to provide at least 5 arguments:
 
 * `int corePoolSize` — the number of threads to keep in the pool.
@@ -124,7 +136,7 @@ after being idle for the given amount of time.
 * `BlockingQueue<Runnable> workQueue` — submitted tasks wait in this queue to be executed.
 
 ![threadpool](/img/articles/2015-04-22-thread-pools/thread-pool.png "Thread pool")
-(An image from [Wikipedia](http://en.wikipedia.org/wiki/Thread_pool_patternhttp://en.wikipedia.org/wiki/Thread_pool_pattern))
+(An image from [Wikipedia](http://en.wikipedia.org/wiki/Thread_pool_pattern))
 
 ### BlockingQueue
 
@@ -135,13 +147,15 @@ is in fact an instance of a [`BlockingQueue`](http://docs.oracle.com/javase/8/do
 but processing tasks with respect to their priority is a tricky business. To begin with, submitted
 `Runnable` or `Callable` tasks are wrapped in a [`RunnableFuture`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/RunnableFuture.html)
 which is then added to the queue. As a result, the `ProrityBlockingQueue` compares wrong objects in
-order to determine their priority. Moreover, when the `corePoolSize` property is greater than 1 and
+order to determine their priority (RunnableFuture wrappers instead of their payloads).
+Moreover, when the `corePoolSize` property is greater than 1 and
 the worker threads are not busy, `ThreadPoolExecutor` may serve requests in their insertion order,
 before the `PriorityBlockingQueue` can shuffle them with respect to their priority.
 
-By default, the `workQueue` used by `ThreadPoolExecutor` is unbounded. It is sufficient in most
-cases but, of course, you can change this behaviour. When you limit the size of the
-task queue remember to set
+By default, the `workQueue` used by `ThreadPoolExecutor` is unbounded. It is OK in most
+cases but, of course, you can change this behaviour. However, remember that
+unbounded work queue may cause your application to fail due to [out of memory error](http://docs.oracle.com/javase/8/docs/api/java/lang/OutOfMemoryError.html).
+When you limit the size of the task queue remember to set
 [`RejectionExecutionHandler`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/RejectedExecutionHandler.html).
 You can provide your custom implementation or choose from 4 handler flavours (AbortPolicy is used
 by default):
@@ -198,13 +212,13 @@ To begin with, we start with a Spring configuration:
 @Configuration
 public class ProducerConsumerConfiguration {
 
-	@Bean
-	public ExecutorService executorService() {
-		// single consumer
-		return Executors.newSingleThreadExecutor();
-	}
+    @Bean
+    public ExecutorService executorService() {
+        // single consumer
+        return Executors.newSingleThreadExecutor();
+    }
 
-	// other beans such as a data source, a scheduler, etc.
+    // other beans such as a data source, a scheduler, etc.
 }
 ```
 
@@ -215,33 +229,33 @@ be picked up by the worker thread at some point in the future.
 ```java
 public class Consumer implements Runnable {
 
-	private final BusinessTask businessTask;
-	private final BusinessLogic businessLogic;
+    private final BusinessTask businessTask;
+    private final BusinessLogic businessLogic;
 
-	public Consumer(BusinessTask businessTask, BusinessLogic businessLogic) {
-		this.businessTask = businessTask;
-		this.businessLogic = businessLogic;
-	}
+    public Consumer(BusinessTask businessTask, BusinessLogic businessLogic) {
+        this.businessTask = businessTask;
+        this.businessLogic = businessLogic;
+    }
 
-	@Override
-	public void run() {
-		businessLogic.processTask(businessTask);
-	}
+    @Override
+    public void run() {
+        businessLogic.processTask(businessTask);
+    }
 }
 ```
 
 ```java
 @Component
 public class ConsumerFactory {
-	private final BusinessLogic businessLogic;
+    private final BusinessLogic businessLogic;
 
-	public ConsumerFactory(BusinessLogic businessLogic) {
-		this.businessLogic = businessLogic;
-	}
+    public ConsumerFactory(BusinessLogic businessLogic) {
+        this.businessLogic = businessLogic;
+    }
 
-	public Consumer newConsumer(BusinessTask businessTask) {
-		return new Consumer(businessTask, businessLogic);
-	}
+    public Consumer newConsumer(BusinessTask businessTask) {
+        return new Consumer(businessTask, businessLogic);
+    }
 }
 ```
 
@@ -253,29 +267,29 @@ method is periodically called by a scheduler.
 @Component
 public class Producer {
 
-	private final DataRepository dataRepository;
-	private final ExecutorService executorService;
-	private final ConsumerFactory consumerFactory;
+    private final DataRepository dataRepository;
+    private final ExecutorService executorService;
+    private final ConsumerFactory consumerFactory;
 
-	@Autowired
-	public Producer(DataRepository dataRepository, ExecutorService executorService,
+    @Autowired
+    public Producer(DataRepository dataRepository, ExecutorService executorService,
 					ConsumerFactory consumerFactory) {
-		this.dataRepository = dataRepository;
-		this.executorService = executorService;
-		this.consumerFactory = consumerFactory;
-	}
+        this.dataRepository = dataRepository;
+        this.executorService = executorService;
+        this.consumerFactory = consumerFactory;
+    }
 
-	public void fetchAndSubmitForProcessing() {
-		List<Data> data = dataRepository.fetchNew();
+    public void fetchAndSubmitForProcessing() {
+        List<Data> data = dataRepository.fetchNew();
 
-		data.stream()
-		// create a business task from data fetched from the database
-		.map(BusinessTask::fromData)
-		// create a consumer for each business task
-		.map(consumerFactory::newConsumer)
-		// submit the task for further processing in the future (submit is a non-blocking method)
-		.forEach(executorService::submit);
-	}
+        data.stream()
+            // create a business task from data fetched from the database
+            .map(BusinessTask::fromData)
+            // create a consumer for each business task
+            .map(consumerFactory::newConsumer)
+            // submit the task for further processing in the future (submit is a non-blocking method)
+            .forEach(executorService::submit);
+    }
 }
 ```
 
@@ -291,7 +305,7 @@ arrived in 2004 and provided many useful concurrent goodies, with the ExecutorSe
 The thread pool abstraction is commonly used in server environments under the hood
 (see [Tomcat](http://docs.oracle.com/cd/E23507_01/Platform.20073/ATGInstallGuide/html/s0902tomcatconnectorthreadconfigurati01.html)
 and [Undertow](http://undertow.io/documentation/core/listeners.html)). Of course, thread pools
-are not only limited to server environments. They are useful in solving any sort of
+are not limited to server environments only. They are useful in solving any sort of
 [embarrassingly parallel](http://en.wikipedia.org/wiki/Embarrassingly_parallel) problems.
-And due to the fact that today it is more common to run software on a multi-core machine
+Due to the fact that today it is more common to run software on a multi-core machine
 rather than on a single-core machine, thread pools are definitely worth considering.
