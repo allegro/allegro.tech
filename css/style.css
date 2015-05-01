@@ -92,7 +92,6 @@ html, body {
 .post-header,
 .section-latest > header {
     background: #333;
-    /*background: radial-gradient(rgba(23, 33, 23, 0.7), rgba(53, 53, 53, 1));*/
 }
 
 @media all and (min-width: 320px) {
