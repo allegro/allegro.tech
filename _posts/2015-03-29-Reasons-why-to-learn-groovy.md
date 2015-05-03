@@ -54,7 +54,7 @@ new Person(id: 1, name: 'John', surname: 'Doe') //named constructor parameters, 
 ```
 
 ### Groovy is functional
-Functional languages, although created in 1950s (Lisp), are getting popular again. More and more such
+Functional languages, although created in 1950s (Lisp), are getting popular again. More and more of such
 languages appear, like Clojure, Scala and our Groovy on JVM platform, Haskell and F# outside of it.
 In such languages functions are first-class citizens,
 what [Wikipedia](http://en.wikipedia.org/wiki/First-class_function) explains this way:
@@ -130,10 +130,17 @@ Last argument is not directly in favour of Groovy. Learning new things is always
 horizons, you start to look at things from a different perspective. Groovy can give you insight into functional programming,
 shows that things can be more concise or just better than what you know.
 
+### Every coin has two sides
+Of course Groovy isn’t a perfect tool for every application. Great in script-like, Groovy is not necessarily equally useful in normal,
+production coding. While dynamic typing gives you a boost in writing code, slows down refactoring afterwards. That’s a huge drawback
+if you have dozens of classes in a project tangled by dependencies. There’s a way to turn on a static compilation, but that’s disabling
+most of Groovy’s features. However, with regular compilation syntax errors will be seen only at the runtime.
+Also in Groovy lots of magic happens behind the scenes. Every piece of that magic potentially might turn into a very hard to trace bug in
+your code.
+
 ### Summarize
-In paragraphs above I tried to show some interesting features, applications and frameworks of Groovy. The same ones that
-made me actually like this language. Of course, this language has many drawbacks, its dynamic typing can often be pain in
-the neck — makes refactor much harder, even IntelliJ IDEA, that makes wonders in refactoring Java, loses its power with Groovy.
-If you don’t have turned on static compilation, you’ll see syntax errors only at runtime. But true power of Groovy lies in
-tests and scripting, when speed of coding, ease and readability are most important matters.
+In paragraphs above I tried to show some interesting features, applications and frameworks of Groovy with the cost
+at which we get these. True power of Groovy lies in tests and scripting, when speed of coding, ease and readability
+are the most important matters. In my opinion, despite its faults, Groovy is a good tool every engineer should know.
+
 
