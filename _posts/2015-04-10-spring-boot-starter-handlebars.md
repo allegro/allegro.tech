@@ -17,7 +17,7 @@ and other helpful features.
 ## Usage
 
 As you can expect for any Spring Boot starter its use is pretty straightforward. Just add
-**spring-boot-starter-handlebars** to dependencies of your Spring Boot application and your Handlebars templates will be
+**handlebars-spring-boot-starter** to dependencies of your Spring Boot application and your Handlebars templates will be
 picked up automatically from `src/main/resources/templates`.
 
 ```groovy
@@ -26,12 +26,12 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.tech.boot:spring-boot-starter-handlebars:0.1.1'
+    compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.2.0'
 }
 ```
 
 Naturally, you can customize configuration settings. Check
-[README.md](https://github.com/allegro/spring-boot-starter-handlebars/blob/master/README.md) to find custom
+[README.md](https://github.com/allegro/handlebars-spring-boot-starter/blob/master/README.md) to find custom
 configuration examples.
 
 ### Example Spring Boot application
@@ -71,6 +71,6 @@ Now start the application and go to http://localhost:8080.
 
 ## Where can I find it?
 
-**spring-boot-starter-handlebars** is published under Apache License 2.0 at [Allegro Github](https://github.com/allegro)
-account along with the other Allegro OpenSource projects and released to [Maven Central](http://search.maven.org/#artifactdetails|pl.allegro.tech.boot|spring-boot-starter-handlebars|0.1.1|jar).
-To find out more about it, check README.md located in [spring-boot-starter-handlebars repository](https://github.com/allegro/spring-boot-starter-handlebars).
+**handlebars-spring-boot-starter** is published under Apache License 2.0 at [Allegro Github](https://github.com/allegro)
+account along with the other Allegro OpenSource projects and released to [Maven Central](http://search.maven.org/#artifactdetails|pl.allegro.tech.boot|handlebars-spring-boot-starter|0.2.0|jar).
+To find out more about it, check README.md located in [handlebars-spring-boot-starter repository](https://github.com/allegro/handlebars-spring-boot-starter).
