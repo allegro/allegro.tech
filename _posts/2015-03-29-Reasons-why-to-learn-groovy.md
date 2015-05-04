@@ -9,20 +9,20 @@ Groovy is a dynamic, object-oriented programming language for the Java platform.
 from slang, where “groovy” means “cool”, “amazing” or “fashionable”. This programming
 language was designed to be so, but is it still *groovy* nowadays? Creator of Groovy,
 James Strachan, admitted that he wouldn’t have created Groovy if he had known anything about Scala. But his project started living its own
-life. Let’s take a look what it has to offer us now.
+life. Let’s take a look at what it has to offer us now.
 
-### It’s easy for Java developer
+### It’s easy for a Java developer
 Groovy is easy. Most of the code you write in Java will compile and work as expected. Sure,
-sometimes you’ll get surprised by Groovy’s behaviour, but such cases are very limited. E.g.
+sometimes you’ll be surprised by Groovy’s behaviour, but such cases are very limited. E.g.
 == operator won’t compare instances but call equals method instead. Isn’t it more intuitive though?
 
-Learning curve for Groovy is flat, it won’t be challenging for someone who is fluent with Java.
+The learning curve for Groovy is flat, it won’t be challenging for someone who is fluent in Java.
 Also you don’t need to learn everything new from Groovy — you can discover new features step by step,
 so you won’t get overwhelmed.
 
 ### Groovy’s syntax is groovy
 Groovy was thought and designed to be less *verbose* than Java. Unnecessary semicolons, lots of
-syntactic sugar make you write faster and also without worrying about most of boiler plate code. Let’s
+syntactic sugar help you write faster and also without worrying about most of boiler plate code. Let’s
 compare:
 
 ```groovy
@@ -54,25 +54,26 @@ new Person(id: 1, name: 'John', surname: 'Doe') //named constructor parameters, 
 ```
 
 ### Groovy is functional
-Functional languages, although created in 1950s (Lisp), are getting popular again. More and more of such
-languages appear, like Clojure, Scala and our Groovy on JVM platform, Haskell and F# outside of it.
+Functional languages, although created in the 1950s (Lisp), are getting popular again. More and more of such
+languages are appearing, like Clojure, Scala and our Groovy on JVM platform, Haskell and F# outside of it.
 In such languages functions are first-class citizens,
-what [Wikipedia](http://en.wikipedia.org/wiki/First-class_function) explains this way:
+which [Wikipedia](http://en.wikipedia.org/wiki/First-class_function) explains this way:
 >
 this means the language supports passing functions as arguments to other functions, returning them as the
 values from other functions, and assigning them to variables or storing them in data structures
 
-I wouldn’t like to focus on functional aspects, but rather on the possibility to get familiar with new and completely
-different programming paradigm that Groovy gives. This paradigm for Java developers might be very confusing and new.
+I wouldn’t like to focus on the functional aspects, but rather on the possibility to get familiar with the new and completely
+different programming paradigm that Groovy offers. This paradigm for Java developers might be very confusing and new.
 Java 8, although is getting close to it with closures, is not fully a functional language.
-[This article](http://www.beyondjava.net/blog/java-8-functional-programming-language/) explains well why.
+[This article](http://www.beyondjava.net/blog/java-8-functional-programming-language/) explains well why. Some people will
+say that Groovy is also not a pure functional language, that it only allows to do so, just like Scala does. But to me — it’s close enough.
 Learning functional programming in Groovy, again, will be easy — it will just look like another feature. You will have
-to start thinking in a brand new way, but without learning new syntax, like it would happen with Clojure or Scala.
+to start thinking in a brand new way, but without learning new syntax, like it would happen with Clojure or Haskell.
 But on the other hand — you’ll often have a temptation to do things in an old, known way. Every coin has two sides,
-but to me ability to play with functional programming is definitely a virtue of Groovy.
+but to me the ability to play with functional programming is definitely a virtue of Groovy.
 
 ### You can seamlessly integrate Groovy and Java
-These two languages just work with each other. You can make Java classes call Groovy code back and forth and it will
+These two languages just work well with each other. You can make Java classes call Groovy code back and forth and it will
 work just fine. No special language constructions nor third party libraries. You can use this to write as following:
 
 ```groovy
@@ -88,59 +89,66 @@ public class JunitTest {
 }
 ```
 This is test written in Groovy, using jUnit framework (written for Java), ran by jUnit runner. Groovy and Java integrated
-seamlessly. Normal Java classes will work perfectly with Groovy classes as well,  Java compiler will even see and use setters and getters
-generated by Groovy.
+seamlessly. Normal Java classes will work perfectly with Groovy classes as well,  the Java compiler will even see and use setters
+and getters generated by Groovy.
 
 ### Beautiful tests in Spock
-Example above shows that you can use good ol’ jUnit spiced with Groovy’s syntactic sugar. My favourite is naming
+The example above shows that you can use good ol’ jUnit spiced with Groovy’s syntactic sugar. My favourite feature is naming
 methods as a string containing spaces — it’s so much easier to read! But (Peter Niederwieser)[https://twitter.com/pniederw]
 wished to go one step further and created a full framework that helps to write better tests — [Spock](http://spockframework.org).
-It enforces you to use given-when-then sections, what helps you think of correct test construction; it gives concise and almost
+It enforces you to use given-when-then sections, which helps you think of correct test construction; it gives a concise and almost
 graphic way to write parametrized tests; when a test fails — it shows graphically which assertion failed. Let the code speak:
 ```groovy
-@Unroll
-    def 'should sum elements from 0 to #upperLimit correctly'() {
-        given:
-        def listOfElements = 0..upperLimit
-
-        when:
-        def assumedSum = (1 + upperLimit) * upperLimit / 2
-
-        then:
-        listOfElements.sum() == assumedSum
+class SpockTest extends Specification {
+    @Unroll
+    def 'should compute square root of #number correctly'() {
+        expect:
+        assert root == Math.sqrt(number)
 
         where:
-        upperLimit | _
-        0          | _
-        10         | _
-        1000       | _
+        number | root
+        1      | 1
+        4      | 2
+        9      | 3
+        16     | 4
+        25     | 6
     }
+}
 ```
+Note @Unroll annotation. It will expand your test case into five separate ones. Each one named as you wish - thanks to “#number”
+placeholder. Running the tests will result in:
+
+>io.tech.allegro.SpockTest > should compute square root of 25 correctly FAILED
+     Condition not satisfied:
+
+     root == Math.sqrt(number)
+     |    |       |    |
+     6    false   5.0  25
 There are more arguments in favour of Spock — its homepage [sums it up nicely](https://code.google.com/p/spock/wiki/WhySpock)
 
 ### Gradle
-[Gradle](http://gradle.org/) is a build tool that gains popularity rapidly. Google chose Gradle as build
+[Gradle](http://gradle.org/) is a build tool that is gaining popularity rapidly. Google chose Gradle as build
 tool for Android — that’s enough to say about its potential. Gradle is covered in more detail in
 [this blog post](/Adopting-Gradle-at-allegro-pl-a-success-story.html). I would like to add that
-you don’t need to know Groovy to use Gradle at a basic level. But knowing it gives you an actual understanding what
+you don’t need to know Groovy to use Gradle at a basic level. But knowing it gives you an actual understanding of what
 happens under the hood and you can get on the pro level.
 
 ### Widening your horizons
-Last argument is not directly in favour of Groovy. Learning new things is always good, it widens your
+The last argument is not directly in favour of Groovy. Learning new things is always good, it widens your
 horizons, you start to look at things from a different perspective. Groovy can give you insight into functional programming,
 shows that things can be more concise or just better than what you know.
 
 ### Every coin has two sides
 Of course Groovy isn’t a perfect tool for every application. Great in script-like, Groovy is not necessarily equally useful in normal,
-production coding. While dynamic typing gives you a boost in writing code, slows down refactoring afterwards. That’s a huge drawback
+production coding. While dynamic typing gives you a boost in writing code, it slows down refactoring afterwards. That’s a huge drawback
 if you have dozens of classes in a project tangled by dependencies. There’s a way to turn on a static compilation, but that’s disabling
 most of Groovy’s features. However, with regular compilation syntax errors will be seen only at the runtime.
 Also in Groovy lots of magic happens behind the scenes. Every piece of that magic potentially might turn into a very hard to trace bug in
 your code.
 
 ### Summarize
-In paragraphs above I tried to show some interesting features, applications and frameworks of Groovy with the cost
-at which we get these. True power of Groovy lies in tests and scripting, when speed of coding, ease and readability
+In the paragraphs above I tried to show some interesting features, applications and frameworks of Groovy and the cost
+at which we get these. The true power of Groovy lies in tests and scripting, when speed of coding, ease and readability
 are the most important matters. In my opinion, despite its faults, Groovy is a good tool every engineer should know.
 
 
