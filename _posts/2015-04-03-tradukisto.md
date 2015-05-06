@@ -37,14 +37,14 @@ We’ve designed API of Tradukisto to be as simple as possible.
 ValueConverter converter = ValueConverters.POLISH_INTEGER;
 String valueAsWords = converter.asWords(1_234);
 
-assertEquals(valueAsWords, "jeden tysiąc dwieście trzydzieści cztery");
+assertEquals("jeden tysiąc dwieście trzydzieści cztery", valueAsWords);
 ```
 
 ```java
 MoneyConverter converter = MoneyConverters.POLISH_BANKING_MONEY_VALUE;
 String moneyAsWords = converter.asWords(new BigDecimal("1234.56"));
 
-assertEquals(moneyAsWords, "jeden tysiąc dwieście trzydzieści cztery PLN 56/100");
+assertEquals("jeden tysiąc dwieście trzydzieści cztery PLN 56/100", moneyAsWords);
 ```
 
 ###Current status, plans and source code
