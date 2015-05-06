@@ -43,19 +43,19 @@ Sure there are plenty of alternatives available. You can use PHP, JavaScript, Py
 Why should we change our technology stack for automated tests?
 
 Fortunately we don’t have to. [Geb](http://gebish.org/) is the answer. It is kind of a wrapper on top of Selenium WebDriver and enriched with Groovy and Spock syntax
-(using Spock is optional). I strongly recommend you'd start your adventure with Geb from this starter:
+(using Spock is optional). I strongly recommend you’d start your adventure with Geb from this starter:
 [Geb starter project](https://github.com/geb/geb-example-gradle)
 
 It is a sample project, prepared to run browser tests in Firefox, Chrome and PhantomJs. It is very simple to add your own runner (for
-continuous integration purposes for instance). It's based on Selenium WebDriver so you must remember you may use and easily migrate all the settings you used for standard
+continuous integration purposes for instance). It’s based on Selenium WebDriver so you must remember you may use and easily migrate all the settings you used for standard
 Selenium Java tests. You may now ask what’s so nice about Groovy, Spock and Geb? Let’s take a look at some code.
 
 ## The tool
 
-We’ll look at Allegro webpage through a shopping cart example and try to write some very basic test. We'll click the cart icon on the main page and
+We’ll look at Allegro webpage through a shopping cart example and try to write some very basic test. We’ll click the cart icon on the main page and
 check if we are redirected at an empty cart page.
 
-In our example we'll use [gradle](http://gradle.org/) for building our project and managing its dependencies. For the start let’s clone the repository of Geb gradle example.
+In our example we’ll use [gradle](http://gradle.org/) for building our project and managing its dependencies. For the start let’s clone the repository of Geb gradle example.
 
 ```
 git clone https://github.com/geb/geb-example-gradle
@@ -68,7 +68,7 @@ Before we begin creating tests we need to change the `baseUrl` setting in GebCon
 When the user visits our website he enters some page. In our test it will be the Allegro main page. In Geb (as in standard Selenium tests)
 there is a concept of a webpage, where you may gather all the elements related to a certain URL.
 
-```
+```groovy
 package pages
 
 import geb.Page
@@ -99,7 +99,7 @@ very readable.
 
 Let’s see what cartStatus module is:
 
-```
+```groovy
 package modules
 
 import geb.Module
@@ -118,7 +118,7 @@ principle. We may fix that by defining this element in a separate module and inc
 We also have a content section. Here we say content has an icon with a given selector.
 We also need a cart page:
 
-```
+```groovy
 package pages
 
 import geb.Page
@@ -143,7 +143,7 @@ items in the cart, so we must mark it as `required: false`.
 
 Now let’s take a look at a simple test:
 
-```
+```groovy
 package specs
 
 import geb.spock.GebReportingSpec
@@ -191,7 +191,8 @@ development provided by the Groovy language.
 Now we’d like to run the test.
 The basic setting provided in Geb gradle example allows us to run Firefox, Chrome and PhantomJs tasks.
 
-To run a Firefox task we run :
+To run a Firefox task we run:
+
 ```
 ./gradlew firefoxTest
 ```
@@ -199,11 +200,13 @@ To run a Firefox task we run :
 In a similar way there exist chromeTest and phantomjsTest tasks.
 
 To run all tests on all browsers, just run:
+
 ```
 ./gradlew test
 ```
 
 To run a single test in Firefox run:
+
 ```
 ./gradlew -DfirefoxTest.single=Allegro* firefoxTest
 ```
@@ -219,8 +222,9 @@ After the test completes you receive a report in html format. Below I placed exa
 I think that they are quite readable.
 
 ## Summary
+
 Simple as that. Of course the example presented here is very basic. There are many more possibilities. If for some reason you don’t like Spock, you may
-use standard jUnit style. You may also integrate the tests with Spring, if that's what you need. Once again I encourage you to take a look at Groovy, Geb
+use standard jUnit style. You may also integrate the tests with Spring, if that’s what you need. Once again I encourage you to take a look at Groovy, Geb
 and Spock. Try them out and experiment with the example project.
 
 Make your automated tests simple and readable!
