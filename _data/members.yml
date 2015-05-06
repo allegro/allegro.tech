@@ -139,6 +139,10 @@ joanna.antkowiak:
     name: Joanna Antkowiak
     bio: At Allegro, Joanna works as an Event Specialist in PromoIT team.
 
+miroslaw.golda:
+    name: Mirosław Gołda
+    bio: Mirosław is a software engineer with programming experience in Java, PHP, JavaScript and Node.js who joined Allegro Group in 2011. He likes playing around with various programming languages and technologies. Recently he’s experimenting with various automated testing tools and frameworks.
+
 piotr.ciemielewski:
     name: Piotr Ciemielewski
     bio: At Allegro Group since 2009. Software Engineer with 5+ years of professional experience mostly in Java and PHP. He also used to work as a Scrum Master. Now leading development team delivering product informations for Allegro.
@@ -182,4 +186,3 @@ karol.grabowski:
 rafal.staniszewski:
     name: Rafal Staniszewski
     bio: Rafal is a DBA with over 10 years of professional experience. With a team of 5 he is responsible for overall management, troubleshooting and performance tuning of Allegro’s critical 24/7 database systems. He specialises in Oracle and MongoDB databases.
-
