@@ -20,6 +20,9 @@ The learning curve for Groovy is flat, it won’t be challenging for someone who
 Also you don’t need to learn everything new from Groovy — you can discover new features step by step,
 so you won’t get overwhelmed.
 
+I would never say that Groovy is a successor of Java or a language that will soon take the world. But certainly it’s a great 
+support tool that it might be awkward to not know. Knowing it will definitely increase your chances to get a dream job.
+
 ### Groovy’s syntax is groovy
 Groovy was thought and designed to be less *verbose* than Java. Unnecessary semicolons, lots of
 syntactic sugar help you write faster and also without worrying about most of boiler plate code. Let’s
@@ -138,7 +141,9 @@ happens under the hood and you can get on the pro level.
 ### Widening your horizons
 The last argument is not directly in favour of Groovy. Learning new things is always good, it widens your
 horizons, you start to look at things from a different perspective. Groovy can give you insight into functional programming,
-shows that things can be more concise or just better than what you know.
+shows that things can be more concise or just better than what you know. For wise employers it’s very valuable to know that
+you have not only deep knowledge, but also wide horizons, an ability and urge to learn new things. That increases your 
+chances to find and get a dream job.
 
 ### Every coin has two sides
 Of course Groovy isn’t a perfect tool for every application. Great in script-like, Groovy is not necessarily equally useful in normal,
