@@ -151,7 +151,8 @@ production coding. While dynamic typing gives you a boost in writing code, it sl
 if you have dozens of classes in a project tangled by dependencies. There’s a way to turn on a static compilation, but that’s disabling
 most of Groovy’s features. However, with regular compilation syntax errors will be seen only at the runtime.
 Also in Groovy lots of magic happens behind the scenes. Every piece of that magic potentially might turn into a very hard to trace bug in
-your code.
+your code. Furthermore, the future of Groovy is very uncertain. Pivotal, major sponsor of Groovy for few last years, has stopped
+its financial support in March this year. This will slow down the development of Groovy.  
 
 ### Summarize
 In the paragraphs above I tried to show some interesting features, applications and frameworks of Groovy and the cost
