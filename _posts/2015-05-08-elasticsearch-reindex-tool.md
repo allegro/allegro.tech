@@ -7,7 +7,7 @@ tags: [release, open source, elasticsearch]
 
 At Allegro we use many open-source tools that support our work. Sometimes we are not able to find what we want and
 this is a perfect moment to fill the gap and to [share with the community](/open-source). We are proud to announce an
- initial release of [Elasticsearch reindex tool](https://github.com/allegro/elasticsearch-reindex) — a tool that
+ initial release of [Elasticsearch reindex tool](https://github.com/allegro/elasticsearch-reindex-tool) — a tool that
  provides an easy way to rebuild indexes in [elasticsearch](https://www.elastic.co/).
 
 ###Background and motivation
@@ -79,6 +79,6 @@ During the reindexing process, progress message is displayed after each scroll q
 
 ###Current status, plans and source code
 
-In the future, we plan to provide more segmentation strategies. Code is available via [GitHub repository](https://github.com/allegro/elasticsearch-reindex). We have attached usage samples.
+In the future, we plan to provide more segmentation strategies. Code is available via [GitHub repository](https://github.com/allegro/elasticsearch-reindex-tool). We have attached usage samples.
 
 Feel free to use this library and especially to participate.
