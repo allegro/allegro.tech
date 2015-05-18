@@ -6,30 +6,25 @@ tags: [overmocking, java, testing, developer, mocking, spock]
 ---
 
 The first question is — what is overmocking? There are few answers. When you mock something that you can leave or even
-should leave unmocked — this is overmocking. Example of this could be a simple model object with only getters and
-setters. Other way to overmock your test is to mock all of the dependencies and base this test on verify method.
-You will see that in my examples. Overmocking can also happen when you mock something that you do not own like an external
-library.
+should use as it is — this is overmocking. Example of this could be a POJO object. Other way to overmock your test is
+to mock all of the dependencies and rely only on verifying interactions with mock objects. You will see that in my
+examples. Overmocking can also happen when you mock something that you don’t own like an external library.
 
-The answer for the title question is — it depends. I would even say that it is not always wrong, but it has some
-disadvantages. If you wantto unit test your code then mocking dependencies is a pretty much normal thing. Getting
-more and more mocks does not mean that overmocking is bad. It means that your code architecture might be wrong
-and you should think about redesigning it instead of unmocking things or change your unit tests to integration tests. But
-there are cases where answer for title question should be yes because tests without mocks are more reliable. And
-for the sake of this post let's say that overmocking is bad habit. What we can do about it?
+The answer for the title question is — yes. I would say that mocking isn’t always wrong, but it has some
+disadvantages. If you want to unit test your code then mocking dependencies seems like a pretty much normal thing.
+Overmocking means that your code design might be wrong and you should think about redesigning it instead of
+converting your unit tests to integration tests. However tests without mocks are more reliable. And for the sake of this
+post let’s say that overmocking is a bad habit. What we can do about it?
 
-First, we can forget about unit tests and integration tests. Let's say that there are just tests. It makes
-a big difference because you think more about what functionality you want to test instead of how to test it or mock
-dependencies. There is one more thing, if you mock your own classes then it is probably ok, but you should
-avoid mocking things that you do not own, it may cause problems in production environment. You may find bugs on production
-environment because you assume that a piece of code works the way you want it to work. Since it is a mock, you cannot
-be sure. Moreover, what happens when you decide to update version of some external library which you mocked in test?
-Test works just fine, since library is mocked, but when you release your program, it crashes. Conclusion? The test is
-useless because it did not detect bug that should be found.
+Don’t mock at all. Otherwise you may find bugs when you launch your application because you assume that a piece of code
+works the way you want it to work. Since it is a mock, you cannot be sure. Moreover, what happens when you decide to
+update a version of some external library which you mocked in test? Test works just fine, since library is mocked, but when
+you release your program, it may crash. Not always but when update has some essential changes. Conclusion?
+The test is useless because it did not detect bug that should be found.
 
-Take a look at an example. Testing rest client is my favourite but case with repository is good too. In the code presented
-below we test fetching some additional data from an external service by using a rest client. Do not focus on the constants.
-It is not important here. Clue is in the given section, look at the number of mocks.
+Take a look at an example. Testing a rest client is my favourite but case with repository is good too. In the code presented
+below we test fetching some additional data from an external service by using a rest client. Just look at the given section
+and count the mocks.
 
 ```groovy
 def "should return transformed delivery methods for two sellers"() {
@@ -81,17 +76,18 @@ def "should return transformed delivery methods for two sellers"() {
 }
 ```
 
-This is one crazy mocked test. Yes, my team did it. It is very hard to read. It does its job, unit tests
-functionality but it is not that reliable. And if you look at mocked things you can see that the class is probably
-not so complicated. The rest client setup is the biggest part of the test. This is a good example of mocking something that you
-could leave unmocked or even should to make your test more reliable. Solution for this case? Unmock webtargets
-and use it on stubbed service. In this way you can test the whole class, including rest communication. If it is
-possible you can make your service start before test and shutdown after. That would be great.
+This is one crazy mocked test and good example of mocking something that you don’t own. It’s very hard to read. It does
+its job, unit tests functionality but it isn’t that reliable. And if you look at mocked things you can see that the
+class is probably not so complicated. The rest client setup is the biggest part of the test. Solution for this case?
+Don’t mock webtargets and use it on a stubbed service. [Wiremock](http://wiremock.org) can help you with that. In this
+way you can test the whole class, including rest communication. If it’s possible you can start your rest service before
+test and shutdown after. That would be great.
 
-There is another example.
+There is another example. It’s very similar test. Again, we use a rest client to fetch data from external rest service.
+This test is much better. Rest client is not mocked and [Wiremock](http://wiremock.org) is used to stub rest service.
 
 ```groovy
-CartClient cartClient = new CartClientRest(ClientBuilder.newClient(), "8089", new RestRetrier())
+def cartClient = new CartClientRest(ClientBuilder.newClient(), "8089", new RestRetrier())
 
 @Unroll
 def "should return information about cart with id #id"() {
@@ -158,62 +154,55 @@ def "should return information about cart with id #id"() {
 }
 ```
 
-This test is much better because client is not mocked. And the last one example. You can see that the service is stubbed
-here, it is a quite good test. Code used to configure mocks is very short.
+And the last one example. This is an example of operations on a repository and a rest client together. We put an address in
+repository, then remove it using a rest client.
 
 ```groovy
-def "should remove address"() {
-    given:
-    addressesDao.save(AddressDbFixture.simple())
-
-    when:
-    addressesClient.remove(buildId(AddressDbFixture.USER_ID, AddressDbFixture.ADDRESS_ID))
-
-    then:
-    def address = addressesDao.get(AddressFixture.USER_ID, AddressFixture.ADDRESS_ID)
-
-    !address.visible
-}
-
-@Autowired
-AddressesDao addressesDao
-
-static def addressesClient = new AddressesClientImpl(new RestTemplate(), SERVICE_ADDRESS)
-```
-
-It extends this class:
-
-```groovy
-@ContextConfiguration(loader = SpringApplicationContextLoader.class)
+@ContextConfiguration(classes = Runner.class, loader = SpringApplicationContextLoader.class)
 @WebAppConfiguration
 @IntegrationTest
 @ActiveProfiles(profiles = ['integration'])
-abstract class IntegrationSpecification extends Specification {
-    protected static final String SERVICE_ADDRESS = "http://localhost:8080"
+class AddressesClientTest extends Specification {
+    @Autowired
+    AddressesDao addressesDao
 
     @ClassRule
     @Shared
-    EmbeddedCassandra embeddedCassandra = new EmbeddedCassandra("cassandra/schema/schema.cql")
+    def embeddedCassandra = new EmbeddedCassandra("cassandra/schema/schema.cql")
+
+    static def addressesClient = new AddressesClientImpl(new RestTemplate(), "http://localhost:8080")
 
     def setup() {
         embeddedCassandra.executeScript("cassandra/schema/truncate_tables.cql");
     }
+
+    def "should remove address"() {
+        given:
+        addressesDao.save(AddressDbFixture.simple())
+
+        when:
+        addressesClient.remove(buildId(AddressDbFixture.USER_ID, AddressDbFixture.ADDRESS_ID))
+
+        then:
+        def address = addressesDao.get(AddressFixture.USER_ID, AddressFixture.ADDRESS_ID)
+
+        !address.visible
+    }
 }
 ```
 
-This test is more reliable because it uses embedded cassandra and client that does not mock anything. You can
-still mock the service if you want/have to but it is still good. You can think of it like integration test, but for
-me it is just test that does its job. In this example we start service before every test and shutdown after.
-Whole communication is working as in real environment so you can find your bugs much easier and much faster.
+This test is more reliable because it uses embedded cassandra and client that doesn’t mock anything. You can think of
+it like an integration test, but for me it’s just a test that does its job. In this example we start service before every
+test and shutdown after. Whole communication is working as in real environment so you can find your bugs much easier
+and much faster.
 
-So what should you do with overmocking? In my opinion it is a sign that you should take a closer look at your
-application architecture because something might be going in the wrong direction. If you have clients then try
-to unmock them. If you have any storage then try to use an embedded version. If you have a submodule service
-then start it before test and shutdown after. Or leave it as is if you want, but if you decide to go that way you
-can loose some reliability. And this is a big disadvantage because you should trust your tests and it should give
-as much confidence as possible that your code will not break on production in some cases that your test
-does not cover because it is overmocked. What you should avoid is using anything from the outside for example
-some repository only for your tests or version of service only for your tests. That is bad practice. Everything
-you that need, should start and shutdown inside your tests. Few example tools that we use to test. For embedded mongo
-we use [fongo](https://github.com/fakemongo/fongo). For embedded cassandra we use [achilles](https://github.com/doanduyhai/Achilles).
-For stubbing rest service we use [wiremock](http://wiremock.org). For activeMq we use [embedded broker](http://activemq.apache.org/how-do-i-embed-a-broker-inside-a-connection.html).
+So what should you do with overmocking? In my opinion it’s a sign that you should take a closer look at your
+application design because something might be going in the wrong direction. Don’t mock anything. Use embedded version of
+anything you need and stub rest services. Don’t mock rest clients. Everything that you need, should start and shutdown
+inside your tests.
+
+Few tools we use as test stubs:
+For embedded mongo we use [fongo](https://github.com/fakemongo/fongo).
+For embedded cassandra we use [achilles](https://github.com/doanduyhai/Achilles).
+For stubbing rest service we use [wiremock](http://wiremock.org).
+For activeMq we use [embedded broker](http://activemq.apache.org/how-do-i-embed-a-broker-inside-a-connection.html).
