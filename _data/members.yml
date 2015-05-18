@@ -126,6 +126,11 @@ kinga.krajewska:
     bio: Scrum Master with 4+ years of professional experience, passionate about Agile product development, team dynamics and its evolution and coaching. At Allegro since 2013, currently working with teams from Finance and Payment Departments.
     twitter: kingakrajewska5
 
+andrzej.wislowski:
+    name: Andrzej Wisłowski
+    bio: A software engineer with 12+ years of professional experience. He is interested in NoSql solutions and scalable architecture. At Allegro, he works in the team that delivers search as a service solutions.
+    twitter: andrzej_wis
+
 marcin.konkel:
     name: Marcin Konkel
     bio:  Marcin is a Scrum Master at Allegro Group, passionate about agile, coaching and project management. He helps teams to be more agile, removing impediments and cooperating with the organisation to foster change and improve the working environment. Currently working with mobile development teams. He is also experienced as a Project Manager in coordinating globally dispersed (USA, Europe, India, China) as well as local project teams in financial / IT environment. Personally an avid photographer travelling to distant and less distant places to capture moments that stole his attention. He writes on coaching and self-development&#x3a; [medium.com/@m_konkel](http://medium.com/@m_konkel) and on travelling&#x3a; [marcinkonkel.com](http://marcinkonkel.com).
@@ -138,6 +143,10 @@ dorian.sarnowski:
 joanna.antkowiak:
     name: Joanna Antkowiak
     bio: At Allegro, Joanna works as an Event Specialist in PromoIT team.
+
+miroslaw.golda:
+    name: Mirosław Gołda
+    bio: Mirosław is a software engineer with programming experience in Java, PHP, JavaScript and Node.js who joined Allegro Group in 2011. He likes playing around with various programming languages and technologies. Recently he’s experimenting with various automated testing tools and frameworks.
 
 piotr.ciemielewski:
     name: Piotr Ciemielewski
@@ -191,4 +200,8 @@ pawel.zawistowski:
 rafal.staniszewski:
     name: Rafal Staniszewski
     bio: Rafal is a DBA with over 10 years of professional experience. With a team of 5 he is responsible for overall management, troubleshooting and performance tuning of Allegro’s critical 24/7 database systems. He specialises in Oracle and MongoDB databases.
+
+lukasz.przybyla:
+    name: Łukasz Przybyła
+    bio: Łukasz is a Java developer with 4 years of professional experience. At Allegro Group since 2013. Currently a member of the team which works on API.
 
