@@ -5,25 +5,25 @@ author: pawel.czubachowski
 tags: [overmocking, java, testing, developer, mocking, spock]
 ---
 
-The first question is — what is overmocking? There are few answers. When you mock something that you can leave or even
-should use as it is — this is overmocking. Example of this could be a POJO object. Other way to overmock your test is
+The first question is — what is overmocking? There are a couple of answers. When you mock something that you can leave or
+even should use as it is — this is overmocking. An example of this is a POJO object. Other way to overmock your test is
 to mock all of the dependencies and rely only on verifying interactions with mock objects. You will see that in my
 examples. Overmocking can also happen when you mock something that you don’t own like an external library.
 
-The answer for the title question is — yes. I would say that mocking isn’t always wrong, but it has some
+The answer to the title question is — yes. I would say that mocking isn’t always wrong, but it has some
 disadvantages. If you want to unit test your code then mocking dependencies seems like a pretty much normal thing.
 Overmocking means that your code design might be wrong and you should think about redesigning it instead of
 converting your unit tests to integration tests. However tests without mocks are more reliable. And for the sake of this
-post let’s say that overmocking is a bad habit. What we can do about it?
+post let’s say that overmocking is a bad habit. What can we do about it?
 
 Don’t mock at all. Otherwise you may find bugs when you launch your application because you assume that a piece of code
 works the way you want it to work. Since it is a mock, you cannot be sure. Moreover, what happens when you decide to
-update a version of some external library which you mocked in test? Test works just fine, since library is mocked, but when
-you release your program, it may crash. Not always but when update has some essential changes. Conclusion?
-The test is useless because it did not detect bug that should be found.
+update a version of some external library which you mocked in test? The test works just fine, since the library is mocked,
+but when you release your program, it may crash. Not always but when update has some essential changes. Conclusion? The
+test is useless because it did not detect a bug that should be found.
 
-Take a look at an example. Testing a rest client is my favourite but case with repository is good too. In the code presented
-below we test fetching some additional data from an external service by using a rest client. Just look at the given section
+Take a look at an example. Testing a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client is my favourite but case with repository is good too. In the code presented
+below we test fetching some additional data from an external service by using a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client. Just look at the `given` section
 and count the mocks.
 
 ```groovy
@@ -76,15 +76,15 @@ def "should return transformed delivery methods for two sellers"() {
 }
 ```
 
-This is one crazy mocked test and good example of mocking something that you don’t own. It’s very hard to read. It does
+This is one crazy mocked test and a good example of mocking something that you don’t own. It’s very hard to read. It does
 its job, unit tests functionality but it isn’t that reliable. And if you look at mocked things you can see that the
-class is probably not so complicated. The rest client setup is the biggest part of the test. Solution for this case?
-Don’t mock webtargets and use it on a stubbed service. [Wiremock](http://wiremock.org) can help you with that. In this
-way you can test the whole class, including rest communication. If it’s possible you can start your rest service before
-test and shutdown after. That would be great.
+class is probably not so complicated. The [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client setup is the biggest part of the test. Solution for this case?
+Don’t mock webtargets and use a stubbed service. [Wiremock](http://wiremock.org) can help you with that. In this
+way you can test the whole class, including the [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) communication. If it’s possible you can start your [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) service before
+test and the test and shut it down afterwards. That would be great.
 
-There is another example. It’s very similar test. Again, we use a rest client to fetch data from external rest service.
-This test is much better. Rest client is not mocked and [Wiremock](http://wiremock.org) is used to stub rest service.
+Here is another example. It’s a very similar test. Again, we use a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client to fetch data from an external [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) service.
+This test is much better. [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client is not mocked and [Wiremock](http://wiremock.org) is used to stub [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) service.
 
 ```groovy
 def cartClient = new CartClientRest(ClientBuilder.newClient(), "8089", new RestRetrier())
@@ -154,8 +154,8 @@ def "should return information about cart with id #id"() {
 }
 ```
 
-And the last one example. This is an example of operations on a repository and a rest client together. We put an address in
-repository, then remove it using a rest client.
+And the last one example. This is an example of operations on a repository and a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client together. We put an address in
+ the repository, then remove it using a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client.
 
 ```groovy
 @ContextConfiguration(classes = Runner.class, loader = SpringApplicationContextLoader.class)
@@ -191,18 +191,18 @@ class AddressesClientTest extends Specification {
 }
 ```
 
-This test is more reliable because it uses embedded cassandra and client that doesn’t mock anything. You can think of
-it like an integration test, but for me it’s just a test that does its job. In this example we start service before every
-test and shutdown after. Whole communication is working as in real environment so you can find your bugs much easier
+This test is more reliable because it uses embedded cassandra and a client that doesn’t mock anything. You can think of
+it like an integration test, but for me it’s just a test that does its job. In this example we start the service before every
+test and shut it down afterwards. Whole communication is working as in a real environment so you can find your bugs much easier
 and much faster.
 
 So what should you do with overmocking? In my opinion it’s a sign that you should take a closer look at your
 application design because something might be going in the wrong direction. Don’t mock anything. Use embedded version of
-anything you need and stub rest services. Don’t mock rest clients. Everything that you need, should start and shutdown
-inside your tests.
+anything you need and stub [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) services. Don’t mock [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) clients. Everything you need, should start and shut
+down inside your tests.
 
-Few tools we use as test stubs:
-For embedded mongo we use [fongo](https://github.com/fakemongo/fongo).
-For embedded cassandra we use [achilles](https://github.com/doanduyhai/Achilles).
-For stubbing rest service we use [wiremock](http://wiremock.org).
-For activeMq we use [embedded broker](http://activemq.apache.org/how-do-i-embed-a-broker-inside-a-connection.html).
+Several tools we use for stubbing:
+⋅⋅* For embedded mongo we use [fongo](https://github.com/fakemongo/fongo).
+⋅⋅* For embedded cassandra we use [achilles](https://github.com/doanduyhai/Achilles).
+⋅⋅* For stubbing [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) service we use [wiremock](http://wiremock.org).
+⋅⋅* For activeMq we use [embedded broker](http://activemq.apache.org/how-do-i-embed-a-broker-inside-a-connection.html).
