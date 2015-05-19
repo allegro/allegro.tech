@@ -202,7 +202,7 @@ anything you need and stub [REST](http://en.wikipedia.org/wiki/Representational_
 down inside your tests.
 
 Several tools we use for stubbing:
-⋅⋅* For embedded mongo we use [fongo](https://github.com/fakemongo/fongo).
-⋅⋅* For embedded cassandra we use [achilles](https://github.com/doanduyhai/Achilles).
-⋅⋅* For stubbing [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) service we use [wiremock](http://wiremock.org).
-⋅⋅* For activeMq we use [embedded broker](http://activemq.apache.org/how-do-i-embed-a-broker-inside-a-connection.html).
+* For embedded mongo we use [fongo](https://github.com/fakemongo/fongo).
+* For embedded cassandra we use [achilles](https://github.com/doanduyhai/Achilles).
+* For stubbing [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) service we use [wiremock](http://wiremock.org).
+* For activeMq we use [embedded broker](http://activemq.apache.org/how-do-i-embed-a-broker-inside-a-connection.html).
