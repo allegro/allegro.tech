@@ -202,6 +202,7 @@ anything you need and stub [REST](http://en.wikipedia.org/wiki/Representational_
 down inside your tests.
 
 Several tools we use for stubbing:
+
 * For embedded mongo we use [fongo](https://github.com/fakemongo/fongo).
 
 * For embedded cassandra we use [achilles](https://github.com/doanduyhai/Achilles).
