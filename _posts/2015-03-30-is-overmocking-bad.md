@@ -154,7 +154,7 @@ def "should return information about cart with id #id"() {
 }
 ```
 
-And the last one example. This is an example of operations on a repository and a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client together. We put an address in
+And the last example. This is an example of both operations on a repository and a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client. We put an address in
  the repository, then remove it using a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client.
 
 ```groovy
