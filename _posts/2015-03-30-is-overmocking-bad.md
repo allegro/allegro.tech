@@ -16,7 +16,7 @@ Overmocking means that your code design might be wrong and you should think abou
 converting your unit tests to integration tests. However tests without mocks are more reliable. And for the sake of this
 post let’s say that overmocking is a bad habit. What can we do about it?
 
-Don’t mock at all. Otherwise you may find bugs when you launch your application because you assume that a piece of code
+Don’t mock at all. Otherwise you may encounter bugs when you launch your application because you assume that a piece of code
 works the way you want it to work. Since it is a mock, you cannot be sure. Moreover, what happens when you decide to
 update a version of some external library which you mocked in test? The test works just fine, since the library is mocked,
 but when you release your program, it may crash. Not always but when update has some essential changes. Conclusion? The
@@ -191,7 +191,7 @@ class AddressesClientTest extends Specification {
 }
 ```
 
-This test is more reliable because it uses embedded cassandra and a client that doesn’t mock anything. You can think of
+This test is more reliable because it uses embedded Cassandra and a client that doesn’t mock anything. You can think of
 it like an integration test, but for me it’s just a test that does its job. In this example we start the service before every
 test and shut it down afterwards. Whole communication is working as in a real environment so you can find your bugs much easier
 and much faster.
@@ -203,10 +203,10 @@ down inside your tests.
 
 Several tools we use for stubbing:
 
-* For embedded mongo we use [fongo](https://github.com/fakemongo/fongo).
+* For embedded Mongo we use [Fongo](https://github.com/fakemongo/fongo).
 
-* For embedded cassandra we use [achilles](https://github.com/doanduyhai/Achilles).
+* For embedded Cassandra we use [Achilles](https://github.com/doanduyhai/Achilles).
 
-* For stubbing [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) service we use [wiremock](http://wiremock.org).
+* For stubbing [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) service we use [Wiremock](http://wiremock.org).
 
-* For activeMq we use [embedded broker](http://activemq.apache.org/how-do-i-embed-a-broker-inside-a-connection.html).
+* For ActiveMq we use [embedded broker](http://activemq.apache.org/how-do-i-embed-a-broker-inside-a-connection.html).
