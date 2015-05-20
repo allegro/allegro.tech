@@ -136,6 +136,7 @@ after being idle for the given amount of time.
 * `BlockingQueue<Runnable> workQueue` — submitted tasks wait in this queue to be executed.
 
 ![threadpool](/img/articles/2015-04-22-thread-pools/thread-pool.png "Thread pool")
+
 (An image from [Wikipedia](http://en.wikipedia.org/wiki/Thread_pool_pattern))
 
 ### BlockingQueue
@@ -304,7 +305,7 @@ to multi-producer and multi-consumer environment.
 arrived in 2004 and provided many useful concurrent goodies, with the ExecutorService class among them.
 The thread pool abstraction is commonly used in server environments under the hood
 (see [Tomcat](http://docs.oracle.com/cd/E23507_01/Platform.20073/ATGInstallGuide/html/s0902tomcatconnectorthreadconfigurati01.html)
-and [Undertow](http://undertow.io/documentation/core/listeners.html)). Of course, thread pools
+and [Undertow](http://undertow.io/undertow-docs/undertow-docs-1.2.0/index.html#listeners-2)). Of course, thread pools
 are not limited to server environments only. They are useful in solving any sort of
 [embarrassingly parallel](http://en.wikipedia.org/wiki/Embarrassingly_parallel) problems.
 Due to the fact that today it is more common to run software on a multi-core machine
