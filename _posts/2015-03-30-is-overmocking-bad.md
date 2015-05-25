@@ -23,7 +23,7 @@ but when you release your program, it may crash. Not always but when update has 
 test is useless because it did not detect a bug that should be found.
 
 Take a look at an example. Testing a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client is my favourite but case with repository is good too. In the code presented
-below we test fetching some additional data from an external service by using a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client. Just look at the `given` section
+below we test fetching some additional data from an external service by using a REST client. Just look at the `given` section
 and count the mocks.
 
 ```groovy
@@ -78,13 +78,13 @@ def "should return transformed delivery methods for two sellers"() {
 
 This is one crazy mocked test and a good example of mocking something that you don’t own. It’s very hard to read. It does
 its job, unit tests functionality but it isn’t that reliable. And if you look at mocked things you can see that the
-class is probably not so complicated. The [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client setup is the biggest part of the test. Solution for this case?
+class is probably not so complicated. The REST client setup is the biggest part of the test. Solution for this case?
 Don’t mock webtargets and use a stubbed service. [Wiremock](http://wiremock.org) can help you with that. In this
-way you can test the whole class, including the [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) communication. If it’s possible you can start your [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) service before
+way you can test the whole class, including the REST communication. If it’s possible you can start your REST service before
 test and the test and shut it down afterwards. That would be great.
 
-Here is another example. It’s a very similar test. Again, we use a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client to fetch data from an external [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) service.
-This test is much better. [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client is not mocked and [Wiremock](http://wiremock.org) is used to stub [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) service.
+Here is another example. It’s a very similar test. Again, we use a REST client to fetch data from an external REST service.
+This test is much better. REST client is not mocked and Wiremock is used to stub REST service.
 
 ```groovy
 def cartClient = new CartClientRest(ClientBuilder.newClient(), "8089", new RestRetrier())
@@ -143,8 +143,8 @@ def "should return information about cart with id #id"() {
 }
 ```
 
-And the last example. This is an example of both operations on a repository and a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client. We put an address in
- the repository, then remove it using a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) client.
+And the last example. This is an example of both operations on a repository and a REST client. We put an address in
+ the repository, then remove it using a REST client.
 
 ```groovy
 @ContextConfiguration(classes = Runner.class, loader = SpringApplicationContextLoader.class)
@@ -187,7 +187,7 @@ and much faster.
 
 So what should you do with overmocking? In my opinion it’s a sign that you should take a closer look at your
 application design because something might be going in the wrong direction. Don’t mock anything. Use embedded version of
-anything you need and stub [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) services. Don’t mock [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) clients. Everything you need, should start and shut
+anything you need and stub REST services. Don’t mock REST clients. Everything you need, should start and shut
 down inside your tests.
 
 Several tools we use for stubbing:
@@ -196,6 +196,6 @@ Several tools we use for stubbing:
 
 * For embedded Cassandra we use [Achilles](https://github.com/doanduyhai/Achilles).
 
-* For stubbing [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) service we use [Wiremock](http://wiremock.org).
+* For stubbing REST service we use [Wiremock](http://wiremock.org).
 
 * For ActiveMq we use [embedded broker](http://activemq.apache.org/how-do-i-embed-a-broker-inside-a-connection.html).
