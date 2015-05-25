@@ -7,7 +7,7 @@ tags: [overmocking, java, testing, developer, mocking, spock]
 
 The first question is — what is overmocking? There are a couple of answers. When you mock something that you can leave or
 even should use as it is — this is overmocking. An example of this is a POJO object. Other way to overmock your test is
-to mock all of the dependencies and rely only on verifying interactions with mock objects. You will see that in my
+to mock all the dependencies and rely only on verifying interactions with mock objects. You will see that in my
 examples. Overmocking can also happen when you mock something that you don’t own like an external library.
 
 The answer to the title question is — yes. I would say that mocking isn’t always wrong, but it has some
