@@ -92,43 +92,32 @@ def cartClient = new CartClientRest(ClientBuilder.newClient(), "8089", new RestR
 @Unroll
 def "should return information about cart with id #id"() {
     given:
-    def outputForFirstCart = """
-                             {
-                                 "id":"testId1",
-                                 "cartItems":[
-                                     {
-                                         "id":"111",
-                                         "quantity":1,
-                                         "price":444
-                                     }
-                                 ],
-                                 "endedItems":[]
-                             }
-                             """
-    def outputForSecondCart = """
-                              {
-                                  "id":"testId2",
-                                  "cartItems":[
-                                      {
-                                          "id":"222",
-                                          "quantity":2,
-                                          "price":555
-                                      },
-                                      {
-                                          "id":"333",
-                                          "quantity":4,
-                                          "price":666
-                                      }
-                                  ],
-                                  "endedItems":[
-                                      {
-                                          "id":"111",
-                                          "quantity":1,
-                                          "price":222
-                                      }
-                                  ]
-                              }
-                              """
+    def outputForFirstCart = new JsonBuilder([
+                                             id: "testId1",
+                                             cartItems: [[
+                                                     id: 111,
+                                                     quantity: 1,
+                                                     price: 444
+                                             ]],
+                                             endedItems: []
+                                     ]).toPrettyString()
+    def outputForSecondCart = new JsonBuilder([
+                                              id: "testId2",
+                                              cartItems: [[
+                                                      id: 222,
+                                                      quantity: 2,
+                                                      price: 555
+                                              ], [
+                                                      id: 333,
+                                                      quantity: 4,
+                                                      price: 666
+                                              ]],
+                                              endedItems: [[
+                                                      id: 111,
+                                                      quantity:1,
+                                                      price: 222
+                                              ]]
+                                      ]).toPrettyString()
 
     when:
     stubFor(get(urlEqualTo("/carts/" + cartId))
