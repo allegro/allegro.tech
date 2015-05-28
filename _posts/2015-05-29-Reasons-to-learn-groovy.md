@@ -58,7 +58,7 @@ class Person {
   //let Groovy compiler generate all setters and getters!
 }
 //named constructor parameters, only for default constructor
-new Person(id: 1, name: 'John', surname: 'Doe') 
+new Person(id: 1, name: 'John', surname: 'Doe')
 ```
 
 ### Groovy is functional
@@ -75,7 +75,7 @@ I wouldn’t like to focus on the functional aspects, but rather on the possibil
 different programming paradigm that Groovy offers. For Java developers, this paradigm might be very confusing and new.
 Java 8, although it is getting close to it with closures, is not fully a functional language.
 [This article](http://www.beyondjava.net/blog/java-8-functional-programming-language/) explains well why. Some people will
-say that Groovy is also not a pure functional language either. It only allows functional programming as one of available paradigms, 
+say that Groovy is also not a pure functional language either. It only allows functional programming as one of available paradigms,
 just like Scala does. Learning functional programming in Groovy, again, will be easy — it will just look like another feature. You will have
 to start thinking in a brand new way, but without learning new syntax, like it would happen with Clojure or Haskell.
 But on the other hand — you’ll often have a temptation to do things in an old, known way. Every coin has two sides,
@@ -160,6 +160,7 @@ your code. Furthermore, the future of Groovy is very uncertain. [Pivotal](http:/
 its financial support in March this year. This will slow down the development of Groovy.
 
 ### Summary
+
 In the paragraphs above I tried to show some interesting features, applications and frameworks of Groovy and the cost
 at which we get these. The true power of Groovy lies in tests and scripting, when speed of coding, ease and readability
 are the most important matters. In my opinion, despite its faults, Groovy is a good tool every engineer should know.
