@@ -185,23 +185,23 @@ Although we cannot reveal our Allegro queries, we measured how query complexity 
 
 ## Summary
 
-When evaluating benchmark results Hive MapReduce presented the poorest performance which was not a surprise. The whole hackathon event had been organised to evaluate better solutions and Hive MapReduce was a baseline to find potential improvements. The more complex queries were run, the worse performance could have been observed in that engine. The only exception to that rule were Allegro-analytical queries number 5. and 6. Those performed worse using Presto. Impala turned to be the
+When evaluating benchmark results, Hive MapReduce presented the poorest performance which was not a surprise. The whole hackathon event had been organised to evaluate better solutions and Hive MapReduce was a baseline to find potential improvements. The more complex queries were run, the worse performance could have been observed in that engine. The only exception to that rule were Allegro-analytical queries number 5. and 6. Those performed worse using Presto. Impala turned to be the
 performance leader in the most queries.
 At the end we sum up our  results obtained for all the engines. Please note that these are our impressions based on our queries and functionality needs.
 
-*   **Hive on Spark** - The only technology which we were not able to set up. Important for further evaluations in the future as it runs on Hive and does not require significant changes in the query structure.
-*   **Hive on Tez** - The dude that does a great job on our Hadoop cluster. It allowed to run all queries and performance results appeared to be stable and satisfactory.
-*   **Spark SQL** - Spark SQL turned out to be useful, despite it lacks a `row_num` function. Surprisingly it still suffers some performance issues in some queries although performing better than average in general.
-*   **Presto** - Convenient to use, most of the queries run easily with small modifications and work stable. We expected better performance than achieved. This could have been influenced by data locality problems as Presto was run standalone and had to access HDFS data remotely.
-*   **Impala** - The best benchmark performer which additionally runs on YARN. On the other hand it still lacks some basic functionalities and has some limitations. It does not support CTAS (Create Table as Select) nor composite or nested data types. It also behaves unstable when running out of memory and the obtained execution times seem to have the highest variance among the competitors.
-*   **Drill** - If it is able to execute a query, it does so extremely fast. The benchmark results are comparable to Impala despite the fact that Drill has been set up on machines external to HDFS. Unfortunately we do not consider Drill as production ready yet as it has several gaps in the query language, especially the capabilities and stability of user defined functions  which are already used in lots of our Hive queries.
+*   **Hive on Spark** &mdash; The only technology which we were not able to set up. Important for further evaluations in the future as it runs on Hive and does not require significant changes in the query structure.
+*   **Hive on Tez** &mdash; The tool that does a great job on our Hadoop cluster. It allowed to run all queries and performance results appeared to be stable and satisfactory.
+*   **Spark SQL** &mdash; Spark SQL turned out to be useful, despite it lacks a `row_num` function. Surprisingly it still suffers some performance issues in some queries although performing better than average in general.
+*   **Presto** &mdash; Convenient to use, most of the queries run easily with small modifications and work stable. We expected better performance than achieved. This could have been influenced by data locality problems as Presto was run standalone and had to access HDFS data remotely.
+*   **Impala** &mdash; The best benchmark performer which additionally runs on YARN. On the other hand it still lacks some basic functionalities and has some limitations. It does not support CTAS (Create Table as Select) nor composite or nested data types. It also behaves unstable when running out of memory and the obtained execution times seem to have the highest variance among the competitors.
+*   **Drill** &mdash; If it is able to execute a query, it does so extremely fast. The benchmark results are comparable to Impala despite the fact that Drill has been set up on machines external to HDFS. Unfortunately we do not consider Drill as production ready yet as it has several gaps in the query language, especially the capabilities and stability of user defined functions  which are already used in lots of our Hive queries.
 
 We already use Hive MapReduce, Hive Tez and SparkSQL on our cluster.
 None of the evaluated technologies, absent in our Hadoop ecosystem, combined performance and functionalities good enough to drive a change in our ecosystem.
 Some performed better then what we already have but the performance change is not a significant overall boost.
 What could be gained is an improvement which requires deep architectural changes like data formats,
 separate infrastructure or even disabling security.
-After the hackathon we decided to focus on Hive on Tez and Spark SQL. We believe that with a limited amount of time, we can tune them to run really stable and more efficient than now.
+After the hackathon we decided to focus on Hive on Tez and Spark SQL. We believe that with a limited amount of time, we can tune them to run really stable and more efficiently than now.
 
 The evaluated projects grow rapidly and we are sure (and even hope) that our results get out of date soon.
 We will surely repeat this evaluation in the future.
