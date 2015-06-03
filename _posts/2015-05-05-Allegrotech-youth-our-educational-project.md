@@ -33,7 +33,7 @@ with a proposition of conducting training, whereas the principal told me she had
 
 ###Start of a crusade
 
-I started with a meeting with all students from the IT classes to show on my own example how important is creating goals, 
+I started with a meeting with all students from the IT classes to show on my own example how important is creating goals,
 future vision and gave them answer on basic question - "Why I am done whatever now to live better in the future?".  
 There were nearly 300 Students there. I asked them about their career plans and their hopes for the future. 
 I asked about the direction their lives would take in a year, in three or in five years. 1% of
