@@ -33,10 +33,10 @@ with a proposition of conducting training, whereas the principal told me she had
 
 ###Start of a crusade
 
-I started with a meeting with all students from the IT classes. There were nearly 300 Students there. I asked them about their career plans and their hopes for the future. 
+I started with a meeting with all students from the IT classes to show on my own example how important is creating vision of future. There were nearly 300 Students there. I asked them about their career plans and their hopes for the future. 
 I asked about the direction their lives would take in a year, in three or in five years. 1% of
-them knew exactly what they want to do and started to realise their plans. 60% of them thought about studying
-at higher education institutions, whereas 39% of those young people had no plans.
+them knew exactly what they want to do and started to realise their plans. 60% of them thought about
+studying at higher education institutions, whereas 39% of those young people had no plans, no vision and no real perspective.
 I told them my story and asked them to join my project. Their positive reaction went far beyond my
 expectations.
 
