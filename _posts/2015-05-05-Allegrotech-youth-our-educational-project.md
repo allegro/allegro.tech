@@ -44,7 +44,9 @@ expectations.
 
 ###Hobby becomes a challenge
 
-We wanted to invite students to a series of theoretical and practical classes but we ran into some obstacles, among them regulations of the Ministry of Education. Together with the students, we worked to overcome these obstacles and finally on March 5th at 17:00 we were able to present before a group of 80 participants.
+We wanted to invite students to a series of theoretical and practical classes but we ran into some obstacles,
+among them regulations of the Ministry of Education. Together with the students, we worked to overcome
+these obstacles and finally on March 5th at 17:00 we were able to present before a group of 80 participants.
 
 ### First class
 
