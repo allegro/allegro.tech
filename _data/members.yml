@@ -211,6 +211,10 @@ rafal.staniszewski:
     name: Rafal Staniszewski
     bio: Rafal is a DBA with over 10 years of professional experience. With a team of 5 he is responsible for overall management, troubleshooting and performance tuning of Allegro’s critical 24/7 database systems. He specialises in Oracle and MongoDB databases.
 
+pawel.rekowski:
+	name: Paweł Rekowski
+	bio: Programmer and language agnostic. He thinks that you always have to select a tool that suits your needs. A Coach, Public Speaker, professional Networker and an enthusiast of The Thank You Economy. He believes in people and thinks it is better to give a man a fishing rod instead of fish.
+
 lukasz.przybyla:
     name: Łukasz Przybyła
     bio: Łukasz is a Java developer with 4 years of professional experience. At Allegro Group since 2013. Currently a member of the team which works on API.
