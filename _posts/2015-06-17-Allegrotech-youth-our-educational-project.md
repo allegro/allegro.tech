@@ -6,7 +6,7 @@ tags: [education, coding, infrastructure, web developing]
 ---
 
 The pace of today’s world seems to be getting faster and faster. Trends, technologies, requirements and possibilities change in a blink of an eye. When I graduated from [the Complex of Mechanical, Electrical and Electronic Schools in Toruń (ZSMEiE)](http://www.zsmeie.torun.pl) 7 years ago,
-I knew that one day I would work on the largest projects at [Allegro Group](http://allegrotech.io) as well as I know that many others Students don't have any vision of their future role in their own life.
+I knew that one day I would work on the largest projects at [Allegro Group](http://allegrotech.io) as well as I know that many others Students don’t have any vision of their future role in their own life.
 After almost 4 years of my career I decided to share my experience with people who face the same choice
 I faced 7 years ago.
 
@@ -34,7 +34,7 @@ with a proposition of conducting training, whereas the principal told me she had
 ###Start of a crusade
 
 I started with a meeting with all students from the IT classes to show on my own example how important is creating goals,
-future vision and gave them answer on basic question - "Why I am done whatever now to live better in the future?".  
+future vision and gave them answer on basic question - “Why I am done whatever now to live better in the future?”.  
 There were nearly 300 Students there. I asked them about their career plans and their hopes for the future. 
 I asked about the direction their lives would take in a year, in three or in five years. 1% of
 them knew exactly what they want to do and started to realise their plans. 60% of them thought about
@@ -57,6 +57,7 @@ the everyday challenges of a digital world. We also presented some tools student
 i.e. [GIT](http://git-scm.com/), [Trello](https://trello.com/), or a Linux terminal. :) 
 
 Eventually, the participants were divided into 3 thematic groups according to their interests:
+
 - coding
 - infrastructure
 - web development
