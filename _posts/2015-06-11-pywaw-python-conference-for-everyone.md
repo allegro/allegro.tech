@@ -13,8 +13,8 @@ sysadmin in my first ever conference devoted to programming only, I felt very we
 hand information on the newest features, trends and techniques from Python professionals.
 
 The conference took place in Polonia theater, in the busy and bustling centre of the Polish capitol, just a few steps 
-from the many Warsaw's hotels and restaurants. There were many speakers from Poland, Germany, UK, USA and Brazil and 
-just as many great talks.
+from the many Warsaw's hotels and restaurants. There were many speakers from Brazil, Czech Republic, Germany, 
+Great Britain, Poland and USA, and just as many great talks.
 
 ## From programming robots to snakes and elephants
 
@@ -24,12 +24,12 @@ there are tools readily available. There is no need to reinvent the wheel. Just 
 (guess what language it is largery written in). The best part of it all that is that ROS, used by professionals, can be 
 a great a hobby for anybody interested in technical toys, free of charge. 
 
-What about something more down to earth like writing a concise, beautiful code? There are a lot of good practices and 
-rules to follow. Among them single responsibility principle, a rule stating that each function or class should have one
-responsibility only. After the talk about single responsibility principle, a very interesting discussion followed on the 
-benefits and drawbacks of this approach. The conclusion was that while not everybody likes single responsibility 
-principle, there are benefits from using it, including the decrease of time required to change your code in case a 
-dependency change and easily reusable code.
+What about something more down to earth like writing concise, beautiful code making it easyly changable and more 
+portable at the same time? There are a lot of good practices and rules to follow. Among them single responsibility 
+principle, a rule stating that each function or class should have one responsibility only. After the talk about single 
+responsibility principle, a very interesting discussion followed on the benefits and drawbacks of this approach. The 
+conclusion was that while not everybody likes single responsibility principle, there are benefits from using it, 
+including the decrease of time required to change your code in case a dependency change and easily reusable code.
 
 A talk about falling into the rabbit hole was a great insight into what sometimes goes on in a programmers head. What to 
 do if you get so fixed on a problem that the solutions you come up with are making the code messy and your programmer's 
