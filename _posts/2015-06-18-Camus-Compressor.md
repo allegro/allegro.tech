@@ -38,11 +38,11 @@ MapReduce job which does not fit scenario with a bunch of
 directories to process which Camus Compressor supports. Camus 
 sweeper is almost ideal but changes partitioning schema 
 (for examples compress hourly paritioned files to daily file) 
-and mixes data locations which leads to problems on reading these 
-data by user’s tools. Both tools cannot replace input directories 
+and mixes data locations which leads to problems on reading 
+data by users’ tools. Both tools cannot replace input directories 
 with compressed files which causes data schema (i.e. Hive Metastore) 
-to be modified. Camus Compressor supports Camus directory scructure, 
-compress many unit directories in a single job and does not change 
+to be modified. Camus Compressor supports Camus directory structure, 
+compress many directories in a single job and does not change 
 data location.
 
 We tested two compressions formats in our environment: LZO and Snappy. 
@@ -59,9 +59,9 @@ files in most cases do not exceed block size.
 
 ###Usage
 
-Camus Compressor is written in Spark 1.2.0 but it should run on higher 
-Spark versions. We provide script that automates passing parameters to 
-`spark-submit` and application: `src/main/resources/compressor.sh`.
+Camus Compressor is written in Spark, requires version 1.2.0 or newer.
+We provide script that automates passing parameters to `spark-submit` 
+and application: `src/main/resources/compressor.sh`.
 
 Assuming that Your Camus is configured to store data in `/data/camus` 
 and partition them daily you can:
