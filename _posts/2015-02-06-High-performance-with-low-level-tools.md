@@ -286,3 +286,5 @@ sometimes simple tools can be very helpful in monitoring applications or debuggi
 here.
 
 I hope you find this post interesting and a good starting point to learning more.
+
+![devoxx](img/4441cd7e6b665842bd3d8b390dd9c3aa.png)
