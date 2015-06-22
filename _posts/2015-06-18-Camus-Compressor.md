@@ -9,7 +9,7 @@ At Allegro we use many open-source tools that support our work.
 Sometimes we are not able to find what we want and this is 
 a perfect moment to fill the gap and to 
 [share with the community](/open-source). We are proud to announce 
-a [Camus Compressor](https://github.com/allegro/camus-compressor) — tool 
+[Camus Compressor](https://github.com/allegro/camus-compressor) — a tool 
 that merges files created by [Camus](https://github.com/linkedin/camus) 
 on [HDFS](http://en.wikipedia.org/wiki/Apache_Hadoop#HDFS) and saves 
 them in a compressed format.
@@ -29,38 +29,38 @@ structure and supports well daily and hourly partitioning. The tool
 runs in YARN as well as in the local mode and is build on 
 [Spark](https://github.com/apache/spark).
 
-You can find tools that do similar processing, for example 
+You can find tools that perform a similar processing, for example 
 [Hadoop filecrusher](https://github.com/edwardcapriolo/filecrush) 
 and [Camus sweeper](https://github.com/linkedin/camus/tree/master/camus-sweeper). 
-Unfortunately both of them do not meet our criteria. 
-Filecrusher is tool that compresses only one directory as single 
-MapReduce job which does not fit scenario with a bunch of 
+Unfortunately none of them do meet our criteria. 
+Filecrusher is a tool that compresses only one directory as a single 
+MapReduce job which does not fit a scenario with a bunch of 
 directories to process which Camus Compressor supports. Camus 
-sweeper is almost ideal but changes partitioning schema 
-(for examples compress hourly paritioned files to daily file) 
+sweeper is almost ideal but changes the partitioning schema 
+(for examples it compress hourly paritioned files to daily file) 
 and mixes data locations which leads to problems on reading 
 data by users’ tools. Both tools cannot replace input directories 
 with compressed files which causes data schema (i.e. Hive Metastore) 
 to be modified. Camus Compressor supports Camus directory structure, 
-compress many directories in a single job and does not change 
+compresses many directories in a single job and does not change 
 data location.
 
-We tested two compressions formats in our environment: LZO and Snappy. 
-At first we compressed data using LZO which is splittable format (files 
+We tested two compression formats in our environment: LZO and Snappy. 
+At first we compressed the data using LZO which is a splittable format (files 
 bigger that HDFS block size can be read in parallel) and serves nice 
-decompression speed. Unfortunately, we found that big data analyzing 
-tools do not support LZO out of the box (it is shipped on GPL license) 
+decompression speed. Unfortunately, we found that big data analysis 
+tools do not support LZO out of the box (it is shipped under GPL license) 
 and we didn’t want to force users to change their scripts. Snappy 
 compression is well supported in plain HDFS commands, Hive and Spark 
-and this is format of our choice. It is not splittable, but we 
+and this is the format of our choice. It is not splittable, but we 
 repartition data to sets of files with size about `2 * [HDFS bock size]` 
-and compress every set into one `.snappy` file. As me measured output 
-files in most cases do not exceed block size.
+and compress every set into one `.snappy` file. According to out measurements
+output files in most cases do not exceed block size.
 
 ###Usage
 
-Camus Compressor is written in Spark, requires version 1.2.0 or newer.
-We provide script that automates passing parameters to `spark-submit` 
+Camus Compressor is written in Spark (requires version 1.2.0 or newer).
+We provide script that automates passing of parameters to `spark-submit` 
 and application: `src/main/resources/compressor.sh`.
 
 Assuming that Your Camus is configured to store data in `/data/camus` 
@@ -78,7 +78,7 @@ and partition them daily you can:
 
         compressor.sh -m all -p /data/camus
 
-* Compress all topics with increased concurrency (number of executors) to 30: 
+* Compress all topics with concurrency (number of executors) increased to 30: 
 
         compressor.sh -m all -p /data/camus -e 30
 
