@@ -48,9 +48,9 @@ If you consider using Python 3 in real life, you are not alone. Facebook does al
 his [talk](http://fb.me/call-me-later). What is the biggest gain?  Concurrency and 
 [asyncio](https://docs.python.org/3/library/asyncio.html).
 
-It is now possible to make elephants cooperate with snakes, or in other words to execute python code from whithin 
-postgres. You can write a library in python and then call it from a trigger in postgres. Great stuff and yet another 
-reason why python is cool (and postgres too!). Refer to Jan Urbański’s presentation on [snakes and 
+It is now possible to make elephants cooperate with snakes, or in other words to execute Python code from whithin 
+[PostgreSQL](http://www.postgresql.org/). You can write a library in Python and then call it from a trigger in postgres. Great stuff and yet another 
+reason why Python is cool (and postgres too!). Refer to Jan Urbański’s presentation on [snakes and 
 elephants](https://wulczer.org/pywaw-summit.pdf) for more details.
 
 One may think that a laptop is just a laptop, editing text files should be the same on any one of them. But, as Brandon 
