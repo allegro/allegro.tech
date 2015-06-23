@@ -6,7 +6,7 @@ tags: [python, PyWaw, PyWaw Summit, conference]
 ---
 
 Recently I had a chance to take part in the first edition of a new Python event in Poland, [PyWaw 
-Summit](http://summit.pywaw.org/) conference. Python has a very active community in Poland, Europe and around the globe. 
+Summit](http://summit.pywaw.org/) conference. Python has a very active community in Poland, Europe and around the globe.  
 What sets the community apart is its accessibility and friendliness. After all, as mentioned by Marc-André Lemburg in 
 his [PyWaw Summit day one keynote](https://downloads.egenix.com/python/PyWaw-Summit-2015-Python-Community-Keynote.pdf), 
 the language is a tribute to Monty Python, and is designed to be fun. The fun factor and friendliness were evident at 
@@ -48,10 +48,10 @@ If you consider using Python 3 in real life, you are not alone. Facebook does al
 his [talk](http://fb.me/call-me-later). What is the biggest gain?  Concurrency and 
 [asyncio](https://docs.python.org/3/library/asyncio.html).
 
-It is now possible to make elephants cooperate with snakes, or in other words to execute Python code from whithin 
-[PostgreSQL](http://www.postgresql.org/). You can write a library in Python and then call it from a trigger in postgres. Great stuff and yet another 
-reason why Python is cool (and postgres too!). Refer to Jan Urbański’s presentation on [snakes and 
-elephants](https://wulczer.org/pywaw-summit.pdf) for more details.
+It is now possible to make elephants cooperate with snakes, or in other words to execute Python code from within 
+[PostgreSQL](http://www.postgresql.org/). You can write a library in Python and then call it from a trigger in 
+PostgreSQL. Great stuff and yet another reason why Python is cool (and PostgreSQL too!). Refer to Jan Urbański’s 
+presentation on [snakes and elephants](https://wulczer.org/pywaw-summit.pdf) for more details.
 
 One may think that a laptop is just a laptop, editing text files should be the same on any one of them. But, as Brandon 
 Rhodes demonstrated in his PyWaw summit day two keynote, there are some very good reasons to [tune a programmer’s 
