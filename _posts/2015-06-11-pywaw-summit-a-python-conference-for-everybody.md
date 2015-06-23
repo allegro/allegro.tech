@@ -14,7 +14,7 @@ PyWaw Summit, a conference organized by [Warsaw Python User Group](http://pywaw.
 conference devoted to programming only, I felt very welcome and got a lot of very useful first hand information on the 
 newest features, trends and techniques from Python professionals.
 
-The conference took place in Polonia theater, in the busy and bustling centre of the Polish capitol, just a few steps 
+The conference took place in Polonia theater, in the busy and bustling centre of the Polish capital, just a few steps 
 from the many Warsaw’s hotels and restaurants. There were many speakers from Brazil, Czech Republic, Germany, Great 
 Britain, Poland and USA, and just as many great talks.
 
