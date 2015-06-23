@@ -38,7 +38,7 @@ MapReduce job which does not fit a scenario with a bunch of
 directories to process which Camus Compressor supports. Camus 
 sweeper is almost ideal but changes the partitioning schema 
 (for examples it compress hourly paritioned files to daily file) 
-and mixes data locations which leads to problems on reading 
+and mixes data locations which leads to problems with reading 
 data by users’ tools. Both tools cannot replace input directories 
 with compressed files which causes data schema (i.e. Hive Metastore) 
 to be modified. Camus Compressor supports Camus directory structure, 
@@ -60,7 +60,7 @@ output files in most cases do not exceed block size.
 ###Usage
 
 Camus Compressor is written in Spark (requires version 1.2.0 or newer).
-We provide script that automates passing of parameters to `spark-submit` 
+We provide a script that automates parameter passing to `spark-submit` 
 and application: `src/main/resources/compressor.sh`.
 
 Assuming that Your Camus is configured to store data in `/data/camus` 
@@ -93,8 +93,8 @@ and partition them daily you can:
 ###Current status, plans and source code
 
 In the future, we plan to add support for creating Hive partitions 
-to tables that provide access to compressed data. Code is available 
+for tables that provide access to compressed data. The source code is available 
 via [GitHub repository](https://github.com/allegro/camus-compressor). 
-We have attached build instruction and usage samples.
+We have attached build instructions and usage samples.
 
 Feel free to use this library and especially to participate.
