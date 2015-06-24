@@ -5,22 +5,22 @@ author: filip.marszelewski
 tags: [wiremock, TDD, testing, integration tests, fault injection]
 ---
 
-SOA (Service Oriented Architecture) as modern approach to build distributed enterprise applications gives us many benefits,
-including resiliency and fault-tolerance. On the other hand there are many new kinds of SOA-specific faults,
-like publishing, discovery, composition, binding or execution faults (as stated in:
+SOA (Service Oriented Architecture) as a modern approach to build distributed enterprise applications gives us many benefits,
+including resiliency and fault-tolerance. On the other hand, there are many new kinds of SOA-specific faults,
+like publishing, discovery, composition, binding or execution faults (as stated in
 [A Fault Taxonomy for Service-Oriented Architecture](http://edoc.hu-berlin.de/series/informatik-berichte/215/PDF/215.pdf)). Error handling is one of the most
 important things to have services right designed and implemented
-(see article: [Error Handling Considerations in SOA Analysis & Design](http://www.infoq.com/articles/error-handling-soa-design)).
-In this article I want to focus only on small aspect of this broad subject: unexpected service behaviors which,
+(see article [Error Handling Considerations in SOA Analysis & Design](http://www.infoq.com/articles/error-handling-soa-design)).
+In this article, I want to focus only on a small aspect of this broad subject: unexpected service behaviors which,
 if not properly handled by the client, can lead to application inaccessibility.
 
 ### Example service client
 
 Let's have an example service client. It is written in Java using [Jersey client](https://jersey.java.net/documentation/latest/client.html).
-It contains some bugs but it's not an academic example — following code was a part of real, production application
+It contains some bugs, but it's not an academic example — following code was a part of real, production application
 used in one of the microservices in Allegro Group (class names are anonymized).
-Of course there are several ways and libraries useful for writing RESTful clients, but ideas mentioned in article are
-general, Java+Jersey stack was choosen only as a real-live example.
+Of course there are several ways and libraries useful for writing RESTful clients, but ideas mentioned in the article are
+general, Java+Jersey stack was chosen only as a real-live example.
 
 ```java
 public class ExampleClient {
@@ -48,7 +48,7 @@ public class ExampleClient {
 }
 ```
 
-The client have an integration test written in [Groovy](http://www.groovy-lang.org/) based on
+The client has an integration test written in [Groovy](http://www.groovy-lang.org/) based on
 [Spock](http://spockframework.github.io/spock/docs/1.0/index.html) and [Wiremock](http://wiremock.org/).
 Describing integration tests in general or libraries used in code samples is out of the scope of this article,
 but you can watch two interesting presentations of my colleagues from Allegro:
@@ -110,13 +110,13 @@ class ExampleClientSpec extends Specification {
 ```
 
 At a first glance everything is OK — client is tested against different statuses
-returned by REST service. But in real world, there are much more things that could go wrong...
+returned by REST service. But in the real world, there are much more things that could go wrong...
 
 ### Server has gone away
 
-In the service oriented approach we use discovery service to get actual instance URL. Microservice instances with
-long response time or not responding at all are cut off. However it takes some time to unregister such instances
-from discovery service by monitoring tools. After sudden crash (think about physical server failure,
+In the service-oriented approach, we use discovery service to get actual instance URL. Microservice instances with
+long response time or not responding at all are cut off. However, it takes some time to unregister such instances
+from discovery service by monitoring tools. After a sudden crash (think about physical server failure,
 disconnection from network or DNS issue), for some time there is a big chance that your client will
 try to connect to a non-functioning instance.
 
@@ -136,7 +136,7 @@ def "should handle server fault on retrieving resource"() {
 ```
 
 This test fails — `ProcessingException` thrown by Jersey client is not catched and wrapped in `ExampleResourcesUnavailableException`.
-This may lead to unexpected behaviour in application where client is used. Adding try/catch around request processing makes the test green:
+This may lead to unexpected behaviour in an application where the client is used. Adding try/catch around request processing makes the test green:
 
 ```java
 public ExampleResource getExampleResource(String id)
@@ -162,11 +162,11 @@ public ExampleResource getExampleResource(String id)
 
 ### Timeout
 
-In microservices architecure, services should be fast. But sometimes they don't. Think of database overload, garbage
+In microservices architecture, services should be fast. But sometimes they don't. Think of database overload, garbage
 collection pause or unusual network latency. Service response time becomes seconds, not milliseconds. There is one
-fundamental question in such a case: is response from the service critical? You can think about two options:
+fundamental question in such a case: is a response from the service critical? You can think about two options:
 
- * response is critical — for example you cannot render page for end user without having microservice's response.
+ * response is critical — for example you cannot render a page for the end user without having microservice's response.
 In this case it is probably better not to set timeout or have it at high value —
 user may prefer to have page rendered in few seconds more than usual instead of seeing error page;
  * response is not critical — as a real example there is seo-service in Allegro Group, which serves metadata
@@ -197,7 +197,7 @@ def "should throw exception on response delay"() {
 }
 ```
 
-Test fails, because client has no timeout implemented. It is very easy to set timeout in Jersey client, just add two
+Test fails, because the client has no timeout implemented. It is very easy to set timeout in Jersey client, just add two
 properties to `Client` object passed to `ExampleClient` constructor:
 
 ```java
@@ -216,19 +216,19 @@ def exampleClient = new ExampleClient(ClientBuilder.newClient()
 ### Weird response
 
 JSON is widely used as a part of communication standard between microservices. In client code we often use some
-automagic features that map JSON to business object (for example, [Jackson](http://jackson.codehaus.org/)).
-There is no explicit conversion, we just call `readEntity` method giving as an argument a class that we want as an
+automagic features that map JSON to a business object (for example, [Jackson](http://jackson.codehaus.org/)).
+There is no explicit conversion, we just call `readEntity` method giving as an argument a class that we want as a
 response, annotations on this class do the rest.
 Because simplicity — it is easy to forget that assumption that server always returns JSON mappable to our business
 object is only a good belief. There are many reasons to fail here, like errors in implementation, misconfiguration
-or hardware failures. This can even be cause of failure during error handling, when you want to read detailed
-error message from response. I saw the situation where JSON with error message was expected, but server returned
+or hardware failures. This can even be a cause of failure during error handling when you want to read detailed
+error message from the response. I saw the situation where JSON with error message was expected, but server returned
 404 with HTML. The effect was an unhandled exception thrown in error handling routine.
 
-Wiremock gives us out-of-the-box possibility to inject this kind of failures. In details it is described on
+Wiremock gives us out-of-the-box possibility to inject this kind of failures. In details, it is described on
 [Simulating Faults](http://wiremock.org/simulating-faults.html) page. You can choose between 3 kinds of bad responses:
 completely empty response, 200 OK response with garbage body or totally random data. Let's test all three cases,
-thanks to compact Spock syntax you need only few lines of code:
+thanks to compact Spock syntax you need only a few lines of code:
 
 ```groovy
 @Unroll
@@ -274,7 +274,7 @@ public ExampleResource getExampleResource(String id)
 }
 ```
 
-Now test is green. As you cen read from `readEntity` method documentation, also `IllegalStateException` could be thrown, so
+Now test is green. As you can read from `readEntity` method documentation, also `IllegalStateException` could be thrown, so
 in our case we should catch it the same way as `ProcessingException`.
 
 ### Extremal but real: response mapped to object, but still unexpected things happen
@@ -288,7 +288,7 @@ This example sounds a little bit exotic, but it was a real case. Due to error in
 }
 ```
 
-What happened in client? Becasuse `@JsonIgnoreProperties(ignoreUnknown = true)` in `ExampleResource` class, this JSON was
+What happened in the client? Because `@JsonIgnoreProperties(ignoreUnknown = true)` in `ExampleResource` class, this JSON was
 properly mapped to `ExampleResource` object. But of course, every field was null. Let's assume that one of the fields
 is of type `Boolean` and in application code there is a decision made depending on value of this field:
 
@@ -299,7 +299,7 @@ if (exampleResource.isSomeBooleanValue()) {
 ```
 
 Because response validation and mapping to object were not too strict, `NullPointerException` was thrown in application code.
-Bad response was not filtered in client and application trusted that if anything is not OK with response, exception
+The bad response was not filtered in client and application trusted that if anything is not OK with response, exception
 will be thrown in client.
 
 ### Conclusion
