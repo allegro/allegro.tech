@@ -6,7 +6,7 @@ tags: [wiremock, TDD, testing, integration tests, fault injection]
 ---
 
 SOA (Service Oriented Architecture) as modern approach to build distributed enterprise applications gives us many benefits,
-including resiliency and fault-tolerance. On the other hands there are many new kinds of SOA-specific faults,
+including resiliency and fault-tolerance. On the other hand there are many new kinds of SOA-specific faults,
 like publishing, discovery, composition, binding or execution faults (as stated in:
 [A Fault Taxonomy for Service-Oriented Architecture](http://edoc.hu-berlin.de/series/informatik-berichte/215/PDF/215.pdf)). Error handling is one of the most
 important things to have services right designed and implemented
@@ -288,7 +288,7 @@ This example sounds a little bit exotic, but it was a real case. Due to error in
 }
 ```
 
-What happened in client? Becasuse of `@JsonIgnoreProperties(ignoreUnknown = true)` in `ExampleResource` class, this JSON was
+What happened in client? Becasuse `@JsonIgnoreProperties(ignoreUnknown = true)` in `ExampleResource` class, this JSON was
 properly mapped to `ExampleResource` object. But of course, every field was null. Let's assume that one of the fields
 is of type `Boolean` and in application code there is a decision made depending on value of this field:
 
@@ -304,7 +304,7 @@ will be thrown in client.
 
 ### Conclusion
 
-When testing and writing code of service clients, we should not only remember to checking response status code, but think about:
+When testing and writing code of service clients, we should not only remember to check response status code, but think about:
 
  * what should happen if service is inaccessible?
  * what should happen if response from service is delayed — should we wait a longer time or quickly use fallback?
