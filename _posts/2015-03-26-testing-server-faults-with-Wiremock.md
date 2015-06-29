@@ -17,7 +17,7 @@ if not properly handled by the client, can lead to application inaccessibility.
 ### Example service client
 
 Let's have an example service client. It is written in Java using [Jersey client](https://jersey.java.net/documentation/latest/client.html).
-It contains some bugs, but it's not an academic example — following code was a part of real, production application
+It contains some weaknesses, but it's not an academic example — following code was a part of real, production application
 used in one of the microservices in Allegro Group (class names are anonymized).
 Of course there are several ways and libraries useful for writing RESTful clients, but ideas mentioned in the article are
 general, Java+Jersey stack was chosen only as a real-live example.
@@ -58,7 +58,7 @@ but you can watch two interesting presentations of my colleagues from Allegro:
  * (in Polish) [Wykorzystanie języka Groovy w testach](https://www.youtube.com/watch?v=EGKOSUBGy8M) by Mirosław Gołda,
  presented at [Toruń JUG](http://torun.jug.pl/) meeting (2015)
 
- You can also read about other tools used for testing in article
+ You can also read about other testing tools in
  [Testing RESTful services and their clients](http://allegrotech.io/testing-restful-service-and-clients.html) by Rafał Głowiński.
 
 ```groovy
@@ -109,13 +109,13 @@ class ExampleClientSpec extends Specification {
 }
 ```
 
-At a first glance everything is OK — client is tested against different statuses
-returned by REST service. But in the real world, there are much more things that could go wrong...
+At a first glance everything is OK — the client is tested against different statuses
+returned by REST service. But in the real world, there are many more things that could go wrong...
 
 ### Server has gone away
 
 In the service-oriented approach, we use discovery service to get actual instance URL. Microservice instances with
-long response time or not responding at all are cut off. However, it takes some time to unregister such instances
+long response times or not responding at all are cut off. However, it takes some time to unregister such instances
 from discovery service by monitoring tools. After a sudden crash (think about physical server failure,
 disconnection from network or DNS issue), for some time there is a big chance that your client will
 try to connect to a non-functioning instance.
@@ -136,7 +136,7 @@ def "should handle server fault on retrieving resource"() {
 ```
 
 This test fails — `ProcessingException` thrown by Jersey client is not catched and wrapped in `ExampleResourcesUnavailableException`.
-This may lead to unexpected behaviour in an application where the client is used. Adding try/catch around request processing makes the test green:
+This may lead to unexpected behaviour in the application where the client is used. Adding try/catch around request processing makes the test green:
 
 ```java
 public ExampleResource getExampleResource(String id)
@@ -162,19 +162,19 @@ public ExampleResource getExampleResource(String id)
 
 ### Timeout
 
-In microservices architecture, services should be fast. But sometimes they don't. Think of database overload, garbage
+In microservices architecture, services should be fast. But sometimes they aren't. Think of database overload, garbage
 collection pause or unusual network latency. Service response time becomes seconds, not milliseconds. There is one
 fundamental question in such a case: is a response from the service critical? You can think about two options:
 
  * response is critical — for example you cannot render a page for the end user without having microservice's response.
-In this case it is probably better not to set timeout or have it at high value —
-user may prefer to have page rendered in few seconds more than usual instead of seeing error page;
- * response is not critical — as a real example there is seo-service in Allegro Group, which serves metadata
+In this case it is probably better not to set timeout or set it at a high value —
+user may prefer to have page rendered in a few seconds more than usual instead of seeing an error page;
+ * response is not critical — as a real example there is a seo-service in Allegro Group, which serves metadata
  such as page title and description for [allegro.pl listing](http://allegro.pl/search?nl=1&string=java).
- This is important due to SEO positioning, but lack
- of response is invisible to user (default metadata can be used as a fallback) and if seo-service failure is short-term
+ This is important due to SEO positioning, but the lack
+ of response is invisible to the user (default metadata can be used as a fallback) and if the seo-service failure is short-term
  (for example several minutes or even few hours) it has no negative impact on SEO positioning.
- In this case setting timeout is crucial — it's much worse for user to have page rendering delayed few seconds than
+ In this case setting timeout is crucial — it's much worse for the user to have page rendering delayed a few seconds than
  having page loaded fast but without some invisible metadata.
 
 You can easily test the second scenario with Wiremock using `withFixedDelay` method:
@@ -197,7 +197,7 @@ def "should throw exception on response delay"() {
 }
 ```
 
-Test fails, because the client has no timeout implemented. It is very easy to set timeout in Jersey client, just add two
+The test fails, because the client has no timeout implemented. It is very easy to set timeout in Jersey client, just add two
 properties to `Client` object passed to `ExampleClient` constructor:
 
 ```java
@@ -215,20 +215,20 @@ def exampleClient = new ExampleClient(ClientBuilder.newClient()
 
 ### Weird response
 
-JSON is widely used as a part of communication standard between microservices. In client code we often use some
+JSON is widely used as a part of communication standard between microservices. In the client code we often use some
 automagic features that map JSON to a business object (for example, [Jackson](http://jackson.codehaus.org/)).
 There is no explicit conversion, we just call `readEntity` method giving as an argument a class that we want as a
-response, annotations on this class do the rest.
+response. Annotations on this class do the rest.
 Because simplicity — it is easy to forget that assumption that server always returns JSON mappable to our business
 object is only a good belief. There are many reasons to fail here, like errors in implementation, misconfiguration
-or hardware failures. This can even be a cause of failure during error handling when you want to read detailed
-error message from the response. I saw the situation where JSON with error message was expected, but server returned
+or hardware failures. This can even be a cause of failure during error handling when you want to read a detailed
+error message from the response. I saw a situation where JSON with an error message was expected, but the server returned
 404 with HTML. The effect was an unhandled exception thrown in error handling routine.
 
-Wiremock gives us out-of-the-box possibility to inject this kind of failures. In details, it is described on
+Wiremock gives us an out-of-the-box possibility to inject this kind of failures. In details, it is described on
 [Simulating Faults](http://wiremock.org/simulating-faults.html) page. You can choose between 3 kinds of bad responses:
 completely empty response, 200 OK response with garbage body or totally random data. Let's test all three cases,
-thanks to compact Spock syntax you need only a few lines of code:
+thanks to the compact Spock syntax you need only a few lines of code:
 
 ```groovy
 @Unroll
@@ -249,7 +249,7 @@ def "should throw exception on bad response: #fault"() {
 }
 ```
 
-Two of three cases fails. What's wrong? `ProcessingException` is thrown, but not during the request processing. Failure
+Two of three cases fail. What's wrong? `ProcessingException` is thrown, but not during the request processing. Failure
 is in mapping response to `ExampleResource` class object. Let's fix this bug:
 
 ```java
@@ -274,13 +274,13 @@ public ExampleResource getExampleResource(String id)
 }
 ```
 
-Now test is green. As you can read from `readEntity` method documentation, also `IllegalStateException` could be thrown, so
+Now the test is green. As you can read from `readEntity` method documentation, also `IllegalStateException` could be thrown, so
 in our case we should catch it the same way as `ProcessingException`.
 
 ### Extremal but real: response mapped to object, but still unexpected things happen
 
-This example sounds a little bit exotic, but it was a real case. Due to error in service implementation, server returned
-200 OK instead of 500, but response body was as for internal server error:
+This example sounds a little bit exotic, but it was a real case. Due to an error in the service implementation,
+the server returned 200 OK instead of 500, but the response body was as for an internal server error:
 
 ```json
 {
@@ -290,7 +290,7 @@ This example sounds a little bit exotic, but it was a real case. Due to error in
 
 What happened in the client? Because `@JsonIgnoreProperties(ignoreUnknown = true)` in `ExampleResource` class, this JSON was
 properly mapped to `ExampleResource` object. But of course, every field was null. Let's assume that one of the fields
-is of type `Boolean` and in application code there is a decision made depending on value of this field:
+is of type `Boolean`, and a decision is made depending on the value of this field in the application code:
 
 ```java
 if (exampleResource.isSomeBooleanValue()) {
@@ -298,17 +298,18 @@ if (exampleResource.isSomeBooleanValue()) {
 }
 ```
 
-Because response validation and mapping to object were not too strict, `NullPointerException` was thrown in application code.
-The bad response was not filtered in client and application trusted that if anything is not OK with response, exception
-will be thrown in client.
+Because the response validation and mapping to object were not strict enough, `NullPointerException` was thrown
+in the application code. The bad response was not filtered in the client, and the application trusted that
+if anything is not OK with response, and exception will be thrown on the client.
 
 ### Conclusion
 
-When testing and writing code of service clients, we should not only remember to check response status code, but think about:
+When testing and writing the code of service clients, we should not only remember to check the response status code,
+but think about:
 
- * what should happen if service is inaccessible?
- * what should happen if response from service is delayed — should we wait a longer time or quickly use fallback?
- * how to deal with unexpected response?
- * not to trust an object returned from client or better — take more control over mapping HTTP response to business object.
+ * what should happen if the service is inaccessible?
+ * what should happen if response from the service is delayed — should we wait a longer time or quickly use the fallback?
+ * how to deal with an unexpected response?
+ * not trusting an object returned from the client or better — take more control over mapping HTTP response to the business object.
 
-These basic steps are essential to improve stability and fault-tolerance in SOA environment.
+These basic steps are essential to improve the stability and fault-tolerance of your SOA environment.
