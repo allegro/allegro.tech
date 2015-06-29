@@ -219,7 +219,7 @@ JSON is widely used as a part of communication standard between microservices. I
 automagic features that map JSON to a business object (for example, [Jackson](http://jackson.codehaus.org/)).
 There is no explicit conversion, we just call `readEntity` method giving as an argument a class that we want as a
 response. Annotations on this class do the rest.
-Because simplicity — it is easy to forget that assumption that server always returns JSON mappable to our business
+Because of this simplicity — it is easy to forget that assumption that server always returns JSON mappable to our business
 object is only a good belief. There are many reasons to fail here, like errors in implementation, misconfiguration
 or hardware failures. This can even be a cause of failure during error handling when you want to read a detailed
 error message from the response. I saw a situation where JSON with an error message was expected, but the server returned
