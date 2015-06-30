@@ -17,7 +17,7 @@ if not properly handled by the client, can lead to application inaccessibility.
 ### Example service client
 
 Let's have an example service client. It is written in Java using [Jersey client](https://jersey.java.net/documentation/latest/client.html).
-It contains some weaknesses, but it's not an academic example — following code was a part of real, production application
+It contains some weaknesses, but it's not an academic example — the following code was part of a real, production application
 used in one of the microservices in Allegro Group (class names are anonymized).
 Of course there are several ways and libraries useful for writing RESTful clients, but ideas mentioned in the article are
 general, Java+Jersey stack was chosen only as a real-live example.
@@ -249,8 +249,8 @@ def "should throw exception on bad response: #fault"() {
 }
 ```
 
-Two of three cases fail. What's wrong? `ProcessingException` is thrown, but not during the request processing. Failure
-is in mapping response to `ExampleResource` class object. Let's fix this bug:
+Two of three cases fail. What's wrong? `ProcessingException` is thrown, but not during the request processing. The failure
+is in mapping the response to `ExampleResource` class object. Let's fix this bug:
 
 ```java
 public ExampleResource getExampleResource(String id)
@@ -274,8 +274,8 @@ public ExampleResource getExampleResource(String id)
 }
 ```
 
-Now the test is green. As you can read from `readEntity` method documentation, also `IllegalStateException` could be thrown, so
-in our case we should catch it the same way as `ProcessingException`.
+Now the test is green. As you can read from `readEntity` method documentation, also `IllegalStateException` could also be thrown,
+so in our case we should catch it the same way as `ProcessingException`.
 
 ### Extremal but real: response mapped to object, but still unexpected things happen
 
@@ -298,9 +298,9 @@ if (exampleResource.isSomeBooleanValue()) {
 }
 ```
 
-Because the response validation and mapping to object were not strict enough, `NullPointerException` was thrown
-in the application code. The bad response was not filtered in the client, and the application trusted that
-if anything is not OK with response, and exception will be thrown on the client.
+Because the response validation and mapping to the object were not strict enough, `NullPointerException` was thrown
+in the application code. The application had wrong assumption that the response can always be mapped to the business object
+if the response status code is 200 OK.
 
 ### Conclusion
 
