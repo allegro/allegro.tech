@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Allegrotech.youth – success story of education program
-author: pawel.rekowski
+author: [pawel.rekowski,michal.karykowski,patryk.krawaczynski,krzysztof.muzalewski]
 tags: [education, coding, infrastructure, web developing]
 ---
 
@@ -22,6 +22,16 @@ aplikacji wyświetlającej plan lekcji wraz z informacjami o zastępstwach lub o
 Zaraziliśmy uczestników nowymi technologiami, w których daliśmy im rozwinąć skrzydła i wylecieć na swój pierwszy lot po krainie wielu możliwości. 
 Grupę programistów razem ze mną wsparli swoją wiedzą i doświadczeniem [Michał Karykowski](http://allegrotech.io/authors/michal.karykowski) oraz [Mirosław Gołda](http://allegrotech.io/authors/miroslaw.golda). 
 Edukacją infrastrukturalną zajął się [Patryk Krawaczyński](http://allegrotech.io/authors/patryk.krawaczynski) oraz [Łukasz Szulc](http://allegrotech.io/authors/lukasz.szulc), a grupę Web developerską poprowadził [Krzysztof Muzalewski](http://allegrotech.io/authors/krzysztof.muzalewski).
+
+### Technologiczna mieszanka
+W ramach zajęć zahaczyliśmy wiele tematów. Jednak kilka z nich było najważniejsze dla każdej z grup. Były to technologie, których używamy na co dzień. Pokazaliśmy praktyczne zastosowanie narzędzi, które stanowią filar obecnej działalności w branży IT. Wśród grupy programistów była to [Java](https://en.wikipedia.org/wiki/Java) wsparta przez [Spring Framework](http://spring.io/). Wykorzystaliśmy do budowania [Gradle'a](https://gradle.org/) i wprowadziliśmy adeptów w tajniki metodologii [TDD](https://en.wikipedia.org/wiki/Test-driven_development) przy użyciu [JUnit'a](http://junit.org/) oraz [AssertJ](http://joel-costigliola.github.io/assertj/). 
+
+Grupa Web developerów wzięła na warsztat [Twitter Bootstrapa](http://getbootstrap.com/2.3.2/) i [HTML5](http://www.w3schools.com/html/html5_intro.asp). Wykorzystali narzędzie do budowania jakim jest [Grunt](http://gruntjs.com/) i zatopili się w świat dynamicznych stylów, które daje praca z [Less'em](http://lesscss.org/).
+Przy okazji uczniowie dowiedzieli się o istnieniu [NPM'a](https://www.npmjs.com/).
+
+Ekipa od infrastruktury do swoich celów wykorzystała [Ubuntu](http://www.ubuntu.com/) na którym przy użyciu [VirtualBoxa](https://www.virtualbox.org/) zarządzanego przez [Vagranta](https://www.vagrantup.com/) budowali przez manifesty [Puppeta](https://puppetlabs.com/) maszyny wirtualne na potrzeby aplikacji tworzonej przez pozostałe grupy. Na wirtualnych maszynkach pojawiały się serwery [NGINXa](http://wiki.nginx.org/) oraz [MongoDB](https://www.mongodb.org/). 
+
+Do wspólnej pracy wykorzystaliśmy [GIT'a](https://git-scm.com/) oraz korzystaliśmy z dwóch popularnych serwisów, gdzie trzymaliśmy swój kod. Jest to [GitHub](https://github.com/) oraz [BitBucket](https://bitbucket.org/).
 
 ### Jak wpływa edukacja na specjalistów IT ?
 *"Powiedz mi, a zapomnę. Pokaż mi, a zapamiętam. Pozwól mi zrobić, a zrozumiem."*
