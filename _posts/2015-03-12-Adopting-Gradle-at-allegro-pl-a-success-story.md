@@ -322,3 +322,5 @@ This is our success story of migrating to Gradle. We liked the promises that Gra
 One by one, our teams started dropping Maven and eventually Gradle became the standard build tool in the company.
 Although we faced some minor problems and fell into some traps during the process, it all went smoothly overall.
 What matters is that adopting Gradle turned out to be a perfect decision for us and we cannot imagine going back to the Maven world.
+
+![confitura](img/qrcode_confi.png)
