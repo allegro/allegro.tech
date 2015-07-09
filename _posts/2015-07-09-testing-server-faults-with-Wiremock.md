@@ -216,7 +216,7 @@ def exampleClient = new ExampleClient(ClientBuilder.newClient()
 ### Weird response
 
 JSON is widely used as a part of communication standard between microservices. In the client code we often use some
-automagic features that map JSON to a business object (for example, [Jackson](http://jackson.codehaus.org/)).
+automagic features that map JSON to a business object (for example, [Jackson](http://wiki.fasterxml.com/JacksonHome)).
 There is no explicit conversion, we just call `readEntity` method giving as an argument a class that we want as a
 response. Annotations on this class do the rest.
 Because of this simplicity — it is easy to forget that assumption that server always returns JSON mappable to our business
