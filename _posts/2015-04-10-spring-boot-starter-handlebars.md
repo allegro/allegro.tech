@@ -44,7 +44,7 @@ configuration examples.
     <title>Example</title>
 </head>
 <body>
-    <h1>{% raw %}{{message}}{% endraw %}</h1>
+    <h1>{% raw %}{{foo}}{% endraw %}</h1>
 </body>
 </html>
 ```
@@ -58,7 +58,7 @@ public static class Application {
 
     @RequestMapping("/")
     public String index(Model model) {
-        model.addAttribute("message", "Hello Handlebars!");
+        model.addAttribute("foo", "Hello Handlebars!");
         return "index";
     }
 
