@@ -5,11 +5,15 @@ author: marcin.kuthan
 tags: [spark, spark streaming, apache kafka, scala]
 ---
 
+Apache Spark is popular, open-source cluster computing framework written in Scala.
+Spark was originally developed in 2009 in UC Berkeley’s AMPLab, to address limitations of 
+[MapReduce](https://pl.wikipedia.org/wiki/MapReduce) based tools.
+Today we would like to publish our experiences with Spark, and how to solve one of the most irritating trait of 
+the framework. 
+
 ### Apache Spark - good parts
 
-Apache Spark is popular, open-source cluster computing framework written in Scala. 
 The biggest advantage of Spark is it's API: elegant, expressive, concise, and aligned to functional programming style.
-
 Below you can find academic word count example written in Scala using Spark:
 
 ```scala
@@ -182,7 +186,7 @@ object KafkaSink {
 
 Before production deployment, ``KafkaSink`` needs to be improved a little. 
 We have to close the _kafka producer_ before _spark executor_ JVM is closed.
-If not, we will lost all messages buffered internally by _kafka producer_.
+If not, all messages buffered internally by _kafka producer_ will be lost.
 
 ```scala
 object KafkaSink {
