@@ -48,12 +48,12 @@ But there ain't no such thing as a free lunch.
 Spark API is an abstraction over distributed computation and sometimes this abstraction is leaking. 
 Sooner or later you will observe strange `java.io.NotSerializableException` exceptions in your application stack trace.
 
-Some part of your application code is evaluated on the Spark driver, other part on the spark executors.
+Some part of your application code is evaluated on the Spark driver, other part on the Spark executors.
 In the example below, Spark creates two jobs on the driver and delegates work to executors on a cluster of remote 
 nodes.
 The number of jobs depends on your application business logic and the number of tasks depends on data partitioning.
 
-![spark driver and executors](img/articles/2015-07-16-spark-kafka-integration/spark-driver-executors.png)
+![Spark driver and executors](img/articles/2015-07-16-spark-kafka-integration/spark-driver-executors.png)
 
 When you gain some experience with Spark, it should be easy to look at the code, and tell where it'll be 
 eventually executed.
@@ -74,7 +74,7 @@ RDD (Resilient Distributed Dataset) is a structure where data is transparently d
 The only place you can access `rdd` is the driver.
 
 But the inner loop will be evaluated in distributed manner. 
-RDD will be partitioned and inner loop iterates over subset of `rdd` elements on every spark executor.
+RDD will be partitioned and inner loop iterates over subset of `rdd` elements on every Spark executor.
 
 Spark uses Java (or [Kryo](https://github.com/EsotericSoftware/kryo)) serialization to send application code from 
 the driver to the executors. 
