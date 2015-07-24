@@ -5,8 +5,8 @@ author: marcin.kuthan
 tags: [spark, spark streaming, apache kafka, scala]
 ---
 
-Today we would like to publish our experience with [Apache Spark](http://spark.apache.org/), 
-and how to solve one of the most annoying aspects of the framework.
+Today we would like to share our experience with [Apache Spark](http://spark.apache.org/), 
+and how to deal with one of the most annoying aspects of the framework.
 This article assumes basic knowledge of Apache Spark.
 If you feel uncomfortable with the basics of Spark, we recommend you to participate in an excellent 
 [online course](https://www.edx.org/course/introduction-big-data-apache-spark-uc-berkeleyx-cs100-1x) 
@@ -38,8 +38,8 @@ counts.saveAsTextFile(outputFile)
 ```
 
 Quite easy, isn't it? 
-What is even more important, the code can be deployed on the cluster and could calculate word frequency histogram 
-of huge data set like Wikipedia documents.
+What is even more important, the code can be deployed on a cluster and could calculate word frequency histogram 
+of a huge data set like Wikipedia documents.
 How much data you can process depends only on the size of your cluster, certainly.
 
 ### Apache Spark &mdash; the bad parts
@@ -73,7 +73,7 @@ The outer loop against `rdd` is executed locally on the driver.
 RDD (Resilient Distributed Dataset) is a structure where data is transparently distributed on cluster nodes.
 The only place you can access `rdd` is the driver.
 
-But the inner loop will be evaluated in distributed manner. 
+But the inner loop will be evaluated in a distributed manner. 
 RDD will be partitioned and inner loop iterates over subset of `rdd` elements on every Spark executor.
 
 Spark uses Java (or [Kryo](https://github.com/EsotericSoftware/kryo)) serialization to send application code from 
