@@ -202,7 +202,6 @@ pawel.leszczynski:
     name: Paweł Leszczyński
     bio: Paweł is interested in distributed databases stuff with a special focus on making Big Data easy. He is Product Owner in a Big Data Solutions Team at the Infrastructure department. The team develops and maintains a petabyte Hadoop cluster with endpoints like Apache Kafka messaging.
 
-
 pawel.zawistowski:
     name: Paweł Zawistowski
     bio: Paweł is a data scientist working at Allegro Group since 2014 with experience in industry and academia. He enjoys working with various types of data technologies and machine learning algorithms.
@@ -230,3 +229,9 @@ michal.tydryszewski:
 szymon.jasinski:
     name: Szymon Jasiński
     bio: Szymon is a clarinet player by education and a systems engineer by profession. At Allegro Group since 2013.
+
+mateusz.sulima:
+    name: Mateusz Sulima
+    bio: Since a year at Mateusz has been working as a Scala developer at Allegro Group in a recommendation platform team. Earlier he had worked as Node.js, Java and Python developer. His interests focus on performance and consistency problems in distributed systems.
+    twitter: MateuszSulima
+    github: msulima

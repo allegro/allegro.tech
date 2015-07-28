@@ -1,0 +1,147 @@
+---
+layout: post
+title: Let your tests tell a story
+author: mateusz.sulima
+tags: [java, scala, testing, bdd, jbehave]
+---
+
+In a team that develops Allegro Recommendation Platform we weren’t happy with our integration tests. Long setup and
+assertions blocks resulted in low signal—to—noise ratio and poor readability. These test were also full of _ad hoc_
+variables like `1`, `ABC`, `OK` or `NOK`, which caused that it was hard to find a connection between input and output
+data. Moreover, any change in an API caused changes in many tests.
+
+In this article we show how we managed to write very clean and easy to maintain integration tests. Inspired by
+[Domain—driven design](https://en.wikipedia.org/wiki/Domain-driven_design) (DDD) ubiquitous language, we introduced
+common domain context not just to our business logic, but also to our test domain.
+
+We’re using [Scala](http://www.scala-lang.org/) language and [specs2](https://etorreborre.github.io/specs2/) testing
+framework in our team, so this article will contain few technical details specific to this toolset. However ideas
+presented in this article are applicable to any other framework. They work very well with
+[Behavior—driven development](https://en.wikipedia.org/wiki/Behavior-driven_development) (BDD) frameworks, like JBehave,
+about which Grzegorz Witkowski recently
+[blogged](http://allegrotech.io/acceptance-testing-with-jbehave-and-gradle.html).
+
+### Ubiquitous language in tests
+
+In Domain—driven Design term “ubiquitous language” means common, consistent language between developers and users.
+We’ve taken this idea a step further and decided that our integration tests will share a common context, so developers
+can better understand tested system and more easily discuss about it.
+
+Just like in BDD every test should be a short story of user performing an action. Instead of naming users and entities
+with _ad hoc_ identifiers like `ABC`, `123` or `foo` we decided to introduce meaningful names and characters. We agreed
+that we will reuse these characters in many tests and make each one of them have some unique traits. This makes it
+easier for us to quickly understand test, just by checking which characters it uses.
+
+First step of finding characters was to choose a domain well—known to all of the team members. Picking a pop—culture
+domain has a benefit that we can use examples straight from our code base to explain some concepts to our Product Owner
+or people outside our team. In our case we’ve considered among other things: James Bond movies, Marvel comics universe
+and the Witcher books. Finally we’ve picked the Lord of the Rings, because everyone read the books or watched the movies.
+
+Once we’ve picked the domain, we needed to select characters that will suit our needs. They should be easy to remember
+and have traits that can be connected to application domain. There should be a few characters, but each should have
+some unique set of attributes. After some time developers remember that these characters’ names have special meaning
+in context of usage.
+
+In our case Gandalf is going to buy and sell things related to wizardry, like magic hats or staffs. Saruman posts items,
+which usually are of poor quality and we should not recommend them for other users. We’ve even picked a
+“black character” — Sauron — who always posts invalid input.
+
+More possible examples in different application domains are:
+
+- Finance — James Bond movies, using characters like James Bond, Goldfinger, Miss Moneypenny.
+- Education — Harry Potter books.
+- Health Care — medical drama like ER, Grey’s Anatomy or House M.D.
+
+### Example
+
+Let’s consider a simple case of request for recommendations from a new anonymous user, who doesn’t have any browsing
+history. The most basic recommendation that we can show to him is just some bestselling item in a category, which he’s
+browsing right now. We could implement it in a following way:
+
+    Scenario: recommendations for an anonymous user in a category listing.
+    Given an Item 1 in Category A and an Item 2 in Category B
+    When anonymous user visits Category A
+    Then he sees Item 1 as recommended item
+
+Here’s the same example, but using characters and items from our domain:
+
+    Scenario: recommendations for an anonymous user in a category listing.
+    Given a Gold Ring and a Wooden Staff
+    When anonymous user visits a Magic Rings category
+    Then he sees a Gold Ring as recommended item
+
+In our opinion the second scenario is more readable, as it’s obvious that Wooden Staff doesn’t match Magic Rings
+category.
+
+### Implementation
+
+We didn’t use dedicated BDD framework, but decided to create our own components, which try to encapsulate performed
+business logic and hide implementation details. We call them “manipulators” and they have three purposes:
+
+- Setting a service under test to initial state.
+- Performing actions on the service.
+- Getting from service data on which assertions can be performed.
+
+Internally manipulators can perform whatever it is required to set the application in desired state or verify it. This
+includes REST requests, direct method calls, execution of SQL scripts, etc. We try to reuse manipulators between tests,
+because it limits number of places we have to modify in case of API changes.
+
+We’ve implemented the simple recommendation scenario mentioned above as:
+
+    ```scala
+    "serve bestsellers in visited category" in {
+      // given
+      itemsManipulator.postMagicStaff()
+      itemsManipulator.postGoldenRing()
+
+      // when
+      val recommendations = recommendationsManipulator.
+        categoryListing(MagicRingsCategoryId)
+
+      // then
+      recommendations.items.map(_.itemId) must contain(exactly(GoldRingId))
+    }
+
+In our opinion this solution hides all implementation details from test, giving readability comparable to specialized
+BDD frameworks like JBehave. Moreover we still have benefits of compile—time checks, code highlighting and IDE
+refactorization support. We could step a little further and use more Scala—specific features like spaces in method
+names, our own operators or implicit methods, but we think this implementation is already good enough.
+
+### More examples
+
+Dan North in his [Introducing BDD](http://dannorth.net/introducing-bdd/) article gives an ATM cash withdrawal example:
+
+    +Scenario 1: Account is in credit+
+    Given the account is in credit
+    And the card is valid
+    And the dispenser contains cash
+    When the customer requests cash
+    Then ensure the account is debited
+    And ensure cash is dispensed
+    And ensure the card is returned
+
+If we were working in a banking domain, we would probably choose James Bond movies domain. We could reflect these step
+by using manipulators and our own specs2 matchers, to implement this scenario as follows:
+
+    ```scala
+    "Scenario 1: Account is in credit" in {
+      val `James Bond` = customersManipulator.createJamesBond()
+      val account = accountsManipulator.jamesBondSwissAccount()
+      val card = cardsManipulator.jamesBondPlatinumCreditCard()
+      val cash = 100000
+      val dispenser = dispensersManipulator.dispenserWithCash(cash)
+
+      dispenser.withdraw(`James Bond`, card, cash)
+
+      account must beDebitedWith(cash)
+      `James Bond` must haveBeenDispensed(cash)
+      card must beReturnedTo(`James Bond`)
+    }
+
+### Summary
+
+Picking a domain for tests made them easier to write and, more important, understand. The domain is well—known also to
+Product Owner, so this enables us to communicate more efficiently.
+
+To implement test cases we’ve used technical stack that we’ve already been familiar with. We’ve encapsulated logic for
+test setup and results verification into separate components, what makes test code more maintainable.
