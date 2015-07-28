@@ -7,16 +7,16 @@ tags: [varnish, web cache, python, open source]
 
 We are proud to announce that today we released as open source [Varnish as a 
 Service](https://stash.allegrogroup.com/projects/VAAS/repos/vaas/browse) (AKA VaaS), a [Varnish 
-Cache](https://www.varnish-cache.org/) management tool. The tool has been successfuly used and continually developed for 
+Cache](https://www.varnish-cache.org/) management tool. The tool has been continually developed and successfuly used for 
 over a year at [Allegro](http://allegro.pl) to manage multiple farms of Varnish Cache servers. We got to the point where 
 it is mature and flexible enough to share with the community as we believe there may be people out there who could 
 benefit from using it. The key features that set VaaS apart from other tools are:
 
-1) [VCL](https://www.varnish-cache.org/trac/wiki/VCL) data validated and stored in a database
-2) Varnish API used to distribute VCLs in real time accross the entire caching server farm
-3) API and GUI available for internal clients
-4) Flexible templating system
-5) It is now open source and available for free to anybody
+1. [VCL](https://www.varnish-cache.org/trac/wiki/VCL) data validated and stored in a database
+2. Varnish API used to distribute VCLs in real time accross the entire caching server farm
+3. API and GUI available for internal clients
+4. Flexible templating system
+5. It is now open source and available for free to anybody
 
 Since we started using VaaS on a broader scale in Spring 2014, the most repetitive, time consuming, error prone and 
 boring tasks related to VCL maintenance became automated and we handed them over to our internal customers. This is 
