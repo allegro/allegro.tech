@@ -17,7 +17,7 @@ prepared by the creators of Spark.
 Apache Spark is a popular, open-source cluster computing framework written in Scala.
 One of the biggest advantages of Spark is its API: elegant, expressive, concise and aligned to functional programming
 style.
-Below you can find word count example application written in Scala using Spark:
+Below you can find a word count example application written in Scala using Spark:
 
 ```scala
 // create Spark context
@@ -37,14 +37,15 @@ val counts = words.map(word => (word, 1)).reduceByKey{case (x, y) => x + y}
 counts.saveAsTextFile(outputFile)
 ```
 
-Quite easy, isn't it? 
-What is even more important, the code can be deployed on a cluster and could calculate word frequency histogram 
+Quite easy, isn’t it?
+
+What is even more important, the code can be deployed on a cluster and could calculate the word frequency histogram 
 of a huge data set like Wikipedia documents.
-How much data you can process depends only on the size of your cluster, certainly.
+How much data you can process depends only on the size of your cluster.
 
 ### Apache Spark &mdash; the bad parts
 
-But there ain't no such thing as a free lunch. 
+But there ain’t no such thing as a free lunch. 
 Spark API is an abstraction over distributed computation and sometimes this abstraction is leaking. 
 Sooner or later you will observe strange `java.io.NotSerializableException` exceptions in your application stack trace.
 
@@ -55,7 +56,7 @@ The number of jobs depends on your application business logic and the number of 
 
 ![Spark driver and executors](img/articles/2015-07-16-spark-kafka-integration/spark-driver-executors.png)
 
-When you gain some experience with Spark, it should be easy to look at the code, and tell where it'll be 
+When you gain some experience with Spark, it should be easy to look at the code, and tell where it will be 
 eventually executed.
 Look at the code snippet below. 
 
@@ -70,20 +71,22 @@ dstream.foreachRDD { rdd =>
 ```
 
 The outer loop against `rdd` is executed locally on the driver. 
-RDD (Resilient Distributed Dataset) is a structure where data is transparently distributed on cluster nodes.
+[RDD](https://www.cs.berkeley.edu/~matei/papers/2012/nsdi_spark.pdf) (Resilient Distributed Dataset) is a structure 
+where data is transparently distributed to cluster nodes.
 The only place you can access `rdd` is the driver.
 
 But the inner loop will be evaluated in a distributed manner. 
 RDD will be partitioned and inner loop iterates over subset of `rdd` elements on every Spark executor.
 
-Spark uses Java (or [Kryo](https://github.com/EsotericSoftware/kryo)) serialization to send application code from 
+Spark uses Java (or [Kryo](https://github.com/EsotericSoftware/kryo)) serialization to send application objects from 
 the driver to the executors. 
 At first you will try to add `scala.Serializable` or `java.io.Serializable` marker interface to all of your application 
 classes to avoid weird exceptions.
 But this blind approach has at least two disadvantages:
 
-* There might be a performance penalty when complex object graph is serialized and sent to dozen of remote cluster 
-nodes. It might be mitigated by using 
+* There might be a performance penalty when complex object graph is serialized and sent to a dozen of remote cluster 
+nodes. 
+It might be mitigated by using 
 [Spark broadcast variables](http://spark.apache.org/docs/latest/programming-guide.html#broadcast-variables), though.
 
 * Not everything is serializable, e.g: TCP socket cannot be serialized and sent between nodes.
@@ -94,7 +97,7 @@ After this introduction we are ready to discuss the problem we had to solve in o
 The application is a long running Spark Streaming job deployed on 
 [YARN](http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) cluster.
 The job receives unstructured data from Apache Kafka, validates data, converts it into 
-[Apache Avro](https://avro.apache.org/) binary format and publishes it back to an another Apache Kafka topic.
+[Apache Avro](https://avro.apache.org/) binary format and publishes it back to another Apache Kafka topic.
 
 Our very first attempt was very similar to the code presented below. 
 Can you see the problem? 
@@ -109,7 +112,7 @@ dstream.foreachRDD { rdd =>
 }
 ```
 
-The producer is created (and disposed) once on the driver but the message is sent to an executor.
+The producer is created (and disposed of) once on the driver but the message is sent to an executor.
 The producer keeps open sockets to the Kafka brokers so it cannot be serialized and sent over the network.
 
 The producer initialization and disposal code can be moved to the inner loop as presented below. 
@@ -126,16 +129,16 @@ dstream.foreachRDD { rdd =>
 
 Kafka producer is created and closed on an executor and does not need to be serialized.
 But it does not scale at all, the producer is created and closed for every single message. 
-Establishing connection to the cluster takes time. 
-It is much more time consuming operation than open plain socket connection, Kafka producer needs to discover leaders 
-for all partitions.
-Kafka Producer itself is a 'heavy' object, so you can also expect high CPU utilization by the JVM garbage collector.
+Establishing a connection to the cluster takes time. 
+It is a much more time consuming operation than opening plain socket connection, as Kafka producer needs to discover 
+leaders for all partitions.
+Kafka Producer itself is a &ldquo;heavy&rdquo; object, so you can also expect high CPU utilization by the JVM garbage collector.
 
 The previous example could be improved by using `foreachPartition` loop. 
 The partition of records is always processed by a Spark task on a single executor using single JVM.
 You can safely share a thread-safe Kafka producer instance.
 But in our scale (20k messages / second, 64 partitions, 2 seconds batch) it did not scale as well.
-Kafka producer was created and closed 64 times on every 2 seconds and sent only 625 messages on average.
+Kafka producer was created and closed 64 times every 2 seconds and sent only 625 messages on average.
 
 ```scala
 dstream.foreachRDD { rdd =>
@@ -153,7 +156,7 @@ If you are interested in more details about above optimizations, look at the des
 [Spark Streaming documentation](http://spark.apache.org/docs/latest/streaming-programming-guide.html).
 Perhaps the patterns were prepared for regular database connection pools, when single database connection cannot 
 be shared between clients concurrently.
-But a Kafka producer is thread-safe object, so it can be easily shared by multiple Spark tasks within the same JVM. 
+But a Kafka producer is a thread-safe object, so it can be easily shared by multiple Spark tasks within the same JVM. 
 Moreover, Kafka producer is asynchronous and buffers data heavily before sending. 
 How to return a Kafka producer to the pool, if it is still processing data?
 
@@ -174,7 +177,7 @@ dstream.foreachRDD { rdd =>
 ```
 
 `KafkaSink` class is a smart wrapper for a Kafka producer. 
-Instead of sending the producer itself, we send only a 'recipe' how to create it in an executor.
+Instead of sending the producer itself, we send only a &ldquo;recipe&rdquo; how to create it in an executor.
 The class is serializable because Kafka producer is initialized just before first use on an executor.
 Constructor of `KafkaSink` class takes a function which returns Kafka producer lazily when invoked. 
 Once the Kafka producer is created, it is assigned to `producer` variable to avoid initialization on every `send()` call.
@@ -199,7 +202,7 @@ object KafkaSink {
 
 Before production deployment, `KafkaSink` needs to be improved a little. 
 We have to close the Kafka producer before an executor JVM is closed.
-If not, all messages buffered internally by Kafka producer will be lost.
+Without it, all messages buffered internally by Kafka producer would be lost.
 
 ```scala
 object KafkaSink {
@@ -227,4 +230,4 @@ messages.
 We hope that this post will be helpful for others looking for a better way to integrate Spark Streaming and 
 Apache Kafka.
 While this article refers to Kafka, the approach could be easily adapted to other cases where a limited 
-number of instances of 'heavy', non-serializable objects should be created. 
+number of instances of &ldquo;heavy&rdquo;, non-serializable objects should be created. 
