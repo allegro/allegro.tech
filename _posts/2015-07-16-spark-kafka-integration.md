@@ -12,44 +12,19 @@ If you feel uncomfortable with the basics of Spark, we recommend you to particip
 [online course](https://www.edx.org/course/introduction-big-data-apache-spark-uc-berkeleyx-cs100-1x) 
 prepared by the creators of Spark.
 
-### Apache Spark &mdash; the good parts
+### The devil is in the detail
 
-Apache Spark is a popular, open-source cluster computing framework written in Scala.
-One of the biggest advantages of Spark is its API: elegant, expressive, concise and aligned to functional programming
-style.
-Below you can find a word count example application written in Scala using Spark:
+Big Data developers familiar with [MapReduce programming model](https://en.wikipedia.org/wiki/MapReduce) are usually 
+impressed with elegant, expressive and concise Spark API which complies with functional programming style. 
+Unfortunately, as soon as they start to develop more complex applications, they run into subtle issues related 
+to the distributed nature of Spark’s internals. 
+Spark API is only a thin abstraction and, as we all know, abstractions in computer science tend to leak.
 
-```scala
-// create Spark context
-val conf = new SparkConf().setAppName("wordCount")
-val sc = new SparkContext(conf)
-
-// load data
-val input = sc.textFile(inputFile)
-
-// split it up into words
-val words = input.flatMap(line => line.split(" "))
-
-// transform into pairs and count 
-val counts = words.map(word => (word, 1)).reduceByKey{case (x, y) => x + y}
-
-// save the word count back out to file, causing evaluation
-counts.saveAsTextFile(outputFile)
-```
-
-Quite easy, isn’t it?
-
-What is even more important, the code can be deployed on a cluster and could calculate the word frequency histogram 
-of a huge data set like Wikipedia documents.
-How much data you can process depends only on the size of your cluster.
-
-### Apache Spark &mdash; the bad parts
-
-But there ain’t no such thing as a free lunch. 
-Spark API is an abstraction over distributed computation and sometimes this abstraction is leaking. 
-Sooner or later you will observe strange `java.io.NotSerializableException` exceptions in your application stack trace.
-
-Some part of your application code is evaluated on the Spark driver, other part on the Spark executors.
+The problem we would like to discuss here is the problem of object serialization and lifecycle management 
+in Spark applications.
+Sooner or later you may observe strange `java.io.NotSerializableException` exceptions in your application stack trace.
+This happens because some part of your application code is evaluated on the Spark driver, other part
+on the Spark executors.
 In the example below, Spark creates two jobs on the driver and delegates work to executors on a cluster of remote 
 nodes.
 The number of jobs depends on your application business logic and the number of tasks depends on data partitioning.
