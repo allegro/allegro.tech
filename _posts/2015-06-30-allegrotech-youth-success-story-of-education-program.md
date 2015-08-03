@@ -5,83 +5,64 @@ author: [pawel.rekowski,michal.karykowski,patryk.krawaczynski,krzysztof.muzalews
 tags: [education, coding, infrastructure, web developing]
 ---
 
-Naturalną częścią życia każdego człowieka jest rozwój. Z punktu widzenia ewolucji, kto się nie rozwija ten ginie. 
-Jakiś czas temu pisałem o prowadzonej akcji [Allegrotech.Youth](http://allegrotech.io/Allegrotech-youth-our-educational-project.html), która zainspirowała do dalszej edukacji kolejne pokolenie ambitnych uczniów Toruńskiego technikum [ZSMEiE](http://www.zsmeie.torun.pl). 
-Dziś, z dumą mogę podsumować całą akcję, przedstawić fakty z ostatnich 3 miesięcy jak i podzielić się doświadczeniami jakie przyniosła nasz akcja.
+Development is an immanent part of every person’s life. Evolution-wise, whoever fails to develop, dies.
+A while ago I wrote a few words about [Allegrotech.Youth](http://allegrotech.io/Allegrotech-youth-our-educational-project.html), a program that inspired a drive for knowledge among the next generation of ambitious students of Toruń-based technical high school [ZSMEiE](http://www.zsmeie.torun.pl). Now, I want to sum up the course, present developments in the last 3 months and share the experience we have gained.
 
-### Jak mówiliśmy, tak zrobiliśmy
-Wśród uczniów zbudowaliśmy trzy grupy tematyczne, gdzie każda miała po 10 członków. 
-Zostali oni wybrani na podstawie wyników testu wstępnego przeprowadzonego wśród wszystkich zainteresowanych. 
-Każda z grup była przydzielona do konkretnej kategorii tematycznej oraz miała swojego prowadzącego. 
-Jako specjaliści z działu IT wszyscy mieliśmy okazje podnieść swoje umiejętności w prowadzeniu warsztatów, komunikacji zespołowej oraz wystąpień publicznych. 
-Była to świetna zabawa tak dla prowadzących jak i uczestników.
+### We did as we said we would
+Students were divided into 3 theme groups of 10 members selected on the basis of a placement test taken by everyone interested. Each group focused on a different area and had its dedicated instructor. As IT specialists, we all received a perfect opportunity to improve our skills in conducting workshops, team communication and public speaking. It was great fun for both the instructors and participants.
 
-### Wspólna gra
-Podzieleni na zespoły uczyliśmy swoich adeptów z pozoru różnych umiejętności, które na koniec projektu doprowadziły nas do uruchomienia wspólnej 
-aplikacji wyświetlającej plan lekcji wraz z informacjami o zastępstwach lub odwołanych zajęciach. 
-Zaraziliśmy uczestników nowymi technologiami, w których daliśmy im rozwinąć skrzydła i wylecieć na swój pierwszy lot po krainie wielu możliwości. 
-Grupę programistów razem ze mną wsparli swoją wiedzą i doświadczeniem [Michał Karykowski](http://allegrotech.io/authors/michal.karykowski) oraz [Mirosław Gołda](http://allegrotech.io/authors/miroslaw.golda). 
-Edukacją infrastrukturalną zajął się [Patryk Krawaczyński](http://allegrotech.io/authors/patryk.krawaczynski) oraz [Łukasz Szulc](http://allegrotech.io/authors/lukasz.szulc), a grupę Web developerską poprowadził [Krzysztof Muzalewski](http://allegrotech.io/authors/krzysztof.muzalewski).
+### The game
+Divided into teams, the students were taught various new skills that ultimately led to deploying a joint app displaying a timetable with additional information on teacher replacements or canceled classes. The participants learned about new technologies that helped them to spread their wings, take off and have their first flight to the land of numerous possibilities. [Michał Karykowski](http://allegrotech.io/authors/michal.karykowski), [Mirosław Gołda](http://allegrotech.io/authors/miroslaw.golda) and I assisted the group of developers. [Patryk Krawaczyński](http://allegrotech.io/authors/patryk.krawaczynski) and [Łukasz Szulc](http://allegrotech.io/authors/lukasz.szulc) talked about infrastructure, while [Krzysztof Muzalewski](http://allegrotech.io/authors/krzysztof.muzalewski) focused on web development.
 
-### Technologiczna mieszanka
-W ramach zajęć zahaczyliśmy wiele tematów. Jednak kilka z nich było najważniejsze dla każdej z grup. Były to technologie, których używamy na co dzień. Pokazaliśmy praktyczne zastosowanie narzędzi, które stanowią filar obecnej działalności w branży IT. Wśród grupy programistów była to [Java](https://en.wikipedia.org/wiki/Java) wsparta przez [Spring Framework](http://spring.io/). Wykorzystaliśmy do budowania [Gradle'a](https://gradle.org/) i wprowadziliśmy adeptów w tajniki metodologii [TDD](https://en.wikipedia.org/wiki/Test-driven_development) przy użyciu [JUnit'a](http://junit.org/) oraz [AssertJ](http://joel-costigliola.github.io/assertj/). 
+### Technological mixture
+Our workshops touched upon a number of issues. Some of them were more important than others. We placed the greatest emphasis on technologies that we use on an everyday basis, demonstrating practical use of tools that lie at the root of the IT industry today. For developers this was [Java](https://en.wikipedia.org/wiki/Java) accompanied by [Spring Framework](http://spring.io/). We showed how to use [Gradle](https://gradle.org/) and provided an introduction into [TDD](https://en.wikipedia.org/wiki/Test-driven_development) using [JUnit](http://junit.org/) and [AssertJ](http://joel-costigliola.github.io/assertj/).
 
-Grupa Web developerów wzięła na warsztat [Twitter Bootstrapa](http://getbootstrap.com/2.3.2/) i [HTML5](http://www.w3schools.com/html/html5_intro.asp). Wykorzystali narzędzie do budowania jakim jest [Grunt](http://gruntjs.com/) i zatopili się w świat dynamicznych stylów, które daje praca z [Less'em](http://lesscss.org/).
-Przy okazji uczniowie dowiedzieli się o istnieniu [NPM'a](https://www.npmjs.com/).
+Web developers focused on [Twitter Bootstrap](http://getbootstrap.com/) and [HTML5](http://www.w3schools.com/html/html5_intro.asp). They worked with [Grunt](http://gruntjs.com/) and discovered the world of dynamic styles with [Less](http://lesscss.org/). They also learned more about [NPM](https://www.npmjs.com/).
 
-Ekipa od infrastruktury do swoich celów wykorzystała [Ubuntu](http://www.ubuntu.com/) na którym przy użyciu [VirtualBoxa](https://www.virtualbox.org/) zarządzanego przez [Vagranta](https://www.vagrantup.com/) budowali przez manifesty [Puppeta](https://puppetlabs.com/) maszyny wirtualne na potrzeby aplikacji tworzonej przez pozostałe grupy. Na wirtualnych maszynkach pojawiały się serwery [NGINXa](http://wiki.nginx.org/) oraz [MongoDB](https://www.mongodb.org/). 
+The infrastructure group worked in [Ubuntu](http://www.ubuntu.com/), where they used [VirtualBox](https://www.virtualbox.org/) managed by [Vagrant](https://www.vagrantup.com/) to develop virtual machines using [Puppet](https://puppetlabs.com/) for the purposes of the app created together with the two other groups. Virtual machines employed [NGINX](http://wiki.nginx.org/) server and [MongoDB](https://www.mongodb.org/).
 
-Do wspólnej pracy wykorzystaliśmy [GIT'a](https://git-scm.com/) oraz korzystaliśmy z dwóch popularnych serwisów, gdzie trzymaliśmy swój kod. Jest to [GitHub](https://github.com/) oraz [BitBucket](https://bitbucket.org/).
+The joint work was supported by [GIT](https://git-scm.com/) and two popular sites, where we kept our code: [GitHub](https://github.com/) and [BitBucket](https://bitbucket.org/).
 
-### Jak wpływa edukacja na specjalistów IT ?
-*"Powiedz mi, a zapomnę. Pokaż mi, a zapamiętam. Pozwól mi zrobić, a zrozumiem."*
+### IT specialists vs. educating others
+*“Tell me, and I will forget. Show me, and I may remember. Involve me, and I will understand."*
 
-Słowa Konfucjusza wcieliliśmy w życie i chcemy się podzielić swoimi wrażeniami z zamiany ról jakie pełnimy w codziennej pracy. 
-Na co dzień wiemy co mamy robić. Potrafimy wiedzą i doświadczeniem naginać rzeczywistość do swoich potrzeb, jednak podczas akcji tą wiedzę i umiejętności musieliśmy przekazać dalej. 
-Każdy kto miał taką możliwość wie, że potrafić coś zrobić, a nauczyć kogoś to dwa całkowicie różne światy. 
-Zobacz jak z naszej strony podsumowalibyśmy całą akcję.
+We applied these words by Confucius into practice. Now let us share with you our impressions from the role reversal we participated in. On a daily basis we know what to do. We know how to use our knowledge and experience to band the reality to our needs. However, in the new role we had to figure out how to communicate the knowledge we have to others. Everyone who has once tried it is aware that knowing how to do a thing and teaching someone else to do it are two different worlds.
+Our impressions from the course are the following:
 
-*"Zazwyczaj jesteśmy osobami, które co dziennie wchłaniają niezliczoną ilość informacji - wymagając, aby były one podane w najbardziej przystępny sposób i zawierały tylko najistotniejsze fakty. 
-Stając po drugiej stronie przychodzi czas na poukładanie sobie w głowie wszystkich technicznych (i nie tylko) rzeczy, o których jesteśmy świadomi w codziennej pracy. 
-Wejście w zbyt techniczne szczegóły mogą szybką zniechęcić słuchaczy, zbyt płytkie i długie - ich znudzić. 
-Przekazywanie wiedzy młodszemu pokoleniu nie jest łatwym zajęciem i bardzo często wymaga weryfikacji własnej wiedzy. 
-Z drugiej strony daje dużo frajdy, gdy złapie się wspólną linię porozumienia. Dla mnie najważniejszym celem w nauce jest spowodowanie, aby adepci sami zaczęli sięgać po dalszą wiedzę."*
- -- [Patryk Krawaczyński](http://allegrotech.io/authors/patryk.krawaczynski)
+*“We see it obvious that we daily absorb a great doze of information and want to have it served in the most user-friendly and concise manner, containing only key facts. When standing on the other side, we were forced to properly sort the technical (and other) knowledge we have and use in everyday work.
+Going too much into detail may overburden the audience, while treating a subject too superfluously may cause too many yawns.
+Sharing knowledge with a younger generation is not that easy and requires verification of one’s own expertise.
+But it also feels great when you finally manage to speak the same language. For me personally, the key aspect was to persuade the students to individually search for solutions.”*
+-- [Patryk Krawaczyński](http://allegrotech.io/authors/patryk.krawaczynski)
 
-*"Zaskakuje tempo pracy - dla nas coś jest oczywiste, dla kogoś jest nowe i niespodziewanie trzeba się nad tym pochylić - poświęcić czas. 
-Trzeba też nauczyć się przekazywać wiedzę możliwie prostymi / zrozumiałymi dla innych słowami - przypomnieć sobie podstawy, jak coś wytłumaczyć."*
- --  [Michał Karykowski](http://allegrotech.io/authors/michal.karykowski) 
- 
-*"Fajne doświadczenie z młodymi ludźmi.  Mogłem sprawdzić się jako prowadzący zajęcia. Z frekwencji wynika że nie byłem aż takim złym nauczycielem ;) Przeważnie na zajęciach było u mnie 6-7 osób. 
-Zajęcia pozwoliły również „szlifować” cierpliwość i spokój ;) Czasami trzeba było kilka razy powtarzać/tłumaczyć to samo.
-Z tego co zauważyłem to rozumieli to o czym do nich mówię. Mogliśmy pogadać i powodować razem. 
-Niestety nie udało mi się nakłonić/zachęcić ich do tego aby więcej (albo w ogóle) kodowali w domu. Swojej wiedzy raczej też nie poszerzali w domu. 
-Zdarzało się że musiałem powtarzać to co robiliśmy ostatnio. 
-Jednak to co mnie najbardziej cieszy to to, że udało się „wyłapać” jedną bardzo zdolną osobę - Oskara. Widać że chłopak ma spory potencjał. 
-Uczestniczył nie tylko na moje zajęcia ale również na zajęcia z Javy. Generalnie z webdeveloperki wystarczyło mu rzucić hasło, a jak coś nie wiedział to potrafił sobie w internecie poszukać. 
-Generalnie zajęcia oceniam bardzo dobrze!
-Dzięki!"*
- -- [Krzysztof Muzalewski](http://allegrotech.io/authors/krzysztof.muzalewski)
- 
-Każdy z nas dowiedział się czegoś o sobie. Zdobył nowe znajomości i doświadczenia. Każda ze stron skorzystała na wspólnym rozwoju.
- 
-### Feedback jest najważniejszy
-Aby mieć pełen obraz przeprowadzonej akcji poprosiliśmy jej uczestników o podsumowanie i odpowiedź na kilka pytań. Zapytaliśmy co według nich było najlepszym elementem programu.
+*“Our pace of work came as a surprise. It was nothing new for us, but the students saw it as extraordinary and unexpected. We had to learn how to communicate in the possibly simplest and comprehensible words, and to make a quick recap of the basics.”*
+-- [Michał Karykowski](http://allegrotech.io/authors/michal.karykowski)
 
-*"Komunikatywni prowadzący, którzy utrzymywali ludzkie stosunki między uczestnikami kursu.
-Wskazówki na przyszłość, czyli coś, czego nie wyniesiemy ze szkoły. To są jednak zawodowi pracownicy IT, więc można było usłyszeć życiowe rady."*
- 
-*"Bezpośredni kontakt z osoba która prowadziła zajęcia. Prowadzący był cierpliwy, wyjaśniał jak ktoś czegoś nie ogarniał i zawsze można było z nim porozmawiać."*
- 
-Zapytaliśmy również o to co by powiedzieli młodszym uczniom, gdyby zadali im pytanie czy iść na zajęcia do Allegro? 
+*“Great experience.  I had an opportunity to verify my skills as a teacher. Attendance at classes showed I was not that bad ;) There were usually 6-7 people. The classes helped me “polish” my patience and composure ;) as it was sometimes necessary to repeat or explain the same thing a couple of times.
+It seemed the students understood what I was saying. We could talk and create a new reality together.
+Unfortunately, I failed to encourage/persuade them to code more (or at all) at home. I don’t think they tried to extend the new knowledge on their own either.
+It happened we had to repeat something we had already done before.
+However, what makes me particularly happy is that I managed to “fish out” one very talented person – Oskar. It’s clear the boy has quite a potential, and used it by participating in both Java and my classes. A single word was all that he needed to act and knew how to find the right answer on the Web when the knowledge he had was insufficient.
+I assess the classes as very effective!
+Thank you!”*
+-- [Krzysztof Muzalewski](http://allegrotech.io/authors/krzysztof.muzalewski)
 
-*"Jeśli się tym interesujesz i to jak najbardziej polecam, ja się na tych zajęciach całkiem sporo nauczyłem, jednak jeśli chcesz pójść na to tylko dlatego,
-że nie masz nic lepszego do roboty to odpuść i nie zajmuj miejsca na tych zajęciach."*
+We all learned something new about ourselves. We gained new acquaintances and experience. Both sides benefited.
 
-*"Koniecznie, pomijając fakt, że jestem zadowolony, to korzystanie z okazji jest bardzo ważne. 
-Dla każdego, kto serio myśli o pracy w zawodzie to każdy kurs jest na wagę złota. Tutaj dodatkowo dostajemy jakość i miłą atmosferę."*
+### Feedback is the key
+To have a full picture of the course, we asked the participants to sum it up and respond to a few questions. We asked about the best element of the whole program.
 
-W skali od 1 do 10 uczestnicy kursu ocenili całokształt akcji na 8 punktów. Zdobytą wiedzę i umiejętności w trakcie ostatnich 3 miesięcy określają na 7 punktów. 
-Przygotowanie prowadzących zyskało 9 oczek oraz komunikacja w trakcie trwania zajęć i poza nimi dostała 8 z 10 punktów. 
-Zebraliśmy również uwagi na przyszłość, aby kolejne odsłony Allegrotech.Youth mogły być przeprowadzone lepiej, efektowniej i jeszcze z większym rozmachem.
-Cieszymy się, że cała akcja została bardzo dobrze przyjęta. To nie są nasze ostatnie słowa na drodze do lepszej przyszłości i odnajdywania pasji młodych ludzi. 
+*“Communicative workshop leaders that maintained humane relations with the participants. Tips for the future is something that the school will not provide. These were professional IT people that we met, so we could hear some really useful advice.”*
+
+*“Direct contact with the person conducting the workshop. He was patient and explained every doubt we had. We could always approach him and ask about everything.”*
+
+We also asked the students whether they would recommend Allegro workshops to their younger colleagues.
+
+*“If this is what you are interested in, I fully recommend it. I learned quite a lot, indeed. Yet, if you consider the workshop simply because you have nothing better to do, drop the idea and don’t take the place.”*
+
+*“I would definitely recommend it. I was very satisfied. I think that using every opportunity to learn is important.
+If you really consider doing something professionally, every training is worth gold. Here you will get quality and great atmosphere”.*
+
+On a 0-10 scale, the participants gave the whole program 8. As regards knowledge and skills they gained over the last 3 months, they gave us 7. Instructors’ preparation for the classes and communication during and outside the course were rated 9 and 8 respectively. We also received several remarks that will help us conduct future Allegrotech.Youth training in a more effective way and on a larger scale. We are happy the whole program received a very warm welcome.
+
+We haven’t said the last word on our quest for the better and passion-driven future of a younger generation.
