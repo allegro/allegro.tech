@@ -113,7 +113,7 @@ It means that you can do most of the build tasks without configuring plugin depe
 
 Of course, there is a [community plugins repository](http://plugins.gradle.org/)
 hosted by Gradle.
-A plugin created by our colleague, [Adam Dubiel](http://allegrotech.io/authors/adam.dubiel/),
+A plugin created by our colleague, [Adam Dubiel](http://allegro.tech/authors/adam.dubiel/),
 is also [there](http://plugins.gradle.org/plugin/pl.allegro.tech.build.axion-release)
 (read more about `axion-release-plugin` in [this blog post](/axion-release-plugin.html)).
 
