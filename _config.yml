@@ -1,5 +1,7 @@
 gems:
     - jekyll-redirect-from
+    - jekyll-sitemap
+
 # Site settings
 title: allegro.tech
 menu: false
