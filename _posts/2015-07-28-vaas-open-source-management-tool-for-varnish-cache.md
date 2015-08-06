@@ -25,8 +25,8 @@ especially useful in a [SOA](https://en.wikipedia.org/wiki/Service-oriented_arch
 [Allegro](http://allegro.pl) consists of very many small services. Each service utilizes physical servers, cloud
 servers or docker containers. The servers are grouped into directors (a collection of back ends). It would be a very 
 difficult task to maintain a varnish VCL consisting of so many back ends that come and go so often (which is especially 
-true for the cloud back ends). This is why every team responsible for a service maintains their own director by 
-themselves. This would not be possible without VaaS. What is worth noting, even though so many people can modify
+true for the cloud and docker back ends). This is why every team responsible for a service maintains their own director 
+by themselves. This would not be possible without VaaS. What is worth noting, even though so many people can modify
 the VCL used by Allegro's cache servers via VaaS, the VCL template is maintained by a narrow group of Varnish 
 specialists who make sure that the template is well tested and does what it is intended to do before launching it in 
 production environment.
