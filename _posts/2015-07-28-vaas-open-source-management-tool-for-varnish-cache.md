@@ -45,8 +45,8 @@ created a test environment that you can use to easily familiarize yourself with 
 Vagrant](https://rtd.allegrogroup.com/docs/vaas/en/latest/quick-start/vagrant/).
 
 ### We count on your input
-We believe VaaS is mature enough to safely use it in production (we have been, for over a year). However, the more 
-people use VaaS, the more bugs will be discovered. Therefore we encourage you to participate in VaaS development on [Git 
+We believe VaaS is mature enough to safely use it in production. However, the more people use VaaS, the more bugs will 
+be discovered. Therefore we encourage you to participate in VaaS development on [Git 
 Hub](https://stash.allegrogroup.com/projects/VAAS/repos/vaas/browse). Similarly, if you think VaaS would benefit from a 
 feature that we have not yet implemented, feel free to create a pull request. We will be more than happy to review and 
 possibly include it in future VaaS releases.
