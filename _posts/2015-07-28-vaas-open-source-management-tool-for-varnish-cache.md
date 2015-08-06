@@ -16,20 +16,20 @@ benefit from using it. The key features that set VaaS apart from other tools are
 2. Varnish API used to distribute VCLs in real time accross the entire caching server farm
 3. API and GUI available for internal clients
 4. Flexible templating system
-5. It is now open source and available for free to anybody
+5. VaaS is open source and available for free to anybody
 
+### What are the benefits of using VaaS
 Since we started using VaaS on a broader scale in Spring 2014, the most repetitive, time consuming, error prone and 
 boring tasks related to VCL maintenance became automated and we handed them over to our internal customers. This is 
-especially useful in a [SOA](https://en.wikipedia.org/wiki/Service-oriented_architecture) environment like ours. 
-Backends of the many services our E-commerce platform consists of pop up and disapear in the internal and external 
-clouds at a rate that would be unmanagable was it not for VaaS. Without VaaS we would have service maintainers queueing 
-up at our door in business hours and probably beyond. We would be editing, distributing and applying VCLs all day long. 
-With VaaS, the developers or service maintainers only visit us once when a new service is released. After the initial 
-visit during which we establish any particular requirements of the new service, it gets included in our VCL template. 
-From that point onwards, the service maintainers can add and remove backends whenever they feel the need to do so. At 
-the same time, the VCL template stays in our hands, which means we can test any changes to the VCL logic to make sure 
-nothing breaks. By using VaaS, the developers can focus on their work without unnecessary delays, at the same time 
-allowing us to focus on more exciting tasks.
+especially useful in a [SOA](https://en.wikipedia.org/wiki/Service-oriented_architecture) environment.
+[Allegro](http://allegro.pl) consists of very many small services. Each service utilizes physical servers, cloud
+servers or docker containers. The servers are grouped into directors (a collection of back ends). It would be a very 
+difficult task to maintain a varnish VCL consisting of so many back ends that come and go so often (which is especially 
+true for the cloud back ends). This is why every team responsible for a service maintains their own director by 
+themselves. This would not be possible without VaaS. What is worth noting, even though so many people can modify
+the VCL used by Allegro's cache servers via VaaS, the VCL template is maintained by a narrow group of Varnish 
+specialists who make sure that the template is well tested and does what it is intended to do before launching it in 
+production environment.
 
 ### Where you can get it
 You can download VaaS from [Git Hub](https://stash.allegrogroup.com/projects/VAAS/repos/vaas/browse).
