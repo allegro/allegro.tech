@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'socicon';
+    font-style: normal;
+    font-weight: 400;
+    src: local('socicon'),
+    url(../font/socicon/font/socicon.woff2) format('woff2'),
+    url(../font/socicon/font/socicon.woff) format('woff'),
+    url(../font/socicon/font/socicon.ttf) format('truetype'),
+    url(../font/socicon/font/socicon.svg#socicon) format('svg');
+    text-transform: initial;
+}
+
 html, body, ul, li, .site-header h1, .site-header p {
     padding: 0;
     margin: 0;
@@ -13,6 +25,42 @@ body {
     font-size: 1.6em;
     line-height: 1.5;
     color: #333;
+}
+
+.socicon {
+    position: relative;
+    top: -3px;
+    display: inline-block;
+    font-family: 'socicon';
+    font-style: normal;
+    font-weight: normal;
+    font-size:2.4rem;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    color:#bbb;
+}
+.socicon:empty{
+    width: 1em;
+}
+
+.socicon-twitter:before { content: "a"; }
+.socicon-facebook:before { content: "b"; }
+.socicon-google:before { content: "c"; }
+.socicon-github:before { content: "Q"; }
+.socicon-rss:before { content: ","; }
+.socicon-slideshare:before { content: "8"; }
+.socicon-meetup:before { content: "]"; }
+.socicon-mail:before { content: "@"; }
+
+.icon-link:hover .socicon {
+    opacity:.8;
+}
+
+.icon-link-text {
+    position: absolute;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
 }
 
 .content {
@@ -331,13 +379,6 @@ html, body {
 }
 
 @media all and (min-width: 760px) {
-    .github-icon-svg,
-    .twitter-icon-svg,
-    .rss-icon-svg {
-        width: 32px;
-        height: 32px;
-    }
-
     .site-footer {
         text-align: right;
     }

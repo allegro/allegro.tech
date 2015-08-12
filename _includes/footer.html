@@ -1,59 +1,75 @@
 <footer class="site-footer">
-  <div class="content">
-      <ul>
-        <li class="site-title"><span><img src="/img/logo-allegro.svg" alt="Allegro"/></span> <span>{{ site.title }}</span></li>
-        <li>
-                 <a href="/authors/">
-            <span class="icon twitter">
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 8 8" class="github-icon-svg">
-  <path id="github-icon" d="M5.5 0c-.51 0-.95.35-1.22.88.45.54.72 1.28.72 2.13 0 .29-.03.55-.09.81.19.11.38.19.59.19.83 0 1.5-.9 1.5-2s-.67-2-1.5-2zm-3 1c-.83 0-1.5.9-1.5 2s.67 2 1.5 2 1.5-.9 1.5-2-.67-2-1.5-2zm4.75 3.16c-.43.51-1.02.82-1.69.84.27.38.44.84.44 1.34v.66h2v-1.66c0-.52-.31-.97-.75-1.19zm-6.5 1c-.44.22-.75.67-.75 1.19v1.66h5v-1.66c0-.52-.31-.97-.75-1.19-.45.53-1.06.84-1.75.84s-1.3-.32-1.75-.84z"
-  />
-</svg></span>
-            <span class="username">Authors</span>
-                     </a>
-        </li>
-        {% if site.email %}<li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>{% endif %}
-                {% if site.github_username %}<li>
-          <a href="https://github.com/{{ site.github_username }}">
-            <span class="icon github">
-          <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-     width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
-<path d="M16,0C7.164,0,0,7.345,0,16.404c0,7.249,4.584,13.399,10.942,15.567c0.8,0.152,1.058-0.356,1.058-0.789
-    v-3.056c-4.45,0.993-5.378-1.935-5.378-1.935c-0.727-1.896-1.775-2.4-1.775-2.4c-1.452-1.018,0.109-0.997,0.109-0.997
-    c1.606,0.115,2.453,1.691,2.453,1.691c1.427,2.508,3.742,1.782,4.656,1.362c0.143-1.06,0.557-1.782,1.016-2.193
-    c-3.555-0.414-7.289-1.82-7.289-8.108c0-1.791,0.625-3.255,1.648-4.402C7.273,10.73,6.727,9.062,7.594,6.804
-    c0,0,1.344-0.441,4.401,1.682C13.272,8.122,14.641,7.939,16,7.933c1.359,0.006,2.73,0.189,4.008,0.553
-    c3.055-2.123,4.396-1.682,4.396-1.682c0.871,2.259,0.323,3.927,0.158,4.341c1.025,1.147,1.646,2.611,1.646,4.402
-    c0,6.302-3.743,7.69-7.306,8.094C19.476,24.15,20,25.151,20,26.682c0,2.194,0,3.961,0,4.501c0,0.437,0.257,0.947,1.067,0.787
-    C27.422,29.797,32,23.651,32,16.404C32,7.345,24.836,0,16,0z"/>
-</svg>
-            </span>
-            <span class="username">{{ site.github_username }}</span>
-          </a>
-        </li>{% endif %}
-        {% if site.twitter_username %}<li>
-          <a href="https://twitter.com/{{ site.twitter_username }}">
-            <span class="icon twitter">
-<svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-     width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
-<path id="twitter-4-icon" d="M16,0C7.163,0,0,7.163,0,16s7.163,16,16,16s16-7.163,16-16S24.837,0,16,0z M24.047,13.243
-    c0.234,5.22-3.658,11.039-10.548,11.039c-2.096,0-4.047-0.614-5.688-1.668c1.969,0.232,3.934-0.313,5.494-1.536
-    c-1.624-0.03-2.995-1.103-3.467-2.577c0.581,0.111,1.153,0.078,1.676-0.063c-1.785-0.358-3.017-1.967-2.977-3.686
-    c0.5,0.277,1.072,0.444,1.681,0.464c-1.652-1.104-2.12-3.287-1.148-4.954c1.83,2.245,4.565,3.723,7.649,3.877
-    c-0.542-2.321,1.22-4.557,3.614-4.557c1.067,0,2.032,0.45,2.709,1.172c0.846-0.166,1.64-0.476,2.356-0.9
-    c-0.277,0.866-0.865,1.594-1.632,2.053c0.751-0.089,1.466-0.289,2.132-0.584C25.4,12.066,24.771,12.72,24.047,13.243z"/>
-</svg></span>
-            <span class="username">{{ site.twitter_username }}</span>
-          </a>
-        </li>{% endif %}
-                <li><a href="/feed.xml"><span class="icon rss"><svg version="1.1" class="rss-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-     width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
-<path id="rss-circle-icon" d="M16,0C7.164,0,0,7.163,0,16s7.164,16,16,16c8.836,0,16-7.163,16-16S24.836,0,16,0z M10.812,23.812
-    c-1.272,0-2.304-1.031-2.304-2.304c0-1.271,1.031-2.303,2.304-2.303c1.272,0,2.304,1.031,2.304,2.303
-    C13.116,22.781,12.084,23.812,10.812,23.812z M16.317,23.812c-0.044-4.286-3.522-7.765-7.809-7.809v-3.412
-    c6.178,0.044,11.177,5.043,11.222,11.222L16.317,23.812L16.317,23.812z M22.098,23.812c-0.01-3.631-1.428-7.044-3.998-9.612
-    c-2.563-2.564-5.968-3.982-9.591-3.998V6.789c9.382,0.032,16.982,7.639,17.003,17.023H22.098L22.098,23.812z"/>
-</svg></span><span>RSS</span></a></li>
-      </ul>
-  </div>
+    <div class="content">
+        <ul>
+            <li class="site-title"><span><img src="/img/logo-allegro.svg" alt="Allegro"/></span>
+                <span>{{ site.title }}</span></li>
+            <li>
+                <a href="/authors/">
+                    <span class="icon twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 8 8" class="github-icon-svg">
+                            <title>Authors</title>
+                            <path id="github-icon"
+                                  d="M5.5 0c-.51 0-.95.35-1.22.88.45.54.72 1.28.72 2.13 0 .29-.03.55-.09.81.19.11.38.19.59.19.83 0 1.5-.9 1.5-2s-.67-2-1.5-2zm-3 1c-.83 0-1.5.9-1.5 2s.67 2 1.5 2 1.5-.9 1.5-2-.67-2-1.5-2zm4.75 3.16c-.43.51-1.02.82-1.69.84.27.38.44.84.44 1.34v.66h2v-1.66c0-.52-.31-.97-.75-1.19zm-6.5 1c-.44.22-.75.67-.75 1.19v1.66h5v-1.66c0-.52-.31-.97-.75-1.19-.45.53-1.06.84-1.75.84s-1.3-.32-1.75-.84z"
+                                />
+                        </svg>
+                    </span>
+                </a>
+            </li>
+
+            {% if site.email %}
+            <li><a class="icon-link" href="mailto:{{ site.email }}" title="Mail us">
+                <span class="socicon socicon-mail"></span>
+                <span class="icon-link-text">e-mail</span>
+            </a></li>
+            {% endif %}
+
+            {% if site.github_username %}
+            <li><a class="icon-link" href="https://github.com/{{ site.github_username }}" title="Github">
+                <span class="socicon socicon-github"></span>
+                <span class="icon-link-text">Github</span>
+            </a></li>
+            {% endif %}
+
+            {% if site.twitter_username %}
+            <li><a class="icon-link" href="https://twitter.com/{{ site.twitter_username }}" title="Twitter">
+                <span class="socicon socicon-twitter"></span>
+                <span class="icon-link-text">Twitter</span>
+            </a></li>
+            {% endif %}
+
+            {% if site.facebook_username %}
+            <li><a class="icon-link" href="http://facebook.com/{{ site.facebook_username }}" title="Facebook">
+                <span class="socicon socicon-facebook"></span>
+                <span class="icon-link-text">Facebook</span>
+            </a></li>
+            {% endif %}
+
+            {% if site.google_plus_id %}
+            <li><a class="icon-link" href="https://plus.google.com/{{ site.google_plus_id }}" title="Google+">
+                <span class="socicon socicon-google"></span>
+                <span class="icon-link-text">Google+</span>
+            </a></li>
+            {% endif %}
+
+            {% if site.slideshare_username %}
+            <li><a class="icon-link" href="http://www.slideshare.net/{{ site.slideshare_username }}" title="Slideshare">
+                <span class="socicon socicon-slideshare"></span>
+                <span class="icon-link-text">Slideshare</span>
+            </a></li>
+            {% endif %}
+
+            {% if site.meetup_username %}
+            <li><a class="icon-link" href="http://meetup.com/{{ site.meetup_username }}" title="Meetup">
+                <span class="socicon socicon-meetup"></span>
+                <span class="icon-link-text">Meetup</span>
+            </a></li>
+            {% endif %}
+
+            <li><a class="icon-link" href="/feed.xml" title="RSS">
+                <span class="socicon socicon-rss"></span>
+                <span class="icon-link-text">RSS</span>
+            </a></li>
+
+        </ul>
+    </div>
 </footer>
