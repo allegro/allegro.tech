@@ -1,0 +1,33 @@
+item1:
+    title: Registration
+    time: 9:00 - 10:00
+item2:
+    title: Jak zostać mistrzem webu w 3 godziny.
+    name: Michał Zieliński
+    time: 10:00 - 11:00
+    abstract: Opowiem o tym jak miło i przyjemnie jest pływać w wannie, a samoloty latają nad Tobą i myślisz tylko o JavaScript.
+item3:
+    title: Registration
+    name: Ewa Ogrodowska
+    time: 11:00 - 12:00
+    abstract: Pierwszego dnia odwiedzą nas zaproszeni goście. Będą to osoby ściśle związane z środowiskiem IT i wytypowane przez Was.
+item4:
+    title: Jak zostać mistrzem webu w 3 godziny.
+    name: Michał Zieliński
+    time: 12:00 - 13:00
+    abstract: Pierwszego dnia odwiedzą nas zaproszeni goście. Będą to osoby ściśle związane z środowiskiem IT i wytypowane przez Was.
+item5:
+    title: Coffe Break
+    time: 13:00 - 13:30
+
+item6:
+    title: Registration
+    name: Ewa Ogrodowska
+    time: 13:30 - 14:00
+    abstract: Pierwszego dnia odwiedzą nas zaproszeni goście. Będą to osoby ściśle związane z środowiskiem IT i wytypowane przez Was.
+item7:
+    title: Jak zostać mistrzem webu w 3 godziny.
+    name: Michał Zieliński
+    time: 14:00 - 14:40
+    abstract: Pierwszego dnia odwiedzą nas zaproszeni goście. Będą to osoby ściśle związane z środowiskiem IT i wytypowane przez Was.
+    
