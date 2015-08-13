@@ -1,0 +1,66 @@
+.section-atm {
+    background: #231f20;
+    padding: 2rem 0;
+}
+
+.section-atm img {
+    display: block;
+    margin: 0 auto;
+}
+
+.schedule {
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+
+.schedule-item {
+    margin-bottom:5px;
+    background-color:#eee;
+    transition:background-color 1s linear;
+}
+
+.schedule-item:last-child {
+    margin-bottom:0;
+}
+
+.schedule-item:hover,
+.schedule-item:focus {
+    background-color: #fc4e00;
+}
+
+.talknote {
+    display:flex;
+    padding: 1rem;
+}
+
+.talknote-time {
+    flex: 0 1 120px;
+    border-right:1px solid rgba(160, 160, 160, .3);
+    transition:border-color 1s linear; /* in synch with .schedule-item */
+}
+
+.schedule-item:hover .talknote-time,
+.schedule-item:focus .talknote-time {
+    border-color: rgba(255, 255, 255, .3);
+}
+
+.talknote-content {
+    flex: 2 1 300px;
+    margin:0 2rem;
+}
+
+.talknote-title {
+    margin:0;
+    font-weight:normal;
+    font-size:1.6rem;
+}
+
+.talknote-author,
+.talknote-abstract {
+    font-size:1.3rem;
+}
+
+.talknote-abstract {
+    margin:1.5rem 0 1rem;
+}

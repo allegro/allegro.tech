@@ -850,39 +850,3 @@ html, body {
 .highlight .vi { color: #008080 } /* Name.Variable.Instance */
 .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
 
-/*= atm */
-
-.section-atm{
-    background: #231f20;
-    padding: 2rem 0;
-}
-
-.section-atm img{
-    display: block;
-    margin: 0 auto;
-}
-
-.schedule li{
-    list-style: none;
-    border-bottom: 1px solid #bbb;
-    display: flex;
-}
-
-.schedule-item-time,
-.schedule-item-title,
-.schedule-item-name,
-.schedule-item-abstract{
-    flex: 1 1 150px;
-    padding: 1rem;
-    border-right: 1px solid #bbb
-}
-
-
-.schedule-item-title {
-    flex: 2 1 300px
-}
-
-.schedule-item-abstract{
-    flex: 3 1 450px;
-    border: 0
-}

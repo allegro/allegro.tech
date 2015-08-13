@@ -6,48 +6,60 @@ title: meeting
     <header>
         <div class="content">
             <!--<h1 class="section-title">Allegro Tech Meeting</h1>-->
-     <img src="/img/atm8/atm8-logo.png" alt="atm 8"/>
-     Allegro Tech Meeting 2015
+            <img src="/img/atm8/atm8-logo.png" alt="atm 8"/>
+            Allegro Tech Meeting 2015
 
-14-15.09.2015
+            14-15.09.2015
 
-Stadion Narodowy Warszawa
+            Stadion Narodowy Warszawa
         </div>
     </header>
- </section>
- 
- 
- <section class="schedule" id="schedule">
+</section>
+
+
+<section id="schedule">
     <div class="content">
         <h2>Schedule</h2>
-        <ul class="schedule">
-               {%assign schedule = site.data.atm-schedule | sort%}
-               
-                    {% for item in schedule %}
-                        <li class="schedule-item">
-                            <div class="schedule-item-time">{{item[1].time}}</div>
-                               <h3 class="schedule-item-title">{{item[1].title}}</h3>
-                               <h4 class="schedule-item-name"> {{item[1].name}}</h4>
-                               <div class="schedule-item-abstract"> {{item[1].abstract}}</div>                         
-                        </li>
-                    {% endfor %}
-               
-        </ul>
+        <ol class="schedule">
+            {%assign schedule = site.data.atm-schedule | sort%}
+
+            {% for item in schedule %}
+            <li class="schedule-item">
+                <section class="talknote">
+                    <div class="talknote-time">
+                        <time datetime="{{item[1].date}}T{{item[1].timeStart}}">{{item[1].timeStart}}</time>
+                        <time datetime="{{item[1].date}}T{{item[1].timeEnd}}">{{item[1].timeEnd}}</time>
+                    </div>
+                    <div class="talknote-content">
+                        <h3 class="talknote-title">{{item[1].title}}</h3>
+                        {% if item[1].name %}
+                        <span class="talknote-author"> {{item[1].name}}</span>
+                        {% endif %}
+
+                        {% if item[1].abstract %}
+                        <div class="talknote-abstract"> {{item[1].abstract}}</div>
+                        {% endif %}
+                    </div>
+                </section>
+            </li>
+            {% endfor %}
+
+        </ol>
     </div>
 </section>
- 
+
 <section class="speakers" id="speakers">
 
     <div class="content">
-            <h2>Speakers</h2>
+        <h2>Speakers</h2>
         <ul class="post-author-list">
             {%assign authors = site.data.atm-speakers | sort%}
             {% for author in authors%}
-                {%assign authorKey = author[0]%}
-                {%assign authorData = author[1]%}
-                <li  class="post-author">
-                    {% include single_author.html showLinkToPost=false %}
-                </li>
+            {%assign authorKey = author[0]%}
+            {%assign authorData = author[1]%}
+            <li class="post-author">
+                {% include single_author.html showLinkToPost=false %}
+            </li>
             {% endfor %}
         </ul>
     </div>
