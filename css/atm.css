@@ -1,12 +1,16 @@
+.atm8 .site-header{
+    background: #000;
+}
+
+.atm8 .site-nav{
+    display: none;
+}
+
 .section-atm {
     background: #231f20;
     padding: 2rem 0;
 }
 
-.section-atm img {
-    display: block;
-    margin: 0 auto;
-}
 
 .schedule {
     margin:0;
@@ -63,4 +67,54 @@
 
 .talknote-abstract {
     margin:1.5rem 0 1rem;
+}
+
+.section-atm header{
+    text-align: center;
+    color: #fff;
+}
+
+.section-atm header img{
+    display: block;
+    width: 90%;
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.section-atm h1{
+   font-size: 120%;
+}
+.section-atm h1 span{
+    color: #ffd400;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+
+.section-atm8 {   
+    background-image:  linear-gradient(rgba(25,25,25,0.4),rgba(25,25,25,0.6)), url(/img/atm8/stadion_005.jpg);
+    background-size: cover;
+    color: #fff;
+}
+
+.section-atm8 .content{
+       padding: 1rem 2rem;
+}
+
+
+.section-atm8 dt{
+    font-weight: bold;
+}
+.section-atm8 dd{
+    padding: 0;
+    margin: 0;
+}
+
+p.copy{
+    font-size: 12px;
+    padding: 1px 5px;
+    background: rgba(0,0,0,0.4);
+    color: rgba(255,255,255,0.5);
+    display: inline-block;
+    margin: 0;
 }

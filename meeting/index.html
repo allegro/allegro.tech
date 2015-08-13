@@ -5,21 +5,57 @@ title: meeting
 <section class="section-atm">
     <header>
         <div class="content">
-            <!--<h1 class="section-title">Allegro Tech Meeting</h1>-->
+    
             <img src="/img/atm8/atm8-logo.png" alt="atm 8"/>
-            Allegro Tech Meeting 2015
+                   <h1>Allegro Tech Meeting <span>14-15 września 2015</span></h1>
 
-            14-15.09.2015
-
-            Stadion Narodowy Warszawa
         </div>
     </header>
 </section>
 
+<section id="allegro-tech">
+    <div class="content">
+        <h2>O Allegro.tech</h2>
+
+    <p><a href="/">allegro.tech</a> to marka najlepszych inżynierów pracujących w naszej firmie. 
+        Powstała by świat dowiedział się kim jesteśmy i czym się zajmujemy.</p></h2>
+    </div>
+</section>
+
+<section id="about-atm">
+    <div class="content">
+    <h2>O ATM</h2>
+<p><strong>ATM</strong>, czyli <strong>Allegro Tech Meeting</strong> to coroczne spotkanie wszystkich pracowników IT Allegro, na którym dzielimy się wiedzą o prowadzonych obecnie projektach, problemach jakie napotykamy oraz nietypowych rozwiązaniach, które zaimplementowaliśmy. Na co dzień taką wymianę wiedzy utrudnia ograniczony kontakt – pracownicy naszej firmy rozproszeni są po różnych miastach i państwach. ATM łamie te bariery.
+</p>
+<p> „Od IT dla IT” to hasło przewodnie, które towarzyszy nam od samego początku, czyli 2009 roku. Pomysłodawcą jest Marcin “Mazek” Mazurek, który przez pierwsze lata był również głównym koordynatorem spotkania.
+</p>
+<p>
+To dwudniowe wydarzenie w całości przygotowane jest przez inżynierów Allegro.
+</p>
+</div>
+</section>
+
+<section id="atm8" class="section-atm8">
+    <div class="content">
+        <h2>ATM8</h2>
+<p>Staramy się by co roku wydarzenie odbywało się w innym mieście. Oczywiście kluczem do wyboru jest pięć naszych lokalizacji: Poznań, Warszawa, Toruń, Kraków i Wrocław.
+W tym roku ATM zawita do Warszawy. Będzie to ósma edycja konferencji, która tym razem odbędzie się w niecodziennych warunkach, a dokładniej w salach konferencyjnych stadionu PGE Narodowy. To tam spędzimy dwa dni wsłuchując się w prelekcje/lighting talks kolegów oraz biorąc udział w licznych warsztatach.</p>
+<p>
+Postanowiliśmy odróżnić tę edycję od poprzednich,  zapraszając na pierwszy dzień konferencji osoby z zewnątrz. Chcemy się z Wami podzielić tym co mamy najcenniejsze czyli wiedzą i doświadczeniem naszych inżynierów. 
+</p>
+<dl>
+    <dt>Data: </dt>
+    <dd>14-15 września 2015</dd>
+    <dt>Miejsce: </dt>
+    <dd>Stadion Narodowy w Warszawie</dd>
+</dl>
+    </div>
+    <p class="copy"> Fot. Stadion Narodowy w Warszawie</p>
+</section>
 
 <section id="schedule">
     <div class="content">
-        <h2>Schedule</h2>
+        <h2>Agenda</h2>
         <ol class="schedule">
             {%assign schedule = site.data.atm-schedule | sort%}
 
@@ -51,7 +87,7 @@ title: meeting
 <section class="speakers" id="speakers">
 
     <div class="content">
-        <h2>Speakers</h2>
+        <h2>Prelegenci</h2>
         <ul class="post-author-list">
             {%assign authors = site.data.atm-speakers | sort%}
             {% for author in authors%}

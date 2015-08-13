@@ -5,7 +5,7 @@ item1:
     timeEnd: '10:00'
 item2:
     title: Jak zostać mistrzem webu w 3 godziny.
-    name: Tomasz Gospodarczyk - Architekt
+    name: Zdzisław Szałajski
     date: '2015-09-14'
     timeStart: '10:00'
     timeEnd: '11:00'
@@ -19,7 +19,7 @@ item3:
     abstract: Pierwszego dnia odwiedzą nas zaproszeni goście. Będą to osoby ściśle związane z środowiskiem IT i wytypowane przez Was.
 item4:
     title: Jak zostać mistrzem webu w 3 godziny.
-    name: Tomasz Gospodarczyk - Architekt
+    name: Zdzisław Szałajski
     date: '2015-09-14'
     timeStart: '12:00'
     timeEnd: '13:00'
@@ -38,7 +38,7 @@ item6:
     abstract: Pierwszego dnia odwiedzą nas zaproszeni goście. Będą to osoby ściśle związane z środowiskiem IT i wytypowane przez Was.
 item7:
     title: Jak zostać mistrzem webu w 3 godziny.
-    name: Tomasz Gospodarczyk - Architekt
+    name: Zdzisław Szałajski
     date: '2015-09-14'
     timeStart: '16:00'
     timeEnd: '17:00'
