@@ -167,7 +167,7 @@ means: print the dependency tree for `bluewhale-core` subproject. Below, we expl
 People behind Gradle focus on building the community around it. They accept pull requests on
 [their github](https://github.com/gradle/gradle) — they have 140 contributors already — and are very active
 on their mailing group. That’s why it’s easy to find advice on solving your specific case. Project’s ownership is
-clear, [Gradleware](www.gradleware.com) company, so you know who to speak with in case standard support channels are not enough. Just
+clear, [Gradleware](http://www.gradleware.com) company, so you know who to speak with in case standard support channels are not enough. Just
 like the community, Gradle itself is very much alive, with releases every couple of months containing numerous
 new features and enhancements.
 
