@@ -4,11 +4,13 @@ title: Introducing Slinger - deep linking library for Android
 author: krzysztof.kocel
 ---
 
+## Problem
+
 Consider you are an Android application developer. You created an application for your product and you would like to enable your users browse content of your product using mobile app. If a product website has it's addresses organized as resources it's easy, problem comes when there is no clear distinction between resources since they can be SEO friendly. The reason why handling such links in Android is hard is that intent-filter mechanism is very limited. 
 
-Suppose you want to suppot links in such format: `http://www.example.com/123-product-my-product-description-in-url.html`
+Suppose you want to support links in such format: `http://www.example.com/123-product-and-some-product-description-in-url.html`
 
-In Android application you define:
+In `AndroidManifest.xml` you define:
 
 ```xml
     <intent-filter android:label="@string/app_name">
@@ -27,7 +29,9 @@ Pretty easy, huh?
 
 But let's say that we want to handle links in following format: `http://www.example.com/friednly-yet-changing-title-t123.html`
 
-Using `android:pathPattern` won't help 
+Using `android:pathPattern` won't help since it's very limited and can't handle more complex patterns.
+
+## Solution
 
 That's why Slinger was created.
 
@@ -36,5 +40,30 @@ Slinger is a simple library that captures all the links within a domain and redi
 Here is conceptual diagram that shows how Slinger works:
 
 
+## Installation
 
+As Slinger user you need to create thin `Activity` handling all urls beneath your website and provide regular expression with corresponding `Intent` that will launch specific part of your application.
 
+```java
+public class MySlingerRoutingActivity {
+
+  ...
+  
+  private RedirectRule getRedirectRuleForProductActivity() {
+    return RedirectRule.builder()
+        .intent(new Intent(context, MyConcreteActivityForProduct.class))
+        .pattern("http://www.example.com/.*-t[0-9]+\.html")
+        .build();
+  }
+  
+  @Override protected IntentResolver getIntentResolver() {
+    return new IntentResolver(asList(getRedirectRuleForAboutActivity()));
+  }
+}
+```
+
+You can provide as many `RedirectRules` as you wish. When url will not be matched a default intent will be launched. 
+
+## Conclusion
+
+If your website has friendly urls and you are tired of limitations of intent filters then try Slinger!
