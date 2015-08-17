@@ -31,7 +31,11 @@
 .schedule-item {
     margin-bottom:5px;
     background-color:#eee;
-    transition:background-color 1s linear;
+    transition:background-color 0.5s linear;
+}
+
+.schedule-item:nth-child(2n-1){
+    background-color: #fff;
 }
 
 .schedule-item:last-child {
@@ -51,7 +55,7 @@
 .talknote-time {
     flex: 0 1 120px;
     border-right:1px solid rgba(160, 160, 160, .3);
-    transition:border-color 1s linear; /* in synch with .schedule-item */
+    transition:border-color 0.5s linear; /* in synch with .schedule-item */
 }
 
 .schedule-item:hover .talknote-time,
@@ -66,7 +70,7 @@
 
 .talknote-title {
     margin:0;
-    font-weight:normal;
+    font-weight:800;
     font-size:1.6rem;
 }
 
