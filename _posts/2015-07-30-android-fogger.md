@@ -9,12 +9,12 @@ introduce blur as a part of your app design and use it an effect to hide content
 no ready solution for all UI components. That’s why I wrote the Fogger library. 
 
 It does not require any complicated setup and has almost no effect on your app architecture. So it is simple to use
-even if your product already exist in the market. Here is some showcase:
+even if your product already exist on the market. Here is some showcase:
 
 ![sample](/img/articles/2015-07-30/sample.gif)
 
 If you want to try it yourself, check out the 
-[example app](https://play.google.com/store/apps/details?id=pl.allegro.foggerexample) on google play.
+[example app](https://play.google.com/store/apps/details?id=pl.allegro.foggerexample) on Google play.
 
 
 ###How it works?
@@ -25,19 +25,18 @@ quite different.
 ![schema](/img/articles/2015-07-30/schema.png)
 
 There is no way to blur actually existing UI components. So at the first the library creates  a screenshot of the
-screen and blurs it. When the blurred image is ready, it is attached as part of the screen, just under the element
-that should be blurred (eg. drawer or dialog window). Finally image is shown with animation, that simulates fluent
+screen and blurs it. When the blurred image is ready, it is attached as part of the screen, just under the element which will have the blurred background (eg. drawer or dialog window). Finally image is shown with animation, that simulates fluent
 blurring process.
 
 It looks pretty simple and clear, so where is the challenge? Time. Everything must be done fast enough to look smooth.
-The mostdemanding situation occurs when user interact with drawer. Background blurring must be directly proportional
+The most demanding situation occurs when user interact with drawer. Background blurring must be directly proportional
 to drawer sliding. So the blurred image must be available almost in the same time the user starts to interact with the
 drawer. However there is no guarantee for duration of the whole process, so there must be an additional mechanism that
 smoothly adjust level of the blur if some part of the drawer is already visible.
 
 ###Save time
-To save time I have made a lot of micro-optimization. The key to success was connected with taking a screenshot. At
-the first there are few ways of taking a screenshot in Android. I have tested all of them and picked the fastest one:
+To save time I have made a lot of micro-optimization. The key to success was connected with taking a screenshot. At 
+first there are few ways of taking a screenshot in Android. I have tested all of them and picked the fastest one:
 
 ```java
 private Bitmap createScreenShot(View view, int scaledViewWidth, int scaledViewHeight) {
