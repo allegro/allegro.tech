@@ -1,11 +1,21 @@
 .atm8 .site-header{
-    background: #000;
+    /*background: #000;*/
 }
 
-.atm8 .site-nav{
+.atm8 .site-navlist li{
+    display: inline-block;
+}
+
+
+.atm8 .page-link {
+    border: 1px solid #4ba7f8;
+    margin: 0 0 5px 0;
+    display: inline-block;
+}
+
+.atm8 .page-link:after{
     display: none;
 }
-
 .section-atm {
     background: #231f20;
     padding: 2rem 0;
@@ -81,15 +91,27 @@
     margin: 2rem auto;
 }
 
-.section-atm h1{
-   font-size: 120%;
-}
-.section-atm h1 span{
-    color: #ffd400;
-    display: inline-block;
-    margin-left: 10px;
+.section-atm h1,
+.section-atm p{
+    margin: 0;
 }
 
+.section-atm h1{
+   font-size: 160%;
+   font-weight: 400;
+   text-transform: uppercase;
+   display: inline-block;
+   text-shadow: -1px -1px #999;
+   /*border: 1px solid #fff;
+   padding: 5px 10px;
+   border-radius: 5px;*/
+}
+.section-atm .date{
+    color: #ffd400;
+}
+.section-atm .venue{
+    
+}
 
 .section-atm8 {   
     background-image:  linear-gradient(rgba(25,25,25,0.4),rgba(25,25,25,0.6)), url(/img/atm8/stadion_005.jpg);
