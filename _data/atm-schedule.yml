@@ -11,14 +11,14 @@ item02:
     timeEnd: '10:50'
     abstract: 
 item03:
-    title: Gość specjalny
-    name: Dobromir Montauk
+    title: Special Guest
+    name: Dobromir Montauk (Twitter)
     date: '2015-09-14'
     timeStart: '10:50'
     timeEnd: '11:30'
     abstract: 
 item04:
-    title: Przerwa
+    title: Coffee break
     date: '2015-09-14'
     timeStart: '11:30'
     timeEnd: '11:40'
@@ -69,7 +69,7 @@ item11:
     timeEnd: '16:00'
     abstract: 
 item12:
-    title: Przerwa
+    title: Coffee break
     date: '2015-09-14'
     timeStart: '16:00'
     timeEnd: '16:10'
@@ -95,7 +95,7 @@ item15:
     timeEnd: '17:55'
     abstract: Network is always available? Remote call costs nothing? Every distributed systems programmer should be already aware those statements are false. By saying SLA, we usually mean service availability and response time. Response time is not only business code, but also network latency and millions of small things in your application. During this talk i will try to show how to gain an upper hand when fighting with time.
 item16:
-    title: Zamknięcie
+    title: First day closing
     date: '2015-09-14'
     timeStart: '17:55'
     timeEnd: '18:00'
