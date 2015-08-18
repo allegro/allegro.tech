@@ -112,18 +112,12 @@
 .section-atm h1{
    font-size: 160%;
    font-weight: 400;
-   text-transform: uppercase;
    display: inline-block;
    text-shadow: -1px -1px #999;
-   /*border: 1px solid #fff;
-   padding: 5px 10px;
-   border-radius: 5px;*/
 }
+
 .section-atm .date{
-    color: #ffd400;
-}
-.section-atm .venue{
-    
+    color: yellow;
 }
 
 .section-atm8 {   
