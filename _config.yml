@@ -12,10 +12,10 @@ baseurl: ""
 url: "http://allegro.tech"
 twitter_username: AllegroTechBlog
 github_username:  allegro
-#facebook_username: allegro.tech
-#google_plus_id: +AllegroTechBlog
+facebook_username: allegro.tech
+google_plus_id: +AllegroTechBlog
 meetup_username: allegrotech
-#slideshare_username: allegrotech
+slideshare_username: allegrotech
 
 # Build settings
 markdown: redcarpet

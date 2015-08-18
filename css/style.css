@@ -328,12 +328,16 @@ html, body {
 }
 
 .site-footer .site-title {
-    margin: 0px 1em;
+    margin: 7px 1em;
     display: block;
 }
 
+.site-footer .find-us {
+	margin: 0px 0.1em;
+}
+
 .site-footer .site-title img {
-    height: 24px;
+    height: 22px;
     width: 72px;
     vertical-align: middle;
 }
