@@ -1,5 +1,5 @@
 item01:
-    title: Otwarcie
+    title: ATM opening
     date: '2015-09-14'
     timeStart: '10:00'
     timeEnd: '10:20'
@@ -95,7 +95,7 @@ item15:
     timeEnd: '17:55'
     abstract: Network is always available? Remote call costs nothing? Every distributed systems programmer should be already aware those statements are false. By saying SLA, we usually mean service availability and response time. Response time is not only business code, but also network latency and millions of small things in your application. During this talk i will try to show how to gain an upper hand when fighting with time.
 item16:
-    title: First day closing
+    title: 1st day closing
     date: '2015-09-14'
     timeStart: '17:55'
     timeEnd: '18:00'
