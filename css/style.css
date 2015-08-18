@@ -49,7 +49,7 @@ html, body {
     padding: 10px 0 0;
 }
 
-@media all and (min-width: 420px) {
+@media all and (min-width: 760px) {
     .site-nav {
         float: right;
         padding: 5px 0;
