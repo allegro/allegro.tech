@@ -4,12 +4,12 @@ title: Blur background under Android commons UI elements
 author: pawel.byszewski
 tags: [android, ui, blur, renderscript]
 ---
-All over the Internet there are code snippets that show how to make a blur effect on Android. But if you want
-introduce blur as a part of your app design and use it an effect to hide content under dialogs, drawer etc. there is
+All over the Internet there are code snippets that show how to make a blur effect on Android. But if you want to
+introduce blur as a part of your app design and use it as an effect to hide content under dialogs, drawer etc. there is
 no ready solution for all UI components. That’s why I wrote the Fogger library. 
 
 It does not require any complicated setup and has almost no effect on your app architecture. So it is simple to use
-even if your product already exist on the market. Here is some showcase:
+even if your productv is already on the market. Here is some showcase:
 
 ![sample](/img/articles/2015-07-30/sample.gif)
 
@@ -25,11 +25,12 @@ quite different.
 ![schema](/img/articles/2015-07-30/schema.png)
 
 There is no way to blur actually existing UI components. So at the first the library creates  a screenshot of the
-screen and blurs it. When the blurred image is ready, it is attached as part of the screen, just under the element which will have the blurred background (eg. drawer or dialog window). Finally image is shown with animation, that simulates fluent
+screen and blurs it. When the blurred image is ready, it is attached as a part of the screen, just under the element which will 
+have the blurred background (eg. drawer or dialog window). Finally the image is shown with animation, that simulates fluent
 blurring process.
 
 It looks pretty simple and clear, so where is the challenge? Time. Everything must be done fast enough to look smooth.
-The most demanding situation occurs when user interact with drawer. Background blurring must be directly proportional
+The most demanding situation occurs when user interacts with a drawer. Background blurring must be directly proportional
 to drawer sliding. So the blurred image must be available almost in the same time the user starts to interact with the
 drawer. However there is no guarantee for duration of the whole process, so there must be an additional mechanism that
 smoothly adjust level of the blur if some part of the drawer is already visible.
