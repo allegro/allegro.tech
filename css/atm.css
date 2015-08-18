@@ -121,12 +121,16 @@
     background-image:  linear-gradient(rgba(25,25,25,0.4),rgba(25,25,25,0.6)), url(/img/atm8/stadion_005.jpg);
     background-size: cover;
     color: #fff;
+    text-shadow: 1px 1px #333;
 }
 
 .section-atm8 .content{
        padding: 1rem 2rem;
 }
 
+.section-atm8 a{
+    color: inherit
+}
 
 .section-atm8 dt{
     font-weight: bold;
