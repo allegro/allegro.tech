@@ -1,5 +1,10 @@
-.atm8 .site-header{
-    /*background: #000;*/
+.atm8 a {
+    color: #4ba7f8;
+    text-decoration: none;
+}
+
+.atm8 a:hover, .atm8:focus{
+    text-decoration: underline;
 }
 
 .atm8 .site-navlist li{
@@ -11,6 +16,10 @@
     border: 1px solid #4ba7f8;
     margin: 0 0 5px 0;
     display: inline-block;
+}
+
+.atm8 .page-link:hover{
+    text-decoration: none;
 }
 
 .atm8 .page-link:after{
@@ -126,10 +135,6 @@
 
 .section-atm8 .content{
        padding: 1rem 2rem;
-}
-
-.section-atm8 a{
-    color: inherit
 }
 
 .section-atm8 dt{
