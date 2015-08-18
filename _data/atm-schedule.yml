@@ -88,12 +88,12 @@ item14:
     timeEnd: '17:20'
     abstract: 
 item15:
-    title: Każda milisekunda się liczy
+    title: Every millisecond counts
     name: Adam Dubiel
     date: '2015-09-14'
     timeStart: '17:20'
     timeEnd: '17:55'
-    abstract:
+    abstract: Network is always available? Remote call costs nothing? Every distributed systems programmer should be already aware those statements are false. By saying SLA, we usually mean service availability and response time. Response time is not only business code, but also network latency and millions of small things in your application. During this talk i will try to show how to gain an upper hand when fighting with time.
 item16:
     title: Zamknięcie
     date: '2015-09-14'
