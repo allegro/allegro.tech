@@ -97,7 +97,7 @@ html, body {
     padding: 10px 0 0;
 }
 
-@media all and (min-width: 420px) {
+@media all and (min-width: 760px) {
     .site-nav {
         float: right;
         padding: 5px 0;
@@ -328,12 +328,16 @@ html, body {
 }
 
 .site-footer .site-title {
-    margin: 8px 1em;
+    margin: 7px 1em;
     display: block;
 }
 
+.site-footer .find-us {
+	margin: 0px 0.1em;
+}
+
 .site-footer .site-title img {
-    height: 24px;
+    height: 22px;
     width: 72px;
     vertical-align: middle;
 }
@@ -567,6 +571,12 @@ html, body {
 
 .post-author-list li:last-child {
     border: 0;
+}
+
+@media all and (min-width: 420px) {
+    .post-author p {
+        margin-left: 125px;
+    }
 }
 
 .post-author {
@@ -890,3 +900,4 @@ html, body {
 .highlight .vg { color: #008080 } /* Name.Variable.Global */
 .highlight .vi { color: #008080 } /* Name.Variable.Instance */
 .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+
