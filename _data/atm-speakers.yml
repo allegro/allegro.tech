@@ -15,6 +15,7 @@ marcin.kuthan:
 tomasz.jackowiak:
     name: Tomasz Jackowiak
     bio: 'TBD'
+    twitter: kevorin
 
 mariusz.strzelecki:
     name: Mariusz Strzelecki
@@ -26,11 +27,11 @@ wojciech.burkot:
 
 przemyslaw.wyrobek:
     name: Przemysław Wyrobek
-    bio: 'TBD'
+    bio: 'Software Engineer at Allegro Group. Responsible for projects related to REST API and backend services for mobile applications (eg. Push Notifications). REST Evangelist (Lecturer of the course "Developing RESTful Web Services in Java" at UAM). Mobile and new technologies enthusiast. He likes well-designed and simple solutions.'
 
 lukasz.druminski:
     name: Łukasz Drumiński
-    bio: 'TBD'
+    bio: 'An experienced software developer. Core developer of project <a href="http://hermes.allegro.tech">Hermes</a> where low latency and high throughput is needed. Open source commiter, hackathons enthusiast and amateur basketball player.'
 
 adam.dudczak:
     name: Adam Dudczak
@@ -39,12 +40,13 @@ adam.dudczak:
 
 ernest.bursa:
     name: Ernest Bursa
-    bio: 'TBD'
+    bio: 'WHO? Ernest Bursa, software developer, ladies’ man , non-conformist, wastrel, has 7th Dan in Negotiation Skills, yet prefers violence. Co-leader of work on the Allegro search engine.'
+    twitter: Swistak
 
 pawel.leszczynski:
     name: Paweł Leszczyński
-    bio: 'Paweł is interested in distributed databases stuff with a special focus on making Big Data easy. He is Product Owner in a Big Data Solutions Team at the Infrastructure department. The team develops and maintains a petabyte Hadoop cluster with endpoints like Apache Kafka messaging.'
+    bio: 'Paweł is PhD in distributed databases and his interests focus on making Big Data easy. He has 7 years of technical experience at Allegro and currently works as Product Owner in a Big Data Solutions Team. The team develops and maintains a petabyte Hadoop cluster with endpoints like Apache Kafka messaging.'
 
 robert.mroczkowski:
     name: Robert Mroczkowski
-    bio: 'TBD'
+    bio: 'In 2006 graduated master studies in Computer Science at Nicolaus Copernicus University. In years 2006 - 2011 he was a PhD student in Computer Science. His research field was Computer Science applied in Bioinformatcs. He gained experience in Hadoop World building and maintaining a cluster for Allegro. Every day he works with modern high-performance and high-available technologies, centrally managed in cloud environment. In 2015 became Senior Data Engineer.'

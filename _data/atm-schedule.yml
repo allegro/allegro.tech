@@ -16,7 +16,7 @@ item02:
     date: '2015-09-14'
     timeStart: '09:50'
     timeEnd: '10:20'
-    abstract: TBD
+    abstract: 
 
 item03:
     title: Special Guest
@@ -24,14 +24,14 @@ item03:
     date: '2015-09-14'
     timeStart: '10:20'
     timeEnd: '11:10'
-    abstract: TBD
+    abstract: 
 
 item04:
     title: Allegro - Data Center of XXI century
     date: '2015-09-14'
     timeStart: '11:10'
     timeEnd: '11:45'
-    abstract: TBD
+    abstract: TBA
 
 item05:
     title: Coffee break
@@ -53,7 +53,7 @@ item07:
     date: '2015-09-14'
     timeStart: '12:35'
     timeEnd: '13:10'
-    abstract: TBD
+    abstract: 'Designing a coherent and a good REST API is hard and annoying stage of developing microservices and building the new API for Allegro Platform especially when it has to pass the "API Review" ;). We can do it better and without frustration. In the talk we will focus on design & prototyping a good API. I will talk about techniques and tools that support fast and flexible design (modeling) and testing RESTful APIs.'
 
 item08:
     title: Machine learning - it's easy!
@@ -61,7 +61,7 @@ item08:
     date: '2015-09-14'
     timeStart: '13:10'
     timeEnd: '13:45'
-    abstract: TBD
+    abstract: 'Uczenie maszynowe (machine learning) to nauka rozwijana od dawna, ale dopiero dzisiejsza technologia i trend Big Data pozwalają efektywnie budować modele, dostarczają dane do ich tworzenia i znajdują mnóstwo zastosowań dla całej dziedziny. Zaawansowane analizy biznesowe wymagają co prawda sporo doświadczenia, ale rozwój bibliotek w ostatnim czasie daje możliwości przeprowadzania eksperymentów każdemu w przystępny sposób. Apache Spark udostępnia łatwy framework do m.in. przewidywania trendów, którego zastosowanie ogranicza tylko wyobraźnia. Podczas pokazu w formie “live demo” postaram się pokazać, że żeby zbudować proste i skuteczne modele (nie tylko dla celów biznesowych) nie potrzeba tajemnej wiedzy analityków ani magicznych równań matematycznych. Z historycznych danych spróbujemy zbudować model dla aplikacji, której zadaniem będzie automatyczne informowanie o anomaliach i predykcja wielkości wybranych metryk w dowolnym punkcie w przyszłości. Przyjdź, jeśli chcesz zobaczyć, jak stado żółtych słoni robi za wróżkę i co z tego można wycisnąć.'
 
 item09:
     title: Lunch
@@ -75,14 +75,15 @@ item10:
     date: '2015-09-14'
     timeStart: '14:30'
     timeEnd: '15:05'
-    abstract: TBD
+    abstract: 'W styczniu tego roku ponad tysiąc specjalistów podpisało list otwarty wskazujący drogę, którą podążać powinny badania nad sztuczną inteligencją. Wśród nich Stephen Hawking, Elon Musk, Demis Hassabis, naukowcy powiązani z Google i IBM. Gdzie zatem jesteśmy, co nas czeka za rogiem, czy powinniśmy się bać, czy cieszyć? Będzie o skali postępu (i tym jak nie bardzo jej nie ogarniamy), drugiej połówce szachownicy, bezrobociu technologicznym, moralności algorytmów i ewolucji inteligencji.'
+
 item11:
     title: Hermes loses events.
     name: Łukasz Drumiński
     date: '2015-09-14'
     timeStart: '15:05'
     timeEnd: '15:40'
-    abstract: TBD
+    abstract: 'During the presentation I will explain when your events may not be delivered and what we have done to minimise this kind of situations. Besides that you will find out what we use to monitor events and how our approach has changed in that subject during last year. After we explain stabilisation issues we will dive into performance. I will answer questions like how fast is Hermes? How many events/s and in what latency can be handled by a single Hermes instance? You will also hear about our failures and lessons we have learned from them.'
 
 item12:
     title: Integration testing in age of microservices.
@@ -90,7 +91,7 @@ item12:
     date: '2015-09-14'
     timeStart: '15:40'
     timeEnd: '16:15'
-    abstract: TBD
+    abstract: 'Testy kontraktowe wskazywane są jako jedno z rozwiązań dla “problemu" testowania microserviceów. Pojęcie to zakłada, że między usługami zdefiniowane są lekkie kontrakty, których realizacja powinna zapewnić, że obie usługi/systemy będą w stanie ze sobą rozmawiać. W teorii to usługa kliencka specyfikuje swoje wymagania w formie zestawu testów/funkcjonalnego mocka, który dostarczają twórcą usługi od której zależą. Programiści tworzący upstreamowy system, mogą włączyć dostarczony przez klienta zestaw testów/stanów do swojego arsenału deweloperskiego. Dzięki temu mogą monitorować czy wprowadzane przez nich zmiany nie popsują niczego w usłudze zależnej. Ale... Czy to naprawdę usprawni naszą prace czy będzie tylko kolejnym źródłem problemów? Jak w tej sytuacji podejść do starzenia się kontraktów? W jaki sposób wprowadzać zmiany łamiące kompatybilność wstecz?'
 
 item13:
     title: Coffee break
@@ -112,7 +113,7 @@ item15:
     date: '2015-09-14'
     timeStart: '17:05'
     timeEnd: '17:40'
-    abstract: TBD
+    abstract: 'Apache Spark jest platformą do przetwarzania danych w środowiskurozproszonym. Pozwala na efektywną realizację algorytmów iteracyjnych,eliminując jedno z podstawowych ograniczeń paradygmatu MapReduce. Chciałbym przedstawić doświadczenia z użycia Spark Streaming do przetwarzania danych o aktywnościach użytkowników na Allegro: - Jaki uzyskać oczekiwany poziom "fault tolerance”. - Czy da się uzyskać "exactly once delivery guarantee”. - Jak zapewnić stabilne działanie przy opóźnienach przetwarzania. - Co z przetwarzaniem które wymaga stanu. - Jak i co monitorować przy zadaniach uruchomionych na klastrze YARN. - Które elementy konfiguracji mają istotne znaczenie. - Jakie alternatywne rozwiązania warto rozważyć.'
 
 item16:
     title: Every millisecond counts
