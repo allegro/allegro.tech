@@ -1,6 +1,6 @@
 adam.dubiel:
     name: Adam Dubiel
-    bio: Adam is the library guy - both when it comes to books and designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. In Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier.
+    bio: Adam is the library guy - both when it comes to books and designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. At Allegro he leads the team responsible for creating internal services-for-services and tools that make development of microservices easier.
     twitter: dubieladam
 
 mateusz.gajewski:
@@ -10,7 +10,7 @@ mateusz.gajewski:
 
 marcin.kuthan:
     name: Marcin Kuthan
-    bio: Marcin is a Big Data engineer working at Allegro Group since 2014. He genuinely likes programming, problem solving and learning new trends in software methodologies, tools and languages.
+    bio: 'Marcin is a Big Data engineer working at Allegro Group since 2014. He genuinely likes programming, problem solving and learning new trends in software methodologies, tools and languages.'
 
 tomasz.jackowiak:
     name: Tomasz Jackowiak
@@ -19,7 +19,7 @@ tomasz.jackowiak:
 
 mariusz.strzelecki:
     name: Mariusz Strzelecki
-    bio: 'A software developer with 5+ years of professional experience. Now working as a Senior Data Engineer in Allegro Group, developing tools that support internal Big Data ecosystem and contributing to Open Source.'
+    bio: 'A software developer with 5+ years of professional experience. Now working as a Senior Data Engineer at Allegro Group, developing tools that support internal Big Data ecosystem and contributing to Open Source.'
 
 wojciech.burkot:
     name: Wojciech Burkot
@@ -31,11 +31,11 @@ przemyslaw.wyrobek:
 
 lukasz.druminski:
     name: Łukasz Drumiński
-    bio: 'An experienced software developer. Core developer of project <a href="http://hermes.allegro.tech">Hermes</a> where low latency and high throughput is needed. Open source commiter, hackathons enthusiast and amateur basketball player.'
+    bio: 'An experienced software developer. Core developer of project <a href="http://hermes.allegro.tech">Hermes</a> where low latency and high throughput are needed. Open source commiter, hackathon enthusiast and amateur basketball player.'
 
 adam.dudczak:
     name: Adam Dudczak
-    bio: 'Sénior Software Engineer at Allegro group, working with Java related technologies since 2004. Currently member of Allegro search team, working on a better search experience in Allegro.pl. One of the leaders of <a href="http://www.jug.poznan.pl">Poznań JUG</a> and co-organizer of <a href="http://geecon.org">GeeCON</a> conference. Father of three, husband, occasionally blogs at <a href="http://dudczak.info/dry">http://dudczak.info/dry</a>.'
+    bio: 'Sénior Software Engineer at Allegro Group, working with Java related technologies since 2004. Currently member of Allegro search team, working on a better search experience in Allegro.pl. One of the leaders of <a href="http://www.jug.poznan.pl">Poznań JUG</a> and co-organizer of <a href="http://geecon.org">GeeCON</a> conference. Father of three, husband, occasionally blogs at <a href="http://dudczak.info/dry">http://dudczak.info/dry</a>.'
     twitter: maneo
 
 ernest.bursa:
@@ -45,8 +45,8 @@ ernest.bursa:
 
 pawel.leszczynski:
     name: Paweł Leszczyński
-    bio: 'Paweł is PhD in distributed databases and his interests focus on making Big Data easy. He has 7 years of technical experience at Allegro and currently works as Product Owner in a Big Data Solutions Team. The team develops and maintains a petabyte Hadoop cluster with endpoints like Apache Kafka messaging.'
+    bio: 'Paweł is PhD in distributed databases and his interests focus on making Big Data easy. He has 7 years of technical experience at Allegro and currently works as Product Owner in a Big Data Solutions Team. The team develops and maintains a petabyte Hadoop cluster with endpoints such as Apache Kafka messaging.'
 
 robert.mroczkowski:
     name: Robert Mroczkowski
-    bio: 'In 2006 graduated master studies in Computer Science at Nicolaus Copernicus University. In years 2006 - 2011 he was a PhD student in Computer Science. His research field was Computer Science applied in Bioinformatcs. He gained experience in Hadoop World building and maintaining a cluster for Allegro. Every day he works with modern high-performance and high-available technologies, centrally managed in cloud environment. In 2015 became Senior Data Engineer.'
+    bio: 'A 2006 Master’s graduate in Computer Science at Nicolaus Copernicus University. In the years 2006-2011 he was a PhD student in Computer Science. His research field was Computer Science applied in Bioinformatcs. He gained experience in Hadoop World building and maintaining a cluster for Allegro. Every day he works with modern high-performance and high-availability technologies, centrally managed in cloud environment. In 2015 he became a Senior Data Engineer.'

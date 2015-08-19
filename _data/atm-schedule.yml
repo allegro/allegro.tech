@@ -16,7 +16,7 @@ item02:
     date: '2015-09-14'
     timeStart: '09:50'
     timeEnd: '10:20'
-    abstract: 
+    abstract:
 
 item03:
     title: Special Guest
@@ -24,10 +24,10 @@ item03:
     date: '2015-09-14'
     timeStart: '10:20'
     timeEnd: '11:10'
-    abstract: 
+    abstract:
 
 item04:
-    title: Allegro - Data Center of XXI century
+    title: Allegro - Data Center of the 21st century
     date: '2015-09-14'
     timeStart: '11:10'
     timeEnd: '11:45'
@@ -53,7 +53,7 @@ item07:
     date: '2015-09-14'
     timeStart: '12:35'
     timeEnd: '13:10'
-    abstract: 'Designing a coherent and a good REST API is hard and annoying stage of developing microservices and building the new API for Allegro Platform especially when it has to pass the "API Review" ;). We can do it better and without frustration. In the talk we will focus on design & prototyping a good API. I will talk about techniques and tools that support fast and flexible design (modeling) and testing RESTful APIs.'
+    abstract: 'Designing a coherent and good REST API is a hard and annoying stage of developing microservices and building the new API for Allegro Platform especially when it has to pass the "API Review" ;). We can do it better and without frustration. In the talk we will focus on design & prototyping a good API. I will talk about techniques and tools that support fast and flexible design (modeling) and testing RESTful APIs.'
 
 item08:
     title: Machine learning - it's easy!
@@ -83,7 +83,7 @@ item11:
     date: '2015-09-14'
     timeStart: '15:05'
     timeEnd: '15:40'
-    abstract: 'During the presentation I will explain when your events may not be delivered and what we have done to minimise this kind of situations. Besides that you will find out what we use to monitor events and how our approach has changed in that subject during last year. After we explain stabilisation issues we will dive into performance. I will answer questions like how fast is Hermes? How many events/s and in what latency can be handled by a single Hermes instance? You will also hear about our failures and lessons we have learned from them.'
+    abstract: 'Hermes is a fast message broker recently open-sourced by Allegro. During the presentation I will explain when your events may not be delivered and what we have done to minimise this kind of situations. Besides that you will find out what we use to monitor events and how our approach to this subject has changed during last year. After we explain stabilisation issues we will delve into performance. I will answer questions like: how fast is Hermes? How many events/s and at what latency can be handled by a single Hermes instance? You will also hear about our failures and lessons we have learned from them.'
 
 item12:
     title: Integration testing in age of microservices.
@@ -105,7 +105,7 @@ item14:
     date: '2015-09-14'
     timeStart: '16:30'
     timeEnd: '17:05'
-    abstract: 'At Allegro we handle thousands of messages per second. These are clickstream (12k msgs/s), application logs (40k msg/s) and events sent between microservices (8k msg/s). We have created coherent, scalable system that delivers them to HDFS and ElasticSearch for further processing. Messages are transferred with low latency and stored in well-known format. At the end of the pipeline transferred data could be easily browsed and processed via many tools and frameworks (Kibana dashboards, Spark jobs, Hive Query Language, Hue web interface, Tableau and SQLDeveloper).<br />During the presentation we will describe architecture of our data hub. We will tell you about solutions we have used and problems we have challenged. We will also show how it has evolved over the past years. Finally we will tell few words about plans for the future.' 
+    abstract: 'At Allegro we handle thousands of messages per second. These are clickstream (12k msgs/s), application logs (40k msg/s) and events sent between microservices (8k msg/s). We have created coherent, scalable system that delivers them to HDFS and ElasticSearch for further processing. Messages are transferred with low latency and stored in well-known format. At the end of the pipeline transferred data could be easily browsed and processed via many tools and frameworks (Kibana dashboards, Spark jobs, Hive Query Language, Hue web interface, Tableau and SQLDeveloper).<br />During the presentation we will describe architecture of our data hub. We will tell you about solutions we have used and problems we have challenged. We will also show how it has evolved over the past years. Finally we will tell few words about plans for the future.'
 
 item15:
     title: Spark Streaming / Apache Kafka - good parts, bad parts
@@ -121,7 +121,7 @@ item16:
     date: '2015-09-14'
     timeStart: '17:40'
     timeEnd: '18:15'
-    abstract: Network is always available? Remote call costs nothing? Every distributed systems programmer should be already aware those statements are false. By saying SLA, we usually mean service availability and response time. Response time is not only business code, but also network latency and millions of small things in your application. During this talk i will try to show how to gain an upper hand when fighting with time.
+    abstract: 'Network is always available? Remote call costs nothing? Every distributed systems programmer should be already aware those statements are false. By saying SLA, we usually mean service availability and response time. Response time is not only business code, but also network latency and millions of small things in your application. During this talk I will try to show how to gain an upper hand in the fight against time.'
 
 item17:
     title: 1st day closing
@@ -134,4 +134,4 @@ item18:
     date: '2015-09-14'
     timeStart: '20:00'
     timeEnd: '02:00'
-    abstract: 'After party will take place in <a href="http://kameralnafoksal.pl/">Restauracja Kameralna</a> (<a href="https://www.google.pl/maps/place/Foksal+11,+00-327+Warszawa/@52.233665,21.0219307,17z/data=!3m1!4b1!4m2!3m1!1s0x471eccf6430b6e91:0xec8af34a00f78877?hl=pl">Foksal 11 street</a>). Entrance will be allowed only with the wristband received during the registration.'
+    abstract: 'After party will take place at <a href="http://kameralnafoksal.pl/">Restauracja Kameralna</a> (<a href="https://www.google.pl/maps/place/Foksal+11,+00-327+Warszawa/@52.233665,21.0219307,17z/data=!3m1!4b1!4m2!3m1!1s0x471eccf6430b6e91:0xec8af34a00f78877?hl=pl">Foksal 11 street</a>). Entrance will be allowed only with the wristband received during the registration.'
