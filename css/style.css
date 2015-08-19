@@ -573,6 +573,12 @@ html, body {
     border: 0;
 }
 
+@media all and (min-width: 420px) {
+    .post-author p {
+        margin-left: 125px;
+    }
+}
+
 .post-author {
     padding: 2em 0;
     overflow: hidden;
