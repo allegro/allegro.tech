@@ -10,11 +10,11 @@
     <meta property="og:title" content="{{ page.title }}"/>
     <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
     <meta property="og:type" content="site"/>
-    <meta property="og:image" content="{{ site.url }}/img/logo-allegro-tech.png"/>
+    <meta property="og:image" content="{{ site.url }}/img/atm8/atm8-logo.png"/>
     {% if page.title %}
     <meta name="twitter:creator" content="@AllegroTechBlog"/>
-    <meta property="og:description" content="{{ page.excerpt | strip_html}}"/>
-    <meta property="article:author" content="{{ page.author }}"/>
+    <meta property="og:description" content="{{ page.description }}"/>
+    <meta property="article:author" content="allegro.tech engineers"/>
     <meta property="article:publisher" content="https://www.facebook.com/allegro.tech"/>
     {% endif %}
 
