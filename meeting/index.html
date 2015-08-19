@@ -106,7 +106,7 @@ A new element this year will be a party of guests from outside Allegro to join u
         <h2>Speakers</h2>
         <ul class="post-author-list">
             {%assign authors = site.data.atm-speakers | sort%}
-            {% for author in authors%}
+            {% for author in authors reversed%}
             {%assign authorKey = author[0]%}
             {%assign authorData = author[1]%}
             <li class="post-author">
