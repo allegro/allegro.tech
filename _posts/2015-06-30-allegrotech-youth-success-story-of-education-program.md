@@ -13,24 +13,23 @@ high school [ZSMEiE](http://www.zsmeie.torun.pl). Now, I want to sum up the cour
 3 months and share the experience we have gained.
 
 ### We did as we said we would
-Students were divided into 3 theme groups of 10 members selected on the basis of a placement test taken by everyone
+Students were divided into 3 subject groups of 10 members selected on the basis of a placement test taken by everyone
 interested. Each group focused on a different area and had its dedicated instructor. As IT specialists, we all received
 a perfect opportunity to improve our skills in conducting workshops, team communication and public speaking. It was
 great fun for both the instructors and participants.
 
 ### The game
-Divided into teams, the students were taught various new skills that ultimately led to deploying a joint app displaying
+Divided into teams, the students were taught various new skills that ultimately led to deploying a single app displaying
 a timetable with additional information on teacher replacements or canceled classes. The participants learned about new
 technologies that helped them to spread their wings, take off and have their first flight to the land of numerous
 possibilities. [Michał Karykowski](http://allegro.tech/authors/michal.karykowski),
 [Mirosław Gołda](http://allegro.tech/authors/miroslaw.golda) and I assisted the group of developers.
-[Patryk Krawaczyński](http://allegro.tech/authors/patryk.krawaczynski)
-and [Łukasz Szulc](http://allegro.tech/authors/lukasz.szulc) talked about infrastructure, while
-[Krzysztof Muzalewski](http://allegro.tech/authors/krzysztof.muzalewski) focused on web development.
+[Patryk Krawaczyński](http://allegro.tech/authors/patryk.krawaczynski) and Łukasz Szulc talked about infrastructure,
+while [Krzysztof Muzalewski](http://allegro.tech/authors/krzysztof.muzalewski) focused on web development.
 
 ### Technological mixture
 Our workshops touched upon a number of issues. Some of them were more important than others. We placed the greatest
-emphasis on technologies that we use on an everyday basis, demonstrating practical use of tools that lie at the root of
+emphasis on technologies that we use on a daily basis, demonstrating practical use of tools that lie at the root of
 the IT industry today. For developers this was [Java](https://en.wikipedia.org/wiki/Java) accompanied by
 [Spring Framework](http://spring.io/). We showed how to use [Gradle](https://gradle.org/) and provided an introduction
 into [TDD](https://en.wikipedia.org/wiki/Test-driven_development) using [JUnit](http://junit.org/) and
@@ -55,7 +54,8 @@ We applied these words by Confucius into practice. Now let us share with you our
 we participated in. On a daily basis we know what to do. We know how to use our knowledge and experience to band
 the reality to our needs. However, in the new role we had to figure out how to communicate the knowledge we have
 to others. Everyone who has once tried it is aware that knowing how to do a thing and teaching someone else to do it
-are two different worlds.
+are two different things.
+
 Our impressions from the course are the following:
 
 *“We see it obvious that we daily absorb a great doze of information and want to have it served in the most
@@ -89,7 +89,7 @@ We all learned something new about ourselves. We gained new acquaintances and ex
 To have a full picture of the course, we asked the participants to sum it up and respond to a few questions. We asked
 about the best element of the whole program.
 
-*“Communicative workshop leaders that maintained humane relations with the participants. Tips for the future is
+*“Communicative workshop leaders that maintained humane relations with the participants. A tip for the future is
 something that the school will not provide. These were professional IT people that we met, so we could hear some really
 useful advice.”*
 
@@ -105,7 +105,7 @@ the workshop simply because you have nothing better to do, drop the idea and don
 If you really consider doing something professionally, every training is worth gold. Here you will get quality and great
 atmosphere”.*
 
-On a 0-10 scale, the participants gave the whole program 8. As regards knowledge and skills they gained over the last
+On a 0-10 scale, the participants gave the whole program 8. Regarding knowledge and skills they gained over the last
 3 months, they gave us 7. Instructors’ preparation for the classes and communication during and outside the course were
 rated 9 and 8 respectively. We also received several remarks that will help us conduct future Allegrotech.Youth training
 in a more effective way and on a larger scale. We are happy the whole program received a very warm welcome.
