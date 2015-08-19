@@ -36,8 +36,8 @@ into [TDD](https://en.wikipedia.org/wiki/Test-driven_development) using [JUnit](
 [AssertJ](http://joel-costigliola.github.io/assertj/).
 
 Web developers focused on [Twitter Bootstrap](http://getbootstrap.com/) and
-[HTML5](http://www.w3schools.com/html/html5_intro.asp). They worked with [Grunt](http://gruntjs.com/) and discovered
-the world of dynamic styles with [Less](http://lesscss.org/). They also learned more about [NPM](https://www.npmjs.com/).
+[HTML5](http://www.w3.org/TR/html5/). They worked with [Grunt](http://gruntjs.com/) and discovered the world of dynamic
+styles with [Less](http://lesscss.org/). They also learned more about [NPM](https://www.npmjs.com/).
 
 The infrastructure group worked in [Ubuntu](http://www.ubuntu.com/), where they used
 [VirtualBox](https://www.virtualbox.org/) managed by [Vagrant](https://www.vagrantup.com/) to develop virtual machines
