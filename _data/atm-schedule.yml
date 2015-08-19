@@ -3,101 +3,117 @@ item00:
     date: '2015-09-14'
     timeStart: '09:00'
     timeEnd: '09:30'
+
 item01:
     title: First day opening
     date: '2015-09-14'
     timeStart: '09:30'
     timeEnd: '09:50'
+
 item02:
     title: Keynote
     name: Wojciech Burkot (CTO)
     date: '2015-09-14'
     timeStart: '09:50'
     timeEnd: '10:20'
-    abstract: 
+    abstract: TBD
+
 item03:
     title: Special Guest
     name: Dobromir Montauk (Twitter)
     date: '2015-09-14'
     timeStart: '10:20'
     timeEnd: '11:10'
-    abstract: 
+    abstract: TBD
+
 item04:
     title: Allegro - Data Center of XXI century
     date: '2015-09-14'
     timeStart: '11:10'
     timeEnd: '11:45'
-    abstract: 
+    abstract: TBD
+
 item05:
     title: Coffee break
     date: '2015-09-14'
     timeStart: '11:45'
     timeEnd: '12:00'
+
 item06:
     title: Building distributed systems with OSS
     name: Mateusz Gajewski
     date: '2015-09-14'
     timeStart: '12:00'
     timeEnd: '12:35'
+    abstract: TBD
+
 item07:
     title: API first! Methodology, techniques and tools for creating good API.
     name: Przemysław Wyrobek
     date: '2015-09-14'
     timeStart: '12:35'
     timeEnd: '13:10'
-    abstract: 
+    abstract: TBD
+
 item08:
     title: Machine learning - it's easy!
     name: Mariusz Strzelecki
     date: '2015-09-14'
     timeStart: '13:10'
     timeEnd: '13:45'
-    abstract: 
+    abstract: TBD
+
 item09:
     title: Lunch
     date: '2015-09-14'
     timeStart: '13:45'
     timeEnd: '14:30'
+
 item10:
     title: Artificial intelligence. Status report.
-    name: Tomasz Jackowski
+    name: Tomasz Jackowiak
     date: '2015-09-14'
     timeStart: '14:30'
     timeEnd: '15:05'
-    abstract: 
+    abstract: TBD
 item11:
     title: Hermes loses events.
     name: Łukasz Drumiński
     date: '2015-09-14'
     timeStart: '15:05'
     timeEnd: '15:40'
-    abstract: 
+    abstract: TBD
+
 item12:
     title: Integration testing in age of microservices.
     name: Adam Dudczak, Ernest Bursa
     date: '2015-09-14'
     timeStart: '15:40'
     timeEnd: '16:15'
-    abstract: 
+    abstract: TBD
+
 item13:
     title: Coffee break
     date: '2015-09-14'
     timeStart: '16:15'
     timeEnd: '16:30'
+
 item14:
-    title: Be your data hero - Allegro Data Hub
+    title: Be a hero of information - collecting messages with Allegro Data Hub
     name: Paweł Leszczyński, Robert Mroczkowski
     date: '2015-09-14'
     timeStart: '16:30'
     timeEnd: '17:05'
-    abstract: 
+    abstract: 'At Allegro we handle thousands of messages per second. These are clickstream (12k msgs/s), application logs (40k msg/s) and events sent between microservices (8k msg/s). We have created coherent, scalable system that delivers them to HDFS and ElasticSearch for further processing. Messages are transferred with low latency and stored in well-known format. At the end of the pipeline transferred data could be easily browsed and processed via many tools and frameworks (Kibana dashboards, Spark jobs, Hive Query Language, Hue web interface, Tableau and SQLDeveloper).<br />During the presentation we will describe architecture of our data hub. We will tell you about solutions we have used and problems we have challenged. We will also show how it has evolved over the past years. Finally we will tell few words about plans for the future.' 
+
 item15:
     title: Spark Streaming / Apache Kafka - good parts, bad parts
     name: Marcin Kuthan
     date: '2015-09-14'
     timeStart: '17:05'
     timeEnd: '17:40'
-    abstract: 
+    abstract: TBD
+
 item16:
     title: Every millisecond counts
     name: Adam Dubiel
@@ -105,11 +121,13 @@ item16:
     timeStart: '17:40'
     timeEnd: '18:15'
     abstract: Network is always available? Remote call costs nothing? Every distributed systems programmer should be already aware those statements are false. By saying SLA, we usually mean service availability and response time. Response time is not only business code, but also network latency and millions of small things in your application. During this talk i will try to show how to gain an upper hand when fighting with time.
+
 item17:
     title: 1st day closing
     date: '2015-09-14'
     timeStart: '18:15'
     timeEnd: '18:30'
+
 item18:
     title: After Party
     date: '2015-09-14'
