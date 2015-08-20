@@ -228,6 +228,18 @@ michal.tydryszewski:
     name: Michał Tydryszewski
     bio: Michał is a senior software engineer with four years of professional experience. He believes that being pragmatic and thinking-while-doing is the key to every success.
 
+michal.karykowski:
+    name: Michał Karykowski
+    bio: A software developer with 8 years of professional experience. At Allegro Group since 2012. His family calls him a workaholic.
+
+patryk.krawaczynski:
+    name: Patryk Krawaczyński
+    bio: Patryk is a System Engineer with 6+ years of experience in the web hosting industry. Equally comfortable with both frontend and backend technologies. He likes to focus on solving problems and performance issues. In his free time [NFsec](https://nfsec.pl) editor. At Allegro Group since 2011.
+
+krzysztof.muzalewski:
+    name: Krzysztof Muzalewski
+    bio: Front-end enthusiast, HTML5/CSS3 and JavaScript passionate. He believes that esthetics and UX are as important as coding itself. A member of several teams developing portals for Allegro Group. At the moment he's deeply involved into website optimization for desktop and mobile.
+
 szymon.jasinski:
     name: Szymon Jasiński
     bio: Szymon is a clarinet player by education and a systems engineer by profession. At Allegro Group since 2013.
