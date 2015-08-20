@@ -828,7 +828,7 @@ html, body {
 /* banner */
 
 .banner {
-    background: url("/img/banner/brain-bg.jpg") repeat-x;
+    background: #2f292b;
     overflow: hidden;
 }
 
