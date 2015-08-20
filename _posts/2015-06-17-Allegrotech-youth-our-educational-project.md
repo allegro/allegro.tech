@@ -6,7 +6,7 @@ tags: [education, coding, infrastructure, web developing]
 ---
 
 The pace of today’s world seems to be getting faster and faster. Trends, technologies, requirements and possibilities change in a blink of an eye. When I graduated from [the Complex of Mechanical, Electrical and Electronic Schools in Toruń (ZSMEiE)](http://www.zsmeie.torun.pl) 7 years ago,
-I knew that one day I would work on the largest projects at [Allegro Group](http://allegrotech.io) as well as I know that many others Students don’t have any vision of their future role in their own life.
+I knew that one day I would work on the largest projects at [Allegro Group](http://allegro.tech) as well as I know that many others Students don’t have any vision of their future role in their own life.
 After almost 4 years of my career I decided to share my experience with people who face the same choice
 I faced 7 years ago.
 

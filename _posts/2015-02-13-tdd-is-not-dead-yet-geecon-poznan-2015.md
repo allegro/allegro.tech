@@ -5,7 +5,7 @@ author: ewa.bugajska
 tags: [tdd, geecon]
 ---
 On January 30<sup>th</sup> we made a visit to [GeeCon TDD](http://2015.tdd.geecon.org/) to find out what’s going on in the world of TDD. Allegro was one of the sponsors
-of the event and our colleague [Piotr Betkier](http://allegrotech.io/authors/piotr.betkier/) appeared as a speaker. The theme of the conference was the broad subject of
+of the event and our colleague [Piotr Betkier](http://allegro.tech/authors/piotr.betkier/) appeared as a speaker. The theme of the conference was the broad subject of
 software testing and TDD. The question for the conference to answer was “Is TDD dead?”. The major stars who came to Poznań
 were Nat Pryce and Steve Freeman, authors of the book [“Growing Object-oriented Software, Guided by Tests”](http://www.growing-object-oriented-software.com/).
 
@@ -85,7 +85,7 @@ Our colleague Piotr Betkier presented the features of [Spock](http://docs.spockf
 that the tests written in Groovy and Spock are clear and simple. Reading tests written in Spock is very similar to reading a
 text in natural language sentence by sentence, like a book. The code presented during this talk is available at [Piotr’s github](https://github.com/pbetkier/spock-demo).
 
-Marcin Zajaczkowski in his lecture “Java 8 brings power to testing” presented how Java 8 supports testing. [Java 8](http://allegrotech.io/How-to-migrate-to-Java-8.html) provides
+Marcin Zajaczkowski in his lecture “Java 8 brings power to testing” presented how Java 8 supports testing. [Java 8](http://allegro.tech/How-to-migrate-to-Java-8.html) provides
 fields extraction, clear and verbose error message and smart asynchronous call testing — no more `sleep()` in tests.
 
 The culmination of the all-day event was Nat Pryce’s lecture — “Lessons Learned Breaking the (TDD) Rules”. Nat Pryce talked

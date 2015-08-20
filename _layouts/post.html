@@ -7,12 +7,12 @@ comments: true
         <div class="content">
             <time class="entry-date" datetime="{{ page.date}}"><span>{{ page.date | date: "<strong>%b %-d</strong> %Y" }}</span>
             </time>
-            <h1 class="post-title">{{ page.title }}</h1>
+            <h1 class="post-title">{{site.title}} - {{ page.title }}</h1>
 
             <div class="post-meta">
                 <ul class="breadcrumb">
                     <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                        <a href="/" itemprop="url"><span itemprop="title">Allegro Tech Blog</span></a>
+                        <a href="/" itemprop="url"><span itemprop="title">allegro.tech blog</span></a>
                     </li>
                     <li class="authors" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
                         {% for author in page.author %}

@@ -31,8 +31,8 @@ Things not covered by this article (but worth further reading):
 
 * [Richardson Maturity Model](http://martinfowler.com/articles/richardsonMaturityModel.html)
 * [API Versioning and custom media types](http://pivotallabs.com/api-versioning/)
-* [Asynchronous operations](http://allegrotech.io/async-rest.html)
-* [Testing RESTful services](http://allegrotech.io/testing-restful-service-and-clients.html)
+* [Asynchronous operations](http://allegro.tech/async-rest.html)
+* [Testing RESTful services](http://allegro.tech/testing-restful-service-and-clients.html)
 
 ###Naming conventions
 

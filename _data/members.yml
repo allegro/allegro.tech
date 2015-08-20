@@ -11,6 +11,7 @@ piotr.orlowski:
 adam.dubiel:
     name: Adam Dubiel
     bio: Adam is the library guy - both when it comes to books and designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. In Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier.
+    twitter: dubieladam
 
 rafal.glowinski:
     name: Rafał Głowiński
@@ -22,7 +23,7 @@ michal.kosmulski:
 
 bartosz.walacik:
     name: Bartosz Walacik
-    bio: A Software Craftsman with 15+ years of professional experience. He focused on lightweight and modern technologies around JVM. At Allegro, he works as a development team leader, delivering marketing intelligence solutions. [JaVers](http://javers.org) project lead. Spock advocate. Lately, editor in chief of [allegrotech.io/blog](http://allegrotech.io/blog).
+    bio: A Software Craftsman with 15+ years of professional experience. He focused on lightweight and modern technologies around JVM. At Allegro, he works as a development team leader, delivering marketing intelligence solutions. [JaVers](http://javers.org) project lead. Spock advocate. Lately, editor in chief of [allegro.tech/blog](http://allegro.tech/blog).
     twitter: bartoszwalacik
 
 andrzej.winnicki:
@@ -226,9 +227,25 @@ michal.tydryszewski:
     name: Michał Tydryszewski
     bio: Michał is a senior software engineer with four years of professional experience. He believes that being pragmatic and thinking-while-doing is the key to every success.
 
+michal.karykowski:
+    name: Michał Karykowski
+    bio: A software developer with 8 years of professional experience. At Allegro Group since 2012. His family calls him a workaholic.
+
+patryk.krawaczynski:
+    name: Patryk Krawaczyński
+    bio: Patryk is a System Engineer with 6+ years of experience in the web hosting industry. Equally comfortable with both frontend and backend technologies. He likes to focus on solving problems and performance issues. In his free time [NFsec](https://nfsec.pl) editor. At Allegro Group since 2011.
+
+krzysztof.muzalewski:
+    name: Krzysztof Muzalewski
+    bio: Front-end enthusiast, HTML5/CSS3 and JavaScript passionate. He believes that esthetics and UX are as important as coding itself. A member of several teams developing portals for Allegro Group. At the moment he's deeply involved into website optimization for desktop and mobile.
+
 szymon.jasinski:
     name: Szymon Jasiński
     bio: Szymon is a clarinet player by education and a systems engineer by profession. At Allegro Group since 2013.
+
+marcin.kuthan:
+    name: Marcin Kuthan
+    bio: Marcin is a Big Data engineer working at Allegro Group since 2014. He genuinely likes programming, problem solving and learning new trends in software methodologies, tools and languages.
 
 mateusz.sulima:
     name: Mateusz Sulima

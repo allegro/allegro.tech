@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'socicon';
+    font-style: normal;
+    font-weight: 400;
+    src: local('socicon'),
+    url(../font/socicon/font/socicon.woff2) format('woff2'),
+    url(../font/socicon/font/socicon.woff) format('woff'),
+    url(../font/socicon/font/socicon.ttf) format('truetype'),
+    url(../font/socicon/font/socicon.svg#socicon) format('svg');
+    text-transform: initial;
+}
+
 html, body, ul, li, .site-header h1, .site-header p {
     padding: 0;
     margin: 0;
@@ -10,9 +22,45 @@ html {
 body {
     background: #fff;
     font-family: Roboto, Arial, sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.6em;
     line-height: 1.5;
     color: #333;
+}
+
+.socicon {
+    position: relative;
+    top: -3px;
+    display: inline-block;
+    font-family: 'socicon';
+    font-style: normal;
+    font-weight: normal;
+    font-size:2.4rem;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    color:#bbb;
+}
+.socicon:empty{
+    width: 1em;
+}
+
+.socicon-twitter:before { content: "a"; }
+.socicon-facebook:before { content: "b"; }
+.socicon-google:before { content: "c"; }
+.socicon-github:before { content: "Q"; }
+.socicon-rss:before { content: ","; }
+.socicon-slideshare:before { content: "8"; }
+.socicon-meetup:before { content: "]"; }
+.socicon-mail:before { content: "@"; }
+
+.icon-link:hover .socicon {
+    opacity:.8;
+}
+
+.icon-link-text {
+    position: absolute;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
 }
 
 .content {
@@ -49,7 +97,7 @@ html, body {
     padding: 10px 0 0;
 }
 
-@media all and (min-width: 420px) {
+@media all and (min-width: 760px) {
     .site-nav {
         float: right;
         padding: 5px 0;
@@ -206,6 +254,11 @@ html, body {
     background-color: #90aaf4
 }
 
+.repos-box5 a {
+    background-color: #90aaf4
+}
+
+
 .repos-box a:hover,
 .repos-box a:focus {
     background-size: 100%;
@@ -275,12 +328,16 @@ html, body {
 }
 
 .site-footer .site-title {
-    margin: 8px 1em;
+    margin: 7px 1em;
     display: block;
 }
 
+.site-footer .find-us {
+	margin: 0px 0.1em;
+}
+
 .site-footer .site-title img {
-    height: 24px;
+    height: 22px;
     width: 72px;
     vertical-align: middle;
 }
@@ -326,13 +383,6 @@ html, body {
 }
 
 @media all and (min-width: 760px) {
-    .github-icon-svg,
-    .twitter-icon-svg,
-    .rss-icon-svg {
-        width: 32px;
-        height: 32px;
-    }
-
     .site-footer {
         text-align: right;
     }
@@ -521,6 +571,12 @@ html, body {
 
 .post-author-list li:last-child {
     border: 0;
+}
+
+@media all and (min-width: 420px) {
+    .post-author p {
+        margin-left: 125px;
+    }
 }
 
 .post-author {
@@ -772,7 +828,7 @@ html, body {
 /* banner */
 
 .banner {
-    background: url("/img/banner/brain-bg.jpg") repeat-x;
+    background: #2f292b;
     overflow: hidden;
 }
 
@@ -844,3 +900,4 @@ html, body {
 .highlight .vg { color: #008080 } /* Name.Variable.Global */
 .highlight .vi { color: #008080 } /* Name.Variable.Instance */
 .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+
