@@ -4,9 +4,9 @@ title: Introducing Slinger - deep linking library for Android
 author: krzysztof.kocel
 ---
 
-## Problem
-
-Consider you are an Android application developer. You created an application for your product and you would like to enable your users browse content of your product using mobile app. If a product website has its addresses organized as resources it's easy, problem comes when there is no clear distinction between resources since they can be SEO friendly. The reason why handling such links in Android is hard is that intent-filter mechanism is very limited. 
+Consider you are an Android application developer. You created a mobile application for your website and you would like to enable your 
+users to browse content of your website using a mobile app. It’s easy if a website uses RESTful guidelines for creating URLs. 
+Problem comes when a website uses SEO friendly URLs. Handling such links is hard because regular expression mechanism in Android manifest is flawed.
 
 Suppose you want to support links in such format: `http://www.example.com/123-product-and-some-product-description-in-url.html`
 
@@ -29,13 +29,14 @@ Pretty easy, huh?
 
 But let's say that we want to handle links in following format: `http://www.example.com/friendly-yet-changing-title-t123.html`
 
-Using `android:pathPattern` won't help since it's very limited and can't handle more complex patterns.
+Using `android:pathPattern` won't help since it has very limited functionality and can't handle more complex patterns.
 
 ## Solution
 
-That's why Slinger was created.
+Slinger was created to address such situations.
 
-Slinger is a simple library that captures all the links within a domain and redirects them to corresponding parts of mobile application.
+Slinger is a simple library that captures all the links within a domain and redirects them to corresponding parts of mobile 
+application.
 
 Here is conceptual diagram that shows how Slinger works:
 
@@ -45,8 +46,26 @@ Here is conceptual diagram that shows how Slinger works:
 
 ## Installation
 
-As Slinger user you need to create thin `Activity` handling all urls beneath your website and provide regular expression with corresponding `Intent` that will launch specific part of your application.
+As Slinger user you need to create thin `Activity` handling all urls beneath your website and provide regular expression with 
+corresponding `Intent` that will launch specific part of your application.
 
+At the beginning you declare `Activity` that will be handling all Urls beneath your domain:
+```xml
+        <activity android:name="com.example.MySlingerRoutingActivity ">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="http"
+                    android:host="www.example.com"
+                    android:pathPattern="/.*" />
+            </intent-filter>
+        </activity>
+```
+
+Then you create apropriate rules that will redirect Url to concrete `Activity`:
 ```java
 public class MySlingerRoutingActivity {
 
@@ -69,4 +88,4 @@ You can provide as many `RedirectRules` as you wish. When url doesn't match any 
 
 ## Conclusion
 
-If your website has friendly urls and you are tired of limitations of intent filters then try Slinger!
+If your website has friendly urls and you are tired of limitations of intent filters then try [Slinger](https://github.com/allegro/slinger)!
