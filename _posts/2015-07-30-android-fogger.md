@@ -27,7 +27,7 @@ quite different.
 There is no way to blur some part of the screen. So at first the library creates a screenshot of the
 screen and blurs it. When the blurred image is ready, it is attached as a part of the screen, just under the element which will 
 have the blurred background (eg. drawer or dialog window). Finally the image is shown with animation, that simulates fluent
-blurring process. Thus after all the view hierarhy has one more layer at the top of all yours view and it simulates dynamic blurring process.
+blurring process. Thus after all the view hierarchy has one more layer at the top of all your views which simulates dynamic blurring process.
 
 It looks pretty simple and clear, so where is the challenge? Time. Everything must be done fast enough to look smooth.
 The most demanding situation occurs when user interacts with a drawer. Background blurring must be directly proportional
