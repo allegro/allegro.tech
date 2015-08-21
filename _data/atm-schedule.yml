@@ -32,7 +32,7 @@ item04:
     date: '2015-09-14'
     timeStart: '11:10'
     timeEnd: '11:45'
-    abstract: 'During the prezentation we answer some questions:<br /><ol><li>What is Data Center and What is going on</li><li>What is the function of the structure Alllegro Group</li><li>How look online Data Center GA and how many have DC (DC in figures)</li><li>What technologies we use</li><li>What systems we use to manage Data Center</li><li>Protection Data Center and key elements</li><li>Who is the section Data Center Operation</li></ol>'
+    abstract: 'During the presentation we will answer these questions:<br /><ol><li>What is a Data Center and what is going on inside it</li><li>What is the structure of Allegro Group</li><li>What does an online Data Center of Allegro Group look like and some figures about our DC</li><li>What technologies we use</li><li>What systems we use to manage the Data Centers</li><li>Key elements of Data Center protection</li><li>Who is the Data Center Operation section</li></ol>'
 
 item05:
     title: Coffee break
@@ -62,7 +62,7 @@ item08:
     date: '2015-09-14'
     timeStart: '13:10'
     timeEnd: '13:45'
-    abstract: 'Forecasting future has never been as easy as today. Nowadays we gather more data than even before and there are planty of machine learning algorithms implemented that work out of the box. Apache Spark is perfect example of those. In the presentation we show a live demo on how to build an efficient and accurate model of machine learning that uses our Hadoop infrastructure.'
+    abstract: 'Forecasting future has never been as easy as today. Nowadays we gather more data than even before and there are plenty of machine learning algorithms implemented that work out of the box. Apache Spark is a perfect example of those. In the presentation we show a live demo on how to build an efficient and accurate model of machine learning that uses our Hadoop infrastructure.'
 
 item09:
     title: Lunch
@@ -114,7 +114,7 @@ item15:
     date: '2015-09-14'
     timeStart: '17:05'
     timeEnd: '17:40'
-    abstract: 'Apache Spark is a distributed data processing platform. It allows effective implementation of iterative algorithms thus removing one of the constraints of map/reduce paradigm. In this talk I will share my experience with Spark Streaming used to process stream of Allegro users'' activities. I will also answer questions like: how to achieve required level of fault tolerance, is it possible to get exactly-once delivery guarantee, how to ensure reliable processing in face of latency spikes, how to deal with stateful processing, how and what to monitor on the YARN cluster, what configuration parameters are important and what alternative solutions we should consider.'
+    abstract: 'Apache Spark is a distributed data processing platform. It allows effective implementation of iterative algorithms thus removing one of the constraints of map/reduce paradigm. In this talk I will share my experience with Spark Streaming used to process the stream of Allegro users'' activities. I will also answer questions like: how to achieve required level of fault tolerance, is it possible to get exactly-once delivery guarantee, how to ensure reliable processing in face of latency spikes, how to deal with stateful processing, how and what to monitor on the YARN cluster, what configuration parameters are important and what alternative solutions we should consider.'
 
 item16:
     title: Every millisecond counts
