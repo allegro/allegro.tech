@@ -71,10 +71,11 @@ At the beginning you declare `Activity` that will be handling all URLs within yo
 Then you create appropriate rules that redirect URL to concrete `Activity`:
 
 ```java
+import pl.allegro.android.slinger.SlingerActivity;
 import pl.allegro.android.slinger.resolver.DefaultIntentResolver;
 import pl.allegro.android.slinger.resolver.RedirectRule;
 
-public class MySlingerRoutingActivity {
+public class MySlingerRoutingActivity extends SlingerActivity {
 
     ...
 
