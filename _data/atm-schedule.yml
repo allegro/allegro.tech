@@ -32,7 +32,7 @@ item04:
     date: '2015-09-14'
     timeStart: '11:10'
     timeEnd: '11:45'
-    abstract: TBA
+    abstract: 'During the presentation we will answer these questions:<br /><ol><li>What is a Data Center and what is going on inside it</li><li>What is the structure of Allegro Group</li><li>What does an online Data Center of Allegro Group look like and some figures about our DC</li><li>What technologies we use</li><li>What systems we use to manage the Data Centers</li><li>Key elements of Data Center protection</li><li>Who is the Data Center Operation section</li></ol>'
 
 item05:
     title: Coffee break
@@ -62,7 +62,7 @@ item08:
     date: '2015-09-14'
     timeStart: '13:10'
     timeEnd: '13:45'
-    abstract: 'TBD'
+    abstract: 'Forecasting future has never been as easy as today. Nowadays we gather more data than even before and there are plenty of machine learning algorithms implemented that work out of the box. Apache Spark is a perfect example of those. In the presentation we show a live demo on how to build an efficient and accurate model of machine learning that uses our Hadoop infrastructure.'
 
 item09:
     title: Lunch
@@ -92,7 +92,7 @@ item12:
     date: '2015-09-14'
     timeStart: '15:40'
     timeEnd: '16:15'
-    abstract: 'TBD'
+    abstract: 'Consumer Driven Contract (CDC) testing are usually mentioned as one of the solutions that might be used for testing microservices. We make the assumption that service interaction is based on light contracts and adhering to them assures that service remains interoperable. We will investigate how this approach works in practice by showing some examples of how this change in behaviour is implemented using various tools supporting Consumer Driven Contracts. We will compare the experience of using CDC with a different approach to integration testing, in which with support of some aliitional tooling we are able to test all the changes in production without any side-effect to end-users.'
 
 item13:
     title: Coffee break
@@ -114,7 +114,7 @@ item15:
     date: '2015-09-14'
     timeStart: '17:05'
     timeEnd: '17:40'
-    abstract: 'TBD'
+    abstract: 'Apache Spark is a distributed data processing platform. It allows effective implementation of iterative algorithms thus removing one of the constraints of map/reduce paradigm. In this talk I will share my experience with Spark Streaming used to process the stream of Allegro users'' activities. I will also answer questions like: how to achieve required level of fault tolerance, is it possible to get exactly-once delivery guarantee, how to ensure reliable processing in face of latency spikes, how to deal with stateful processing, how and what to monitor on the YARN cluster, what configuration parameters are important and what alternative solutions we should consider.'
 
 item16:
     title: Every millisecond counts
