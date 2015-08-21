@@ -21,7 +21,7 @@ In `AndroidManifest.xml` you define:
     <category android:name="android.intent.category.BROWSABLE" />
 
     <data android:host="www.example.com"
-          android:pathPrefix=".*-product-.*/.html"
+          android:pathPattern=".*-product-.*/.html"
           android:scheme="http" />
 </intent-filter>
 ```
@@ -30,7 +30,7 @@ Pretty easy, huh?
 
 But let’s say that we want to handle links in the following format:
 
-`http://www.example.com/{friendly-yet-changing-title}-t-{product-id}.html`
+`http://www.example.com/{friendly-yet-changing-title}-t{product-id}.html`
 
 Using `android:pathPattern` attribute won't help since it has very limited functionality and can’t handle more complex patterns.
 
@@ -71,6 +71,9 @@ At the beginning you declare `Activity` that will be handling all URLs within yo
 Then you create appropriate rules that redirect URL to concrete `Activity`:
 
 ```java
+import pl.allegro.android.slinger.resolver.DefaultIntentResolver;
+import pl.allegro.android.slinger.resolver.RedirectRule;
+
 public class MySlingerRoutingActivity {
 
     ...
