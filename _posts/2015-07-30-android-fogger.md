@@ -11,7 +11,7 @@ no ready solution for all UI components. That’s why I wrote the [Fogger](https
 It does not require any complicated setup and has almost no effect on your app architecture. So it is simple to use
 even if your product is already on the market. Here is some showcase:
 
-![sample](/img/articles/2015-07-30/sample.gif)
+<iframe height="315" width="420" src="https://www.youtube.com/embed/QqfhN5deSIU?rel=0" frameborder="0" allowfullscreen class="youtube_iframe"></iframe>
 
 If you want to try it yourself, check out the 
 [example app](https://play.google.com/store/apps/details?id=pl.allegro.foggerexample) on Google Play.
@@ -22,7 +22,7 @@ The library allows to blur background under drawer, dialogs or context menu. Mec
 blurred background to app’s UI components looks almost the same in all three cases. Differences are connected only
 with various life cycles of UI components and the fact that even in clean Android opening a drawer and a dialog looks
 quite different. 
-![schema](/img/articles/2015-07-30/schema.png)
+![schema](/img/articles/2015-07-30-android-fogger/schema.png)
 
 There is no way to blur some part of the screen. So at first the library creates a screenshot of the
 screen and blurs it. When the blurred image is ready, it is attached as a part of the screen, just under the element which will 
