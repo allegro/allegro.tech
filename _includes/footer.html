@@ -1,5 +1,8 @@
 <footer class="site-footer">
-    <div class="content">
+    <div class="content" itemscope itemtype="http://schema.org/Organization">
+		<link itemprop="url" href="{{ site.url }}" /> 
+		<link itemprop="logo" href="{{ site.url }}/img/logo-allegro-tech.png" /> 
+
         <ul>
             <li class="site-title"><span>Proudly built by <img src="/img/logo-allegro-tech.svg" alt="allegro.tech blog"/> engineers</span></li>
 			<li class="find-us"><span>Follow us:</span></li>
@@ -23,42 +26,42 @@
             {% endif %}
 
             {% if site.github_username %}
-            <li><a class="icon-link" href="https://github.com/{{ site.github_username }}" title="Github">
+            <li><a itemprop="sameAs" class="icon-link" href="https://github.com/{{ site.github_username }}" title="Github">
                 <span class="socicon socicon-github"></span>
                 <span class="icon-link-text">Github</span>
             </a></li>
             {% endif %}
 
             {% if site.twitter_username %}
-            <li><a class="icon-link" href="https://twitter.com/{{ site.twitter_username }}" title="Twitter">
+            <li><a itemprop="sameAs" class="icon-link" href="https://twitter.com/{{ site.twitter_username }}" title="Twitter">
                 <span class="socicon socicon-twitter"></span>
                 <span class="icon-link-text">Twitter</span>
             </a></li>
             {% endif %}
 
             {% if site.facebook_username %}
-            <li><a class="icon-link" href="http://facebook.com/{{ site.facebook_username }}" title="Facebook">
+            <li><a itemprop="sameAs" class="icon-link" href="http://facebook.com/{{ site.facebook_username }}" title="Facebook">
                 <span class="socicon socicon-facebook"></span>
                 <span class="icon-link-text">Facebook</span>
             </a></li>
             {% endif %}
 
             {% if site.google_plus_id %}
-            <li><a class="icon-link" href="https://plus.google.com/{{ site.google_plus_id }}" title="Google+">
+            <li><a itemprop="sameAs" class="icon-link" href="https://plus.google.com/{{ site.google_plus_id }}" title="Google+">
                 <span class="socicon socicon-google"></span>
                 <span class="icon-link-text">Google+</span>
             </a></li>
             {% endif %}
 
             {% if site.slideshare_username %}
-            <li><a class="icon-link" href="http://www.slideshare.net/{{ site.slideshare_username }}" title="Slideshare">
+            <li><a itemprop="sameAs" class="icon-link" href="http://www.slideshare.net/{{ site.slideshare_username }}" title="Slideshare">
                 <span class="socicon socicon-slideshare"></span>
                 <span class="icon-link-text">Slideshare</span>
             </a></li>
             {% endif %}
 
             {% if site.meetup_username %}
-            <li><a class="icon-link" href="http://meetup.com/{{ site.meetup_username }}" title="Meetup">
+            <li><a itemprop="sameAs" class="icon-link" href="http://meetup.com/{{ site.meetup_username }}" title="Meetup Group">
                 <span class="socicon socicon-meetup"></span>
                 <span class="icon-link-text">Meetup</span>
             </a></li>
