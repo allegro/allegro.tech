@@ -23,4 +23,29 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ '/css/style.css' | prepend: site.baseurl }}">
     <link rel="stylesheet" href="{{ '/css/atm.css' | prepend: site.baseurl }}">
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "Event",
+	  "name": "allegro.tech meeting v8",
+	  "description": "{{page.description}}",
+	  "startDate" : "2015-09-14T09:00",
+	  "url" : "http://allegro.tech/meeting",
+	  "location" : {
+		"@type" : "Place",
+		"sameAs" : "http://www.pgenarodowy.pl/",
+		"name" : "PGE Stadion Narodowy",
+		"address" : "aleja Poniatowskiego 1, 03-901 Warszawa"
+	  }
+	}
+	</script>
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "Organization",
+	  "name": "allegro.tech",
+	  "url": "{{site.url}}",
+	  "logo": "{{site.url}}/img/logo-allegro-tech.png"
+	}
+	</script>
 </head>
