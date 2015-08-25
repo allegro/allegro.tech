@@ -13,7 +13,7 @@
 	{% if page.title %}
     <meta name="twitter:creator" content="@AllegroTechBlog"/>
     <meta property="og:description" content="{{ page.excerpt | strip_html}}"/>
-    <meta property="article:author" content="{{ page.author }}"/>
+    <meta property="article:author" content="{{ page.author | join: ', ' }}"/>
     <meta property="article:publisher" content="https://www.facebook.com/allegro.tech"/>
     {% endif %}
 
