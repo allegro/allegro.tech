@@ -45,7 +45,7 @@ Since we started using VaaS on a broader scale in Spring 2014, the most repetiti
 boring tasks related to VCL maintenance became history. If a member of a team responsible for a microservice needs to 
 add, remove or modify a back-end, they can do it themselves using VaaS GUI, or automate the task using VaaS API. This is 
 especially useful in an [SOA](https://en.wikipedia.org/wiki/Service-oriented_architecture) environment.
-[Allegro](http://allegro.pl) consists of very many microservices. Each service utilizes physical servers, cloud
+[Allegro](http://allegro.pl) consists of very many microservices. Each microservice utilizes physical servers, cloud
 servers or [Docker](https://www.docker.com/) containers. The servers are grouped into directors (a collection of 
 back-ends). It would be a very difficult task to maintain a varnish VCL consisting of so many back-ends that come and go 
 so often (which is especially true for the cloud and Docker back-ends). This is why every team responsible for a 
