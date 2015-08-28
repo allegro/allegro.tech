@@ -10,9 +10,9 @@ piotr.orlowski:
 
 adam.dubiel:
     name: Adam Dubiel
-    bio: Adam is the library guy - both when it comes to books and designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. In Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier.
+    bio: Adam is the library guy, who loves designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. In Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier, the most significant one being [Hermes](http://hermes.allegro.tech/).
     twitter: dubieladam
-    
+
 rafal.glowinski:
     name: Rafał Głowiński
     bio: Rafał is an experienced software developer who has spent most of his career working in Java and related technologies. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis. At Allegro, he leads a software development team delivering solutions for the financial department.
@@ -41,7 +41,7 @@ jaroslaw.grabowski:
 
 krzysztof.kocel:
     name: Krzysztof Kocel
-    bio: Krzysztof works at Allegro Group since 2012. He is interested in mobile security and reducing data usage. 
+    bio: Krzysztof works at Allegro Group since 2012. He is interested in mobile security and reducing data usage.
     github: kkocel
 
 mateusz.gajewski:
@@ -247,7 +247,7 @@ szymon.jasinski:
 
 pawel.byszewski:
     name: Paweł Byszewski
-    bio: A software engineer passionate with mobile technologies, in particular interested in security. He believes that quality is key to long term success. 
+    bio: A software engineer passionate with mobile technologies, in particular interested in security. He believes that quality is key to long term success.
     twitter: PaweByszewski
     github: pawelByszewski
 
