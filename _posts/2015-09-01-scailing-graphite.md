@@ -6,7 +6,7 @@ tags: [metrics, graphite, carbon]
 ---
 
 Switching from monolith to microservices requires very solid technical ecosystem. One of the most crucial subsystems is
-monitoring. But for monitoring to work, you need data to monitor. At Allegro we decided to use
+monitoring. But for monitoring to work, you need data to monitor. At Allegro, we decided to use
 [Graphite](https://github.com/graphite-project) as metrics storage and build our monitoring ecosystem around tools
 that integrate with it.
 
@@ -14,7 +14,7 @@ This post is a concrete, technical guide on how to setup scalable and fault-tole
 
 ### What is Graphite?
 
-Graphite is a top-level name for bunch of components that add up to fully functional metrics storage with advanced
+Graphite is a top-level name for a bunch of components that add up to fully functional metrics storage with advanced
 query language. The architecture is API-oriented with interchangeable elements. Graphite components are:
 
 * graphite-web - end user API and graphical interface, includes powerful query and metric processing language
@@ -30,7 +30,7 @@ the scope of this blogpost.
 ### Our scale
 
 We first deployed Graphite a year ago, in August 2014. It has been growing rapidly since: during last half a year
-(from February 2015 till August 2015) we tripled amount of gathered metrics: from 1.000.000 metrics/minute to 3.000.000
+(from February 2015 till August 2015) we tripled amount of gathered metrics: from 1,000,000 metrics/minute to 3,000,000
 metrics/minute and the demand is still growing.
 
 ![Traffic in last 6 months](img/articles/2015-09-01-scailing-graphite/graphite-traffic.png)
@@ -38,7 +38,7 @@ metrics/minute and the demand is still growing.
 ### Why cloud?
 
 When we started working with Graphite there was a lot of discussion whether we should invest in baremetal machines or
-stick with our private OpenStack based cloud. Most of discussions about Graphite on the Internet revolved around
+stick with our private [OpenStack](https://www.openstack.org/) based cloud. Most of discussions about Graphite on the Internet revolved around
 performance bottlenecks on some huge metal machines with sick amounts of CPUs and RAM. Since we would hit the wall sooner
 or later, we decided to create Graphite deployment that would scale horizontally, and cloud seemed like a good (and
 cheap) place to start.
@@ -53,14 +53,14 @@ team of great engineers sometimes it's better to deliver fast and adopt to the s
 
 ### Getting started
 
-Graphite getting started architecture is pretty solid for single team/project. Actually, it did quite well for a hundred
+Graphite "getting started" architecture is pretty solid for single team/project. Actually, it did quite well for a hundred
 of microservices pushing 500k metrics/minute. It assumes whole Graphite setup is working on a single machine – relay,
 cache and the database itself.
 
 ![Getting started architecture](img/articles/2015-09-01-scailing-graphite/graphite-architecture-1.png)
 
 
-Of course fault tolerance was what we looked for from the very beginning, thus all the data was written to two hosts.
+Of course, we kept fault tolerance as a priority from the very beginning, thus all the data was written to two hosts.
 Those two hosts needed to know about each other to achieve data duplication (load balancer was just forwarding, not
 mirroring the traffic).
 
@@ -115,7 +115,7 @@ destinations = 192.168.0.3:2004, 192.168.0.4:2004
 
 [default]
 default = true
-#              sktats-100         skystats-200
+#              stats-100          stats-200
 destinations = 192.168.0.10:2004, 192.168.0.11:2004
 ```
 
@@ -138,7 +138,7 @@ CLUSTER_SERVERS = [
 ]
 ```
 
-The order of servers **does matter**. graphite-web sends requests to all of them and first query that returns a match is
+The order of servers **does matter**. Graphite-web sends requests to all of them and first query that returns a match is
 used. Thus if you happen to have same metrics on two shards (i.e. during migration period) it's good practice to put
 the old host after the preferred one.
 
@@ -153,13 +153,13 @@ patterns (data resolution and retention time) kept in `storage-schemas.conf`.
 
 We have been able to scale our Graphite cluster horizontally for the past few months using this sharded architecture.
 Currently we hit 3mln metrics/minute mark on 10 shards and the volume is still growing. Single node in cluster should
-not accept more than 600k - 700k metrics/minute, as behind this point data tends to get corrupted or lost.
+not accept more than 600k – 700k metrics/minute, as behind this point data tends to get corrupted or lost.
 Of course these numbers apply to our cloud infrastructure, so your milage will vary.
 
 ### Limitations
 
 Although scalable, this approach is not ideal. The biggest issue is query response time. Under normal conditions it
-behaves quite well (avg query response time at 0.5 second), but if any  hosts registered in carbon-relay are down, all
+behaves quite well (avg query response time at 0.5 second), but if any hosts registered in carbon-relay are down, all
 queries suffer (we observed avg response time increase to 3 seconds). Since graphite does not have any tools that would
 allow on dynamic change in configuration, this means all relays need to be reconfigured to exclude dead host until it gets repaired.
 
