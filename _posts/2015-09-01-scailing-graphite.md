@@ -154,7 +154,7 @@ patterns (data resolution and retention time) kept in `storage-schemas.conf`.
 We have been able to scale our Graphite cluster horizontally for the past few months using this sharded architecture.
 Currently we hit 3mln metrics/minute mark on 10 shards and the volume is still growing. Single node in cluster should
 not accept more than 600k – 700k metrics/minute, as behind this point data tends to get corrupted or lost.
-Of course these numbers apply to our cloud infrastructure, so your milage will vary.
+Of course these numbers apply to our cloud infrastructure, so your mileage will vary.
 
 ### Limitations
 
