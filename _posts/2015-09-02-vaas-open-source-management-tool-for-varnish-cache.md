@@ -61,11 +61,11 @@ You can download VaaS source code from [GitHub](https://github.com/allegro/vaas)
 VaaS allows you to choose between Varnish 3 and Varnish 4 VCL templates.
 
 ### How to use it
-VaaS documentation is available in [Read The Docs](https://rtd.allegrogroup.com/docs/vaas/en/latest/). There, you can
+VaaS documentation is available in [Read The Docs](http://vaas.readthedocs.org/en/latest/). There, you can
 find instructions on how to set VaaS up and how to use it. Since setting up VaaS can be quite a demanding task (you need
 at least one Varnish server, at least one sample back-end, a database server and a VaaS application server), we have
 created a test environment that you can use to easily familiarize yourself with VaaS. We call it [VaaS in
-Vagrant](https://rtd.allegrogroup.com/docs/vaas/en/latest/quick-start/vagrant/).
+Vagrant](http://vaas.readthedocs.org/en/latest/quick-start/vagrant/).
 
 ### We count on your input
 We believe VaaS is mature enough to safely use it in production. However, the more people use VaaS, the greater chance
