@@ -24,7 +24,7 @@ separate entities recorded in a database. Changes to back-ends and directors do 
 2. Varnish API is utilized to distribute VCLs synchronously accross the entire caching server farm. No separate agent
 process on each managed server is required, as opposed to [Varnish Administration
 Console](https://www.varnish-software.com/product/varnish-administration-console-0) (a part of Varnish Plus) and other
-Varnish configuration tools).
+Varnish configuration tools.
 3. VaaS utilizes the load balancer built into Varnish. Traffic is routed to directors basing on routing rules (e.g.
 URL). Each director distributes traffic to multiple identical back-ends using selected algorithm (round robin, random
 etc).
