@@ -19,7 +19,7 @@ And so we did. We started with getting to know what Kanban meant to each of us s
 understanding. Some of the thoughts were: higher flexibility in terms of our approach to work, Work In Progress (WIP)
 limitations on Kanban board, delivering value faster for the Client, focusing on tasks rather than time-boxes or
 scope and, last but not least, Kanban being a perfect complement to Scrum. WIPs are limiting the maximum user stories that 
-can be in a partular state like “In testing”, “In Review” and so on.
+can be in a particular state like “In testing”, “In Review” and so on.
 
 
 Secondly, we discussed why we wanted to move to Kanban. Team’s answers were: we don’t have to think how much we have
@@ -63,9 +63,9 @@ had happened yet. We agreed to continue.
 In two weeks, the moment we’d all been waiting for (sort of) happened. We were to answer the question “Where are we 
 going with this?” thus we started checking:
 
-* **Happiness** — the Team prefered to work that way, there was a bit looser atmosphere and less time spent on planning (PO was 
+* **Happiness** — the Team preferred to work that way, there was a bit looser atmosphere and less time spent on planning (PO was 
 organising and prioritising the backlog so it reflected what was to be done) and trying to complete an increment in a given time. 
-The Team feelt it could come up with a better value for money, a more tweaked version of the task.
+The Team felt it could come up with a better value for money, a more tweaked version of the task.
 * **Feedback** — our stakeholders were pleased with the changes. The Team was more responsive and had more time to answer all queries 
 faster. Stakeholders were saying that they could test what was done on a regular basis and provide comments right away as opposed to 
 waiting for a Review.
@@ -102,12 +102,12 @@ on holidays so it did not make sense. We are keeping this technique for future r
 make some conclusions.
 
 Up till our final day of experiment we burned 72 story points — most of them in the second, two-week iteration. This gives an 
-avarage of 18 storypoints (sp) per week or 36 sp per two weeks. Below you can see our previous Scrum-only sprints.
+average of 18 storypoints (sp) per week or 36 sp per two weeks. Below you can see our previous Scrum-only sprints.
 
 ![alt text](/img/articles/2015-08-Scrum-ban-applied/2015-08-Scrum-ban-applied-storypoints.jpg)
 
 As can be seen above, stories were burned quite irregularly. Average from last three sprints was 18.67 sp and 22 from 
-last six sprints that happended over 3 months prior to the experiment.
+last six sprints that happened over 3 months prior to the experiment.
 
 Taking this into consideration, as well as our happiness and feedback from our stakeholders we decided to continue on 
 daily basis up till our formal deadline.
@@ -120,7 +120,7 @@ attention to in the future. We are also continuing to work this way till the end
 
 One of the things we should do but didn’t was to **inform stakeholders earlier** and ask if they are ready for such a change. 
 Here the switchover was simple and enhanced their experience. Nevertheless, there might be something we missed thus 
-the importance of an earlier dialogue. Also a regular “**checkpoint newesletter**”, right from the start, would be convenient 
+the importance of an earlier dialogue. Also a regular “**checkpoint newsletter**”, right from the start, would be convenient 
 for them to catch-up with our work and see the results within the timebox. Our Product Owner is going to undertake 
 this from now on. Additionally, we plan to hold a **review** for our stakeholders to recap the work from last month and make 
 further decisions about product clear.
@@ -136,7 +136,7 @@ architecture? Do we know where are we heading? How do we want to work with our b
 the team contribute to the work and plans being made? What about our own ideas?
 
 These questions are what we will need to work with when the project comes to an end. Answers to them are found in Scrum but not 
-necessairly in our version of Scrum-ban.
+necessarily in our version of Scrum-ban.
 
 We hope the conclusions from our experiment can be helpful for others, too. It would be great if you can share your thoughts or 
 any other experiments of your own with Scrum-ban.
