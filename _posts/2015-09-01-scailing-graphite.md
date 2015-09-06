@@ -10,17 +10,17 @@ monitoring. But for monitoring to work, you need data to monitor. At Allegro, we
 [Graphite](https://github.com/graphite-project) as metrics storage and build our monitoring ecosystem around tools
 that integrate with it.
 
-This post is a concrete, technical guide on how to setup scalable and fault-tolerant Graphite environment in Cloud.
+This post is a concrete, technical guide on how to setup scalable and fault-tolerant Graphite environment in the cloud.
 
 ### What is Graphite?
 
 Graphite is a top-level name for a bunch of components that add up to fully functional metrics storage with advanced
 query language. The architecture is API-oriented with interchangeable elements. Graphite components are:
 
-* graphite-web - end user API and graphical interface, includes powerful query and metric processing language
-* carbon-relay - metrics input API, capable of routing metrics between storage hosts
-* carbon-cache - persistent store abstraction
-* [whisper](https://github.com/graphite-project/whisper) - RRD-like time series database library
+* graphite-web: end user API and graphical interface, includes powerful query and metric processing language
+* carbon-relay: metrics input API, capable of routing metrics between storage hosts
+* carbon-cache: persistent store abstraction
+* [whisper](https://github.com/graphite-project/whisper): RRD-like time series database library
 
 There are other storage implementations that can be used instead of Whisper, but at the time of Graphite deployment in
 Allegro this was the most stable implementation. We are already experimenting with different stores, but that is outside
@@ -29,27 +29,31 @@ the scope of this blogpost.
 
 ### Our scale
 
-We first deployed Graphite a year ago, in August 2014. It has been growing rapidly since: during last half a year
-(from February 2015 till August 2015) we tripled amount of gathered metrics: from 1,000,000 metrics/minute to 3,000,000
-metrics/minute and the demand is still growing.
+We first deployed Graphite for microservices a year ago, in August 2014. It has been growing rapidly since: during last
+half a year (from February 2015 till August 2015) we tripled amount of gathered metrics: from 1,000,000 metrics/minute
+to 3,000,000 metrics/minute and the demand is still growing.
 
 ![Traffic in last 6 months](img/articles/2015-09-01-scailing-graphite/graphite-traffic.png)
+
+This volume of data came as a surprise at first . In comparison, metrics gathered from our old monolithic application
+deployed on hundreds of servers reaches 200,000 metrics/minute at most.
 
 ### Why cloud?
 
 When we started working with Graphite there was a lot of discussion whether we should invest in baremetal machines or
-stick with our private [OpenStack](https://www.openstack.org/) based cloud. Most of discussions about Graphite on the Internet revolved around
-performance bottlenecks on some huge metal machines with sick amounts of CPUs and RAM. Since we would hit the wall sooner
-or later, we decided to create Graphite deployment that would scale horizontally, and cloud seemed like a good (and
-cheap) place to start.
+stick with our private [OpenStack](https://www.openstack.org/) based cloud. Most of discussions about Graphite on the
+Internet revolved around performance bottlenecks on some huge metal machines with sick amounts of CPUs and RAM.
+Since we would hit the wall sooner or later, we decided to create Graphite deployment that would scale horizontally,
+and cloud seemed like a good (and cheap) place to start.
 
 ### Architecture
 
-As our Graphite deployment grew, we experimented with different approaches to
-architecture. Each of them was suitable at the time and gave us the capacity that we needed. Evolutionary approach
-meant that we could learn the tools at hand at steady pace and gave us the way to start up quickly. Of course hitting
-the transition points was bit more stressful, so was handling the clients and data migration. Having that in mind, with
-team of great engineers sometimes it's better to deliver fast and adopt to the situation as rules of the game change.
+As our Graphite deployment grew, we experimented with different approaches to architecture. Each of them was suitable at
+the time and gave us the capacity that we needed. Evolutionary approach meant that we could learn the tools at hand at
+steady pace and gave us the way to start up quickly. Of course hitting the transition points was bit more stressful,
+so was handling the clients and data migration. Having that in mind, with team of great engineers it's better to
+deliver fast and adopt to the situation as rules of the game change, than to spend months trying to grasp the unknown
+with plans and estimations only to be surprised by the production traffic.
 
 ### Getting started
 
@@ -65,7 +69,7 @@ Those two hosts needed to know about each other to achieve data duplication (loa
 mirroring the traffic).
 
 The first signs of problems showed when clients started reporting spotty graphs for otherwise continuous data. Quite
-soon afterwards came the problem with stability - Carbon cache process would crash every few hours sending up to an hour
+soon afterwards came the problem with stability – Carbon cache process would crash every few hours sending up to an hour
 worth of data to /dev/null. Why did this happen?
 
 Graphite, as any database system, relies heavily on disk performance. Carbon cache does it's best not to let every
@@ -92,7 +96,7 @@ The most important and interesting part was the change of architecture.
 We decided to split our single Graphite instance into multiple shards, each holding subset of client metrics. We started
 by estimating the traffic that each branch of metrics receives. Since Graphite does not provide any per-branch
 metrics, we used two simple tools: `du` and `ncdu` to estimate disk usage and how it changes over the time to select
-biggest clients that should eventually be migrated to own Carbon shards.
+the biggest clients that should eventually be migrated to own Carbon shards.
 
 ![Sharded architecture](img/articles/2015-09-01-scailing-graphite/graphite-architecture-2.png)
 
@@ -158,10 +162,19 @@ Of course these numbers apply to our cloud infrastructure, so your mileage will 
 
 ### Limitations
 
-Although scalable, this approach is not ideal. The biggest issue is query response time. Under normal conditions it
-behaves quite well (avg query response time at 0.5 second), but if any hosts registered in carbon-relay are down, all
-queries suffer (we observed avg response time increase to 3 seconds). Since graphite does not have any tools that would
-allow on dynamic change in configuration, this means all relays need to be reconfigured to exclude dead host until it gets repaired.
+Although scalable, this approach is not ideal: the biggest issue is query response time. This comes as a result of
+graphite-web remote query algorithm. Note, that in sharded architecture every single query gets translated to remote
+query. Since graphite-web does not know which cache node to ask, it sends queries to all of them,
+gathering results and choosing the most suitable ones. In our architecture this has two implications.
+
+First of all, adding more nodes will increase response time *a bit*. Only a pair of hosts holds data necessary to create
+a response, but fortunately local query on host that do not have matching data is fast.
+
+Second issue is much worse. Any malfunction of any cache node has devastating effect on overall query performance.
+This is because each query will wait for request to *bad cache* to timeout. In our case, average response time increases
+from 0.5 second to 3+ seconds. Not only clients have to wait much longer, but graphite-web threads are blocked and some of
+the clients might experience connection timeouts. Since graphite has no tools that would allow on dynamic change in
+configuration, reboot of all relay hosts is needed to exclude malfunctioning host from cluster until it gets repaired.
 
 ### Future
 
