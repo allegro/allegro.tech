@@ -5,12 +5,12 @@ author: adam.dubiel
 tags: [metrics, graphite, carbon]
 ---
 
-Switching from monolith to microservices requires very solid technical ecosystem. One of the most crucial subsystems is
+Switching from monolith to microservices requires a very solid technical ecosystem. One of the most crucial subsystems is
 monitoring. But for monitoring to work, you need data to monitor. At Allegro, we decided to use
-[Graphite](https://github.com/graphite-project) as metrics storage and build our monitoring ecosystem around tools
+[Graphite](https://github.com/graphite-project) as metrics storage and to build our monitoring ecosystem around tools
 that integrate with it.
 
-This post is a concrete, technical guide on how to setup scalable and fault-tolerant Graphite environment in the cloud.
+This post is a concrete, technical guide on how to setup a scalable and fault-tolerant Graphite environment in the cloud.
 
 ### What is Graphite?
 
@@ -20,9 +20,9 @@ query language. The architecture is API-oriented with interchangeable elements. 
 * graphite-web: end user API and graphical interface, includes powerful query and metric processing language
 * carbon-relay: metrics input API, capable of routing metrics between storage hosts
 * carbon-cache: persistent store abstraction
-* [whisper](https://github.com/graphite-project/whisper): RRD-like time series database library
+* [whisper](https://github.com/graphite-project/whisper): [Round Robin Database](http://oss.oetiker.ch/rrdtool/index.en.html)-like time series database library
 
-There are other storage implementations that can be used instead of Whisper, but at the time of Graphite deployment in
+There are other storage implementations that can be used instead of Whisper, but at the time of Graphite deployment at
 Allegro this was the most stable implementation. We are already experimenting with different stores, but that is outside
 the scope of this blogpost.
 
@@ -30,7 +30,7 @@ the scope of this blogpost.
 ### Our scale
 
 We first deployed Graphite for microservices a year ago, in August 2014. It has been growing rapidly since: during last
-half a year (from February 2015 till August 2015) we tripled amount of gathered metrics: from 1,000,000 metrics/minute
+half a year (from February 2015 till August 2015) we tripled the amount of gathered metrics: from 1,000,000 metrics/minute
 to 3,000,000 metrics/minute and the demand is still growing.
 
 ![Traffic in last 6 months](img/articles/2015-09-01-scailing-graphite/graphite-traffic.png)
@@ -57,7 +57,7 @@ with plans and estimations only to be surprised by the production traffic.
 
 ### Getting started
 
-Graphite "getting started" architecture is pretty solid for single team/project. Actually, it did quite well for a hundred
+Graphite "getting started" architecture is pretty solid for a single team/project. Actually, it did quite well for a hundred
 of microservices pushing 500k metrics/minute. It assumes whole Graphite setup is working on a single machine – relay,
 cache and the database itself.
 
@@ -65,16 +65,19 @@ cache and the database itself.
 
 
 Of course, we kept fault tolerance as a priority from the very beginning, thus all the data was written to two hosts.
-Those two hosts needed to know about each other to achieve data duplication (load balancer was just forwarding, not
+Those two hosts needed to know about each other in order to achieve data duplication (load balancer was just forwarding, not
 mirroring the traffic).
 
-The first signs of problems showed when clients started reporting spotty graphs for otherwise continuous data. Quite
-soon afterwards came the problem with stability – Carbon cache process would crash every few hours sending up to an hour
-worth of data to /dev/null. Why did this happen?
+The first signs of problems appeared when clients started reporting spotty graphs for otherwise continuous data.
 
-Graphite, as any database system, relies heavily on disk performance. Carbon cache does it's best not to let every
+![Example of spotty graph](img/articles/2015-09-01-scailing-graphite/graphite-spotty-graphs.png)
+
+Quite soon afterwards came the problem with stability – Carbon cache process would crash every few hour's sending up to
+an hour worth of data to /dev/null. Why was this happening?
+
+Graphite, as any database system, relies heavily on disk performance. Carbon cache does its best not to let every
 request cause write, batching the data before calling `whisper` updates. If Carbon does not write to disk immediately, it
-has to store the data in memory. Unfortunately Carbon configuration allows on specifying cache size only in number of
+has to store the data in memory. Unfortunately Carbon configuration allows specifying cache size only in number of
 metrics stored, which can not be easily translated to memory used. This, and our fear of losing metrics lead us to
 leaving cache size unbounded.
 
@@ -83,9 +86,10 @@ buffer and page cache at the top of it? Take a look at the image below:
 
 ![Memory usage on cache host](img/articles/2015-09-01-scailing-graphite/graphite-memory.png)
 
-Each fall of memory usage means Carbon process was killed by OutOfMemory killer. The volume of incoming metric traffic
-was too big for the hardware to keep up. When process crashed, the in-memory cache evaporated as well, meaning any
-metrics that were not written to disk yet got lost as well.
+Each drop in memory usage means Carbon process was killed by the
+[Out Of Memory Killer](http://www.oracle.com/technetwork/articles/servers-storage-dev/oom-killer-1911807.html).
+The volume of incoming metric traffic was too big for the hardware to keep up. When process crashed, the in-memory cache
+evaporated as well, meaning any metrics that were not written to disk yet got lost as well.
 
 ### Divide and conquer
 
@@ -93,10 +97,10 @@ At this point we had two options: get better hardware or change the architecture
 newly spawned host had 8GB of RAM (instead of 4GB) and used SSD drives that became available in our cloud shortly before.
 The most important and interesting part was the change of architecture.
 
-We decided to split our single Graphite instance into multiple shards, each holding subset of client metrics. We started
+We decided to split our single Graphite instance into multiple shards, each holding a subset of client metrics. We started
 by estimating the traffic that each branch of metrics receives. Since Graphite does not provide any per-branch
 metrics, we used two simple tools: `du` and `ncdu` to estimate disk usage and how it changes over the time to select
-the biggest clients that should eventually be migrated to own Carbon shards.
+the biggest clients that should eventually be migrated to their own Carbon shards.
 
 ![Sharded architecture](img/articles/2015-09-01-scailing-graphite/graphite-architecture-2.png)
 
@@ -150,30 +154,30 @@ the old host after the preferred one.
 
 Hosts which actually hold the metrics run carbon-cache and graphite-web processes. Their configuration is very simple
 though. None of them needs to know about any other nodes in cluster. Cache nodes know only about themselves and metrics
-they hold. Whole coordination effort lies on relay hosts. The only thing that might be customizable are storage
+they hold. Whole coordination effort relies on relay hosts. The only thing that might be customizable are storage
 patterns (data resolution and retention time) kept in `storage-schemas.conf`.
 
 ### Current state
 
 We have been able to scale our Graphite cluster horizontally for the past few months using this sharded architecture.
 Currently we hit 3mln metrics/minute mark on 10 shards and the volume is still growing. Single node in cluster should
-not accept more than 600k – 700k metrics/minute, as behind this point data tends to get corrupted or lost.
+not accept more than 600k – 700k metrics/minute, as beyond this point data tends to get corrupted or lost.
 Of course these numbers apply to our cloud infrastructure, so your mileage will vary.
 
 ### Limitations
 
 Although scalable, this approach is not ideal: the biggest issue is query response time. This comes as a result of
-graphite-web remote query algorithm. Note, that in sharded architecture every single query gets translated to remote
+graphite-web remote query algorithm. Note that in sharded architecture every single query gets translated to remote
 query. Since graphite-web does not know which cache node to ask, it sends queries to all of them,
 gathering results and choosing the most suitable ones. In our architecture this has two implications.
 
 First of all, adding more nodes will increase response time *a bit*. Only a pair of hosts holds data necessary to create
 a response, but fortunately local query on host that do not have matching data is fast.
 
-Second issue is much worse. Any malfunction of any cache node has devastating effect on overall query performance.
+Second issue is much worse. Any malfunction of any cache node has a devastating effect on overall query performance.
 This is because each query will wait for request to *bad cache* to timeout. In our case, average response time increases
 from 0.5 second to 3+ seconds. Not only clients have to wait much longer, but graphite-web threads are blocked and some of
-the clients might experience connection timeouts. Since graphite has no tools that would allow on dynamic change in
+the clients might experience connection timeouts. Since graphite has no tools that would allow dynamic change in
 configuration, reboot of all relay hosts is needed to exclude malfunctioning host from cluster until it gets repaired.
 
 ### Future
@@ -181,4 +185,4 @@ configuration, reboot of all relay hosts is needed to exclude malfunctioning hos
 Having Graphite as a working metric store, we are looking towards some other solutions, especially those supporting
 [Metrics 2.0](http://metrics20.org/). For now, we are routing existing metrics from Graphite to
 [KairosDB](https://github.com/kairosdb/kairosdb) to get better fault tolerance and recovery, since copying and merging
-Whisper files over the network is very tedious way to recover after single node failure.
+Whisper files over the network is a very tedious way to recover after single node failure.
