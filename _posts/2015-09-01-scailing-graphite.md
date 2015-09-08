@@ -92,7 +92,7 @@ The volume of incoming metric traffic was too big for the hardware to keep up. W
 evaporated as well, meaning any metrics that were not written to disk yet got lost as well.
 
 ### Divide and conquer
-
+``
 At this point we had two options: get better hardware or change the architecture. We actually decided to do both. Each
 newly spawned host had 8GB of RAM (instead of 4GB) and used SSD drives that became available in our cloud shortly before.
 The most important and interesting part was the change of architecture.
@@ -107,7 +107,7 @@ the biggest clients that should eventually be migrated to their own Carbon shard
 #### Relay
 
 Metrics entry point are Relay hosts. They are grouped together under single virtual IP behind a HaProxy load balancer.
-Relays run carbon-relay and graphite-web processes. Carbon relay is configured to route metrics to different hosts
+Relays run `carbon-relay` and `graphite-web` processes. Carbon relay is configured to route metrics to different hosts
 based on their path, as can be seen in `relay-rules.conf` file listed below:
 
 ```
@@ -135,7 +135,7 @@ DESTINATIONS = 192.168.0.1:2004, 192.168.0.2:2004,
     192.168.0.10:2004, 192.168.0.11:2004
 ```
 
-On the reading side, graphite-web needs to be configured so it knows where are all the shards that should be queried
+On the reading side, `graphite-web` needs to be configured so it knows where are all the shards that should be queried
 for metrics. This can be done in `local_settings.py`:
 
 ```
@@ -146,13 +146,13 @@ CLUSTER_SERVERS = [
 ]
 ```
 
-The order of servers **does matter**. Graphite-web sends requests to all of them and first query that returns a match is
+The order of servers **does matter**. `graphite-web` sends requests to all of them and first query that returns a match is
 used. Thus if you happen to have same metrics on two shards (i.e. during migration period) it's good practice to put
 the old host after the preferred one.
 
 #### Cache
 
-Hosts which actually hold the metrics run carbon-cache and graphite-web processes. Their configuration is very simple
+Hosts which actually hold the metrics run `carbon-cache` and `graphite-web` processes. Their configuration is very simple
 though. None of them needs to know about any other nodes in cluster. Cache nodes know only about themselves and metrics
 they hold. Whole coordination effort relies on relay hosts. The only thing that might be customizable are storage
 patterns (data resolution and retention time) kept in `storage-schemas.conf`.
@@ -167,8 +167,8 @@ Of course these numbers apply to our cloud infrastructure, so your mileage will 
 ### Limitations
 
 Although scalable, this approach is not ideal: the biggest issue is query response time. This comes as a result of
-graphite-web remote query algorithm. Note that in sharded architecture every single query gets translated to remote
-query. Since graphite-web does not know which cache node to ask, it sends queries to all of them,
+`graphite-web` remote query algorithm. Note that in sharded architecture every single query gets translated to remote
+query. Since `graphite-web` does not know which cache node to ask, it sends queries to all of them,
 gathering results and choosing the most suitable ones. In our architecture this has two implications.
 
 First of all, adding more nodes will increase response time *a bit*. Only a pair of hosts holds data necessary to create
@@ -176,7 +176,7 @@ a response, but fortunately local query on host that do not have matching data i
 
 Second issue is much worse. Any malfunction of any cache node has a devastating effect on overall query performance.
 This is because each query will wait for request to *bad cache* to timeout. In our case, average response time increases
-from 0.5 second to 3+ seconds. Not only clients have to wait much longer, but graphite-web threads are blocked and some of
+from 0.5 second to 3+ seconds. Not only clients have to wait much longer, but `graphite-web` threads are blocked and some of
 the clients might experience connection timeouts. Since graphite has no tools that would allow dynamic change in
 configuration, reboot of all relay hosts is needed to exclude malfunctioning host from cluster until it gets repaired.
 
