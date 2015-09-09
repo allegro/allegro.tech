@@ -1,0 +1,159 @@
+---
+---
+
+@import "_footer";
+
+.opensource-content {
+    background: #333 url("../img/opensource/bg-slider.jpg") no-repeat 50% 0;
+    background-size: contain;
+}
+
+
+.section-twitter > header {
+    background: #333;
+}
+
+@media all and (min-width: 320px) {
+    .section-twitter > header {
+        background: #545a61 url('../img/top-bg.jpg') no-repeat top center;
+    }
+}
+
+.section-twitter {
+    position: relative;
+}
+
+.section-twitter > header {
+    padding: 3em 0 1em;
+    color: #fff;
+    font-weight: 300;
+}
+
+.section-twitter section {
+    background-color: #f3f3f3;
+    padding: 2em 0;
+}
+
+@media all and (min-width: 480px) {
+    .section-twitter > header {
+        font-size: 2rem;
+    }
+}
+
+
+
+
+
+.repos-section {
+    display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.repos-box {
+    margin: 0 10px;
+    -webkit-flex: 1 1 200px;
+    flex: 1 1 200px;
+    border-radius: 5px;
+}
+
+.repos-box li {
+    color: #333;
+    margin: 15px 0;
+}
+
+.repos-box a {
+    color: inherit;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    background-size: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-size .3s ease-out;
+}
+
+.repos-box1 a {
+    background-color: #90d7f4;
+}
+
+.repos-box2 a {
+    background-color: #90f5d7
+}
+
+.repos-box3 a {
+    background-color: #82c7e4
+}
+
+.repos-box4 a {
+    background-color: #90aaf4
+}
+
+.repos-box5 a {
+    background-color: #90aaf4
+}
+
+
+.repos-box a:hover,
+.repos-box a:focus {
+    background-size: 100%;
+}
+
+.repos-box1 a:hover,
+.repos-box1 a:focus {
+    background-image: radial-gradient(rgba(167, 230, 255, 1), #90d7f4);
+}
+
+.repos-box2 a:hover,
+.repos-box2 a:focus {
+    background-image: radial-gradient(rgba(209, 255, 241, 1), #90f5d7);
+}
+
+.repos-box3 a:hover,
+.repos-box3 a:focus {
+    background-image: radial-gradient(rgba(147, 223, 255, 1), #82c7e4);
+}
+
+.repos-box4 a:hover,
+.repos-box4 a:focus {
+    background-image: radial-gradient(rgba(191, 208, 255, 1), #90aaf4);
+}
+
+.repos-box .star-gazers a {
+    padding: 5px 10px;
+}
+
+.repos-box > ul {
+    list-style: none;
+}
+
+.repo-box {
+    position: relative;
+    font-size: 1.8rem;
+}
+
+.repo-box > header {
+    max-width: 200px;
+}
+
+.repo-box > header:after {
+    content: '';
+    clear: both;
+    display: table;
+}
+
+.repo-box h4 {
+    margin: 0;
+}
+
+.star-gazers {
+    color: #555;
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.star-gazers a:before {
+    content: '★ ';
+    font-size: 150%;
+    line-height: 1;
+}
