@@ -6,7 +6,7 @@ tags: [java, scala, groovy, geb, selenium, webrdriver, testing, automated testin
 ---
 Today, in an age of great popularity of test automation, we can observe a growing number of different frameworks which
 allow us to write scripts and programs that simulate human actions performed on the website under test. The most popular
-solution is [Selenium](http://www.seleniumhq.org/docs/) WebDriver framework, which is compatible with majority of common languages.
+solution is [Selenium](http://www.seleniumhq.org/docs/) WebDriver framework, which is compatible with the majority of common languages.
 Broad compatibility is a big advantage of Selenium especially in cases when we have to write some tests integrated to
 our application project, because no matter in which language we write the application, Selenium probably has an API for
 that language too. But there are also situations, like writing a standalone test suite, when we can decide which
@@ -25,7 +25,7 @@ Selenium is a WebDriver-based framework which works with many browsers (Safari, 
 Firefox, different headless browsers, ...), operating systems, programming languages (C#, Groovy, Haskell, Java,
 JavaScript, Objective-C, Perl, PHP, Python, Ruby, Scala, ...) and their testing frameworks (NUnit, JUnit, TestNG, Behat,
 robot framework, RSpec, ...). Selenium allows opening the web browser of our choice automatically, going to chosen pages and
-interacting with them like &ldquo;reading the website&rdquo;, checking the title, clicking, writing, moving elements, checking
+interacting with them, like &ldquo;reading the website&rdquo;, checking the title, clicking, writing, moving elements, checking
 sources, clearing and setting cookies, etc. Java with JUnit (or TestNG) and Selenium library is the most common solution
 for web testing automation today.
 
@@ -38,7 +38,7 @@ started with the help of Play framework. On the other hand if you don&rsquo;t ne
 and can write a standalone test suite, then I recommend ScalaTest framework which has, in my opinion, a more intuitive
 and definitely more user friendly syntax. In this article I am going to use ScalaTest and Selenium library for Scala.
 
-The last technology I want to talk about is GEB, which is a Groovy-based solution combining the conciseness of Groovy
+The last technology I want to discuss is GEB, which is a Groovy-based solution combining the conciseness of Groovy
 language with the flexibility of DOM navigation syntax of jQuery and CSS. This solution is designed only for web testing
 automation purposes.
 
@@ -48,8 +48,8 @@ Page Object, but solutions shown below support this methodology.
 
 ### Required libraries
 
-In the begging we have to prepare our environments for writing tests. So let&rsquo;s start with required libraries.
-All libraries used by the project will be managed by proper build tool (Gradle for Java and Groovy, and SBT for Scala).
+In the beginning we have to prepare our environments for writing tests. So let&rsquo;s start with required libraries.
+All libraries used by the project will be managed by a proper build tool (Gradle for Java and Groovy, and SBT for Scala).
 Required dependencies are:
 
 Java project: **build.gradle** file
@@ -108,7 +108,7 @@ libraryDependencies ++= Seq(
 ### Class structures
 
 Before we start writing programs, let&rsquo;s take a look at class structures and initial imports. After that we will
-focus only on pure features delivered by test frameworks.
+focus only on pure features delivered by the test frameworks.
 
 First let&rsquo;s begin with Java as the most widely used technology from all mentioned above.
 The structure of Java class named **ComparisionTest.java** with included JUnit and Selenium library is:
@@ -151,8 +151,8 @@ class ComparisonTest {
 }
 ```
 
-In additional we include also an external file **GebConfig.groovy** containing settings. Of course we can set these
-settings in test class, but external file is the most popular solution.
+In addition we also include an external file **GebConfig.groovy** containing settings. Of course we can set these
+settings in a test class, but an external file is the most popular solution.
 
 ```java
 import org.openqa.selenium.firefox.FirefoxDriver
@@ -163,33 +163,33 @@ driver = { new FirefoxDriver() }
 First thing we can see, even in the test template, is a more friendly test name (description) in ScalaTest
 (FlatSpec) and in Geb than in Java solution.
 
-*Note: In this paper I won&rsquo;t describe all test templates of ScalaTest ( such as FlatSpec). I chose the most
+*Note: In this paper I won&rsquo;t describe all test templates of ScalaTest (such as FlatSpec). I chose the most
 readable one in my opinion. To read more about test templates in ScalaTest go to the
 [documentation](http://www.scalatest.org/user_guide/selecting_a_style).*
 
 ### First look at Test
 
 Now that our testing environment is ready, let&rsquo;s design a simple test checking that the lowest price of Dell Venue
-7 tablet is higher than PLN 350,00. The test scenario has the following steps:
+7 tablet is higher than PLN 350.00. The test scenario has the following steps:
 
 1.  Go to Allegro Site
-2.  Write &ldquo;venue 7&rdquo; in searching field and press enter
+2.  Enter &ldquo;venue 7&rdquo; in the search field and press enter
 3.  Click the &ldquo;Komputery&rdquo;(Computers) category link
 4.  Click the &ldquo;Tablety&rdquo;(Tablet&rsquo;s) category link
-5.  Sort results by the lowest price using dropdown, choosing &ldquo;Cena: Od najniższej&rdquo; entry
+5.  Sort results by the lowest price using a dropdown, choosing &ldquo;Cena: Od najniższej&rdquo; entry
 6.  Get the first result from promoted offers with &ldquo;Buy Now&rdquo; option containing price with three digits before comma sign
 7.  Check that found price is higher than PLN 350.00.
 
 ### Test implementation
 
-If we have a scenario, now it&rsquo;s time for step by step implementation.
+Now that we have a scenario, it&rsquo;s time for a step by step implementation.
 
-It is worth mentioning, that Java is the only technology which does not have any library or framework with support for
-pure given-when-then pattern. All `given`, `when`, `and`, `then` annotations are not obligatory, but they make test more
-readable for business user.
+It is worth mentioning, that Java is the only technology which does not have any library or framework with support for a
+pure given-when-then pattern. All `given`, `when`, `and`, `then` annotations are not obligatory, but they make the test more
+readable for a business user.
 
-First step is to open Allegro web site. This step will be followed by checking that the site we are visiting is Allegro
-indeed. We will use following code:
+First step is to open Allegro website. This step will be followed by checking that the site we are visiting is Allegro
+indeed. We will use the following code:
 
 Java:
 
@@ -221,7 +221,7 @@ then: "title should start with Allegro.pl"
 title.startsWith("Allegro.pl")
 ```
 
-As we can see code is quite similar and intuitive in all languages. Most difference can be seen in Groovy language and
+As we can see the code is quite similar and intuitive in all languages. Most differences can be seen in Groovy language and
 ScalaTest framework word separation syntax which is not present in Java.
 
 Next stage is to enter &ldquo;Venue 7&rdquo; string into the search box and to select chosen categories.
@@ -261,7 +261,7 @@ methods (like `id`, `linkText`, `partialLinkText`, `name`, `tagName`, ...) which
 this case we use `By.id()` notation.
 
 Scala also has [`findElement`](https://selenium.googlecode.com/svn/trunk/docs/api/java/org/openqa/selenium/WebElement.html#findElement%28org.openqa.selenium.By%29)
-method like Java, which takes `By` object as argument, but additionally it has a few other methods dedicated to
+method like Java, which takes `By` object as an argument, but additionally it has a few other methods dedicated to
 individual types of input fields (like [`textField`](http://www.artima.com/docs-scalatest-2.0.M5/org/scalatest/selenium/WebBrowser$TextField.html),
 [`textArea`](http://doc.scalatest.org/2.1.5/index.html#org.scalatest.selenium.WebBrowser$TextArea),
 [`pwdField`](http://doc.scalatest.org/2.0/index.html#org.scalatest.selenium.WebBrowser$PasswordField),
@@ -271,7 +271,7 @@ individual types of input fields (like [`textField`](http://www.artima.com/docs-
 Every argument given to these methods as a string, will be treated as an `Id` element attribute.
 
 In Geb case, we have to assume a completely different point of view. Each selection of DOM elements is achieved using
-jQuery syntax, which is a JavaScript- and CSS-based tool and, taking into consideration this fact, no matter what we are
+jQuery-like syntax, which is a JavaScript- and CSS-based tool and, taking into consideration this fact, no matter what we are
 looking for and which attribute we are using for filtering elements, the expression is always written in the CSS style
 syntax. In CSS `Id` is written after `#` char in the same way as we can see above in Geb code.
 
@@ -321,22 +321,22 @@ $("span.name", text: "Komputery").click()
 Why do we need this? Theoretically there should be no difference &mdash; DOM structure of the page is the same, but in
 case of GEB we can observe some inexplicable behavior. It can&rsquo;t deal with pure tag filtering in CSS. It means Geb
 can easily find element by Id or class name, but cannot handle a single tag with no additional attributes. That&rsquo;s
-the reason we added class name &ldquo;name&rdquo; parameter to search path.
+the reason we added class name &ldquo;name&rdquo; parameter to the search path.
 
 In the last lines of codes above we deal with quite a similar case. We use XPath/jQuery to find span with class name
 &ldquo;name&rdquo; and text which contains substring &ldquo;Tablety&rdquo;. We can do it in the same way as a moment
 ago, but we use `contains` method instead. The main difference is that if we don&rsquo;t use &ldquo;contains&rdquo;, the
-whole text has to be exactly equal to matched one. If we use `contains`, text just has to contain a substring with given
-text. You can find more information about XPath methods for Strings
+whole text has to be exactly equal to matched one. If we use `contains`, the text just has to contain a given substring.
+You can find more information about XPath methods for Strings
 [here](http://www.w3schools.com/xpath/xpath_functions.asp#string)
 
 Let&rsquo;s go further.
 
 Now when we are in the category page we want to be, with results displayed, it is time to sort the list of results by
-price in ascending order. To do such a thing we need to target the dropdown element responsible for sorting, choose
+price in an ascending order. To do such a thing we need to target the dropdown element responsible for sorting, choose
 &ldquo;cena: od najniższej&rdquo; (price: from the lowest) entry and wait for the list to be sorted. This means waiting
-until page is reloaded &mdash; we will wait until dropdown entry is reloaded and &ldquo;cena: od najniższej&rdquo; is
-displayed in it. Let&rsquo;s go to implementation then.
+until the page is reloaded &mdash; we will wait until the dropdown entry is reloaded and &ldquo;cena: od najniższej&rdquo; is
+displayed in it. Let&rsquo;s go to the implementation then.
 
 Java:
 
@@ -373,17 +373,17 @@ waitFor { $("span.label", text: contains("od najniższej")).displayed }
 ```
 
 In the first line we look for a dropdown element. In this case I want to show you that Java and Scala can also
-navigate the page using CSS. The method
-[`xpath`](https://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/By.html#xpath-java.lang.String-) is
+navigate the page using CSS. The
+[`xpath`](https://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/By.html#xpath-java.lang.String-) method is
 replaced by [`cssSelector`](https://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/By.html#cssSelector-java.lang.String-),
-so we can target elements in similar way as with GEB. We can find `span` with class `label` in block `div` with class
+so we can target elements in a similar way as with GEB. We can find `span` with class `label` in block `div` with class
 `toggle` and click it. The expected result is a display of the list of elements by which results can be sorted. Then we
 have to click the entry &ldquo;cena: od najniższej&rdquo; and wait for the page to reload. This takes some time, so we
 use waiting functions delivered with frameworks. In case of Scala and Geb we get quite flexible waiting functions like
 `eventually` and `waitFor`. In case of Java we have
 [`WebDriverWait`](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/support/ui/WebDriverWait.html)
-class which has method `until`, which takes `ExpectedConditions` object as an argument, and so on. So I write a method
-`waitForClickableElement` to make code shorter. Its implementation is shown below:
+class which has `until` method, which takes `ExpectedConditions` object as an argument, and so on. So I write a method
+`waitForClickableElement` to make the code shorter. Its implementation is shown below:
 
 ```java
 private WebElement waitForClickableElement(By by) {
@@ -394,12 +394,12 @@ private WebElement waitForClickableElement(By by) {
 }
 ```
 
-Now when *waiting functions* should be clear, let&rsquo;s go to targeting DOM elements. In case of Java and Scala it is
-necessary to use XPath again, because we look for an element in given element structure that have given text (`dt`
+Now when *waiting functions* should be clear, let&rsquo;s  move on to targeting DOM elements. In case of Java and Scala it is
+necessary to use XPath again, because we look for an element in a given element structure that has a specified text (`dt`
 element with text &ldquo;cena&rdquo; is next to `dd` element and in this `dd` element there is a link with a text
-containing &ldquo;od najniższej&rdquo; substring &mdash; quite complex). After clicking found element we should just
-wait for the page to reload (wait until dropdown element displays &ldquo;cena: od najniższej&rdquo;). And again we will
-extract quite long piece of code in Java to external method.
+containing &ldquo;od najniższej&rdquo; substring &mdash; quite complex). After clicking the found element we should just
+wait for the page to reload (wait until the dropdown element displays &ldquo;cena: od najniższej&rdquo;). And again we will
+extract quite a long piece of Java code to an external method.
 
 ```java
 private void waitForElementToDisplayText(By by, String expectedText) {
@@ -408,11 +408,11 @@ private void waitForElementToDisplayText(By by, String expectedText) {
 }
 ```
 
-Scala and Geb use `eventually` and `waitFor` in all cases requiring waiting for fulfillment of any asserted conditions.
+Scala and Geb use `eventually` and `waitFor` in all cases that require waiting for fulfillment of any asserted conditions.
 
-We are now at the place where we have got a list of search results limited to categories of our choice and sorted in
+We are now at the place where we have got a list of search results narrowed down to categories of our choice and sorted in
 ascending order by price. Last thing we have to do right now is to check the lowest price of the tablet. However in
-result list there are also gadgets for this tablet with &ldquo;Venue 7&rdquo; in title and, because results were sorted
+the result list there are also gadgets for this tablet with &ldquo;Venue 7&rdquo; in the title and, because results were sorted
 by price, they will be first (gadgets are usually cheaper than device itself). For our test we will just assume that
 gadget prices are lower than PLN 100.00. So we find the first price which matches `XXX.XX` pattern, where X is a digit.
 The first match found will be the lowest price of the tablet. Let&rsquo;s go back to implementation again.
@@ -451,11 +451,11 @@ amount > 350.00
 ```
 
 Let&rsquo;s analyze these code snippets step by step. First we gather all prices from &ldquo;buy now&rdquo; fields as a
-list of elements and after that we try to find the first one which matches given regular expression pattern. Then we
-have to extract only the interesting part, which represents price, from the whole text and convert it from String to
-double type. The last thing to do is to check whether the price is higher than assumed PLN 350 or not. That would be the
+list of elements and after that we try to find the first one which matches the given regular expression pattern. Then we
+have to extract from the whole text only the interesting part, which represents price, and convert it from the String to
+a double type. The last thing to do is to check whether the price is higher than the assumed PLN 350 or not. That would be the
 end of our test. This time let&rsquo;s start from the last solution, i.e. Geb. Geb, thanks to jQuery library, can easily
-find elements matching some regex. As a result we are able to solve first problem with a simple line of code:
+find elements matching some regex. As a result we are able to solve the first problem with a simple line of code:
 
 ```java
 $("#featured-offers article span.buy-now.dist", text: contains(~/\d{3},\d{2}/)).text()
@@ -468,15 +468,15 @@ a little longer but more readable version which does exactly the same thing.
 $("#featured-offers").$("article").$("span.buy-now.dist", text: contains(~/\d{3},\d{2}/)).text()
 ```
 
-Going down through DOM structure should be read backwards of course, so... We look for a `span` element with `buy-now`
+Going down through the DOM structure should be read backwards of course, so... We look for a `span` element with `buy-now`
 and `dist` classes containing text with a substring matching a regex. This span should be in an `article` tag, and that
 tag should be placed in element with &ldquo;featured-offers&rdquo; id attribute. We can deal with all this filtering by
-just using a simple one-line jQuery command with the help of build-in matching tool. Finally we have to check if the
-result list is non-empty ( `!priceString.empty` ) and if it is, convert string to double value and check if it is higher
+using a simple one-line jQuery command with the help of a build-in matching tool. Finally we have to check if the
+result list is non-empty ( `!priceString.empty` ) and if it is, convert the string to a double value and check if it is higher
 than 350.
 
 In Java and Scala things are a little more difficult. Generally, in XPath we can use `match` function, which can compare
-any attribute of DOM element to given regex pattern. The trouble is that this function is supported since XPath 2.0 and,
+any attribute of DOM element to given regex pattern. The problem is that this function is supported since XPath 2.0 and,
 for the day of writing this paper, Selenium supports XPath in version 1.0 only. As a result we have to implement a
 method to find matching elements and to take the first result by ourselves.
 
@@ -517,7 +517,7 @@ private def findFirstThreeDigitPrice: Option[String] = {
 ```
 
 In this method we look for all elements matching the given XPath (the same as in Java case), then compare each element
-of map with given pattern, take proper elements, convert them to list and get the first one. After execution of method
+of the map with a given pattern, take proper elements, convert them to list and get the first one. after execution of the method
 we check if anything was returned (matched the criteria) and if anything did, convert String to Double type and check
 the final condition.
 
@@ -527,18 +527,18 @@ on [GitHub](https://github.com/targonsr/comparison-of-test-automation-tools) pag
 ### Conclusion
 
 We discussed three different solutions dedicated to web testing automation. The most popular is Java with
-Selenium library, but in my opinion it is the least friendly also. It doesn&rsquo;t allow for business-readable word
+Selenium library, but in my opinion it is also the least friendly. It doesn&rsquo;t allow for business-readable word
 separation both in test names and in syntax, and does not support given/when/then pattern. You can resolve both problems
-with [JBehave](http://jbehave.org/) library, but it is a more complex tool for more complex purposes, not for simple
+with [JBehave](http://jbehave.org/) library, but it is a more sophisticated tool for more complex purposes, not for simple
 usage we need here. It also has the least flexible *Wait* method with the longest syntax necessary to determine
-conditions, which is almost unusable without writing your own replacing methods. The main advantage is execution time. I
-found Java to be fastest in tests execution and WebDriver browser handling. The differences in time are not very
+conditions, which is almost unusable without writing your own replacing methods. The main advantage is an execution time. I
+found Java to be fastest in tests execution and WebDriver browser handling. The differences in time are not
 spectacular but noticeable. The best application for this solution is writing tests integrated into Java project and
-stand-alone test suite when the shortest execution time is needed. Real differences in time appear rather in case of
-hundreds of tests than in case of common regressive test suite for microservices).
+stand-alone test suite when the shortest execution time is needed. Real differences in time appear in case of
+hundreds of tests rather than in case of common regressive test suite for microservices).
 
 Generally both Scala with ScalaTest (with Specs2 definitely not) and Selenium, and Groovy with Geb are the best
-candidates for stand-alone test suite in common cases. They are human-readable, with short intuitive commands and
+candidates for a standalone test suite in common cases. They are human-readable, with short intuitive commands and
 flexible (also with very short syntax) *Wait* methods (`eventually` in case of Scala and `waitFor` in Geb case). Both
 also have given/when/then support and type inference in Scala or dynamic variable typing in Groovy.
 
