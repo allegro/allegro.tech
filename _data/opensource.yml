@@ -1,0 +1,34 @@
+authors:
+    - adam.dubiel
+
+repos:
+    featured:
+        - hermes
+        - tipboard
+
+    box:
+        - ralph
+
+    ranking:
+        - hermes
+        - selena
+        - tradukisto
+
+    more:
+        - hermes
+        - kafka-offset-monitor-graphite
+        - elasticsearch-reindex-tool
+        - camus-compressor
+        - selena
+        - selena-agent
+        - grunt-maven-npm
+        - newrelic-gradle-plugin
+        - grunt-maven-plugin
+        - tipboard
+        - axion-release-plugin
+        - tradukisto
+        - ralph
+        - ralph_assets
+        - ralph_pricing
+        - ralph_beast
+        - ralph-docker
