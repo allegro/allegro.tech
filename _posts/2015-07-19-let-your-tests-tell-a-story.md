@@ -6,13 +6,13 @@ tags: [java, scala, testing, bdd, jbehave]
 ---
 
 In a team that develops Allegro Recommendation Platform we weren’t happy with our integration tests. Long setup and
-assertions blocks resulted in low signal—to—noise ratio and poor readability. These test were also full of _ad hoc_
+assertions blocks resulted in low signal—to—noise ratio and poor readability. These tests were also full of _ad hoc_
 variables like `1`, `ABC`, `OK` or `NOK`, which caused that it was hard to find a connection between input and output
 data. Moreover, any change in an API caused changes in many tests.
 
 In this article we show how we managed to write very clean and easy to maintain integration tests. Inspired by
 [Domain—driven design](https://en.wikipedia.org/wiki/Domain-driven_design) (DDD) ubiquitous language, we introduced
-common domain context not just to our business logic, but also to our test domain.
+common domain context not just to our business logic, but also to our tests.
 
 We’re using [Scala](http://www.scala-lang.org/) language and [specs2](https://etorreborre.github.io/specs2/) testing
 framework in our team, so this article will contain few technical details specific to this toolset. However ideas
@@ -38,9 +38,9 @@ or people outside our team. In our case we’ve considered among other things: J
 and the Witcher books. Finally we’ve picked the Lord of the Rings, because everyone read the books or watched the movies.
 
 Once we’ve picked the domain, we needed to select characters that will suit our needs. They should be easy to remember
-and have traits that can be connected to application domain. There should be a few characters, but each should have
+and have traits that can be connected to application's domain. There should be a few characters, but each should have
 some unique set of attributes. After some time developers remember that these characters’ names have special meaning
-in context of usage.
+in context of usage. They can be easily reused in many tests, which removes unnecessary code duplication.
 
 In our case Gandalf is going to buy and sell things related to wizardry, like magic hats or staffs. Saruman posts items,
 which usually are of poor quality and we should not recommend them for other users. We’ve even picked a
@@ -75,16 +75,16 @@ category.
 
 ### Implementation
 
-We didn’t use dedicated BDD framework, but decided to create our own components, which try to encapsulate performed
+We did not use dedicated BDD framework, but decided to create our own components, which try to encapsulate performed
 business logic and hide implementation details. We call them “manipulators” and they have three purposes:
 
 - Setting a service under test to initial state.
 - Performing actions on the service.
-- Getting from service data on which assertions can be performed.
+- Getting data from service, on which assertions can be performed.
 
-Internally manipulators can perform whatever it is required to set the application in desired state or verify it. This
-includes REST requests, direct method calls, execution of SQL scripts, etc. We try to reuse manipulators between tests,
-because it limits number of places we have to modify in case of API changes.
+Internally manipulators can perform whatever it is required to set the application in desired state or to verify it.
+This includes REST requests, direct method calls, execution of SQL scripts, etc. We try to reuse manipulators between
+tests, because it limits number of places we have to modify in case of API changes.
 
 We’ve implemented the simple recommendation scenario mentioned above as:
 
@@ -128,20 +128,25 @@ by using manipulators and our own specs2 matchers, to implement this scenario as
       val `James Bond` = customersManipulator.createJamesBond()
       val account = accountsManipulator.jamesBondSwissAccount()
       val card = cardsManipulator.jamesBondPlatinumCreditCard()
-      val cash = 100000
+      val cash = 1000
       val dispenser = dispensersManipulator.dispenserWithCash(cash)
 
       dispenser.withdraw(`James Bond`, card, cash)
 
       account must beDebitedWith(cash)
-      `James Bond` must haveBeenDispensed(cash)
+      cash must beDispensedTo(`James Bond`)
       card must beReturnedTo(`James Bond`)
     }
 
+We admit that the Scala implementation is not as readable as _pure_ BDD specification. However in our opinion when there
+is a lot of tests, reusing characters makes it easier to see differences between existing tests and to write new ones.
+Another benefit is that we may still use plain Scala, without introducing new tools.
+
 ### Summary
 
-Picking a domain for tests made them easier to write and, more important, understand. The domain is well—known also to
+Picking a domain for tests made them easier to write and understand. A set of well-know characters with unique
+attributes add valuable context to tests and helps remove repetitions. The domain is well—known also to
 Product Owner, so this enables us to communicate more efficiently.
 
 To implement test cases we’ve used technical stack that we’ve already been familiar with. We’ve encapsulated logic for
-test setup and results verification into separate components, what makes test code more maintainable.
+test setup and results verification into separate components, which made the code more maintainable.
