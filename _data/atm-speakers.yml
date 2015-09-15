@@ -50,3 +50,11 @@ pawel.leszczynski:
 robert.mroczkowski:
     name: Robert Mroczkowski
     bio: 'A 2006 Master’s graduate in Computer Science at Nicolaus Copernicus University. In the years 2006-2011 he was a PhD student in Computer Science. His research field was Computer Science applied in Bioinformatcs. He gained experience in Hadoop World building and maintaining a cluster for Allegro. Every day he works with modern high-performance and high-availability technologies, centrally managed in cloud environment. In 2015 he became a Senior Data Engineer.'
+
+dobromir.montauk:
+    name: Dobromir Montauk
+    bio: "Dobromir started his career by teaching salsa in Krakow. Two years later he joined Google answering customer emails and quickly realized how boring that was. A decade later he helped launch Google+ and ran the Stream Backend team, ran tens of thousands of machines for the world's largest search engine, and became the Infrastructure Architect at TellApart, an internet-scale ML-based marketing platform. He spearheaded the microservices effort rolling out standardized deployment, discovery, RPC, debugging, logging, etc to the whole company. Now at Twitter, he's constantly fighting for #tourists and #movingupthestack. You'll learn what those mean at this talk."
+
+mateusz.wojtowicz:
+    name: Mateusz Wojtowicz
+    bio: 'Mateusz joined Allegro in March 2012. Currently he is a team leader of Data Center Operations section responsible for data center infrastructure maintenance and introduction of new technologies to it.'
