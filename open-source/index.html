@@ -56,17 +56,21 @@ title: open source software (OSS)
                 {% endfor %}
 
                 <section class="authors-box">
-                    <ul>
+                    <div class="content">
+                    <header>
+                    <h2 class="section-title section-title-opensource">Who we are</h2>
+                    </header>
+                        <ul>
                         {% for authorLogin in site.data.opensource.authors %}
                         {% assign authorData = site.data.members[authorLogin] %}
                             <li>
+                                <img src="/img/authors/{{authorLogin}}.jpg" alt="{{authorData.name}}"/>
                                 <header><h4>{{ authorData.name }}</h4></header>
                                 <p>{{ authorData.bio | markdownify }}</p>
                             </li>
                         {% endfor %}
                     </ul>
-
-
+                </div>
                 </section>
             </div>
 
@@ -74,15 +78,15 @@ title: open source software (OSS)
                 <header>
                     <div class="content"><h2 class="section-title section-title-opensource">most popular</h2></div>
                 </header>
-                <ul>
+                <ol>
                     {% for project in site.data.opensource.repos.ranking %}
                     {% assign projectData = site.data.repositories[project] %}
                     <li>
                         <a href="{{ projectData.html_url }}">{{ projectData.name }}</a>
-                        <a href="{{ projectData.html_url }}/stargazers">{{ projectData.stargazers_count }}</a>
+                        <div class="star-gazers"><a href="{{ projectData.html_url }}/stargazers">{{ projectData.stargazers_count }}</a></div>
                     </li>
                     {% endfor %}
-                </ul>
+                </ol>
             </section>
         </div>
     </div>

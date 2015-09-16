@@ -9,7 +9,7 @@
 }
 
 .main-grid {
-    width: 940px;
+    max-width: 940px;
     margin: 0 auto;
     display: flex;
     flex-flow: row wrap;
@@ -20,17 +20,20 @@
 }
 
 .ranking-grid {
-    width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
 
     > * {
-        flex: 1;
+        flex: 1 1 240px;
+        margin: 0 1rem;
     }
 }
 
 .featured-grid {
     display: flex;
     flex-flow: column;
+    margin: -1rem 1rem;
 }
 
 // manifesto
@@ -57,17 +60,42 @@
 
 // featured box
 .section-featured-projects-box {
-    background-color: #fd5f46;
+    background: #fd5f46 url('/img/opensource/bg-red.jpg') no-repeat top right;
     border-radius: 3px;
+    margin: 1rem 0
 }
 
 //
 .section-projects-ranking {
     background-color: #33beb9;
+
+    li{
+        color: rgba(255,255,255,0.6);
+        font-size: 2.4rem;
+    }
+
+    a{
+        text-decoration: none;
+        color: #fff;
+        display: inline-block;
+        margin: 0 1em 0 0.5em;
+    }
+
+    .star-gazers{
+        float: right;
+        width: 150px;
+        font-size: 2rem;
+
+
+        a::before{
+            margin-right: 2rem;
+        }
+    }
 }
 
 .authors-box {
     background-color: #51cf8f;
+    margin: 1rem 0
 }
 
 //
@@ -83,11 +111,12 @@
     justify-content: space-between;
     padding: 0;
     list-style-type: none;
+    margin: 0 -1rem;
 
     > li {
-        width: 32%;
         background-color: #555;
-        margin-bottom: 2%;
+        flex: 1 1 280px;
+        margin: 1rem;
     }
 
     a {
