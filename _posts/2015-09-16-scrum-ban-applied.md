@@ -6,16 +6,16 @@ tags: [scrum, kanban, scrum-ban, agile, scrum master, agile coach]
 ---
 
 This is a story about a Team working in Scrum that wanted to turn to Kanban and ended up, deliberately, working in something resembling
-Scrum-ban. Scrum-ban basics can be found on [Wikipedia](https://en.wikipedia.org/wiki/Scrumban). We did not follow all of them.
+Scrum-ban. Scrum-ban basics can be found in [Wikipedia](http://en.wikipedia.org/wiki/Scrumban). We did not follow all of them.
 
 The story started when a project with a fixed deadline lasting a few months was given to the Team. After a few months of
-working in Scrum and having more and more technical user stories to complete, Product Owner had suggested that we switch
+working in Scrum and having more and more technical user stories to complete, Product Owner suggested that we switch
 to Kanban as we were not able to deliver working software in the subsequent iterations and that we concentrate on delivering more
 stuff — compared to the previous setup.
 
 ###The deal
 
-And so we did. We started with getting to know what Kanban meant to each of us so we could establish a mutual
+And so we did. We started with getting to know what [Kanban](http://en.wikipedia.org/wiki/Kanban) meant to each of us so we could establish a mutual
 understanding. Some of the thoughts were: higher flexibility in terms of our approach to work, Work In Progress (WIP)
 limitations on Kanban board, delivering value faster for the Client, focusing on tasks rather than time-boxes or
 scope and, last but not least, Kanban being a perfect complement to Scrum. WIPs are limiting the maximum user stories that
@@ -27,6 +27,7 @@ to burn, increasing our velocity (hypothesis), reducing overhead, less time spen
 rules based on which we were going to operate.
 
 We did not want to give up some of the events that were present in Scrum hence our rules of engagement were:
+
 * Continuing on daily Refinement (45'), Daily Scrum (15') and weekly Retrospective (45') events.
 * Developer who changed the story status to “Deployed” makes contact with stakeholders asking for feedback — instead
 of doing it during the review. Verifying certain tasks with stakeholders / final software users and tasks whose results were not
@@ -61,6 +62,7 @@ had happened yet. We agreed to continue.
 
 In two weeks, the moment we’d all been waiting for (sort of) happened. We were to answer the question “Where are we
 going with this?” thus we started checking:
+
 * **Happiness** — the Team preferred to work that way, there was a bit looser atmosphere and less time spent on planning (PO was
 organising and prioritising the backlog so it reflected what was to be done) and trying to complete an increment in a given time.
 The Team felt it could come up with a better value for money, a more tweaked version of the task.
