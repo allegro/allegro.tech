@@ -24,6 +24,10 @@
     flex-wrap: wrap;
     margin: 0 -1rem;
 
+    section{
+        border-radius: 3px;
+    }
+
     > * {
         flex: 1 1 240px;
         margin: 0 1rem;
@@ -61,17 +65,31 @@
 // featured box
 .section-featured-projects-box {
     background: #fd5f46 url('/img/opensource/bg-red.jpg') no-repeat top right;
-    border-radius: 3px;
     margin: 1rem 0
 }
 
 //
 .section-projects-ranking {
     background-color: #33beb9;
+    .section-title {
+        color: #fff;
+        text-transform: uppercase;
+    }
 
     li{
         color: rgba(255,255,255,0.6);
         font-size: 2.4rem;
+        padding: 0.5rem 0;
+        &::after{
+            width: 100%;
+            content: '';
+            clear: both;
+            display: block;
+        }
+    }
+
+    li:nth-child(5) ~ li{
+        font-size: 1.8rem;
     }
 
     a{
@@ -83,8 +101,8 @@
 
     .star-gazers{
         float: right;
-        width: 150px;
-        font-size: 2rem;
+        width: 120px;
+        font-size: 1.8rem;
 
 
         a::before{
@@ -95,7 +113,15 @@
 
 .authors-box {
     background-color: #51cf8f;
-    margin: 1rem 0
+    margin: 1rem 0;
+    li{
+        list-style: none;
+    }
+    img{
+        float: left;
+        margin: 0 1em 1em 0;
+        border-radius: 50%;
+    }
 }
 
 //
@@ -117,16 +143,16 @@
         background-color: #555;
         flex: 1 1 280px;
         margin: 1rem;
-    }
-
-    a {
-        color: #fff;
-        text-decoration: none;
+        border-radius: 3px;
     }
 }
 
 .repo-box {
     padding: 1.5em;
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
 }
 
 

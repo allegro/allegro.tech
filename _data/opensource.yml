@@ -13,6 +13,13 @@ repos:
         - hermes
         - selena
         - tradukisto
+        - grunt-maven-npm
+        - newrelic-gradle-plugin
+        - grunt-maven-plugin
+        - tipboard
+        - axion-release-plugin
+        - tradukisto
+        - ralph
 
     more:
         - hermes
