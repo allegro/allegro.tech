@@ -224,7 +224,7 @@ title.startsWith("Allegro.pl")
 As we can see the code is quite similar and intuitive in all languages. Most differences can be seen in Groovy language and
 ScalaTest framework word separation syntax which is not present in Java.
 
-Next stage is to enter &ldquo;Venue 7&rdquo; string into the search box and to select chosen categories.
+The next stage is to enter &ldquo;Venue 7&rdquo; string into the search box and to select chosen categories.
 
 Java:
 
@@ -253,7 +253,7 @@ $("span.name", text: "Komputery").click()
 $("span.name", text: contains("Tablety")).click()
 ```
 
-In this part of code I would like to show a few ways of targeting DOM elements. First line of each solution begins with
+In this part of the code I would like to show a few ways of targeting DOM elements. First line of each solution begins with
 targeting an object by `Id` attribute. Each technology has a different approach to resolve this problem.
 
 Java has [`By`](https://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/By.html) abstract class with many
@@ -279,25 +279,25 @@ After finding this element, we enter &ldquo;venue 7\n&rdquo; into it in order to
 interested in. At this point, the list of search results which contains &ldquo;venue 7&rdquo; string in
 title is displayed.
 
-The `\n` substring is added in order to &ldquo;press Enter&rdquo; instead of finding and clicking submit button in the search form.
+The `\n` substring is added in order to &ldquo;press Enter&rdquo; instead of finding and clicking the submit button in the search form.
 
 In the next step we have to deal with a little more complicated case. We look for a `span` element with text &ldquo;Komputery&rdquo;
 which determines a menu position for *Computers* category. In this case we can use
 [`linkText`](https://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/By.html#linkText-java.lang.String-)
 or [`partialLinkText`](https://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/By.html#partialLinkText-java.lang.String-)
-methods to find a link element with given text in languages like Java or Scala. But for demonstration purposes
+methods to find a link element with the given text in languages like Java or Scala. But for demonstration purposes
 let&rsquo;s assume that the text we look for is not a link. There are no methods in Selenium library that can directly
 find an element with some text just by giving this text as an argument. To get around this problem (and many others with
   similar complexity of filtering preconditions) there is one method in Selenium `By` class which resolves it &mdash;
 XPath. Generally XPath is a kind of path which allows to go through DOM structures and which delivers methods directing
 the browser where to go. In this case we look for a `span` element with text &ldquo;Komputery&rdquo;, so XPath will be
 `//span[text() = "Komputery"]`. That means: find every span that has text exactly equal to &ldquo;Komputery&rdquo;. It
-is our job to assure that criteria are unique for the element we are looking for.
+is our job to assure that the criteria are unique for the element we are looking for.
 
-Both CSS and XPath allow navigating through DOM structures, but there is one small difference. XPath can go to parent
+Both CSS and XPath allow navigating through DOM structures, but there is one small difference. XPath can go to a parent
 node while CSS cannot. CSS can only go deeper and deeper into the structure of the page. So in case we have to find
 something that is not unique (but some other element next to it is), only XPath can find this unique element, go higher
-up in the structure and then return back to searched element
+up in the structure and then return back to the searched element
 (`//unique_element/parent::parent_of_both_elements/descendant::searched_element`). However in our test there will be no
 need for such a treatment.
 
@@ -312,7 +312,7 @@ JQuery command should look like this:
 $("span", text: "Komputery").click()
 ```
 
-, but instead it has additional class name &ldquo;name&rdquo; parameter like in case of next lines of code and looks like:
+, but instead it has an additional class name parameter &ldquo;name&rdquo;, like in the code below:
 
 ```java
 $("span.name", text: "Komputery").click()
@@ -326,7 +326,7 @@ the reason we added class name &ldquo;name&rdquo; parameter to the search path.
 In the last lines of codes above we deal with quite a similar case. We use XPath/jQuery to find span with class name
 &ldquo;name&rdquo; and text which contains substring &ldquo;Tablety&rdquo;. We can do it in the same way as a moment
 ago, but we use `contains` method instead. The main difference is that if we don&rsquo;t use &ldquo;contains&rdquo;, the
-whole text has to be exactly equal to matched one. If we use `contains`, the text just has to contain a given substring.
+whole text has to be exactly equal to the matched one. If we use `contains`, the text just has to contain a given substring.
 You can find more information about XPath methods for Strings
 [here](http://www.w3schools.com/xpath/xpath_functions.asp#string)
 
@@ -394,7 +394,7 @@ private WebElement waitForClickableElement(By by) {
 }
 ```
 
-Now when *waiting functions* should be clear, let&rsquo;s  move on to targeting DOM elements. In case of Java and Scala it is
+Now when *waiting functions* should be clear, let&rsquo;s move on to targeting DOM elements. In case of Java and Scala it is
 necessary to use XPath again, because we look for an element in a given element structure that has a specified text (`dt`
 element with text &ldquo;cena&rdquo; is next to `dd` element and in this `dd` element there is a link with a text
 containing &ldquo;od najniższej&rdquo; substring &mdash; quite complex). After clicking the found element we should just
@@ -415,7 +415,7 @@ ascending order by price. Last thing we have to do right now is to check the low
 the result list there are also gadgets for this tablet with &ldquo;Venue 7&rdquo; in the title and, because results were sorted
 by price, they will be first (gadgets are usually cheaper than device itself). For our test we will just assume that
 gadget prices are lower than PLN 100.00. So we find the first price which matches `XXX.XX` pattern, where X is a digit.
-The first match found will be the lowest price of the tablet. Let&rsquo;s go back to implementation again.
+The first match found will be the lowest price of the tablet. Let&rsquo;s go back to the implementation again.
 
 Java:
 
@@ -431,7 +431,7 @@ quit();
 Scala:
 
 ```java
-Then("the lowest price of device should be higher than PLN 350,00")
+Then("the lowest price of device should be higher than PLN 350.00")
 val priceStrings = findFirstThreeDigitPrice
 priceStrings should not be empty
 val amount = priceStrings.get.replace(",", ".").toDouble
@@ -443,7 +443,7 @@ quit()
 Geb:
 
 ```java
-then: "the lowest price of device should be higher than PLN 350,00"
+then: "the lowest price of device should be higher than PLN 350.00"
 def priceStrings = $("#featured-offers article span.buy-now.dist", text: contains(~/\d{3},\d{2}/)).text()
 !priceStrings.empty
 def amount = priceStrings.find(pattern).replace(",", ".").toDouble()
@@ -470,7 +470,7 @@ $("#featured-offers").$("article").$("span.buy-now.dist", text: contains(~/\d{3}
 
 Going down through the DOM structure should be read backwards of course, so... We look for a `span` element with `buy-now`
 and `dist` classes containing text with a substring matching a regex. This span should be in an `article` tag, and that
-tag should be placed in element with &ldquo;featured-offers&rdquo; id attribute. We can deal with all this filtering by
+tag should be placed in an element with &ldquo;featured-offers&rdquo; id attribute. We can deal with all this filtering by
 using a simple one-line jQuery command with the help of a build-in matching tool. Finally we have to check if the
 result list is non-empty ( `!priceString.empty` ) and if it is, convert the string to a double value and check if it is higher
 than 350.
@@ -500,7 +500,7 @@ private Optional<Double> findFirstThreeDigitPrice() {
 
 In this piece of code we gather all elements with buy-now prices, then filter them with `amountRegex` pattern, convert
 found Strings to Double type and return the first element which fulfills all these criteria. After that we check if the
-optional double value exist (there is possibility that nothing matches the criteria) and if it does, we check our main
+optional double value exist (there is a possibility that nothing matches the criteria) and if it does, we check our main
 condition, i.e. is returned amount greater than PLN 350.00. It is the end of our test, so we execute `quit` method to
 close the browser.
 
@@ -532,10 +532,10 @@ separation both in test names and in syntax, and does not support given/when/the
 with [JBehave](http://jbehave.org/) library, but it is a more sophisticated tool for more complex purposes, not for simple
 usage we need here. It also has the least flexible *Wait* method with the longest syntax necessary to determine
 conditions, which is almost unusable without writing your own replacing methods. The main advantage is an execution time. I
-found Java to be fastest in tests execution and WebDriver browser handling. The differences in time are not
+found Java to be the fastest in tests execution and WebDriver browser handling. The differences in time are not
 spectacular but noticeable. The best application for this solution is writing tests integrated into Java project and
 stand-alone test suite when the shortest execution time is needed. Real differences in time appear in case of
-hundreds of tests rather than in case of common regressive test suite for microservices).
+hundreds of tests rather than in case of a common regressive test suite for microservices).
 
 Generally both Scala with ScalaTest (with Specs2 definitely not) and Selenium, and Groovy with Geb are the best
 candidates for a standalone test suite in common cases. They are human-readable, with short intuitive commands and
