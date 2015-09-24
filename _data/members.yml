@@ -49,6 +49,10 @@ mateusz.gajewski:
     bio: 'Mateusz is a solutions architect responsible for financial and payments systems. His main areas of research interest are: scalable, distributed computing in cloud environments, reactive programming and failure resilience.'
     twitter: wendigo
 
+ryszard.targonski:
+    name: Ryszard Targoński
+    bio: Ryszard is a test automation engineer with ~5 years of experience especially in WebDriver-based technologies. He is interested in test automation, performance testing and frontend technologies. At Allegro, he works since July 2014 in a team which delivers solutions for the finance sector.
+
 szymon.tur:
     name: Szymon Tur
     bio: Szymon is an iOS developer with several years of experience on this platform and web development background. Enthusiast of user friendly mobile applications and modern web solutions. At Allegro Szymon is a part of the team which is responsible for development of the iOS application for buyers.
