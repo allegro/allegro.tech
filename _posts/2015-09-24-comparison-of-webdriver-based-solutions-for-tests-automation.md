@@ -54,7 +54,7 @@ Required dependencies are:
 
 Java project: **build.gradle** file
 
-```java
+```groovy
 apply plugin: 'java'
 
 sourceCompatibility = 1.8
@@ -74,7 +74,7 @@ dependencies {
 
 GEB project: **build.gradle** file:
 
-```java
+```groovy
 apply plugin: 'java'
 apply plugin: 'groovy'
 
@@ -93,7 +93,7 @@ dependencies {
 
 and Scala project: **build.sbt** file
 
-```java
+```scala
 name := "Comparison_Scala"
 scalaVersion := "2.11.5"
 parallelExecution in Test := false
@@ -128,7 +128,7 @@ public class ComparisonTest extends FirefoxDriver {
 
 In Scala with ScalaTest and Selenium the structure of Scala class will be **ComparisonTest.scala**
 
-```java
+```scala
 import org.scalatest._
 import org.scalatest.selenium.Firefox
 
@@ -142,7 +142,7 @@ class ComparisonTest extends FlatSpec with Firefox with Matchers {
 
 And in Geb it is **ComparisonTest.groovy**
 
-```java
+```groovy
 class ComparisonTest {
 
   def "Check the lowest price of Venue 7 on allegro"() {
@@ -154,7 +154,7 @@ class ComparisonTest {
 In addition we also include an external file **GebConfig.groovy** containing settings. Of course we can set these
 settings in a test class, but an external file is the most popular solution.
 
-```java
+```groovy
 import org.openqa.selenium.firefox.FirefoxDriver
 
 driver = { new FirefoxDriver() }
@@ -203,7 +203,7 @@ getTitle().startsWith("Allegro.pl");
 
 Scala:
 
-```java
+```scala
 When("Going to Allegro Page")
 go to "http://allegro.pl"
 
@@ -213,7 +213,7 @@ pageTitle should startWith("Allegro.pl")
 
 Geb:
 
-```java
+```groovy
 when: "Going to Allegro Page"
 go "http://allegro.pl/"
 
@@ -237,7 +237,7 @@ findElement(By.xpath("//span[@class='name' and contains(.,'tablety')]")).click()
 
 Scala:
 
-```java
+```scala
 When("we display list of Venue 7 offers in \"Tablets\" category")
 textField("main-search-text").value = "venue 7\n"
 click on xpath("//span[text() = 'Komputery']")
@@ -246,7 +246,7 @@ click on xpath("//span[@class='name' and contains(.,'tablety')]")
 
 Geb:
 
-```java
+```groovy
 when: "we display list of Venue 7 offers in \"Tablets\" category"
 $("#main-search-text") << "venue 7\n"
 $("span.name", text: "Komputery").click()
@@ -308,13 +308,13 @@ style navigator.
 However, we can observe some strange behavior of GEB. Direct translation of Java and Scala XPath to Geb&rsquo;s CSS and
 JQuery command should look like this:
 
-```java
+```groovy
 $("span", text: "Komputery").click()
 ```
 
 , but instead it has an additional class name parameter &ldquo;name&rdquo;, like in the code below:
 
-```java
+```groovy
 $("span.name", text: "Komputery").click()
 ```
 
@@ -351,7 +351,7 @@ waitForElementToDisplayText(By.cssSelector("div.toggle span.label"), "od najniż
 
 Scala:
 
-```java
+```scala
 And("sort results by lowest price")
 click on cssSelector("div.toggle span.label")
 eventually {
@@ -364,7 +364,7 @@ eventually {
 
 Geb:
 
-```java
+```groovy
 and: "sort results by lowest price"
 $("div.toggle span.label").click()
 waitFor { $("div.options dt", text: "cena").next("dd").find("a", text: contains("od najniższej"))
@@ -430,7 +430,7 @@ quit();
 
 Scala:
 
-```java
+```scala
 Then("the lowest price of device should be higher than PLN 350.00")
 val priceStrings = findFirstThreeDigitPrice
 priceStrings should not be empty
@@ -442,7 +442,7 @@ quit()
 
 Geb:
 
-```java
+```groovy
 then: "the lowest price of device should be higher than PLN 350.00"
 def priceStrings = $("#featured-offers article span.buy-now.dist", text: contains(~/\d{3},\d{2}/)).text()
 !priceStrings.empty
@@ -457,14 +457,14 @@ a double type. The last thing to do is to check whether the price is higher than
 end of our test. This time let&rsquo;s start from the last solution, i.e. Geb. Geb, thanks to jQuery library, can easily
 find elements matching some regex. As a result we are able to solve the first problem with a simple line of code:
 
-```java
+```groovy
 $("#featured-offers article span.buy-now.dist", text: contains(~/\d{3},\d{2}/)).text()
 ```
 
 There are two ways of writing CSS selectors in GEB framework. For demonstration purposes let&rsquo;s use
 a little longer but more readable version which does exactly the same thing.
 
-```java
+```groovy
 $("#featured-offers").$("article").$("span.buy-now.dist", text: contains(~/\d{3},\d{2}/)).text()
 ```
 
@@ -506,7 +506,7 @@ close the browser.
 
 In Scala method looks like:
 
-```java
+```scala
 val pattern = "\\d{3},\\d{2}"
 
 private def findFirstThreeDigitPrice: Option[String] = {
