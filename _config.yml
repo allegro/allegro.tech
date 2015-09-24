@@ -25,4 +25,4 @@ redcarpet:
 kramdown:
     input: GFM
     coderay_line_numbers: nil
-permalink: /:title.html
+permalink: /:year/:month/:title.html

@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /testing-in-production-wait-what.html
 layout: post
 title: Testing in production... wait, what?
 author: karol.grabowski

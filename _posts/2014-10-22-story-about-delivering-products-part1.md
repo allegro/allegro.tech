@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /story-about-delivering-products-part1.html
 layout: post
 title: Story about delivering valuable products quickly, part I
 author: andrzej.winnicki

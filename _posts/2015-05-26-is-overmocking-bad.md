@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /is-overmocking-bad.html
 layout: post
 title: Is overmocking bad? And if it is, then why?
 author: pawel.czubachowski

@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /elasticsearch-reindex-tool.html
 layout: post
 title: "Allegro OpenSource: Elasticsearch reindex tool"
 author: andrzej.wislowski

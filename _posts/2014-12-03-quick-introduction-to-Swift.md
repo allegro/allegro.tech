@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /quick-introduction-to-Swift.html
 layout: post
 title: Quick introduction to Swift
 author: szymon.tur

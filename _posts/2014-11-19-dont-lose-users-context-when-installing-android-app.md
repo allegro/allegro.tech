@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /dont-lose-users-context-when-installing-android-app.html
 layout: post
 title: Don't lose your user's context when installing Android applications
 author: krzysztof.kocel

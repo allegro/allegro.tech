@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /diagnosing-mongodb-issue.html
 layout: post
 title: Diagnosing a MongoDB issue
 author: rafal.staniszewski

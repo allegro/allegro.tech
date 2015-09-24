@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /a-flight-plan-for-deploying-a-nodejs-application.html
 layout: post
 title: A flight plan for deploying a Node.js application
 author: krzysztof.kwiatkowski
