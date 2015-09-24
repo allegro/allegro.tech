@@ -10,13 +10,13 @@ assertions blocks resulted in low signal—to—noise ratio and poor readability
 variables like `1`, `ABC`, `OK` or `NOK`, which caused that it was hard to find a connection between input and output
 data. Moreover, any change in an API caused changes in many tests.
 
-In this article we show how we managed to write very clean and easy to maintain integration tests. Inspired by
-[Domain—driven design](https://en.wikipedia.org/wiki/Domain-driven_design) (DDD) ubiquitous language, we introduced
+In this article we show how we managed to write integration tests, which are very clean and easy to maintain. Inspired
+by [Domain—driven design](https://en.wikipedia.org/wiki/Domain-driven_design) (DDD) ubiquitous language, we introduced
 common domain context not just to our business logic, but also to our tests.
 
 We’re using [Scala](http://www.scala-lang.org/) language and [specs2](https://etorreborre.github.io/specs2/) testing
-framework in our team, so this article will contain few technical details specific to this toolset. However ideas
-presented in this article are applicable to any other framework. They work very well with
+framework in our team, so this article contains few technical details specific to this toolset. However, ideas
+presented in this article are applicable to any framework. They work very well with
 [Behavior—driven development](https://en.wikipedia.org/wiki/Behavior-driven_development) (BDD) frameworks, like JBehave,
 about which Grzegorz Witkowski recently
 [blogged](http://allegrotech.io/acceptance-testing-with-jbehave-and-gradle.html).
@@ -25,22 +25,22 @@ about which Grzegorz Witkowski recently
 
 In Domain—driven Design term “ubiquitous language” means common, consistent language between developers and users.
 We’ve taken this idea a step further and decided that our integration tests will share a common context, so developers
-can better understand tested system and more easily discuss about it.
+can better understand system under test and more easily discuss about it.
 
-Just like in BDD every test should be a short story of user performing an action. Instead of naming users and entities
-with _ad hoc_ identifiers like `ABC`, `123` or `foo` we decided to introduce meaningful names and characters. We agreed
-that we will reuse these characters in many tests and make each one of them have some unique traits. This makes it
-easier for us to quickly understand test, just by checking which characters it uses.
+Just like in BDD, every test should be a short story of a user performing an action. Instead of naming users and entities
+with _ad hoc_ identifiers like `ABC`, `123` or `foo` we decided to introduce meaningful characters.
+To make them easy to distinguish and remember, each one of them has some unique traits.
+We reuse these characters in multiple tests. This helps us to quickly understand a test, just by checking which characters it uses.
 
 First step of finding characters was to choose a domain well—known to all of the team members. Picking a pop—culture
 domain has a benefit that we can use examples straight from our code base to explain some concepts to our Product Owner
-or people outside our team. In our case we’ve considered among other things: James Bond movies, Marvel comics universe
+or people outside our team. In our case we’ve considered: James Bond movies, Marvel comics universe
 and the Witcher books. Finally we’ve picked the Lord of the Rings, because everyone read the books or watched the movies.
 
 Once we’ve picked the domain, we needed to select characters that will suit our needs. They should be easy to remember
-and have traits that can be connected to application's domain. There should be a few characters, but each should have
-some unique set of attributes. After some time developers remember that these characters’ names have special meaning
-in context of usage. They can be easily reused in many tests, which removes unnecessary code duplication.
+and have traits that can be connected to application's domain. There should be a few characters, and every character
+should have some unique set of attributes. After some time developers remember that these characters’ names have
+special meaning in context of usage. They can be easily reused in many tests, which removes unnecessary code duplication.
 
 In our case Gandalf is going to buy and sell things related to wizardry, like magic hats or staffs. Saruman posts items,
 which usually are of poor quality and we should not recommend them for other users. We’ve even picked a
@@ -54,7 +54,7 @@ More possible examples in different application domains are:
 
 ### Example
 
-Let’s consider a simple case of request for recommendations from a new anonymous user, who doesn’t have any browsing
+Let’s consider a simple case — request for recommendations from a new anonymous user, who doesn’t have any browsing
 history. The most basic recommendation that we can show to him is just some bestselling item in a category, which he’s
 browsing right now. We could implement it in a following way:
 
@@ -103,8 +103,8 @@ We’ve implemented the simple recommendation scenario mentioned above as:
     }
 
 In our opinion this solution hides all implementation details from test, giving readability comparable to specialized
-BDD frameworks like JBehave. Moreover we still have benefits of compile—time checks, code highlighting and IDE
-refactorization support. We could step a little further and use more Scala—specific features like spaces in method
+BDD frameworks like JBehave. Moreover, we still have benefits of compile—time checks, code highlighting and IDE
+refactorization support. We could go a little further and use more Scala—specific features like spaces in method
 names, our own operators or implicit methods, but we think this implementation is already good enough.
 
 ### More examples
@@ -120,8 +120,8 @@ Dan North in his [Introducing BDD](http://dannorth.net/introducing-bdd/) article
     And ensure cash is dispensed
     And ensure the card is returned
 
-If we were working in a banking domain, we would probably choose James Bond movies domain. We could reflect these step
-by using manipulators and our own specs2 matchers, to implement this scenario as follows:
+If we were working in a banking domain, we would probably choose James Bond movies domain. We could reflect these steps
+by using manipulators and our own specs2 matchers to implement this scenario as follows:
 
     ```scala
     "Scenario 1: Account is in credit" in {
@@ -139,13 +139,13 @@ by using manipulators and our own specs2 matchers, to implement this scenario as
     }
 
 We admit that the Scala implementation is not as readable as _pure_ BDD specification. However in our opinion when there
-is a lot of tests, reusing characters makes it easier to see differences between existing tests and to write new ones.
+is a lot of tests, reusing characters makes it easier write new tests and see differences between existing ones.
 Another benefit is that we may still use plain Scala, without introducing new tools.
 
 ### Summary
 
 Picking a domain for tests made them easier to write and understand. A set of well-know characters with unique
-attributes add valuable context to tests and helps remove repetitions. The domain is well—known also to
+attributes adds valuable context to tests and helps remove repetitions. The domain is also well—known to
 Product Owner, so this enables us to communicate more efficiently.
 
 To implement test cases we’ve used technical stack that we’ve already been familiar with. We’ve encapsulated logic for
