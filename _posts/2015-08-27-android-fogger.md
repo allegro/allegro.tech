@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /android-fogger.html
 layout: post
 title: Blur background under Android common UI elements
 author: pawel.byszewski

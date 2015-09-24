@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /pywaw-summit-a-python-conference-for-everybody.html
 layout: post
 title: PyWaw Summit - a Python conference for everybody
 author: szymon.jasinski

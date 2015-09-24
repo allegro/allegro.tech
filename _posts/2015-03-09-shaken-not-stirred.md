@@ -1,4 +1,6 @@
---- 
+--- redirect_from:
+   - /shaken-not-stirred.html
+
 layout: post 
 title: Playing with fire — a Scrum experiment 
 author: kinga.krajewska 

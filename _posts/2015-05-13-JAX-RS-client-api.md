@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /JAX-RS-client-api.html
 layout: post
 title: How to write JAX-RS Client fast
 author: lukasz.przybyla

@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /introducing-slinger-library.html
 layout: post
 title: Introducing Slinger - deep linking library for Android
 author: krzysztof.kocel

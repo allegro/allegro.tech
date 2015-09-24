@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /scrum-ban-applied.html
 layout: post
 title: Scrum-ban applied
 author: marcin.konkel

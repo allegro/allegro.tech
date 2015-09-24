@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /cassandra-modeling-kata.html
 layout: post
 author: rafal.myslek
 title:  "Cassandra Modeling Kata"
