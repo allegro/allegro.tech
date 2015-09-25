@@ -1,3 +1,10 @@
+manifesto:
+    title: Open Source
+    text: |
+        We, devs and ops working in Allegro, believe that experience we gained solving problems with massive-scale
+        deployments, high availability and robustness during our everyday work should be shared. We use Open Source
+        solutions on daily basis, why not work on our karma and give something in return?
+
 authors:
     - adam.dubiel
 

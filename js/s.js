@@ -9,5 +9,6 @@
             }, false);
         });
     }
+
     initShareWidget();
 })();

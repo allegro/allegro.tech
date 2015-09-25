@@ -3,39 +3,49 @@ layout: opensource
 title: open source software (OSS)
 ---
 
+{% assign repos = site.data.opensource.repos %}
+{% assign projectsRepo = site.data.repositories %}
+{% assign projectsMetadata = site.data.opensource-projects %}
+
 <div class="opensource-content">
     <div class="main-grid">
 
         <section class="section-opensource-manifesto">
             <div class="content">
-                <h2 class="section-title">Open Source</h2>
-                <p>
-                    We, devs and ops working in Allegro, believe that experience we gained solving problems with
-                    massive-scale deployments, high availability and robustness during our everyday work should be shared.
-                    We use Open Source solutions on daily basis, why not work on our karma and give something in return?
-                </p>
+                <h2 class="section-title">{{ site.data.opensource.manifesto.title }}</h2>
+                <p>{{ site.data.opensource.manifesto.text }}</p>
             </div>
         </section>
 
         <section class="section-featured-projects">
-            <div id="featured-projects">
-                <ul>
-                {% for project in site.data.opensource.repos.featured %}
-                    {% assign projectData = site.data.repositories[project] %}
-                    <li>
-                        <article class="repo-box">
-                            <a href="{{ projectData.html_url }}">
-                                <header><h4>{{ projectData.name }}</h4></header>
-                                <p class="repo-description">{{ projectData.description }}</p>
-                            </a>
-                            <div class="star-gazers">
-                                <a href="{{ projectData.html_url }}/stargazers">{{ projectData.stargazers_count }}</a>
-                            </div>
-                        </article>
-                    </li>
-                {% endfor %}
-                </ul>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% for projectName in repos.featured %}
+                        <div class="swiper-slide">
+                            <article class="showcase-box">
+                                {% assign metadata = projectsMetadata[projectName] %}
+                                {% assign repodata = projectsRepo[projectName] %}
+                                <a href="{{ repodata.html_url }}">
+                                    <header><h4>{{ repodata.name }}</h4></header>
+                                    <p class="repo-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</p>
+                                    <!--p class="repo-description">{{ repodata.description }}</p-->
+                                </a>
+                                <div class="star-gazers">
+                                    <a href="{{ repodata.html_url }}/stargazers">{{ repodata.stargazers_count }}</a>
+                                </div>
+                                <ul class="repo-metadata">
+                                    <li><a href="{{ repodata.html_url }}">repo</a></li>
+                                    {% if metadata.docs %}<li><a href="{{ metadata.docs }}">docs</a></li>{% endif %}
+                                    {% if metadata.contact %}<li><a href="{{ metadata.contact }}">contact</a></li>{% endif %}
+                                    {% if metadata.twitter %}<li><a href="{{ metadata.twitter }}">twitter</a></li>{% endif %}
+                                </ul>
+                            </article>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
+            <div class="showcase-button showcase-button-prev"></div>
+            <div class="showcase-button showcase-button-next"></div>
         </section>
 
         <div class="ranking-grid">
@@ -124,3 +134,12 @@ title: open source software (OSS)
         </div>
     </section>
 </section>
+
+<script src="/js/swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        loop: true,
+        nextButton: '.showcase-button-next',
+        prevButton: '.showcase-button-prev'
+    })
+</script>
