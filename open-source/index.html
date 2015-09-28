@@ -44,10 +44,15 @@ title: open source software (OSS)
                         <ul>
                         {% for authorLogin in site.data.opensource.authors %}
                         {% assign authorData = site.data.members[authorLogin] %}
-                            <li>
+                            <li class="opensource-author">
                                 <img src="/img/authors/{{authorLogin}}.jpg" alt="{{authorData.name}}"/>
-                                <header><h4>{{ authorData.name }}</h4></header>
-                                <p>{{ authorData.bio | markdownify }}</p>
+                                <header>
+                                    <h4>{{ authorData.name }}</h4>
+                                    {% if authorData.title %}<h5>{{ authorData.title }}</h5>{% endif %}
+                                </header>
+                                <div class="author-bio">
+                                    {{ authorData.bio | markdownify }}
+                                </div>
                             </li>
                         {% endfor %}
                     </ul>

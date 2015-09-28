@@ -12,6 +12,13 @@
 .opensource-box {
     border-radius: 3px;
     padding: 40px 50px;
+
+    header {
+        h2, h3, h4 {
+            font-size: 2.4rem;
+            margin-top: 0;
+        }
+    }
 }
 
 .main-grid {
@@ -67,7 +74,17 @@
 // featured box
 .section-featured-projects-box {
     background: #fd5f46 url('/img/opensource/bg-red.jpg') no-repeat top right;
-    margin: 1rem 0
+    margin: 1rem 0;
+
+    .repo-description {
+        width: 27rem;
+        font-size: 1.8rem;
+        margin-bottom: 3rem;
+    }
+
+    .star-gazers a::before {
+        margin-right: 1rem;
+    }
 }
 
 
@@ -87,7 +104,7 @@
 
     ol {
         list-style-type: none;
-        margin: 0;
+        margin: 3.5rem 0 0;
         padding: 0;
     }
 
@@ -157,13 +174,44 @@
 .authors-box {
     background-color: #51cf8f;
     margin: 1rem 0;
-    li{
+
+    li {
         list-style: none;
     }
-    img{
+
+    img {
         float: left;
-        margin: 0 1em 1em 0;
+        margin: 0 4rem 3rem 0;
         border-radius: 50%;
+        width: 12.5rem;
+    }
+
+    .opensource-author {
+        header {
+            margin: 0 0 2rem;
+        }
+
+        h4 {
+            margin: 0;
+            font-family: 'Roboto Slab', serif;
+            font-weight: bold;
+        }
+
+        h5 {
+            margin: 0;
+            font-size: 1.4rem;
+            opacity: .7;
+        }
+    }
+
+    .author-bio {
+        float: none;
+        overflow: hidden;
+        font-size: 1.4rem;
+
+        p:first-child {
+            margin-top: 0;
+        }
     }
 }
 
