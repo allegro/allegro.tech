@@ -19,7 +19,7 @@ Some time ago we were alarmed by one of our scrum teams that MongoDB
 response time had jumped sky high. The [New Relic](http://newrelic.com) screens were undeniable.
 
 
-![Issue](img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_before.png)
+![Issue](/img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_before.png)
 
 
 ### Environment
@@ -85,7 +85,7 @@ write concern configuration from *replica acknowledged* to *acknowledged* was ap
 The results were obvious.
 
 
-![Issue](img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_after.png)
+![Issue](/img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_after.png)
 
 
 So the replication was to blame. Great, but **where was the root cause**?

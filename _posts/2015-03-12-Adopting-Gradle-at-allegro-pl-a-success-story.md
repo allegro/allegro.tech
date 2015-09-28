@@ -325,4 +325,4 @@ One by one, our teams started dropping Maven and eventually Gradle became the st
 Although we faced some minor problems and fell into some traps during the process, it all went smoothly overall.
 What matters is that adopting Gradle turned out to be a perfect decision for us and we cannot imagine going back to the Maven world.
 
-![confitura](img/qrcode_confi.png)
+![confitura](/img/qrcode_confi.png)
