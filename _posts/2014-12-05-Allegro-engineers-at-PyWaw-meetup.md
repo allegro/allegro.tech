@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /Allegro-engineers-at-PyWaw-meetup.html
 layout: post
 title: Allegro engineers at PyWaw meetup
 author: piotr.betkier

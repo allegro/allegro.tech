@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /to-the-woods-we-go-to-work-we-go.html
 layout: post
 title: To the woods we go! To work we go!
 author: [piotr.ciemielewski, maciej.adamczak, marcin.borkowski]

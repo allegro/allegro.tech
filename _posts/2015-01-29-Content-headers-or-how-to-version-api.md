@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /Content-headers-or-how-to-version-api.html
 layout: post
 title: Content headers or how to version your API?
 author: krzysztof.debski

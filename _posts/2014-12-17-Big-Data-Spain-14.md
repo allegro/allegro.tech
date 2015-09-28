@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /Big-Data-Spain-14.html
 layout: post
 title: Big Data Spain 2014 review
 author: maciej.arciuch

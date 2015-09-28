@@ -50,6 +50,10 @@ mateusz.gajewski:
     bio: 'Mateusz is a solutions architect responsible for financial and payments systems. His main areas of research interest are: scalable, distributed computing in cloud environments, reactive programming and failure resilience.'
     twitter: wendigo
 
+ryszard.targonski:
+    name: Ryszard Targoński
+    bio: Ryszard is a test automation engineer with ~5 years of experience especially in WebDriver-based technologies. He is interested in test automation, performance testing and frontend technologies. At Allegro, he works since July 2014 in a team which delivers solutions for the finance sector.
+
 szymon.tur:
     name: Szymon Tur
     bio: Szymon is an iOS developer with several years of experience on this platform and web development background. Enthusiast of user friendly mobile applications and modern web solutions. At Allegro Szymon is a part of the team which is responsible for development of the iOS application for buyers.
@@ -136,8 +140,7 @@ andrzej.wislowski:
 
 marcin.konkel:
     name: Marcin Konkel
-    bio:  Marcin is a Scrum Master at Allegro Group, passionate about agile, coaching and project management. He helps teams to be more agile, removing impediments and cooperating with the organisation to foster change and improve the working environment. Currently working with mobile development teams. He is also experienced as a Project Manager in coordinating globally dispersed (USA, Europe, India, China) as well as local project teams in financial / IT environment. Personally an avid photographer travelling to distant and less distant places to capture moments that stole his attention. He writes on coaching and self-development&#x3a; [medium.com/@m_konkel](http://medium.com/@m_konkel) and on travelling&#x3a; [marcinkonkel.com](http://marcinkonkel.com).
-    twitter: m_konkel
+    bio:  Marcin is an Agile Coach at Allegro Group, passionate about agile, coaching and travelling. He helps teams to be more agile by coaching and learning with them, removing impediments and cooperating with the organisation to foster change and improve working environment. He has experience working with mature and ‘new to agile’ teams. Formerly acting as a Project Manager and coordinating globally dispersed (USA, Europe, India, China) as well as local project teams in financial / IT environment. Personally an avid photographer travelling to distant and less distant places to capture moments that stole his attention — sharing his stories at [marcinkonkel.com](http://marcinkonkel.com/). Additionally, he's writing and sharing his professional experience at [medium.com/@m_konkel](http://medium.com/@m_konkel).
 
 pawel.czubachowski:
     name: Paweł Czubachowski

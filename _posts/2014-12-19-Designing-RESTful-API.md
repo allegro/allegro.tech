@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /Designing-RESTful-API.html
 layout: post
 title: Designing RESTful API
 author: przemyslaw.debek

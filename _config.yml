@@ -25,7 +25,9 @@ redcarpet:
 kramdown:
     input: GFM
     coderay_line_numbers: nil
-permalink: /:title.html
 
 sass:
     sass_dir: css/partials
+
+permalink: /:year/:month/:title.html
+
