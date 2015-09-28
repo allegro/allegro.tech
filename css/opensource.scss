@@ -188,7 +188,7 @@
 
     .opensource-author {
         header {
-            margin: 0 0 2rem;
+            margin: 0 0 1rem;
         }
 
         h4 {
@@ -201,16 +201,21 @@
             margin: 0;
             font-size: 1.4rem;
             opacity: .7;
+            font-weight: normal;
         }
     }
 
     .author-bio {
         float: none;
         overflow: hidden;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
 
         p:first-child {
             margin-top: 0;
+        }
+
+        a {
+            color: #000;
         }
     }
 }
@@ -243,6 +248,10 @@
 
     .star-gazers {
         bottom: 6rem;
+
+        a::before {
+            margin-right: 1rem;
+        }
     }
 
     .repo-metadata {
