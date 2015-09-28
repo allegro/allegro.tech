@@ -25,10 +25,11 @@
     max-width: 940px;
     margin: 0 auto;
     padding: 0 1em;
-    display: flex;
     display: -webkit-flex;
-    flex-flow: row wrap;
+    display: flex;
     -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+
 
     > section {
         margin: 1rem 0;
@@ -36,28 +37,30 @@
 }
 
 .opensource-ranking-grid {
-    display: flex;
     display: -webkit-flex;
-    flex-wrap: wrap;
+    display: flex;
     -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
     margin: 1rem -1rem;
+    width: calc(100% + 2rem);
 }
 
 .featured-grid {
-    flex: 3 1 360px;
-    -webkit-flex: 3 1 360px;
-    display: flex;
+    -webkit-flex: 3;
+    flex: 3;
+    min-width: 320px;
     display: -webkit-flex;
-    flex-flow: column;
+    display: flex;
     -webkit-flex-flow: column;
+    flex-flow: column;
     margin: -1rem 1rem 1rem;
 }
 
 .opensource-featured-projects {
-    order: -1;
     -webkit-order: -1;
-    flex: 0 0 auto;
+    order: -1;
     -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
     margin: 1rem;
 }
 
@@ -98,13 +101,13 @@
 
 
 .section-projects-ranking {
-    flex: 2 1 240px;
-    -webkit-flex: 2 1 240px;
+    -webkit-flex: 2;
+    flex: 2;
+    min-width: 240px;
     margin: 0 1rem 2rem;
     padding-left: 30px;
     padding-right: 30px;
     background-color: #33beb9;
-
     counter-reset: ranking;
 
     header {
@@ -281,6 +284,7 @@
     padding: 0;
     list-style-type: none;
     margin: 0 -1rem;
+    max-width: 960px;
 
     > li {
         background-color: #555;
