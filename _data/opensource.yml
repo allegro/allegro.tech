@@ -9,11 +9,11 @@ authors:
     - adam.dubiel
 
 repos:
-    featured:
+    featuredPrimary:
         - hermes
         - tipboard
 
-    box:
+    featuredSecondary:
         - ralph
 
     ranking:
@@ -28,7 +28,7 @@ repos:
         - tradukisto
         - ralph
 
-    more:
+    all:
         - hermes
         - kafka-offset-monitor-graphite
         - elasticsearch-reindex-tool

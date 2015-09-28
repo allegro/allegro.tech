@@ -10,36 +10,17 @@ title: open source software (OSS)
 <div class="opensource-content">
     <div class="main-grid">
 
-        <section class="section-opensource-manifesto">
-            <div class="content">
-                <h2 class="section-title">{{ site.data.opensource.manifesto.title }}</h2>
-                <p>{{ site.data.opensource.manifesto.text }}</p>
-            </div>
+        <section class="opensource-manifesto opensource-box">
+            <h2>{{ site.data.opensource.manifesto.title }}</h2>
+            <p>{{ site.data.opensource.manifesto.text }}</p>
         </section>
 
-        <section class="section-featured-projects">
+        <section class="opensource-featured-projects">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    {% for projectName in repos.featured %}
+                    {% for projectName in repos.featuredPrimary %}
                         <div class="swiper-slide">
-                            <article class="showcase-box">
-                                {% assign metadata = projectsMetadata[projectName] %}
-                                {% assign repodata = projectsRepo[projectName] %}
-                                <a href="{{ repodata.html_url }}">
-                                    <header><h4>{{ repodata.name }}</h4></header>
-                                    <p class="repo-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</p>
-                                    <!--p class="repo-description">{{ repodata.description }}</p-->
-                                </a>
-                                <div class="star-gazers">
-                                    <a href="{{ repodata.html_url }}/stargazers">{{ repodata.stargazers_count }}</a>
-                                </div>
-                                <ul class="repo-metadata">
-                                    <li><a href="{{ repodata.html_url }}">repo</a></li>
-                                    {% if metadata.docs %}<li><a href="{{ metadata.docs }}">docs</a></li>{% endif %}
-                                    {% if metadata.contact %}<li><a href="{{ metadata.contact }}">contact</a></li>{% endif %}
-                                    {% if metadata.twitter %}<li><a href="{{ metadata.twitter }}">twitter</a></li>{% endif %}
-                                </ul>
-                            </article>
+                            {% include opensource/project.html %}
                         </div>
                     {% endfor %}
                 </div>
@@ -48,28 +29,18 @@ title: open source software (OSS)
             <div class="showcase-button showcase-button-next"></div>
         </section>
 
-        <div class="ranking-grid">
+        <div class="opensource-ranking-grid">
             <div class="featured-grid">
-                {% for project in site.data.opensource.repos.box %}
-                {% assign projectData = site.data.repositories[project] %}
-                <section class="section-featured-projects-box">
-                    <article class="repo-box">
-                        <a href="{{ projectData.html_url }}">
-                            <header><h4>{{ projectData.name }}</h4></header>
-                            <p class="repo-description">{{ projectData.description }}</p>
-                        </a>
-                        <div class="star-gazers">
-                            <a href="{{ projectData.html_url }}/stargazers">{{ projectData.stargazers_count }}</a>
+                <section class="section-featured-projects-box opensource-box">
+                    {% for projectName in repos.featuredSecondary %}
+                        <div class="repo-box">
+                            {% include opensource/project.html %}
                         </div>
-                    </article>
+                    {% endfor %}
                 </section>
-                {% endfor %}
 
-                <section class="authors-box">
-                    <div class="content">
-                    <header>
-                    <h2 class="section-title section-title-opensource">Who we are</h2>
-                    </header>
+                <section class="authors-box opensource-box">
+                    <header><h2 class="section-title section-title-opensource">Who we are</h2></header>
                         <ul>
                         {% for authorLogin in site.data.opensource.authors %}
                         {% assign authorData = site.data.members[authorLogin] %}
@@ -80,49 +51,42 @@ title: open source software (OSS)
                             </li>
                         {% endfor %}
                     </ul>
-                </div>
                 </section>
             </div>
 
-            <section class="section-projects-ranking">
+            <section class="section-projects-ranking opensource-box">
                 <header>
-                    <div class="content"><h2 class="section-title section-title-opensource">most popular</h2></div>
+                    <h2>most popular</h2>
                 </header>
+
                 <ol>
                     {% for project in site.data.opensource.repos.ranking %}
                     {% assign projectData = site.data.repositories[project] %}
                     <li>
-                        <a href="{{ projectData.html_url }}">{{ projectData.name }}</a>
+                        <a href="{{ projectData.html_url }}" class="project-name" title="{{ projectData.name }}">{{ projectData.name }}</a>
                         <div class="star-gazers"><a href="{{ projectData.html_url }}/stargazers">{{ projectData.stargazers_count }}</a></div>
                     </li>
                     {% endfor %}
                 </ol>
             </section>
         </div>
-    </div>
 
-    <section class="section-more-projects">
-        <header>
-            <div class="content"><h2 class="section-title section-title-opensource">more projects</h2></div>
-        </header>
+        <section class="opensource-all-projects">
+            <header>
+                <h2>more projects</h2>
+            </header>
 
-        <ul class="more-projects-grid">
-            {% for project in site.data.opensource.repos.more %}
-            {% assign projectData = site.data.repositories[project] %}
-            <li>
-                <article class="repo-box">
-                    <a href="{{ projectData.html_url }}">
-                        <header><h4>{{ projectData.name }}</h4></header>
-                        <p class="repo-description">{{ projectData.description }}</p>
-                    </a>
-                    <div class="star-gazers">
-                        <a href="{{ projectData.html_url }}/stargazers">{{ projectData.stargazers_count }}</a>
+            <ul class="more-projects-grid">
+                {% for projectName in repos.all %}
+                <li>
+                    <div class="repo-box opensource-box">
+                        {% include opensource/project.html %}
                     </div>
-                </article>
-            </li>
-            {% endfor %}
-        </ul>
-    </section>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
 </div>
 
 <section class="section-twitter">
