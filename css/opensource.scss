@@ -43,7 +43,7 @@
     flex: 1 1 460px;
     display: flex;
     flex-flow: column;
-    margin: -1rem 1rem;
+    margin: -1rem 1rem 1rem;
 }
 
 .opensource-featured-projects {
@@ -90,7 +90,7 @@
 
 .section-projects-ranking {
     flex: 1 1 240px;
-    margin: 0 1rem;
+    margin: 0 1rem 2rem;
     padding-left: 30px;
     padding-right: 30px;
     background-color: #33beb9;
@@ -249,13 +249,23 @@
     .star-gazers {
         bottom: 6rem;
 
-        a::before {
-            margin-right: 1rem;
+        a {
+            color: rgba(255, 255, 255, 0.5);
+
+            &::before {
+                color: #fff;
+                margin-right: 1rem;
+            }
         }
     }
 
     .repo-metadata {
         bottom: 2rem;
+        font-size: 1.4rem;
+
+        a {
+            color: rgba(255, 255, 255, 0.5);
+        }
     }
 }
 
