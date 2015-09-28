@@ -40,7 +40,7 @@
 }
 
 .featured-grid {
-    flex: 1 1 460px;
+    flex: 3 1 360px;
     display: flex;
     flex-flow: column;
     margin: -1rem 1rem 1rem;
@@ -77,7 +77,7 @@
     margin: 1rem 0;
 
     .repo-description {
-        width: 27rem;
+        max-width: 27rem;
         font-size: 1.8rem;
         margin-bottom: 3rem;
     }
@@ -89,7 +89,7 @@
 
 
 .section-projects-ranking {
-    flex: 1 1 240px;
+    flex: 2 1 240px;
     margin: 0 1rem 2rem;
     padding-left: 30px;
     padding-right: 30px;
@@ -159,16 +159,6 @@
         color: #fff;
     }
 
-    //.star-gazers{
-    //    float: right;
-    //    width: 120px;
-    //    font-size: 1.8rem;
-    //
-    //
-    //    a::before{
-    //        margin-right: 2rem;
-    //    }
-    //}
 }
 
 .authors-box {
@@ -180,10 +170,13 @@
     }
 
     img {
-        float: left;
+        display: block;
         margin: 0 4rem 3rem 0;
         border-radius: 50%;
         width: 12.5rem;
+        @media all and (min-width: 480px) {
+            float: left;
+        }
     }
 
     .opensource-author {
