@@ -1,18 +1,21 @@
-<script type="text/javascript">
-    var disqus_shortname = 'allegrotechio';
-    (function () {
-        var s = document.createElement('script');
-        s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
+{% if include.short == "true" %}
+    <ul class="posts  posts-short">
+        {% for post in site.posts offset:4 %}
+        <li>
+            <span class="post-date">{{ post.date | date: "<strong>%b %-d</strong> %Y" }}</span>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <ul class="posts">
+        {% for post in site.posts limit:include.limit offset:include.offset%}
+        <li {% if forloop.first %} class="latest" {% endif %}>
+            {% include single_post.html %}
+        </li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
-<ul class="posts">
-    {% for post in site.posts limit:include.limit offset:include.offset%}
-    <li {% if forloop.first %} class="latest" {% endif %}>
-        {% include single_post.html %}
-    </li>
-    {% endfor %}
-</ul>
+
+
