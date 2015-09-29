@@ -1,4 +1,4 @@
-<span class="post-date">{{ post.date | date: "<strong>%b %-d</strong> %Y" }}</span>
+<time class="post-date">{{ post.date | date: "<strong>%b %-d</strong> %Y" }}</time>
 <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 <p>{{ post.excerpt | markdownify | strip_html }}</p>
 <p class="buttons"><a href="{{ post.url | prepend: site.baseurl }}" class="page-link">read more</a></p>
