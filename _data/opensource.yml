@@ -10,39 +10,38 @@ authors:
 
 repos:
     featuredPrimary:
+        - vaas
         - hermes
-        - tipboard
+        - ralph
 
     featuredSecondary:
-        - ralph
+        - tipboard
 
     ranking:
-        - hermes
-        - selena
-        - tradukisto
-        - grunt-maven-npm
-        - newrelic-gradle-plugin
-        - grunt-maven-plugin
         - tipboard
-        - axion-release-plugin
-        - tradukisto
         - ralph
+        - php-protobuf
+        - grunt-maven-plugin
+        - hermes
+        - vaas
+        - axion-release-plugin
+        - selena
+        - fogger
+        - handlebars-spring-boot-starter
 
     all:
-        - hermes
-        - kafka-offset-monitor-graphite
-        - elasticsearch-reindex-tool
         - camus-compressor
+        - elasticsearch-reindex-tool
+        - newrelic-gradle-plugin
+        - tradukisto
+        - kafka-offset-monitor-graphite
+        - handlebars-spring-boot-starter
+        - slinger
         - selena
         - selena-agent
-        - grunt-maven-npm
-        - newrelic-gradle-plugin
+        - fogger
+        - django-powerdns-dnssec
+        - php-protobuf
         - grunt-maven-plugin
-        - tipboard
         - axion-release-plugin
-        - tradukisto
-        - ralph
-        - ralph_assets
-        - ralph_pricing
-        - ralph_beast
-        - ralph-docker
+        - toper

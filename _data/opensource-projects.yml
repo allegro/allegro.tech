@@ -4,3 +4,12 @@ hermes:
 
 ralph:
     docs: http://allegro.tech/ralph/documentation.html
+
+axion-release-plugin:
+    docs: http://axion-release-plugin.readthedocs.org/en/latest/
+
+vaas:
+    docs: http://vaas.readthedocs.org/en/latest/
+
+tipboard:
+    docs: http://allegro.tech/tipboard/
