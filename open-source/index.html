@@ -31,14 +31,16 @@ title: open source software (OSS)
 
         <div class="opensource-ranking-grid">
             <div class="featured-grid">
+                {% for projectName in repos.featuredSecondary %}
                 <section class="section-featured-projects-box opensource-box">
-                    {% for projectName in repos.featuredSecondary %}
+
                         <div class="repo-box">
                             {% include opensource/project.html %}
                         </div>
-                    {% endfor %}
-                </section>
 
+                </section>
+    {% endfor %}
+    {%comment%}
                 <section class="authors-box opensource-box">
                     <header><h2 class="section-title section-title-opensource">Who we are</h2></header>
                         <ul>
@@ -57,6 +59,7 @@ title: open source software (OSS)
                         {% endfor %}
                     </ul>
                 </section>
+        {%endcomment%}
             </div>
 
             <section class="section-projects-ranking opensource-box">

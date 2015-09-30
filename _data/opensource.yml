@@ -16,6 +16,7 @@ repos:
 
     featuredSecondary:
         - tipboard
+        - selena
 
     ranking:
         - tipboard

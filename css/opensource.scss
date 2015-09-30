@@ -88,6 +88,10 @@
     background: #fd5f46 url('/img/opensource/bg-red.jpg') no-repeat top right;
     margin: 1rem 0;
 
+    &:last-child{
+        background: #51cf8f;
+    }
+
     .repo-description {
         max-width: 27rem;
         font-size: 1.8rem;
