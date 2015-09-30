@@ -90,6 +90,9 @@
 
     &:last-child{
         background: #51cf8f;
+        a{
+            color: #333;
+        }
     }
 
     .repo-description {
