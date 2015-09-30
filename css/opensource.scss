@@ -42,13 +42,12 @@
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
     margin: 1rem -1rem;
-    width: calc(100% + 2rem);
+    width: calc(100% + 2rem)
 }
 
 .featured-grid {
-    -webkit-flex: 3;
-    flex: 3;
-    min-width: 320px;
+    -webkit-flex: 3 1 320px;
+    flex: 3 1 320px;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-flow: column;
@@ -108,9 +107,8 @@
 
 
 .section-projects-ranking {
-    -webkit-flex: 2;
-    flex: 2;
-    min-width: 240px;
+    -webkit-flex: 2 1 240px;
+    flex: 2 1 240px;
     margin: 0 1rem 2rem;
     padding-left: 30px;
     padding-right: 30px;
