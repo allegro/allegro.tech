@@ -8,8 +8,8 @@ tags: [MVP, Minimum Viable Product, project management, product development, agi
 ---
 Building a [Minimum Viable Product (MVP)](http://en.wikipedia.org/wiki/Minimum_viable_product) is a method of developing new products
 by gathering feedback from real users as soon as possible. This is supposed to reduce risk and to ensure a good return on investment.
-It is often used together with [Agile](http://en.wikipedia.org/wiki/Agile_software_development) development methodologies.
-While very useful, MVP is not without risks.
+It is most often used together with [Agile](http://en.wikipedia.org/wiki/Agile_software_development) development methodologies.
+But there’s no such thing as a free lunch and while it reduces some types of risk, MVP also introduces some risks of its own.
 
 The idea of a Minimum Viable Product is to build a Product with the Minimum set of features which allow it to be usable in practice (Viable)
 for at least some usage scenarios. It should be delivered to a limited group of users who become beta-testers and provide
@@ -30,7 +30,7 @@ Another risk the unfortunate shower highlights is when MVP is released but neith
 abandoned. Since there’s “viable” in the name, business may be tempted to avoid any additional cost and may market the MVP with all its
 shortcomings as the final product. [Sunk cost fallacy](http://en.wikipedia.org/wiki/Escalation_of_commitment) may also come
 into play, preventing the business from killing the product even if MVP is not successful and forcing the development team to support a
-product which was never meant to run in production full-scale.
+product which was never meant to run in a full-scale production environment.
 
 This is not to discourage you from using the Minimum Viable Product approach. At Allegro we
 [use it](/story-about-delivering-products-part1.html) quite [successfully](/story-about-delivering-products-part2.html), but there are
@@ -39,9 +39,11 @@ a few pitfalls to look out for:
 * Make sure your product is not only minimal but also viable. Sometimes minor improvements which you may consider optional can
 make or break the product for your users.
 * Choose the audience for your MVP wisely. If you are replacing an existing product which users are accustomed to, forcing
-all of them to use a new, possibly less stable product with fewer features will only make them angry. Let users opt in for the beta
+all of them to use a new, possibly less stable one with fewer features will only make them angry. Let users opt in for the beta
 version and invite power users and early adopters to do so. If you play this well, they will actually feel privileged to be able to test a
 pre-release version. When creating a completely new product, make sure to clearly indicate that what users receive is still work in
 progress.
 * Do not allow the MVP to become your final product. Remember that its role is only to gather information which will allow you to better
 prepare the real thing. Either continue development or kill the product altogether.
+
+Being aware of these potential problems should hopefully make planning your next MVP easier.
