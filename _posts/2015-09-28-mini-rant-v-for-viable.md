@@ -7,7 +7,8 @@ author: michal.kosmulski
 tags: [MVP, Minimum Viable Product, project management, product development, agile]
 ---
 Building a [Minimum Viable Product (MVP)](http://en.wikipedia.org/wiki/Minimum_viable_product) is a method of developing new products
-by gathering feedback from real users as soon as possible. This is supposed to reduce risk and to ensure a good return on investment.
+by validating hypotheses using feedback from real users as soon as possible. This is supposed to reduce risk and to ensure a good
+return on investment.
 It is most often used together with [Agile](http://en.wikipedia.org/wiki/Agile_software_development) development methodologies.
 But there’s no such thing as a free lunch and while it reduces some types of risk, MVP also introduces some risks of its own.
 
@@ -36,6 +37,9 @@ This is not to discourage you from using the Minimum Viable Product approach. At
 [use it](/story-about-delivering-products-part1.html) quite [successfully](/story-about-delivering-products-part2.html), but there are
 a few pitfalls to look out for:
 
+* First of all, know what you want to learn from the experiment. MVP is about validating hypotheses, so you need to know in advance what
+hypothesis you want to confirm or reject, what you will consider a success and what you will consider a failure and what information
+about users’ expectation you want to draw from their feedback. Otherwise, the whole experiment becomes rather pointless.
 * Make sure your product is not only minimal but also viable. Sometimes minor improvements which you may consider optional can
 make or break the product for your users.
 * Choose the audience for your MVP wisely. If you are replacing an existing product which users are accustomed to, forcing
