@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /mini-rant-v-for-viable.html
 layout: post
 title: Mini rant&#58; V for Viable
 author: michal.kosmulski
