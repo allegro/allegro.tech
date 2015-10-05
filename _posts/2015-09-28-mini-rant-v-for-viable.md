@@ -12,8 +12,8 @@ return on investment.
 It is most often used together with [Agile](http://en.wikipedia.org/wiki/Agile_software_development) development methodologies.
 But there’s no such thing as a free lunch and while it reduces some types of risk, MVP also introduces some risks of its own.
 
-The idea of a Minimum Viable Product is to build a Product with the Minimum set of features which allow it to be usable in practice (Viable)
-for at least some usage scenarios. It should be delivered to a limited group of users who become beta-testers and provide
+The idea of a Minimum Viable Product is to build a product with the minimum set of features which allows it to be usable in practice
+(viable) for at least some usage scenarios. It should be delivered to a limited group of users who become beta-testers and provide
 feedback. Further development or abandonment of the project should be planned based on the feedback received from the MVP.
 
 What people tend to forget is that “V” in MVP stands for “[Viable](http://www.merriam-webster.com/dictionary/viable)”.
@@ -33,8 +33,8 @@ shortcomings as the final product. [Sunk cost fallacy](http://en.wikipedia.org/w
 into play, preventing the business from killing the product even if MVP is not successful and forcing the development team to support a
 product which was never meant to run in a full-scale production environment.
 
-This is not to discourage you from using the Minimum Viable Product approach. At Allegro we
-[use it](/story-about-delivering-products-part1.html) quite [successfully](/story-about-delivering-products-part2.html), but there are
+This is not to discourage you from using the Minimum Viable Product approach. At Allegro we use it quite successfully (see
+[this story](/story-about-delivering-products-part1.html) as well as [this one](/story-about-delivering-products-part2.html)), but there are
 a few pitfalls to look out for:
 
 * First of all, know what you want to learn from the experiment. MVP is about validating hypotheses, so you need to know in advance what
