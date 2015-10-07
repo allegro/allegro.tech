@@ -4,18 +4,20 @@ title: There is more to logging than meets the eye
 author: rafal.glowinski
 tags: [java, logging, logback, slf4j, async appender, async logging]
 ---
-## Introduction
+
+In this article I will show you that if you want to implement good logging into your application then you should have 
+a strong knowledge of logging API, spend some time considering what and when to log and last but not least: remember that 
+logging is a cost paid in your application’s responsiveness. 
+
+## Logging? That’s easy!
 
 Logging seems to be dead simple — you just spit out text messages that should be helpful when diagnosing application 
 problems. This approach is wrong for at least two reasons: 
-- One should think carefully what to log, when to log and what logging level to use for different messages so that logs 
-don’t resemble a huge useless wall of text. Any anomalies or fatal errors should be easily visible.
-- Even if one has spent enough time on the complete logging approach, there are some technical bits you should know and 
-keep in mind.
 
-In this article I will show you that if you want to implement good logging into your application then you should have 
-strong knowledge of logging API, spend some time considering what and when to log and last but not least: remember that 
-logging is a cost paid in your application’s latency. 
+ - One should think carefully what to log, when to log and what logging level to use for different messages so that logs 
+don’t resemble a huge useless wall of text. Any anomalies or fatal errors should be easily visible.
+ - Even if one has spent enough time on the complete logging approach, there are some technical bits you should know and 
+keep in mind.
 
 I will start off with a list of most popular logging frameworks and explain why it is important to use logging levels, 
 named loggers and MDC (Mapped Diagnostic Context) properly. Later I will show frequent mistakes and misuses of the 
@@ -32,11 +34,12 @@ and [Commons Logging](http://commons.apache.org/proper/commons-logging/) - 9%. P
 abstraction layer. All the remaining abstraction frameworks fit into the remaining 2%.
 
 There are more logging frameworks than abstraction layers and they can be used directly. These are the most popular ones:
-- [Log4j](http://logging.apache.org/log4j/1.2/): a bit old but mature and still very popular
-- [Log4j2](http://logging.apache.org/log4j/2.x/): new, and much better, version of Log4j
-- [Logback](http://logback.qos.ch/): written by one of the authors of Log4j ("Logback is intended as a successor to the 
+
+ - [Log4j](http://logging.apache.org/log4j/1.2/): a bit old but mature and still very popular
+ - [Log4j2](http://logging.apache.org/log4j/2.x/): new, and much better, version of Log4j
+ - [Logback](http://logback.qos.ch/): written by one of the authors of Log4j ("Logback is intended as a successor to the 
 popular log4j project, picking up where log4j leaves off." - Ceki Gülcü)
-- [java.util.logging (JULI)](http://docs.oracle.com/javase/8/docs/technotes/guides/logging/overview.html): provided by 
+ - [java.util.logging (JULI)](http://docs.oracle.com/javase/8/docs/technotes/guides/logging/overview.html): provided by 
 JDK since version 1.4
 
 Unless stated otherwise, in this article I will refer to Logback + SLF4J configuration because this setup is widely 
@@ -45,14 +48,15 @@ adopted by mature projects. Just keep in mind that Log4j2 is also an excellent l
 ## Usability considerations
 
 As stated before, you should think carefully when designing logging across the application. There are mechanisms that 
-can help you out to make the most of your logged messages when the time comes (this usually happens on Sunday evening at 11 pm).
+can help you out to make the most of your logged messages when the time comes (this usually happens on Sunday evening). 
 
 ### Logging levels
 
 Logged messages should have a priority: some of them are more important than others. As such, you should always remember 
 to log them at the appropriate level. You don’t want to have a low level message like ’Query executed successfully’ 
-reported on INFO level. Logging lots of unimportant messages on a high logging level (INFO, WARN or even ERROR) may  
-decrease performance of the application (depending on the amount of logs and a few other conditions).
+reported on INFO level. Logging lots of unimportant messages on a high logging level (INFO, WARN or even ERROR) clutters 
+log files, which makes important bits almost invisible in the crowd and may decrease performance of the application. 
+Quality of logs is always more important than the sheer amount.
 
 ### Named loggers
 
@@ -66,7 +70,7 @@ public class SomeService {
 }
 ```
 
-What is wrong with it — you might ask. This approach creates a separate logger for the class, using its fully qualified 
+”What is wrong with it?”, you might ask. This approach creates a separate logger for the class, using its fully qualified 
 name (including the package name). It is not necessarily a bad thing if your code is nicely divided into packages (for example 
 according to [Hexagonal Architecture](http://alistair.cockburn.us/Hexagonal+architecture)) since you can filter logs from 
 certain parts of the application using package structure. 
@@ -76,9 +80,9 @@ to be able to filter them out easily (for example: method call timings from acro
 part of logs to another log appender:
 
 ```
-    <logger name="METRICS" level="DEBUG">
-        <appender-ref ref="METRICS_APPENDER"/>
-    </logger>
+<logger name="METRICS" level="DEBUG">
+    <appender-ref ref="METRICS_APPENDER"/>
+</logger>
 ```
 
 In such cases, you should consider named loggers. They can be used in the following way:
@@ -110,11 +114,13 @@ public class AnotherService {
 ```
 
 This code obviously has some issues (but it was meant to be very simple):
-- such logging should not be mixed with regular business logic: use [AOP (Aspect Oriented Programming)](https://en.wikipedia.org/wiki/Aspect-oriented_programming) 
+
+ - such logging should not be mixed with regular business logic: use [AOP (Aspect Oriented Programming)](https://en.wikipedia.org/wiki/Aspect-oriented_programming) 
 for that — it will be discussed later
-- it uses `System.currentTimeMillis()` instead of `System.nanoTime()`: this was done deliberately to simplify the code. 
-Otherwise it would have to use `TimeUnit.NANOSECONDS.toMillis(...)` which would clutter it a little bit. The context can 
-be seen: named loggers are a good and very easy way to group logs from different parts of the application. By grouping 
+ - it uses `System.currentTimeMillis()` instead of `System.nanoTime()`: this was done deliberately to simplify the code. 
+ 
+Otherwise it would have to use `TimeUnit.NANOSECONDS.toMillis(...)` which would clutter it a little bit. The context is 
+clearly visible: named loggers are a good and very easy way to group logs from different parts of the application. By grouping 
 them using a named logger you also give such messages a common context. In this case, you say that all of these logs are 
 related to our metrics gathering mechanisms and that they all belong together.
 
@@ -158,7 +164,7 @@ public class UserDao {
 	private final Logger logger = LoggerFactory.getLogger(UserDao.class);
 	
 	public void updateUserEmail(long userId, String email) {
-		logger.trace("Method ’updateUserEmail’ called with arguments: userId = " + userId + ", email = " + email);
+		logger.trace("’updateUserEmail’ called with args: userId= "+ userId +", email= "+ email);
 		
 		// normal DB related logic
 	}
@@ -174,7 +180,7 @@ public class UserDao {
 	private final Logger logger = LoggerFactory.getLogger(UserDao.class);
 	
 	public void updateUserEmail(long userId, String email) {
-		logger.trace("Method ’updateUserEmail’ called with arguments: userId = {}, email = {}", userId, email);
+		logger.trace("’updateUserEmail’ called with args: userId= {}, email= {}", userId, email);
 		
 		// normal DB related logic
 	}
@@ -200,7 +206,7 @@ public class UserDao {
 			// normal DB related logic
 		} catch (Exception e) {
 			// don’t mind that we catch raw Exception ;)
-			logger.error("Got an exception while updating user’s (id = " + userId + ") email to: " + email, e);
+			logger.error("Exception while updating user’s (id="+ userId +") email to: "+ email, e);
 		}
 	}
 }
@@ -220,7 +226,7 @@ public class UserDao {
 			// normal DB related logic
 		} catch (Exception e) {
 			// don’t mind that we catch raw Exception ;)
-			logger.error("Got an exception while updating user’s (id = {}) email to: {}", userId, email, e);
+			logger.error("Exception while updating user’s (id={}) email to: {}", userId, email, e);
 		}
 	}
 }
@@ -236,7 +242,7 @@ public class UserDao {
 	
 	public void updateUserEmail(long userId, String email) {
 		if (logger.isTraceEnabled()) {
-			logger.trace("Method ’updateUserEmail’ called with arguments: userId = {}, email = {}", userId, email);
+			logger.trace("’updateUserEmail’ called with args: userId= {}, email= {}", userId, email);
 		}
 		
 		// normal DB related logic
@@ -389,10 +395,10 @@ However, there are certain situations where the process that logs will be blocke
 cases, logging will actually affect the performance (latency and throughput) of an application.
 
 In the world of Microservices, log aggregation solutions like [Logstash](https://www.elastic.co/guide/en/logstash/current/index.html)
- become more and more popular. This is a very good thing, because they are very good products that can really remove the 
- pain of grepping through files from multiple servers. Having all application logs in one place is always a good thing. 
- Logback already supports logging to remote systems. In case of remote log aggregators, data has to be sent over the 
- network — which just like local I/O queuing may be a performance hit to the application.
+become more and more popular. This is a very good thing, because they are very good products that can really remove the 
+pain of grepping through files from multiple servers. Having all application logs in one place is always a good thing. 
+Logback already supports logging to remote systems. In case of remote log aggregators, data has to be sent over the 
+network — which just like local I/O queuing may be a performance hit to the application.
 
 The above concerns are here and are very real. The more log messages an application produces, the more it is affected by 
 them. Most developers know about them and are not surprised. What about risks that are less obvious?
