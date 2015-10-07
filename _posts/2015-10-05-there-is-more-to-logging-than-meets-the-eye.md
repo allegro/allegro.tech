@@ -9,9 +9,9 @@ tags: [java, logging, logback, slf4j, async appender, async logging]
 Logging seems to be dead simple — you just spit out text messages that should be helpful when diagnosing application 
 problems. This approach is wrong for at least two reasons: 
 - One should think carefully what to log, when to log and what logging level to use for different messages so that logs 
-don’t resemble a huge useless wall of text. Any anomalies or fatal errors should be easily visible
+don’t resemble a huge useless wall of text. Any anomalies or fatal errors should be easily visible.
 - Even if one has spent enough time on the complete logging approach, there are some technical bits you should know and 
-keep them in mind
+keep in mind.
 
 In this article I will show you that if you want to implement good logging into your application then you should have 
 strong knowledge of logging API, spend some time considering what and when to log and last but not least: remember that 
@@ -51,8 +51,8 @@ can help you out to make the most of your logged messages when the time comes (t
 
 Logged messages should have a priority: some of them are more important than others. As such, you should always remember 
 to log them at the appropriate level. You don’t want to have a low level message like ’Query executed successfully’ 
-reported on INFO level. Logging lots of unimportant messages on a high logging level (INFO, WARN or even ERROR) can in 
-fact affect the performance of the application (depending on the amount of logs and a few other conditions).
+reported on INFO level. Logging lots of unimportant messages on a high logging level (INFO, WARN or even ERROR) may  
+decrease performance of the application (depending on the amount of logs and a few other conditions).
 
 ### Named loggers
 
@@ -67,7 +67,7 @@ public class SomeService {
 ```
 
 What is wrong with it — you might ask. This approach creates a separate logger for the class, using its fully qualified 
-name (including package name). It is not necessarily a bad thing if your code is nicely divided into packages (for example 
+name (including the package name). It is not necessarily a bad thing if your code is nicely divided into packages (for example 
 according to [Hexagonal Architecture](http://alistair.cockburn.us/Hexagonal+architecture)) since you can filter logs from 
 certain parts of the application using package structure. 
 
@@ -509,7 +509,7 @@ code and that [AOP (Aspect Oriented Programming)](https://en.wikipedia.org/wiki/
 used instead.
 
 Depending on the type of application AOP will have to be configured differently. In case of a typical Spring Framework 
-based application, you just need to add dependencies to following libraries:
+based application, you just need to add the following dependencies:
 - org.springframework : spring-aop
 - org.aspectj : aspectjrt
 - org.aspectj : aspectjweaver
