@@ -14,9 +14,9 @@ Changing jobs, whether by moving to a different company or just switching projec
 learn in advance as much as you can about your prospective new employer but you can’t be completely sure whether you are going to like
 working there until you start.
 
-As a business, you keep an eye on the market in which you are active and gather feedback about your products and development plans
-from your users. Good analysis increases predictability. Still, external factors such as suddenly changing trends or a large
-competitor entering your market may completely invalidate your plans. Any serious decision is a matter of calculated risk.
+As a business owner, you keep an eye on the market in which you are active and gather feedback about your products and development plans
+from your users. Good analysis increases predictability. Still, external factors such as a sudden change of trends or a large
+competitor entering your market may completely invalidate your plans. Any serious decision should be a matter of calculated risk.
 
 Large projects carry with them increased risks, yet they are often necessary in order for the company to reach new markets or to be able
 to fend off competitors eating away at its market. When in the nineteen-sixties IBM run their huge
@@ -25,9 +25,9 @@ _five-billion-dollar gamble_. Had it not succeeded, it would have ruined the com
 project secured IBM’s position as a software and hardware giant for many years.
 
 At Allegro, on a much smaller scale, our own [Rubikon project](/2015/02/Evolution-of-our-platform-architecture.html) is a similar kind of
-gamble, reflected even in its name. We are rewriting a huge and profitable system to a different architecture and a completely different
-software stack. We believe that the cost of this huge technological change is justified in the long term. Time will show whether we were
-right.
+gamble, reflected even in its name. We are rewriting and redesigning a huge and profitable system to a different architecture and a
+completely different software stack. We believe that the cost of this huge technological change is justified in the long term. Time will
+show whether we were right.
 
 We are now also going through a large organisational change. All teams on which we used to work, sometimes for years, are being disbanded
 and new teams are being created. We are trying hard to make sure that no one can go on doing their business as usual. Clearly, this is
