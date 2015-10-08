@@ -378,7 +378,7 @@ public class UserDao {
 			// perform some very costly pre-processing on User object before logging
 			// 
 			String preProcessedUserData = preProcess(user);
-			logger.trace("Method ’saveUser’ called with arguments: user = {}", user);
+			logger.trace("Method ’saveUser’ called with arguments: user = {}", preProcessedUserData);
 		}
 		
 		// normal DB related logic
@@ -484,14 +484,14 @@ configure AsyncAppender in Logback:
 ```
 <configuration>
     <appender name="LOGSTASH_BASE" class="...">
-        <host>...host>
+        <host>...<host>
         <port>515</port>
     </appender>
 
     <appender name="LOGSTASH" class="ch.qos.logback.classic.AsyncAppender">
         <queueSize>50000</queueSize>
         <discardingThreshold>0</discardingThreshold>
-        <appender-ref ref="LOGSTASH" />
+        <appender-ref ref="LOGSTASH_BASE" />
     </appender>
     
     <root level="INFO">
@@ -566,4 +566,3 @@ trading one problem (lack of logs) for another (scalability issues).
 
 Even if your application does not handle hundreds of requests every second or does not have to scale or you simply don’t 
 care then just use your logging API’s to the fullest and enjoy good logs. They will come to your aid someday, I promise.
-
