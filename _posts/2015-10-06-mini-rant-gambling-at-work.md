@@ -29,12 +29,14 @@ gamble, reflected even in its name. We are rewriting and redesigning a huge and 
 completely different software stack. We believe that the cost of this huge technological change is justified in the long term. Time will
 show whether we were right.
 
-We are now also going through a large organisational change. All teams on which we used to work, sometimes for years, are being disbanded
+We are now also going through a large organisational change. All teams in which we used to work, sometimes for years, are being dissolved
 and new teams are being created. We are trying hard to make sure that no one can go on doing their business as usual. Clearly, this is
 going to disturb the normal flow of work, and hastily introduced changes bear the risk of missing something important that should have
 been taken into account. It’s a certain hit to productivity in the short term and it may make some people feel uncomfortable. Hell, some
 might even quit. But we feel that leaving our comfort zone is necessary for bringing new ideas to light and for making Allegro an awesome
-place for our customers and for ourselves not only now but also in the future. Despite the inconvenience, it’s a wager we want to make.
+place for our customers and for ourselves not only now but also in the future. In the long run, it should help not only the company
+but also each of us individually (including those who now loathe the change) to be better at what we do. Despite the inconvenience,
+it’s a wager we want to make.
 
 As [Yogi Berra](https://en.wikiquote.org/wiki/Yogi_Berra#Yogiisms) used to say,
 _It’s tough to make predictions, especially about the future_. Not everything is under our control. I encourage you to make informed
