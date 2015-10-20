@@ -132,13 +132,26 @@ This two day event is organized in whole by allegro engineers.
 
 <section id="photos" class="photos">
     <div class="content">
-        <h3>Photos</h3>
+        <h3>Photos &amp; videos</h3>
 
         <div class="gallery">
         {% for i in (0..98) %}
              <a href="/img/atm8/photos/full/image{{ i }}.jpg"><img alt="ATM8 - image {{ i }}" src="/img/atm8/photos/thumbs/image{{ i }}.jpg"></a>
         {% endfor %}
         </div>
+
+        {%assign videos=  site.data.videos%}
+        <ul class="videos">
+            {% for video in videos%}
+                {%assign videoKey = video[0]%}
+                {%assign videoData= video[1]%}
+              
+                <li>
+                    <iframe width="427" height="240" src="https://www.youtube.com/embed/{{videoData.youtubeID}}" frameborder="0" allowfullscreen></iframe>
+                    <h3>{{videoData.title}}</h3>
+               </li>
+            {% endfor %}        
+        </ul>
     </div>
 </section>
 
