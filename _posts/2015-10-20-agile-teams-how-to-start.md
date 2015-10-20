@@ -82,7 +82,7 @@ I start with five things and then check along the way:
 *what are the success criteria stating that we are going in the right direction (that this works for us)
 *how often do we want to do a “check point” to see if this is what we need? (in Scrum this can be done during Retrospectives)
 
-You can find a sample of such analysis in a [Scrum-ban* experiment](http://allegro.tech/2015/09/scrum-ban-applied.html) we’ve conducted.
+You can find a sample of such analysis in a [Scrum-ban* experiment](http://allegro.tech/2015/09/scrum-ban-applied.html) we’ve conducted. Another approach could be looking at "what we want to accomplish?" and following up with "what do we need to accomplish this?" and / or "how will we accomplish this?".
 
 ###Contracting (45–60')
 It’s one of the most important things when people in a group meet and are supposed to work together. If you don’t have the time to do any of the other steps
