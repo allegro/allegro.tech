@@ -140,11 +140,11 @@ This two day event is organized in whole by allegro engineers.
         {% endfor %}
         </div>
 
-        {%assign videos=  site.data.videos%}
+        {%assign videos = site.data.videos%}
         <ul class="videos">
             {% for video in videos%}
                 {%assign videoKey = video[0]%}
-                {%assign videoData= video[1]%}
+                {%assign videoData = video[1]%}
               
                 <li>
                     <iframe width="427" height="240" src="https://www.youtube.com/embed/{{videoData.youtubeID}}" frameborder="0" allowfullscreen></iframe>
