@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /aspects-in-spring.html
 layout: post
 title: Aspects in Spring
 author: piotr.glazar

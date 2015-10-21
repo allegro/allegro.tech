@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /Allegrotech-youth-our-educational-project.html
 layout: post
 title: Allegrotech.youth – our educational project
 author: pawel.rekowski

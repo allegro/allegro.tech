@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /automated-tests-with-geb-spock-and-groovy.html
 layout: post
 title: Automated tests with Geb, Spock and Groovy
 author: miroslaw.golda

@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /Inner-energy.html
 layout: post
 title: Inner energy — you are not a perpetual motion machine 
 author: michal.nowostawski

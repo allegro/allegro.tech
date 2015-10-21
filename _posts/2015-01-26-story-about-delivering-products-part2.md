@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /story-about-delivering-products-part2.html
 layout: post
 title: Eight steps to building Minimum Viable Product with Story Mapping
 author: andrzej.winnicki

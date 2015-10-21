@@ -15,7 +15,8 @@ title: blog
 <section class="section-posts">
     <section>
         <div class="content">
-            {% include posts.html offset="1" %}
+            {% include posts.html offset="1" limit="3" %}
+            {% include posts.html offset="4" short="true" %}
         </div>
     </section>
 </section>
@@ -32,3 +33,4 @@ title: blog
         </div>
     </header>
 </section>
+{% include disqus_snippet.html %}

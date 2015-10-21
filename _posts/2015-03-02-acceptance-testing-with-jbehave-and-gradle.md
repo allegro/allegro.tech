@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /acceptance-testing-with-jbehave-and-gradle.html
 layout: post
 title: Acceptance testing with JBehave and Gradle
 author: grzegorz.witkowski

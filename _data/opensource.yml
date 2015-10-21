@@ -1,0 +1,48 @@
+manifesto:
+    title: Open Source
+    text: |
+        We, devs and ops working at Allegro, believe that experience we gained solving problems with large-scale
+        deployments, high availability and robustness during our everyday work should be shared. We use Open Source
+        solutions on daily basis, why not work on our karma and give something in return?
+
+authors:
+    - adam.dubiel
+
+repos:
+    featuredPrimary:
+        - vaas
+        - hermes
+        - ralph
+
+    featuredSecondary:
+        - tipboard
+        - selena
+
+    ranking:
+        - tipboard
+        - ralph
+        - php-protobuf
+        - grunt-maven-plugin
+        - hermes
+        - vaas
+        - axion-release-plugin
+        - selena
+        - fogger
+        - handlebars-spring-boot-starter
+
+    all:
+        - camus-compressor
+        - elasticsearch-reindex-tool
+        - newrelic-gradle-plugin
+        - tradukisto
+        - kafka-offset-monitor-graphite
+        - handlebars-spring-boot-starter
+        - slinger
+        - selena
+        - selena-agent
+        - fogger
+        - django-powerdns-dnssec
+        - php-protobuf
+        - grunt-maven-plugin
+        - axion-release-plugin
+        - toper

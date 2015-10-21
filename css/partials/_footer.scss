@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'socicon';
+    font-style: normal;
+    font-weight: 400;
+    src: local('socicon'),
+    url(../font/socicon/font/socicon.woff2) format('woff2'),
+    url(../font/socicon/font/socicon.woff) format('woff'),
+    url(../font/socicon/font/socicon.ttf) format('truetype'),
+    url(../font/socicon/font/socicon.svg#socicon) format('svg');
+    text-transform: initial;
+}
+
+.socicon {
+    position: relative;
+    top: -3px;
+    display: inline-block;
+    font-family: 'socicon';
+    font-style: normal;
+    font-weight: normal;
+    font-size:2.4rem;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    color:#bbb;
+}
+.socicon:empty{
+    width: 1em;
+}
+
+.socicon-twitter:before { content: "a"; }
+.socicon-facebook:before { content: "b"; }
+.socicon-google:before { content: "c"; }
+.socicon-github:before { content: "Q"; }
+.socicon-rss:before { content: ","; }
+.socicon-slideshare:before { content: "8"; }
+.socicon-meetup:before { content: "]"; }
+.socicon-mail:before { content: "@"; }
+
+.icon-link:hover .socicon {
+    opacity:.8;
+}
+
+.icon-link-text {
+    position: absolute;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.github-icon-svg,
+.twitter-icon-svg,
+.rss-icon-svg {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    top: 3px;
+    fill: #bbb;
+    padding-bottom: 5px;
+}
+
+.site-footer {
+    border-top: 1px solid #ddd;
+    padding: 2em 0;
+}
+
+.site-footer .site-title {
+    margin: 7px 1em;
+    display: block;
+}
+
+.site-footer .find-us {
+    margin: 0px 0.1em;
+}
+
+.site-footer .site-title img {
+    height: 22px;
+    width: 72px;
+    vertical-align: middle;
+}
+
+.site-footer a {
+    color: #999;
+    text-decoration: none;
+}
+
+.site-footer li {
+    list-style: none;
+    display: inline-block;
+    font-size: 1.4rem;
+    margin: 0 1em;
+}
+
+.site-footer li span {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 5px;
+}
+
+
+.site-footer a:hover svg,
+.site-footer a:focus svg {
+    opacity: 0.8
+}
+
+.site-footer a:hover span.username,
+.site-footer a:focus span.username {
+    text-decoration: underline;
+}
+
+@media all and (min-width: 760px) {
+    .site-footer {
+        text-align: right;
+    }
+
+    .site-footer .site-title {
+        float: left;
+    }
+}

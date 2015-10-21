@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /java-testing-toolbox.html
 layout: post
 title: Java Testing Toolbox
 author: rafal.glowinski

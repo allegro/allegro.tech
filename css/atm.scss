@@ -1,0 +1,176 @@
+---
+---
+
+@import "post-author";
+
+.atm8 a {
+    color: #4ba7f8;
+    text-decoration: none;
+}
+
+.atm8 a:hover, .atm8:focus{
+    text-decoration: underline;
+}
+
+.atm8 .site-navlist li{
+    display: inline-block;
+}
+
+
+.atm8 .page-link {
+    border: 1px solid #4ba7f8;
+    margin: 0 0 5px 0;
+    display: inline-block;
+}
+
+.atm8 .page-link:hover{
+    text-decoration: none;
+}
+
+.atm8 .page-link:after{
+    display: none;
+}
+.section-atm {
+    background: #231f20;
+    padding: 2rem 0;
+}
+
+
+.schedule {
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+
+.schedule-item {
+    margin-bottom:5px;
+    background-color:#eee;
+    transition:background-color 0.5s linear;
+}
+
+.schedule-item:nth-child(2n-1){
+    background-color: #fff;
+}
+
+.schedule-item:last-child {
+    margin-bottom:0;
+}
+
+.schedule-item:hover,
+.schedule-item:focus {
+    background-color: #fc4e00;
+}
+
+.talknote {
+    display:flex;
+    padding: 1rem;
+}
+
+.talknote-time {
+    flex: 0 1 120px;
+    border-right:1px solid rgba(160, 160, 160, .3);
+    transition:border-color 0.5s linear; /* in synch with .schedule-item */
+}
+
+.schedule-item:hover .talknote-time,
+.schedule-item:focus .talknote-time {
+    border-color: rgba(255, 255, 255, .3);
+}
+
+.talknote-content {
+    flex: 2 1 300px;
+    margin:0 2rem;
+}
+
+.talknote-title {
+    margin:0;
+    font-weight:800;
+    font-size:1.6rem;
+}
+
+.talknote-author,
+.talknote-abstract {
+    font-size:1.3rem;
+}
+
+.talknote-abstract {
+    margin:1.5rem 0 1rem;
+}
+
+.section-atm header{
+    text-align: center;
+    color: #fff;
+}
+
+.section-atm header img{
+    display: block;
+    width: 90%;
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.section-atm h1,
+.section-atm p{
+    margin: 0;
+}
+
+.section-atm h1{
+   font-size: 160%;
+   font-weight: 400;
+   display: inline-block;
+   text-shadow: -1px -1px #999;
+}
+
+.section-atm .date{
+    color: yellow;
+}
+
+.section-atm8 {
+    background-image:  linear-gradient(rgba(25,25,25,0.4),rgba(25,25,25,0.6)), url(/img/atm8/stadion_005.jpg);
+    background-size: cover;
+    color: #fff;
+    text-shadow: 1px 1px #333;
+}
+
+.section-atm8 .content{
+       padding: 1rem 2rem;
+}
+
+.section-atm8 dt{
+    font-weight: bold;
+}
+.section-atm8 dd{
+    padding: 0;
+    margin: 0;
+}
+
+p.copy{
+    font-size: 12px;
+    padding: 1px 5px;
+    background: rgba(0,0,0,0.4);
+    color: rgba(255,255,255,0.5);
+    display: inline-block;
+    margin: 0;
+}
+
+.photos {
+    padding: 30px 0;
+    .gallery {
+        text-align: center;
+    }
+    img{
+        max-height: 160px;
+    }
+}
+
+.videos {
+    overflow: hidden;
+
+    li{
+        list-style: none;
+        float: left;
+        width: 45%;
+        margin: 2%;
+        min-width: 300px;
+    }
+}

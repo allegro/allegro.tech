@@ -1,12 +1,15 @@
---- 
-layout: post 
-title: How to UX without interface 
-author: [alicja.antkowiak, edyta.kopczynska, krystian.szczucki, piotr.plys] 
-tags: [ux] 
+---
+redirect_from:
+   - /search-ux-without-interface.html
+
+layout: post
+title: How to UX without interface
+author: [alicja.antkowiak, edyta.kopczynska, krystian.szczucki, piotr.plys]
+tags: [ux]
 ---
 
-[Allegro.pl](http://allegro.pl) is a leading Central European e-commerce platform, offering a vast diversity of new 
-and pre-owned products. Search engine is the main entry point to Allegro.pl product stock. 
+[Allegro.pl](http://allegro.pl) is a leading Central European e-commerce platform, offering a vast diversity of new
+and pre-owned products. Search engine is the main entry point to Allegro.pl product stock.
 Designing a bunch of UX metrics for a [SaaS](http://pl.wikipedia.org/wiki/Software_as_a_Service) solution or
 a social networking site is a must. Typically no one would dare
 discuss whether it is worth our time to measure the effect of changes through an
@@ -15,7 +18,7 @@ the impact on metrics. When it came to search engine — a back office product w
 doubts. We are the search team behind the Allegro search engine. This is the complete interface of our product:
 
 ![allegro search](/img/articles/2015-04-13-allegro-search.png)
- 
+
 And this is it. Not much visible for users but there are huge challenges hidden behind it.
 
 In this article we hid a mistake, for those who find it we have a surprise — details at the end.
@@ -24,7 +27,7 @@ In this article we hid a mistake, for those who find it we have a surprise — d
 
 In the past we have been focused on stability and response time metrics related to our infrastructure. This was the
 right approach and the fundamental starting point. There is no point in measuring [Net Promoter Score](http://en.wikipedia.org/wiki/Net_Promoter)
-or user delight if the search has stability issues, right? This would be especially true 
+or user delight if the search has stability issues, right? This would be especially true
 with a vast infrastructure, both in terms of hardware and software. We currently support:
 
 * 85 physical servers, 11 000 RPS on our caching/load balancing layer with 6 000 RPS hiting [Solr](http://lucene.apache.org/solr/)
@@ -35,8 +38,8 @@ feeders and workers that provide and calculate data for our Lambda architecture 
 [Spark](https://spark.apache.org/), [Kafka](http://kafka.apache.org).
 
 Based on this technical infrastructure we started to measure and monitor several metrics like turnover and number of
-transactions (a constant A/B test with 4 treatment groups and 1 control group), response times ([Zabbix](http://www.zabbix.com/), etc.), 
-measurements with URLs and cookies, and finally created a dedicated dashboard in Business Intelligence solution. 
+transactions (a constant A/B test with 4 treatment groups and 1 control group), response times ([Zabbix](http://www.zabbix.com/), etc.),
+measurements with URLs and cookies, and finally created a dedicated dashboard in Business Intelligence solution.
 But in time, these metrics proved to be insufficient.
 
 ##Reaching beyond RPS
@@ -53,14 +56,14 @@ humans.
 The first attempt to implement user-oriented metrics took a lot of time and ended in a failure as we had insufficient
 know-how to do this with only developers and a product owner. We drew conclusions and asked for help in our UX Division.
 Fortunately they also felt that search is an unjustly UX-neglected area and were happy to assist. We received support
-of dedicated usability and user survey specialists. Piotr and Alicja from User eXperience team joined us and became 
+of dedicated usability and user survey specialists. Piotr and Alicja from User eXperience team joined us and became
 part-time members of our technical team, supplying us with the user perspective and an array of testing tools. Yeah!
 
 ##Stepping out of the comfort zone
 
 Selecting the most relevant metrics was probably the most difficult part, second only to comprehending how badly we needed
 them. We desired tools which would show us a perspective completely detached from transactional data and instead focused on users point
-of view. We believe that customer satisfaction is far more important than an immediate increase in 
+of view. We believe that customer satisfaction is far more important than an immediate increase in
 turnover — it has been proven that this measure provides a leading indicator of
 consumer purchase intentions and loyalty. And a loyal customer is far more likely to make further purchases in the
 future.
@@ -71,11 +74,11 @@ Lately in our organization we became more focused on measuring user experience n
 quantitatively. It gives us the possibility to collect data automatically and often, as well as to interpret UX data
 unambiguously – everyone who accesses the report can easily say if the quality of using our product increased or
 decreased during last weeks. Using Google framework called [HEART](http://www.gv.com/lib/how-to-choose-the-right-ux-metrics-for-your-product)
-seemed a great way to start. To make the most of HEART you have to work in 
-teams of people with different skills who 
-debate together what is the signal of users’ product related happiness, engagement, adoption, retention and 
-task success and what are the metrics to measure them. Afterwards data analysts do the magic and include all 
-of the information in easily accessible and readable reports updated daily or weekly. HEART seems like a 
+seemed a great way to start. To make the most of HEART you have to work in
+teams of people with different skills who
+debate together what is the signal of users’ product related happiness, engagement, adoption, retention and
+task success and what are the metrics to measure them. Afterwards data analysts do the magic and include all
+of the information in easily accessible and readable reports updated daily or weekly. HEART seems like a
 reasonable methodology for almost every part of Allegro.
 
 ##Trouble in paradise
@@ -91,15 +94,15 @@ meetings we agreed to give up on HEART entirely and find a custom way to accurat
 After many long and lively debates we chose 10 main metrics which will allow us to approach search results differently
 and from a broader perspective — such as:
 
-* how long it takes for the user to find an interesting offer from the moment when user enters the phrase to offer 
-* satisfaction from the search results (measured by surveys) 
-* percentage of queries returning no results 
-* number of users who have seen empty search result at least once today 
+* how long it takes for the user to find an interesting offer from the moment when user enters the phrase to offer
+* satisfaction from the search results (measured by surveys)
+* percentage of queries returning no results
+* number of users who have seen empty search result at least once today
 * etc...
 
-At the moment we are setting up a dashboard in our room to display the new metrics in an appealing and colorful 
-manner, all in one place. This will be a clear and easily accessible way of monitoring our users’ satisfaction. 
-Everyone in our room can see how happy (or not) our users are today. They can monitor the impact of deployed 
+At the moment we are setting up a dashboard in our room to display the new metrics in an appealing and colorful
+manner, all in one place. This will be a clear and easily accessible way of monitoring our users’ satisfaction.
+Everyone in our room can see how happy (or not) our users are today. They can monitor the impact of deployed
 changes and optimise according to users’ responses.
 
 ##Future of measuring user satisfaction

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    {% include opensource/head.html %}
+    <body>
+        {% assign headerLinkTitle = 'blog' %}
+        {% assign headerLinkUrl = '/' %}
+
+        {% include header.html %}
+        {{ content }}
+        {% include footer.html %}
+        {% include scripts.html %}
+    </body>
+</html>

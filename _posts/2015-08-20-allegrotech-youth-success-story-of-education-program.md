@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /allegrotech-youth-success-story-of-education-program.html
 layout: post
 title: Allegrotech.youth – success story of an education program
 author: [pawel.rekowski,michal.karykowski,patryk.krawaczynski,krzysztof.muzalewski]

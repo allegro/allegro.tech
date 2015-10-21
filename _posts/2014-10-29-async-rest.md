@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /async-rest.html
 layout: post
 title: Asynchronous REST Services with JAX-RS and CompletableFuture
 author: slawomir.bolimowski

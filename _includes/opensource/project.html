@@ -1,0 +1,19 @@
+{% assign metadata = projectsMetadata[projectName] %}
+{% assign repodata = projectsRepo[projectName] %}
+
+<article class="opensource-project">
+    <a href="{{ repodata.html_url }}">
+        <h4>{{ repodata.name }}</h4>
+        <p class="repo-description">{{ repodata.description }}</p>
+    </a>
+    <div class="star-gazers">
+        <a href="{{ repodata.html_url }}/stargazers">{{ repodata.stargazers_count }}</a>
+    </div>
+    <ul class="repo-metadata">
+        <li><a href="{{ repodata.html_url }}">repo</a></li>
+        {% if metadata.docs %}<li><a href="{{ metadata.docs }}">docs</a></li>{% endif %}
+        {% if metadata.contact %}<li><a href="{{ metadata.contact }}">contact</a></li>{% endif %}
+        {% if metadata.twitter %}<li><a href="{{ metadata.twitter }}">twitter</a></li>{% endif %}
+    </ul>
+</article>
+

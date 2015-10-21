@@ -1,0 +1,49 @@
+---
+---
+
+@import "_header";
+@import "_footer";
+
+html,
+body,
+ul,
+li {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: #fff;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 1.6em;
+    line-height: 1.5;
+    color: #333;
+}
+
+.content {
+    max-width: 940px;
+    padding: 0 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* banner */
+
+.banner {
+    background: #2f292b;
+    overflow: hidden;
+}
+
+.banner img {
+    float: right;
+    max-width: 90%;
+}

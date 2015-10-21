@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /browser-fingerprints.html
 layout: post
 title: Browser Fingerprinting — introduction
 author: jacek.zoch

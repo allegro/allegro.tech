@@ -68,7 +68,7 @@ This two day event is organized in whole by allegro engineers.
     <dt>Venue: </dt>
     <dd>PGE National Stadium in Warsaw</dd>
     <dt>Address:</dt>
-    <dd>PGE National Stadium in Warsaw at Al. Ks. J. Poniatowskiego 1. Main entrance (gate 1) – follow information signs. (<a href="https://www.google.pl/maps/place/PGE+Narodowy/@52.2394957,21.0457909,17z/data=!3m1!4b1!4m2!3m1!1s0x471ecc53aadd5a5b:0x6243befa18b5188b?hl=en">Google Maps</a>)</dd>
+    <dd>PGE National Stadium in Warsaw at Al. Ks. J. Poniatowskiego 1. Main entrance (gate 2, A entrance) – follow information signs and look for Delorean :) (<a href="https://www.google.pl/maps/place/PGE+Narodowy/@52.2394957,21.0457909,17z/data=!3m1!4b1!4m2!3m1!1s0x471ecc53aadd5a5b:0x6243befa18b5188b?hl=en">Google Maps</a>)</dd>
 </dl>
     <h3>How to get there?</h3>
     <ul>
@@ -126,6 +126,31 @@ This two day event is organized in whole by allegro engineers.
                 {% include single_author.html showLinkToPost=false %}
             </li>
             {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<section id="photos" class="photos">
+    <div class="content">
+        <h3>Media</h3>
+
+        <div class="gallery">
+        {% for i in (0..98) %}
+             <a href="/img/atm8/photos/full/image{{ i }}.jpg"><img alt="ATM8 - image {{ i }}" src="/img/atm8/photos/thumbs/image{{ i }}.jpg"></a>
+        {% endfor %}
+        </div>
+
+        {%assign videos = site.data.videos%}
+        <ul class="videos" id="videos">
+            {% for video in videos%}
+                {%assign videoKey = video[0]%}
+                {%assign videoData = video[1]%}
+              
+                <li>
+                    <iframe width="427" height="240" src="https://www.youtube.com/embed/{{videoData.youtubeID}}" frameborder="0" allowfullscreen></iframe>
+                    <h3>{{videoData.title}}</h3>
+               </li>
+            {% endfor %}        
         </ul>
     </div>
 </section>
