@@ -132,7 +132,7 @@ This two day event is organized in whole by allegro engineers.
 
 <section id="photos" class="photos">
     <div class="content">
-        <h3>Photos &amp; videos</h3>
+        <h3>Media</h3>
 
         <div class="gallery">
         {% for i in (0..98) %}
@@ -141,7 +141,7 @@ This two day event is organized in whole by allegro engineers.
         </div>
 
         {%assign videos = site.data.videos%}
-        <ul class="videos">
+        <ul class="videos" id="videos">
             {% for video in videos%}
                 {%assign videoKey = video[0]%}
                 {%assign videoData = video[1]%}
