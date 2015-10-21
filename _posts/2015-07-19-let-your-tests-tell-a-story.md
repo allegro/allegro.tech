@@ -23,9 +23,9 @@ about which Grzegorz Witkowski recently
 
 ### Ubiquitous language in tests
 
-In Domain—driven Design term “ubiquitous language” means common, consistent language between developers and users.
-We’ve taken this idea a step further and decided that our integration tests will share a common context, so developers
-can better understand system under test and more easily discuss about it.
+In Domain—driven Design term “ubiquitous language” means common, consistent language between developers and project
+stakeholders. We’ve taken this idea a step further and decided that our integration tests will share a common context,
+so developers can better understand system under test and more easily discuss about it.
 
 Just like in BDD, every test should be a short story of a user performing an action. Instead of naming users and entities
 with _ad hoc_ identifiers like `ABC`, `123` or `foo` we decided to introduce meaningful characters.
@@ -78,11 +78,11 @@ category.
 We did not use dedicated BDD framework, but decided to create our own components, which try to encapsulate performed
 business logic and hide implementation details. We call them “manipulators” and they have three purposes:
 
-- Setting a service under test to initial state.
+- Setting a system under test to initial state.
 - Performing actions on the service.
 - Getting data from service, on which assertions can be performed.
 
-Internally manipulators can perform whatever it is required to set the application in desired state or to verify it.
+Internally manipulators can perform whatever is required to set the application in desired state or to verify it.
 This includes REST requests, direct method calls, execution of SQL scripts, etc. We try to reuse manipulators between
 tests, because it limits number of places we have to modify in case of API changes.
 
@@ -104,8 +104,8 @@ We’ve implemented the simple recommendation scenario mentioned above as:
 
 In our opinion this solution hides all implementation details from test, giving readability comparable to specialized
 BDD frameworks like JBehave. Moreover, we still have benefits of compile—time checks, code highlighting and IDE
-refactorization support. We could go a little further and use more Scala—specific features like spaces in method
-names, our own operators or implicit methods, but we think this implementation is already good enough.
+refactorization support. We could go a little further and use more Scala—specific features like postfix notation,
+implicit methods etc. but it adds complexity. That is a trade-off one must decide on his own.
 
 ### More examples
 
