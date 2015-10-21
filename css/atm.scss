@@ -163,3 +163,13 @@ p.copy{
     }
 }
 
+.videos {
+    overflow: hidden;
+
+    li{
+        list-style: none;
+        float: left;
+        width: 45%;
+        margin: 2%;
+    }
+}
