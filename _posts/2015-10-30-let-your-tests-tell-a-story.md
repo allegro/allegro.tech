@@ -149,4 +149,4 @@ attributes adds valuable context to tests and helps remove repetitions. The doma
 Product Owner, so this enables us to communicate more efficiently.
 
 To implement test cases we’ve used technical stack that we’ve already been familiar with. We’ve encapsulated logic for
-test setup and results verification into separate components, which makes the code more maintainable.
+test setup and results verification into separate components, which make the code more maintainable.
