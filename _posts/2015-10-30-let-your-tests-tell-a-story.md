@@ -6,7 +6,7 @@ tags: [java, scala, testing, bdd, jbehave]
 ---
 
 In a team that develops Allegro Recommendation Platform we weren’t happy with our integration tests. Long setup and
-assertions blocks resulted in low signal—to—noise ratio and poor readability. These tests were also full of _ad hoc_
+assertions blocks resulted in a low signal—to—noise ratio and poor readability. These tests were also full of _ad hoc_
 variables like `1`, `ABC`, `OK` or `NOK`, which caused that it was hard to find a connection between input and output
 data. Moreover, any change in an API caused changes in many tests.
 
@@ -15,7 +15,7 @@ by [Domain—driven design](https://en.wikipedia.org/wiki/Domain-driven_design) 
 common domain context not just to our business logic, but also to our tests.
 
 We’re using [Scala](http://www.scala-lang.org/) language and [specs2](https://etorreborre.github.io/specs2/) testing
-framework in our team, so this article contains few technical details specific to this toolset. However, ideas
+framework in our team, so this article contains a few technical details specific to this toolset. However, ideas
 presented in this article are applicable to any framework. They work very well with
 [Behavior—driven development](https://en.wikipedia.org/wiki/Behavior-driven_development) (BDD) frameworks, like JBehave,
 about which Grzegorz Witkowski recently
@@ -23,9 +23,9 @@ about which Grzegorz Witkowski recently
 
 ### Ubiquitous language in tests
 
-In Domain—driven Design term “ubiquitous language” means common, consistent language between developers and project
+In Domain—driven Design “ubiquitous language” means a common, consistent language between developers and project
 stakeholders. We’ve taken this idea a step further and decided that our integration tests will share a common context,
-so developers can better understand system under test and more easily discuss about it.
+so developers can better understand the system under test and more easily discuss about it.
 
 Just like in BDD, every test should be a short story of a user performing an action. Instead of naming users and entities
 with _ad hoc_ identifiers like `ABC`, `123` or `foo` we decided to introduce meaningful characters.
@@ -56,7 +56,7 @@ More possible examples in different application domains are:
 
 Let’s consider a simple case — request for recommendations from a new anonymous user, who doesn’t have any browsing
 history. The most basic recommendation that we can show to him is just some bestselling item in a category, which he’s
-browsing right now. We could implement it in a following way:
+browsing right now. We could implement it in the following way:
 
     Scenario: recommendations for an anonymous user in a category listing.
     Given an Item 1 in Category A and an Item 2 in Category B
@@ -139,7 +139,7 @@ by using manipulators and our own specs2 matchers to implement this scenario as 
     }
 
 We admit that the Scala implementation is not as readable as _pure_ BDD specification. However in our opinion when there
-is a lot of tests, reusing characters makes it easier write new tests and see differences between existing ones.
+are a lot of tests, reusing characters makes it easier to write new tests and see differences between existing ones.
 Another benefit is that we may still use plain Scala, without introducing new tools.
 
 ### Summary
