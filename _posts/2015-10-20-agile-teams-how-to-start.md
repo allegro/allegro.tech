@@ -70,7 +70,6 @@ effective due to it’s simplicity, reducing the complexity of work and focusing
 tools that we, as a Team, find useful.
 
 ##Setting up working rhythm (up to 90 minutes)
-##Setting up working rhythm (up to 90 minutes)
 At this stage we are digging deeper to setup the minimum details that we need to start doing the work. We will have plenty of chances to verify our approach and
 improve on the way. In agile at least that’s one of the advantages. We are answering the questions: how do we want to work? In what rhythm would we like to
 operate and why? In this step it’s good to define the agile framework or methodology you would like to use in more details. Establish repositories 
