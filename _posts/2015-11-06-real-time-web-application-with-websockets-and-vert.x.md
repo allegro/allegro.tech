@@ -6,23 +6,24 @@ tags: [java, javascript, vertx, websockets, websocket api, sockjs, real-time app
 ---
 
 At Allegro, you can sell items at a fixed price (buy now) or at auction.
-Auctions are still popular sales format, especially in categories such as antiques and art or clothing.
-So far, buyers fighting for item had to refresh the web page in the last seconds of the auction to verify that the offer is not overbid.
+Auctions are still a popular sales format, especially in categories such as antiques and art or clothing.
+So far, buyers fighting for an item had to refresh the web page in the last seconds of the auction to verify that the offer had not been overbid.
 This made bidding difficult and less fun. Last year real time bidding process for all mobile users was introduced.
-In this article I want to show how, to create a simple application that provides real-time bidding, based on allegro auctions.
-We will use WebSockets, SockJS and the latest, third version of Vert.x.
-We will create a frontend for fast bidding that communicates with microservice written in Java 8 and based on Vert.x.
+In this article I want to show how to create a simple application that provides real-time bidding, based on Allegro auctions.
+We will use [WebSockets](https://en.wikipedia.org/wiki/WebSocket), [SockJS](https://github.com/sockjs/sockjs-client)
+and the latest, third version of [Vert.x](http://vertx.io/).
+We will create a frontend for fast bidding that communicates with a microservice written in Java 8 and based on Vert.x.
 
 ## What are Websockets?
 
-WebSocket is asynchronous, bidirectional, full-duplex technology that provides a communication channel over a single TCP connection.
+WebSocket is asynchronous, bidirectional, full-duplex protocol that provides a communication channel over a single TCP connection.
 With the [WebSocket API](http://www.w3.org/TR/websockets/) it provides bidirectional communication between the website and a remote server.
 Originally, WebSocket was supposed to be a part of the [HTML 5](http://www.w3.org/TR/html5/) specification,
 but later protocol is described in a separate document [RFC 6455](https://tools.ietf.org/html/rfc6455).
 
 WebSockets solve many problems which prevented the HTTP protocol from being suitable for use in modern,
-real-time applications. There are no longer needed workarounds like polling, which simplifies application architecture.
-WebSockets do not need to open multiple HTTP connections, provide a reduction of unnecessary network traffic and reduce latency.
+real-time applications. Workarounds like polling are no longer needed, which simplifies application architecture.
+WebSockets do not need to open multiple HTTP connections, they provide a reduction of unnecessary network traffic and reduce latency.
 
 Each WebSockets connection begins as an HTTP request. In addition, an updated HTTP header indicates that the client
 wants to change the connection to WebSocket protocol. The initial HTTP connection is replaced by a WebSocket connection
@@ -43,7 +44,7 @@ Some examples of good use cases for WebSockets include:
 ## Websocket API vs SockJS
 
 Unfortunately, WebSockets are not supported by all web browsers. However, there are libraries that provide a fallback
-when WebSockets are not available. One of such libraries is [SockJS](https://github.com/sockjs/sockjs-client).
+when WebSockets are not available. One such library is SockJS.
 SockJS starts from trying to use the WebSocket protocol. However, if this is not possible,
 it uses  a [variety of browser-specific transport protocols](https://github.com/sockjs/sockjs-client#supported-transports-by-browser-html-served-from-http-or-https).
 SockJS is a library designed to work in all modern browsers and in environments that do not support WebSocket protocol,
@@ -77,7 +78,7 @@ sock.close();
 
 ## Vert.x
 
-SockJS client requires the server side part. For the Java language we can use, among other things,
+SockJS client requires the server-side part. For the Java language we can use, among other things,
 [Spring Framework Java client & server](http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/websocket.html),
 [Atmosphere Framework](https://github.com/Atmosphere/atmosphere) or [Vert.x](http://vertx.io/). We are going to use the latter.
 
@@ -90,7 +91,7 @@ Vert.x guarantees that a particular verticle instance is never executed by multi
 Verticles communicate by passing messages using an event bus.
 
 Vert.x applications are mostly written by defining event handlers. Vert.x calls handlers using a thread called an event loop.
-The event loop run around delivering events to different handlers in succession as they arrive.
+The event loop delivers events to different handlers in succession as they arrive.
 None of the Vert.x APIs block threads, so you also need to remember not to block the event loop in handlers.
 Because nothing blocks, an event loop can potentially deliver a lot of events in a short time.
 We make guarantees that any specific handler will always be invoked by the same event loop.
@@ -108,12 +109,12 @@ Typical application will consist of multiple verticles running on Vert.x instanc
 ![Vert.x architecture](/img/articles/2015-11-06-real-time-web-application-with-websockets-and-vert.x/vertx_architecture.png "Vert.x architecture")
 
 There can be many Vert.x instances running on the same host or on different hosts on the network.
-The instances can be configured to cluster with each other forming a distributed event bus over which
+Instances can be configured to cluster with each other forming a distributed event bus over which
 verticles can communicate. We can create a distributed bus encompassing many browsers and servers.
 
 ## Frontend to fast bidding
 
-Auction web page contains bidding form and some simple java script which loads current price from the service,
+Auction web page contains the bidding form and some simple JavaScript which loads current price from the service,
 opens an event bus connection to the SockJS server and offers bidding.
 HTML source code of sample web page on which we bid might look like this:
 
@@ -137,7 +138,7 @@ HTML source code of sample web page on which we bid might look like this:
 
 We use the `vertxbus.js` library to create a connection to the event bus.
 `Vertxbus.js` library is a part of the Vert.x distribution. `Vertxbus.js` internally uses SockJS library
-to send the data to the SockJS server. In the code snippet below we create instance of the event bus.
+to send the data to the SockJS server. In the code snippet below we create an instance of the event bus.
 The parameter to the constructor is the URI where to connect to the event bus.
 Then we register the handler listening on address `auction.<auction_id>`. Each client has a possibility of registering
 at multiple addresses e.g. when bidding in the auction 1234, they register on the address `auction.1234` etc.
@@ -155,10 +156,10 @@ function registerHandlerForUpdateCurrentPriceAndFeed() {
 };
 ```
 
-Any user attempt to bid generates an PATCH ajax request to the service with information about the new offer
-made at auction (see `bid()` function). On the server side we publish this information on the event bus to all clients
-registered to an address. If you receive an HTTP response status code other than `200 (OK)`,
-an error message is displayed on the web page.
+Any user attempt to bid generates a PATCH [Ajax](https://en.wikipedia.org/wiki/Ajax_%28programming%29) request
+to the service with information about the new offer made at auction (see `bid()` function).
+On the server side we publish this information on the event bus to all clients registered to an address.
+If you receive an HTTP response status code other than `200 (OK)`, an error message is displayed on the web page.
 
 ```javascript
 function bid() {
@@ -180,7 +181,7 @@ function bid() {
 
 ## Auction Service
 
-Now we are going to create light-weight RESTful auction service. We will sent and retrieve data in JSON format.
+Now we are going to create a light-weight RESTful auction service. We will send and retrieve data in JSON format.
 Let’s start by creating a verticle, the basic package of code that Vert.x executes.
 First we need to inherit from [`AbstractVerticle`](http://vertx.io/docs/apidocs/io/vertx/core/AbstractVerticle.html)
 and override the `start` method.
@@ -194,10 +195,10 @@ The route can have a handler associated with it, which receives the request
 (e.g. route that matches path `/eventbus/*` is  associated with `eventBusHandler`).
 We can do something with the request, and then, end it or pass it to the next matching handler.
 If you have a lot of handlers it makes sense to split them up into multiple routers.
-You can do this by mount a router at a mount point in another router
+You can do this by mounting a router at a mount point in another router
 (see `auctionApiRouter` that corresponds to `/api` mount point in code snippet below).
 
-Here’s example of verticle:
+Here’s an example verticle:
 
 ```java
 public class AuctionServiceVerticle extends AbstractVerticle {
@@ -223,7 +224,7 @@ error handler, SockJS handler, body handler, shared data, static handler and rou
 
 ### Error handler
 
-As well as setting handlers to handle requests you can also set a handler to handle failures in routing.
+As well as setting handlers to handle requests you can also set a handler for failures in routing.
 Failure in routing occurs if a handler throws an exception, or if a handler calls [`fail`](http://vertx.io/docs/apidocs/io/vertx/ext/web/RoutingContext.html#fail-int-) method.
 To render error pages we use error handler provides by Vert.x:
 
@@ -267,7 +268,7 @@ private SockJSHandler eventBusHandler() {
 
 ### Body handler
 
-The BodyHandler allows you to retrieve the request body, limit the body size and handle the file upload.
+The BodyHandler allows you to retrieve the request body, limit the body size and to handle the file upload.
 Body handler should be on a matching route for any requests that require this functionality.
 We need BodyHandler during the bidding process (PATCH method request `/auctions/<auction_id>` contains request body
 with information about a new offer made at auction). Creating a new body handler is simple:
@@ -287,7 +288,7 @@ Shared data includes local shared maps, distributed, cluster-wide maps, asynchro
 and asynchronous cluster-wide counters.
 
 To simplify the application we use the local shared map offer by Vert.x to save information about auctions.
-The local shared map allows to share data between different verticles in the same Vert.x instance.
+The local shared map allows you to share data between different verticles in the same Vert.x instance.
 To prevent issues due to mutable data, Vert.x only allows simple immutable types such as number, string,
 Boolean or Buffer to be used in local shared map. Here’s an example of using a shared local map in an auction service:
 
@@ -298,10 +299,10 @@ public class AuctionRepository {
 
     public Optional<Auction> getById(String auctionId) {
         LocalMap<String, String> auctionSharedData = this.sharedData.getLocalMap(auctionId);
-        if(auctionSharedData.isEmpty()) {
-            return Optional.empty();
-        }
-        return Optional.of(auctionSharedData).map(this::convertToAuction);
+
+        return Optional.of(auctionSharedData)
+            .filter(m -> !m.isEmpty())
+            .map(this::convertToAuction);
     }
 
     public void save(Auction auction) {
@@ -316,28 +317,28 @@ public class AuctionRepository {
 ```
 
 If you want to store auction data in a database, Vert.x provides a few different asynchronous clients
-for accessing various data storages (mongoDB, redis or jdbc client).
+for accessing various data storages (MongoDB, Redis or JDBC client).
 
 ### Auction API
 
 Vert.x lets you route HTTP requests to different handlers based on pattern matching on the request path.
 It also enables you to extract values from the path and use them as parameters in the request.
-Corresponding methods exist for each HTTP method. You can provide as many matches as you like
-and they are evaluated in the order you added them, the first matching one will receive the request.
+Corresponding methods exist for each HTTP method. You can provide as many matchers as you like
+and they are evaluated in the order you added them. The first matching one will receive the request.
 If no routes match the request, a `404` status will be returned.
 This functionality is particularly useful when developing REST-style web applications.
 If you would like to read something more about designing RESTful APIs see the article
-[Designing RESTful API](http://allegro.tech/2014/12/Designing-RESTful-API.html).
+[Designing RESTful API](/2014/12/Designing-RESTful-API.html).
 
 To extract parameters from the path, you can use the colon character to denote the name of a parameter.
-Regular expressions also can be used to extract more complex matches.
+Regular expressions can also be used to extract more complex matches.
 Any parameters extracted by pattern matching are added to the map of request parameters.
 
 [`Consumes`](http://vertx.io/docs/apidocs/io/vertx/ext/web/Route.html#consumes-java.lang.String-)
 describes which MIME types the handler can consume.
 By using [`produces`](http://vertx.io/docs/apidocs/io/vertx/ext/web/Route.html#produces-java.lang.String-)
 you define which MIME types the route produces.
-In the code below the routes will match with any request with `content-type` header
+In the code below the routes will match any request with `content-type` header
 and `accept` header that matches `application/json`.
 
 Let’s look at an example of a subrouter mounted on the main router which was created in `start` method in verticle:
@@ -361,8 +362,8 @@ private Router auctionApiRouter() {
 }
 ```
 
-The GET request returns auction data, while the PATCH method request allows you to bid up price of auction.
-Let’s focus on the more interesting method namely `handleChangeAuctionPrice`.
+The GET request returns auction data, while the PATCH method request allows you to bid up in the auction.
+Let’s focus on the more interesting method, namely `handleChangeAuctionPrice`.
 In the simplest terms, the method might look like this:
 
 ```java
@@ -397,7 +398,7 @@ The default directory from which static files are served is `webroot`, but this 
 By default the static handler will set cache headers to enable browsers to cache files.
 If setting cache headers is not required, it can be disabled with
 [`setCachingEnabled`](http://vertx.io/docs/apidocs/io/vertx/ext/web/handler/StaticHandler.html#setCachingEnabled-boolean-) method.
-To serve the auction html page, js files (and other static files) from auction service, you can create static handler like this:
+To serve the auction HTML page, JS files (and other static files) from auction service, you can create a static handler like this:
 
 ```java
 private StaticHandler staticHandler() {
@@ -422,11 +423,11 @@ The expectations of users for interactivity with web applications have changed o
 Users during bidding in auction no longer want to press the refresh button to check if the price
 has changed or the auction is over. Instead, they expect to see the updates in application in real-time.
 
-The article presents the outline of a simple application that allows real-time bidding.
+This article presents the outline of a simple application that allows real-time bidding.
 Due to the fact that WebSockets are not supported by all browsers we used the SockJS library.
-We have created a lightweight, high-performance and scalable microservice written in Java and based on Vert.x.
+We created a lightweight, high-performance and scalable microservice written in Java and based on Vert.x.
 We discussed what Vert.x offers: an actor-like concurrency model,
-a distributed event bus and an elegant API allows you to create applications in no time.
+a distributed event bus and an elegant API that allows you to create applications in no time.
 
-The new version of Vert.x brought a lot of interesting features. I hope this article encouraged you to familiarize
-with the capabilities offered by this tool-kit.
+The version [3.0](https://github.com/vert-x3/wiki/wiki/Vert.x-Roadmap#vertx-300-final-release-22-june-2015) of Vert.x
+brought a lot of interesting features. I hope this article encouraged you to familiarize yourself with the capabilities offered by this tool-kit.
