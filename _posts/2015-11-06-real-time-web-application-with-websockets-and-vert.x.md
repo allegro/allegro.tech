@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Real-time Web Application with Websockets and Vert.x based on an example of bidding process
+title: Real-time Web Application with Websockets and Vert.x
 author: marcin.warczyglowa
 tags: [java, javascript, vertx, websockets, websocket api, sockjs, real-time application]
 ---
@@ -19,7 +19,7 @@ We will create a frontend for fast bidding that communicates with a microservice
 WebSocket is asynchronous, bidirectional, full-duplex protocol that provides a communication channel over a single TCP connection.
 With the [WebSocket API](http://www.w3.org/TR/websockets/) it provides bidirectional communication between the website and a remote server.
 Originally, WebSocket was supposed to be a part of the [HTML 5](http://www.w3.org/TR/html5/) specification,
-but later protocol is described in a separate document [RFC 6455](https://tools.ietf.org/html/rfc6455).
+but a later revision of the protocol is described in a separate document [RFC 6455](https://tools.ietf.org/html/rfc6455).
 
 WebSockets solve many problems which prevented the HTTP protocol from being suitable for use in modern,
 real-time applications. Workarounds like polling are no longer needed, which simplifies application architecture.
@@ -86,7 +86,7 @@ Vert.x is a polyglot, non-blocking, event-driven tool-kit for building applicati
 Vert.x is pretty fast, which you can see on [TechEmpower Benchmarks](https://www.techempower.com/benchmarks/#section=data-r8&hw=i7&test=plaintext).
 The packages of code that Vert.x executes are called verticles. Verticles can be written in Java, Groovy,
 Ruby, JavaScript as well as in several programming languages mixed and matched in a single application.
-Many verticles can be executed concurrently in the same Vert.x instance.
+Many verticles can be executed concurrently in the same Vert.x instance. A single Vert.x instance runs inside its own JVM instance.
 Vert.x guarantees that a particular verticle instance is never executed by multiple threads concurrently.
 Verticles communicate by passing messages using an event bus.
 
@@ -396,7 +396,7 @@ so that another matching route can handle the request.
 Vert.x provides the handler for serving static web resources.
 The default directory from which static files are served is `webroot`, but this can be configured.
 By default the static handler will set cache headers to enable browsers to cache files.
-If setting cache headers is not required, it can be disabled with
+Setting cache headers can be disabled with
 [`setCachingEnabled`](http://vertx.io/docs/apidocs/io/vertx/ext/web/handler/StaticHandler.html#setCachingEnabled-boolean-) method.
 To serve the auction HTML page, JS files (and other static files) from auction service, you can create a static handler like this:
 
