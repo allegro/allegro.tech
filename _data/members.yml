@@ -208,6 +208,7 @@ pawel.leszczynski:
     name: Paweł Leszczyński
     bio: Paweł is interested in distributed databases stuff with a special focus on making Big Data easy. He is Product Owner in a Big Data Solutions Team at the Infrastructure department. The team develops and maintains a petabyte Hadoop cluster with endpoints like Apache Kafka messaging.
 
+
 pawel.zawistowski:
     name: Paweł Zawistowski
     bio: Paweł is a data scientist working at Allegro Group since 2014 with experience in industry and academia. He enjoys working with various types of data technologies and machine learning algorithms.
@@ -257,6 +258,11 @@ pawel.byszewski:
 marcin.kuthan:
     name: Marcin Kuthan
     bio: Marcin is a Big Data engineer working at Allegro Group since 2014. He genuinely likes programming, problem solving and learning new trends in software methodologies, tools and languages.
+
+marcin.warczyglowa:
+    name: Marcin Warczygłowa
+    bio: Marcin is a software engineer with 9+ years of professional experience mostly in PHP and technologies around JVM. He is interested in creating distributed, highly scalable and fault-tolerant web applications. He likes to try new technologies and programming languages. At Allegro, he works in a team responsible for purchasing process.
+    twitter: MWarczyglowa
 
 mateusz.sulima:
     name: Mateusz Sulima
