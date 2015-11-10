@@ -44,7 +44,7 @@ Some examples of good use cases for WebSockets include:
 ## Websocket API vs SockJS
 
 Unfortunately, WebSockets are not supported by all web browsers. However, there are libraries that provide a fallback
-when WebSockets are not available. One such library is SockJS.
+when WebSockets are not available. One such library is [SockJS](https://github.com/sockjs/sockjs-client).
 SockJS starts from trying to use the WebSocket protocol. However, if this is not possible,
 it uses  a [variety of browser-specific transport protocols](https://github.com/sockjs/sockjs-client#supported-transports-by-browser-html-served-from-http-or-https).
 SockJS is a library designed to work in all modern browsers and in environments that do not support WebSocket protocol,
