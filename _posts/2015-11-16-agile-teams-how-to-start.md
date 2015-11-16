@@ -78,11 +78,11 @@ for us. This may take longer than expected if an introduction about the new (to 
 
 I start with five things and then check along the way:
 
-*Why do we want to use a particular approach (what motivates us)?
-*What is our mutual understanding on how this approach works?
-*What rules should we follow?
-*What are the success criteria stating that we are going in the right direction (that this works for us)
-*How often do we want to do a “check point” to see if this is what we need? (in Scrum this can be done during Retrospectives)
+* Why do we want to use a particular approach (what motivates us)?
+* What is our mutual understanding on how this approach works?
+* What rules should we follow?
+* What are the success criteria stating that we are going in the right direction (that this works for us)
+* How often do we want to do a “check point” to see if this is what we need? (in Scrum this can be done during Retrospectives)
 
 You can find a sample of such analysis in a [Scrum-ban* experiment](http://allegro.tech/2015/09/scrum-ban-applied.html) we’ve conducted. Another approach could be
 looking at what we want to accomplish? Then following up with what do we need to accomplish this? and / or how will we accomplish this?.
@@ -120,6 +120,7 @@ help out when in a difficult situation or an emotional state. In such situations
 full potential. There is a correlation between emotions and logical thinking — the more emotions we experience the less logically we think. This can lead to
 narrowed thinking and bad decision making and therefore the contract comes in handy. The “U model” (mentioned in the photograph) is one of the techniques that can
 be used to better understand the other side. It involves three stages:
+
 * Active listening (paying attention to what is important to the speaker, what are his /hers emotions and what problem is he / she experiencing).
 * Reflecting on what the other person said (taking into account the filter from the first stage).
 * Using coaching questions to foster change and help find a solution to the situation.
