@@ -58,7 +58,7 @@ deliver without addressing things outside of it. The latter can slow down the wo
 something we can cope with or do we need to hire someone to fill in the gap?
 
 * **How would we like to work?** What methodology, techniques, frameworks or any other tools would we like to use? This is high level brainstorming regarding what
-the team is going to end up with, hopefully, an agreed method of working. If there are several ideas, maybe let’s try just some of them in an experiment. 
+the team is going to end up with, hopefully, an agreed method of working. If there are several ideas, maybe let’s try just some of them in an experiment.
 You’re going to dig in deeper into how you would like to work in the next session.
 
 When talking about the above it’s worth having few examples of your own up your sleeve. Something to start the conversation as some of the questions might seem a
@@ -72,7 +72,7 @@ tools that we, as a Team, find useful.
 ##Setting up working rhythm (up to 90 minutes)
 At this stage we are digging deeper to setup the minimum details that we need to start doing the work. We will have plenty of chances to verify our approach and
 improve on the way. In agile at least that’s one of the advantages. We are answering the questions: how do we want to work? In what rhythm would we like to
-operate and why? In this step it’s good to define the agile framework or methodology you would like to use in more details. Establish repositories 
+operate and why? In this step it’s good to define the agile framework or methodology you would like to use in more details. Establish repositories
 (Jira, Confluence or any other that you want to use) on the meeting, if possible, and agree on how it is going to be verified if what we are doing really works
 for us. This may take longer than expected if an introduction about the new (to some) framework needs to be carried out.
 
@@ -111,7 +111,7 @@ work at hand. This has led to a couple big misunderstandings in terms of what th
 knowledge on Scrum roles were. This does not take huge amounts of time and can give you much more than you’d think in the long term when it’s sorted out.
 
 ###Contracting conflicts
-![Contracting conflicts](/img/articles/contracting_conflicts.jpeg "Contracting conflicts")
+![Contracting conflicts](/img/articles/2015-10-20-agile-teams-how-to-start/contracting_conflict.jpeg "Contracting conflicts")
 A sample contract for dealing with conflict. This can be customised to the teams needs.
 
 Conflicts are inevitable in team building and, in general, in communicating with others. We filter the surrounding environment by our expectations, views, values
@@ -120,7 +120,7 @@ help out when in a difficult situation or an emotional state. In such situations
 full potential. There is a correlation between emotions and logical thinking — the more emotions we experience the less logically we think. This can lead to
 narrowed thinking and bad decision making and therefore the contract comes in handy. The “U model” (mentioned in the photograph) is one of the techniques that can
 be used to better understand the other side. It involves three stages:
-* Active listening (paying attention to what is important to the speaker, what are his /hers emotions and what problem is he / she experiencing). 
+* Active listening (paying attention to what is important to the speaker, what are his /hers emotions and what problem is he / she experiencing).
 * Reflecting on what the other person said (taking into account the filter from the first stage).
 * Using coaching questions to foster change and help find a solution to the situation.
 
