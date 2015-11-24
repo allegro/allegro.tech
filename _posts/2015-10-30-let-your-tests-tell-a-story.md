@@ -5,7 +5,7 @@ author: mateusz.sulima
 tags: [java, scala, testing, bdd, jbehave]
 ---
 
-In a team that develops Allegro Recommendation Platform we weren’t happy with our integration tests. Long setup and
+In the team that develops Allegro Recommendation Platform we weren’t happy with our integration tests. Long setup and
 assertions blocks resulted in a low signal—to—noise ratio and poor readability. These tests were also full of _ad hoc_
 variables like `1`, `ABC`, `OK` or `NOK`, which caused that it was hard to find a connection between input and output
 data. Moreover, any change in an API caused changes in many tests.
@@ -23,21 +23,21 @@ about which Grzegorz Witkowski recently
 
 ### Ubiquitous language in tests
 
-In Domain—driven Design “ubiquitous language” means a common, consistent language between developers and project
+In Domain-driven Design “ubiquitous language” means a common, consistent language between developers and project
 stakeholders. We’ve taken this idea a step further and decided that our integration tests will share a common context,
-so developers can better understand the system under test and more easily discuss about it.
+so developers can better understand the system under test and more easily discuss it.
 
 Just like in BDD, every test should be a short story of a user performing an action. Instead of naming users and entities
 with _ad hoc_ identifiers like `ABC`, `123` or `foo` we decided to introduce meaningful characters.
 To make them easy to distinguish and remember, each one of them has some unique traits.
 We reuse these characters in multiple tests. This helps us to quickly understand a test, just by checking which characters it uses.
 
-First step of finding characters was to choose a domain well—known to all of the team members. Picking a pop—culture
-domain has a benefit that we can use examples straight from our code base to explain some concepts to our Product Owner
+First step of finding characters was to choose a domain well-known to all of the team members. Picking a pop-culture
+domain has the benefit that we can use examples straight from our code base to explain some concepts to our Product Owner
 or people outside our team. In our case we’ve considered: James Bond movies, Marvel comics universe
 and the Witcher books. Finally we’ve picked the Lord of the Rings, because everyone read the books or watched the movies.
 
-Once we’ve picked the domain, we needed to select characters that will suit our needs. They should be easy to remember
+Once we’ve picked the domain, we needed to select characters that would suit our needs. They should be easy to remember
 and have traits that can be connected to application's domain. There should be a few characters, and every character
 should have some unique set of attributes. After some time developers remember that these characters’ names have
 special meaning in context of usage. They can be easily reused in many tests, which removes unnecessary code duplication.
@@ -55,7 +55,7 @@ More possible examples in different application domains are:
 ### Example
 
 Let’s consider a simple case — request for recommendations from a new anonymous user, who doesn’t have any browsing
-history. The most basic recommendation that we can show to him is just some bestselling item in a category, which he’s
+history. The most basic recommendation that we can show to him is just some bestselling item in the category which he’s
 browsing right now. We could implement it in the following way:
 
     Scenario: recommendations for an anonymous user in a category listing.
@@ -80,11 +80,11 @@ business logic and hide implementation details. We call them “manipulators” 
 
 - Setting a system under test to initial state.
 - Performing actions on the service.
-- Getting data from service, on which assertions can be performed.
+- Getting data from service on which assertions can be performed.
 
 Internally manipulators can perform whatever is required to set the application in desired state or to verify it.
 This includes REST requests, direct method calls, execution of SQL scripts, etc. We try to reuse manipulators between
-tests, because it limits number of places we have to modify in case of API changes.
+tests, because it limits the number of places we have to modify in case of API changes.
 
 We’ve implemented the simple recommendation scenario mentioned above as:
 
@@ -103,9 +103,9 @@ We’ve implemented the simple recommendation scenario mentioned above as:
     }
 
 In our opinion this solution hides all implementation details from test, giving readability comparable to specialized
-BDD frameworks like JBehave. Moreover, we still have benefits of compile—time checks, code highlighting and IDE
-refactorization support. We could go a little further and use more Scala—specific features like postfix notation,
-implicit methods etc. but it adds complexity. That is a trade-off one must decide on his own.
+BDD frameworks like JBehave. Moreover, we still have benefits of compile-time checks, code highlighting and IDE
+refactorization support. We could go a little further and use more Scala-specific features like postfix notation,
+implicit methods etc. but it adds complexity. This is a trade-off which you have to consider on your own.
 
 ### More examples
 
@@ -145,8 +145,8 @@ Another benefit is that we may still use plain Scala, without introducing new to
 ### Summary
 
 Picking a domain for tests makes them easier to write and understand. A set of well-know characters with unique
-attributes adds valuable context to tests and helps remove repetitions. The domain is also well—known to
+attributes adds valuable context to tests and helps remove repetitions. The domain is also well-known to
 Product Owner, so this enables us to communicate more efficiently.
 
-To implement test cases we’ve used technical stack that we’ve already been familiar with. We’ve encapsulated logic for
-test setup and results verification into separate components, which make the code more maintainable.
+To implement test cases we used the technical stack that we were already familiar with. We encapsulated logic for
+test setup and results verification into separate components, which made the code more maintainable.
