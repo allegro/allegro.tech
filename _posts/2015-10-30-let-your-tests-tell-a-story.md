@@ -88,19 +88,19 @@ tests, because it limits the number of places we have to modify in case of API c
 
 We’ve implemented the simple recommendation scenario mentioned above as:
 
-    ```scala
-    "serve bestsellers in visited category" in {
-      // given
-      itemsManipulator.postMagicStaff()
-      itemsManipulator.postGoldenRing()
+```scala
+"serve bestsellers in visited category" in {
+  // given
+  itemsManipulator.postMagicStaff()
+  itemsManipulator.postGoldenRing()
 
-      // when
-      val recommendations = recommendationsManipulator.
-        categoryListing(MagicRingsCategoryId)
+  // when
+  val recommendations = recommendationsManipulator.
+    categoryListing(MagicRingsCategoryId)
 
-      // then
-      recommendations.items.map(_.itemId) must contain(exactly(GoldRingId))
-    }
+  // then
+  recommendations.items.map(_.itemId) must contain(exactly(GoldRingId))
+}
 
 In our opinion this solution hides all implementation details from test, giving readability comparable to specialized
 BDD frameworks like JBehave. Moreover, we still have benefits of compile-time checks, code highlighting and IDE
@@ -123,20 +123,20 @@ Dan North in his [Introducing BDD](http://dannorth.net/introducing-bdd/) article
 If we were working in a banking domain, we would probably choose James Bond movies domain. We could reflect these steps
 by using manipulators and our own specs2 matchers to implement this scenario as follows:
 
-    ```scala
-    "Scenario 1: Account is in credit" in {
-      val `James Bond` = customersManipulator.createJamesBond()
-      val account = accountsManipulator.jamesBondSwissAccount()
-      val card = cardsManipulator.jamesBondPlatinumCreditCard()
-      val cash = 1000
-      val dispenser = dispensersManipulator.dispenserWithCash(cash)
+```scala
+"Scenario 1: Account is in credit" in {
+  val `James Bond` = customersManipulator.createJamesBond()
+  val account = accountsManipulator.jamesBondSwissAccount()
+  val card = cardsManipulator.jamesBondPlatinumCreditCard()
+  val cash = 1000
+  val dispenser = dispensersManipulator.dispenserWithCash(cash)
 
-      dispenser.withdraw(`James Bond`, card, cash)
+  dispenser.withdraw(`James Bond`, card, cash)
 
-      account must beDebitedWith(cash)
-      cash must beDispensedTo(`James Bond`)
-      card must beReturnedTo(`James Bond`)
-    }
+  account must beDebitedWith(cash)
+  cash must beDispensedTo(`James Bond`)
+  card must beReturnedTo(`James Bond`)
+}
 
 We admit that the Scala implementation is not as readable as _pure_ BDD specification. However in our opinion when there
 are a lot of tests, reusing characters makes it easier to write new tests and see differences between existing ones.
