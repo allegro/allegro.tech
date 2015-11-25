@@ -1,0 +1,51 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="{{ page.description }}">
+
+    <!-- OG TAGS -->
+    <meta property="og:site_name" content="{{ page.title }}"/>
+    <meta property="og:title" content="{{ page.title }}"/>
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
+    <meta property="og:type" content="site"/>
+    <meta property="og:image" content="{{ site.url }}/img/atm8/atm8-logo.png"/>
+    {% if page.title %}
+    <meta name="twitter:creator" content="@AllegroTechBlog"/>
+    <meta property="og:description" content="{{ page.description }}"/>
+    <meta property="article:author" content="allegro.tech engineers"/>
+    <meta property="article:publisher" content="https://www.facebook.com/allegro.tech"/>
+    {% endif %}
+
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,700&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ '/css/style.css' | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ '/css/atm.css' | prepend: site.baseurl }}">
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "Event",
+	  "name": "allegro.tech meeting v8",
+	  "description": "{{page.description}}",
+	  "startDate" : "2015-09-14T09:00",
+	  "url" : "http://allegro.tech/meeting",
+	  "location" : {
+		"@type" : "Place",
+		"sameAs" : "http://www.pgenarodowy.pl/",
+		"name" : "PGE Stadion Narodowy",
+		"address" : "aleja Poniatowskiego 1, 03-901 Warszawa"
+	  }
+	}
+	</script>
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "Organization",
+	  "name": "allegro.tech",
+	  "url": "{{site.url}}",
+	  "logo": "{{site.url}}/img/logo-allegro-tech.png"
+	}
+	</script>
+</head>

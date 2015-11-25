@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /reinvent-conference-summary.html
 layout: post
 title: We were on re:inventure (AWS conference summary)
 author: mateusz.gajewski

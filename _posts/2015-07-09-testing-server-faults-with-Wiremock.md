@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /testing-server-faults-with-Wiremock.html
 layout: post
 title: Testing server faults with Wiremock
 author: filip.marszelewski

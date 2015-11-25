@@ -10,11 +10,13 @@ piotr.orlowski:
 
 adam.dubiel:
     name: Adam Dubiel
-    bio: Adam is the library guy - both when it comes to books and designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. In Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier.
+    bio: Adam is the library guy, who loves designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. At Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier, the most significant one being [Hermes](http://hermes.allegro.tech/).
+    twitter: dubieladam
+    title: Software Development Lead
 
 rafal.glowinski:
     name: Rafał Głowiński
-    bio: Rafał is an experienced software developer who has spent most of his career working in Java and related technologies. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis. At Allegro, he leads a software development team delivering solutions for the financial department.
+    bio: Rafał is an experienced software developer who has spent most of his career working in Java and related technologies. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis.
 
 michal.kosmulski:
     name: Michał Kosmulski
@@ -40,12 +42,17 @@ jaroslaw.grabowski:
 
 krzysztof.kocel:
     name: Krzysztof Kocel
-    bio: Krzysztof works at Allegro Group since 2012. He is interested in mobile security and reducing data usage. At Allegro, his main responsibility is developement of otoMoto and otoDom mobile applications.
+    bio: Krzysztof works at Allegro Group since 2012. He is interested in mobile security and reducing data usage.
+    github: kkocel
 
 mateusz.gajewski:
     name: Mateusz 'Serafin' Gajewski
     bio: 'Mateusz is a solutions architect responsible for financial and payments systems. His main areas of research interest are: scalable, distributed computing in cloud environments, reactive programming and failure resilience.'
     twitter: wendigo
+
+ryszard.targonski:
+    name: Ryszard Targoński
+    bio: Ryszard is a test automation engineer with ~5 years of experience especially in WebDriver-based technologies. He is interested in test automation, performance testing and frontend technologies. At Allegro, he works since July 2014 in a team which delivers solutions for the finance sector.
 
 szymon.tur:
     name: Szymon Tur
@@ -226,10 +233,39 @@ michal.tydryszewski:
     name: Michał Tydryszewski
     bio: Michał is a senior software engineer with four years of professional experience. He believes that being pragmatic and thinking-while-doing is the key to every success.
 
+michal.karykowski:
+    name: Michał Karykowski
+    bio: A software developer with 8 years of professional experience. At Allegro Group since 2012. His family calls him a workaholic.
+
+patryk.krawaczynski:
+    name: Patryk Krawaczyński
+    bio: Patryk is a System Engineer with 6+ years of experience in the web hosting industry. Equally comfortable with both frontend and backend technologies. He likes to focus on solving problems and performance issues. In his free time [NFsec](https://nfsec.pl) editor. At Allegro Group since 2011.
+
+krzysztof.muzalewski:
+    name: Krzysztof Muzalewski
+    bio: Front-end enthusiast, HTML5/CSS3 and JavaScript passionate. He believes that esthetics and UX are as important as coding itself. A member of several teams developing portals for Allegro Group. At the moment he's deeply involved into website optimization for desktop and mobile.
+
 szymon.jasinski:
     name: Szymon Jasiński
     bio: Szymon is a clarinet player by education and a systems engineer by profession. At Allegro Group since 2013.
 
+pawel.byszewski:
+    name: Paweł Byszewski
+    bio: A software engineer passionate with mobile technologies, in particular interested in security. He believes that quality is key to long term success.
+    twitter: PaweByszewski
+    github: pawelByszewski
+
 marcin.kuthan:
     name: Marcin Kuthan
     bio: Marcin is a Big Data engineer working at Allegro Group since 2014. He genuinely likes programming, problem solving and learning new trends in software methodologies, tools and languages.
+
+marcin.warczyglowa:
+    name: Marcin Warczygłowa
+    bio: Marcin is a software engineer with 9+ years of professional experience mostly in PHP and technologies around JVM. He is interested in creating distributed, highly scalable and fault-tolerant web applications. He likes to try new technologies and programming languages. At Allegro, he works in a team responsible for purchasing process.
+    twitter: MWarczyglowa
+
+mateusz.sulima:
+    name: Mateusz Sulima
+    bio: Since a year Mateusz has been working as a Scala developer at Allegro Group in a recommendation platform team. Earlier he worked as Node.js, Java and Python developer. His interests focus on performance and consistency problems in distributed systems.
+    twitter: MateuszSulima
+    github: msulima

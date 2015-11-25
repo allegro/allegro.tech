@@ -2,30 +2,36 @@
 layout: default
 comments: true
 ---
-<section class="post">
+<section class="post" itemscope itemtype="http://schema.org/TechArticle">
     <header class="post-header">
         <div class="content">
-            <time class="entry-date" datetime="{{ page.date}}"><span>{{ page.date | date: "<strong>%b %-d</strong> %Y" }}</span>
-            </time>
-            <h1 class="post-title">{{site.title}} - {{ page.title }}</h1>
+            <time class="entry-date" datetime="{{ page.date}}"><span>{{ page.date | date: "<strong>%b %-d</strong> %Y" }}</span></time>
+            <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
 
             <div class="post-meta">
-                <ul class="breadcrumb">
-                    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                        <a href="/" itemprop="url"><span itemprop="title">allegro.tech blog</span></a>
+                <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a href="{{ site.url }}" itemprop="item"><span itemprop="name">allegro.tech blog</span></a>
                     </li>
-                    <li class="authors" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <li class="authors" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                         {% for author in page.author %}
-                        <a href="/authors/{{author}}" itemprop="author">{{site.data.members[author].name}}</a>
+                        <a href="{{ site.url }}/authors/{{author}}" itemprop="item">{{site.data.members[author].name}}</a>
+						<meta itemprop="name" content="{{site.data.members[author].name}}" />
                         {% endfor %}
                     </li>
-                    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">{{ page.title }}</span>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<link href="{{site.url}}{{ page.url }}" itemprop="item">
+						<span itemprop="name">{{ page.title }}</span>
                     </li>
                 </ul>
             </div>
         </div>
     </header>
-    <article class="post-content">
+	<meta itemprop="keywords" content="{{ page.tags | join: ', ' }}">
+	<meta itemprop="datePublished" content="{{ page.date }}">
+	<meta itemprop="image" content="{{ site.url }}/img/logo-allegro-tech.png">
+
+    <article class="post-content" itemprop="articleBody">
         <div class="content"> {{ content }}</div>
     </article>
 </section>
@@ -65,7 +71,7 @@ comments: true
     </div>
     <div id="disqus_thread" class="content"></div>
 </section>
-<script type="text/javascript">
+<script>
     var disqus_shortname = 'allegrotechio';
     (function () {
         var dsq = document.createElement('script');

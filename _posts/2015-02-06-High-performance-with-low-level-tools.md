@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /High-performance-with-low-level-tools.html
 layout: post
 title: High performance with low-level tools
 author: michal.kosmulski

@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /swift-method-dispatching.html
 layout: post
 title: Swift Method Dispatching — a summary of my talk at Swift Warsaw
 author: kamil.borzym

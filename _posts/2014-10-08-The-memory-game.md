@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /The-memory-game.html
 layout: post
 title: The Memory Game
 author: michal.kosmulski

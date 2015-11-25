@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /Camus-Compressor.html
 layout: post
 title: "Allegro OpenSource: Camus Compressor"
 author: mariusz.strzelecki

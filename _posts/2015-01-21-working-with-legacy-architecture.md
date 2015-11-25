@@ -1,4 +1,6 @@
 ---
+redirect_from:
+   - /working-with-legacy-architecture.html
 layout: post
 title: Working with legacy architecture
 author: kamil.piska
@@ -35,7 +37,7 @@ coding separate microservice in a new language and having a new database, nothin
 As a result, problems that used to keep programmers awake at night will occur again in 6 or 12 months.
 The solution is the application of Anti-Corruption Layer pattern.
 
-![Anti-Corruption Layer inside an old system](img/articles/2015-01-21-working-with-legacy-architecture/acl_inside.png "Anti-Corruption Layer inside an old system")
+![Anti-Corruption Layer inside an old system](/img/articles/2015-01-21-working-with-legacy-architecture/acl_inside.png "Anti-Corruption Layer inside an old system")
 
 The ACL pattern comes from the [Domain-Driven Design](http://en.wikipedia.org/wiki/Domain-driven_design) approach. DDD focuses on defining domain models,
 system components and their behavior to reflect the reality as much as possible.
@@ -48,7 +50,7 @@ Therefore, the new microservice is not corrupted by the old model.
 As a result, the development and future maintenance of the microservice is much easier.
 ACL can be inserted into the old application or be a separate entity collecting all the requests submitted to the new microservice.
 
-![Anti-Corruption Layer outside an old system](img/articles/2015-01-21-working-with-legacy-architecture/acl_outside.png "Anti-Corruption Layer outside an old system")
+![Anti-Corruption Layer outside an old system](/img/articles/2015-01-21-working-with-legacy-architecture/acl_outside.png "Anti-Corruption Layer outside an old system")
 
 ACL does not have to process only the “old application → new microservice” communication.
 It can also support the communication in the opposite direction. Let’s assume that after processing its tasks,
