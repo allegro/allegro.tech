@@ -101,6 +101,7 @@ We’ve implemented the simple recommendation scenario mentioned above as:
   // then
   recommendations.items.map(_.itemId) must contain(exactly(GoldRingId))
 }
+```
 
 In our opinion this solution hides all implementation details from test, giving readability comparable to specialized
 BDD frameworks like JBehave. Moreover, we still have benefits of compile-time checks, code highlighting and IDE
@@ -137,6 +138,7 @@ by using manipulators and our own specs2 matchers to implement this scenario as 
   cash must beDispensedTo(`James Bond`)
   card must beReturnedTo(`James Bond`)
 }
+```
 
 We admit that the Scala implementation is not as readable as _pure_ BDD specification. However in our opinion when there
 are a lot of tests, reusing characters makes it easier to write new tests and see differences between existing ones.
