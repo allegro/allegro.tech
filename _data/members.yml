@@ -263,3 +263,9 @@ marcin.warczyglowa:
     name: Marcin Warczygłowa
     bio: Marcin is a software engineer with 9+ years of professional experience mostly in PHP and technologies around JVM. He is interested in creating distributed, highly scalable and fault-tolerant web applications. He likes to try new technologies and programming languages. At Allegro, he works in a team responsible for purchasing process.
     twitter: MWarczyglowa
+
+mateusz.sulima:
+    name: Mateusz Sulima
+    bio: Since a year Mateusz has been working as a Scala developer at Allegro Group in a recommendation platform team. Earlier he worked as Node.js, Java and Python developer. His interests focus on performance and consistency problems in distributed systems.
+    twitter: MateuszSulima
+    github: msulima
