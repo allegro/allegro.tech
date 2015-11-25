@@ -87,7 +87,7 @@ I start with five things and then check along the way:
 You can find a sample of such analysis in a [Scrum-ban* experiment](http://allegro.tech/2015/09/scrum-ban-applied.html) we’ve conducted. Another approach could be
 looking at what we want to accomplish? Then following up with what do we need to accomplish this? and / or how will we accomplish this?.
 
-###Contracting (45–60')
+###Contracting (45–60 minutes)
 It’s one of the most important things when people in a group meet and are supposed to work together. If you don’t have the time to do any of the other steps
 described — do this one. I do contracting in two steps. Setting up expectations between Team members in terms of their roles as well as in terms of conflicts that
 may arise when we work together and / or with other teams. It’s important to review the rules that we set in motion once in a while (eg. each 2–3 months) to check
@@ -111,7 +111,8 @@ work at hand. This has led to a couple big misunderstandings in terms of what th
 knowledge on Scrum roles were. This does not take huge amounts of time and can give you much more than you’d think in the long term when it’s sorted out.
 
 ###Contracting conflicts
-![Contracting conflicts](/img/articles/2015-10-20-agile-teams-how-to-start/contracting_conflict.jpeg "Contracting conflicts")
+![Contracting conflicts](/img/articles/2015-10-20-agile-teams-how-to-start/contracting_conflict.jpeg "Contracting conflict")
+
 A sample contract for dealing with conflict. This can be customised to the teams needs.
 
 Conflicts are inevitable in team building and, in general, in communicating with others. We filter the surrounding environment by our expectations, views, values
