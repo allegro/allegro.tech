@@ -1,27 +1,20 @@
 ---
 layout: post
-title: DC5 - great adventure!
+title: Migration of Allegro's infrastructure to new data center DC5 — a great adventure!
 author: krzysztof.cienkosz
 tags: [data center, infrastructure]
 ---
 
-![dc2_dc5](/img/articles/2015-12-04-dc5-great-adventure/dc2_dc5.png "dc2_dc5")
+![dc2_dc5](/img/articles/2015-12-04-dc5-great-adventure/dc2_dc5.png "Migration from DC2 to DC5")
 
 ##The idea
 
-Moving Allegro Group (AG) services and infrastructure from its main Data Center was considered a huge endeavour fraught with high risk from 
-the very start. This particular Data Center, known as DC2, is situated in Poznań, Poland. It was our first genuine Data Center and back in 
-2007, when we moved in there, it was the state-of-the-art DC in Poland. For a couple of years our infrastructure was growing along with the 
+Moving services and infrastructure which belongs to Grupa Allegro Sp. z o.o. (Allegro Group) from its main [Data Center](https://en.wikipedia.org/wiki/Data_center) (DC) was considered a huge endeavour fraught with high risk from the very start. This particular Data Center, known as DC2, was situated in Poznań, Poland. It was our first genuine Data Center and back in 2007, when we moved in there, it was the state—of—the—art DC in Poland. For a couple of years our infrastructure was growing along with the 
 company and the number of devices grew up to 2,000 filling 90 rack cabinets in 2014.
 
-Since 2007, the market has changed. New Data Centers were built and their technical parameters and collocation and power supply prices were 
-much more attractive. In 2013, we started to search for new possibilities. First, we set up basic technical and business requirements for 
+Since 2007, the market has changed. New Data Centers were built and their technical parameters and [colocation](https://en.wikipedia.org/wiki/Colocation_centre) and power supply prices were much more attractive. In 2013, we started to search for new possibilities. First, we set up basic technical and business requirements for 
 the new DC. We analysed the Polish market and invited ten companies to participate in a tender process. Besides, we were negotiating with 
-the DC2 owner as well. 
-In autumn 2014, our shortlist included names of three companies. All important technical and business agreements were set down. The last 
-missing piece was terminating cooperation with the DC2 owner. Negotiations were difficult and resulted in the notice of termination issued 
-by the other party. We expected this could happen and we took all the necessary steps to finalise the agreement with the selected company 
-within a few weeks. We decided to establish cooperation with Talex S.A. and move to their DC, which we called DC5.
+the DC2 owner as well. In autumn 2014, our shortlist included names of three companies. Finally, we have decided to establish cooperation with Talex S.A. and move to their DC, which we called DC5.
 
 ##Challenge no. 1
 
@@ -34,35 +27,34 @@ team of Infrastructure Department, which carried out a few migration processes b
 
 ##The beginning
 
-We started with reviewing lessons learned to focus on the most important issues:
+We started with reviewing lessons learned from previous infrastructure migrations to focus on the most important issues:
 
-* reach all potential stakeholders at Allegro Group, present the scale of the project, confront their needs with ours and set up good 
+* to reach all potential stakeholders at Allegro Group, present the scale of the project, confront their needs with ours and set up good 
 communication
-* design the core network and order necessary hardware as fast as possible
-* plan the migration with development teams to maintain the redundancy of all services at all stages of the process
-* ensure that key cooperating companies will be available to support us (e.g. experienced contractors dealing with operational works in DC, 
-a transportation company, and a company accountable for structured cabling).
+* to design the core network and order necessary hardware as fast as possible
+* to plan the migration with development teams to maintain the redundancy of all services at all stages of the process
+* to ensure that key cooperating companies will be available to support us (e.g. experienced contractors dealing with operational works in DC, 
+a transportation company, and a company accountable for [structured cabling](https://en.wikipedia.org/wiki/Structured_cabling)).
 
 Allegro Group companies operate about seventy five websites that are available in twenty countries. Hundreds of external and internal 
 services, micro services and tools fuel the company and we had to take all of them into account during the migration.
 
-The key issue was to establish good communication plan to avoid any misunderstandings and prevent situations such as “DC5? Migration? Never 
-heard of it”. At first, information about our plans and suitable dates were communicated to all AG employees using various formal and 
+The key issue was to establish a good communication plan to avoid any misunderstandings and prevent situations such as “DC5? Migration? Never 
+heard of it”. At first, information about our plans and suitable dates were communicated to all Allegro Group employees using various formal and 
 informal channels. We believe it is better to reach someone a few times than not to reach him or her at all. Then, representatives of 
 sixteen key infrastructure and development teams gathered on a daily basis to discuss the project progress. These representatives were 
 sharing information with their teams, while these teams were accountable for communication with their clients – let’s call them “Business 
 People”. Simultaneously, Marcin Mazurek (Infrastructure and IT Operations Director) and other members of the AG management were merging this 
-project with other AG business strategic projects. By the way, there are really interesting things going on at Allegro nowadays :).
+project with other AG business strategic projects. By the way, there are really interesting things going on at Allegro Group nowadays :).
 
 The diversity of types of servers, network and storage devices and complexity of applied solutions and networks one could find in DC2 was 
 astonishing as no one wanted to face the challenge of unification. Therefore, the migration to a new DC was a perfect moment for making some 
-clean-up and technological upgrade. The core network was designed from scratch. The DC5 LAN was based on tweaked DC4 architecture. We 
+clean-up and technological upgrade. The core network was designed from scratch. The DC5 LAN was based on tweaked DC4 architecture (DC4 is our second data center). We 
 focused on isolating traffic generated by particular data center clients and managing the network in a flexible manner. To do so, we applied 
-L3VPN MPLS networks. Our data center network design project was truly innovative.
+[L3VPN MPLS](https://en.wikipedia.org/wiki/MPLS_VPN) networks. Our data center network design project was truly innovative.
 
 In late 2014, we asked for establishing requirements concerning new hardware. Each day, we submitted bundled orders to our suppliers, 
-although it was not the best time for shopping, as Christmas and Chinese New Year were coming. Nevertheless, our suppliers (Dell, Juniper) 
-managed to handle the case and first couriers arrived at DC5 in early 2015.
+although it was not the best time for shopping, as Christmas and Chinese New Year were coming. Nevertheless, our suppliers managed to handle the case and first couriers arrived at DC5 in early 2015.
 
 Logistics was crucial and it had to be planned well. Despite dedicated hardware inventory systems, we made a double check and carried out 
 physical stocktaking. We wanted to confirm ownership of each device and find “unnecessary” devices to take them away from DC2 as soon as 
@@ -78,7 +70,7 @@ core migration stage started.
 ##The peak
 
 Spring of 2015 will be remembered as very busy time. We had two months only to fully equip the new DC and make it operational. The first 
-task was to perform tests of structured cabling, solve any problems that may occur and then install and make the core network operational, 
+task was to perform tests of structured cabling, solve any problems that might occur and then install and make the core network operational, 
 rack by rack. Installation, tests, and shipment did not go as smoothly as expected, but all problems were resolved quickly and the progress 
 was noticeable. DC2 devices were delivered twice a week to be installed in racks immediately right after arrival. The delivered devices were 
 made operational the next day. New hardware we ordered earlier was stored in a stockroom and installed in racks simultaneously. All 
@@ -87,7 +79,7 @@ quick.
 
 ##The moment of truth
 
-On the night of April 20th, a dozen of infrastructure engineers were herded in the Monitoring and Response room at Pixel (AG office). They 
+On the night of April 20th, a dozen infrastructure engineers were herded in the Monitoring and Response room at Pixel (Allegro's headquarter office). They 
 seemed calm, but one could notice how focused they were. Three daredevils were in the DC waiting for this one command – “deactivate network 
 in DC2”. The command was given at 01:00 a.m. and it was executed immediately. Everyone was looking at screens for a couple of seconds in 
 absolute silence. And then someone asked “That’s it?”. Nothing failed. Months of preparations did not go down the drain. Owing to great 
@@ -103,7 +95,7 @@ In May and June we completed all the configurations and perform power, air-condi
 and software solutions were hardened. It was time to rest a bit, celebrate the success and prepare for closing the project.
 
 Naturally, there were things that did not go so smooth during the whole project. Some devices did not arrive on time, some were sent to 
-wrong DC and some were disconnected too early. Some plugs should not be unplugged... These were other lessons to learn from, which we did, 
+wrong DC and some were disconnected too early. Some plugs should not have been unplugged... These were other lessons to learn from, which we did, 
 to minimise such errors in the future. During those months of migration, there were only a few situations that had some minor impact on our 
 customers.
 
@@ -112,7 +104,7 @@ allows us to grow.
 
 Migration fulfilled its goals:
 
-* Power supply and collocation costs are down significantly (numbers are listed below)
+* Power supply and colocation costs are down significantly (numbers are listed below)
 * Technological upgrade and unification
 * Our users were not affected by the migration
 
@@ -121,7 +113,7 @@ Migration fulfilled its goals:
 We are agile at Allegro Group. There are a few dozens of teams using SCRUM, Kanban, Lean and other agile approaches in their work. You can 
 almost see the ghost of agile floating the corridors :). The same applies to the Infrastructure Department. We adopted Agile Project 
 Management approach for this project. During the preparation stage, all important topics such as goals, benefits, budget, restrictions, 
-stakeholders, roadmap, risks and organization of works were discussed and agreed between Project Owner and Project Manager. These topics 
+stakeholders, roadmap, risks and organization of work were discussed and agreed between Project Owner and Project Manager. These topics 
 were reviewed with the core team at further stages of the project too. 
 
 The great result was achieved owing to a few factors. We were focused on:
@@ -133,19 +125,7 @@ The great result was achieved owing to a few factors. We were focused on:
 * Freedom in decision making
 * Continuous improvement (sounds trivial, but it works)
 
-This is agile to us.
-
-##Tools
-
-We are IT people and we used IT tools to help us work together:
-
-* Atlassian Confluence as a central HUB gathering all information about the project
-* Atlassian Jira for project backlog and tracking progress of works
-* Google apps to share and collaborate on documents
-* Blue Jeans for video conferences
-* Skype/Jabber for quick communication
-
-Nevertheless, physical board with tasks on stickers worked very well too :)
+This is what agile means to us.
 
 ##Benefits
 
@@ -164,39 +144,35 @@ Nevertheless, physical board with tasks on stickers worked very well too :)
  
 * **Over 200** new servers and **200** new switches bought and installed in DC5
  
-* **32** kilometres of UTP cable used for structured cabling in DC5
+* **32** kilometres of [UTP cable](https://en.wikipedia.org/wiki/Twisted_pair#Unshielded_twisted_pair_.28UTP.29) used for structured cabling in DC5
  
 * **8** independent connections to internet providers in DC5
 
-* **Over 100** infrastructure engineers involved and some a significant number of Allegro Group employees supporting services being in the 
+* **Over 100** infrastructure engineers involved and a significant number of Allegro Group employees supporting services being in the 
 area of their interest
 
 ##Achievements
 
-**Services**
+###Services
 
-Migrating core Allegro Group sites such as allegro.pl, payu.pl, olx.pl, ceneo.pl, otomoto.pl, otodom.pl without any impact on users.
+Migrating core Allegro Group sites such as [allegro.pl](http://allegro.pl/), [payu.pl](http://www.payu.pl/), [olx.pl](http://olx.pl/), [ceneo.pl](http://www.ceneo.pl/), [otomoto.pl](http://otomoto.pl/), [otodom.pl](http://otodom.pl/) without any impact on users.
 
-**Core network**
+###Core network
 
 10Gb as standard in access layer, 80Gb backbone, automation of deployment and bulk changes in configuration, extended link capacity in core 
 layer, support for modern configuration protocols.
 
 The biggest improvement was building LAN in L3VPN MPLS technology. It provides us with flexibility in managing networks of different 
-customers in the new DC as well as possibility of isolating their traffic. Integrating networks with bare metal servers and cloud VMs is not 
+internal customers in the new DC as well as possibility of isolating their traffic. Integrating networks with bare metal servers and cloud VMs is not 
 a challenge anymore.
 We also standardized network protocols configuration in both DCs.
 
-**Cloud**
+###Cloud
 
 There were over 2000 virtual machines used for production and development purposes to be migrated from DC2. To provide smooth migration, a 
-new region based on OpenStack Icehouse version was created in DC5. SDN (Software-defined networking) solution - OpenContrail was chosen as a 
-network layer for private cloud. There has not been too much such significant implementation of  OpenContrail in Europe. We did it to make 
-our private cloud grow. 
-Concurrently, physical servers were transported between DCs to migrate VMs, and as a result, costs of purchasing new devices (servers, 
-switches) were reduced.
+new region based on [OpenStack](https://www.openstack.org/) Icehouse version was created in DC5. SDN (Software—defined networking) solution — [OpenContrail](http://www.opencontrail.org/) was chosen as a network layer for private cloud. There has not been too much such significant implementation of  OpenContrail in Europe. We did it to make our private cloud grow. Concurrently, physical servers were transported between DCs to migrate VMs, and as a result, costs of purchasing new devices (servers, switches) were reduced.
 
-**SAN & Storage**
+###SAN & Storage
 
 There are several improvements in storage & backup area implemented during the migration from DC2 to DC5. At present, we use 16 Gbps 
 technology in Storage Area Network (except one small environment basing on 8 Gbps). We resigned from one big SAN. DC5 includes dedicated 
@@ -205,31 +181,19 @@ shared networks. The oldest two disk arrays were retired after being 8 years on 
 smaller disk arrays. Additionally, we started to use dedicated disk arrays for Auction standby database and archived offers. NAS environment 
 is now based new clustered system. The backup area enjoys two independent VTLs.
 
-**Load Balancing**
+###Load Balancing
 
 For years, the Allegro Group has relied on Load Balancing based on homogeneous environment  and traditional High Availability (HA) 
-Active-Standby architecture only. Owing to DC5 migration, the Infrastructure Team no. 2 designed and implemented Load Balancing farm based 
-on Active-Active clusters with N+1 redundancy.  New  clustering technology allowed us to improve performance (+50%) and optimize resources 
-(-33.3%) compared to traditional Active-Standby model. 
+Active—Standby architecture only. Owing to DC5 migration, the Infrastructure Team no. 2 designed and implemented Load Balancing farm based 
+on Active—Active clusters with N+1 redundancy.  New  clustering technology allowed us to improve performance (+50%) and optimize resources 
+(—33.3%) compared to traditional Active—Standby model. 
  
 Moreover, Load Balancing tier is no longer just one vendor devices environment.
 
-**Databases**
+###Virtualization Environment
 
-Online Cassandra and MongoDB migration – no downtime or technical break and customers were not affected. The migration was an opportunity to 
-implement lxc containers in DC5. Moreover, hardware configuration optimization and consolidation of Oracle and MySQL databases were 
-performed.
-
-**Virtualization Environment**
-
-Virtualization environment in was based on various hypervisors and different hardware generations. It  was very difficult to migrate this 
-complex environment so we decided to provide new architecture and “refresh” the hardware and software platform. We switched to one 
+Virtualization environment in DC2 was based on various hypervisors and different hardware generations. It  was very difficult to migrate this 
+complex environment so we decided to provide a new architecture and to “refresh” the hardware and software platform. We switched to one 
 hypervisor and new architecture is based on simpler and easy to maintain hardware and software components.
 
-It is not the complete list, but we do not want to boast about everything ;)
-
-##Acknowledgements
-
-**Infrastructure Department at Allegro Group**, Poznań, Toruń, Warsaw – great team!
-
-**Talex S.A.**, Poznań – DC5 owner, transport services
+This is not the complete list, but we do not want to boast about everything ;)
