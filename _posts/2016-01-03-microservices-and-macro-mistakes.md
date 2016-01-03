@@ -82,7 +82,7 @@ the efficiency may be even lower. Naturally, you can think about caching at ever
 but delivering such a service is labor-consuming.
 
 Besides, in the aforementioned example even bug maintenance becomes complex. You have to 
-make sure that an API using client receives a coherent message based on statuses of 
+make sure that an API using by client receives a coherent message based on statuses of 
 particular services.
 
 Naturally, you should avoid any extremes and do not assume that dividing microservices 
@@ -107,7 +107,7 @@ create a single service to cover all of them, you will notice that each change c
 sale (e.g. VAT rate) will force suitable changes in marketing content. On the other hand, 
 entering information about e.g. video content has no value from the point of view of warehouse 
 business logic. As you can see, the very definition of a product is different in every context 
-thus each context should include suitable information. As a result, you will have coherent and 
+thus each context should include suitable information. Proper solution should have coherent and 
 independent contexts and it will be easier to implement any changes as the works will involve 
 one domain only.
 
@@ -127,7 +127,7 @@ channel between services.
 Designing good architecture based on microservices is definitely not a trivial task. 
 I hope that after reading this article you will omit the most obvious traps.
 
-When designing your code keep the whole project in mind and always remember about business 
+To sum up, when designing your code keep the whole project in mind and always remember about business 
 contexts. Start with larger and coherent services that cover the context. Only then, if 
 necessary, you can divide the context into smaller microservices. Never use many business 
 contexts in the same code. On the other hand, never mix the same code in many contexts if 
