@@ -36,7 +36,7 @@ with all the related issues. This covers a consistent context and protects again
 implementing any invalid dependencies inside it.
 
 Having learned some basic theory, let’s focus on a practical part and risks one 
-may face when working in the environment.
+may face when working in the microservices architecture.
 
 ##Antipatterns
 ###My own piece of architecture
@@ -66,7 +66,7 @@ wrote in his book SOA Patterns:
 
 Now let’s analyze the negative impact.
 
-As I have mentioned, when examining nanoservice’s code and its business logic, 
+As I mentioned, when examining nanoservice’s code and its business logic, 
 you will notice that most of the code describes communication interface and conversion 
 objects between interface models, domain models, persistence layers, etc. Unfortunately, 
 number of lines of code increases too quickly — and keep in mind that every codebase needs 
@@ -79,7 +79,7 @@ that kills application efficiency. As a result, to perform a simple operation
 the application must make a series of calls and each call is associated with a network 
 request. Besides, if you overlook prioritizing service communication within a data center, 
 the efficiency may be even lower. Naturally, you can think about caching at every level, 
-but delivering such a service is even more complex.
+but delivering such a service is labor-intensive.
 
 Besides, in this example even bug handling becomes complex. You have to 
 make sure that an API used by client receives a coherent message and status based on whole 
