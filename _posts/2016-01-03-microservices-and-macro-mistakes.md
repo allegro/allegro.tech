@@ -50,7 +50,7 @@ I describe in a section below.
 
 Let’s remember that it is the business context that rules here — we should remember 
 about it when setting architectural frames and dividing it into microservices. 
-Naturally, sometimes such division impose further granularity, but each time the 
+Naturally, sometimes such division imposes further granularity, but each time the 
 decision should be well justified due to costs that follow.
 
 ###Nanoservices
