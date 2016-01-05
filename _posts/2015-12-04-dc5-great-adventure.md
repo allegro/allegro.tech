@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Migration of Allegro's infrastructure to new data center DC5 — a great adventure!
+title: The great adventure or migrating Allegro infrastructure to new Data Center - DC5
 author: krzysztof.cienkosz
 tags: [data center, infrastructure]
 ---
@@ -29,11 +29,11 @@ team of Infrastructure Department, which carried out a few migration processes b
 
 We started with reviewing lessons learned from previous infrastructure migrations to focus on the most important issues:
 
-* to reach all potential stakeholders at Allegro Group, present the scale of the project, confront their needs with ours and set up good 
+* reaching all potential stakeholders at Allegro Group, present the scale of the project, confront their needs with ours and set up good 
 communication
-* to design the core network and order necessary hardware as fast as possible
-* to plan the migration with development teams to maintain the redundancy of all services at all stages of the process
-* to ensure that key cooperating companies will be available to support us (e.g. experienced contractors dealing with operational works in DC, 
+* designing the core network and order necessary hardware as fast as possible
+* planning the migration with development teams to maintain the redundancy of all services at all stages of the process
+* ensuring that key cooperating companies will be available to support us (e.g. experienced contractors dealing with operational works in DC, 
 a transportation company, and a company accountable for [structured cabling](https://en.wikipedia.org/wiki/Structured_cabling)).
 
 Allegro Group companies operate about seventy five websites that are available in twenty countries. Hundreds of external and internal 
@@ -44,8 +44,8 @@ heard of it”. At first, information about our plans and suitable dates were co
 informal channels. We believe it is better to reach someone a few times than not to reach him or her at all. Then, representatives of 
 sixteen key infrastructure and development teams gathered on a daily basis to discuss the project progress. These representatives were 
 sharing information with their teams, while these teams were accountable for communication with their clients – let’s call them “Business 
-People”. Simultaneously, Marcin Mazurek (Infrastructure and IT Operations Director) and other members of the AG management were merging this 
-project with other AG business strategic projects. By the way, there are really interesting things going on at Allegro Group nowadays :).
+People”. Simultaneously, Marcin Mazurek (Infrastructure and IT Operations Director) and other members of Allegro Group management were merging this 
+project with other business strategic projects.
 
 The diversity of types of servers, network and storage devices and complexity of applied solutions and networks one could find in DC2 was 
 astonishing as no one wanted to face the challenge of unification. Therefore, the migration to a new DC was a perfect moment for making some 
@@ -91,7 +91,7 @@ April 30th, the rack room in DC2 was empty.
 
 ##The end
 
-In May and June we completed all the configurations and perform power, air-conditioning and other tests when DC5 was operational. Devices 
+In May and June we completed all the configurations and performed power, air-conditioning and other tests when DC5 was operational. Devices 
 and software solutions were hardened. It was time to rest a bit, celebrate the success and prepare for closing the project.
 
 Naturally, there were things that did not go so smooth during the whole project. Some devices did not arrive on time, some were sent to 
@@ -110,7 +110,7 @@ Migration fulfilled its goals:
 
 ##Agile Project Management
 
-We are agile at Allegro Group. There are a few dozens of teams using SCRUM, Kanban, Lean and other agile approaches in their work. You can 
+We are agile at Allegro Group. There are a few dozen teams using SCRUM, Kanban, Lean and other agile approaches in their work. You can 
 almost see the ghost of agile floating the corridors :). The same applies to the Infrastructure Department. We adopted Agile Project 
 Management approach for this project. During the preparation stage, all important topics such as goals, benefits, budget, restrictions, 
 stakeholders, roadmap, risks and organization of work were discussed and agreed between Project Owner and Project Manager. These topics 
@@ -174,21 +174,11 @@ new region based on [OpenStack](https://www.openstack.org/) Icehouse version was
 
 ###SAN & Storage
 
-There are several improvements in storage & backup area implemented during the migration from DC2 to DC5. At present, we use 16 Gbps 
-technology in Storage Area Network (except one small environment basing on 8 Gbps). We resigned from one big SAN. DC5 includes dedicated 
-networks for virtualization environment, corporate IT, Ceneo, and two more for PayU: SYS and DB. All of them are separated from the largest 
-shared networks. The oldest two disk arrays were retired after being 8 years on duty. Some data was migrated to local storage, some to new, 
-smaller disk arrays. Additionally, we started to use dedicated disk arrays for Auction standby database and archived offers. NAS environment 
-is now based new clustered system. The backup area enjoys two independent VTLs.
+There are several improvements in storage & backup area implemented during the migration from DC2 to DC5. At present, we use 16 Gbps technology in Storage Area Network. DC5 includes dedicated networks for virtualization environment. All of them are separated from the largest shared networks. The oldest two disk arrays were retired after being in use for 8 years. Some data was migrated to local storage, some to new, smaller dedicated disk arrays. The backup area enjoys two independent [VTLs](https://en.wikipedia.org/wiki/Virtual_tape_library).
 
 ###Load Balancing
 
-For years, the Allegro Group has relied on Load Balancing based on homogeneous environment  and traditional High Availability (HA) 
-Active—Standby architecture only. Owing to DC5 migration, the Infrastructure Team no. 2 designed and implemented Load Balancing farm based 
-on Active—Active clusters with N+1 redundancy.  New  clustering technology allowed us to improve performance (+50%) and optimize resources 
-(—33.3%) compared to traditional Active—Standby model. 
- 
-Moreover, Load Balancing tier is no longer just one vendor devices environment.
+For years, Allegro Group has relied on Load Balancing based on homogeneous environment  and traditional High Availability (HA) Active—Standby architecture. Owing to DC5 migration, the Infrastructure Team no. 2 designed and implemented Load Balancing farm based on Active—Active clusters with N+1 redundancy.  New  clustering technology allowed us to improve performance and optimize resources compared to traditional Active—Standby model.
 
 ###Virtualization Environment
 
