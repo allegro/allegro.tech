@@ -46,7 +46,7 @@ entity to make our work convenient and effective. However, by doing so we often 
 big picture out of sight. This is the very way to end up with an architecture that 
 reflects the ‚territories’ of particular teams instead of business contexts of 
 an application. We create a factory that generates unnecessary services and problems 
-I will describe in a section below.
+I describe in a section below.
 
 Let’s remember that it is the business context that rules here — we should remember 
 about it when setting architectural frames and dividing it into microservices. 
