@@ -53,7 +53,7 @@ Some tips in the book pertain to individual programmers while others are aimed a
 the [Agile Manifesto](http://agilemanifesto.org/), this book contains most of the common-sense tips for good teamwork later found in Agile
 methodologies. _The Pragmatic Programmer_ was also one of the works that sparked the idea of
 [Software Craftsmanship](https://en.wikipedia.org/wiki/Software_craftsmanship).
-Some advice is presented as short tips, among them pearls such as: _Don’t Assume It—Prove It_,
+Some advice is presented as short tips, among them gems such as: _Don’t Assume It—Prove It_,
 _Abstractions Live Longer than Details_, _Don’t Live with [Broken Windows](https://en.wikipedia.org/wiki/Broken_windows_theory)_ or
 _Refactor Early, Refactor Often_. Full list of tips extracted from the book is
 [available online](https://pragprog.com/the-pragmatic-programmer/extracts/tips).
