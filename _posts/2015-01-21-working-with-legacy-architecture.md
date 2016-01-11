@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Working with legacy architecture
 author: kamil.piska
-tags: [architecture, legacy code, clean code, acl]
+tags: [tech,architecture, legacy code, clean code, acl]
 ---
 
 Any programmer can admit that working with code that has been developed for years by many people is a difficult task.

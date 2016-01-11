@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: The Memory Game
 author: michal.kosmulski
-tags: [java, JVM, JLS, JVMS, memory]
+tags: [tech,java, JVM, JLS, JVMS, memory]
 ---
 
 CPU time and memory are the two primary resources every performance-sensitive application needs to use wisely. Java is now the language

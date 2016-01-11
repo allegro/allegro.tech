@@ -5,7 +5,7 @@ redirect_from:
 layout: post
 title: How to UX without interface
 author: [alicja.antkowiak, edyta.kopczynska, krystian.szczucki, piotr.plys]
-tags: [ux]
+tags: [tech, ux]
 ---
 
 [Allegro.pl](http://allegro.pl) is a leading Central European e-commerce platform, offering a vast diversity of new

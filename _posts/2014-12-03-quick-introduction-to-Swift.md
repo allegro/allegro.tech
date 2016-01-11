@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Quick introduction to Swift
 author: szymon.tur
-tags: [swift, objective-c, ios, apple, playgrounds, xcode]
+tags: [tech,swift, objective-c, ios, apple, playgrounds, xcode]
 ---
 
 Introduction of [Swift](https://developer.apple.com/swift/ "Swift") programming language during WWDC 2014 was big news in developers' world. The community

@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Varnish as a Service goes open source
 author: szymon.jasinski
-tags: [varnish, web cache, python, open source]
+tags: [tech, varnish, web cache, python, open source]
 ---
 
 We are proud to announce that today we released as open source [Varnish as a Service](https://github.com/allegro/vaas)

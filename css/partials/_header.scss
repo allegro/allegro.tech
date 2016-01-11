@@ -39,6 +39,15 @@
     list-style: none;
 }
 
+.site-navlist li {
+    display: inline;
+}
+
+.site-navlist li .current {
+    font-weight: bold;
+}
+
+
 .page-link {
     text-decoration: none;
     color: #4ba7f8;

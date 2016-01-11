@@ -2,7 +2,7 @@
 layout: post
 title: Mini rant&#58; V for Viable
 author: michal.kosmulski
-tags: [MVP, Minimum Viable Product, project management, product development, agile]
+tags: [tech, MVP, Minimum Viable Product, project management, product development, agile]
 ---
 Building a [Minimum Viable Product (MVP)](http://en.wikipedia.org/wiki/Minimum_viable_product) is a method of developing new products
 by validating hypotheses using feedback from real users as soon as possible. This is supposed to reduce risk and to ensure a good

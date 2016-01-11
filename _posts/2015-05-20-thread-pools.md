@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: An introduction to thread pools in Java
 author: piotr.glazar
-tags: [java, concurrency, pools, threads, executors]
+tags: [tech, java, concurrency, pools, threads, executors]
 ---
 
 According to [Moore’s law](http://en.wikipedia.org/wiki/Moore%27s_law) the number of transistors

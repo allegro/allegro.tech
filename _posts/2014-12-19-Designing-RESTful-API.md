@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Designing RESTful API
 author: przemyslaw.debek
-tags: [rest, restful, api, http, hateoas, microservices]
+tags: [tech,rest, restful, api, http, hateoas, microservices]
 ---
 In distributed environments it is crucial to have a common, standardized language which services can use to exchange
 information between each other. At Allegro, to meet this goal, we’ve chosen the REST architecture.
