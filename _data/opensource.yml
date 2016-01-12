@@ -46,3 +46,4 @@ repos:
         - grunt-maven-plugin
         - axion-release-plugin
         - toper
+        - marathon-consul
