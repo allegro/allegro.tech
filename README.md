@@ -60,8 +60,17 @@ We use Jekyll Front Matter for metadata. You should put following HEAD into your
     layout: post
     title: Java Testing Toolbox
     author: rafal.glowinski
-    tags: [java, testing, rest, mockito, junit, assertj]
+    tags: [tech, java, testing, rest, mockito, junit, assertj]
     ---
+
+### Special tags
+
+There are two special tags: `tech` and `agile`.
+
+Choose `tech` if you want to publish on Tech Blog.
+
+Choose `agile` if you want your to publish on Agile Blog.
+
 
 ## Line breaking
 Text lines should not be longer than **120 characters**, for the same reason as lines in the source code.

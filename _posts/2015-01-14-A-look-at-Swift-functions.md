@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: A look at Swift functions
 author: szymon.tur
-tags: [ios, swift, objective-c, xcode, apple]
+tags: [tech,ios, swift, objective-c, xcode, apple]
 ---
 
 At the beginning of December we published our [first post about Swift](/quick-introduction-to-Swift.html "Quick introduction to Swift").

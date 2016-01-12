@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Spring Boot Starter Handlebars
 author: pawel.lesiecki
-tags: [java, spring, open source]
+tags: [tech, java, spring, open source]
 ---
 
 Nowadays, [Spring Boot](http://projects.spring.io/spring-boot/) gets more and more popular as it simplifies creating standalone, production-grade Spring based

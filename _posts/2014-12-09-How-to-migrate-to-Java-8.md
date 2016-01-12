@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: How to migrate to Java 8
 author: michal.kosmulski
-tags: [java, java 8, jdk, migration, compatibility, deployment, lambda expressions, date and time api]
+tags: [tech,java, java 8, jdk, migration, compatibility, deployment, lambda expressions, date and time api]
 ---
 
 This post is about migrating a real-world, non-trivial, business-critical application from Java 7 to Java 8.

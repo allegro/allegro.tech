@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: High performance with low-level tools
 author: michal.kosmulski
-tags: [devops, deployment, monitoring, performance tuning, debugging, linux]
+tags: [tech,devops, deployment, monitoring, performance tuning, debugging, linux]
 ---
 
 Even though a lot of software development is high-level stuff which does not require the developer to delve into the details of how things

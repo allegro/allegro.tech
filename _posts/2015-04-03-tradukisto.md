@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: "Allegro OpenSource: tradukisto"
 author: dorian.sarnowski
-tags: [release, open source, java]
+tags: [tech, release, open source, java]
 ---
 
 At Allegro we use many open-source tools that support our work. Sometimes we are not able to find what we want and this is a perfect moment to fill the gap and

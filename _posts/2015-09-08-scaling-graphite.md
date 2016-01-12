@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Scaling Graphite
 author: adam.dubiel
-tags: [metrics, graphite, carbon]
+tags: [tech, metrics, graphite, carbon]
 ---
 
 Switching from monolith to microservices requires a very solid technical ecosystem. One of the most crucial subsystems is

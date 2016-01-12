@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Scrum-ban applied
 author: marcin.konkel
-tags: [scrum, kanban, scrum-ban, agile, scrum master, agile coach]
+tags: [agile, scrum, kanban, scrum-ban, scrum master, coach]
 ---
 
 This is a story about a Team working in Scrum that wanted to turn to Kanban and ended up, deliberately, working in something resembling

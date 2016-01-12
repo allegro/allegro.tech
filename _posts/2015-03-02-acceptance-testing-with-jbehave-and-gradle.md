@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Acceptance testing with JBehave and Gradle
 author: grzegorz.witkowski
-tags: [acceptance testing, jbehave, gradle, java]
+tags: [tech,acceptance testing, jbehave, gradle, java]
 ---
 
 Typically, applications we develop gain more and more features in each sprint. After a certain time it’s hard to say how

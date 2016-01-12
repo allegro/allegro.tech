@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Adopting Gradle at Allegro — a success story
 author: [piotr.betkier, bartosz.walacik]
-tags: [java, gradle, maven]
+tags: [tech,java, gradle, maven]
 ---
 
 The story begins two years ago during an excellent TDD training given by
