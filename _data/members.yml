@@ -25,7 +25,7 @@ michal.kosmulski:
 bartosz.walacik:
     name: Bartosz Walacik
     bio: A Software Craftsman with 15+ years of professional experience. He focused on lightweight and modern technologies around JVM. At Allegro, he works as a development team leader, delivering marketing intelligence solutions. [JaVers](http://javers.org) project lead. Spock advocate. Lately, editor in chief of [allegro.tech/blog](http://allegro.tech/blog).
-    twitter: bartoszwalacik
+    twitter: BartoszWalacik
 
 andrzej.winnicki:
     name: Andrzej Winnicki
@@ -269,3 +269,9 @@ mateusz.sulima:
     bio: Mateusz has been working as a Scala developer at Allegro Group in a recommendation platform team for a year. Earlier he worked as Node.js, Java and Python developer. His interests focus on performance and consistency problems in distributed systems.
     twitter: MateuszSulima
     github: msulima
+
+pawel.wieladek:
+    name: Paweł Wielądek
+    bio: ...
+    twitter: pawelwieladek
+    github: pawelwieladek
