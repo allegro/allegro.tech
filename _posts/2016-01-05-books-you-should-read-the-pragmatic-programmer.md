@@ -47,7 +47,7 @@ something not only about writing code but also about application architecture, s
 rise of DevOps allows teams to quickly deliver the software they create to their users but it also rises the expectations on developers’
 knowledge which needs to be pretty broad.
 
-By the way, this is also the kind of people we are looking for at Allegro.
+Incidentally, these are also traits we look for when hiring people to work with us at Allegro.
 
 Some tips in the book pertain to individual programmers while others are aimed at development teams. Even though published before
 the [Agile Manifesto](http://agilemanifesto.org/), this book contains most of the common-sense tips for good teamwork later found in Agile
@@ -59,14 +59,18 @@ _Refactor Early, Refactor Often_. Full list of tips extracted from the book is
 [available online](https://pragprog.com/the-pragmatic-programmer/extracts/tips).
 
 One example of what being a pragmatic programmer means in practice came to me recently when my team was starting work on a new project.
-As you may know, we are very much into microservices and scalable architecture, which, among other things, means that we almost exclusively
-use [NoSQL databases](https://en.wikipedia.org/wiki/NoSQL) such as [Cassandra](http://cassandra.apache.org/) and
+As you may know, at Allegro we are very much into microservices and scalable architecture, which, among other things, means that we almost
+exclusively use [NoSQL databases](https://en.wikipedia.org/wiki/NoSQL) such as [Cassandra](http://cassandra.apache.org/) and
 [MongoDB](https://www.mongodb.org/). However, we had to perform some operations which could very easily be accomplished with transactions
-in a standard relational database. We went on to discuss this problem within the team and our architects and were able to estimate
-that this particular application, which was a tool for internal use inside the company only, would not need to store very much data or
-to handle huge numbers of requests. Thus, scalability played much less role than in other systems we build and finally we settled
-on using [MySQL](https://www.mysql.com/), a relational database we would normally not even consider an option. By taking a pragmatic
-approach and concentrating on the actual problem at hand instead of blindly following slogans such as “at this shop, we build highly
-scalable systems”, we were able to find a better solution and save a lot of effort.
+which are not readily available in most NoSQL solutions. We went on to discuss this problem within the team and with our architects and
+were able to estimate that this particular application, which was a tool for internal use inside the company only, would not need to
+store very much data or to handle huge numbers of requests. Thus, scalability played much less role than in other systems we build and
+finally we settled on using [MySQL](https://www.mysql.com/), a relational database we would normally not even consider an option. This
+gave us easy access to transactions. An extra benefit was that MySQL is available inside our ecosystem as a service, so setting up a new
+database is very simple and the DB is managed and backed up by a dedicated support team. If we had to set up and support the DB by
+ourselves, we might have made another choice — ease of maintenance is an important factor when making pragmatic decisions.
+
+By taking a pragmatic approach and concentrating on the actual problem at hand instead of blindly following slogans such as “at this
+shop, we build highly scalable systems”, we were able to find a better solution and save a lot of effort.
 
 I encourage you to read _The Pragmatic Programmer_ and hope you find it as insightful as I have.
