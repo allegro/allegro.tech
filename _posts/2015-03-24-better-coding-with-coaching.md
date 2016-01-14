@@ -4,12 +4,12 @@ redirect_from:
 layout: post
 title: Better coding with coaching
 author: marcin.konkel
-tags: [coaching, coding, self-development, developer, scrum master]
+tags: [agile, coaching, coding, self-development, developer, scrum master]
 ---
 
 We, Scrum Masters at Allegro, undertake actions that facilitate the work of our Developers, Product Owners and the
 Organization itself. We are working with individuals and teams in a variety of ways to remove impediments,
-increase their agility, etc. We do not limit ourselves to only following the 
+increase their agility, etc. We do not limit ourselves to only following the
 [Scrum Guide](http://scrumguides.org) as this 16-pager is only a
 framework — the possibilities of acting as a change agent, facilitator and servant leader seem to be endless.
 
@@ -69,6 +69,6 @@ of frustration is rising. On a coaching session you can gain new perspectives, w
 Want to try coaching? Firstly, if your company enables you to attend coaching, check two things — if the meetings
 are confidential and if you can talk freely about your problems, not only those work related. It will help you build
 the environment where you can tackle what lies ahead without any boundaries. Secondly, try to think on what you want
-to work on — the problem or goal you are trying to find the answer for. Thirdly, do the first step and schedule a session. 
-By doing this you can sort out the things that are blocking you and focus on coding itself which, you should notice, is 
+to work on — the problem or goal you are trying to find the answer for. Thirdly, do the first step and schedule a session.
+By doing this you can sort out the things that are blocking you and focus on coding itself which, you should notice, is
 better. You are not being distracted and your thoughts are on the code. Not sure if it will work for you? Just try.

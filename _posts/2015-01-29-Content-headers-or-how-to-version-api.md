@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Content headers or how to version your API?
 author: krzysztof.debski
-tags: [java, rest, version, api, headers, http]
+tags: [tech,java, rest, version, api, headers, http]
 ---
 
 When you publish your service API it is crucial to make it easy to upgrade. If you forget about it, you might end up in dependency hell.

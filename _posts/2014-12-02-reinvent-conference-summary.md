@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: We were on re:inventure (AWS conference summary)
 author: mateusz.gajewski
-tags: [cloud, aws, conference]
+tags: [tech,cloud, aws, conference]
 ---
 
 Two weeks ago we attended [AWS](http://aws.amazon.com/) [re:invent](https://reinvent.awsevents.com/) conference in Las Vegas.

@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Java Testing Toolbox
 author: rafal.glowinski
-tags: [java, testing, mockito, junit, assertj]
+tags: [tech,java, testing, mockito, junit, assertj]
 ---
 
 ## Introduction

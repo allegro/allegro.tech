@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Frontend made simple
 author: bartosz.galek
-tags: [frontend, bootstrap]
+tags: [tech,frontend, bootstrap]
 ---
 
 Hello stranger. It’s your first day as a fronted developer. Here is your brand new desk, computer and stuff.

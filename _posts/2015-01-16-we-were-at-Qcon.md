@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: We were at QCon SF 2014
 author: filip.marszelewski
-tags: [qcon, conference]
+tags: [tech,qcon, conference]
 ---
 
 [QCon](http://qconferences.com/) is one of the most identifiable conferences in IT world. Several times every year it connects IT professionals
@@ -16,7 +16,7 @@ The main idea of conference is to facilitate the spread of knowledge and innovat
 QCon SF 2014 was held in San Francisco at Hyatt Regency hotel. The conference itself took 3 days
 (November 3<sup>rd</sup> – November 17<sup>th</sup>), there were also additional two days of tutorials. Each conference day was opened
 with a keynote – the only part (except lunches and social events) when all attendees were together in one place.
-Then five separate tracks were launched, each one covering a specific topic from a wide range of IT issues. 
+Then five separate tracks were launched, each one covering a specific topic from a wide range of IT issues.
 There was also an additional track of sponsored solutions. Some of the most interesting themes were:
 [Deploying at Scale](https://qconsf.com/track/deploying-scale),
 [Scalable Microservice Architectures](https://qconsf.com/track/scalable-microservice-architectures),
@@ -24,7 +24,7 @@ There was also an additional track of sponsored solutions. Some of the most inte
 [Reactive Service Architecture](https://qconsf.com/track/reactive-service-architecture),
 [Real World Functional](https://qconsf.com/track/real-world-functional) or
 [the Future of Mobile](https://qconsf.com/track/future-mobile). As you can see, differentiated topics were provided and
-whether you are a programmer, team leader or architect – you could surely find one that fit your interests. 
+whether you are a programmer, team leader or architect – you could surely find one that fit your interests.
 
 Conference days, full of valuable talks, were interspersed with social events like lunches in hotel foyer, dinner
 at a brewery where we tasted local beers and fine Spanish cuisine. Two hospitality receptions with snacks and
@@ -58,14 +58,14 @@ us valuable experience exchange and some insight into how others solve problems 
 ### Talks
 
 Due to the large number of talks it is not possible to resume them all in one article. But several of them were especially
-interesting because they covered issues which Allegro is involved in. 
+interesting because they covered issues which Allegro is involved in.
 
 Jafar Husain from Netflix talked about how they solved **asynchronous JavaScript** problems by thinking differently
 about events, mainly investigating their similarities to collections. You can download slides
 from [Asynchronous programming at Netflix](https://qconsf.com/system/files/presentation-slides/Async%20Javascript%20at%20Netflix-reloaded.pptx)
 presentation.
 
-Sangeeta Naryanan (also from Netflix) in talk 
+Sangeeta Naryanan (also from Netflix) in talk
 [How we learned to stop worrying and start deploying the Netflix API Service](https://qconsf.com/system/files/presentation-slides/qconsf_2014_netflix_API%20%281%29%28FILEminimizer%29.pdf)
 showed her company's road from 2-week release cycle with a lot of delays to **on-demand releases with automatic
 canary analysis, red-black deployment, easy feature rollback and full rollback**. She also proved that not

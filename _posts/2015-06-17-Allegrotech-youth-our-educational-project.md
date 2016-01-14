@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Allegrotech.youth – our educational project
 author: pawel.rekowski
-tags: [education, coding, infrastructure, web developing]
+tags: [tech, education, coding, infrastructure, web developing]
 ---
 
 The pace of today’s world seems to be getting faster and faster. Trends, technologies, requirements and possibilities change in a blink of an eye. When I graduated from [the Complex of Mechanical, Electrical and Electronic Schools in Toruń (ZSMEiE)](http://www.zsmeie.torun.pl) 7 years ago,
@@ -36,8 +36,8 @@ with a proposition of conducting training, whereas the principal told me she had
 ###Start of a crusade
 
 I started with a meeting with all students from the IT classes to show on my own example how important is creating goals,
-future vision and gave them answer on basic question - “Why I am done whatever now to live better in the future?”.  
-There were nearly 300 Students there. I asked them about their career plans and their hopes for the future. 
+future vision and gave them answer on basic question - “Why I am done whatever now to live better in the future?”.
+There were nearly 300 Students there. I asked them about their career plans and their hopes for the future.
 I asked about the direction their lives would take in a year, in three or in five years. 1% of
 them knew exactly what they want to do and started to realise their plans. 60% of them thought about
 studying at higher education institutions, whereas 39% of those young people had no plans, no vision and no real perspective.
@@ -56,7 +56,7 @@ The first class was a lecture about [agile methodologies](http://en.wikipedia.or
 participants knew a bit more about working in IT in practice.
 A week later, we met in an equally large group again to discuss manifestos and paradigms we follow to face
 the everyday challenges of a digital world. We also presented some tools students can use on a daily basis,
-i.e. [GIT](http://git-scm.com/), [Trello](https://trello.com/), or a Linux terminal. :) 
+i.e. [GIT](http://git-scm.com/), [Trello](https://trello.com/), or a Linux terminal. :)
 
 Eventually, the participants were divided into 3 thematic groups according to their interests:
 
@@ -75,12 +75,12 @@ We want to show them that coding is exciting and accessible to everyone. Besides
 impulse for further self-development and help them integrate with the IT sector. Last but not least, we want
 to show them the importance of cooperation between programmers, web developers and administrators.
 The classes will be held from April to late June at the [Faculty of Physics, Astronomy and Informatics at Nicolaus Copernicus University in Toruń](http://www.fizyka.umk.pl/wfaiis/).
-I am convinced that the project participants will continue their development and that their career start will 
+I am convinced that the project participants will continue their development and that their career start will
 be easier.
 
 ###Acknowledgements
 
 I would like to say thank you to all persons involved in this project. Thank you Allegro Group for making it
-happen. Thank you school principal and school administration and you, students from [ZSMEiE](http://www.zsmeie.torun.pl)  for your cooperation. 
-Thank you [Faculty of Physics, Astronomy and Informatics at Nicolaus Copernicus University in Toruń](http://www.fizyka.umk.pl/wfaiis/) for sharing the rooms. 
+happen. Thank you school principal and school administration and you, students from [ZSMEiE](http://www.zsmeie.torun.pl)  for your cooperation.
+Thank you [Faculty of Physics, Astronomy and Informatics at Nicolaus Copernicus University in Toruń](http://www.fizyka.umk.pl/wfaiis/) for sharing the rooms.
 Thank you lecturers for your time and courage to lead the young generation on this educational path.

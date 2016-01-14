@@ -2,7 +2,7 @@
 layout: post
 title: Real-time Web Application with Websockets and Vert.x
 author: marcin.warczyglowa
-tags: [java, javascript, vertx, websockets, websocket api, sockjs, real-time application]
+tags: [tech, java, javascript, vertx, websockets, websocket api, sockjs, real-time application]
 ---
 
 At Allegro, you can sell items at a fixed price (buy now) or at auction.

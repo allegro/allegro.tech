@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Allegro engineers at PyWaw meetup
 author: piotr.betkier
-tags: [python, community]
+tags: [tech,python, community]
 ---
 
 At Allegro, we always try to pick the right tool for the job. As a result, despite focusing on JVM for implementing our

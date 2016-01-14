@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Aspects in Spring
 author: piotr.glazar
-tags: [java, spring, aop, aspect]
+tags: [tech,java, spring, aop, aspect]
 ---
 
 This post is an introduction to the mysterious and alien world of aspect-oriented programming, or aspects for short.

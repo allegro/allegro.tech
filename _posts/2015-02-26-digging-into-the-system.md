@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Digging into the system
 author: mateusz.gajewski
-tags: [linux, performance, tools]
+tags: [tech,linux, performance, tools]
 ---
 
 This post is an introduction to [sysdig](http://sysdig.org) — an “open source, system-level exploration” tool that ease

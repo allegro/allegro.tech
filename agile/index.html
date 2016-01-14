@@ -1,0 +1,24 @@
+---
+layout: default
+title: agile blog
+---
+
+<section class="section-latest">
+    <header>
+        <div class="content">
+            <h2 class="section-title">Latest agile post</h2><br/><br/>
+            {% include posts.html limit="1" tag="agile" %}
+        </div>
+    </header>
+</section>
+
+<section class="section-posts">
+    <section>
+        <div class="content">
+            {% include posts.html offset="1" limit="6" tag="agile"%}
+            {% include posts.html offset="7" short="true" tag="agile"%}
+        </div>
+    </section>
+</section>
+
+{% include disqus_snippet.html %}

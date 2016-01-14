@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Testing RESTful services and their clients
 author: rafal.glowinski
-tags: [java, testing, junit, restito, rest-assured, rest]
+tags: [tech,java, testing, junit, restito, rest-assured, rest]
 ---
 
 [REST (Representational State Transfer)](http://en.wikipedia.org/wiki/Representational_state_transfer) has become very popular

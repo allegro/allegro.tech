@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: Diagnosing a MongoDB issue
 author: rafal.staniszewski
-tags: [mongodb, performance]
+tags: [tech, mongodb, performance]
 ---
 
 
