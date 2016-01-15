@@ -13,7 +13,7 @@ title: blog authors
     <div class="content">
         <ul class="post-author-list">
             {%assign authors = site.data.members | sort%}
-            {% for author in authors%}
+            {% for author in authors%}  
                 {%assign authorKey = author[0]%}
                 {%assign authorData = author[1]%}
                 <li  class="post-author">
