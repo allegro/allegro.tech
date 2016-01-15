@@ -18,7 +18,7 @@ use microservices as building blocks for a Fronted solution.
 So how to build a consistent website or mobile app
 from tens or sometimes hundreds microservices?
 
-In this post we describe our current Frontend approach
+In this post we describe our current Web Frontend approach
 and the New One, meant as a small revolution.
 
 ## Doing Frontend in the Microservices World is tricky
