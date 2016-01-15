@@ -66,6 +66,55 @@ b. Frankenstein style.
 
 
 ## Current approach at allegro
+
+Nowadays at Allegro we have to struggle with old legacy applications, new redesigned services
+and page fragments from developer teams. Everything is joined through web application accelerator
+also known as a caching HTTP reverse proxy - [Varnish](https://www.varnish-cache.org)
+
+[Varnish Cache](https://www.varnish-cache.org) and it's [ESI LANG](https://www.w3.org/TR/esi-lang) features
+allows us to merge a lot of different parts of our platform into one piece. Therefore any page at Allegro could be an separate application/bundle.
+Our Varnish farm also describes our platform performance. Because only Varnish servers are exposed to clients out there we're sure that our services
+behind won't get all the load if not requested so. Varnish was a bullseye
+
+I'll describe example application (homepage) with header, hero image, recommended offers carousel, last visited offers carousel and footer.
+
+## Header
+
+Long, long time ago (MVC age), there was an master layout of the page - it included a lot of 'partials'.
+One of them was AllegroHeader. But during our company expansion header stopped being a simple html container.
+It had grown it's own javascript behaviors, had to integrate search, manage basket widget, be responsible for
+mobile view of menu, manage shown categories. Along a lot of responsibilities any change in it's viewport was
+depending on platform release. I remember when a national wide occasion was a good opportunity to add some 'sparkles'
+to our logo. It took a lot of time and effort to release a new version to production.
+
+Hopefully Microservices came to town. It was obvious then that Header should be extracted outside the old core platform.
+Team responsible for HeaderService thought that if they could provide a complete html with it's dependencies (js, css, img)
+they could replace old html partial inclusion part with an [ESI INCLUDE](https://en.wikipedia.org/wiki/Edge_Side_Includes).
+
+Then we could make header more intelligent and it's configuration could be depended from platform release. YAY Microservices!
+It's obvious that now our Header is more dynamic - we even include other ESI inside (thx to [ESI SUROGGATE](https://www.w3.org/TR/edge-arch/))
+It's possible to reconfigure it at runtime and deployment process is a lot easier. Not mentioning refreshed technology stack.
+
+Now we are facing new problems.
+
+For example how to provide consistency? Some applications shared old partial file some had it's own implementation and some even copied
+html with assets for their own reasons. How to be sure, that our header is the only one out there? What's gonna happen when an app depends
+on js library that was provided by original header and will be deleted during next release? We encountered a lot of new problems.
+
+## Hero image
+
+Showcase service has shown up at our company. It worked liked previously described Header. It provided it's full html solution, it was easily
+configurable and easy to deploy. Problems with duplicating assets, decomposed css styles and tight coupling with page <head> recurred again.
+
+## Carousels (recommended and last visited)
+
+It was obvious that replacing application logic and views fragments with services using ESI tag was simple and profitable.
+So now we also have carousel service. Carousel service can generate stand-alone carousel solution. Under the hood it will request for
+user recommendations and last visited offers and show them in consistent and user friendly way. As before, it was easy to manage now.
+But what if our stakeholders want to show carousel from search or chosen category - just for fun? For now - in such situation we will
+need to develop another functionality in our carousels. Event then we thought that carousel should be just an container for any data
+but it had specific logic so far.
+
 ...
 
 ## OpBox project &mdash; the new Frontend solution
