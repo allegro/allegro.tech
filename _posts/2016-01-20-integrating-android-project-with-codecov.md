@@ -6,12 +6,12 @@ tags: [android, code coverage, codecov, continuous integration]
 ---
 
 If you always search for ways to increase code quality and would like to encourage everyone in your
-project to keep high test code coverage all the time then [Codecov](https://codecov.io) may be another
+project to keep high test code coverage all the time, then [Codecov](https://codecov.io) may be another
 step in your journey.
 
 You can think of it as an automated code reviewer which constantly reminds you what you can
-do to improve your test code coverage. It can be set up to perform build failing checks on your code
-changes if they would degrade code coverage or even suggest which files need to be covered bytests.
+do to improve your test code coverage. It can be set up to perform build-failing checks on your code
+changes if they would degrade code coverage or even suggest which files need to be covered by tests.
 
 This article shows how to set up an Android project integration with Codecov as a part of a
 Continuous Integration process with [GitHub](https://github.com) as a repository host and
@@ -65,7 +65,7 @@ jacocoAndroidUnitTestReport {
 
 ### Instrumentation tests
 
-In case of instrumentation tests it is a little bit less of a hassle. You do not need to create code
+In case of instrumentation tests it is a little bit less hassle. You do not need to create code
 coverage report tasks manually. They are already created by the Android Gradle plugin. All you have
 to do is set `testCoverageEnabled` as `true` in your build type configuration, e.g.:
 
@@ -106,7 +106,7 @@ and you are ready to launch `test` and `jacocoTestReport` tasks.
 ## Pushing reports to Codecov as a CI process step
 
 The real power of integrating code coverage reports with Codecov comes from setting it as a
-part of the CI process. This section describes such an integration with an open source project
+part of the CI process. This section describes such integration with an open source project
 hosted at GitHub and built by Travis CI.
 
 Whenever developers make a pull request to the project it would be great for them to see reports
@@ -156,13 +156,13 @@ not have to make any additional steps here.
 
 ## Summary
 
-If you want to enhance your CI process to get the most out of code coverage reports then integrating
-with Codecov is probably the way to go.
+If you want to enhance your CI process to get the most out of the code coverage reports then
+integrating with Codecov is probably the way to go.
 
 Feel free to comment and ask questions. I will be more than happy to answer them.
 
 You can also find a fully working and up-to-date example on Codecov's GitHub:
 https://github.com/codecov/example-android
 
-Thank you for reading!
+Thanks for reading!
 
