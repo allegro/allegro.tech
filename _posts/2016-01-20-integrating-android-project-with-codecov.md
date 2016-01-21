@@ -19,16 +19,17 @@ Continuous Integration process with [GitHub](https://github.com) as a repository
 
 ## Generating code coverage reports
 
-In order to get code coverage reports you have to gather test execution data first. Only then it is
+In order to get code coverage reports you have to gather test execution data first. Only then is it
 possible to generate coverage reports. This process may differ between a Java module, an Android
 library project or an actual Android application project. Following paragraphs describe the
-necessary configuration based on Gradle build system.
+necessary configuration based on [Gradle](http://gradle.org) build system.
 
 ### Unit tests
 
-To generate unit tests code coverage reports for an Android application or library
-project some additional work may be needed. Currently, Android gradle plugin does not generate
-Gradle report tasks out of box. One solution is to configure them manually or use 
+To generate unit tests’ code coverage reports for an Android application or library
+project some additional work may be needed. Currently,
+[Android Plugin for Gradle](http://developer.android.com/tools/building/plugin-for-gradle.html)
+does not generate Gradle report tasks out of box. One solution is to configure them manually or to use
 [jacoco-android-gradle-plugin](http://github.com/arturdm/jacoco-android-gradle-plugin)
 that configures code coverage report tasks automatically:
 
@@ -88,7 +89,7 @@ environment it works rather well.
 
 ### Unit tests in pure Java project
 
-Fortunately, in case of a pure Java project close to none configuration is required in order to get
+Fortunately, in case of a pure Java project close to no configuration is required in order to get
 code coverage reports. You just apply the `jacoco` plugin with XML output enabled:
 
 ```gradle
@@ -144,7 +145,7 @@ after_success:
 The actual report upload is done by the `bash <(curl -s https://codecov.io/bash)` command.
 Note that this configuration handles both regular unit tests run on the host machine and also
 instrumentation tests run on the emulator. You should also remember to adjust the Android SDK,
-build tools and emulator SDK version settings to suit your project's configuration.
+build tools and emulator SDK version settings to suit your project’s configuration.
 
 Now, creating a pull request at the project GitHub page should trigger a build. When it succeeds,
 the `codecov-io` bot leaves a comment on the pull request with the code coverage information and
@@ -152,7 +153,7 @@ a link to the project page at Codecov for more details.
 
 Fortunately, Codecov supports uploading multiple report files without the hassle of merging them
 into one beforehand. If you have a multi module project or a multi variant Android project you do
-not have to make any additional steps here.
+not have to take any additional steps here.
 
 ## Summary
 
@@ -161,7 +162,7 @@ integrating with Codecov is probably the way to go.
 
 Feel free to comment and ask questions. I will be more than happy to answer them.
 
-You can also find a fully working and up-to-date example on Codecov's GitHub:
+You can also find a fully working and up-to-date example on Codecov’s GitHub:
 https://github.com/codecov/example-android
 
 Thanks for reading!
