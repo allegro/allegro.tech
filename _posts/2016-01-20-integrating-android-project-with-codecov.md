@@ -13,8 +13,8 @@ You can think of it as an automated code reviewer which constantly reminds you w
 do to improve your test code coverage. It can be set up to perform build-failing checks on your code
 changes if they would degrade code coverage or even suggest which files need to be covered by tests.
 
-This article shows how to set up an Android project integration with Codecov as a part of a
-Continuous Integration process with [GitHub](https://github.com) as a repository host and
+This article shows how to set up an open source Android project integration with Codecov as a part
+of a Continuous Integration process with [GitHub](https://github.com) as a repository host and
 [Travis CI](https://travis-ci.org) as a build server.
 
 ## Generating code coverage reports
@@ -66,6 +66,8 @@ jacocoAndroidUnitTestReport {
 
 ### Instrumentation tests
 
+Apart from testing on a local JVM, Android supports running tests on a real device or an emulator using
+[Instrumentation](http://developer.android.com/tools/testing/testing_android.html#TestStructure).
 In case of instrumentation tests it is a little bit less hassle. You do not need to create code
 coverage report tasks manually. They are already created by the Android Gradle plugin. All you have
 to do is set `testCoverageEnabled` as `true` in your build type configuration, e.g.:
@@ -147,6 +149,9 @@ Note that this configuration handles both regular unit tests run on the host mac
 instrumentation tests run on the emulator. You should also remember to adjust the Android SDK,
 build tools and emulator SDK version settings to suit your project’s configuration.
 
+You should also go to your [Travis profile page](https://travis-ci.org/profile) to enable
+the trigger for the project’s repository so Travis builds it whenever a code change is introduced.
+
 Now, creating a pull request at the project GitHub page should trigger a build. When it succeeds,
 the `codecov-io` bot leaves a comment on the pull request with the code coverage information and
 a link to the project page at Codecov for more details.
@@ -157,8 +162,22 @@ not have to take any additional steps here.
 
 ## Summary
 
-If you want to enhance your CI process to get the most out of the code coverage reports then
-integrating with Codecov is probably the way to go.
+There are other solutions that can be used to analyze code coverage reports, provide suggestions
+and perform checks if the change would degrade the project quality.
+
+[Coveralls](https://coveralls.io) for example offers similar functionality. Currently, the available
+[coveralls-gradle-plugin](https://github.com/kt3k/coveralls-gradle-plugin) expects the user to merge
+test coverage reports into a single report in a multi-module Gradle project before publishing them
+to Coveralls.
+
+Probably, the most feature-rich solution is [SonarQube™](http://sonarqube.org) as it performs
+static code analysis alongside code coverage reports. It is also possible to feed it with integration
+tests results separately from unit test so it is easier to distinguish them in the end report.
+The only downside is that it requires self-hosting.
+
+In case of open source and cloud-hosted projects using Codecov may be the most elegant solution
+at the time of writing this article. If you want to enhance your CI process to get the most out
+of the code coverage reports then integrating with Codecov may probably be the way to go.
 
 Feel free to comment and ask questions. I will be more than happy to answer them.
 
