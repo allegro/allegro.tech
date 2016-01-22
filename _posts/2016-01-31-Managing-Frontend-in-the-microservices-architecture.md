@@ -153,6 +153,15 @@ flexibility. We just had to think a better way...
 
 ## OpBox project &mdash; the new Frontend solution
 
+Unofficial polish name of the OpBox project
+is *Opierdalacz Boxów*, unfortunately there is no good english translation for this name.
+Closest would be: *Box Manager*.
+
+
+ 
+So Box is the main concept of our solution.
+What is Box?
+
 ### OpBox principles:
 -- obrazek
 
