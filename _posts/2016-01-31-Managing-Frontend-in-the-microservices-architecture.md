@@ -115,6 +115,21 @@ But what if our stakeholders want to show carousel from search or chosen categor
 need to develop another functionality in our carousels. Event then we thought that carousel should be just an container for any data
 but it had specific logic so far.
 
+### Footer
+
+Footer is the simplest one - it's only html with some styles. It's not manageable but supports i18n.
+
+
+### What has gone wrong?
+
+The approach seemed simple enough. But was also not easy to extend and to maintain. Because every page can be a separate
+web application we cannot ensure that everybody uses our frontend services. Each component had it's own dependencies,
+sometimes duplicated or linked to other ones i.e. header & carousel - they both needed our company icon set
+- should header expose it to all other? What to do when a page does not have any header at all?
+Should carousel should have any fallback for the assets? What about measuring? How to require exact the same measuring solution?
+We've noticed very fast that this aproach should be only temporary because we cannot provide a good level on consistency and
+flexibility. We just had to think a better way...
+
 ...
 
 ## OpBox project &mdash; the new Frontend solution
