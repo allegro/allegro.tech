@@ -61,10 +61,32 @@ by clicking on your laptop? It just works, that’s really impressive.
 
 There are two opposite approaches to modern Frontend architecture.
 
-a. Monolith style.
-b. Frankenstein style.
+a. Monolith approach,
+b. Frankenstein approach
 
+**Monolith approach** is dead simple: one Frontend team creates and maintains one Frontend application,
+which gathers data from backend services using REST API. This approach have one huge advantage, if done right,
+provides excellent user experience. Main disadvantage is that it doesn’t scale well. In a big company, with many development teams,
+single Frontend ream could become a development bottleneck.
 
+In **Frankenstein approach** (shared nothing) approach,
+Frontend applications is divided into modules and each module is developed independently by separated teams.
+
+In Web applications modules are HTML page fragments (like Header, Cart, Search).
+Each team takes whole responsibility for their product. So a team develops not only backend logic 
+but also provides endpoint which serves HTML fragment with their *piece of Frontend*.
+Then, HTML page is assembled using some low level server-side include technology like ESI tags.
+
+This approach scales well, but the big disadvantage is lack of consistency at the Frontend.  
+There are seams between page fragments, number of page-level interactions is limited.
+Pretty much like Frankenstein monster.
+
+Between Monolith and Frankenstein there is a whole spectrum of possible architectures.
+We want to build is the desirable middle ground between these two extremes.
+
+Below, we describe current approach at allegro, which is close to Frankenstein extreme
+and the new solution, which goes more into Monolith direction. 
+ 
 ## Current approach at allegro
 
 Nowadays at Allegro we have to struggle with old legacy applications, new redesigned services
@@ -78,7 +100,7 @@ behind won't get all the load if not requested so. Varnish was a bullseye
 
 I'll describe example application (homepage) with header, hero image, recommended offers carousel, last visited offers carousel and footer.
 
-## Header
+### Header
 
 Long, long time ago (MVC age), there was an master layout of the page - it included a lot of 'partials'.
 One of them was AllegroHeader. But during our company expansion header stopped being a simple html container.
@@ -101,12 +123,12 @@ For example how to provide consistency? Some applications shared old partial fil
 html with assets for their own reasons. How to be sure, that our header is the only one out there? What's gonna happen when an app depends
 on js library that was provided by original header and will be deleted during next release? We encountered a lot of new problems.
 
-## Hero image
+### Hero image
 
 Showcase service has shown up at our company. It worked liked previously described Header. It provided it's full html solution, it was easily
 configurable and easy to deploy. Problems with duplicating assets, decomposed css styles and tight coupling with page <head> recurred again.
 
-## Carousels (recommended and last visited)
+### Carousels (recommended and last visited)
 
 It was obvious that replacing application logic and views fragments with services using ESI tag was simple and profitable.
 So now we also have carousel service. Carousel service can generate stand-alone carousel solution. Under the hood it will request for
@@ -118,6 +140,8 @@ but it had specific logic so far.
 ...
 
 ## OpBox project &mdash; the new Frontend solution
+
+
 ...
 
 ## Future steps
