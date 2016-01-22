@@ -156,11 +156,12 @@ flexibility. We just had to think a better way...
 Unofficial polish name of the OpBox project
 is *Opierdalacz Boxów*, unfortunately there is no good english translation for this name.
 Closest would be: *Box Manager*.
-
-
  
-So Box is the main concept of our solution.
-What is Box?
+So Box is the main concept of our solution. What is Box after all?
+Box is reusable, high-level fronted component, feedable from JSON data source.
+Box can have slots, in each slot, you can put more Boxes.
+Box can be rendered conditionally (for example, depending on A/B test variant). 
+Page is assembled from Boxes.
 
 ### OpBox principles:
 -- obrazek
