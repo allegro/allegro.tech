@@ -43,11 +43,11 @@ Developing modern Frontend isn’t easy, following aspects are involved:
 * Allowing interactions between HTML fragments served by different services
   (example use cases: remove an offer from Recommendations box when it happens to be shown by Listing box).
 * Consistent way of measuring users activities (traffic analytics).
+* Content customization.
 * Providing tools for A/B testing.
 * Handling errors and slow responses from Backend services.
 * There are many Frontend devices: browser, mobile... Smart TV and PlayStation® are waiting in the queue.
-* Offering excellent UX to users (omnichannel).
-
+* Offering excellent UX to all users (omnichannel).
 
 And the last 2 things are most important and most challenging.
 It means that your Frontend applications should be consistent, well integrated and *smooth*.
@@ -86,18 +86,18 @@ Pretty much like Frankenstein monster.
 Between Monolith and Frankenstein there is a whole spectrum of possible architectures.
 We want to build is the desirable middle ground between these two extremes.
 
-Next, we describe current approach at allegro, which is close to Frankenstein extreme
+Next, we describe current approach at Allegro, which is close to Frankenstein extreme
 and the new solution, which goes more into Monolith direction. 
  
-## Current approach at allegro
+## Current approach at Allegro
 
-Nowadays at Allegro we have to struggle with old legacy applications, new redesigned services
-and page fragments from development teams. Everything is joined by [Varnish](https://www.varnish-cache.org) 
+Nowadays at Allegro we have to struggle with legacy applications and new Microservices.
+Everything is joined by [Varnish Cache](https://www.varnish-cache.org) 
 web application accelerator (a caching HTTP reverse proxy). 
 
-[Varnish Cache](https://www.varnish-cache.org) and it's [ESI LANG](https://www.w3.org/TR/esi-lang) features
+Varnish and it's [ESI LANG](https://www.w3.org/TR/esi-lang) features
 allows us to merge a lot of different parts of our platform into one piece. Therefore any page at Allegro
-can be an separate application/bundle.
+can be an separate application/service.
 Our Varnish farm also defines our platform performance.
 Because only Varnish servers are exposed to users, we're sure that our services
 behind won't get all the load. Varnish was a bullseye.
