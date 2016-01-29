@@ -92,18 +92,22 @@ and the New Solution, which goes more into the Monolith direction.
 
 ## Current approach at Allegro
 
-Nowadays at Allegro we have to struggle with legacy applications and new Microservices.
-Everything is joined by [Varnish Cache](https://www.varnish-cache.org)
+Nowadays at Allegro we have to struggle with legacy, monolithic application and new Microservices.
+Everything is integrated by [Varnish Cache](https://www.varnish-cache.org) &mdash;
 web application accelerator (a caching HTTP reverse proxy).
 
-Varnish and it's [ESI LANG](https://www.w3.org/TR/esi-lang) features
-allows us to merge a lot of different parts of our platform into one piece. Therefore any page at Allegro
-can be an separate application/service.
-Our Varnish farm also defines our platform performance.
-Because only Varnish servers are exposed to users, we're sure that our services
-behind won't get all the load. Varnish was a bullseye.
+Varnish and its [ESI LANG](https://www.w3.org/TR/esi-lang) features
+allows us to merge a lot of different parts of our platform into one website.
+Therefore any page (or page fragment) at Allegro
+can be a separate application/service.
 
-I'll describe example application (homepage) with Header, Hero Image, Recommendations,
+Our Varnish farm also defines and greatly improves our overall performance.
+Varnish servers are exposed to users and they caches all requests for static content.
+We often say that *we are hiding behind Varnish* to survive massive traffic from our users.
+
+Varnish really hit the bull's-eye.
+
+Below, we describe the Homepage application with Header, Hero Image, Recommendations,
 Last Visited and Footer.
 
 ### Header
