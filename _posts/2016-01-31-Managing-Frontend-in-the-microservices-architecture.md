@@ -92,7 +92,8 @@ and the New Solution, which goes more into the Monolith direction.
 
 ## Current approach at Allegro
 
-Nowadays at Allegro we have to struggle with legacy, monolithic application and new Microservices.
+Nowadays at Allegro we have to struggle with legacy, monolithic application
+(written on PHP) and with many new Microservices (written mostly in Java).
 Everything is integrated by [Varnish Cache](https://www.varnish-cache.org) &mdash;
 web application accelerator (a caching HTTP reverse proxy).
 
@@ -107,10 +108,11 @@ We often say that *we are hiding behind Varnish* to survive massive traffic from
 
 Varnish really hit the bull's-eye.
 
-Below, we describe the Homepage application with Header, Hero Image, Recommendations,
-Last Visited and Footer.
+Below, we describe one page fragment, included in each page &mdash; the Header.
 
-### Header
+#### Header
+// TODO bez Long, long time ago
+// opiszmy po prostu jak teraz działa header
 
 Long, long time ago (MVC age), there was an master layout of the page - it included a lot of 'partials'.
 One of them was AllegroHeader. But during our company expansion header stopped being a simple html container.
@@ -122,21 +124,7 @@ What's gonna happen when an app depends
 on js library that was provided by header and will be deleted during next release?
 We encountered a lot of new problems.
 
-### Hero image
-
-It works like previously described Header. It provides it's full HTML, it is easily
-configurable and easy to deploy.
-Problems with duplicating assets, decomposed css styles and tight coupling with page `<head>` recurred again.
-
-### Carousels (recommended and last visited)
-
-Carousel service can generate stand-alone carousel solution. Under the hood it will request for
-user recommendations and last visited offers and show them in consistent and user friendly way.
-But what if our stakeholders want to show carousel from search or chosen category - just for fun?
-For now - in such situation we will need to develop another functionality in our carousels.
-Carousel should be just an container for any data but it has specific logic so far.
-
-### What has gone wrong?
+#### What has gone wrong?
 
 The approach seemed simple enough. But was also not easy to extend and to maintain.
 
