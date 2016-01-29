@@ -10,20 +10,20 @@ are now mainstream approach for scalable systems architecture.
 There are little controversy when we are talking about designing Backend services.
 Well-behaved backend microservice should cover one
 [BoundedContext](http://martinfowler.com/bliki/BoundedContext.html)
-and communicate over REST API.
+and communicate over the REST API.
 Of course, microservice should be loosely-coupled from its neighbours.
 
 Things gets complicated when we need to
 use microservices as building blocks for a Fronted solution.
-So how to build a consistent website or mobile app
+So how to build a consistent website or a mobile app
 from tens or sometimes hundreds microservices?
 
 In this post we describe our current Web Frontend approach
-and the New One, meant as a small revolution.
+and the New One, meant as the small revolution.
 
 ## Doing Frontend in the Microservices World is tricky
 Our users don’t care how good we are in dividing our Backend into Microservices.
-The question is how good we are in integrating them in a browser.
+The question is how good we are in integrating them in a user’s browser.
 
 Typically, to process one HTTP Requests sent by user, we need do collect data from many
 Microservices.
@@ -32,21 +32,21 @@ we send him the Listing page.
 This page collects data from several services: Header, Cart, Search, Category Tree, Listing, CEO, Recommendations.
 Some of them provides only data (like Search) and some provides ready-to-serve HTML fragments (like Header).
 
-Each service is maintained by a separate team.
-Some teams have excellent Frontend skills but other...,
-let’s say that they are really good in doing BigData.
+Each service is maintained by a separate team.<br/>
+Some teams have excellent frontend skills but other...<br/>
+Let’s say that they are really good in doing BigData.<br/>
 
 Developing modern Frontend isn’t easy, following aspects are involved:
 
 * Classical SOA-style data integration, often done by dedicated service, called Backend for Frontends or Edge Service.
-* Managing frontend dependencies (JS scrips, CSS) required by various HTML fragments.
+* Managing frontend dependencies (JS, CSS scripts) required by various HTML fragments.
 * Allowing interactions between HTML fragments served by different services
-  (example use cases: remove an offer from Recommendations box when it happens to be shown by Listing box).
+  (example use cases: remove an offer from Recommendations box when it happens to be shown already by Listing box).
 * Consistent way of measuring users activities (traffic analytics).
 * Content customization.
 * Providing tools for A/B testing.
 * Handling errors and slow responses from Backend services.
-* There are many Frontend devices: browser, mobile... Smart TV and PlayStation® are waiting in the queue.
+* There are many Frontend devices: Web browser, mobile... Smart TV and PlayStation® are waiting in the queue.
 * Offering excellent UX to all users (omnichannel).
 
 And the last 2 things are most important and most challenging.
@@ -75,25 +75,26 @@ In **Frankenstein approach** (shared nothing) approach,
 Frontend application is divided into modules and each module is developed independently by separated teams.
 
 In Web applications modules are HTML page fragments (like Header, Cart, Search).
-Each team takes whole responsibility for their product. So a team develops not only backend logic 
+Each team takes whole responsibility for their product. So a team develops not only backend logic
 but also provides endpoint which serves HTML fragment with their *piece of Frontend*.
 Then, HTML page is assembled using some low level server-side include technology like ESI tags.
 
-This approach scales well, but the big disadvantage is lack of consistency on the user side.  
-There are seams between page fragments, number of page-level interactions is limited.
-Pretty much like Frankenstein monster.
+This approach scales well, but the big disadvantage is lack of consistency on the user side.
+Seams between page fragments becomes visible, number of page-level interactions is limited.
+Even in page scope, each page fragment may look or even worse behave in a different way.
+Pretty much like the Frankenstein monster.
 
-Between Monolith and Frankenstein there is a whole spectrum of possible architectures.
-We want to build is the desirable middle ground between these two extremes.
+**Between Monolith and Frankenstein** there is a whole spectrum of possible architectures.
+What we want to build is the desirable middle ground between these two extremes.
 
-Next, we describe current approach at Allegro, which is close to Frankenstein extreme
-and the new solution, which goes more into Monolith direction. 
- 
+Next, we describe the current approach at Allegro, which is close to the Frankenstein extreme
+and the New Solution, which goes more into the Monolith direction.
+
 ## Current approach at Allegro
 
 Nowadays at Allegro we have to struggle with legacy applications and new Microservices.
-Everything is joined by [Varnish Cache](https://www.varnish-cache.org) 
-web application accelerator (a caching HTTP reverse proxy). 
+Everything is joined by [Varnish Cache](https://www.varnish-cache.org)
+web application accelerator (a caching HTTP reverse proxy).
 
 Varnish and it's [ESI LANG](https://www.w3.org/TR/esi-lang) features
 allows us to merge a lot of different parts of our platform into one piece. Therefore any page at Allegro
@@ -112,7 +113,7 @@ One of them was AllegroHeader. But during our company expansion header stopped b
 It had grown it's own javascript behaviors, had to integrate search, manage Cart widget and be responsible for
 the navigation bar.
 
-How to provide assets consistency? 
+How to provide assets consistency?
 What's gonna happen when an app depends
 on js library that was provided by header and will be deleted during next release?
 We encountered a lot of new problems.
@@ -126,8 +127,8 @@ Problems with duplicating assets, decomposed css styles and tight coupling with 
 ### Carousels (recommended and last visited)
 
 Carousel service can generate stand-alone carousel solution. Under the hood it will request for
-user recommendations and last visited offers and show them in consistent and user friendly way. 
-But what if our stakeholders want to show carousel from search or chosen category - just for fun? 
+user recommendations and last visited offers and show them in consistent and user friendly way.
+But what if our stakeholders want to show carousel from search or chosen category - just for fun?
 For now - in such situation we will need to develop another functionality in our carousels.
 Carousel should be just an container for any data but it has specific logic so far.
 
@@ -139,13 +140,13 @@ Because every page can be a separate web application we cannot ensure that every
 Each component had it's own dependencies, sometimes duplicated or linked to other ones i.e. header & carousel
 - they both needed our company icon set - should header expose it to all other?
 What to do when a page does not have any header at all?
-Should carousel have any fallback for the assets? What about measuring? 
+Should carousel have any fallback for the assets? What about measuring?
 How to assure exact the same measuring solution?
-What if footer is written in [AngularJS](https://angularjs.org) and showcases are [React](https://facebook.github.io/react/) 
+What if footer is written in [AngularJS](https://angularjs.org) and showcases are [React](https://facebook.github.io/react/)
 compontents? Or even worse - how to handle two different version of [BackboneJS](http://backbonejs.org) within two services?
 
 Testing one component was really easy, everybody had their own set of tests. Cross modules testing was a real problem.
-How to maintain relations between frontend parts? How to be sure that security within them is satisfying? 
+How to maintain relations between frontend parts? How to be sure that security within them is satisfying?
 
 We've noticed very fast that this approach should be only temporary because we
 cannot provide enough consistency and
@@ -156,11 +157,11 @@ flexibility. We just had to think a better way...
 Unofficial polish name of the OpBox project
 is *Opierdalacz Boxów*, unfortunately there is no good english translation for this name.
 Closest would be: *Box Manager*.
- 
-So Box is the main concept of our solution. What is Box after all?
+
+So Box is the main concept in our solution. What is Box after all?
 Box is reusable, high-level fronted component, feedable from JSON data source.
 Box can have slots, in each slot, you can put more Boxes.
-Box can be rendered conditionally (for example, depending on A/B test variant). 
+Box can be rendered conditionally (for example, depending on A/B test variant).
 Page is assembled from Boxes.
 
 ### OpBox principles:
