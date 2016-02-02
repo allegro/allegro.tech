@@ -8,20 +8,22 @@ tags: [books, pragmatic programmer, software craftsmanship]
 alt="The Pragmatic Programmer by Andrew Hunt and David Thomas — book cover"
 style="float: right;"/>
 
-There are books on IT topics which become outdated right after they are published and there are books which stand the test of time.
+Some books on IT topics become outdated right after they are published while others stand the test of time.
 One of the latter is [The Pragmatic Programmer. From Journeyman to Master](https://pragprog.com/book/tpp/the-pragmatic-programmer) by
 Andrew Hunt and David Thomas.
 
-_This book will help you become a better programmer_, claim the authors, and they are true to their word. This book is not about any
-specific language or framework but rather about being a programmer in general. The few examples of actual code are in C++ but don’t be
-put off — they are there just to illustrate more general ideas.
+_This book will help you become a better programmer_, claim the authors, and they are true to their word. What they wrote is not about any
+specific language or framework but rather about being a programmer in general. The few examples of actual code are in C++, but don’t be
+put off — they are simple and just illustrate the ideas described in text.
 
-Most of the advice you find in the book is very common-sense and may even sound obvious. However, I have interviewed dozens of people for
-software development jobs and it never ceases to surprise me how many of them do not fit the characteristics of a pragmatic programmer.
+Most of the advice you find in the book is very common-sense and may even sound obvious to more experienced developers. However, I have
+interviewed dozens of people for software development jobs and it never ceases to surprise me how many of them, even those running for
+senior positions, do not fit the characteristics of a pragmatic programmer. So, if you are only beginning your journey as a programmer,
+this book is a must-read. If you already feel more experienced, it is still a very good read that can remind you of some things you may
+already intuitively know but not be fully aware of and to highlight some aspects of your work you might be underappreciating.
+
 In the context of this book, _pragmatic_ means being focused on a practical approach to solving real-life problems and choosing the right
-tool for the job.
-
-Below are some traits of a pragmatic programmer which the authors list in the preface. People change much slower than
+tool for the job. Below are some traits of a pragmatic programmer which the authors list in the preface. People change much slower than
 technology, so these properties are just as important today as they were in 1999 when the book was published.
 I would argue that due to today’s technology landscape being much more complex than 15 years ago, they are even more important today
 than they were back then:
@@ -35,16 +37,16 @@ for example. Developers sometimes stop at being able to use it in their apps but
 create a bean or use some magic annotation. The result is that when something breaks they are not able to analyze and fix the issue. An
 inquisitive developer should always strive to understand how things work, even if it means leaving their comfort zone such as learning about
 low-level details of Spring when you just write typical CRUD applications most of the time.
-* __critical thinker__ — Think about the goal you want to achieve and use the right tool. When analyzing performance or any other kind of data,
-treat any conclusions you draw with skepticism in order to make sure the data really shows what you think it does. If you have a
-different opinion on some issue than the rest of the team, discuss it and don’t just settle on “we’ve always done it this way” as an answer
-(this does not mean being stubborn just for the sake of it, of course, just making sure you really know why things are done the way they
-are).
+* __critical thinker__ — Think about the goal you want to achieve and use the right tool. Whether analyzing an algorithm, looking for a
+bug’s cause or tuning performance, treat your conclusions with skepticism in order to make sure the data really shows what you think it
+does. If your opinion on some issue differs from the rest of the team, discuss it and don’t just settle on “we’ve always done it
+this way”. This does not mean being stubborn just for the sake of it, of course, just making sure you really know why things
+are done the way they are.
 * __realistic__ — Try to be realistic in your estimates and avoid overt optimism or pessimism. Also, be realistic when it comes to judging
 your own skills and knowledge. Being able to tell what you are good at and what your weaknesses are will allow you to improve.
 * __jack of all trades__ — Software development is much more than just coding. Today, programmers, especially seniors, are expected to know
 something not only about writing code but also about application architecture, scalability, databases, deployment and monitoring. The
-rise of DevOps allows teams to quickly deliver the software they create to their users but it also rises the expectations on developers’
+rise of DevOps allows teams to quickly deliver new software to their users but it also rises the expectations on developers’
 knowledge which needs to be pretty broad.
 
 Incidentally, these are also traits we look for when hiring people to work with us at Allegro.
@@ -62,12 +64,12 @@ One example of what being a pragmatic programmer means in practice came to me re
 As you may know, at Allegro we are very much into microservices and scalable architecture, which, among other things, means that we almost
 exclusively use [NoSQL databases](https://en.wikipedia.org/wiki/NoSQL) such as [Cassandra](http://cassandra.apache.org/) and
 [MongoDB](https://www.mongodb.org/). However, we had to perform some operations which could very easily be accomplished with transactions
-which are not readily available in most NoSQL solutions. We went on to discuss this problem within the team and with our architects and
-were able to estimate that this particular application, which was a tool for internal use inside the company only, would not need to
+which are not readily available in most NoSQL solutions. After discussing this problem both within the team and with our architects, we
+were able to estimate that this particular application, which was a tool for use only within the company, would not need to
 store very much data or to handle huge numbers of requests. Thus, scalability played much less role than in other systems we build and
-finally we settled on using [MySQL](https://www.mysql.com/), a relational database we would normally not even consider an option. This
-gave us easy access to transactions. An extra benefit was that MySQL is available inside our ecosystem as a service, so setting up a new
-database is very simple and the DB is managed and backed up by a dedicated support team. If we had to set up and support the DB by
+finally we settled on using [MySQL](https://www.mysql.com/), a relational database, which we would normally not even consider an option.
+This gave us easy access to transactions. An extra benefit was that MySQL is available inside our ecosystem as a service, so setting up a
+new database is very simple and the DB is managed and backed up by a dedicated support team. If we had to set up and support the DB by
 ourselves, we might have made another choice — ease of maintenance is an important factor when making pragmatic decisions.
 
 By taking a pragmatic approach and concentrating on the actual problem at hand instead of blindly following slogans such as “at this
