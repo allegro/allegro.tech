@@ -9,8 +9,10 @@ tags: [data center, infrastructure]
 
 ##The idea
 
-Moving services and infrastructure which belongs to Grupa Allegro Sp. z o.o. (Allegro Group) from its main [Data Center](https://en.wikipedia.org/wiki/Data_center) (DC) was considered a huge endeavour fraught with high risk from the very start. This particular Data Center, known as DC2, was situated in Poznań, Poland. It was our first genuine Data Center and back in 2007, when we moved in there, it was the state—of—the—art DC in Poland. For a couple of years our infrastructure was growing along with the 
-company and the number of devices grew up to 2,000 filling 90 rack cabinets in 2014.
+Moving Allegro's services and infrastructure from its main [Data Center](https://en.wikipedia.org/wiki/Data_center) (DC) was considered a huge endeavour fraught with high risk from the very start. This particular Data Center, known as DC2, was situated in Poznań, Poland. It was our first genuine Data Center and back in 2007, when we moved in there, it was the state—of—the—art DC in Poland. For a couple of years our infrastructure was growing along with the 
+company and the number of devices grew up to 2,000 filling 90 rack cabinets in 2014. DC was used by Allegro core sites such as [allegro.pl](http://allegro.pl/), [aukro.ua](http://aukro.ua/) and [aukro.cz](http://aukro.cz/) as well as other Naspers owned Polish operations like: [payu.pl](http://www.payu.pl/), [olx.pl](http://olx.pl/), [ceneo.pl](http://www.ceneo.pl/), [otomoto.pl](http://otomoto.pl/), [otodom.pl](http://otodom.pl/).
+
+To make the story simpler, Allegro synonym is used to name them all.
 
 Since 2007, the market has changed. New Data Centers were built and their technical parameters along with [colocation](https://en.wikipedia.org/wiki/Colocation_centre) and power supply prices were much more attractive. In 2013, we started to search for new possibilities. First, we set up basic technical and business requirements for 
 the new DC. We analysed the Polish market and invited ten companies to participate in a tender process. Besides, we were negotiating with 
@@ -29,22 +31,22 @@ team of Infrastructure Department, which carried out a few migration processes b
 
 We started with reviewing lessons learned from previous infrastructure migrations to focus on the most important issues:
 
-* reaching all potential stakeholders at Allegro Group, present the scale of the project, confront their needs with ours and set up good 
+* reaching all potential stakeholders at Allegro, present the scale of the project, confront their needs with ours and set up good 
 communication
 * designing the core network and order necessary hardware as fast as possible
 * planning the migration with development teams to maintain the redundancy of all services at all stages of the process
 * ensuring that key cooperating companies will be available to support us (e.g. experienced contractors dealing with operational works in DC, 
 a transportation company, and a company accountable for [structured cabling](https://en.wikipedia.org/wiki/Structured_cabling)).
 
-Allegro Group companies operate about seventy five websites that are available in twenty countries. Hundreds of external and internal 
+Allegro companies operate about seventy five websites that are available in twenty countries. Hundreds of external and internal 
 services, micro services and tools fuel the company and we had to take all of them into account during the migration.
 
 The key issue was to establish a good communication plan to avoid any misunderstandings and prevent situations such as “DC5? Migration? Never 
-heard of it”. At first, information about our plans and suitable dates were communicated to all Allegro Group employees using various formal and 
+heard of it”. At first, information about our plans and suitable dates were communicated to all Allegro employees using various formal and 
 informal channels. We believe it is better to reach someone a few times than not to reach him or her at all. Then, representatives of 
 sixteen key infrastructure and development teams gathered on a daily basis to discuss the project progress. These representatives were 
 sharing information with their teams, while these teams were accountable for communication with their clients – let’s call them “Business 
-People”. Simultaneously, Marcin Mazurek (Infrastructure and IT Operations Director) and other members of Allegro Group management were merging this 
+People”. Simultaneously, Marcin Mazurek (Infrastructure and IT Operations Director) and other members of Allegro management were merging this 
 project with other business strategic projects.
 
 The diversity of types of servers, network and storage devices and complexity of applied solutions one could find in DC2 was 
@@ -58,7 +60,7 @@ although it was not the best time for shopping, as Christmas and Chinese New Yea
 
 Logistics was crucial and it had to be planned well. Despite dedicated hardware inventory systems, we made a double check and carried out 
 physical stocktaking. We wanted to confirm ownership of each device and find “unnecessary” devices to take them away from DC2 as soon as 
-possible. Eventually, we counted 2,042 devices.
+possible.
 
 ##Challenge no. 2
 
@@ -79,11 +81,11 @@ quick.
 
 ##The moment of truth
 
-On the night of April 20th, a dozen infrastructure engineers were herded in the Monitoring and Response room at Pixel (Allegro's headquarter office). They 
+On the night of April 20th, a dozen infrastructure engineers were herded in the Monitoring and Response Team room at Pixel (Allegro's headquarter office). They 
 seemed calm, but one could notice how focused they were. Three daredevils were in the DC waiting for this one command – “deactivate network 
 in DC2”. The command was given at 01:00 a.m. and it was executed immediately. Everyone was looking at screens for a couple of seconds in 
 absolute silence. And then someone asked “That’s it?”. Nothing failed. Months of preparations did not go down the drain. Owing to great 
-organization, knowledge and involvement of many people, we managed to disconnect DC2 from Allegro Group environment without any negative 
+organization, knowledge and involvement of many people, we managed to disconnect DC2 from Allegro environment without any negative 
 effect on services.
 
 It took us two more weeks to take unnecessary devices and racks away, remove structured cabling and do some clean-up. In the morning, on 
@@ -110,7 +112,7 @@ Migration fulfilled its goals:
 
 ##Agile Project Management
 
-We are agile at Allegro Group. There are a few dozen teams using SCRUM, Kanban, Lean and other agile approaches in their work. You can 
+We are agile at Allegro. There are a few dozen teams using SCRUM, Kanban, Lean and other agile approaches in their work. You can 
 almost see the ghost of agile floating the corridors :). The same applies to the Infrastructure Department. We adopted Agile Project 
 Management approach for this project. During the preparation stage, all important topics such as goals, benefits, budget, restrictions, 
 stakeholders, roadmap, risks and organization of work were discussed and agreed between Project Owner and Project Manager. These topics 
@@ -136,7 +138,7 @@ This is what agile means to us.
 
 ##Numbers
 
-* **Around 250** external and internal services of Allegro Group that were subject to migration 
+* **Around 250** external and internal services of Allegro that were subject to migration 
 
 * **Around 2000** devices in **90** rack cabinets taken away from DC2
 
@@ -148,14 +150,14 @@ This is what agile means to us.
  
 * **8** independent connections to internet providers in DC5
 
-* **Over 100** infrastructure engineers involved and a significant number of Allegro Group employees supporting services being in the 
+* **Over 100** infrastructure engineers involved and a significant number of Allegro employees supporting services being in the 
 area of their interest
 
 ##Achievements
 
 ###Services
 
-Migrating core Allegro Group sites such as [allegro.pl](http://allegro.pl/), [payu.pl](http://www.payu.pl/), [olx.pl](http://olx.pl/), [ceneo.pl](http://www.ceneo.pl/), [otomoto.pl](http://otomoto.pl/), [otodom.pl](http://otodom.pl/) without any impact on users.
+Migrating Allegro services without impact on users.
 
 ###Core network
 
