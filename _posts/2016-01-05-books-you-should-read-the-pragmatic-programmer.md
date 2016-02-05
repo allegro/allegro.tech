@@ -14,7 +14,7 @@ Andrew Hunt and David Thomas.
 
 _This book will help you become a better programmer_, claim the authors, and they are true to their word. What they wrote is not about any
 specific language or framework but rather about being a programmer in general. The few examples of actual code are in C++, but don’t be
-put off — they are simple and just illustrate the ideas described in text.
+put off even if you’re not familiar with this language — they are simple and just illustrate the ideas described in text.
 
 Most of the advice you find in the book is very common-sense and may even sound obvious to more experienced developers. However, I have
 interviewed dozens of people for software development jobs and it never ceases to surprise me how many of them, even those running for
