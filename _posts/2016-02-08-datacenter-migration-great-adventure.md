@@ -2,7 +2,7 @@
 layout: post
 title: The great adventure or migrating Allegro infrastructure to new Data Center - DC5
 author: krzysztof.cienkosz
-tags: [data center, infrastructure]
+tags: [data center, infrastructure, tech]
 ---
 
 Moving Allegro's services and infrastructure from its main [Data Center](https://en.wikipedia.org/wiki/Data_center) (DC) was considered
