@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The great adventure or migrating Allegro infrastructure to new Data Center - DC5
+title: The great adventure of migrating Allegro infrastructure to new Data Center - DC5
 author: krzysztof.cienkosz
 tags: [data center, infrastructure, tech]
 ---
