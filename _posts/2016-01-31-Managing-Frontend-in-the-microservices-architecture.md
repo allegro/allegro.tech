@@ -106,7 +106,7 @@ Our Varnish farm also defines and greatly improves our overall performance.
 Varnish servers are exposed to users and they caches all requests for static content.
 We often say that *we are hiding behind Varnish* to survive massive traffic from our users.
 
-Varnish really hit the bull's-eye.
+Varnish really hit the bull’s-eye.
 
 Below, we describe one page fragment, included in each page &mdash; the Header.
 
@@ -126,17 +126,20 @@ We encountered a lot of new problems.
 
 #### What has gone wrong?
 
-The approach seemed simple enough. But was also not easy to extend and to maintain.
+The approach seems simple to develop. But unfortunately, it’s hard to extend and maintain.
+Because every page fragment is a separate web application, it’s really hard to ensure
+consistent look and feel on the website level.
 
-Because every page can be a separate web application we cannot ensure that everybody uses our frontend services.
-Each component had it's own dependencies, sometimes duplicated or linked to other ones i.e. header & carousel
-- they both needed our company icon set - should header expose it to all other?
-What to do when a page does not have any header at all?
-Should carousel have any fallback for the assets? What about measuring?
-How to assure exact the same measuring solution?
+Each page fragment comes with its own set of frontend assets: CSS, JS scripts, fonts and images.
+At the page level, it often leads to duplications and version conflicts.
+Many page fragments depend implicitly on assets provided by Header fragment.
+
+But, what if we want to create a page without any header at all?
 What if footer is written in [AngularJS](https://angularjs.org) and showcases are [React](https://facebook.github.io/react/)
-compontents? Or even worse - how to handle two different version of [BackboneJS](http://backbonejs.org) within two services?
+compontents? Or even worse &mdash;
+how to handle two different version of [BackboneJS](http://backbonejs.org) within a single page?
 
+///...
 Testing one component was really easy, everybody had their own set of tests. Cross modules testing was a real problem.
 How to maintain relations between frontend parts? How to be sure that security within them is satisfying?
 
