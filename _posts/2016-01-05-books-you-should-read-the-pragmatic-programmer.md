@@ -38,7 +38,7 @@ create a bean or use some magic annotation. The result is that when something br
 inquisitive developer should always strive to understand how things work, even if it means leaving their comfort zone such as learning about
 low-level details of Spring when you just write typical CRUD applications most of the time.
 * __critical thinker__ — Think about the goal you want to achieve and use the right tool. Whether analyzing an algorithm, looking for a
-bug’s cause or tuning performance, treat your conclusions with skepticism in order to make sure the data really shows what you think it
+bug or tuning performance, treat your conclusions with skepticism in order to make sure the data really shows what you think it
 does. If your opinion on some issue differs from the rest of the team, discuss it and don’t just settle on “we’ve always done it
 this way”. This does not mean being stubborn just for the sake of it, of course, just making sure you really know why things
 are done the way they are.
@@ -64,11 +64,11 @@ One example of what being a pragmatic programmer means in practice came to me re
 As you may know, at Allegro we are very much into microservices and scalable architecture, which, among other things, means that we almost
 exclusively use [NoSQL databases](https://en.wikipedia.org/wiki/NoSQL) such as [Cassandra](http://cassandra.apache.org/) and
 [MongoDB](https://www.mongodb.org/). However, we had to perform some operations which could very easily be accomplished with transactions
-which are not readily available in most NoSQL solutions. After discussing this problem both within the team and with our architects, we
+which are not readily available in most NoSQL solutions. After discussing this problem, we
 were able to estimate that this particular application, which was a tool for use only within the company, would not need to
 store a lot of data or handle huge numbers of requests. Thus, scalability played much less role than in other systems we build and
 finally we settled on using [MySQL](https://www.mysql.com/), a relational database, which we would normally not even consider an option.
-This gave us easy access to transactions. An extra benefit was that MySQL is available inside our ecosystem as a service, so setting up a
+This gave us easy access to transactions. An extra benefit was that MySQL is maintained for our developers as a service, so setting up a
 new database is very simple and the DB is managed and backed up by a dedicated support team. If we had to set up and support the DB by
 ourselves, we might have made another choice — ease of maintenance is an important factor when making pragmatic decisions.
 
