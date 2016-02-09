@@ -191,3 +191,6 @@ complex environment so we decided to provide a new architecture and to “refres
 hypervisor and new architecture is based on simpler and easy to maintain hardware and software components.
 
 This is not the complete list, but we do not want to boast about everything ;)
+
+If you want to know more about our data centers, watch this video: https://youtu.be/OUFKBZFnjns
+
