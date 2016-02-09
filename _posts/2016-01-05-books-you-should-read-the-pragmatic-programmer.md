@@ -66,7 +66,7 @@ exclusively use [NoSQL databases](https://en.wikipedia.org/wiki/NoSQL) such as [
 [MongoDB](https://www.mongodb.org/). However, we had to perform some operations which could very easily be accomplished with transactions
 which are not readily available in most NoSQL solutions. After discussing this problem both within the team and with our architects, we
 were able to estimate that this particular application, which was a tool for use only within the company, would not need to
-store very much data or to handle huge numbers of requests. Thus, scalability played much less role than in other systems we build and
+store a lot of data or handle huge numbers of requests. Thus, scalability played much less role than in other systems we build and
 finally we settled on using [MySQL](https://www.mysql.com/), a relational database, which we would normally not even consider an option.
 This gave us easy access to transactions. An extra benefit was that MySQL is available inside our ecosystem as a service, so setting up a
 new database is very simple and the DB is managed and backed up by a dedicated support team. If we had to set up and support the DB by
