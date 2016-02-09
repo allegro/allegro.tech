@@ -68,7 +68,7 @@ possible.
 
 We have not mentioned it before, but this project was also a big endeavour for Talex, the DC5 owner. In 2014, the DC was still under
 construction. The new server room designed for 130 rack cabinets was supposed to be ready in early March 2015 and both sides monitored the
-progress of building and equipping the DC. There was no room for any mistake or delay. Talex did its work brilliantly and on May 2nd, the
+progress of building and equipping the DC. There was no room for any mistake or delay. Talex did its work brilliantly and on March 2nd, the
 core migration stage started.
 
 ##The peak
