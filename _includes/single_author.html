@@ -41,4 +41,20 @@ c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,
 </a>
 {% endif %}
 {{authorData.bio | markdownify}}
-{%if include.showLinkToPost %}<p class="buttons"><a href="/authors/{{authorKey}}" class="page-link">see posts by {{authorData.name}}</a></p>{% endif %}
+{%if include.showLinkToPost %}
+    {% assign author_post_count = 0 %}
+    {% for post in site.posts %}
+    {% if post.author contains authorKey %}
+    {% capture author_post_count %} {{ author_post_count | plus: 1 }} {% endcapture %}
+    {% endif %}
+    {% endfor %}
+
+   <p class="buttons"><a href="/authors/{{authorKey}}" class="page-link">
+       {% if author_post_count == ' 1 ' %}
+          see post by {{authorData.name}}
+       {% else %}
+          see {{author_post_count}} posts by {{authorData.name}}
+       {% endif %}
+       </a>
+   </p>
+{% endif %}

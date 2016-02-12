@@ -12,6 +12,7 @@ adam.dubiel:
     name: Adam Dubiel
     bio: Adam is the library guy, who loves designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. At Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier, the most significant one being [Hermes](http://hermes.allegro.tech/).
     twitter: dubieladam
+    github: adamdubiel
     title: Software Development Lead
 
 rafal.glowinski:
@@ -24,6 +25,9 @@ michal.kosmulski:
 
 bartosz.walacik:
     name: Bartosz Walacik
+    bio: Software engineer with 15+ years of professional experience. He focused on lightweight and modern technologies around JVM. At Allegro, he works as a development team leader. [JaVers](http://javers.org) project lead. Spock advocate. Editor in chief of [allegro.tech/blog](http://allegro.tech/).
+    twitter: bartoszwalacik
+    github: bartoszwalacik
     bio: A Software Craftsman with 15+ years of professional experience. He focused on lightweight and modern technologies around JVM. At Allegro, he works as a development team leader, delivering marketing intelligence solutions. [JaVers](http://javers.org) project lead. Spock advocate. Lately, editor in chief of [allegro.tech/blog](http://allegro.tech/blog).
     twitter: BartoszWalacik
 
@@ -275,3 +279,8 @@ pawel.wieladek:
     bio: ...
     twitter: pawelwieladek
     github: pawelwieladek
+
+krzysztof.cienkosz:
+    name: Krzysztof Cienkosz
+    bio: Project manager with an agile attitude that has been carrying out various IT projects in an international environment for over 8 years. Passionate about agile techniques and confronting plans versus reality. Enjoys challenges and meeting interesting people. Disapproves of unpunctuality. Father of two daughters and a soul windsurfer.
+
