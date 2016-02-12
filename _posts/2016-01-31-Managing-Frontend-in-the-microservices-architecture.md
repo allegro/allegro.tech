@@ -126,26 +126,21 @@ We encountered a lot of new problems.
 
 #### What has gone wrong?
 
-The approach seems simple to develop. But unfortunately, it’s hard to extend and maintain.
-Because every page fragment is a separate web application, it’s really hard to ensure
+Each page fragment comes with its own set of frontend assets: CSS, JS scripts, fonts and images.
+At the page level, it sometimes leads to duplications and version conflicts.
+Many page fragments depend implicitly on assets provided by the Header fragment.
+
+But what if we want to create a page without any Header at all?
+Or even worse &mdash;
+how to handle two different version of [React](https://facebook.github.io/react/) within a single page?
+
+Current approach based on Varnish server-side includes is
+flexible, scalable and easy to develop but unfortunately, it’s hard to maintain.
+
+Moreover, because every page fragment is a separate web application, it’s really hard to ensure
 consistent look and feel on the website level.
 
-Each page fragment comes with its own set of frontend assets: CSS, JS scripts, fonts and images.
-At the page level, it often leads to duplications and version conflicts.
-Many page fragments depend implicitly on assets provided by Header fragment.
-
-But, what if we want to create a page without any header at all?
-What if footer is written in [AngularJS](https://angularjs.org) and showcases are [React](https://facebook.github.io/react/)
-compontents? Or even worse &mdash;
-how to handle two different version of [BackboneJS](http://backbonejs.org) within a single page?
-
-///...
-Testing one component was really easy, everybody had their own set of tests. Cross modules testing was a real problem.
-How to maintain relations between frontend parts? How to be sure that security within them is satisfying?
-
-We've noticed very fast that this approach should be only temporary because we
-cannot provide enough consistency and
-flexibility. We just had to think a better way...
+We just had to think a better way...
 
 ## OpBox project &mdash; the new Frontend solution
 
