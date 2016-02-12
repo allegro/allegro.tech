@@ -17,17 +17,12 @@ google_plus_id: +AllegroTechBlog
 meetup_username: allegrotech
 slideshare_username: allegrotech
 
-# Build settings
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-
 kramdown:
     input: GFM
+    hard_wrap: false
     coderay_line_numbers: nil
 
 sass:
     sass_dir: css/partials
 
 permalink: /:year/:month/:title.html
-
