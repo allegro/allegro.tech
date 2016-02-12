@@ -119,11 +119,6 @@ One of them was AllegroHeader. But during our company expansion header stopped b
 It had grown it's own javascript behaviors, had to integrate search, manage Cart widget and be responsible for
 the navigation bar.
 
-How to provide assets consistency?
-What's gonna happen when an app depends
-on js library that was provided by header and will be deleted during next release?
-We encountered a lot of new problems.
-
 #### What has gone wrong?
 
 Each page fragment comes with its own set of frontend assets: CSS, JS scripts, fonts and images.
@@ -149,10 +144,11 @@ is *Opierdalacz Boxów*, unfortunately there is no good english translation for 
 Closest would be: *Box Manager*.
 
 So Box is the main concept in our solution. What is Box after all?
-Box is reusable, high-level fronted component, feedable from JSON data source.
-Box can have slots, in each slot, you can put more Boxes.
-Box can be rendered conditionally (for example, depending on A/B test variant).
-Page is assembled from Boxes.
+
+* Box is reusable, high-level fronted component, feedable from a JSON data source.
+* Box can have slots, in each slot, you can put more Boxes.
+* Box can be rendered conditionally (for example, depending on A/B test variant).
+* Page is assembled from Boxes.
 
 ### OpBox principles:
 -- obrazek
