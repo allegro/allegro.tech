@@ -39,11 +39,12 @@ body {
 /* banner */
 
 .banner {
-    background: #2f292b;
+    background-color:#248d87;
+    background-image: linear-gradient(#248d87, #297a8b);
     overflow: hidden;
 }
 
 .banner img {
     float: right;
-    max-width: 90%;
+    max-width: 100%;
 }
