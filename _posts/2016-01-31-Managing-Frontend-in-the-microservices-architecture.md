@@ -145,7 +145,8 @@ Closest would be: *Box Manager*.
 
 So Box is the main concept in our solution. What is Box after all?
 
-* Box is reusable, high-level fronted component, feedable from a JSON data source.
+* Box is reusable, high-level fronted component.
+* Box is feedable from a JSON data source.
 * Box can have slots, in each slot, you can put more Boxes.
 * Box can be rendered conditionally (for example, depending on A/B test variant).
 * Page is assembled from Boxes.
@@ -153,25 +154,41 @@ So Box is the main concept in our solution. What is Box after all?
 ### OpBox principles:
 -- obrazek
 
-#### dynamic page creation (CMS-like)
+#### Dynamic page creation (CMS-like)
+Pages are created and maintained
+by non-technical users in our Admin application.
 
-#### reusable frontend component
+#### Reusable components
+Each page is assembled from boxes like Header, ShowCase, OfferList, Tabs.
+Boxes are configured to show required content, typically provided via
+REST API by backend services.
 
-#### separating View from Data Sources
+#### Separating View from Data Sources
+Box is a high-level abstraction, it joins two things:
 
-#### conditional content (profiling)
+  * Frontend design (often referred as View).
+    Concrete View implementation is called Frontend Component.
+    For example, our ShowCase box has two Frontend implementations: Web and Mobile.
+  * Data Source (REST service) which feeds data for Frontend Components.
+    One Component can be feeded by any Data Source as soon as its API matches Box contract.
+    For example, Offer component knows how to present nice offer box
+    with offer title, price, image and so on.
+    Since Offer component is decoupled from Backends by Box contract abstraction,
+    it can show offers from many sources: Recommendations, Listing or Ads servicees.
 
-#### frontend dependencies management
+#### Conditional content
 
-#### consistent traffic analytics
+#### Frontend dependencies management
 
-#### omnichannel (many Renderers)
+#### Consistent traffic analytics
+
+#### Omnichannel (many Renderers)
 
 #### Page Definition separeted from Renderers
 
-#### future: Component Event Bus
+#### One place for integration all backend services through REST API
 
-#### one place for integration all backend services through REST API
+#### Future: Component Event Bus
 
 ### How we did it
 -- obrazek
