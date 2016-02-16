@@ -2,15 +2,16 @@
 layout: post
 title: Books you should read&#58; The Pragmatic Programmer
 author: michal.kosmulski
-tags: [books, pragmatic programmer, software craftsmanship]
+tags: [tech, books, pragmatic programmer, software craftsmanship]
 ---
-<img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/The_pragmatic_programmer.jpg/240px-The_pragmatic_programmer.jpg"
-alt="The Pragmatic Programmer by Andrew Hunt and David Thomas — book cover"
-style="float: right;"/>
 
 Some books on IT topics become outdated right after they are published while others stand the test of time.
 One of the latter is [The Pragmatic Programmer. From Journeyman to Master](https://pragprog.com/book/tpp/the-pragmatic-programmer) by
 Andrew Hunt and David Thomas.
+
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/The_pragmatic_programmer.jpg/240px-The_pragmatic_programmer.jpg"
+alt="The Pragmatic Programmer by Andrew Hunt and David Thomas — book cover"
+style="float: right;"/>
 
 _This book will help you become a better programmer_, claim the authors, and they are true to their word. What they wrote is not about any
 specific language or framework but rather about being a programmer in general. The few examples of actual code are in C++, but don’t be
