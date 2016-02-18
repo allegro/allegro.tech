@@ -111,13 +111,11 @@ Varnish really hit the bull’s-eye.
 Below, we describe one page fragment, included in each page &mdash; the Header.
 
 #### Header
-// TODO bez Long, long time ago
-// opiszmy po prostu jak teraz działa header
-
-Long, long time ago (MVC age), there was an master layout of the page - it included a lot of 'partials'.
-One of them was AllegroHeader. But during our company expansion header stopped being a simple html container.
-It had grown it's own javascript behaviors, had to integrate search, manage Cart widget and be responsible for
-the navigation bar.
+//TODO fixed ;)
+Allegro Header is a service that returns complete HTML/JS/CSS application - so it can be easily included
+as an varnish ESI tag at the beginning of any company webapge. Under the hood it collects data from few other services
+like category service or cart service. It integrates search box and is responsible for top level messages
+(cookies policy warning, under maintenance banner).
 
 #### What has gone wrong?
 
@@ -193,14 +191,24 @@ Box is a high-level abstraction, it joins two things:
 ### How we did it
 -- obrazek
 
-#### core BG
+#### core
+OpBox Core is responsible for three things - providing an API for pages management (creating, publishing),
+owns data-sources and boxes definition repositories and fetches necessary data for published pages.
+We put a lot of effort to make it well performing, fault-tolerant and asynchronous.
+Core simply gets requested data from available services (data-sources) and returns page definition
+containing all boxes and requested data to renderers. Core is the only gateway for renderers to our internal services.
+Such separation puts Core near the data away from the user view.
 
 #### web BW
 
 #### admin PW lub BW
 
-#### Mobile Adapter BG
-
+#### Mobile Adapter
+We wanted to treat all rendering channels equally so we're providing single api for retrieving pages data. Unfortunately
+mobile application developers need their API to be accessible from public web and in slightly different form.
+So we decided that we should cut out any irrelevant data - but instead of doing it in our core service,
+we've made a proxy (mobile adapter) which transforms Core page api to a mobile friendly version
+i.e. adding deep links or filtering not yet supported mobile features. We hope for another adapters in future (tv, smart-watches...)
 
 ## Future steps
 ...
