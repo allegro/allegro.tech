@@ -2,7 +2,7 @@
 layout: post
 title: Integrating Android project with Codecov
 author: artur.stepniewski
-tags: [android, code coverage, codecov, continuous integration]
+tags: [android, code coverage, codecov, continuous integration, tech]
 ---
 
 If you always search for ways to increase code quality and would like to encourage everyone in your
@@ -19,21 +19,21 @@ of a Continuous Integration process with [GitHub](https://github.com) as a repos
 
 ## Generating code coverage reports
 
-In order to get code coverage reports you have to gather test execution data first. Only then is it
-possible to generate coverage reports. This process may differ between a Java module, an Android
-library project or an actual Android application project. Following paragraphs describe the
-necessary configuration based on [Gradle](http://gradle.org) build system.
+In order to get code coverage reports you have to gather test execution data first. This process may
+differ between a Java module, an Android library project or an actual Android application project.
+Following paragraphs describe the necessary configuration based on [Gradle](http://gradle.org) build
+system.
 
 ### Unit tests
 
 To generate unit tests’ code coverage reports for an Android application or library
 project some additional work may be needed. Currently,
 [Android Plugin for Gradle](http://developer.android.com/tools/building/plugin-for-gradle.html)
-does not generate Gradle report tasks out of box. One solution is to configure them manually or to use
+does not generate Gradle report tasks out of the box. One solution is to configure them manually or to use
 [jacoco-android-gradle-plugin](http://github.com/arturdm/jacoco-android-gradle-plugin)
 that configures code coverage report tasks automatically:
 
-```gradle
+```groovy
 buildscript {
   dependencies {
     classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
@@ -70,7 +70,7 @@ Apart from testing on a local JVM, Android supports running tests on a real devi
 [Instrumentation](http://developer.android.com/tools/testing/testing_android.html#TestStructure).
 In case of instrumentation tests it is a little bit less hassle. You do not need to create code
 coverage report tasks manually. They are already created by the Android Gradle plugin. All you have
-to do is set `testCoverageEnabled` as `true` in your build type configuration, e.g.:
+to do is set `testCoverageEnabled` to `true` in your build type configuration, e.g.:
 
 ```gradle
 android {
@@ -86,7 +86,7 @@ Running UI tests and generating their code coverage reports can be done by runni
 Gradle task.
 
 There is just a slight problem if you want to gather code coverage execution data on a real device
-as there are some devices which do not allow that out of box. Still, if you are using an emulated
+as there are some devices which do not allow that out of the box. Still, if you are using an emulated
 environment it works rather well.
 
 ### Unit tests in pure Java project
@@ -157,7 +157,7 @@ the `codecov-io` bot leaves a comment on the pull request with the code coverage
 a link to the project page at Codecov for more details.
 
 Fortunately, Codecov supports uploading multiple report files without the hassle of merging them
-into one beforehand. If you have a multi module project or a multi variant Android project you do
+into one beforehand. If you have a multi-module project or a multi-variant Android project you do
 not have to take any additional steps here.
 
 ## Summary
@@ -172,7 +172,7 @@ to Coveralls.
 
 Probably, the most feature-rich solution is [SonarQube™](http://sonarqube.org) as it performs
 static code analysis alongside code coverage reports. It is also possible to feed it with integration
-tests results separately from unit test so it is easier to distinguish them in the end report.
+test results separately from unit test so it is easier to distinguish them in the end report.
 The only downside is that it requires self-hosting.
 
 In case of open source and cloud-hosted projects using Codecov may be the most elegant solution
