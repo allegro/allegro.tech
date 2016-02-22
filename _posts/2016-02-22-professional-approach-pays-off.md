@@ -1,8 +1,8 @@
-﻿---
+---
 layout: post
 title: Professional approach pays off
 author: rafal.bryk
-tags: [agile, proffesional, programmer, software craftsmanship]
+tags: [tech, proffesional, programmer, software craftsmanship, agile]
 ---
 
 _It is a story about carrying out an IT project by one of Allegro scrum teams and a fine example of a professional approach supported by 
@@ -23,7 +23,7 @@ e.g. “in January we will work on solution architecture and when it’s done, w
 pay off](http://allegro.tech). That is why, I’ll indicate what we paid attention to in order to keep any problems at bay. So, let’s analyze 
 what we did to make the work easier.
 
-### From idea to development
+## From idea to development
 
 The first steps involved all the usual things developers do like building the application and automatic testing. Repetitive actions 
 transforming the code into an application were arduous from the very start. As it was a Java project, we found a lot of ready-to-use tools 
@@ -42,7 +42,7 @@ software in a secure way.
 
 ![bamboo](/img/articles/2016-02-19-professional-approach-pays-off/from-idea-to-development.jpg "Bamboo")
 
-### Large scale A/B testing
+## Large scale A/B testing
 
 The project goal was to develop a new solution that would replace some features of the Allegro platform. Naturally, the new solution had 
 to be better thus being worth the company’s money and time. In this particular case by “better” we understood conclusions drawn after 
@@ -56,7 +56,7 @@ any technical debt arises. The first technical failure proved that the team’s 
 to the solution (in fact activating it for 0% users) the team had the time to analyze the application and release suitable fixes. At the 
 same time, nothing disturbed Allegro users. All of this could happen owing to professional and responsible approach of the team.
 
-### Technical reliability of a solution
+## Technical reliability of a solution
 
 Adjusting the number of recipients is not enough. If you want a product to be working, you need infrastructure that is adjusted to the 
 traffic expected. The first technical failures made us realize that the problem was serious. A manual mechanism for adjusting the amount 
@@ -72,7 +72,7 @@ examine the issue thoroughly, we carried out qualitative research using Usabilla
 we were able to determine what was important, what could be omitted and what was necessary. After all, we want our users to be happy and 
 for this reason we want our features to be smart, so we do not have to remove them from the high-quality code.
 
-### Outcome
+## Outcome
 
 As the product grew, the architecture was undergoing changes and new features were added. More users had the chance to use our product. 
 Every day we were getting wiser and richer. It was a time to enjoy the outcome of our earlier work and decisions. No one was wondering 
@@ -89,7 +89,7 @@ it was to act professionally. That is why we were so confident during the releas
 
 ![bistro](/img/articles/2016-02-19-professional-approach-pays-off/outcome.jpg "Release from bistro")
 
-### Lessons learned
+## Lessons learned
 
 Life is not always a bed of roses. When developing the product we often sought for support in functional / regression testing. 
 Unfortunately, the attempts of finding a working solution were hindered by external and environmental dependencies, remodeled architecture 
@@ -99,13 +99,13 @@ testing frameworks, methods of including them in development and ways of dealing
 working solution. As you can see, sometimes despite all the efforts, the outcome may not be that brilliant.
 
 Let’s sum up:
-* We knew the project scale so we used solutions adjusted to the problem – minor workarounds solved the problem only temporarily and 
+ - We knew the project scale so we used solutions adjusted to the problem – minor workarounds solved the problem only temporarily and 
 generated additional cost
-* Owing to complex programming knowledge we were able to polish every aspect of the code
-* To keep everything under control, we wanted to build the product piece by piece. To do so, we needed development and release process.
-* To make sure no code lines are wasted, we analyzed and measured users behavior to pick only the most promising features
-* To make sure the solution is reliable, we adjusted the infrastructure and monitoring to our product.
-* If you want to release anything while sitting in a bistro and be 100% confident, you have to take care of all the software development 
+ - Owing to complex programming knowledge we were able to polish every aspect of the code
+ - To keep everything under control, we wanted to build the product piece by piece. To do so, we needed development and release process.
+ - To make sure no code lines are wasted, we analyzed and measured users behavior to pick only the most promising features
+ - To make sure the solution is reliable, we adjusted the infrastructure and monitoring to our product.
+ - If you want to release anything while sitting in a bistro and be 100% confident, you have to take care of all the software development 
 aspects. 
 
 _Dear developer! You will face deadlines. You will seek for compromises. You will work under pressure. You will be tempted by exceptions. 
