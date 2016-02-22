@@ -19,21 +19,22 @@ Developers know there are myriads of things to take care of in software developm
 
 The approach adopted by the team required taking care of all the aspects of good software. It means being able to introduce changes to 
 each bit of the product as in the case of the Extreme Programming methodology. It means being unable to separate different project stages, 
-e.g. “in January we will work on solution architecture and when it’s done, we will move on to metrics in February”. Such [solutions merely 
-pay off](http://allegro.tech). That is why, I’ll indicate what we paid attention to in order to keep any problems at bay. So, let’s analyze 
+e.g. “in January we will work on solution architecture and when it’s done, we will move on to metrics in February”. Such solutions merely 
+pay off in such dynamic envioronment. That is why, I’ll indicate what we paid attention to in order to keep any problems at bay. So, let’s analyze 
 what we did to make the work easier.
 
 ## From idea to development
 
 The first steps involved all the usual things developers do like building the application and automatic testing. Repetitive actions 
 transforming the code into an application were arduous from the very start. As it was a Java project, we found a lot of ready-to-use tools 
-and solutions that we could try out. The team selected the following testing frameworks: [JUnit + JBehave](http://allegro.tech), with the 
-Gradle + Bamboo support as it allows you to automate all the manual work. As a result, you gain a lot almost effortlessly – you can check 
-whether the product’s code is accurate in almost no time. Mark my word – you do want to have your code clean and neat when you are about 
+and solutions that we could try out. The team selected the following testing frameworks: 
+[JUnit + JBehave](http://allegro.tech/2015/03/acceptance-testing-with-jbehave-and-gradle.html), with the Gradle + Bamboo support as it 
+allows you to automate all the manual work. As a result, you gain a lot almost effortlessly – you can check whether the product’s code 
+is accurate in almost no time. Mark my word – you do want to have your code clean and neat when you are about 
 to make some serious decisions about your product.
 
 Since the very beginning, the team adopted the Continuous Integration & Delivery approach renowned for its [agile software development 
-methods](http://allegro.tech). However, it turned out to be quite challenging – because how can you release and rollback changes on a live 
+methods](http://allegro.tech/agile). However, it turned out to be quite challenging – because how can you release and rollback changes on a live 
 environment without affecting users? It took a lot of work with setting, even more test releases and application of such technologies as 
 Bamboo, OpenStack and Varnish. Without delving into details, these tools helped us juggling stable machines and machines undergoing changes 
 such as product release. According to numerous research results, users don’t like too many changes in a product. And if the product is 
@@ -67,10 +68,11 @@ software, you can’t forget about hardware.
 Overwhelmed by technical issues, we couldn’t forget that the product was constantly running and 1% of users was in fact using it. But what 
 does using really mean in this particular context? How do users perceive the product? What do they click? How much time they need to 
 perform a certain action? It was time to carry out some quantitative product analyses to understand how users use our product. Eventually, 
-we managed to notice some significant things with the help of NewRelic, [Hadoop](http://allegro.tech), Kibana and some internal tools. To 
-examine the issue thoroughly, we carried out qualitative research using UsabillaLive to better understand the patterns we observed. Then 
-we were able to determine what was important, what could be omitted and what was necessary. After all, we want our users to be happy and 
-for this reason we want our features to be smart, so we do not have to remove them from the high-quality code.
+we managed to notice some significant things with the help of NewRelic, Hadoop, Kibana and some 
+[internal tools](http://allegro.tech/2015/09/scaling-graphite.html). To examine the issue thoroughly, we carried out qualitative research 
+using UsabillaLive to better understand the patterns we observed. Then we were able to determine what was important, what could be omitted 
+and what was necessary. After all, we want our users to be happy and for this reason we want our features to be smart, so we do not have 
+to remove them from the high-quality code.
 
 ## Outcome
 
@@ -99,14 +101,16 @@ testing frameworks, methods of including them in development and ways of dealing
 working solution. As you can see, sometimes despite all the efforts, the outcome may not be that brilliant.
 
 Let’s sum up:
- - We knew the project scale so we used solutions adjusted to the problem – minor workarounds solved the problem only temporarily and 
+
+ * We knew the project scale so we used solutions adjusted to the problem – minor workarounds solved the problem only temporarily and 
 generated additional cost
- - Owing to complex programming knowledge we were able to polish every aspect of the code
- - To keep everything under control, we wanted to build the product piece by piece. To do so, we needed development and release process.
- - To make sure no code lines are wasted, we analyzed and measured users behavior to pick only the most promising features
- - To make sure the solution is reliable, we adjusted the infrastructure and monitoring to our product.
- - If you want to release anything while sitting in a bistro and be 100% confident, you have to take care of all the software development 
+ * Owing to complex programming knowledge we were able to polish every aspect of the code
+ * To keep everything under control, we wanted to build the product piece by piece. To do so, we needed development and release process.
+ * To make sure no code lines are wasted, we analyzed and measured users behavior to pick only the most promising features
+ * To make sure the solution is reliable, we adjusted the infrastructure and monitoring to our product.
+ * If you want to release anything while sitting in a bistro and be 100% confident, you have to take care of all the software development 
 aspects. 
+
 
 _Dear developer! You will face deadlines. You will seek for compromises. You will work under pressure. You will be tempted by exceptions. 
 But the truth is that only you can guarantee that the product will work and be reliable. Any exception you accept is a serious threat. 
