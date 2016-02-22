@@ -177,9 +177,45 @@ Box is a high-level abstraction, it joins two things:
 
 #### Conditional content
 
+Boxes can be rendered conditionally, this is the way to content customization.
+Various types od conditions are implemented:
+
+* date from/to condition
+* A/B test condition
+* condition based on user profile
+
+For example, page administrator can prepare two versions of given box,
+one for male users and another for female users.
+In runtime, when page is rendered, users gender is identified
+an one of these two boxed is pruned from boxes tree.
+
 #### Frontend dependencies management
 
+Page is assembled from frontend components developed by different
+teams.
+Since we don’t force frontend developers to use any particular technology.
+each component requires its own dependency set of various kind:
+CSS, JS libraries, fonts and so on.
+
+Reconciliation of those all dependency sets is kind of advanced topic,
+to be honest, we don’t have well-thought-out plan for this yet.
+
 #### Consistent traffic analytics
+
+Basic traffic analytics is easy to achieve. It’s enough to include a tracking script in
+the page footer. When a page is opened by a user, the script reports Page View event.
+
+What we need is more fine-grained data:
+
+* Box View event &mdash; when box is shown in a browser viewport.
+* Box Click event &mdash; when users clicked on a link which navigates him from one box to another
+  (for example Recommendation Box can emmit Box Click event when users clicks
+  on of the recommended products)
+
+Once we have these data, we can calculate click-through rate ([CTR](https://en.wikipedia.org/wiki/Click-through_rate)).
+for each box.
+CTR is valuable information for page administrators, it helps them to decide
+which boxes should promoted and which should be removed from a page.
 
 #### Omnichannel (many Renderers)
 
