@@ -176,7 +176,28 @@ Box is a high-level abstraction, it joins two things:
 
 #### Conditional content
 
+Boxes can be rendered conditionally, this is the way to content customization.
+Various types od conditions are implemented:
+
+* date from/to condition
+* A/B test condition
+* condition based on user profile
+
+For example, page administrator can prepare two versions of given box,
+one for male users and another for female users.
+In runtime, when page is rendered, users gender is identified
+an one of these two boxed is pruned from boxes tree.
+
 #### Frontend dependencies management
+
+Page is assembled from frontend components developed by different
+teams.
+Since we don’t force frontend developers to use any particular technology.
+each component requires its own dependency set of various kind:
+CSS, JS libraries, fonts and so on.
+
+Reconciliation of those all sets is kind of advanced topic,
+to be honest, we don’t have well-thought-out plan for this yet.
 
 #### Consistent traffic analytics
 
