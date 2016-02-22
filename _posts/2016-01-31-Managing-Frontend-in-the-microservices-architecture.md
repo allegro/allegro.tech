@@ -102,6 +102,8 @@ allows us to merge a lot of different parts of our platform into one website.
 Therefore any page (or page fragment) at Allegro
 can be a separate application/service.
 
+[rendered showcase box](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/showcase_box.png "rendered showcase box")
+
 Our Varnish farm also defines and greatly improves our overall performance.
 Varnish servers are exposed to users and they caches all requests for static content.
 We often say that *we are hiding behind Varnish* to survive massive traffic from our users.
@@ -111,7 +113,6 @@ Varnish really hit the bull’s-eye.
 Below, we describe one page fragment, included in each page &mdash; the Header.
 
 #### Header
-//TODO fixed ;)
 Allegro Header is a service that returns complete HTML/JS/CSS application - so it can be easily included
 as an varnish ESI tag at the beginning of any company webapge. Under the hood it collects data from few other services
 like category service or cart service. It integrates search box and is responsible for top level messages
@@ -194,12 +195,97 @@ Box is a high-level abstraction, it joins two things:
 #### core
 OpBox Core is responsible for three things - providing an API for pages management (creating, publishing),
 owns data-sources and boxes definition repositories and fetches necessary data for published pages.
+Here is an example of showcase box - along with it prototype and datatype that it uses.
+
+##### showcase box prototype
+
+```json
+{
+  "slots": [],
+  "parameters": [
+    {
+      "name": "allegro.box.showcase",
+      "type": {
+        "name": "CUSTOM",
+        "typeName" : "allegro.type.showcasesList"
+      },
+      "description": "Showcase box",
+      "required": false
+    }
+  ],
+  "nameRequired" : true
+}
+```
+
+##### showcase data type prototype
+
+```json
+{
+    "title": "allegro.type.showcasesList",
+    "description": "showcases list",
+    "type": "array",
+    "items": {
+        "description": "list of showcases",
+        "type": "object",
+        "properties": {
+            "imageUrl": {
+                "type": "string"
+            },
+            "trackingPixel": {
+                "type": "string"
+            },
+            "imageAlt": {
+                "type": "string"
+            },
+            "linkUrl": {
+                "type": "string"
+            },
+            "mapAreas": {
+                "type": "array",
+                "items": {
+                    "description": "map",
+                    "type": "object",
+                    "properties": {
+                        "shape": {
+                            "type": "string"
+                        },
+                        "coords": {
+                            "type": "string"
+                        },
+                        "link": {
+                            "type": "string"
+                        },
+                        "alt": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "required": [
+            "imageUrl",
+            "trackingPixel",
+            "imageAlt"
+        ]
+    }
+}
+```
+
+##### rendered showcase box with it's data
+![rendered showcase box](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/showcase_box.png "rendered showcase box")
+
 We put a lot of effort to make it well performing, fault-tolerant and asynchronous.
+
 Core simply gets requested data from available services (data-sources) and returns page definition
 containing all boxes and requested data to renderers. Core is the only gateway for renderers to our internal services.
 Such separation puts Core near the data away from the user view.
 
-#### web BW
+#### web renderer
+When all necessary data from services is finally fetched and everything is ready to be drawn for the end-user there's a place for
+our web renderer. Every box prototype has to be implemented and added to our web-components repository [artifactory](https://www.jfrog.com/artifactory/).
+After all the work your content should be rendered as HTML representation - optimized for your browser.
+
+#### mobile renderer library
 
 #### admin PW lub BW
 
@@ -209,6 +295,9 @@ mobile application developers need their API to be accessible from public web an
 So we decided that we should cut out any irrelevant data - but instead of doing it in our core service,
 we've made a proxy (mobile adapter) which transforms Core page api to a mobile friendly version
 i.e. adding deep links or filtering not yet supported mobile features. We hope for another adapters in future (tv, smart-watches...)
+
+### Ecosystem is growing ###
+Component generator, opbox-web preview, admin and core local development
 
 ## Future steps
 ...
