@@ -102,7 +102,7 @@ allows us to merge a lot of different parts of our platform into one website.
 Therefore any page (or page fragment) at Allegro
 can be a separate application/service.
 
-[rendered showcase box](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/showcase_box.png "rendered showcase box")
+![ESI Page Example](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/allegro_esi_homepage.png "esi page example")
 
 Our Varnish farm also defines and greatly improves our overall performance.
 Varnish servers are exposed to users and they caches all requests for static content.
