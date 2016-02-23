@@ -188,17 +188,6 @@ one for male users and another for female users.
 In runtime, when page is rendered, users gender is identified
 an one of these two boxed is pruned from boxes tree.
 
-#### Frontend dependencies management
-
-Page is assembled from frontend components developed by different
-teams.
-Since we don’t force frontend developers to use any particular technology.
-each component requires its own dependency set of various kind:
-CSS, JS libraries, fonts and so on.
-
-Reconciliation of those all dependency sets is kind of advanced topic,
-to be honest, we don’t have well-thought-out plan for this yet.
-
 #### Consistent traffic analytics
 
 Basic traffic analytics is easy to achieve. It’s enough to include a tracking script in
@@ -216,13 +205,37 @@ for each box.
 CTR is valuable information for page administrators, it helps them to decide
 which boxes should promoted and which should be removed from a page.
 
-#### Omnichannel (many Renderers)
+#### Multi-frontend
 
-#### Page Definition separeted from Renderers
+One of the OpBox key features is separation page definitions
+from frontend renderers.
+Page definition is a JSON document with page structure and page data (content).
+It’s up to the renderer how the page is presented to frontend users.
 
-#### One place for integration all backend services through REST API
+For now, we have two renderers: Web, implemented as NodeJS service,
+responsible for serving HTML and Mobile, implemented as Android library,
+responsible for presenting the same content in Android app.
 
-#### Future: Component Event Bus
+#### One place for integrating backend services through REST API
+
+OpBox Core does the whole data integration job
+and sends complete page definition to frontend renderers.
+
+It’s a great advantage for frontend developers.
+They can treat OpBox Core as the single point of contact and facade to various backend services.
+
+#### Future: component Event Bus
+
+#### Future: dependencies management
+
+Page is assembled from frontend components developed by different
+teams.
+Since we don’t force frontend developers to use any particular technology.
+each component requires its own dependency set of various kind:
+CSS, JS libraries, fonts and so on.
+
+Reconciliation of those all dependency sets is kind of advanced topic,
+to be honest, we don’t have well-thought-out plan for this yet.
 
 ### How we did it
 -- obrazek
