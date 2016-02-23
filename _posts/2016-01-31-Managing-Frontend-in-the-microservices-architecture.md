@@ -138,6 +138,7 @@ We just had to think a better way...
 
 ## OpBox project &mdash; the new Frontend solution
 
+//TODO: chyba nie na serio?:)
 Unofficial polish name of the OpBox project
 is *Opierdalacz Boxów*, unfortunately there is no good english translation for this name.
 Closest would be: *Box Manager*.
@@ -231,6 +232,11 @@ which boxes should promoted and which should be removed from a page.
 #### core
 OpBox Core is responsible for three things - providing an API for pages management (creating, publishing),
 owns data-sources and boxes definition repositories and fetches necessary data for published pages.
+We put a lot of effort to make it well performing, fault-tolerant and asynchronous.
+It requests data from available services (data-sources) and returns page definition
+containing all boxes and requested data to renderers. Core is the only gateway for renderers to our internal services.
+Such separation puts Core near the data away from the user view.
+
 Here is an example of showcase box - along with it prototype and datatype that it uses.
 
 ##### showcase box prototype
@@ -310,12 +316,6 @@ Here is an example of showcase box - along with it prototype and datatype that i
 ##### rendered showcase box with it's data
 ![rendered showcase box](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/showcase_box.png "rendered showcase box")
 
-We put a lot of effort to make it well performing, fault-tolerant and asynchronous.
-
-Core simply gets requested data from available services (data-sources) and returns page definition
-containing all boxes and requested data to renderers. Core is the only gateway for renderers to our internal services.
-Such separation puts Core near the data away from the user view.
-
 #### web renderer
 When all necessary data from services is finally fetched and everything is ready to be drawn for the end-user there's a place for
 our web renderer. Every box prototype has to be implemented and added to our web-components repository [artifactory](https://www.jfrog.com/artifactory/).
@@ -323,7 +323,9 @@ After all the work your content should be rendered as HTML representation - opti
 
 #### mobile renderer library
 
-#### admin PW lub BW
+#### admin
+Simultaneously we had to develop some kind of management app to easily create new pages and enable our users to publish new routes when needed.
+So we've made an administrative panel and gave it to our colleagues
 
 #### Mobile Adapter
 We wanted to treat all rendering channels equally so we're providing single api for retrieving pages data. Unfortunately
