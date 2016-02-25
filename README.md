@@ -151,7 +151,7 @@ Most **frequently you will use the closing single quote** (’) for words like: 
         <td>—</td>
         <td>em dash</td>
         <td>alt 0151</td>
-        <td>option + shift + hyphen</td>
+        <td>Alt + Shift + hyphen</td>
         <td>Compose, -, -, -</td>
         <td>&amp;mdash;<br/></td>
     </tr>
@@ -159,7 +159,7 @@ Most **frequently you will use the closing single quote** (’) for words like: 
         <td>‘</td>
         <td>opening single quote</td>
         <td>alt 0145</td>
-        <td>option + ]</td>
+        <td>Alt + ]</td>
         <td>Compose, ', &lt;</td>
         <td>&amp;lsquo;</td>
     </tr>
@@ -167,7 +167,7 @@ Most **frequently you will use the closing single quote** (’) for words like: 
         <td>’</td>
         <td>closing single quote</td>
         <td>alt 0146</td>
-        <td>option + shift + ]</td>
+        <td>Alt + Shift + ]</td>
         <td>Compose, ', &gt;</td>
         <td>&amp;rsquo;</td>
     </tr>
@@ -175,7 +175,7 @@ Most **frequently you will use the closing single quote** (’) for words like: 
         <td>“</td>
         <td>opening double quote</td>
         <td>alt 0147</td>
-        <td>option + [</td>
+        <td>Alt + [</td>
         <td>RightAlt + v</td>
         <td>&amp;ldquo;</td>
     </tr>
@@ -183,7 +183,7 @@ Most **frequently you will use the closing single quote** (’) for words like: 
         <td>”</td>
         <td>closing double quote</td>
         <td>alt 0148</td>
-        <td>option + shift + [</td>
+        <td>Alt + Shift + [</td>
         <td>RightAlt + b</td>
         <td>&amp;rdquo;</td>
     </tr>

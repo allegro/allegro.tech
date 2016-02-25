@@ -40,8 +40,7 @@ Developing modern Frontend isn’t easy, following aspects are involved:
 
 * Classical SOA-style data integration, often done by dedicated service, called Backend for Frontends or Edge Service.
 * Managing frontend dependencies (JS, CSS scripts) required by various HTML fragments.
-* Allowing interactions between HTML fragments served by different services
-  (example use cases: remove an offer from Recommendations box when it happens to be shown already by Listing box).
+* Allowing interactions between HTML fragments served by different services.
 * Consistent way of measuring users activities (traffic analytics).
 * Content customization.
 * Providing tools for A/B testing.
@@ -227,6 +226,22 @@ It’s a great advantage for frontend developers.
 They can treat OpBox Core as the single point of contact and facade to various backend services.
 
 #### Future: component Event Bus
+There are many use cases when we want boxes to interact with each other.
+For example, our Search page lets user to search through offers available on Allegro.
+Search results are shown by the Listing box.
+Below we have Recommendations box which shows some offers, possibly related with the search query.
+
+What if we would like to remove an offer from Recommendations box when it
+happens to be shown already by Listing box?
+We think that the best place to implement such logic is Frontend.
+
+Desired solution would let rendered boxes to talk with each other via a
+publish-subscribe message bus, e.g.:
+
+“Hi, I’m Listing box, I’ve just arrived to a client's browser to show offers A, C and X.”
+“Hi, I’m Recommendations box,
+ I’m here for a while, and I’m showing offers D, E and X. Ouch! Looks like I’m supposed
+ to replace X with something more decent.”
 
 #### Future: dependencies management
 
