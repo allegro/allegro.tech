@@ -151,7 +151,7 @@ So Box is the main concept in our solution. What is Box after all?
 * Page is assembled from Boxes.
 
 ### OpBox principles:
--- obrazek
+![opbox principles](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-infografika.webp "opbox principles")
 
 #### Dynamic page creation (CMS-like)
 Pages are created and maintained
@@ -258,9 +258,9 @@ to be honest, we don’t have well-thought-out plan for this yet.
 -- obrazek
 
 #### core
-OpBox Core is responsible for three things - providing an API for pages management (creating, publishing),
-owns data-sources and boxes definition repositories and fetches necessary data for published pages.
-We put a lot of effort to make it well performing, fault-tolerant and asynchronous.
+OpBox Core is responsible for few things - providing an API for pages management (creating, publishing),
+owns data-sources and boxes definition repositories and fetches necessary data for published pages. It also handles
+routing management. We've put a lot of effort to make it well performing, fault-tolerant and asynchronous.
 It requests data from available services (data-sources) and returns page definition
 containing all boxes and requested data to renderers. Core is the only gateway for renderers to our internal services.
 Such separation puts Core near the data away from the user view.
@@ -350,10 +350,16 @@ our web renderer. Every box prototype has to be implemented and added to our web
 After all the work your content should be rendered as HTML representation - optimized for your browser.
 
 #### mobile renderer library
+One of our requirements was to support mobile platforms, so we have created android library for rendering pages
+the same way as web renderer does but using native mobile code. Now when you create a page you don't have to care about it's mobile version.
+This way android developers can implement better user experience using the same components definitions.
+By the way - now we can update our pages in your phone instantly ;) (without deploying new version)
 
 #### admin
-Simultaneously we had to develop some kind of management app to easily create new pages and enable our users to publish new routes when needed.
-So we've made an administrative panel and gave it to our colleagues
+Simultaneously we had to develop some kind of management application (on top of [React](https://facebook.github.io/react/))
+to easily create new pages and enable our users to publish new routes when needed.
+So we've made an administrative panel and gave it to our colleagues at content department.
+Now we're getting features requests from them and we respond with updates in our project - so the project keeps on growing.
 
 #### Mobile Adapter
 We wanted to treat all rendering channels equally so we're providing single api for retrieving pages data. Unfortunately
@@ -363,7 +369,12 @@ we've made a proxy (mobile adapter) which transforms Core page api to a mobile f
 i.e. adding deep links or filtering not yet supported mobile features. We hope for another adapters in future (tv, smart-watches...)
 
 ### Ecosystem is growing ###
-Component generator, opbox-web preview, admin and core local development
+To be agile we needed some tooling around our project - so we've made:
+
+* **component generator** (upon [YEOMAN](http://yeoman.io))
+* **opbox-web preview** (for local development)
+
+Many more to come - to simplify developing process.
 
 ## Future steps
 ...
