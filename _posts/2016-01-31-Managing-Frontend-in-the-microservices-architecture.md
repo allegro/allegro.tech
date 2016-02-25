@@ -138,11 +138,6 @@ We just had to think a better way...
 
 ## OpBox project &mdash; the new Frontend solution
 
-//TODO: chyba nie na serio?:)
-Unofficial polish name of the OpBox project
-is *Opierdalacz Boxów*, unfortunately there is no good english translation for this name.
-Closest would be: *Box Manager*.
-
 So Box is the main concept in our solution. What is Box after all?
 
 * Box is reusable, high-level fronted component.
@@ -151,7 +146,9 @@ So Box is the main concept in our solution. What is Box after all?
 * Box can be rendered conditionally (for example, depending on A/B test variant).
 * Page is assembled from Boxes.
 
-![opbox principles](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-infografika.webp "opbox principles")
+<p style="text-align: center; background-color:#E3E3E3">
+    <img alt="OpBox goals" style="width:75%; padding-top:10px;" src="/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-goals.png" />
+</p>
 
 ### OpBox principles
 
@@ -256,7 +253,9 @@ Reconciliation of those all dependency sets is kind of advanced topic,
 to be honest, we don’t have well-thought-out plan for this yet.
 
 ### How we did it
--- obrazek
+<p style="text-align: center; background-color:#E3E3E3">
+    <img alt="OpBox architecture" style="width:75%; padding-top:10px;" src="/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-architecture.gif" />
+</p>
 
 #### Core
 OpBox Core primary responsibility is serving page definitions for Frontend renderers.
