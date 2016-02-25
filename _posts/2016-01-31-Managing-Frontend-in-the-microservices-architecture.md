@@ -61,8 +61,10 @@ by clicking on your laptop? It just works, that’s really impressive.
 
 There are two opposite approaches to modern Frontend architecture.
 
-a. Monolith approach,
-b. Frankenstein approach
+<ol type="a">
+  <li>Monolith approach</li>
+  <li>Frankenstein approach</li>
+</ol>
 
 **Monolith approach** is dead simple: one Frontend team creates and maintains one Frontend application,
 which gathers data from backend services using REST API. This approach have one huge advantage, if done right,
