@@ -114,7 +114,7 @@ Varnish really hit the bull’s-eye.
 Below, we describe one page fragment, included in each page &mdash; the Header.
 
 #### Header
-Allegro Header is a service that returns complete HTML/JS/CSS application - so it can be easily included
+Allegro Header is a service that returns complete HTML/JS/CSS application — so it can be easily included
 as an varnish ESI tag at the beginning of any company webapge. Under the hood it collects data from few other services
 like category service or cart service. It integrates search box and is responsible for top level messages
 (cookies policy warning, under maintenance banner).
@@ -240,9 +240,9 @@ We think that the best place to implement such logic is Frontend.
 Desired solution would let rendered boxes to talk with each other via a
 publish-subscribe message bus, e.g.:
 
-“Hi, I’m Listing box, I’ve just arrived to a client's browser to show offers A, C and X.”
+“Hi, I’m Listing box, I’ve just arrived to a client’s browser to show offers A, C and X.”<br/>
 “Hi, I’m Recommendations box,
- I’m here for a while, and I’m showing offers D, E and X. Ouch! Looks like I’m supposed
+ I’m here for a while and I’m showing offers D, E and X. Ouch! Looks like I’m supposed
  to replace X with something more decent.”
 
 #### Future: dependencies management
@@ -259,17 +259,17 @@ to be honest, we don’t have well-thought-out plan for this yet.
 ### How we did it
 -- obrazek
 
-#### core
-OpBox Core is responsible for few things - providing an API for pages management (creating, publishing),
+#### Core
+OpBox Core is responsible for few things — providing an API for pages management (creating, publishing),
 owns data-sources and boxes definition repositories and fetches necessary data for published pages. It also handles
-routing management. We've put a lot of effort to make it well performing, fault-tolerant and asynchronous.
+routing management. We’ve put a lot of effort to make it well performing, fault-tolerant and asynchronous.
 It requests data from available services (data-sources) and returns page definition
 containing all boxes and requested data to renderers. Core is the only gateway for renderers to our internal services.
 Such separation puts Core near the data away from the user view.
 
-Here is an example of showcase box - along with it prototype and datatype that it uses.
+Here is an example of showcase box — along with it prototype and datatype that it uses.
 
-##### showcase box prototype
+**showcase box prototype**
 
 ```json
 {
@@ -289,7 +289,7 @@ Here is an example of showcase box - along with it prototype and datatype that i
 }
 ```
 
-##### showcase data type prototype
+**showcase data type prototype**
 
 ```json
 {
@@ -303,81 +303,49 @@ Here is an example of showcase box - along with it prototype and datatype that i
             "imageUrl": {
                 "type": "string"
             },
-            "trackingPixel": {
-                "type": "string"
-            },
             "imageAlt": {
                 "type": "string"
             },
             "linkUrl": {
                 "type": "string"
-            },
-            "mapAreas": {
-                "type": "array",
-                "items": {
-                    "description": "map",
-                    "type": "object",
-                    "properties": {
-                        "shape": {
-                            "type": "string"
-                        },
-                        "coords": {
-                            "type": "string"
-                        },
-                        "link": {
-                            "type": "string"
-                        },
-                        "alt": {
-                            "type": "string"
-                        }
-                    }
-                }
             }
-        },
-        "required": [
-            "imageUrl",
-            "trackingPixel",
-            "imageAlt"
-        ]
+        }
     }
 }
 ```
 
-##### rendered showcase box with it's data
+**rendered showcase box with it’s data**
 ![rendered showcase box](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/showcase_box.png "rendered showcase box")
 
-#### web renderer
-When all necessary data from services is finally fetched and everything is ready to be drawn for the end-user there's a place for
-our web renderer. Every box prototype has to be implemented and added to our web-components repository [artifactory](https://www.jfrog.com/artifactory/).
-After all the work your content should be rendered as HTML representation - optimized for your browser.
+#### Web renderer
+When all necessary data from services is finally fetched and everything is ready to be drawn for the end-user there’s a place for
+our web renderer. Every box prototype has to be implemented and added to our web-components
+repository ([Artifactory](https://www.jfrog.com/artifactory/)).
+After all the work your content should be rendered as HTML representation — optimized for your browser.
 
-#### mobile renderer library
+#### Mobile renderer library
 One of our requirements was to support mobile platforms, so we have created android library for rendering pages
-the same way as web renderer does but using native mobile code. Now when you create a page you don't have to care about it's mobile version.
+the same way as web renderer does but using native mobile code. Now when you create a page you don’t have to care about it’s mobile version.
 This way android developers can implement better user experience using the same components definitions.
-By the way - now we can update our pages in your phone instantly ;) (without deploying new version)
+By the way — now we can update our pages in your phone instantly ;) (without deploying new version)
 
-#### admin
+#### Admin
 Simultaneously we had to develop some kind of management application (on top of [React](https://facebook.github.io/react/))
 to easily create new pages and enable our users to publish new routes when needed.
-So we've made an administrative panel and gave it to our colleagues at content department.
-Now we're getting features requests from them and we respond with updates in our project - so the project keeps on growing.
+So we’ve made an administrative panel and gave it to our colleagues at content department.
+Now we’re getting features requests from them and we respond with updates in our project — so the project keeps on growing.
 
 #### Mobile Adapter
-We wanted to treat all rendering channels equally so we're providing single api for retrieving pages data. Unfortunately
+We wanted to treat all rendering channels equally so we’re providing single api for retrieving pages data. Unfortunately
 mobile application developers need their API to be accessible from public web and in slightly different form.
-So we decided that we should cut out any irrelevant data - but instead of doing it in our core service,
-we've made a proxy (mobile adapter) which transforms Core page api to a mobile friendly version
+So we decided that we should cut out any irrelevant data — but instead of doing it in our core service,
+we’ve made a proxy (mobile adapter) which transforms Core page api to a mobile friendly version
 i.e. adding deep links or filtering not yet supported mobile features. We hope for another adapters in future (tv, smart-watches...)
 
-### Ecosystem is growing ###
-To be agile we needed some tooling around our project - so we've made:
+#### Ecosystem is growing
+To be agile we needed some tooling around our project — so we’ve made:
 
 * **component generator** (upon [YEOMAN](http://yeoman.io))
 * **opbox-web preview** (for local development)
 
-Many more to come - to simplify developing process.
-
-## Future steps
-...
-
+Many more to come to simplify developing process.
