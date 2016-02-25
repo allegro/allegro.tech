@@ -113,13 +113,12 @@ Varnish really hit the bull’s-eye.
 
 Below, we describe one page fragment, included in each page &mdash; the Header.
 
-#### Header
-Allegro Header is a service that returns complete HTML/JS/CSS application — so it can be easily included
-as an varnish ESI tag at the beginning of any company webapge. Under the hood it collects data from few other services
-like category service or cart service. It integrates search box and is responsible for top level messages
+**Allegro Header** is a service that returns complete HTML/JS/CSS application — so it can be easily included
+as the varnish ESI tag at the beginning of any webpage. Under the hood it collects data from few other services
+like category service or cart service. It integrates search box and it’s responsible for top level messages
 (cookies policy warning, under maintenance banner).
 
-#### What has gone wrong?
+### What has gone wrong?
 
 Each page fragment comes with its own set of frontend assets: CSS, JS scripts, fonts and images.
 At the page level, it sometimes leads to duplications and version conflicts.
@@ -152,19 +151,24 @@ So Box is the main concept in our solution. What is Box after all?
 * Box can be rendered conditionally (for example, depending on A/B test variant).
 * Page is assembled from Boxes.
 
-### OpBox principles:
 ![opbox principles](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-infografika.webp "opbox principles")
 
-#### Dynamic page creation (CMS-like)
+### OpBox principles
+
+Below, we describe principles of OpBox architecture and functionality.
+Most of them are already implemented and battle-tested. Last two are
+in the design phase.
+
+**Dynamic page creation (CMS-like)**<br/>
 Pages are created and maintained
 by non-technical users in our Admin application.
 
-#### Reusable components
+**Reusable components**<br/>
 Each page is assembled from boxes like Header, ShowCase, OfferList, Tabs.
 Boxes are configured to show required content, typically provided via
 REST API by backend services.
 
-#### Separating View from Data Sources
+**Separating View from Data Sources**<br/>
 Box is a high-level abstraction, it joins two things:
 
   * Frontend design (often referred as View).
@@ -177,8 +181,7 @@ Box is a high-level abstraction, it joins two things:
     Since Offer component is decoupled from Backends by Box contract abstraction,
     it can show offers from many sources: Recommendations, Listing or Ads servicees.
 
-#### Conditional content
-
+**Conditional content**<br/>
 Boxes can be rendered conditionally, this is the way to content customization.
 Various types od conditions are implemented:
 
@@ -191,8 +194,7 @@ one for male users and another for female users.
 In runtime, when page is rendered, users gender is identified
 an one of these two boxed is pruned from boxes tree.
 
-#### Consistent traffic analytics
-
+**Consistent traffic analytics**<br/>
 Basic traffic analytics is easy to achieve. It’s enough to include a tracking script in
 the page footer. When a page is opened by a user, the script reports Page View event.
 
@@ -208,8 +210,7 @@ for each box.
 CTR is valuable information for page administrators, it helps them to decide
 which boxes should promoted and which should be removed from a page.
 
-#### Multi-frontend
-
+**Multi-frontend**<br/>
 One of the OpBox key features is separation page definitions
 from frontend renderers.
 Page definition is a JSON document with page structure and page data (content).
@@ -219,15 +220,14 @@ For now, we have two renderers: Web, implemented as NodeJS service,
 responsible for serving HTML and Mobile, implemented as Android library,
 responsible for presenting the same content in Android app.
 
-#### One place for integrating backend services through REST API
-
+**One place for integrating backend services through REST API**<br/>
 OpBox Core does the whole data integration job
 and sends complete page definition to frontend renderers.
 
 It’s a great advantage for frontend developers.
 They can treat OpBox Core as the single point of contact and facade to various backend services.
 
-#### Future: component Event Bus
+**Future: component Event Bus**<br/>
 There are many use cases when we want boxes to interact with each other.
 For example, our Search page lets user to search through offers available on Allegro.
 Search results are shown by the Listing box.
@@ -245,8 +245,7 @@ publish-subscribe message bus, e.g.:
  I’m here for a while and I’m showing offers D, E and X. Ouch! Looks like I’m supposed
  to replace X with something more decent.”
 
-#### Future: dependencies management
-
+**Future: dependencies management**<br/>
 Page is assembled from frontend components developed by different
 teams.
 Since we don’t force frontend developers to use any particular technology.
@@ -260,12 +259,22 @@ to be honest, we don’t have well-thought-out plan for this yet.
 -- obrazek
 
 #### Core
-OpBox Core is responsible for few things — providing an API for pages management (creating, publishing),
-owns data-sources and boxes definition repositories and fetches necessary data for published pages. It also handles
-routing management. We’ve put a lot of effort to make it well performing, fault-tolerant and asynchronous.
-It requests data from available services (data-sources) and returns page definition
-containing all boxes and requested data to renderers. Core is the only gateway for renderers to our internal services.
-Such separation puts Core near the data away from the user view.
+OpBox Core primary responsibility is serving page definitions for Frontend renderers.
+Moreover, Core providing an API to Admin app for pages management (creating, editing, publishing).
+
+Core is the only stateful service in OpBox family.
+It stores pages definitions in MongoDB and box prototypes in Git (prototypes are explained below).
+
+Since Core is responsible for serving page definitions it’s also manages page routing
+and the most though work — fetching data from backend services. That’s the content to be injected into
+page boxes.
+
+We’ve put a lot of effort to make it well performing, fault-tolerant and asynchronous.
+Core is the only gateway for renderers to our internal services.
+
+//TODO Such separation puts Core near the data away from the user view.
+
+//TODO what's prototype
 
 Here is an example of showcase box — along with it prototype and datatype that it uses.
 
