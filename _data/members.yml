@@ -290,6 +290,16 @@ artur.stepniewski:
 
 rafal.bryk:
     name: Rafał Bryk
-    bio: Agile Coach with technological background. Passionate about creating good software in a proper way. Rafał works with people from Polish e-commerce and facilitates the process of making optimal decisions. Fan of modern technology, board games and cycling. 
+    bio: Agile Coach with technological background. Passionate about creating good software in a proper way. Rafał works with people from Polish e-commerce and facilitates the process of making optimal decisions. Fan of modern technology, board games and cycling.
     twitter: RafalBryk
     title: Agile Coach
+
+lukasz.druminski:
+    name: Łukasz Drumiński
+    bio: Luke is a developer who likes to understand how things works in depth when comes to solving technical problems. His experience can be measured by number of known tools, technologies, languages, written code lines, deploys on production, performance improvements, fixed bugs, leaks. He is Hermes core developer where low response times and high throughput meet requirements.
+    twitter: lukaszDruminski
+    github: druminski
+
+tomasz.janiszewski:
+    name: Tomasz Janiszewski
+    bio: TODO
