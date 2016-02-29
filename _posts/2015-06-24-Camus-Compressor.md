@@ -16,7 +16,7 @@ that merges files created by [Camus](https://github.com/linkedin/camus)
 on [HDFS](http://en.wikipedia.org/wiki/Apache_Hadoop#HDFS) and saves
 them in a compressed format.
 
-###Background and motivation
+### Background and motivation
 
 Camus is massively used at Allegro for dumping more than 200 Kafka
 topics onto HDFS. The tool runs every 15 minutes and creates one
@@ -59,7 +59,7 @@ repartition data to sets of files with size about `2 * [HDFS bock size]`
 and compress every set into one `.snappy` file. According to out measurements
 output files in most cases do not exceed block size.
 
-###Usage
+### Usage
 
 Camus Compressor is written in Spark (requires version 1.2.0 or newer).
 We provide a script that automates parameter passing to `spark-submit`
@@ -92,7 +92,7 @@ and partition them daily you can:
 
         compressor.sh -m all -p /data/camus -c lzo
 
-###Current status, plans and source code
+### Current status, plans and source code
 
 In the future, we plan to add support for creating Hive partitions
 for tables that provide access to compressed data. The source code is available
