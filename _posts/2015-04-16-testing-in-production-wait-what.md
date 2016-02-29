@@ -21,7 +21,7 @@ TDD and BDD methodologies which are rather standard nowadays. Nevertheless, all 
 limitations – they check your test environment only. Let me show you how one of [Allegro](http://allegro.pl) teams responsible for the
 [Offer Listing](http://allegro.pl/dodatki-do-plyt-cd-dvd-etui-albumy-4735) tests the production environment.
 
-###Does it work?
+### Does it work?
 We use Listing (based on microservices) to present a list of offers available on Allegro. As you know, microservices
 have their pros and cons. One of the most obvious disadvantages is decentralized data storage – keeping the same data
 across all services although it is constantly updated by various sources is not that easy. Our Listing retrieves data
@@ -36,7 +36,7 @@ know, you can use Allegro on your smartphone and tablet, so we have to check if 
 However, when after a short Listing failure our Product Owner asked if the application was working properly, we could
 not answer the question.
 
-###Difficult answer
+### Difficult answer
 Monitoring allows us to answer any question about current memory or CPU usage. [Graphite](https://github.com/graphite-project/graphite-web) metrics give us insight on how
 many events we receive from other services, whereas [NewRelic](http://newrelic.com/) collects essentials and the most important data in one
 place. [PagerDuty](http://www.pagerduty.com/) notifies us when our service is unavailable or about any unexpected behaviour of the application. But
@@ -45,7 +45,7 @@ correct data? If I type allegro.pl into the browser's address bar and visit the 
 service is working? Is that sufficient? Our metrics, monitoring and other tools we use tell us everything about
 the performance, but how can we be sure about the data the service displays?
 
-###Assurance
+### Assurance
 We have experienced a failure of our data storage. We have received incorrect events from the event bus. We have
 processed them in the not exactly proper way too. We have even found a bug on the production environment once. Ok, we
 have found it twice, but it is never something a developer can be proud of. I hope you have never experienced anything
@@ -54,7 +54,7 @@ write new tests to make sure it will not occur again. But can we protect our app
 a change in an external service the Listing depends on? In most cases, we can detect such risk owing to well-written
 integration tests, but there is always something we may not notice.
 
-###Production bugs
+### Production bugs
 Our service is tested a few million times per day by users who search, sort and filter offers. And they find bugs.
 Sometimes they inform us about some malfunctions, but these reports are often incomplete. We rarely know what browser
 they used or what exactly they did to find the bug. Reproducing an error is pretty hard and sometimes even impossible
@@ -62,7 +62,7 @@ due to lack of information. That is why we decided to test the production enviro
 with that kind of tests we cannot be completely sure that the environment is free of bugs. Nevertheless, we perceive
 this testing as another step on the way to providing as perfect data as we can. But how do we do that?
 
-###Red cucumber
+### Red cucumber
 So, here we have the production environment where we cannot mock anything. Besides, we are not 100% sure what we should
 find on next Listing pages. What can we use? We have already conducted behaviour testing based on jBehave and Selenium
 on our test environment. We could try the same tools but how about using something more exotic? [Ruby](https://www.ruby-lang.org/en/) and Cucumber sound
@@ -72,18 +72,18 @@ platforms. We wanted something that does not require hours of configuration desp
 seems to fit. On the other hand, we have got everything we need to test Listings available on the production
 environment. Selenium satisfies our needs so we decided to stick to it.
 
-###Testing
+### Testing
 Dealing with production tests is not that hard. The amount of code we wrote to cover several test cases is pretty low.
 The whole project consists of a step definition file, one yaml file that contains xpath descriptions and a few
 `.feature` files with scenarios. We run Cucumber features from CI environment on a regular basis.
 
-###Set up
+### Set up
 Ok, so what do we need? First of all, we have to download and install Ruby. We recommend current stable version,
 i.e. 2.2.1 but the previous ones should work just fine. Next, install two gems: [selenium-webdriver](https://rubygems.org/gems/selenium-webdriver) and [cucumber](https://rubygems.org/gems/cucumber).
 The last element is a browser and it does not matter if you use [Firefox](https://www.mozilla.org/en-US/firefox/new/) or any of the headless ones such as [PhantomJS](http://phantomjs.org/)
 or [HtmlUnit](http://htmlunit.sourceforge.net/). And that is all. Just enter simple `cucumber` command to run your tests.
 
-###Examples
+### Examples
 Alright, let's take a look at an exemplary Listing test conducted on a production environment.
 
 ```groovy
@@ -154,7 +154,7 @@ dozen or so. Another example? Let's take a look at a test validating if the sort
 
 According to the step definition, we simply iterate through all offers and compare offer prices.
 
-###Tests result
+### Tests result
 But what if one of the tests fails? The CI build creates a log that includes a detailed failure description and a
 screenshot of the entire page which we can use to investigate the cause. We just have to enter the given URL and compare
 the result with the saved screenshot. Take a look at the failed scenario:
@@ -172,7 +172,7 @@ other service. Note the last line of the example presented above. Is that messag
 caused by the Listing failure? Or maybe it was one of the linked services that failed? We can examine it later. The most
 important is that we know there is a problem.
 
-###So guys, does it work?
+### So guys, does it work?
 The last thing we want to implement is running all test scenarios even hundred times per single build. And run builds
 all the time, not only after deployment. Verification of a huge number of pages, including filters, search phrases and
 every sort option should give us some dose of certainty. After the test we want to know the scale of a potential

@@ -13,7 +13,7 @@ Besides, cookies fail to identify a user who uses several different web browsers
 Hence the idea of a _browser fingerprint_ &mdash; a unique user identifier
 which does not change between successive sessions and which does not depend on selected web browser.
 
-##Identification of persons
+## Identification of persons
 What do you need to identify a person? The answer is not that easy. A single piece of data such as gender,
 date of birth or ZIP code will not help you identify anybody, unless you know all the other details.
 
@@ -29,17 +29,17 @@ and _Pr (X = x)_ is the probability of a given fact.
 For example, date of birth: _&Delta;S = - log<sub>2</sub> Pr (DOB = 01.11 ) = -log<sub>2</sub> (1/365) ≈ 8.51_ bits of information.
 (See [Panopticlick](https://panopticlick.eff.org))
 
-##Techniques of fingerprinting
+## Techniques of fingerprinting
 How does the calculation from previous paragraph apply to web browsers? You can identify them not only by their IP address or cookies, but also by other features.
 The technique I would like to present is called browser or machine fingerprinting.
 
 What features can you use to identify browsers?
 
-###Use of popular plugins
+### Use of popular plugins
 Adobe Flash is very convenient for the identification of web surfers because it is adopted by many users.
 Moreover, the plugin version is an excellent identifying feature.
 
-###Detecting fonts
+### Detecting fonts
 The [list of system fonts](http://www.darkwavetech.com/fingerprint/fingerprint_fonts.html) can serve as a part of the user’s unique fingerprint.
 You can collect it thanks to plugin-base detection.
 ActionScript (Flash's scripting language) provides APIs for retrieving a list of fonts installed on a system.
@@ -48,14 +48,14 @@ If the Flash plugin is unavailable, you can use Javascript to check whether a sp
 Simply browse through the list of fonts and compare,
 if height and width of a fixed string provided in a certain font are different than the height and width of the same string provided in a standard font.
 
-###Detecting IP address
+### Detecting IP address
 Users can set their browsers to send all requests through a proxy in order to hide their IP address.
 With a Flash application you can bypass HTTP Proxy and contact your backend directly to receive the IP address.
 
-###Special fingerprint plugin
+### Special fingerprint plugin
 Such a plugin can read a lot of information about a user's system, but you need user consent for installing your plugin.
 
-###Detecting browser and OS version
+### Detecting browser and OS version
 You cannot rely on `navigator.userAgent` or `User-Agent` HTTP header, because users can easily modify them.
 Therefore, you have to focus on special, browser-populated JavaScript objects - `navigator` and `screen`.
 You can identify a browser owing to:
@@ -70,7 +70,7 @@ replace one property with another, or delete the whole object,
 
 (See [True browser javascript](http://www.darkwavetech.com/fingerprint/fingerprint_truebrowser.html))
 
-###Checking if particular plugins are present
+### Checking if particular plugins are present
 A very interesting example are user-agent spoofing extensions.
 Although user-agent spoofing is used by some users to avoid browser fingerprinting,
 you can find out what extension is used and employ it as a part of browser identification.
@@ -80,7 +80,7 @@ You can identify each user-agent spoofing extension by a specific feature:
 2. no support for screen object alteration, so browsers report invalid screen resolutions in case of mobile devices,
 3. modification of HTTP header only, instead of complete `navigator` object.
 
-###[HTML5 canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) fingerprinting
+### [HTML5 canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) fingerprinting
 
 > The same HTML5 Canvas elements return unique pixels depending on a web browser and an operating system.
 > Web browsers use different image processing engines, export options or compression level,
@@ -90,18 +90,18 @@ whereas operating systems use different algorithms and settings for anti-aliasin
 
 (See [How does canvas fingerprinting work](https://www.browserleaks.com/canvas#how-does-it-work))
 
-###[WebGL](https://www.khronos.org/webgl) support.
+### [WebGL](https://www.khronos.org/webgl) support.
 You can simply check the level of browser’s WebGL support, and retrieve some parameters related to the web browser’s identity.
 
 (See [How to identify WebGL](https://www.browserleaks.com/webgl#howto-webgl-ident) )
 
-###TCP SYN packet signature
+### TCP SYN packet signature
 A SYN packet is the first packet sent by a client when negotiating a connection via TCP protocol.
 Usually, the packet signature, in particular in case of TCP Options, varies from one operating system to another,
 even between versions of the same operating system.
 This method is used by [Nmap](http://nmap.org/book/osdetect-methods.html) for OS fingerprinting.
 
-###Latency Fingerprint
+### Latency Fingerprint
 Check the latency between the server and the client.
 The latency timing can be affected by many factors and particular user timing can vary over a range of latency numbers,
 so you should take only standard deviation into account.
@@ -112,7 +112,7 @@ so you should take only standard deviation into account.
   networkLatency = perfData.responseEnd - perfData.fetchStart;
 ```
 
-##Good fingerprint
+## Good fingerprint
 After collecting data described above, it is possible to calculate a fingerprint,
 which :
 
@@ -127,7 +127,7 @@ as there is almost no correlation between them in case of popular OSes.
 If one value changes, while the other three remain unchanged, it usually means that a user switched browsers or installed new fonts.
 Nevertheless, it is still the same user.
 
-##More info
+## More info
 * [Darkwave Technologies] (http://www.darkwavetech.com/device_fingerprint.html)
 * [W3Org] (http://www.w3.org/wiki/images/7/7d/Is_preventing_browser_fingerprinting_a_lost_cause.pdf)
 * [Panopticlick] (https://panopticlick.eff.org)
@@ -135,5 +135,5 @@ Nevertheless, it is still the same user.
 * [Privacy Enhancing Technologies] (http://pet-portal.eu/blog/tag_search/?tag=fingerprint)
 * [Browserspy.dk] (http://browserspy.dk)
 
-###Final notice
+### Final notice
 I would like to remind that browser fingerprinting should be performed only in compliance with both ethical and legal requirements.

@@ -11,7 +11,7 @@ At Allegro we use many open-source tools that support our work. Sometimes we are
 to [share with the community](/open-source). We are proud to announce an initial release of [Tradukisto](https://github.com/allegro/tradukisto) — a small Java library created to
 convert numbers to their word representations.
 
-###Background and motivation
+### Background and motivation
 
 I work as a software developer in a team which delivers solutions for the financial department. Currently we are
 [extracting the invoicing system](/working-with-legacy-architecture.html) from PHP monolith platform to the architecture of Java
@@ -31,7 +31,7 @@ We coudn’t find any tool that met all these requirements, so we decided to cre
 The origin of the name is [quite straightforward](https://translate.google.com/#eo/en/tradukisto).
 Esperanto was the first language we found in which a word “translator” sounds just right :).
 
-###Code samples
+### Code samples
 
 We’ve designed API of Tradukisto to be as simple as possible.
 
@@ -49,7 +49,7 @@ String moneyAsWords = converter.asWords(new BigDecimal("1234.56"));
 assertEquals("jeden tysiąc dwieście trzydzieści cztery PLN 56/100", moneyAsWords);
 ```
 
-###Current status, plans and source code
+### Current status, plans and source code
 
 The only language currently supported is Polish. We are planning to add support for Czech, Ukrainian and Russian in the near future. Code is available
 via [GitHub repository](https://github.com/allegro/tradukisto). We have attached code samples and an installation instruction as well.

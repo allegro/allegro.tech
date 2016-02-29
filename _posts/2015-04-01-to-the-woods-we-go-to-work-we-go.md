@@ -4,7 +4,7 @@ redirect_from:
 layout: post
 title: To the woods we go! To work we go!
 author: [piotr.ciemielewski, maciej.adamczak, marcin.borkowski]
-tags: [tech, offsite, team building, team performance, scrum]
+tags: [agile, offsite, team building, team performance, scrum]
 ---
 
 Several month ago, we thought about taking part in an interesting experiment. We decided to grab all the equipment we
@@ -23,7 +23,7 @@ Although we know each other well enough to foresee the experiment results, we ma
 thoughts. Would you like to know what we did in the [Białowieża Forest](http://en.wikipedia.org/wiki/Bia%C5%82owie%C5%BCa_Forest)
 and what are the results? Read this brief coverage presenting three different points on view.
 
-##Team Leader’s story
+## Team Leader’s story
 
 I think that our Białowieża Forest experiment was very successful. Despite the atmosphere of ubiquitous coolness
 and all the positive vibrations, I did notice serious involvement in the project. Fresh air and serenity of that
@@ -43,7 +43,7 @@ range of everyday issues (meetings, [backlog refinement](http://en.wikipedia.org
 cooperation with other teams, other tasks) are indispensable in our work. However, it is worth organising them
 in a comfortable way to increase the work efficiency.
 
-##Product Owner’s story
+## Product Owner’s story
 
 Although the invitation for an off-site took me aback, I agreed. I was curious of working outside the office walls.
 
@@ -72,7 +72,7 @@ element of our work routine. As a result, the profit of environment change would
 I am ready to take part in the next iteration; perhaps this time with a bigger group, with a bigger plan and in
 some even more remote place? As a Product Owner I find the task “Off-site” done. :)
 
-##Scrum Master’s story
+## Scrum Master’s story
 
 How to make eight guys feel the “team spirit” and make sure they will work hard somewhere in the Białowieża Forest?
 Will the Scum Master be the one to wake everyone up and remind over and over again about the daily schedule? Well,

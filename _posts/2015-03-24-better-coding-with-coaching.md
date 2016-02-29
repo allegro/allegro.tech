@@ -13,7 +13,7 @@ increase their agility, etc. We do not limit ourselves to only following the
 [Scrum Guide](http://scrumguides.org) as this 16-pager is only a
 framework — the possibilities of acting as a change agent, facilitator and servant leader seem to be endless.
 
-###What is coaching?
+### What is coaching?
 
 One of our initiatives is Team Members Coaching. Perhaps, not all of you are familiar with the idea of coaching,
 so let me briefly explain. Coaching combines the best bits of what psychology has to offer and some new tools and
@@ -25,7 +25,7 @@ one session, but most of the time, it is the work in between or after the sessio
 — according to coaching rules, it is you who knows best how to tackle a problem or achieve a goal. The answer is in
 you and the coach is your assistant who helps you find it. And you know what? It really works.
 
-###New software
+### New software
 
 In our daily lives, we find ourselves in different emotional states, trying to get things going, but the results may
 be far from what we have imagined. Let it be personal life or business — it all ends up with how vividly we see the
@@ -39,7 +39,7 @@ a coach, it is like you are upgrading software to make better use of the “guts
 be more efficient, your mind free of unnecessary worries, problems and with a clear vision of where you want to go.
 You are better focused on your work or in your personal life, better motivated and you know what is best for you.
 
-###What is the catch?
+### What is the catch?
 
 Having painted such a perfect picture, you are probably thinking about the small print part. Perhaps we should all
 have a session or two and live a perfect life, huh? Let me explain.
@@ -51,7 +51,7 @@ work for you. Another thing is that the market is not regulated and you may enco
 proficiency in their craft. You may not be able to tell the difference based just on the price. Check where they have
 gained their knowledge and look for their materials (essays, videos, interviews etc.) online. Do a background check.
 
-###The first step
+### The first step
 
 To recap, everything depends on you and your determination. In Western cultures coaching is nothing unusual.
 It is certainly not psychotherapy, but provides you with measurable results much faster. Nevertheless, in some
