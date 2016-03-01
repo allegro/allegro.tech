@@ -2,17 +2,18 @@
 redirect_from:
    - /writing-fast-cache-service-in-go-lang.html
 layout: post
-title: Writing very fast cache service with millions of entries in Go lang
+title: Writing very fast cache service with millions of entries in Go
 author: [lukasz.druminski,tomasz.janiszewski]
 tags: [tech, cache, service, golang, go, bigcache]
 excerpt: Recently our team obtained a task to write a very fast cache service. The task is pretty clear but it can be solved
-         in many ways and in many programming languages. Ultimately we have decided to implement the service in Go lang.
+         in many ways and in many programming languages. Ultimately we have decided to implement the service in Go.
          Check out how we did it and what values come from that.
 ---
 
 ## Table of contents:
 1. [Introduction](#introduction)
 2. [Requirements](#requirements)
+4. [Why Go](#why-go-lang)
 3. [The Cache](#the-cache)
     1. [Concurrency](#concurrency)
     2. [Eviction](#eviction)
@@ -24,9 +25,9 @@ excerpt: Recently our team obtained a task to write a very fast cache service. T
 7. [Summary](#summary)
 
 ## Introduction
-Recently our team obtained a task to write a very fast cache service. The task is pretty clear but it can be solved
-in many ways and in many programming languages. Ultimately we have decided to implement the service in Go lang.
-Further part of this article describes how we did it and what values come from that.
+Recently our team has been tasked to write a very fast cache service. The task was pretty clear but it can be solved
+in many ways and in many programming languages. Finally we have decided to implement the service in [Go](https://golang.org/).
+We described how we did it and what values come from that.
 
 ## Requirements
 Write a cache service which:
@@ -38,13 +39,31 @@ Write a cache service which:
     * 5ms -  mean
     * 10ms for 99.9th percentile
     * 400ms for 99.999th percentile
-* serves cached entries instantly after POST requests
+* entries are instantly cached after POST requests (on single node, no replication)
+* requests are in JSON format, each message contains:
+    * entry id
+    * JSON object
+* size of the message is up to 500 bytes
 
-Requests are in json format, each message contains entry id and entry to cache which means that some
-json (de)serialization will be needed. Size of the message is up to 500 bytes.
+## Why Go
+
+In simple words we are creating dictionary with
+rest interface. It could be done in any language. Most of services in our company
+are written in Java or other JVM based language, some in Python and
+core of our service is in PHP. We knew that technologies and wanted to test
+something new.
+
+Go is the thing. It's been around for a while, backed by [a big company](https://www.google.pl/) and growing
+community of users. It's advertised as a compiled, concurrent, imperative, structured
+programming language. It also has managed memory, so looks safer and easier to use
+than C/C++. We have quite good experience with tools written in Go and decided to
+use it here. We have one [open source project in Go](https://github.com/allegro/marathon-consul/#marathon-consul-)
+but we wanted to know how it handle big traffic.
+We believed whole project would take less than 100 SLOC and be fast
+enough to meet our requirements just because of Go.
 
 ## The Cache
-To meet requirements of our cache service, the cache in itself need to:
+To meet the requirements, the cache in itself need to:
 
 * be very fast even with millions of entries
 * provide concurrent access
@@ -81,7 +100,7 @@ Eviction is done with writes to cache since lock is already acquired.
 In Go when a map with millions of objects is created then GC during mark and scan phase will touch all those objects.
 It can cause a huge impact on responsiveness of application itself. We run few tests on our service
 in which we fed the cache with millions of entries and after that we started to send requests on rest endpoint
-which was doing only some static json serialization (it didn’t touch the cache).
+which was doing only some static JSON serialization (it didn’t touch the cache).
 Before the fed this endpoint responsiveness was max 10ms for 10k rps. After the fed it was ***more than a second*** for 99 percentile.
 Metrics indicated that there were over 40 mlns objects in the heap as well as GC mark and scan phase took over four seconds.
 The test showed us that we need to omit GC for cache entries if we want to meet our requirements related with response times.
@@ -137,20 +156,20 @@ we would stick to default HTTP for normal (non hyper performance) projects.
 
 ![fasthttp vs nethttp](/img/articles/2016-02-26-fast-cache-service-in-go-lang/fasthttp-vs-nethttp.png "fasthttp vs nethttp")
 
-## Json deserialization
+## JSON deserialization
 
-During profiling our application we found that program spends huge amount of time on json deserialisation.
+During profiling our application we found that program spends huge amount of time on JSON deserialisation.
 Also memory profiler reports that huge amount of data is processed by `json.Marshal`. It wasn’t surprise for us.
 With 10k rps, 350 bytes per request could be significant payload for any application. Nevertheless our goal was speed,
 so we investigated it.
 
-We heard that Go json serializer isn’t as fast as in other languages. Most benchmarks were done in 2013 so before 1.3 version.
+We heard that Go JSON serializer isn’t as fast as in other languages. Most benchmarks were done in 2013 so before 1.3 version.
 When we saw [issue-5683](https://github.com/golang/go/issues/5683) claiming Go is 3 times slower than Python and
 [mailing list]( https://groups.google.com/forum/#!topic/golang-nuts/zCBUEB_MfVs) that it’s 5. We start searching for better solution.
 
-Definitely json over http is not the best choice if you need speed. Unfortunately all our services talk with each other in json,
+Definitely JSON over http is not the best choice if you need speed. Unfortunately all our services talk with each other in JSON,
 so incorporating new protocol will be out of scope for this task (but we are considering using [avro](https://avro.apache.org/),
-as we did for [Kafka]( http://allegro.tech/2015/08/spark-kafka-integration.html). We decided to stick with json.
+as we did for [Kafka]( http://allegro.tech/2015/08/spark-kafka-integration.html). We decided to stick with JSON.
 Quick search provide us solution [ffjson](https://github.com/pquerna/ffjson).
 
 ffjson documentation claims it’s 2-3 times faster than standard `json.Unmarshal`, and also uses less memory to do it.
@@ -162,7 +181,7 @@ BenchmarkFastJsonUnmarshal-4 | 2000000 | 8417 ns/op  | 1555 B/op | 31 allocs/op 
 Our tests confirmed ffjson is nearly 2 times faster and does less allocation than built in unmarshal. How was it possible to achieve this?
 
 Firstly to use full features of ffjson we need to generate unmarshaller for our struct. Generated code is in fact parser that scan bytes,
-and fill objects with data. If you take a look at [json grammar](http://www.json.org/) you will discover it’s really simple.
+and fill objects with data. If you take a look at [JSON grammar](http://www.json.org/) you will discover it’s really simple.
 ffjson take advantage of knowing exactly what struct looks like, and pares only fields specified in struct and fail fast whenever error occurs.
 Standard marshaler uses expensive reflection calls to obtain struct definition at runtime.
 Another optimisation is reduction of unnecessary error checks. `json.Unmarshal` will fail faster performing less allocs, but still it’s slower:
