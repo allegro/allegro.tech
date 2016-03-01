@@ -13,7 +13,7 @@ excerpt: Recently our team obtained a task to write a very fast cache service. T
 ## Table of contents:
 1. [Introduction](#introduction)
 2. [Requirements](#requirements)
-4. [Why Go](#why-go-lang)
+4. [Why Go](#why-go)
 3. [The Cache](#the-cache)
     1. [Concurrency](#concurrency)
     2. [Eviction](#eviction)
@@ -45,7 +45,7 @@ Write a cache service which:
     * JSON object
 * size of the message is up to 500 bytes
 
-## Why Go
+## Why Go?
 
 In simple words we are creating dictionary with
 rest interface. It could be done in any language. Most of services in our company
