@@ -10,7 +10,7 @@ tags: [tech,swift, runtime, vtable, virtual, method, table, dispatching]
 Two weeks ago, I attended [Swift Warsaw](http://swiftwarsaw.com/) as a speaker, holding a presentation on "Swift Runtime
 — Swift Method Dispatching". I promised to summarise the talk in an article, so hereby I keep my promise.
 
-##Swift Method Dispatching
+## Swift Method Dispatching
 
 When announcing [Swift](https://developer.apple.com/swift/), Apple described it as being much faster than Objective-C.
 On the web, there is a number of [comparsions](http://www.jessesquires.com/apples-to-apples-part-two/) juxtaposing speed

@@ -23,7 +23,7 @@ And this is it. Not much visible for users but there are huge challenges hidden 
 
 In this article we hid a mistake, for those who find it we have a surprise — details at the end.
 
-##Ghost in the machine
+## Ghost in the machine
 
 In the past we have been focused on stability and response time metrics related to our infrastructure. This was the
 right approach and the fundamental starting point. There is no point in measuring [Net Promoter Score](http://en.wikipedia.org/wiki/Net_Promoter)
@@ -42,7 +42,7 @@ transactions (a constant A/B test with 4 treatment groups and 1 control group), 
 measurements with URLs and cookies, and finally created a dedicated dashboard in Business Intelligence solution.
 But in time, these metrics proved to be insufficient.
 
-##Reaching beyond RPS
+## Reaching beyond RPS
 
 We have concluded that our current set of metrics shows us only a part of the picture but not the whole one. The number
 of transactions and turnover are too general and too chaotic over time to reflect users’ satisfaction. They do not
@@ -51,7 +51,7 @@ reactions. We also could not see how many users received no search results at al
 We had to think of a new approach and instead of monitoring Solr and our single search field, we decided to spy on real
 humans.
 
-##Start, fail and proceed
+## Start, fail and proceed
 
 The first attempt to implement user-oriented metrics took a lot of time and ended in a failure as we had insufficient
 know-how to do this with only developers and a product owner. We drew conclusions and asked for help in our UX Division.
@@ -59,7 +59,7 @@ Fortunately they also felt that search is an unjustly UX-neglected area and were
 of dedicated usability and user survey specialists. Piotr and Alicja from User eXperience team joined us and became
 part-time members of our technical team, supplying us with the user perspective and an array of testing tools. Yeah!
 
-##Stepping out of the comfort zone
+## Stepping out of the comfort zone
 
 Selecting the most relevant metrics was probably the most difficult part, second only to comprehending how badly we needed
 them. We desired tools which would show us a perspective completely detached from transactional data and instead focused on users point
@@ -68,7 +68,7 @@ turnover — it has been proven that this measure provides a leading indicator o
 consumer purchase intentions and loyalty. And a loyal customer is far more likely to make further purchases in the
 future.
 
-##How we fell in love with HEART
+## How we fell in love with HEART
 
 Lately in our organization we became more focused on measuring user experience not only qualitatively, but also
 quantitatively. It gives us the possibility to collect data automatically and often, as well as to interpret UX data
@@ -81,7 +81,7 @@ task success and what are the metrics to measure them. Afterwards data analysts 
 of the information in easily accessible and readable reports updated daily or weekly. HEART seems like a
 reasonable methodology for almost every part of Allegro.
 
-##Trouble in paradise
+## Trouble in paradise
 
 Well, almost... HEART for a search engine is a tough nut to crack — first of all, everybody knows and can identify a
 search engine. Second, the vast majority of our users regard it as the only way to explore Allegro, so they use it
@@ -105,7 +105,7 @@ manner, all in one place. This will be a clear and easily accessible way of moni
 Everyone in our room can see how happy (or not) our users are today. They can monitor the impact of deployed
 changes and optimise according to users’ responses.
 
-##Future of measuring user satisfaction
+## Future of measuring user satisfaction
 
 It is too early to fully analyze the results of our new metrics yet. Our HEART-inspired approach towards measuring
 users’ experience has just been released and as of today we have fractional data, with no historical trends. For

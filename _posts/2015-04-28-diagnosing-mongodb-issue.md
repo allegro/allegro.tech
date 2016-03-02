@@ -65,7 +65,7 @@ So, network was doing great. That left only one suspect which was replica set st
 A quick check showed no clue:
 
 ```bash
-#physical-node-2.dc4:
+# physical-node-2.dc4:
 db3-rs0:PRIMARY> db.printSlaveReplicationInfo()
 source: cloud-node.dc4:27317
     syncedTo: Xxx Yyy DD YYYY HH:MI:53 GMT+0100 (CET)
@@ -162,7 +162,7 @@ rs.reconfig(c)
 
 In case you already have chained replication you will have to restart `mongod` process for an immediate effect.
 
-###Final note
+### Final note
 
 That day I learned yet another lesson. Please, keep in mind that for every
 feature there is a side effect. It may hit you by surprise, anytime.
