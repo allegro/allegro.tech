@@ -5,11 +5,12 @@ author: rafal.bryk
 tags: [tech, proffesional, programmer, software craftsmanship, agile]
 ---
 
-_It is a story about carrying out an IT project by one of Allegro scrum teams and a fine example of a professional approach supported by 
+_It is a story about how professional approach to code can save you a lot of troubles. It is a story about passion for coding and how 
+it makes our products great. It is a story about carrying out an IT project by one of Allegro scrum teams as a fine example supported by 
 a set of case studies. Read it to learn how to deal with issues when carrying out an IT project._
 
 The start of the project saw the team very motivated and the pace of work was incredible. It almost felt like working in a start-up 
-environment. And you couldn’t wish for more pleasant development with limited number of dependencies, greenfield, etc. Quite soon we 
+environment. And you couldn’t wish for a more pleasant development with limited number of dependencies, greenfield, etc. Quite soon we 
 reached the stage that made us certain that the project could be accomplished. Moreover, we knew how to measure whether the whole thing 
 was profitable at all. The project’s plan involved a year or even two years of work. With this in mind, you want to treat the code 
 carefully. You know you will spend a lot of time working with it, so you want to make sure that each aspect of that code is done well. 
@@ -17,15 +18,16 @@ Developers know there are myriads of things to take care of in software developm
 
 > How to make the work easier?
 
-The approach adopted by the team required taking care of all the aspects of good software. It means being able to introduce changes to 
-each bit of the product as in the case of the Extreme Programming methodology. It means being unable to separate different project stages, 
-e.g. “in January we will work on solution architecture and when it’s done, we will move on to metrics in February”. Such solutions merely 
-pay off in such dynamic envioronment. That is why, I’ll indicate what we paid attention to in order to keep any problems at bay. So, let’s analyze 
-what we did to make the work easier.
+The approach adopted by the team required taking care of all the aspects of good software. It meant being able to introduce changes to 
+each bit of the product as in the case of the Extreme Programming (XP) methodology. XP approach advocates avoiding programming of features 
+until they are actually needed, simplicity and clarity in code, so it fits our needs. It wasn’t reasonable to separate different project 
+stages, e.g. “in January we will work on solution architecture and when it’s done, we will move on to metrics in February”. Such solutions 
+merely pay off in such dynamic envioronment. That is why, I’ll indicate what we paid attention to in order to keep any problems at bay. So, 
+let’s begin.
 
 ## From idea to development
 
-The first steps involved all the usual things developers do like building the application and automatic testing. Repetitive actions 
+The first steps involved all the usual things developers like building the application and automatic testing. Repetitive actions 
 transforming the code into an application were arduous from the very start. As it was a Java project, we found a lot of ready-to-use tools 
 and solutions that we could try out. The team selected the following testing frameworks: 
 [JUnit + JBehave](http://allegro.tech/2015/03/acceptance-testing-with-jbehave-and-gradle.html), with the Gradle + Bamboo support as it 
@@ -53,8 +55,8 @@ default group. At first, the group did not exceed 1% of users, but it was easy t
 this approach was crucial in terms of continuous learning and gaining user feedback.
 
 Besides, it was something one would expect from a professional start-up – a project may fail, but the team can abandon it quickly before 
-any technical debt arises. The first technical failure proved that the team’s approach was right. By being able to rollback changes made 
-to the solution (in fact activating it for 0% users) the team had the time to analyze the application and release suitable fixes. At the 
+any technical debt arises. The first technical failure proved that the team’s approach was right. By being able to rollback changes, 
+the team had the time to analyze the application and release suitable fixes. At the 
 same time, nothing disturbed Allegro users. All of this could happen owing to professional and responsible approach of the team.
 
 ## Technical reliability of a solution
@@ -71,8 +73,8 @@ perform a certain action? It was time to carry out some quantitative product ana
 we managed to notice some significant things with the help of NewRelic, Hadoop, Kibana and some 
 [internal tools](http://allegro.tech/2015/09/scaling-graphite.html). To examine the issue thoroughly, we carried out qualitative research 
 using UsabillaLive to better understand the patterns we observed. Then we were able to determine what was important, what could be omitted 
-and what was necessary. After all, we want our users to be happy and for this reason we want our features to be smart, so we do not have 
-to remove them from the high-quality code.
+and what was necessary. After all, we want our users to be happy and for this reason we want our features to be usefull for them, so we 
+do not have to remove them from the high-quality code.
 
 ## Outcome
 
@@ -93,7 +95,7 @@ it was to act professionally. That is why we were so confident during the releas
 
 ## Lessons learned
 
-Life is not always a bed of roses. When developing the product we often sought for support in functional / regression testing. 
+Software development is not always a bed of roses. When developing the product we often sought for support in functional / regression testing. 
 Unfortunately, the attempts of finding a working solution were hindered by external and environmental dependencies, remodeled architecture 
 and the very features of the product itself. We weren’t able to cover the changes with functional testing which eventually led to errors. 
 One of them involved temporarily deactivation of a certain paid feature which resulted in refunds and financial loss. We changed functional 
