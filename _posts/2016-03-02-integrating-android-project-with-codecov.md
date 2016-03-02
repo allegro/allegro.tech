@@ -58,7 +58,7 @@ The plugin also contains some predefined exclusion filters for generated classes
 up in code coverage reports. If there is still a need to provide some additional exclusion filters
 it is possible to add them in the plugin extension block:
 
-```gradle
+```groovy
 jacocoAndroidUnitTestReport {
   jacocoExcludes += [ '**/AutoValue*.class' ]
 }
@@ -72,7 +72,7 @@ In case of instrumentation tests it is a little bit less hassle. You do not need
 coverage report tasks manually. They are already created by the Android Gradle plugin. All you have
 to do is set `testCoverageEnabled` to `true` in your build type configuration, e.g.:
 
-```gradle
+```groovy
 android {
   buildTypes {
     debug {
@@ -94,7 +94,7 @@ environment it works rather well.
 Fortunately, in case of a pure Java project close to no configuration is required in order to get
 code coverage reports. You just apply the `jacoco` plugin with XML output enabled:
 
-```gradle
+```groovy
 apply plugin: 'jacoco'
 
 jacocoTestReport {
