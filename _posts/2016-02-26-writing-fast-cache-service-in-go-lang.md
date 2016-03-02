@@ -5,15 +5,15 @@ layout: post
 title: Writing very fast cache service with millions of entries in Go
 author: [lukasz.druminski,tomasz.janiszewski]
 tags: [tech, cache, service, golang, go, bigcache]
-excerpt: Recently our team obtained a task to write a very fast cache service. The task is pretty clear but it can be solved
-         in many ways and in many programming languages. Ultimately we have decided to implement the service in Go.
-         Check out how we did it and what values come from that.
 ---
 
+Recently our team has been tasked to write a very fast cache service. The task was pretty clear but it can be solved
+in many ways and in many programming languages. Finally we have decided to implement the service in [Go](https://golang.org/).
+We described how we did it and what values come from that.
+
 ## Table of contents:
-1. [Introduction](#introduction)
-2. [Requirements](#requirements)
-4. [Why Go](#why-go)
+1. [Requirements](#requirements)
+2. [Why Go?](#why-go)
 3. [The Cache](#the-cache)
     1. [Concurrency](#concurrency)
     2. [Eviction](#eviction)
@@ -24,11 +24,6 @@ excerpt: Recently our team obtained a task to write a very fast cache service. T
 6. [Final results](#final-results)
 7. [Summary](#summary)
 
-## Introduction
-Recently our team has been tasked to write a very fast cache service. The task was pretty clear but it can be solved
-in many ways and in many programming languages. Finally we have decided to implement the service in [Go](https://golang.org/).
-We described how we did it and what values come from that.
-
 ## Requirements
 Write a cache service which:
 
@@ -36,29 +31,29 @@ Write a cache service which:
 * handles 10k rps (5k for writes, 5k for reads)
 * caches entries from requests for at least 10 minutes
 * serves responses in time (measured without time spent on network) below than
-    * 5ms -  mean
+    * 5ms --  mean
     * 10ms for 99.9th percentile
     * 400ms for 99.999th percentile
-* entries are instantly cached after POST requests (on single node, no replication)
-* requests are in JSON format, each message contains:
-    * entry id
-    * JSON object
-* size of the message is up to 500 bytes
+* handles POST requests with JSON messages, where each message:
+    * contains entry and its id
+    * is not bigger than 500 bytes
+* serves entry via GET request immediately after POST request with it
+
+In simple words our task was to write fast, evicting dictionary with rest interface.
 
 ## Why Go?
 
-In simple words we are creating dictionary with
-rest interface. It could be done in any language. Most of services in our company
-are written in Java or other JVM based language, some in Python and
-core of our service is in PHP. We knew that technologies and wanted to test
-something new.
+Most of services in our company are written in Java or other JVM based language, some in Python.
+Core of our service is written in PHP, it's monolith, legacy code and we don't touch it if we can.
+The point is that we already know those technologies and we are open to explore the new one.
+Our task could be realized in any language, therefore we decided to write it in Go.
 
 Go is the thing. It's been around for a while, backed by [a big company](https://www.google.pl/) and growing
 community of users. It's advertised as a compiled, concurrent, imperative, structured
 programming language. It also has managed memory, so looks safer and easier to use
 than C/C++. We have quite good experience with tools written in Go and decided to
 use it here. We have one [open source project in Go](https://github.com/allegro/marathon-consul/#marathon-consul-)
-but we wanted to know how it handle big traffic.
+but we wanted to know how it handles big traffic.
 We believed whole project would take less than 100 SLOC and be fast
 enough to meet our requirements just because of Go.
 
@@ -203,7 +198,7 @@ Below chart presents response times results comparison from before optimizations
 During the test we were sending 10k rps, from which 5k were writes and another 5k were reads.
 Eviction time was set to 10 minutes. The test was 35 minutes long.
 
-![response times before and after optimizations](/img/articles/2016-02-26-fast-cache-service-in-go-lang/results-befor-and-after-optimizations.png "results before and after optimizations")
+![response times before and after optimizations](/img/articles/2016-02-26-fast-cache-service-in-go-lang/results-before-and-after-optimizations.png "results before and after optimizations")
 
 Final results in isolation, setup the same as described above.
 
