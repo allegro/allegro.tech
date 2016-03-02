@@ -182,7 +182,7 @@ of the code coverage reports then integrating with Codecov may probably be the w
 Feel free to comment and ask questions. I will be more than happy to answer them.
 
 You can also find a fully working and up-to-date example on Codecov’s GitHub:
-https://github.com/codecov/example-android
+[https://github.com/codecov/example-android](https://github.com/codecov/example-android).
 
 Thanks for reading!
 
