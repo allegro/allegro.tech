@@ -40,7 +40,7 @@ what is desired by employers and employees themselves. Fun at work means not enc
 prevent you from releasing your creativity. Just doing things you deem great, something that users will bless you 
 for. Fun is when all you have to think of is creating something new, interesting and innovative. All the rest is 
 secured by the environment in which work is done. And this is exactly how Spotify deals with it - by creating an 
-environment, where all you have to think of isÉ work. When you have an idea which requires tinkering with a 
+environment, where all you have to think of is... work. When you have an idea which requires tinkering with a 
 hardware - no problem, a fully equipped electronics lab is at your disposal. If app for runners requires 
 testing - you have the treadmill already installed in the office to do some more valuable tests. When you’re in 
 the middle of work and don’t want to think about acquiring food, because at the moment it is a waste of time for 
