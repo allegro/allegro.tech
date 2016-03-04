@@ -259,7 +259,7 @@ to be honest, we don’t have well-thought-out plan for this yet.
 
 #### Core
 OpBox Core primary responsibility is serving page definitions for Frontend renderers.
-Moreover, Core providing an API to Admin app for pages management (creating, editing, publishing).
+Moreover, Core provides an API to Admin app for pages management (creating, editing, publishing).
 
 Core is the only stateful service in OpBox family.
 It stores pages definitions in MongoDB and box prototypes in Git (prototypes are explained below).
@@ -271,9 +271,14 @@ page boxes.
 We’ve put a lot of effort to make it well performing, fault-tolerant and asynchronous.
 Core is the only gateway for renderers to our internal services.
 
-//TODO Such separation puts Core near the data away from the user view.
+Every box has it's own prototype - a definition that describes what data box requires for render.
+We use ([json schema](http://json-schema.org/)) to validate our prototypes repository.
+Core also stores data-source prototypes and custom data-types.
 
-//TODO what's prototype
+Data-sources are our way to specify underlying microservices. These prototypes project service name, input parameters
+and custom data needed for service to be accessed.
+
+Data-types represents a data-source result object. We name and reuse those models for convenience.
 
 Here is an example of showcase box — along with it prototype and datatype that it uses.
 
