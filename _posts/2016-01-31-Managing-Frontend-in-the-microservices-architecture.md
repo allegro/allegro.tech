@@ -7,21 +7,21 @@ tags: [tech, frontend, microservices, architecture]
 
 [Microservices](http://martinfowler.com/articles/microservices.html)
 are now mainstream approach for scalable systems architecture.
-There are little controversy when we are talking about designing Backend services.
+There is little controversy when we are talking about designing backend services.
 Well-behaved backend microservice should cover one
 [BoundedContext](http://martinfowler.com/bliki/BoundedContext.html)
 and communicate over the REST API.
 Of course, microservice should be loosely-coupled from its neighbours.
 
 Things gets complicated when we need to
-use microservices as building blocks for a Fronted solution.
+use microservices as building blocks for a fronted solution.
 So how to build a consistent website or a mobile app
 from tens or sometimes hundreds microservices?
 
 In this post we describe our current Web Frontend approach
 and the New One, meant as the small revolution.
 
-## Doing Frontend in the Microservices World is tricky
+## Doing frontend in the microservices world is tricky
 Our users don’t care how good we are in dividing our Backend into Microservices.
 The question is how good we are in integrating them in a user’s browser.
 
@@ -29,12 +29,10 @@ Typically, to process one HTTP Requests sent by user, we need do collect data fr
 Microservices.
 For example, when user runs a search query on our site,
 we send him the Listing page.
-This page collects data from several services: Header, Cart, Search, Category Tree, Listing, CEO, Recommendations.
-Some of them provides only data (like Search) and some provides ready-to-serve HTML fragments (like Header).
+This page collects data from several services: AllegroHeader, Cart, Search, Category Tree, Listing, SEO, Recommendations.
+Some of them provides only data (like Search) and some provides ready-to-serve HTML fragments (like AllegroHeader).
 
-Each service is maintained by a separate team.<br/>
-Some teams have excellent frontend skills but other...<br/>
-Let’s say that they are really good in doing BigData.<br/>
+We have to constantly be aware that each service is maintained by a separate team, and some of them have more frontend experience then other.
 
 Developing modern Frontend isn’t easy, following aspects are involved:
 
@@ -75,7 +73,7 @@ single Frontend team could become a development bottleneck.
 In **Frankenstein approach** (shared nothing) approach,
 Frontend application is divided into modules and each module is developed independently by separated teams.
 
-In Web applications modules are HTML page fragments (like Header, Cart, Search).
+In Web applications modules are HTML page fragments (like AllegroHeader, Cart, Search).
 Each team takes whole responsibility for their product. So a team develops not only backend logic
 but also provides endpoint which serves HTML fragment with their *piece of Frontend*.
 Then, HTML page is assembled using some low level server-side include technology like ESI tags.
@@ -111,7 +109,7 @@ We often say that *we are hiding behind Varnish* to survive massive traffic from
 
 Varnish really hit the bull’s-eye.
 
-Below, we describe one page fragment, included in each page &mdash; the Header.
+Below, we describe one page fragment, included in each page &mdash; the AllegroHeader.
 
 **Allegro Header** is a service that returns complete HTML/JS/CSS application — so it can be easily included
 as the varnish ESI tag at the beginning of any webpage. Under the hood it collects data from few other services
@@ -122,9 +120,9 @@ like category service or cart service. It integrates search box and it’s respo
 
 Each page fragment comes with its own set of frontend assets: CSS, JS scripts, fonts and images.
 At the page level, it sometimes leads to duplications and version conflicts.
-Many page fragments depend implicitly on assets provided by the Header fragment.
+Many page fragments depend implicitly on assets provided by the AllegroHeader fragment.
 
-But what if we want to create a page without any Header at all?
+But what if we want to create a page without any AllegroHeader at all?
 Or even worse &mdash;
 how to handle two different version of [React](https://facebook.github.io/react/) within a single page?
 
@@ -161,7 +159,7 @@ Pages are created and maintained
 by non-technical users in our Admin application.
 
 **Reusable components**<br/>
-Each page is assembled from boxes like Header, ShowCase, OfferList, Tabs.
+Each page is assembled from boxes like AllegroHeader, ShowCase, OfferList, Tabs.
 Boxes are configured to show required content, typically provided via
 REST API by backend services.
 
