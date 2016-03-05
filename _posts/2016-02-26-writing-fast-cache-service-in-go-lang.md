@@ -7,8 +7,8 @@ author: [lukasz.druminski,tomasz.janiszewski]
 tags: [tech, cache, service, golang, go, bigcache]
 ---
 
-Recently our team has been tasked to write a very fast cache service. The task was pretty clear but it can be solved
-in many ways and in many programming languages. Finally we have decided to implement the service in [Go](https://golang.org/).
+Recently our team has been tasked to write a very fast cache service. The task was pretty clear but there was a possibility
+to solve it in many ways and in many programming languages. Finally we have decided to implement the service in [Go](https://golang.org/).
 We described how we did it and what values come from that.
 
 ## Table of contents:
@@ -43,18 +43,16 @@ In simple words our task was to write fast, evicting dictionary with rest interf
 
 ## Why Go?
 
-Most of services in our company are written in Java or other JVM based language, some in Python.
-Core of our service is written in PHP, it's monolith, legacy code and we don't touch it if we can.
+Most of microservices in our company are written in Java or other JVM based language, some in Python.
+We also got monolithic, legacy platform written in PHP but we don't touch it unless we have to.
 The point is that we already know those technologies and we are open to explore the new one.
 Our task could be realized in any language, therefore we decided to write it in Go.
 
-Go is the thing. It's been around for a while, backed by [a big company](https://www.google.pl/) and growing
-community of users. It's advertised as a compiled, concurrent, imperative, structured
-programming language. It also has managed memory, so looks safer and easier to use
-than C/C++. We have quite good experience with tools written in Go and decided to
-use it here. We have one [open source project in Go](https://github.com/allegro/marathon-consul/#marathon-consul-)
-but we wanted to know how it handles big traffic.
-We believed whole project would take less than 100 SLOC and be fast
+Go has been available for a while now, backed by [a big company](https://www.google.pl/) and growing community of users.
+It's advertised as a compiled, concurrent, imperative, structured programming language. It also has a managed memory,
+so looks safer and easier to use than C/C++. We have quite good experience with tools written in Go and decided to use it here.
+We have one [open source project in Go](https://github.com/allegro/marathon-consul/#marathon-consul-)
+but we wanted to know how it handles big traffic. We believed the whole project would take less than 100 SLOC and be fast
 enough to meet our requirements just because of Go.
 
 ## The Cache

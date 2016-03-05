@@ -296,12 +296,12 @@ rafal.bryk:
 
 lukasz.druminski:
     name: Łukasz Drumiński
-    bio: Luke is a developer who likes to understand how things work in depth when it comes to solving technical problems. He is [Hermes](http://hermes.allegro.tech) core developer where low response times and high throughput meet requirements.
+    bio: Łukasz is a developer who likes to understand how things work in depth when it comes to solving technical problems. He is a core developer of [Hermes](http://hermes.allegro.tech), a message broker in which low response times and high throughput are important requirements.
     twitter: lukaszDruminski
     github: druminski
 
 tomasz.janiszewski:
     name: Tomasz Janiszewski
-    bio: Tomek is a software engineer passionate about distributed systems. He believes in free and open source philosophy and ocassionaly contributes to projects on Github.
+    bio: Tomasz is a software engineer passionate about distributed systems. He believes in free and open source philosophy and occasionally contributes to projects on Github.
     twitter: janiszt
     github: janisz
