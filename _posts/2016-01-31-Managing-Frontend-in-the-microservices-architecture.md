@@ -32,7 +32,9 @@ we send him the Listing page.
 This page collects data from several services: AllegroHeader, Cart, Search, Category Tree, Listing, SEO, Recommendations.
 Some of them provides only data (like Search) and some provides ready-to-serve HTML fragments (like AllegroHeader).
 
-We have to constantly be aware that each service is maintained by a separate team, and some of them have more frontend experience then other.
+Each service is maintained by a separate team.<br/>
+Some teams have excellent frontend skills but other...<br/>
+Let’s say that they are really good in doing BigData.<br/>
 
 Developing modern Frontend isn’t easy, following aspects are involved:
 
