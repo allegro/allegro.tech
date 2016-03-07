@@ -259,30 +259,26 @@ to be honest, we don’t have well-thought-out plan for this yet.
 
 #### Core
 OpBox Core primary responsibility is serving page definitions for Frontend renderers.
-Moreover, Core provides an API to Admin app for pages management (creating, editing, publishing).
+Moreover, Core provides an API to OpBox Admin for pages management (creating, editing, publishing).
 
-Core is the only stateful service in OpBox family.
+Core is the only stateful service in the OpBox family.
 It stores pages definitions in MongoDB and box prototypes in Git (prototypes are explained below).
 
-Since Core is responsible for serving page definitions it’s also manages page routing
+Since Core is responsible for serving page definitions it also manages the page routing
 and the most though work — fetching data from backend services. That’s the content to be injected into
 page boxes.
 
 We’ve put a lot of effort to make it well performing, fault-tolerant and asynchronous.
 Core is the only gateway for renderers to our internal services.
 
-Every box has it's own prototype - a definition that describes what data box requires for render.
-We use ([json schema](http://json-schema.org/)) to validate our prototypes repository.
-Core also stores data-source prototypes and custom data-types.
+**Box types** <br/>
+Each Box has a type — it’s a definition that describes data parameters required
+by the box and also defines a list of named slots. Slot is a placeholder for embedding child boxes.
+We use ([JSON Schema](http://json-schema.org/)) to define parameter types.
 
-Data-sources are our way to specify underlying microservices. These prototypes project service name, input parameters
-and custom data needed for service to be accessed.
+Here is an example of the showcase box — along with its type and the type of the data parameter that it uses.
 
-Data-types represents a data-source result object. We name and reuse those models for convenience.
-
-Here is an example of showcase box — along with it prototype and datatype that it uses.
-
-**showcase box prototype**
+Showcase box type:
 
 ```json
 {
@@ -302,33 +298,59 @@ Here is an example of showcase box — along with it prototype and datatype that
 }
 ```
 
-**showcase data type prototype**
+Showcase data parameter type:
 
 ```json
 {
-    "title": "allegro.type.showcasesList",
-    "description": "showcases list",
-    "type": "array",
-    "items": {
-        "description": "list of showcases",
-        "type": "object",
-        "properties": {
-            "imageUrl": {
-                "type": "string"
-            },
-            "imageAlt": {
-                "type": "string"
-            },
-            "linkUrl": {
-                "type": "string"
-            }
-        }
+  "title": "allegro.showcasesList",
+  "description": "showcases list",
+  "type": "array",
+  "items": {
+    "description": "showcase",
+    "type": "object",
+    "properties": {
+      "imageUrl": {
+        "type": "string"
+      },
+      "imageAlt": {
+        "type": "string"
+      },
+      "linkUrl": {
+        "type": "string"
+      }
     }
+  }
 }
 ```
 
-**rendered showcase box with it’s data**
+Rendered showcase box:
+
 ![rendered showcase box](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/showcase_box.png "rendered showcase box")
+
+**Data-source types** <br/>
+Data-source is our way to specify underlying backend microservice.
+It contains: service URL in Service Discovery, input parameters and custom data required by a service,
+for example:
+
+```json
+{
+  "url": "service://opbox-content/teasers",
+  "parameters": [
+    {
+      "type": {
+        "name": "INTEGER"
+      },
+      "name": "id",
+      "description": "Meerkat articles identifiers",
+      "required": true
+    }
+  ],
+  "dataType": "allegro.article.teasers",
+  "timeoutMillis": 1500,
+  "allowCustomParameters": false,
+  "ttlMillis": 60000
+}
+```
 
 #### Web renderer
 When all necessary data from services is finally fetched and everything is ready to be drawn for the end-user there’s a place for
