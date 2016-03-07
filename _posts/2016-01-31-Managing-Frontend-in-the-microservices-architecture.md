@@ -257,7 +257,7 @@ to be honest, we don’t have well-thought-out plan for this yet.
     <img alt="OpBox architecture" style="width:75%; padding-top:10px;" src="/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-architecture.gif" />
 </p>
 
-#### Core
+#### OpBox Core
 OpBox Core primary responsibility is serving page definitions for Frontend renderers.
 Moreover, Core provides an API to OpBox Admin for pages management (creating, editing, publishing).
 
@@ -269,7 +269,8 @@ and the most though work — fetching data from backend services. That’s the c
 page boxes.
 
 We’ve put a lot of effort to make it well performing, fault-tolerant and asynchronous.
-Core is the only gateway for renderers to our internal services.
+We’ve chose Java and Groovy to implement Core.
+Core is the only gateway for frontend renderers to our internal backend services.
 
 **Box types** <br/>
 Each Box has a type — it’s a definition that describes data parameters required
@@ -352,30 +353,50 @@ for example:
 }
 ```
 
-#### Web renderer
-When all necessary data from services is finally fetched and everything is ready to be drawn for the end-user there’s a place for
-our web renderer. Every box prototype has to be implemented and added to our web-components
-repository ([Artifactory](https://www.jfrog.com/artifactory/)).
-After all the work your content should be rendered as HTML representation — optimized for your browser.
+#### OpBox Web renderer
+Web renderer is responsible for handling HTTP request and rendering HTML pages.
+From the Web renderer’s point of view, page rendering process can be decomposed into the following steps:
 
-#### Mobile renderer library
-One of our requirements was to support mobile platforms, so we have created android library for rendering pages
-the same way as web renderer does but using native mobile code. Now when you create a page you don’t have to care about it’s mobile version.
-This way android developers can implement better user experience using the same components definitions.
-By the way — now we can update our pages in your phone instantly ;) (without deploying new version)
+* HTTP request for a given URL is received.
+* OpBox Core is asked for a Page for a given URL.
+* OpBox Core sends a Page definition which contains page matadata and the Boxes tree.
+  Each Box is filled with data gathered by Core from backend microservices.
+* Web renderer traverses the Boxes tree and for each Box:
+* Proper component is found in our internal repository.
+* Component’s `render()` function is called with box parameters passed as an argument.
+* `render()` result is appended to the HTTP response.
 
-#### Admin
-Simultaneously we had to develop some kind of management application (on top of [React](https://facebook.github.io/react/))
-to easily create new pages and enable our users to publish new routes when needed.
-So we’ve made an administrative panel and gave it to our colleagues at content department.
-Now we’re getting features requests from them and we respond with updates in our project — so the project keeps on growing.
+After all that work, requested page should appear in user’s Web browser.
 
-#### Mobile Adapter
-We wanted to treat all rendering channels equally so we’re providing single api for retrieving pages data. Unfortunately
-mobile application developers need their API to be accessible from public web and in slightly different form.
-So we decided that we should cut out any irrelevant data — but instead of doing it in our core service,
-we’ve made a proxy (mobile adapter) which transforms Core page api to a mobile friendly version
-i.e. adding deep links or filtering not yet supported mobile features. We hope for another adapters in future (tv, smart-watches...)
+We’ve implemented Web renderer in ES6 on [NodeJS](https://nodejs.org/en/) platform.
+Components are implemented as [NPM](https://www.npmjs.com/) packages and they are published to our
+internal [Artifactory](https://www.jfrog.com/artifactory/).
+
+#### OpBox Mobile renderer library
+One of our requirements was mobile platforms support, so we’ve created an Android library for rendering pages
+the same way as Web renderer does but using native mobile code.
+When OpBox editor creates a web page he doesn’t have to care about it’s mobile version.
+His page should be available both on website and in mobile app.
+
+This way mobile developers can improve user experience using the same components definitions.
+By the way — now we can update our pages in your phone instantly ;) (without deploying the new version of mobile app)
+
+#### OpBox Mobile Adapter
+We wanted to treat all rendering channels equally so we’re providing one REST API for retrieving page definitions from Core.
+Unfortunately mobile developers need the Core API to be accessible from public internet in a slightly different form.
+
+We’ve created a proxy (Mobile adapter) which transforms the Core API to the mobile friendly version.
+Its main responsibilities are: converting JSON to more concise form,
+cutting out any mobile-irrelevant data, adding deep linking feature and
+filtering all boxes that are not supported in mobile app.
+
+#### OpBox Admin
+Simultaneously, we are developing an Admin application for page editors.
+It’s a stateless GUI built on the top of the Core REST API.
+In OpBox Admin our editors create and maintain pages and
+they manage page routing and publication criteria.
+
+We’ve implemented OpBox Admin using ES6, NodeJS and [React](https://facebook.github.io/react/).
 
 #### Ecosystem is growing
 To be agile we needed some tooling around our project — so we’ve made:
