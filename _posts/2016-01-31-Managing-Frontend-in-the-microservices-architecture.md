@@ -16,10 +16,10 @@ Of course, a microservice should be loosely-coupled from its neighbours.
 Things gets complicated when we need to
 use microservices as building blocks for a fronted solution.
 So how to build a consistent website or a mobile app
-from tens or sometimes hundreds microservices?
+on tens or sometimes hundreds of microservices?
 
 In this post we describe our current web frontend approach
-and the New One, meant as the small revolution.
+and the New One, meant as a small revolution.
 
 ## Doing frontend in the microservices world is tricky
 Our users don’t care how good we are in dividing our backend into microservices.
