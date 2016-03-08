@@ -12,7 +12,7 @@ We use these APIs together with [`CompletableFuture`](http://docs.oracle.com/jav
 and Java 8 [lambda expressions](http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html) to show how to create scalable
 and well performing REST services in a more functional way.
 
-##Server API
+## Server API
 
 By default, request processing on the server works in a synchronous mode, which means that each request is processed
 in a single HTTP thread. When request processing is finished, the thread is returned to the thread pool.
@@ -114,7 +114,7 @@ It is possible to register callbacks on
 According to JSR-339 support for `ConnectionCallback` is OPTIONAL.
 
 
-##Client API
+## Client API
 
 The Client API supports asynchronous invocations as part of the invocation building process.
 By default, invocations are synchronous but can be set to run asynchronously by calling the `async()` method.
@@ -190,7 +190,7 @@ for [Server](http://docs.spring.io/spring/docs/current/javadoc-api/org/springfra
 and [Client](http://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/AsyncRestTemplate.html) APIs.
 
 
-##Mixing with CompletableFuture
+## Mixing with CompletableFuture
 
 [`CompletableFuture<T>`](http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html)
 is a new abstraction introduced in Java 8. It extends `Future<T>` and adds callbacks support to handle event-driven work.
@@ -349,7 +349,7 @@ In the code above we get all repos for given users, and for each repo we count c
 `CompletableFuture`s are processed like functions, and processing is still non-blocking. Complex blocks of code are extracted
 to methods and code remains readable. But debugging and error handling in this code is more difficult.
 
-##Summary
+## Summary
 
 Asynchronous processing is more complicated than synchronous processing, but with new Java 8 features (streams,
 lambda expressions and `CompletableFuture`) it looks similar to a functional processing of data. You can easily chain operations

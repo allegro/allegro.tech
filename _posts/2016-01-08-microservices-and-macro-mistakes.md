@@ -14,7 +14,7 @@ Nevertheless, I would like to talk about my experience with microservices
 architecture. I hope that this article will help you avoid the mistakes I made
 and save time.
 
-##Definitions
+## Definitions
 First, we should begin with defining fine architecture. I find two major features
 that make architecture fine — it must be easy to understand and introduction
 of any changes should require as little effort as possible. In fact, these features, so crucial in an agile
@@ -38,8 +38,8 @@ implementing any invalid dependencies inside it.
 Having learned some basic theory, let’s focus on a practical part and risks one
 may face when working in the microservices architecture.
 
-##Antipatterns
-###My own piece of architecture
+## Antipatterns
+### My own piece of architecture
 When working on complex projects, we are often divided into many teams responsible
 for a given area. We start working by designing our own small ‚garden’ as a separate
 entity to make our work convenient and effective. However, by doing so we often keep the
@@ -53,7 +53,7 @@ about it when setting architectural frames and dividing it into microservices.
 Naturally, sometimes such division imposes further granularity, but each time the
 decision should be well justified due to costs that follow.
 
-###Nanoservices
+### Nanoservices
 In the pursuit of trends we tend to split a piece of application to smaller and smaller
 chunks when designing it. Instead of building an application based on microservices
 that reflect particular contexts, we break the microservices into nanoservices. In an
@@ -92,7 +92,7 @@ and keeping in mind the costs of creating new entities. Remember that microservi
 you with flexibility that allows you to think about the future on a much smaller
 scale without forecasting all the possibilities.
 
-###Mixing contexts
+### Mixing contexts
 When working on my first projects based upon microservices architecture I followed unduly
 the [Don't Repeat Yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
 principle. When creating nano-services for micro-functionalities,
@@ -114,7 +114,7 @@ one domain only.
 Naturally, you can find plenty of so-called general services, i.e. services that do not belong
 strictly to any of the contexts. Just think about services for scaling images or storing files.
 
-###Sharing persistence layer
+### Sharing persistence layer
 One of the most common mistakes related to development of services is making them share a
 persistence layer. This little sin results in consequences that one becomes familiar with
 when working with the monolithic architecture. Low cohesion and high coupling are behind
@@ -123,7 +123,7 @@ errors during development. Besides, if the services communicate through other ch
 a dedicated API, then they are no longer independent. API should always be the only communication
 channel between services.
 
-##Summary
+## Summary
 Designing a good architecture based on microservices is definitely not a trivial task.
 I hope that after reading this article you will avoid the most obvious traps.
 

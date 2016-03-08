@@ -15,7 +15,7 @@ working in Scrum and having more and more technical user stories to complete, Pr
 to Kanban as we were not able to deliver working software in the subsequent iterations and that we concentrate on delivering more
 stuff — compared to the previous setup.
 
-###The deal
+### The deal
 
 And so we did. We started with getting to know what [Kanban](http://en.wikipedia.org/wiki/Kanban) meant to each of us so we could establish a mutual
 understanding. Some of the thoughts were: higher flexibility in terms of our approach to work, Work In Progress (WIP)
@@ -55,7 +55,7 @@ These rules were in conjunction with one another meaning that all must happen to
 Additionally, we agreed on checkpoints, being part of retrospective, happening at the end of each week so we could quickly
 verify if something had gone bad. The experiment was to last two weeks — same length as our previous Scrum sprints.
 
-###First two weeks
+### First two weeks
 
 We established that we were going to verify how we are doing after a week and to decide according to our criteria if we were to
 continue after two weeks time. After inspecting our process for the first time (after a week), not much had happened. The
@@ -85,7 +85,7 @@ Scrum-ban and our approach. Where possible we agreed that we should **commit to 
 complete**. We wanted to avoid too loose working atmosphere and to turn up the velocity a bit. Additionally, we placed
 emphasis on informing each other about wrong estimates or delays (doh!) when working on them.
 
-###Second two weeks — so now what?
+### Second two weeks — so now what?
 
 We met on our retrospective meeting, after a month-long experiment, summing up the work and for inspect & adapt.
 
@@ -114,7 +114,7 @@ last six sprints that happened over 3 months prior to the experiment.
 Taking this into consideration, as well as our happiness and feedback from our stakeholders we decided to continue on
 daily basis up till our formal deadline.
 
-###What we've learned
+### What we've learned
 
 We agreed that the experiment with our mix of Scrum and Kanban was successful. We inspected & adapted along
 the way and learned new stuff. There were also things we should do but didn’t and some elements we need to pay

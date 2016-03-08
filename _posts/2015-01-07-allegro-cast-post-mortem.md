@@ -15,7 +15,7 @@ e.g. features such as purchasing numerous offers via cart and bulk offer editing
 Moreover, it partially failed to send daily newsletter with new offers.
 Also some parts of internal administration panel were affected.
 
-##What happened?
+## What happened?
 
 On 23rd October, at 4:19 AM a wrong server was restarted by mistake. In fact, it
 was the wrong "half" of a blade server running in the active datacentre and
@@ -24,7 +24,7 @@ Redis servers and daemons retrieving tasks from a database and adding them to a
 queue. After re-launching daemons, the system did not start automatically, due
 to loss of settings.
 
-##How did we respond?
+## How did we respond?
 
 Because the mechanism was poorly monitored, we had no idea about the problem
 until 8:40 AM. At 9:20 AM, we managed to start processing queued tasks. However,
@@ -55,7 +55,7 @@ the queue displayed only most recent tasks waiting to be processed. Moreover,
 this modification also fixed the administration panel of task retrieving
 daemons. The processing delay ended on 24th October about 7:00 PM.
 
-##Consequences of failure
+## Consequences of failure
 
 The failure caused several hours of delay in task processing. Some tasks that
 were submitted after 11th September 2014, but for some reason had not been
@@ -63,7 +63,7 @@ correctly re-processed, were finally executed. In certain cases, invalid task
 may not correctly indicate its execution status. Nevertheless, such tasks were
 processed again.
 
-##Prevention?
+## Prevention?
 
 It is necessary to monitor the task processing subsystem. Currently, we do not
 notice most of the system problems. Each restart of any Allegro Platform server

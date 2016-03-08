@@ -23,7 +23,7 @@ per week. Anything that suits you best. Nevertheless, it’s best to start with 
 create a context in which we all operate. Afterwards we find out how we are going to work and finally we can contract on the roles. Still, it’s your call.
 Break the rules and see what happens. In the brackets you’ll find the approximate time required for a particular exercise session.
 
-##Agile chartering & backlog creation (60–90 minutes)
+## Agile chartering & backlog creation (60–90 minutes)
 [Agile chartering](http://www.agilesherpa.org/agile_coach/product_planning/chartering/) is a simple technique useful for building the basic knowledge of the product. It answers three simple questions which may, at times, turn out
 to be difficult:
 
@@ -45,7 +45,7 @@ iterations. This exercise will help you to start with what is already known and 
 On the basis of the above information, the Team can start building a repository (a backlog in Scrum) however it looks and however you call it does not matter at
 this stage. It’s probably going to be high level and not very detailed. Just go with it and add more as you discover more.
 
-##Getting to know each other (30–60 minutes)
+## Getting to know each other (30–60 minutes)
 When getting to know each other it’s worth to answer few simple questions that break the ice and shed some light on our expectations as well as talents.
 
 * **What are the skills that we have?** What are we good at and how can we help others thrive? Using [Team Competency Matrix]
@@ -69,7 +69,7 @@ cooperate with the organisation to foster change that benefits all and many othe
 effective due to it’s simplicity, reducing the complexity of work and focusing on the most important things. It also leaves a lot of space for choosing the best
 tools that we, as a Team, find useful.
 
-##Setting up working rhythm (up to 90 minutes)
+## Setting up working rhythm (up to 90 minutes)
 At this stage we are digging deeper to setup the minimum details that we need to start doing the work. We will have plenty of chances to verify our approach and
 improve on the way. In agile at least that’s one of the advantages. We are answering the questions: how do we want to work? In what rhythm would we like to
 operate and why? In this step it’s good to define the agile framework or methodology you would like to use in more details. Establish repositories
@@ -87,13 +87,13 @@ I start with five things and then check along the way:
 You can find a sample of such analysis in a [Scrum-ban* experiment](http://allegro.tech/2015/09/scrum-ban-applied.html) we’ve conducted. Another approach could be
 looking at what we want to accomplish? Then following up with what do we need to accomplish this? and / or how will we accomplish this?.
 
-###Contracting (45–60 minutes)
+### Contracting (45–60 minutes)
 It’s one of the most important things when people in a group meet and are supposed to work together. If you don’t have the time to do any of the other steps
 described — do this one. I do contracting in two steps. Setting up expectations between Team members in terms of their roles as well as in terms of conflicts that
 may arise when we work together and / or with other teams. It’s important to review the rules that we set in motion once in a while (eg. each 2–3 months) to check
 if they are still valid and / or if there is anything we want to add.
 
-###Contracting roles
+### Contracting roles
 
 Whether it’s Scrum or something else, all of us work in roles. Some of them have been exercised and some might be new. It’s good to name them and
 relate to the rules in terms of our understanding and expectations. A good thing to do it is to use a simple matrix.
@@ -110,7 +110,7 @@ I had a team once that was working on a tight deadline. It was not really Scrum 
 work at hand. This has led to a couple big misunderstandings in terms of what they expected me to do (as a Scrum Master back then) and what I thought their
 knowledge on Scrum roles were. This does not take huge amounts of time and can give you much more than you’d think in the long term when it’s sorted out.
 
-###Contracting conflicts
+### Contracting conflicts
 ![Contracting conflicts](/img/articles/2015-10-20-agile-teams-how-to-start/contracting_conflict.jpeg "Contracting conflict")
 
 A sample contract for dealing with conflict. This can be customised to the teams needs.
@@ -126,7 +126,7 @@ be used to better understand the other side. It involves three stages:
 * Reflecting on what the other person said (taking into account the filter from the first stage).
 * Using coaching questions to foster change and help find a solution to the situation.
 
-##Do a sidewalk test
+## Do a sidewalk test
 Nothing connects people more than afternoon fun. The informal atmosphere of getting a beer, racing karts, playing squash or doing anything else that people
 might want to check out together can break the ice. It’s good to unwind and go out as a team. I would recommend doing it after 1 or 2 weeks of working together so
 people can first settle a bit in the new setup at work. One of the ways to check on how are people feeling with each other would be Atlassian’s “sidewalk test”:

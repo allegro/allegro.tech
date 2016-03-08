@@ -11,7 +11,7 @@ of the event and our colleague [Piotr Betkier](http://allegro.tech/authors/piotr
 software testing and TDD. The question for the conference to answer was “Is TDD dead?”. The major stars who came to Poznań
 were Nat Pryce and Steve Freeman, authors of the book [“Growing Object-oriented Software, Guided by Tests”](http://www.growing-object-oriented-software.com/).
 
-###Lectures
+### Lectures
 
 The conference took place in two parallel tracks with 30-40 minute lectures and breaks for coffee and lunch. The conference
 was opened by Steve Freeman’s lecture “Test-Driven Development: That’s not what we meant”. Steve talked about writing bad
@@ -94,7 +94,7 @@ The culmination of the all-day event was Nat Pryce’s lecture — “Lessons Le
 about his experience in testing set-top boxes. He said that it’s not just about writing tests, but about the feedback you get from them.
 You should not write tests only for the sake of writing, but in order to obtain information about the code.
 
-###Organization
+### Organization
 
 When it comes to an organization, certain elements could be better planned. The conference took place in a fairly small cinema.
 With such a large number of people in the breaks between lectures in the hall it was getting quite crowded and long queues
@@ -102,7 +102,7 @@ formed to coffee and tea. Lunch was organized in not entirely comfortable condit
 but the queue was so long that meals had to be issued even during the next lecture, not to mention the fact that you
 had to eat it on your lap or standing with a plate in your hand. The portions were not very impressive either.
 
-###Overall Impressions
+### Overall Impressions
 
 The conference organized in Poznań was quite successful. I prefer concise, subject-oriented conferences — one issue
 presented in various ways. At first I was rather sceptical. I was worried that it would be another conference in the series
