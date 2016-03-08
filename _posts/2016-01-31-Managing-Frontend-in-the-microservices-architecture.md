@@ -33,8 +33,7 @@ This page collects data from several services: AllegroHeader, Cart, Search, Cate
 Some of them provides only data (like Search) and some provides ready-to-serve HTML fragments (like AllegroHeader).
 
 Each service is maintained by a separate team.<br/>
-Some teams have excellent frontend skills but other...<br/>
-Let’s say that they are really good in doing BigData.<br/>
+OpBox does the frontend magic so backend developers can focus on their job.
 
 Developing modern frontend isn’t easy, following aspects are involved:
 
@@ -395,19 +394,15 @@ filtering all boxes that are not supported in mobile app.
 
 #### OpBox Admin
 Simultaneously, we are developing an Admin application for page editors.
+
 It’s a stateless GUI built on the top of the Core REST API.
 In OpBox Admin our editors create and maintain pages and
 they manage page routing and publication criteria.
 
 We’ve implemented OpBox Admin using ES6, NodeJS and [React](https://facebook.github.io/react/).
 
-#### Ecosystem is growing
-To be agile we needed some tooling around our project — so we’ve made:
-
-* **component generator** (upon [YEOMAN](http://yeoman.io))
-* **opbox-web preview** (for local development)
-
-Many more to come to simplify developing process.
+Here you go a sample screen of our Admin GUI:
+![opbox admin](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-admin.png "Obpox Admin")
 
 ### Final thoughts
 //TODO
