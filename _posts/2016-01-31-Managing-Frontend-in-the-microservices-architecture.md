@@ -77,11 +77,11 @@ frontend application is divided into modules and each module is developed indepe
 In Web applications modules are HTML page fragments (like AllegroHeader, Cart, Search).
 Each team takes whole responsibility for their product. So a team develops not only backend logic
 but also provides endpoint which serves HTML fragment with their *piece of frontend*.
-Then, HTML page is assembled using some low level server-side include technology like ESI tags.
+Then, HTML page is assembled using some low level server-side includes technology like ESI tags.
 
 This approach scales well, but the big disadvantage is lack of consistency on the user side.
 Seams between page fragments becomes visible, number of page-level interactions is limited.
-Even in page scope, each page fragment may look or even worse behave in a different way.
+Even in page scope, each page fragment may look, or even worse, behave in a different way.
 Pretty much like the Frankenstein monster.
 
 **Between Monolith and Frankenstein** there is a whole spectrum of possible architectures.
@@ -106,7 +106,7 @@ For example, main page is composed in the following way:
 ![ESI Page Example](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/allegro_esi_homepage.png "esi page example")
 
 Our Varnish farm also defines and greatly improves our overall performance.
-Varnish servers are exposed to users and they caches all requests for static content.
+Varnish servers are exposed to users and they cache all requests for static content.
 We often say that *we are hiding behind Varnish* to survive massive traffic from our users.
 
 Varnish really hit the bull’s-eye.
@@ -126,7 +126,7 @@ Many page fragments depend implicitly on assets provided by the AllegroHeader.
 
 But what if we want to create a page without any AllegroHeader at all?
 Or even worse &mdash;
-how to handle two different version of [React](https://facebook.github.io/react/) within a single page?
+how to handle two different versions of [React](https://facebook.github.io/react/) within a single page?
 
 Current approach based on Varnish server-side includes is
 flexible, scalable and easy to develop but unfortunately, it’s hard to maintain.
@@ -140,7 +140,7 @@ We just had to think a better way...
 
 So Box is the main concept in our solution. What is Box after all?
 
-* Box is reusable, high-level fronted component.
+* Box is reusable, high-level frontend component.
 * Box is feedable from a REST/JSON data source.
 * Box can have slots, in each slot, you can put more Boxes.
 * Box can be rendered conditionally (for example, depending on A/B test variant).
@@ -162,8 +162,7 @@ by non-technical users in our Admin application.
 
 **Reusable components**<br/>
 Each page is assembled from boxes like AllegroHeader, ShowCase, OfferList, Tabs.
-Boxes are configured to show required content, typically provided via
-the REST API by backend services.
+Boxes are configured to show required content, typically provided via REST API by backend services.
 
 **Separating View from Data Sources**<br/>
 Box is a high-level abstraction, it joins two things:
@@ -195,7 +194,7 @@ and one of these two boxed is pruned from the boxes tree.
 Basic traffic analytics is easy to achieve. It’s enough to include a tracking script in
 the page footer. When a page is opened by a user, the script reports Page View event.
 
-What we need is more fine-grained data:
+What we need is fine-grained data:
 
 * Box View event &mdash; when box is shown in a browser viewport.
 * Box Click event &mdash; when users clicks on a link which navigates him from one box to another
@@ -210,7 +209,7 @@ which boxes should be promoted and which should be removed from a page.
 **Multi-frontend**<br/>
 One of the OpBox key features is separating page definitions
 from frontend renderers.
-Page definition is a JSON document with the page structure and page data (content).
+Page definition is a JSON document containing the page structure and data (content).
 It’s up to the renderer how the page is presented to frontend users.
 
 For now, we have two renderers: Web —
@@ -231,7 +230,7 @@ Below we have Recommendations box which shows some offers, possibly related with
 
 What if we would like to remove an offer from Recommendations box when it
 happens to be already shown by Listing box?
-We think that the best place to implement such logic is frontend.
+One of the possible solutions is to implement such interactions at the frontend side.
 
 Desired solution would let rendered Boxes to talk with each other via a
 publish-subscribe message bus, e.g.:
@@ -248,7 +247,7 @@ Since we don’t force frontend developers to use any particular technology,
 each component requires its own dependency set of various kind:
 CSS, JS libraries, fonts and so on.
 
-Reconciliation of those all dependency sets is kind of advanced topic,
+Reconciliation of all of those dependency sets is kind of advanced topic,
 to be honest, we don’t have well-thought-out plan for this yet.
 
 ### How we did it
@@ -268,7 +267,7 @@ Core is the only stateful service in the OpBox family.
 It stores pages definitions in MongoDB and box *types* in Git (box types are explained below).
 
 Since Core is responsible for serving page definitions it also manages the page routing
-and the most though work — fetching data from backend services. That’s the content to be injected into
+and the most tough work — fetching data from backend services. That’s the content to be injected into
 Boxes.
 
 We’ve put a lot of effort to make Core high performing, fault-tolerant and asynchronous.
@@ -378,7 +377,7 @@ internal [Artifactory](https://www.jfrog.com/artifactory/).
 One of our requirements was mobile platforms support, so we’ve created an Android library for rendering pages
 in the same way as Web renderer does but using native mobile code.
 When OpBox editor creates a web page he doesn’t have to care about it’s mobile version.
-His page should be available both on website and in mobile app.
+His page should be available both on website and on mobile app.
 
 This way mobile developers can improve user experience using the same components definitions.
 By the way — now we can update our pages in your phone instantly ;) (without deploying the new version of the mobile app)
@@ -390,12 +389,12 @@ Unfortunately mobile developers need the Core API to be accessible from public i
 We’ve created a proxy (Mobile adapter) which transforms the Core API to the mobile friendly version.
 Its main responsibilities are: converting JSON to more concise form,
 cutting out any mobile-irrelevant data, adding deep linking feature and
-filtering all boxes that are not supported in mobile app.
+filtering all boxes that are not supported on mobile app.
 
 #### OpBox Admin
 Simultaneously, we are developing an Admin application for page editors.
 
-It’s a stateless GUI built on the top of the Core REST API.
+It’s a stateless GUI built on top of the Core REST API.
 In OpBox Admin our editors create and maintain pages and
 they manage page routing and publication criteria.
 
@@ -406,5 +405,5 @@ Here you go a sample screen of our Admin GUI:
 
 ### Final thoughts
 Currently some of marketing campaigns are published with OpBox.
-The solution has been battle-tested, so we are planning to migrate more Allegro pages into OpBox components.
+The solution has been battle-tested and we are planning to migrate more Allegro pages into OpBox components.
 We hope to share our OpBox project with open source community in near future.
