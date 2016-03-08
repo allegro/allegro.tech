@@ -43,7 +43,7 @@ such as product release. According to numerous research results, users don’t l
 unavailable when undergoing changes, it becomes even less attractive. That is why we had to find out how to release small chunks of 
 software in a secure way.
 
-![bamboo](/img/articles/2016-02-19-professional-approach-pays-off/from-idea-to-development.jpg "Bamboo")
+![bamboo](/img/articles/2016-02-19-professional-approach-pays-off/from-idea-to-development.png "Bamboo")
 
 ## Large scale A/B testing
 
