@@ -405,4 +405,6 @@ Here you go a sample screen of our Admin GUI:
 ![opbox admin](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-admin.png "Obpox Admin")
 
 ### Final thoughts
-//TODO
+Currently some of marketing campaigns are published with OpBox.
+The solution has been battle-tested, so we are planning to migrate more Allegro pages into OpBox components.
+We hope to share our OpBox project with open source community in near future.
