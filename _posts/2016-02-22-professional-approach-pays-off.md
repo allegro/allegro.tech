@@ -2,15 +2,15 @@
 layout: post
 title: Professional approach pays off
 author: rafal.bryk
-tags: [proffesional, programmer, software craftsmanship, agile]
+tags: [professional, programmer, software craftsmanship, agile]
 ---
 
-_It is a story about how professional approach to code can save you a lot of troubles. It is a story about passion for coding and how 
+_It is a story about how professional approach to coding can save you a lot of troubles. It is a story about passion for coding and how 
 it makes our products great. It is a story about carrying out an IT project by one of Allegro scrum teams as a fine example supported by 
 a set of case studies. Read it to learn how to deal with issues when carrying out an IT project._
 
 The start of the project saw the team very motivated and the pace of work was incredible. It almost felt like working in a start-up 
-environment. And you couldn’t wish for a more pleasant development with limited number of dependencies, greenfield, etc. Quite soon we 
+environment. And you couldn’t wish for more pleasant development with limited number of dependencies, greenfield, etc. Quite soon we 
 reached the stage that made us certain that the project could be accomplished. Moreover, we knew how to measure whether the whole thing 
 was profitable at all. The project’s plan involved a year or even two years of work. With this in mind, you want to treat the code 
 carefully. You know you will spend a lot of time working with it, so you want to make sure that each aspect of that code is done well. 
@@ -19,7 +19,7 @@ Developers know there are myriads of things to take care of in software developm
 > How to make the work easier?
 
 The approach adopted by the team required taking care of all the aspects of good software. It meant being able to introduce changes to 
-each bit of the product as in the case of the Extreme Programming (XP) methodology. XP approach advocates avoiding programming of features 
+every bit of the product as in the case of the Extreme Programming (XP) methodology. XP approach advocates avoiding programming of features 
 until they are actually needed, simplicity and clarity in code, so it fits our needs. It wasn’t reasonable to separate different project 
 stages, e.g. “in January we will work on solution architecture and when it’s done, we will move on to metrics in February”. Such solutions 
 merely pay off in such dynamic envioronment. That is why, I’ll indicate what we paid attention to in order to keep any problems at bay. So, 
@@ -27,7 +27,7 @@ let’s begin.
 
 ## From idea to development
 
-The first steps involved all the usual things developers like building the application and automatic testing. Repetitive actions 
+The first steps involved all the usual things, like building the application and automatic testing. Repetitive actions 
 transforming the code into an application were arduous from the very start. As it was a Java project, we found a lot of ready-to-use tools 
 and solutions that we could try out. The team selected the following testing frameworks: 
 [JUnit + JBehave](http://allegro.tech/2015/03/acceptance-testing-with-jbehave-and-gradle.html), with the Gradle + Bamboo support as it 
@@ -64,11 +64,11 @@ same time, nothing disturbed Allegro users. All of this could happen owing to pr
 Adjusting the number of recipients is not enough. If you want a product to be working, you need infrastructure that is adjusted to the 
 traffic expected. The first technical failures made us realize that the problem was serious. A manual mechanism for adjusting the amount 
 of hardware based on OpenStack, Puppet and NewRelic readings was another challenge for the team. Nonetheless, it allowed us to change the 
-product’s infrastructure quickly and we were a step closer to the process automation. The important lesson here was that when you develop 
+product’s infrastructure quickly and we were a step closer to process automation. The important lesson here was that when you develop 
 software, you can’t forget about hardware.
 
 Overwhelmed by technical issues, we couldn’t forget that the product was constantly running and 1% of users was in fact using it. But what 
-does using really mean in this particular context? How do users perceive the product? What do they click? How much time they need to 
+does using really mean in this particular context? How do users perceive the product? What do they click? How much time do they need to 
 perform a certain action? It was time to carry out some quantitative product analyses to understand how users use our product. Eventually, 
 we managed to notice some significant things with the help of NewRelic, Hadoop, Kibana and some 
 [internal tools](http://allegro.tech/2015/09/scaling-graphite.html). To examine the issue thoroughly, we carried out qualitative research 
