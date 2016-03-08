@@ -98,7 +98,7 @@ Everything is integrated by [Varnish Cache](https://www.varnish-cache.org) &mdas
 web application accelerator (a caching HTTP reverse proxy).
 
 Varnish and its [ESI LANG](https://www.w3.org/TR/esi-lang) features
-allows us to merge a lot of different parts of our platform into one website.
+allow us to merge a lot of different parts of our platform into one website.
 Therefore any page (or a page fragment) at Allegro
 can be a separate application/service.
 For example, main page is composed in the following way:
