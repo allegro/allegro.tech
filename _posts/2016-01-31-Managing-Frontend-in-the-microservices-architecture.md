@@ -384,12 +384,9 @@ By the way — now we can update our pages in your phone instantly ;) (without d
 
 #### OpBox Mobile Adapter
 We wanted to treat all rendering channels equally so we’re providing one REST API for retrieving page definitions from Core.
-Unfortunately mobile developers need the Core API to be accessible from public internet in a slightly different form.
-
-We’ve created a proxy (Mobile adapter) which transforms the Core API to the mobile friendly version.
-Its main responsibilities are: converting JSON to more concise form,
-cutting out any mobile-irrelevant data, adding deep linking feature and
-filtering all boxes that are not supported on mobile app.
+We’ve created an adapter which transforms the Core API to the mobile friendly version.
+Its main responsibilities are: converting JSON to more concise form, cutting out any mobile-irrelevant data,
+adding deep linking feature and filtering all boxes that are not supported on mobile app.
 
 #### OpBox Admin
 Simultaneously, we are developing an Admin application for page editors.
