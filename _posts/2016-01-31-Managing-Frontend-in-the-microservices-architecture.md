@@ -38,7 +38,7 @@ OpBox does the frontend magic so backend developers can focus on their job.
 Developing modern frontend isn’t easy, following aspects are involved:
 
 * Classical SOA-style data integration, often done by a dedicated service, called Backend for Frontends or Edge Service.
-* Managing frontend dependencies (JS, CSS scripts) required by various HTML fragments.
+* Managing frontend dependencies (JS, CSS, etc) required by various HTML fragments.
 * Allowing interactions between HTML fragments served by different services.
 * Consistent way of measuring users activities (traffic analytics).
 * Content customization.
@@ -344,7 +344,7 @@ For example:
         "name": "INTEGER"
       },
       "name": "id",
-      "description": "Meerkat articles identifiers",
+      "description": "article identifiers",
       "required": true
     }
   ],
@@ -370,7 +370,7 @@ From the Web renderer’s point of view, page rendering process can be decompose
 
 After all that work, requested page should appear in user’s browser.
 
-We’ve implemented Web renderer in ES6 on [NodeJS](https://nodejs.org/en/) platform.
+We’ve implemented Web renderer in [ES6](https://nodejs.org/en/docs/es6/) on [NodeJS](https://nodejs.org/en/) platform.
 Components are implemented as [NPM](https://www.npmjs.com/) packages and they are published to our
 internal [Artifactory](https://www.jfrog.com/artifactory/).
 
