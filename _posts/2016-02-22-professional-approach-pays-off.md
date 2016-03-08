@@ -2,7 +2,7 @@
 layout: post
 title: Professional approach pays off
 author: rafal.bryk
-tags: [tech, proffesional, programmer, software craftsmanship, agile]
+tags: [proffesional, programmer, software craftsmanship, agile]
 ---
 
 _It is a story about how professional approach to code can save you a lot of troubles. It is a story about passion for coding and how 
