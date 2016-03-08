@@ -6,7 +6,7 @@ tags: [tech, frontend, microservices, architecture]
 ---
 
 [Microservices](http://martinfowler.com/articles/microservices.html)
-are now mainstream approach for scalable systems architecture.
+are now the mainstream approach for scalable systems architecture.
 There is little controversy when we are talking about designing backend services.
 Well-behaved backend microservice should cover one
 [BoundedContext](http://martinfowler.com/bliki/BoundedContext.html)
