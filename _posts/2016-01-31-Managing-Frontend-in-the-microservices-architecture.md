@@ -14,7 +14,7 @@ and communicate over the REST API.
 Of course, a microservice should be loosely-coupled from its neighbours.
 
 Things gets complicated when we need to
-use microservices as building blocks for a fronted solution.
+use microservices as building blocks for a frontend solution.
 So how to build a consistent website or a mobile app
 on tens or sometimes hundreds of microservices?
 
@@ -29,7 +29,7 @@ Typically, to process one HTTP Requests sent by a user, we need do collect data 
 microservices.
 For example, when a user runs a search query on our site,
 we send him the Listing page.
-This page collects data from several services: AllegroHeader, Cart, Search, Category Tree, Listing, SEO, Recommendations.
+This page collects data from several services: AllegroHeader, Cart, Search, Category Tree, Listing, SEO, Recommendations, etc.
 Some of them provides only data (like Search) and some provides ready-to-serve HTML fragments (like AllegroHeader).
 
 Each service is maintained by a separate team.<br/>
@@ -93,7 +93,7 @@ and the New Solution, which goes more into the Monolith direction.
 ## Current approach at Allegro
 
 Nowadays at Allegro we have to struggle with the legacy, monolithic application
-(written on PHP) and with many new microservices (written mostly in Java).
+(written in PHP) and with many new microservices (written mostly in Java).
 Everything is integrated by [Varnish Cache](https://www.varnish-cache.org) &mdash;
 web application accelerator (a caching HTTP reverse proxy).
 
@@ -332,7 +332,7 @@ Rendered Showcase Box:
 ![rendered showcase box](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/showcase_box.png "rendered showcase box")
 
 **Data-source type** is our way to specify underlying backend microservice.
-It contains: service URL in Service Discovery, input parameters, timeout and cashing configuration.
+It contains: service URL in Service Discovery, input parameters, timeout and caching configuration.
 For example:
 
 ```json
