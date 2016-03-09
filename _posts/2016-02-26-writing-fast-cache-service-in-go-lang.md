@@ -164,9 +164,9 @@ A quick search provided us with a solution called [ffjson](https://github.com/pq
 
 ffjson documentation claims it’s 2-3 times faster than standard `json.Unmarshal`, and also uses less memory to do it.
 
------------------------------|-------------|-----------|--------------|
-BenchmarkJsonUnmarshal-4     | 16154 ns/op | 1875 B/op | 37 allocs/op |
-BenchmarkFastJsonUnmarshal-4 | 8417 ns/op  | 1555 B/op | 31 allocs/op |
+--------|-------------|-----------|--------------|
+json    | 16154 ns/op | 1875 B/op | 37 allocs/op |
+ffjson  | 8417 ns/op  | 1555 B/op | 31 allocs/op |
 
 Our tests confirmed ffjson was nearly 2 times faster and performed less allocation than built-in unmarshaler. How was it possible to achieve this?
 
@@ -174,14 +174,15 @@ Firstly, to full use features of ffjson we needed to generate unmarshaller for o
 and fills objects with data. If you take a look at [JSON grammar](http://www.json.org/) you will discover it’s really simple.
 ffjson take advantage of knowing exactly what a struct looks like, parses only fields specified in the struct and fail fast whenever error occurs.
 Standard marshaler uses expensive reflection calls to obtain struct definition at runtime.
-Another optimization is reduction of unnecessary error checks. `json.Unmarshal` will fail faster performing fewer allocs, but still it’s slower:
+Another optimization is reduction of unnecessary error checks. `json.Unmarshal` will fail faster performing fewer allocs, and skipping reflection calls.
 
---------------------------------|------------|-----------|--------------|
-BenchmarkJsonErrUnmarshal-4    	| 8203 ns/op | 1663 B/op | 17 allocs/op |
-BenchmarkFastJsonErrUnmarshal-4	| 5956 ns/op | 1554 B/op | 31 allocs/op |
+-------|------------|-----------|--------------|
+json   | 1027 ns/op | 384 B/op  |  9 allocs/op |
+ffjson | 2598 ns/op | 528 B/op  | 13 allocs/op |
 
 More information about how ffjson works can be found here
 [ffjson-faster-json-in-go](https://journal.paul.querna.org/articles/2014/03/31/ffjson-faster-json-in-go/).
+Benchmarks are available [here](https://gist.github.com/janisz/8b20eaa1197728e09d6a)
 
 ## Final results
 
