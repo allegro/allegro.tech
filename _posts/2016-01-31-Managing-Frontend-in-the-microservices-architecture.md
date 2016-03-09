@@ -10,9 +10,7 @@ are now the mainstream approach for scalable systems architecture.
 There is little controversy when we are talking about designing backend services.
 Well-behaved backend microservice should cover one
 [BoundedContext](http://martinfowler.com/bliki/BoundedContext.html)
-and communicate over the REST API.
-Of course, a microservice should be loosely-coupled from its neighbours.
-
+and communicate over the REST API. <br/>
 Things gets complicated when we need to
 use microservices as building blocks for a frontend solution.
 So how to build a consistent website or a mobile app
@@ -30,31 +28,32 @@ microservices.
 For example, when a user runs a search query on our site,
 we send him the Listing page.
 This page collects data from several services: AllegroHeader, Cart, Search, Category Tree, Listing, SEO, Recommendations, etc.
-Some of them provides only data (like Search) and some provides ready-to-serve HTML fragments (like AllegroHeader).
+Some of them provide only data (like Search) and some provide ready-to-serve HTML fragments (like AllegroHeader).
 
 Each service is maintained by a separate team.<br/>
 OpBox does the frontend magic so backend developers can focus on their job.
 
 Developing modern frontend isn’t easy, following aspects are involved:
 
-* Classical SOA-style data integration, often done by a dedicated service, called Backend for Frontends or Edge Service.
-* Managing frontend dependencies (JS, CSS, etc) required by various HTML fragments.
+* Classical SOA-style data integration, often done by a dedicated service, called
+  [Backend for Frontends](http://samnewman.io/patterns/architectural/bff/) or Edge Service.
+* Managing frontend dependencies (JS, CSS, etc.) required by various HTML fragments.
 * Allowing interactions between HTML fragments served by different services.
 * Consistent way of measuring users activities (traffic analytics).
 * Content customization.
 * Providing tools for A/B testing.
 * Handling errors and slow responses from backend services.
 * There are many frontend devices: web browser, mobile... Smart TV and PlayStation® are waiting in the queue.
-* Offering excellent UX to all users (omnichannel).
+* Offering excellent UX to all users ([omnichannel](https://en.wikipedia.org/wiki/Multichannel_retailing)).
 
-And the last 2 things are most important and most challenging.
+And the last two things are most important and most challenging.
 It means that your frontend applications should be consistent, well integrated and *smooth*.
-Event if they shouldn’t necesserily be monolithic they should *look like* a monolith.
+Event if they shouldn’t necessarily be monolithic they should *look like* a monolith.
 
 I give you one example from Spotify.
 You can listen to the music on a TV set using PS4 Spotify app.
-Then you can switch to Spotify app runnign on your laptop.
-Both apps give you similar *look an feel*.
+Then you can switch to Spotify app running on your laptop.
+Both apps give you similar *look and feel*.
 Not bad, but do you know that you can control what PS4 plays
 by clicking on your laptop? It just works, that’s really impressive.
 
@@ -66,7 +65,7 @@ There are two opposite approaches to modern frontend architecture.
 </ol>
 
 **Monolith approach** is dead simple: one frontend team creates and maintains one frontend application,
-which gathers data from backend services using REST API. This approach have one huge advantage, if done right,
+which gathers data from backend services using REST API. This approach has one huge advantage, if done right,
 provides excellent user experience. Main disadvantage is that it doesn’t scale well. In a big company,
 with many development teams,
 single frontend team could become a development bottleneck.
@@ -80,7 +79,7 @@ but also provides endpoint which serves HTML fragment with their *piece of front
 Then, HTML page is assembled using some low level server-side includes technology like ESI tags.
 
 This approach scales well, but the big disadvantage is lack of consistency on the user side.
-Seams between page fragments becomes visible, number of page-level interactions is limited.
+Seams between page fragments becomes visible, page-level interactions are limited.
 Even in page scope, each page fragment may look, or even worse, behave in a different way.
 Pretty much like the Frankenstein monster.
 
@@ -271,7 +270,7 @@ and the most tough work — fetching data from backend services. That’s the co
 Boxes.
 
 We’ve put a lot of effort to make Core high performing, fault-tolerant and asynchronous.
-We’ve chose Java and Groovy to implement it.
+We’ve chosen Java and Groovy to implement it.
 Core is the only gateway for frontend renderers to our internal backend services.
 
 **Box types** <br/>
@@ -355,7 +354,7 @@ For example:
 ```
 
 #### OpBox Web renderer
-Web renderer is responsible for handling HTTP request.
+Web renderer is responsible for handling HTTP requests.
 From the Web renderer’s point of view, page rendering process can be decomposed into the following steps:
 
 * HTTP request for a given URL is received.
@@ -363,11 +362,9 @@ From the Web renderer’s point of view, page rendering process can be decompose
 * OpBox Core sends a page definition which contains page matadata and the Boxes tree.
   Each Box is filled with data gathered by Core from backend microservices.
 * Web renderer traverses the Boxes tree and for each Box:
-* Proper component implementation is found in our internal repository (matched by the Box type name).
-* Component’s `render()` function is called with box parameters passed as an argument.
-* `render()` result is appended to the HTTP response.
-
-After all that work, requested page should appear in user’s browser.
+  * Proper component implementation is found in our internal repository (matched by the Box type name).
+  * Component’s `render()` function is called with box parameters passed as an argument.
+  * `render()` result is appended to the HTTP response.
 
 We’ve implemented Web renderer in [ES6](https://nodejs.org/en/docs/es6/) on [NodeJS](https://nodejs.org/en/) platform.
 Components are implemented as [NPM](https://www.npmjs.com/) packages and they are published to our
