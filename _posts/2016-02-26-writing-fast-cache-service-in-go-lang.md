@@ -74,16 +74,16 @@ However other [goroutines](https://gobyexample.com/goroutines) which would also 
 To eliminate this problem, shards could be applied. The idea behind shards is straight forward. Array of N shards is created,
 each shard contains it’s own instance of the cache with a lock. When an item with unique key needs to be cached a
 shard for it is chosen in of first by the function `hash(key) % N`. After that cache lock is acquired and a write to the cache takes place.
-Item reads are analogical. When number of shards is relatively high and the hash function returns
-properly distributed numbers for unique keys then waits on the locks can be minimized almost zero.
+Item reads are analogue. When number of shards is relatively high and the hash function returns
+properly distributed numbers for unique keys then the locks’ contention can be minimized almost to zero.
 This is the reason why we have decided to shards in cache.
 
 ### Eviction
-The simplest way to evict elements from the cache is to use it together with queue.
+The simplest way to evict elements from the cache is to use it together with [FIFO](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) queue.
 When an entry to the cache is added then two additional operations take place:
 
 1. Entry with its key and creation timestamp are added to the end of queue.
-2. The oldest element is read from queue. Its creation timestamp are compared with current.
+2. The oldest element is read from queue. Its creation timestamp is compared with current time.
    When it is later than eviction time, the element from the queue is removed together with its corresponding entry in the cache.
 
 Eviction is performed during writes to the cache since the lock is already acquired.
@@ -105,7 +105,7 @@ But there was another way to omit GC for cache entries and it was related with o
 without pointers in keys and values then GC will omit it. It is a way to stay on heap and to omit GC for entries in the map.
 Although it is not the end of the solution because basically everything in Go is built on pointers:
 structs, slices, even fixed arrays. Only primitives like int, bool don’t touch pointers. So what could we do with `map[int]int`?
-Since we already generated hashed key in order to pick up proper shard with cache (described in [Concurrency](#concurrency))
+Since we already generated hashed key in order to pick up proper shard from the cache (described in [Concurrency](#concurrency))
 we would reuse them as keys in our `map[int]int`. But what about values of type int? What information could we keep as int?
 We could keep addresses to proper entries. Another question is where those entries could be kept in order to omit GC again?
 A huge array of bytes could be allocated and entries could be serialized to bytes and kept in it. In this respect,
