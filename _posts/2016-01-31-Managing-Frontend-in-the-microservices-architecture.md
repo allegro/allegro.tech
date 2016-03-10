@@ -13,7 +13,7 @@ Well-behaved backend microservice should cover one
 and communicate over the REST API. <br/>
 Things get complicated when we need to
 use microservices as building blocks for a frontend solution.
-How to build a consistent website or a mobile app
+So how to build a consistent website or a mobile app
 using tens or sometimes hundreds of microservices?
 
 In this post we describe our current web frontend approach
