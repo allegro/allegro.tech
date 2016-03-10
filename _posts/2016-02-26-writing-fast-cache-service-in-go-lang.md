@@ -82,7 +82,7 @@ This is the reason why we decided to use shards in the cache.
 The simplest way to evict elements from the cache is to use it together with [FIFO](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) queue.
 When an entry is added to the cache then two additional operations take place:
 
-1. Entry with its key and creation timestamp is added at the end of the queue.
+1. An entry containing a key and a creation timestamp is added at the end of the queue.
 2. The oldest element is read from the queue. Its creation timestamp is compared with current time.
    When it is later than eviction time, the element from the queue is removed together with its corresponding entry in the cache.
 
