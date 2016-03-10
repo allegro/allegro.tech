@@ -43,12 +43,12 @@ In simple words, our task was to write a fast, dictionary with expiration and RE
 ## Why Go?
 
 Most microservices at our company are written in Java or another JVM based language, some in Python.
-We also have monolithic, legacy platform written in PHP but we don’t touch it unless we have to.
+We also have monolithic, legacy platform written in PHP but we do not touch it unless we have to.
 We already know those technologies but we are open to exploring a new one.
 Our task could be realized in any language, therefore we decided to write it in Go.
 
 Go has been available for a while now, backed by [a big company](https://www.google.pl/) and a growing community of users.
-It’s advertised as a compiled, concurrent, imperative, structured programming language. It also has managed memory,
+It is advertised as a compiled, concurrent, imperative, structured programming language. It also has managed memory,
 so it looks safer and easier to use than C/C++. We have quite good experience with tools written in Go and decided to use it here.
 We have one [open source project in Go](https://github.com/allegro/marathon-consul/#marathon-consul-),
 now we wanted to know how Go handles big traffic. We believed the whole project would take less than 100 lines of code and be fast
@@ -72,7 +72,7 @@ Our service would receive many requests concurrently, so we needed to provide co
 The easy way to achieve that would be to put `sync.RWMutex` in front of the cache access function to ensure that only one goroutine could modify it at a time.
 However other [goroutines](https://gobyexample.com/goroutines) which would also like to make modifications to, it would be blocked, making it a bottleneck.
 To eliminate this problem, shards could be applied. The idea behind shards is straightforward. Array of N shards is created,
-each shard contains it’s own instance of the cache with a lock. When an item with unique key needs to be cached a
+each shard contains its own instance of the cache with a lock. When an item with unique key needs to be cached a
 shard for it is chosen in of first by the function `hash(key) % N`. After that cache lock is acquired and a write to the cache takes place.
 Item reads are analogue. When number of shards is relatively high and the hash function returns
 properly distributed numbers for unique keys then the locks’ contention can be minimized almost to zero.
@@ -104,7 +104,7 @@ But there was another way to omit GC for cache entries, and it was related to op
 ([issue-9477](https://github.com/golang/go/issues/9477)). This optimization states that if you use a map
 without pointers in keys and values, then GC will omit it. It is a way to stay on heap and to omit GC for entries in the map.
 Although it is not the final solution because basically everything in Go is built on pointers:
-structs, slices, even fixed arrays. Only primitives like int, bool don’t touch pointers. So what could we do with `map[int]int`?
+structs, slices, even fixed arrays. Only primitives like int, bool do not touch pointers. So what could we do with `map[int]int`?
 Since we already generated hashed key in order to pick up proper shard from the cache (described in [Concurrency](#concurrency))
 we would reuse them as keys in our `map[int]int`. But what about values of type int? What information could we keep as int?
 We could keep offset of entries. Another question is where those entries could be kept in order to omit GC again?
@@ -131,14 +131,14 @@ the first 7 letters and it works fine for us.
 
 When we started development, Go 1.6 was in RC. Our first effort to reduce request handling time was to update to the latest RC version.
 In our case performance was nearly the same. We started searching for something more efficient and we found
-[fasthttp](https://github.com/valyala/fasthttp). It’s a library providing zero alloc HTTP server. According to documentation, it
-tends to be 10 times faster than standard HTTP handler in synthetic tests. During our tests it turned out it’s only 1.5 times faster,
-but still it’s better!
+[fasthttp](https://github.com/valyala/fasthttp). It is a library providing zero alloc HTTP server. According to documentation, it
+tends to be 10 times faster than standard HTTP handler in synthetic tests. During our tests it turned out it is only 1.5 times faster,
+but still it is better!
 
 fasthttp achieves its performance by reducing work that is done by HTTP Go package. For example:
 
-* it limits request lifetime to the time when it’s actually handled
-* headers are lazily parsed (we really don’t need headers)
+* it limits request lifetime to the time when it is actually handled
+* headers are lazily parsed (we really do not need headers)
 
 Unfortunately, fasthttp is not a real replacement for standard http.
 It doesn’t support routing or HTTP/2 and claim that could not support all HTTP edge cases.
@@ -163,7 +163,7 @@ so incorporating a new protocol was out of scope for this task (but we are consi
 as we did for [Kafka]( http://allegro.tech/2015/08/spark-kafka-integration.html)). We decided to stick with JSON.
 A quick search provided us with a solution called [ffjson](https://github.com/pquerna/ffjson).
 
-ffjson documentation claims it’s 2-3 times faster than standard `json.Unmarshal`, and also uses less memory to do it.
+ffjson documentation claims it is 2-3 times faster than standard `json.Unmarshal`, and also uses less memory to do it.
 
 --------|-------------|-----------|--------------|
 json    | 16154 ns/op | 1875 B/op | 37 allocs/op |
@@ -172,7 +172,7 @@ ffjson  | 8417 ns/op  | 1555 B/op | 31 allocs/op |
 Our tests confirmed ffjson was nearly 2 times faster and performed less allocation than built-in unmarshaler. How was it possible to achieve this?
 
 Firstly, In order to benefit from all features of ffjson we needed to generate unmarshaller for our struct. Generated code is in fact a parser that scans bytes,
-and fills objects with data. If you take a look at [JSON grammar](http://www.json.org/) you will discover it’s really simple.
+and fills objects with data. If you take a look at [JSON grammar](http://www.json.org/) you will discover it is really simple.
 ffjson take an advantage of knowing exactly what a struct looks like, parses only fields specified in the struct and fail fast whenever error occurs.
 Standard marshaler uses expensive reflection calls to obtain struct definition at runtime.
 Another optimization is reduction of unnecessary error checks. `json.Unmarshal` will fail faster performing fewer allocs, and skipping reflection calls.
@@ -203,7 +203,7 @@ Final results in isolation, with the same setup as described above.
 
 ## Summary
 
-If you don’t need high performance, stick to the standard libs. They are guaranteed to be maintained, and have backward compatibility,
+If you do not need high performance, stick to the standard libs. They are guaranteed to be maintained, and have backward compatibility,
 therefore upgrading Go version should be smooth.
 
 Our cache service written in Go finally met our requirements. However, we needed to write our own version of in-memory cache which is concurrent,
