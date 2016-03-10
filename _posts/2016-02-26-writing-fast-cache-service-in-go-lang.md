@@ -176,9 +176,9 @@ ffjson take advantage of knowing exactly what a struct looks like, parses only f
 Standard marshaler uses expensive reflection calls to obtain struct definition at runtime.
 Another optimization is reduction of unnecessary error checks. `json.Unmarshal` will fail faster performing fewer allocs, and skipping reflection calls.
 
--------|------------|-----------|--------------|
-json   | 1027 ns/op | 384 B/op  |  9 allocs/op |
-ffjson | 2598 ns/op | 528 B/op  | 13 allocs/op |
+----------------------|------------|-----------|--------------|
+json (invalid json)   | 1027 ns/op | 384 B/op  |  9 allocs/op |
+ffjson (invalid json) | 2598 ns/op | 528 B/op  | 13 allocs/op |
 
 More information about how ffjson works can be found here
 [ffjson-faster-json-in-go](https://journal.paul.querna.org/articles/2014/03/31/ffjson-faster-json-in-go/).
