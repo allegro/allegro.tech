@@ -7,7 +7,7 @@ tags: [tech, cache, service, golang, go, bigcache]
 
 Recently our team has been tasked to write a very fast cache service. The goal was pretty clear but possible to achieve in many ways.
 Finally we decided to try something new and implement the service in [Go](https://golang.org/).
-We would like to described how we did it and what values come from that.
+We would like to describe how we did it and what values come from that.
 
 ## Table of contents:
 1. [Requirements](#requirements)
@@ -82,7 +82,7 @@ This is the reason why we decided to shards in cache.
 The simplest way to evict elements from the cache is to use it together with [FIFO](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) queue.
 When an entry to the cache is added then two additional operations take place:
 
-1. Entry with its key and creation timestamp is added at the end of queue.
+1. Entry with its key and creation timestamp is added at the end of the queue.
 2. The oldest element is read from the queue. Its creation timestamp is compared with current time.
    When it is later than eviction time, the element from the queue is removed together with its corresponding entry in the cache.
 
