@@ -7,7 +7,7 @@ tags: [professional, programmer, software craftsmanship, agile]
 
 _It is a story about how professional approach to coding can save you a lot of troubles. It is a story about passion for coding and how 
 it makes our products great. It is a story about carrying out an IT project by one of Allegro scrum teams as a fine example supported by 
-a set of case studies. Read it to learn how to deal with issues when carrying out an IT project._
+a set of case studies. Read it to inspire yourself how some of the issues can be dealt with_
 
 The start of the project saw the team very motivated and the pace of work was incredible. It almost felt like working in a start-up 
 environment. And you couldn’t wish for more pleasant development with limited number of dependencies, greenfield, etc. Quite soon we 
