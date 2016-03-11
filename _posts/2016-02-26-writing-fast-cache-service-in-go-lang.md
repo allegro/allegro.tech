@@ -28,7 +28,7 @@ According to the requirements we received, our service should:
 * use HTTP protocol to handle requests
 * handle 10k rps (5k for writes, 5k for reads)
 * cache entries for at least 10 minutes
-* serve responses measured within (measured without time spent on the network) below than
+* server responses time (without time spent on the network) lower than
     * 5ms --  mean
     * 10ms for 99.9th percentile
     * 400ms for 99.999th percentile
@@ -171,7 +171,7 @@ ffjson  | 8417 ns/op  | 1555 B/op | 31 allocs/op |
 
 Our tests confirmed ffjson was nearly 2 times faster and performed less allocation than built-in unmarshaler. How was it possible to achieve this?
 
-Firstly, In order to benefit from all features of ffjson we needed to generate an unmarshaller for our struct. Generated code is in fact a parser that scans bytes,
+Firstly, in order to benefit from all features of ffjson we needed to generate an unmarshaller for our struct. Generated code is in fact a parser that scans bytes,
 and fills objects with data. If you take a look at [JSON grammar](http://www.json.org/) you will discover it is really simple.
 ffjson takes advantage of knowing exactly what a struct looks like, parses only fields specified in the struct and fails fast whenever an error occurs.
 Standard marshaler uses expensive reflection calls to obtain struct definition at runtime.
