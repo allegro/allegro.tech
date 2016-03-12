@@ -175,7 +175,7 @@ Box is a high-level abstraction. It joins two things:
 
 **Conditional content**<br/>
 Boxes can be rendered conditionally as a way to provide content customization.
-Various types od conditions are implemented:
+Various types of conditions are implemented:
 
 * date from/to condition,
 * A/B test condition,
