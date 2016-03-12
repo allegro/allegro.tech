@@ -108,14 +108,15 @@ Varnish really hit the bull’s-eye.
 
 Below, we describe one page fragment, included in each page &mdash; the AllegroHeader.
 
-**Allegro Header** is a service that returns complete HTML/JS/CSS application — so it can be easily included
-as the varnish ESI tag at the beginning of any webpage. Under the hood it collects data from few other services
-like category service or cart service. It integrates search box and it’s responsible for top level messages
+**AllegroHeader** is a service that returns a complete, self-contained page fragment along with
+all needed JS and CSS files — so it can be easily included
+using the ESI tag at the beginning of any webpage. Under the hood it collects data from a few other services
+like category service or cart service. It integrates the search box and it’s responsible for top level messages
 (cookies policy warning, under maintenance banner).
 
 ### What has gone wrong?
 
-Each page fragment comes with its own set of frontend assets: CSS, JS scripts, fonts and images.
+Each page fragment comes with its own set of frontend assets: CSS, JavaScripts, fonts and images.
 At the page level, it sometimes leads to duplications and version conflicts.
 Many page fragments depend implicitly on assets provided by the AllegroHeader.
 
@@ -129,15 +130,15 @@ flexible, scalable and easy to develop but unfortunately, it’s hard to maintai
 Moreover, because every page fragment is a separate web application, it’s really hard to ensure
 consistent look and feel on the website level.
 
-We just had to think a better way...
+We just had to think of a better way...
 
 ## OpBox project &mdash; the New Frontend solution
 
 So Box is the main concept in our solution. What is Box after all?
 
-* Box is reusable, high-level frontend component.
+* Box is a reusable, high-level frontend component.
 * Box is feedable from a REST/JSON data source.
-* Box can have slots, in each slot, you can put more Boxes.
+* Box can have slots. In each slot you can put more Boxes.
 * Box can be rendered conditionally (for example, depending on A/B test variant).
 * Page is assembled from Boxes.
 
@@ -160,20 +161,20 @@ Each page is assembled from boxes like AllegroHeader, ShowCase, OfferList, Tabs.
 Boxes are configured to show required content, typically provided via REST API by backend services.
 
 **Separating View from Data Sources**<br/>
-Box is a high-level abstraction, it joins two things:
+Box is a high-level abstraction. It joins two things:
 
-  * Frontend design (often referred as a View).
+  * Frontend design (often referred to as a View).
     Concrete View implementation is called *frontend component*.
     For example, our ShowCase box has two frontend implementations: Web and Mobile.
   * Data-source (REST service) which feeds data for frontend components.
-    One component can be feeded by any data-source as soon as its API matches the Box contract.
-    For example, Offer component knows how to present nice offer box
+    One component can be fed by any data-source as soon as its API matches the Box contract.
+    For example, Offer component knows how to present a nice offer box
     with offer title, price, image and so on.
     Since Offer component is decoupled from backends by the Box contract abstraction,
     it can show offers from many sources: Recommendations, Listing or Ads services.
 
 **Conditional content**<br/>
-Boxes can be rendered conditionally, this is the way to content customization.
+Boxes can be rendered conditionally as a way to provide content customization.
 Various types od conditions are implemented:
 
 * date from/to condition,
@@ -182,23 +183,23 @@ Various types od conditions are implemented:
 
 For example, page editor can prepare two versions of given box,
 one for male users and another for female users.
-In runtime, when page is rendered, users gender is identified
-and one of these two boxed is pruned from the boxes tree.
+At runtime, when page is rendered, user’s gender is identified
+and one of these two boxes is pruned from the boxes tree.
 
 **Consistent traffic analytics**<br/>
 Basic traffic analytics is easy to achieve. It’s enough to include a tracking script in
-the page footer. When a page is opened by a user, the script reports Page View event.
+the page footer. When a page is opened by a user, the script reports a PageView event.
 
 What we need is fine-grained data:
 
-* Box View event &mdash; when box is shown in a browser viewport.
-* Box Click event &mdash; when users clicks on a link which navigates him from one box to another
-  (for example Recommendation Box can emmit Box Click event when users clicks
-  on of the recommended products).
+* BoxView event &mdash; when box is shown in a browser viewport.
+* BoxClick event &mdash; when users click on a link which navigates them from one box to another
+  (for example Recommendation Box can emmit a BoxClick event when users click
+  on one of the recommended products).
 
-Once we have these data, we can calculate click-through rate ([CTR](https://en.wikipedia.org/wiki/Click-through_rate)).
+Once we have this data, we can calculate click-through rate ([CTR](https://en.wikipedia.org/wiki/Click-through_rate)).
 for each box.
-CTR is valuable information for page editors, it helps them to decide
+CTR is valuable information for page editors as it helps them to decide
 which boxes should be promoted and which should be removed from a page.
 
 **Multi-frontend**<br/>
@@ -219,7 +220,7 @@ They can treat OpBox Core as the single point of contact and the facade to vario
 
 **Future: component Event Bus**<br/>
 There are many use cases when we want Boxes to interact with each other.
-For example, our Search page lets user to search through offers available on Allegro.
+For example, our Search page lets user search through offers available on Allegro.
 Search results are shown by the Listing box.
 Below we have Recommendations box which shows some offers, possibly related with the search query.
 
@@ -227,13 +228,13 @@ What if we would like to remove an offer from Recommendations box when it
 happens to be already shown by Listing box?
 One of the possible solutions is to implement such interactions at the frontend side.
 
-Desired solution would let rendered Boxes to talk with each other via a
+Desired solution would let rendered Boxes to talk to each other via a
 publish-subscribe message bus, e.g.:
 
 “Hi, I’m Listing box, I’ve just arrived to a client’s browser to show offers A, C and X.”<br/>
 “Hi, I’m Recommendations box,
  I’m here for a while and I’m showing offers D, E and X. Ouch! Looks like I’m supposed
- to replace X with something more decent.”
+ to replace X with something different.”
 
 **Future: dependency management**<br/>
 Each page is assembled from frontend components developed by different
@@ -242,8 +243,8 @@ Since we don’t force frontend developers to use any particular technology,
 each component requires its own dependency set of various kind:
 CSS, JS libraries, fonts and so on.
 
-Reconciliation of all of those dependency sets is kind of advanced topic,
-to be honest, we don’t have well-thought-out plan for this yet.
+Reconciliation of all of those dependency sets is kind of advanced topic and
+to be honest, we don’t have any well-thought-out plan for this yet.
 
 ### How we did it
 
@@ -255,17 +256,17 @@ As you can see below, it consists of four sub-systems: Core, Web, Admin and Mobi
 </p>
 
 #### OpBox Core
-OpBox Core primary responsibility is serving page definitions for frontend renderers.
+Primary responsibility of OpBox Core is serving page definitions for frontend renderers.
 Moreover, Core provides an API to OpBox Admin for page management (creating, editing, publishing).
 
 Core is the only stateful service in the OpBox family.
-It stores pages definitions in MongoDB and box *types* in Git (box types are explained below).
+It stores page definitions in MongoDB and box *types* in Git (box types are explained below).
 
 Since Core is responsible for serving page definitions it also manages the page routing
-and the most tough work — fetching data from backend services. That’s the content to be injected into
+and the toughest work — fetching data from backend services. That’s the content to be injected into
 Boxes.
 
-We’ve put a lot of effort to make Core high performing, fault-tolerant and asynchronous.
+We’ve put a lot of effort into making Core high-performing, fault-tolerant and asynchronous.
 We’ve chosen Java and Groovy to implement it.
 Core is the only gateway for frontend renderers to our internal backend services.
 
@@ -367,18 +368,18 @@ Components are implemented as [NPM](https://www.npmjs.com/) packages and they ar
 internal [Artifactory](https://www.jfrog.com/artifactory/).
 
 #### OpBox Mobile renderer library
-One of our requirements was mobile platforms support, so we’ve created an Android library for rendering pages
+One of our requirements was support for mobile platforms. We’ve created an Android library for rendering pages
 in the same way as Web renderer does but using native mobile code.
-When OpBox editor creates a web page he doesn’t have to care about it’s mobile version.
+When OpBox editor creates a web page he doesn’t have to care about its mobile version.
 His page should be available both on website and on mobile app.
 
-This way mobile developers can improve user experience using the same components definitions.
+This way mobile developers can improve user experience using the same component definitions.
 By the way — now we can update our pages in your phone instantly ;) (without deploying the new version of the mobile app)
 
 #### OpBox Mobile Adapter
 We wanted to treat all rendering channels equally so we’re providing one REST API for retrieving page definitions from Core.
 We’ve created an adapter which transforms the Core API to the mobile friendly version.
-Its main responsibilities are: converting JSON to more concise form, cutting out any mobile-irrelevant data,
+Its main responsibilities are: converting JSON to more concise form, filtering out any mobile-irrelevant data,
 adding deep linking feature and filtering all boxes that are not supported on mobile app.
 
 #### OpBox Admin
@@ -390,10 +391,10 @@ they manage page routing and publication criteria.
 
 We’ve implemented OpBox Admin using ES6, NodeJS and [React](https://facebook.github.io/react/).
 
-Here you go a sample screen of our Admin GUI:
+Here you can see the sample screen of our Admin GUI:
 ![opbox admin](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-admin.png "Obpox Admin")
 
 ### Final thoughts
-Currently some of marketing campaigns are published with OpBox.
+Currently some of our marketing campaigns are published with OpBox.
 The solution has been battle-tested and we are planning to migrate more Allegro pages into OpBox components.
-We hope to share our OpBox project with open source community in near future.
+We hope to share our OpBox project with the open source community in near future.
