@@ -98,7 +98,7 @@ Therefore any page (or a page fragment) at Allegro
 can be a separate application.
 For example, main page is composed in the following way:
 
-![ESI Page Example](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/allegro_esi_homepage.png "esi page example")
+![ESI Page Example](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/allegro_esi_homepage.jpg "esi page example")
 
 Our Varnish farm also defines and greatly improves our overall performance.
 Varnish servers are exposed to users and they cache all requests for static content.
@@ -323,7 +323,7 @@ Showcase data parameter type:
 
 Rendered Showcase Box:
 
-![rendered showcase box](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/showcase_box.png "rendered showcase box")
+![rendered showcase box](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/showcase_box.jpg "rendered showcase box")
 
 **Data-source type** is our way to specify underlying backend microservice.
 It contains: service URL in Service Discovery, input parameters, timeout and caching configuration.
