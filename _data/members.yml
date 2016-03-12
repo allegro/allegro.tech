@@ -25,8 +25,8 @@ michal.kosmulski:
 
 bartosz.walacik:
     name: Bartosz Walacik
-    bio: Software engineer with 15+ years of professional experience. He focused on lightweight and modern technologies around JVM. At Allegro, he works as a development team leader. [JaVers](http://javers.org) project lead. Spock advocate. Editor in chief of [allegro.tech/blog](http://allegro.tech/).
-    twitter: bartoszwalacik
+    bio: Software engineer with 15+ years of professional experience. He focuses on lightweight and modern technologies around JVM. At Allegro, he works as a development team leader. [JaVers](http://javers.org) project lead. Spock advocate. Editor in chief of [allegro.tech/blog](http://allegro.tech/).
+    twitter: BartoszWalacik
     github: bartoszwalacik
 
 andrzej.winnicki:
@@ -103,6 +103,7 @@ krzysztof.debski:
 bartosz.galek:
     name: Bartosz Gałek
     bio: Software Developer at Allegro, engineer with devops flavor. Believes that there is always a place for improvement; likes to try new technologies and languages. Open source fan and occasional contributor.
+    github: bgalek
 
 bartlomiej.ignasiak:
     name: Bartłomiej Ignasiak
@@ -271,6 +272,12 @@ mateusz.sulima:
     bio: Mateusz has been working as a Scala developer at Allegro Group in a recommendation platform team for a year. Earlier he worked as Node.js, Java and Python developer. His interests focus on performance and consistency problems in distributed systems.
     twitter: MateuszSulima
     github: msulima
+
+pawel.wieladek:
+    name: Paweł Wielądek
+    bio: Paweł works in Allegro as a front-end developer. Modern JavaScript enthusiast, especially ES6 and React. He believes that usability and reliability is as important as appearance and user experience.
+    twitter: pawelwieladek
+    github: pawelwieladek
 
 krzysztof.cienkosz:
     name: Krzysztof Cienkosz
