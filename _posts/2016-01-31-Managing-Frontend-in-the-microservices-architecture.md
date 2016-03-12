@@ -20,66 +20,62 @@ In this post we describe our current web frontend approach
 and the new one, meant as a small revolution.
 
 ## Doing frontend in the microservices world is tricky
-Our users don’t care how good we are in dividing our backend into microservices.
-The question is how good we are in integrating them in a user’s browser.
+Our users don’t care how good we are at dividing our backend into microservices.
+The question is how good we are at integrating them in a user’s browser.
 
-Typically, to process one HTTP Requests sent by a user, we need do collect data from many
+Typically, to process one HTTP request sent by a user, we need to collect data from many
 microservices.
-For example, when a user runs a search query on our site,
-we send him the Listing page.
+For example, when a user runs a search query on our site, we send him the Listing page.
 This page collects data from several services: AllegroHeader, Cart, Search, Category Tree, Listing, SEO, Recommendations, etc.
 Some of them provide only data (like Search) and some provide ready-to-serve HTML fragments (like AllegroHeader).
+Each service is maintained by a separate team with various frontend skills.
 
-Each service is maintained by a separate team.<br/>
-OpBox does the frontend magic so backend developers can focus on their job.
-
-Developing modern frontend isn’t easy, following aspects are involved:
+Developing modern frontend isn’t easy. Following aspects are involved:
 
 * Classical SOA-style data integration, often done by a dedicated service, called
   [Backend for Frontends](http://samnewman.io/patterns/architectural/bff/) or Edge Service.
 * Managing frontend dependencies (JS, CSS, etc.) required by various HTML fragments.
 * Allowing interactions between HTML fragments served by different services.
-* Consistent way of measuring users activities (traffic analytics).
+* Consistent way of measuring users’ activities (traffic analytics).
 * Content customization.
-* Providing tools for A/B testing.
+* Providing tools for [A/B testing](https://en.wikipedia.org/wiki/A/B_testing).
 * Handling errors and slow responses from backend services.
 * There are many frontend devices: web browser, mobile... Smart TV and PlayStation® are waiting in the queue.
 * Offering excellent UX to all users ([omnichannel](https://en.wikipedia.org/wiki/Multichannel_retailing)).
 
-And the last two things are most important and most challenging.
-It means that your frontend applications should be consistent, well integrated and *smooth*.
-Event if they shouldn’t necessarily be monolithic they should *look like* a monolith.
+The last two things are most important and most challenging.
+This means that your frontend applications should be consistent, well integrated and *smooth*.
+Even if they shouldn’t necessarily be monolithic they should *look like* a monolith.
 
-I give you one example from Spotify.
+Let me give you an example from Spotify.
 You can listen to the music on a TV set using PS4 Spotify app.
 Then you can switch to Spotify app running on your laptop.
-Both apps give you similar *look and feel*.
+Both apps give you a similar *look and feel*.
 Not bad, but do you know that you can control what PS4 plays
-by clicking on your laptop? It just works, that’s really impressive.
+by clicking on your laptop? It just works. That’s really impressive.
 
 There are two opposite approaches to modern frontend architecture.
 
-<ol type="a">
-  <li>Monolith approach</li>
-  <li>Frankenstein approach</li>
-</ol>
+* Monolith approach
+* Frankenstein approach
 
 **Monolith approach** is dead simple: one frontend team creates and maintains one frontend application,
 which gathers data from backend services using REST API. This approach has one huge advantage, if done right,
-provides excellent user experience. Main disadvantage is that it doesn’t scale well. In a big company,
+it provides excellent user experience. Main disadvantage is that it doesn’t scale well. In a big company,
 with many development teams,
 single frontend team could become a development bottleneck.
 
 In **Frankenstein approach** (shared nothing) approach,
-frontend application is divided into modules and each module is developed independently by separated teams.
+frontend application is divided into modules and each module is developed independently by separate teams.
 
 In Web applications modules are HTML page fragments (like AllegroHeader, Cart, Search).
 Each team takes whole responsibility for their product. So a team develops not only backend logic
-but also provides endpoint which serves HTML fragment with their *piece of frontend*.
-Then, HTML page is assembled using some low level server-side includes technology like ESI tags.
+but also provides an endpoint which serves HTML fragment with their *piece of frontend*.
+Then, HTML page is assembled using some low level server-side includes technology like
+[ESI](https://en.wikipedia.org/wiki/Edge_Side_Includes) tags.
 
-This approach scales well, but the big disadvantage is lack of consistency on the user side.
-Seams between page fragments becomes visible, page-level interactions are limited.
+This approach scales well, but the big disadvantage is a lack of consistency on the user side.
+Seams between page fragments become visible, page-level interactions are limited.
 Even in page scope, each page fragment may look, or even worse, behave in a different way.
 Pretty much like the Frankenstein monster.
 
@@ -87,11 +83,11 @@ Pretty much like the Frankenstein monster.
 What we want to build is the desirable middle ground between these two extremes.
 
 Next, we describe the current approach at Allegro, which is close to the Frankenstein extreme
-and the New Solution, which goes more into the Monolith direction.
+and the new solution, which goes more into the monolith direction.
 
 ## Current approach at Allegro
 
-Nowadays at Allegro we have to struggle with the legacy, monolithic application
+Nowadays at Allegro we have to struggle with the legacy monolithic application
 (written in PHP) and with many new microservices (written mostly in Java).
 Everything is integrated by [Varnish Cache](https://www.varnish-cache.org) &mdash;
 web application accelerator (a caching HTTP reverse proxy).
@@ -99,14 +95,14 @@ web application accelerator (a caching HTTP reverse proxy).
 Varnish and its [ESI LANG](https://www.w3.org/TR/esi-lang) features
 allow us to merge a lot of different parts of our platform into one website.
 Therefore any page (or a page fragment) at Allegro
-can be a separate application/service.
+can be a separate application.
 For example, main page is composed in the following way:
 
 ![ESI Page Example](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/allegro_esi_homepage.png "esi page example")
 
 Our Varnish farm also defines and greatly improves our overall performance.
 Varnish servers are exposed to users and they cache all requests for static content.
-We often say that *we are hiding behind Varnish* to survive massive traffic from our users.
+We often say that *we are hiding behind Varnish* to survive the massive traffic from our users.
 
 Varnish really hit the bull’s-eye.
 
