@@ -50,13 +50,13 @@ software in a secure way.
 The goal of the project was to develop a new solution that would replace some features of the Allegro platform. Naturally, the new solution had 
 to be better thus being worth the company’s money and time. In this particular case we determined what was to be understood as “better” 
 based on suitable measurements, compared with previously defined criteria, involving both the new and existing product. How can one compare 
-it? Test two solutions at the same time on two 
-separate groups of users. In other words, apply A/B testing. This way we were able to create a mechanism serving new solution to a 
+it? Test two solutions at the same time on two separate groups of users. In other words, apply 
+[A/B testing](https://en.wikipedia.org/wiki/A/B_testing). This way we were able to create a mechanism serving new solution to a 
 default group. At first, the group did not exceed 1% of users, but it was easy to adjust and increase that number. The implementation of 
 this approach was crucial in terms of continuous learning and gaining user feedback.
 
 Besides, it was something one would expect from a professional start-up – a project may fail, and the team can abandon it quickly, without 
-generating addisionall technical debt in old solution. The first technical failure proved that the team’s approach was right. By being able 
+generating additional technical debt in old solution. The first technical failure proved that the team’s approach was right. By being able 
 to rollback changes, the team had the time to analyze the application and release suitable fixes. At the same time, nothing disturbed Allegro 
 users. All of this could happen thanks to a professional and responsible approach of the team.
 
@@ -110,7 +110,7 @@ Let’s sum up:
 generated additional cost.
  * Thanks to complex programming knowledge we were able to polish every aspect of the code.
  * To keep everything under control, we wanted to build the product piece by piece. To do so, we needed development and release process.
- * To make sure no lines of code are wasted, we analyzed and measured users' behavior to pick only the most promising features.
+ * To make sure no lines of code were wasted, we analyzed and measured users' behavior to pick only the most promising features.
  * To make sure the solution was reliable, we adjusted the infrastructure and monitoring to our product.
  * If you want to release anything while sitting in a bistro and be 100% confident, you have to take care of all the software development 
 aspects. 
