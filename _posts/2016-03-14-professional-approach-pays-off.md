@@ -68,7 +68,7 @@ of hardware based on OpenStack, Puppet and NewRelic readings was another challen
 product’s infrastructure quickly and we were a step closer to process automation. The important lesson here was that when you develop 
 software, you can’t forget about hardware.
 
-Overwhelmed by technical issues, we couldn’t forget that the product was constantly running and 1% of users was in fact using it. But what 
+Overwhelmed by technical issues, we couldn’t forget that the product were constantly running and 1% of users was in fact using it. But what 
 does using really mean in this particular context? How do users perceive the product? What do they click? How much time do they need to 
 perform a certain action? It was time to carry out some quantitative product analyses to understand how users used our product. Eventually, 
 we managed to notice some significant things with the help of [NewRelic](http://newrelic.com/), [Hadoop](http://hadoop.apache.org/), 
@@ -116,7 +116,7 @@ generated additional cost.
 aspects. 
 
 
-_Dear developer! You will face deadlines. You will seek compromises. You will work under pressure. You will be tempted by exceptions. 
-But the truth is that only you can guarantee that the product will work and be reliable. Any far-fetched compromise you accept is a serious threat. 
+_Dear developer! You will face deadlines. You will seek compromises. You will work under pressure. But the truth is that only you can 
+guarantee that the product will work and be reliable. Any far-fetched compromise you accept is a serious threat. 
 Just follow the best practices of software engineering to enjoy the results of your work. Smart decisions can change any difficult 
 software development project into something definitely easier._
