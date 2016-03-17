@@ -7,7 +7,7 @@ tags: [tech, cache, service, golang, go, bigcache]
 
 Recently our team has been tasked to write a very fast cache service. The goal was pretty clear but possible to achieve in many ways.
 Finally we decided to try something new and implement the service in [Go](https://golang.org/).
-We would like to describe how we did it and what values come from that.
+We have described how we did it and what values come from that.
 
 ## Table of contents:
 1. [Requirements](#requirements)
@@ -15,7 +15,7 @@ We would like to describe how we did it and what values come from that.
 3. [The Cache](#the-cache)
     1. [Concurrency](#concurrency)
     2. [Eviction](#eviction)
-    3. [Omitting Garbage Collection](#omitting-garbage-collection)
+    3. [Omitting Garbage Collector](#omitting-garbage-collector)
     4. [BigCache](#bigcache)
 4. [HTTP server](#http-server)
 5. [JSON deserialization](#json-deserialization)
@@ -23,13 +23,13 @@ We would like to describe how we did it and what values come from that.
 7. [Summary](#summary)
 
 ## Requirements
-According to the requirements we received, our service should:
+According to the requirements, our service should:
 
 * use HTTP protocol to handle requests
 * handle 10k rps (5k for writes, 5k for reads)
 * cache entries for at least 10 minutes
-* server responses time (without time spent on the network) lower than
-    * 5ms --  mean
+* have responses time (measured without time spent on the network) lower than
+    * 5ms -- mean
     * 10ms for 99.9th percentile
     * 400ms for 99.999th percentile
 * handle POST requests containing JSON messages, where each message:
@@ -38,7 +38,7 @@ According to the requirements we received, our service should:
 * retrieve an entry and return int via a GET request immediately after the
 entry was added via a POST request (consistency)
 
-In simple words our task was to write a fast, dictionary with expiration and REST interface.
+In simple words our task was to write a fast dictionary with expiration and REST interface.
 
 ## Why Go?
 
@@ -62,7 +62,7 @@ To meet the requirements, the cache in itself needed to:
 * evict entries after a predetermined amount of time
 
 Considering the first point we decided to give up external caches like [Redis](http://redis.io/), [Memcached](http://memcached.org/) or [Couchbase](http://www.couchbase.com/) mainly because
-of additional time needed on the network. Therefore we focused on in-memory caches, with HTTP facade easy to deploy in out stack.
+of additional time needed on the network. Therefore we focused on in-memory caches.
 In Go there are already caches of this type, i.e. [LRU groups cache](https://github.com/golang/groupcache/tree/master/lru),
 [go-cache](https://github.com/patrickmn/go-cache), [ttlcache](https://github.com/diegobernardes/ttlcache).
 Unfortunately none of them fulfilled our needs. Next subchapters reveal why and describe how we achieved the characteristics mentioned above.
@@ -75,7 +75,7 @@ To eliminate this problem, shards could be applied. The idea behind shards is st
 each shard contains its own instance of the cache with a lock. When an item with unique key needs to be cached a
 shard for it is chosen at first by the function `hash(key) % N`. After that cache lock is acquired and a write to the cache takes place.
 Item reads are analogue. When the number of shards is relatively high and the hash function returns
-properly distributed numbers for unique keys then the locks’ contention can be minimized almost to zero.
+properly distributed numbers for unique keys then the locks contention can be minimized almost to zero.
 This is the reason why we decided to use shards in the cache.
 
 ### Eviction
@@ -88,25 +88,30 @@ When an entry is added to the cache then two additional operations take place:
 
 Eviction is performed during writes to the cache since the lock is already acquired.
 
-### Omitting Garbage Collection
-In Go, when a map with millions of objects is created, then garbage collection (GC) will touch all those objects during mark and scan phase.
-This can cause a huge impact on responsiveness of the application. We run a few tests on our service
-in which we fed the cache with millions of entries, and after that we started to send requests to the REST endpoint,
-which was performing only some static JSON serialization (it didn’t touch the cache).
-For empty cache, this endpoint’s responsiveness was max 10ms for 10k rps. After we started feeding data, it was ***more than a second*** for 99th percentile.
-Metrics indicated that there were over 40 mln objects in the heap and GC mark and scan phase took over four seconds as well.
+### Omitting Garbage Collector
+In Go, if you have a map, garbage collector (GC) will touch every single item of that map during mark and scan phase.
+This can cause a huge impact on the application performance when the map is large enough (contains millions of objects).
+
+We ran few tests on our service in which we fed the cache with millions of entries, and after that we started to send requests to some unrelated REST endpoint
+doing only static JSON serialization (it didn’t touch the cache at all).
+With an empty cache, this endpoint had maximum responsiveness latency of 10ms for 10k rps. When the cache was filled,
+it had ***more than a second*** latency for 99th percentile.
+Metrics indicated that there were over 40 mln objects in the heap and GC mark and scan phase took over four seconds.
 The test showed us that we needed to skip GC for cache entries if we wanted to meet our requirements related to response times.
-How could we do this? There were two options. GC is limited to heap, so the first one is to go off-heap.
+How could we do this? Well, there were two options.
+
+GC is limited to heap, so the first one is to go off-heap.
 There is one project which can help with that, called [offheap](https://godoc.org/github.com/glycerine/offheap).
 It provides custom functions `Malloc()` and `Free()` to manage memory outside the heap.
 However, a cache which relied on those functions would need to be implemented.
-But there was another way to omit GC for cache entries, and it was related to optimization presented in Go version 1.5
+
+The second way to omit GC for cache entries was related to optimization presented in Go version 1.5
 ([issue-9477](https://github.com/golang/go/issues/9477)). This optimization states that if you use a map
-without pointers in keys and values, then GC will omit it. It is a way to stay on heap and to omit GC for entries in the map.
+without pointers in keys and values, then GC will omit it’s content. It is a way to stay on heap and to omit GC for entries in the map.
 However, it is not the final solution because basically everything in Go is built on pointers:
-structs, slices, even fixed arrays. Only primitives like int or bool do not touch pointers. So what could we do with `map[int]int`?
+structs, slices, even fixed arrays. Only primitives like `int` or `bool` do not touch pointers. So what could we do with `map[int]int`?
 Since we already generated hashed key in order to select proper shard from the cache (described in [Concurrency](#concurrency))
-we would reuse them as keys in our `map[int]int`. But what about values of type int? What information could we keep as int?
+we would reuse them as keys in our `map[int]int`. But what about values of type `int`? What information could we keep as `int`?
 We could keep offsets of entries. Another question is where those entries could be kept in order to omit GC again?
 A huge array of bytes could be allocated and entries could be serialized to bytes and kept in it. In this respect,
 a value from `map[int]int` could point to an offset where entry started in the proposed array. And since FIFO queue was used
@@ -156,7 +161,8 @@ so we investigated it.
 
 We heard that Go JSON serializer wasn’t as fast as in other languages. Most benchmarks were done in 2013, so before 1.3 version.
 When we saw [issue-5683](https://github.com/golang/go/issues/5683) claiming Go was 3 times slower than Python and
-[mailing list]( https://groups.google.com/forum/#!topic/golang-nuts/zCBUEB_MfVs) saying it was 5 times slower than Python (simplejson)[https://pypi.python.org/pypi/simplejson/], we started searching for a better solution.
+[mailing list]( https://groups.google.com/forum/#!topic/golang-nuts/zCBUEB_MfVs) saying it was 5 times slower than Python [simplejson](https://pypi.python.org/pypi/simplejson/),
+we started searching for a better solution.
 
 JSON over HTTP is definitely not the best choice if you need speed. Unfortunately, all our services talk to each other in JSON,
 so incorporating a new protocol was out of scope for this task (but we are considering using [avro](https://avro.apache.org/),
@@ -207,5 +213,5 @@ If you do not need high performance, stick to the standard libs. They are guaran
 therefore upgrading Go version should be smooth.
 
 Our cache service written in Go finally met our requirements. However, we needed to write our own version of in-memory cache which is concurrent,
-supports eviction and omits GC, because millions of objects under its control can have a huge impact on application responsiveness.
+supports eviction and omits GC, because millions of objects under it’s control can have a huge impact on application responsiveness.
 We are convinced that our task could be realized much faster in other languages, but now it can be realized this quickly in Go, thanks to BigCache :)
