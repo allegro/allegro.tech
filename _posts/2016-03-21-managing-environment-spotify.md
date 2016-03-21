@@ -9,7 +9,7 @@ Curiosity drives progress. There are already tens of presentations about [Spotif
 but we wanted to see how the work looks like there with our own eyes. Here are some thoughts after
 our visit to Spotify’s headquarters.
 
-<img src="http://allegro.tech/img/articles/2016-03-02-managing-environment-spotify/spotify.png"
+<img src="http://allegro.tech/img/articles/2016-03-21-managing-environment-spotify/spotify.png"
 alt="Spotify's office in Sweden" style="float: right;"/>
 
 In mid February a couple of Agile Coaches from Allegro visited Spotify office in Stockholm,
@@ -20,7 +20,7 @@ structure of the company. You’ve probably seen presentations on the web. I’l
 concepts that came to my head during the time at Spotify. At this point I would like to thank Viktor Cessan
 and Marcin Konkel for setting up this visit. OK, let’s start.
 
-From the very first glance I realised that the company is not about software - it's about music. Big and
+From the very first glance I realised that the company is not about software — it's about music. Big and
 small elements of interior design show that this company offers music to people. A huge TV at the reception
 playing clips and Spotify commercials, band t-shirt Mondays, a recording studio where you can do jam sessions,
 conference rooms named after favourite bands like "Pink Floyd", "Evanescence" or "The Doors". During my whole
@@ -42,10 +42,10 @@ is not fun either. Thinking about survival in a hostile environment or who your 
 what is desired by employers and employees themselves. Fun at work means not encountering any obstacles which may
 prevent you from releasing your creativity. Just doing things you deem great, something that users will bless you
 for. Fun is when all you have to think of is creating something new, interesting and innovative. All the rest is
-secured by the environment in which work is done. And this is exactly how Spotify deals with it - by creating an
+secured by the environment in which work is done. And this is exactly how Spotify deals with it — by creating an
 environment, where all you have to think of is... work. When you have an idea which requires tinkering with
-hardware - no problem, a fully equipped electronics lab is at your disposal. If app for runners requires
-testing - you have the treadmill already installed in the office to do some valuable tests. When you’re in
+hardware — no problem, a fully equipped electronics lab is at your disposal. If app for runners requires
+testing — you have the treadmill already installed in the office to do some valuable tests. When you’re in
 the middle of work and don’t want to think about acquiring food, because at the moment it is a waste of time for
 you, there are a couple of fridges with sandwiches and cold drinks available for free.
 
