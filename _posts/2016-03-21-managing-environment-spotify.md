@@ -9,7 +9,7 @@ Curiosity drives progress. There are already tens of presentations about [Spotif
 but we wanted to see how the work looks like there with our own eyes. Here are some thoughts after
 our visit to Spotify’s headquarters.
 
-<img src="http://allegro.tech/img/articles/2016-03-21-managing-environment-spotify/spotify.png"
+<img src="/img/articles/2016-03-21-managing-environment-spotify/spotify.jpg"
 alt="Spotify's office in Sweden" style="float: right;"/>
 
 In mid February a couple of Agile Coaches from Allegro visited Spotify office in Stockholm,
