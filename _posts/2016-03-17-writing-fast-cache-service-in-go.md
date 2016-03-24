@@ -114,7 +114,7 @@ Since we already generated hashed key in order to select proper shard from the c
 we would reuse them as keys in our `map[int]int`. But what about values of type `int`? What information could we keep as `int`?
 We could keep offsets of entries. Another question is where those entries could be kept in order to omit GC again?
 A huge array of bytes could be allocated and entries could be serialized to bytes and kept in it. In this respect,
-a value from `map[int]int` could point to an offset where entry started in the proposed array. And since FIFO queue was used
+a value from `map[int]int` could point to an offset where an entry has it’s beginning in the proposed array. And since FIFO queue was used
 to keep entries and control their eviction (described in [Eviction](#eviction)), it could be rebuilt and based on a huge bytes array
 to which also values from that map would point.
 
@@ -214,4 +214,4 @@ therefore upgrading Go version should be smooth.
 
 Our cache service written in Go finally met our requirements. However, we needed to write our own version of in-memory cache which is concurrent,
 supports eviction and omits GC, because millions of objects under it’s control can have a huge impact on application responsiveness.
-We are convinced that our task could be realized much faster in other languages, but now it can be realized this quickly in Go, thanks to BigCache :)
+We are convinced that our task could be realized much faster in other languages, but now it can be realized this quickly in Go, thanks to [BigCache](https://github.com/allegro/bigcache) :)
