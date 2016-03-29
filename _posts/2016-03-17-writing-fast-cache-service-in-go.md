@@ -64,8 +64,8 @@ To meet the requirements, the cache in itself needed to:
 Considering the first point we decided to give up external caches like [Redis](http://redis.io/), [Memcached](http://memcached.org/) or [Couchbase](http://www.couchbase.com/) mainly because
 of additional time needed on the network. Therefore we focused on in-memory caches.
 In Go there are already caches of this type, i.e. [LRU groups cache](https://github.com/golang/groupcache/tree/master/lru),
-[go-cache](https://github.com/patrickmn/go-cache), [ttlcache](https://github.com/diegobernardes/ttlcache).
-Unfortunately none of them fulfilled our needs. Next subchapters reveal why and describe how we achieved the characteristics mentioned above.
+[go-cache](https://github.com/patrickmn/go-cache), [ttlcache](https://github.com/diegobernardes/ttlcache), [freecache](https://github.com/coocood/freecache).
+Only freecache fulfilled our needs. Next subchapters reveal why and describe how the characteristics mentioned above were achieved.
 
 ### Concurrency
 Our service would receive many requests concurrently, so we needed to provide concurrent access to the cache.
@@ -98,14 +98,17 @@ With an empty cache, this endpoint had maximum responsiveness latency of 10ms fo
 it had ***more than a second*** latency for 99th percentile.
 Metrics indicated that there were over 40 mln objects in the heap and GC mark and scan phase took over four seconds.
 The test showed us that we needed to skip GC for cache entries if we wanted to meet our requirements related to response times.
-How could we do this? Well, there were two options.
+How could we do this? Well, there were three options.
 
 GC is limited to heap, so the first one is to go off-heap.
 There is one project which can help with that, called [offheap](https://godoc.org/github.com/glycerine/offheap).
 It provides custom functions `Malloc()` and `Free()` to manage memory outside the heap.
 However, a cache which relied on those functions would need to be implemented.
 
-The second way to omit GC for cache entries was related to optimization presented in Go version 1.5
+The second way is to use [freecache](https://github.com/coocood/freecache). Freecache implements map with zero GC overhead by reducing number of pointers.
+It keeps keys and values in [ring buffer](https://en.wikipedia.org/wiki/Circular_buffer) and uses index slice to lookup for an entry.
+
+The third way to omit GC for cache entries was related to optimization presented in Go version 1.5
 ([issue-9477](https://github.com/golang/go/issues/9477)). This optimization states that if you use a map
 without pointers in keys and values, then GC will omit it’s content. It is a way to stay on heap and to omit GC for entries in the map.
 However, it is not the final solution because basically everything in Go is built on pointers:
@@ -118,15 +121,17 @@ a value from `map[int]int` could point to an offset where an entry has it’s be
 to keep entries and control their eviction (described in [Eviction](#eviction)), it could be rebuilt and based on a huge bytes array
 to which also values from that map would point.
 
-In both scenarios, entry (de)serialization would be needed.
-Finally we decided to use the second solution, to stay on heap as somehow we found it easier to achieve because
-we already had most elements -- hashed key (already calculated in shard selection phase) and the entries queue.
+In all presented scenarios, entry (de)serialization would be needed.
+Eventually, we decided to try the third solution, as we were curious if it’s going to work and we have already had most elements
+-- hashed key (calculated in shard selection phase) and the entries queue.
 
 ### BigCache
 To meet requirements presented at the beginning of this chapter, we implemented our own cache and named it BigCache.
 The BigCache provides shards, eviction and it omits GC for cache entries. As a result it is very fast cache even for large number of entries.
-None of available in-memory caches in Go provide this kind of functionality so we decided to share it:
-[bigcache](https://github.com/allegro/bigcache)
+
+Freecache is only one of the available in-memory caches in Go which provides that kind of functionality.
+Bigcache is an alternative solution for it and reduces GC overhead differently, therefore we decided to share with it: [bigcache](https://github.com/allegro/bigcache).
+More information about comparison between freecache and bigcache can be found on github.
 
 ## HTTP server
 Memory profiler shows us that some objects are allocated during requests handling. We knew that HTTP handler would be
@@ -194,7 +199,7 @@ Benchmarks are available [here](https://gist.github.com/janisz/8b20eaa1197728e09
 
 Finally, we sped up our application from more than 2.5 seconds to less than 250 milliseconds for longest request.
 These times occur just in our use case. We are confident that for a larger number of writes or longer eviction period,
-access to standard cache can take much more time, but with BigCache it can stay on milliseconds level, because the root of
+access to standard cache can take much more time, but with bigcache or freecache it can stay on milliseconds level, because the root of
 long GC pauses was eliminated.
 
 The chart below presents a comparison of response times before and after optimizations of our service.
@@ -212,6 +217,6 @@ Final results in isolation, with the same setup as described above.
 If you do not need high performance, stick to the standard libs. They are guaranteed to be maintained, and have backward compatibility,
 therefore upgrading Go version should be smooth.
 
-Our cache service written in Go finally met our requirements. However, we needed to write our own version of in-memory cache which is concurrent,
-supports eviction and omits GC, because millions of objects under it’s control can have a huge impact on application responsiveness.
-We are convinced that our task could be realized much faster in other languages, but now it can be realized this quickly in Go, thanks to [BigCache](https://github.com/allegro/bigcache) :)
+Our cache service written in Go finally met our requirements. Most of the time we spent figuring out that GC pauses
+can have a huge impact on application responsiveness because of millions of objects under its control. Happily,
+caches like bigcache or freecache solve this problem.

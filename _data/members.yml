@@ -296,7 +296,7 @@ rafal.bryk:
 
 lukasz.druminski:
     name: Łukasz Drumiński
-    bio: Łukasz is a developer who likes to understand how things work in depth when it comes to solving technical problems. He is a core developer of [Hermes](http://hermes.allegro.tech), a message broker in which low response times and high throughput are important requirements.
+    bio: Łukasz is a developer who likes to understand how things work under the hood. He is a core developer of [Hermes](http://hermes.allegro.tech), a message broker in which low response times and high throughput are important requirements.
     twitter: lukaszDruminski
     github: druminski
 
