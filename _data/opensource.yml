@@ -29,6 +29,7 @@ repos:
         - selena
         - fogger
         - handlebars-spring-boot-starter
+        - bigcache
 
     all:
         - camus-compressor
@@ -47,3 +48,4 @@ repos:
         - axion-release-plugin
         - toper
         - marathon-consul
+        - bigcache
