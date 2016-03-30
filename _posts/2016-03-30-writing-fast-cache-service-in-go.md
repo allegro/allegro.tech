@@ -156,7 +156,7 @@ It doesn’t support routing or HTTP/2 and claim that could not support all HTTP
 It’s good for small projects with simple API, so
 we would stick to default HTTP for normal (non hyper performance) projects.
 
-![fasthttp vs nethttp](/img/articles/2016-02-26-fast-cache-service-in-go-lang/fasthttp-vs-nethttp.png "fasthttp vs nethttp")
+![fasthttp vs nethttp](/img/articles/2016-03-30-fast-cache-service-in-go-lang/fasthttp-vs-nethttp.png "fasthttp vs nethttp")
 
 ## JSON deserialization
 
@@ -172,7 +172,7 @@ we started searching for a better solution.
 
 JSON over HTTP is definitely not the best choice if you need speed. Unfortunately, all our services talk to each other in JSON,
 so incorporating a new protocol was out of scope for this task (but we are considering using [avro](https://avro.apache.org/),
-as we did for [Kafka]( http://allegro.tech/2015/08/spark-kafka-integration.html)). We decided to stick with JSON.
+as we did for [Kafka](/2015/08/spark-kafka-integration.html)). We decided to stick with JSON.
 A quick search provided us with a solution called [ffjson](https://github.com/pquerna/ffjson).
 
 ffjson documentation claims it is 2-3 times faster than standard `json.Unmarshal`, and also uses less memory to do it.
@@ -207,11 +207,11 @@ The chart below presents a comparison of response times before and after optimiz
 During the test we were sending 10k rps, from which 5k were writes and another 5k were reads.
 Eviction time was set to 10 minutes. The test was 35 minutes long.
 
-![response times before and after optimizations](/img/articles/2016-02-26-fast-cache-service-in-go-lang/results-before-and-after-optimizations.png "results before and after optimizations")
+![response times before and after optimizations](/img/articles/2016-03-30-fast-cache-service-in-go-lang/results-before-and-after-optimizations.png "results before and after optimizations")
 
 Final results in isolation, with the same setup as described above.
 
-![final results](/img/articles/2016-02-26-fast-cache-service-in-go-lang/results-after-optimizations.png "final results")
+![final results](/img/articles/2016-03-30-fast-cache-service-in-go-lang/results-after-optimizations.png "final results")
 
 ## Summary
 
