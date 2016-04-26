@@ -50,10 +50,10 @@ import okhttp3.OkHttpClient;
 ConnectionPool connectionPool = new ConnectionPool(5, 60, TimeUnit.SECONDS);
 
 OkHttpClient httpClient = new OkHttpClient.Builder()
-					.connectTimeout(100, MILLISECONDS)
-					.readTimeout(500, MILLISECONDS)
-					.connectionPool(connectionPool)
-					.retryOnConnectionFailure(true);
+                               .connectTimeout(100, MILLISECONDS)
+                               .readTimeout(500, MILLISECONDS)
+                               .connectionPool(connectionPool)
+                               .retryOnConnectionFailure(true);
 ```
 
 In the example above I created a new Http Connection Pool with maximum number of idle connections set to 5 and decided that idle connections should be removed from the pool after 60 seconds of inactivity. I also defined Socket’s connect and read timeouts and asked OkHttp to automatically retry whenever one of three network problems occurs (unreachable IP address, stale pooled connection, unreachable proxy server).
@@ -70,11 +70,11 @@ import retrofit2.http.Path;
 
 interface UserDetailsClientApi {
 
-	@Headers({
-		"Accept: application/json"
-	})
-	@GET("users/{userId}")    
-	Call<ResponseBody> findUserDetailsById(@Path("userId") String userId);
+    @Headers({
+        "Accept: application/json"
+    })
+    @GET("users/{userId}")    
+    Call<ResponseBody> findUserDetailsById(@Path("userId") String userId);
 }
 ```
 
@@ -83,10 +83,10 @@ Now, having the API defined, I can finally create an instance of Retrofit2 clien
 ```
 import retrofit2.Retrofit;
 
- Retrofit retrofit = new Retrofit.Builder()
-							.baseUrl("http://user-details-service:8080/")
-							.client(httpClient)
-							.build();
+Retrofit retrofit = new Retrofit.Builder()
+                           .baseUrl("http://user-details-service:8080/")
+                           .client(httpClient)
+                           .build();
 
 UserDetailsClientApi client = retrofit.create(UserDetailsClientApi.class);
 ```
@@ -101,15 +101,15 @@ Response<ResponseBody> body = client.execute()
 
 // async call
 client.enqueue(new Callback<ResponseBody>() {
-   @Override
-   public void onResponse(Call<Traits> call, Response<ResponseBody> response) {
-		// empty stub - fill me!
-	}
+    @Override
+    public void onResponse(Call<Traits> call, Response<ResponseBody> response) {
+        // empty stub - fill me!
+    }
 
-   @Override
-   public void onFailure(Call<ResponseBody> call, Throwable t) {
-		// empty stub - fill me!
-   }
+    @Override
+    public void onFailure(Call<ResponseBody> call, Throwable t) {
+        // empty stub - fill me!
+    }
 });
 ```
 
@@ -129,12 +129,12 @@ An important thing to mention is that by default, `HttpLoggingInterceptor` will 
 ```
 public class OkHttpLogger implements HttpLoggingInterceptor.Logger {
 
-   private static final Logger logger = LoggerFactory.getLogger(OkHttpLogger.class);
+    private static final Logger logger = LoggerFactory.getLogger(OkHttpLogger.class);
 
-   @Override
-   public void log(String message) {
-      logger.info(message);
-   }
+    @Override
+    public void log(String message) {
+        logger.info(message);
+    }
 }
 
 HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new OkHttpLogger());
