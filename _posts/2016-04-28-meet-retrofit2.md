@@ -6,12 +6,12 @@ tags: [tech, java, rxjava, rest, async rest, asynchronous rest, retrofit2, okhtt
 ---
 
 In this post I will introduce to you a recently released version of a well known library for consuming RESTful services — [Retrofit2](http://square.github.io/retrofit/). 
-Even though it is mainly targeted at Android platform it works very well on the „server” Java. Its lightness and low garbage generation 
+Even though it is mainly targeted at Android platform it works very well on the “server” Java. Its lightness and low garbage generation 
 overhead make it an interesting option if one does not like existing solutions (like [Jersey Client](https://jersey.java.net/documentation/latest/client.html), 
 or Spring’s [RestTemplate](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html)). I will also 
 show how to configure it properly and fully utilize its great [RxJava](https://github.com/ReactiveX/RxJava/wiki) compatibility. 
 
-# Retrofit2 
+## Retrofit2 
 
 I code mostly in Java and recently also in Kotlin. I began my adventure with consuming RESTful services using Jersey Client. 
 It worked just fine (although there are a few things that I don’t like about Jersey) but I felt that using Jersey on Spring Framework is a 
@@ -21,7 +21,7 @@ After a while I noticed my increased frustration with (Async)RestTemplate. Mostl
 why have two separate classes that need a completely different setup? When it comes to sync/async calls I liked Jersey’s approach much better. 
 There are also these tiny bits like for example: why is there no version of `getForEntity` method that accepts headers? Last but definitely 
 not least: no support for [Reactive Programming](http://reactivex.io/) - methods of AsyncRestTemplate class return instances of 
-[`org.springframework.util.concurrent.ListenableFuture`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/util/concurrent/ListenableFuture.html) class that have to be converted to an instance of [rx.Observable](http://reactivex.io/RxJava/javadoc/rx/Observable.html). Not the most useful.
+[ListenableFuture](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/util/concurrent/ListenableFuture.html) class that have to be converted to an instance of [rx.Observable](http://reactivex.io/RxJava/javadoc/rx/Observable.html). Not the most useful.
 
 I started to look for a new way to consume RESTful services. My perfect client would have to be lightweight, easy to use and extend, support 
 RxJava out of the box and have support for HTTP/2. And I think I found one just like that!
@@ -185,7 +185,7 @@ I am sure you have already noticed the call to `setLevel(HttpLoggingInterceptor.
 If you need something different, just take a look at the sources of [HttpLoggingInterceptor](https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor) 
 class for some hints to get you started and write your own logger! 
 
-One final word of caution: if you want to log full request headers then remember that it could possibly leak sensitive information like "Authorization" 
+One final word of caution: if you want to log full request headers then remember that it could possibly leak sensitive information like “Authorization” 
 header. This is exactly a case where you could consider writing your own Logger that would simply omit such headers completely.
 
 ## RxJava
