@@ -28,7 +28,7 @@ RxJava out of the box and have support for HTTP/2. And I think I found one just 
 
 [Retrofit2](http://square.github.io/retrofit/) uses [OkHttp3](http://square.github.io/okhttp/) client - both of them are actively 
 developed and maintained by Square company. While both of these libraries are targeted at Android and mobile development, they work equally 
-well on the server-side Java. OkHttp3 fully supports HTTP/2!
+well with server-side Java. OkHttp3 fully supports HTTP/2!
 
 ## Retrofit2 - how to start
 
@@ -38,12 +38,13 @@ provide you with some code snippets as well.
 ### Dependencies
 
 In all of the examples I will be using following dependencies (shown here in Gradle format):
-
-- group: ’com.squareup.okhttp3’, name: ’okhttp’, version: ’3.2.0’
-- group: ’com.squareup.okhttp3’, name: ’logging-interceptor’, version: ’3.2.0’
-- group: ’com.squareup.retrofit2’, name: ’retrofit’, version: ’2.0.2’
-- group: ’com.squareup.retrofit2’, name: ’converter-jackson’, version: ’2.0.2’
-- group: ’com.squareup.retrofit2’, name: ’adapter-rxjava’, version: ’2.0.2’
+```
+group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.2.0'
+group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: '3.2.0'
+group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.0.2'
+group: 'com.squareup.retrofit2', name: 'converter-jackson', version: '2.0.2'
+group: 'com.squareup.retrofit2', name: 'adapter-rxjava', version: '2.0.2'
+```
 
 ### OkHttp3
 
@@ -66,14 +67,14 @@ import okhttp3.OkHttpClient;
 ConnectionPool connectionPool = new ConnectionPool(5, 60, TimeUnit.SECONDS);
 
 OkHttpClient httpClient = new OkHttpClient.Builder()
-                               .connectTimeout(100, MILLISECONDS)
-                               .readTimeout(500, MILLISECONDS)
-                               .connectionPool(connectionPool)
-                               .retryOnConnectionFailure(true);
+        .connectTimeout(100, TimeUnit.MILLISECONDS)
+        .readTimeout(500, TimeUnit.MILLISECONDS)
+        .connectionPool(connectionPool)
+        .retryOnConnectionFailure(true);
 ```
 
 In the example above I created a new Http Connection Pool with maximum number of idle connections set to 5 and decided that idle connections 
-should be removed from the pool after 60 seconds of inactivity. I also defined Socket’s connect and read timeouts and asked OkHttp to 
+should be removed from the pool after 60 seconds of inactivity. I also defined socket’s connect and read timeouts and asked OkHttp to 
 automatically retry whenever one of three network problems occurs (unreachable IP address, stale pooled connection, unreachable proxy server).
 
 ### Retrofit2
@@ -104,21 +105,20 @@ Now, having the API defined, I can finally create an instance of Retrofit2 clien
 import retrofit2.Retrofit;
 
 Retrofit retrofit = new Retrofit.Builder()
-                           .baseUrl("http://user-details-service:8080/")
-                           .client(httpClient)
-                           .build();
+        .baseUrl("http://user-details-service:8080/")
+        .client(httpClient)
+        .build();
 
 UserDetailsClientApi client = retrofit.create(UserDetailsClientApi.class);
 ```
 
 So what happens above is: I create a new instance of Retrofit2 and use it to create an instance of the client. Retrofit2 then generates the entire 
-body of my client using only metadata that I have provided using annotations. Pretty cool and time saving. Notice that in order for Retrofit2 to s
-uppport JSON to POJO conversion you have to add a converter factory. Retrofit2 supports the most popular libraries like: 
+body of my client using only metadata that I have provided using annotations. Pretty cool and time saving. Notice that in order for Retrofit2 to suppport JSON to POJO conversion you have to add a converter factory. Retrofit2 supports the most popular libraries like: 
 [Jackson](https://github.com/FasterXML/jackson), [GSON](https://github.com/google/gson) or even [Protobuf](https://github.com/google/protobuf). 
 If you don’t provide any converters then Retrofit2 will only allow you to define ResponseBody as your method’s return type.
 
 Ok, I have the instance of my client - what next? Well, now (unlike with (Async)RestTemplate) you can just peform the call synchronously or 
-asycnhronously without much difference:
+asynchronously without much difference:
 
 ```
 // sync call
@@ -143,7 +143,7 @@ And this is basically it when it comes to simple calls to RESTful services. Now 
 ## Logging
 
 It is a very common need to log the HTTP content sent/received over the wire. In some libraries this feature is implemented in a developer-friendly way, 
-while others make it a real struggle to achieve the same results. OkHttp3 is one of the friendliest libraries I have ever seen. All you have to do is:
+while others make it a real struggle to achieve the same result. OkHttp3 is one of the friendliest libraries I have ever seen. All you have to do is:
 
 - add the dependency: `com.squareup.okhttp3:logging-interceptor`,
 - create an instance of `HttpLoggingInterceptor`,
@@ -168,18 +168,18 @@ HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new OkHtt
 loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
 OkHttpClient httpClient = new OkHttpClient.Builder()
-                 ...
-                 .addInterceptor(loggingInterceptor)
-                 ...
-                 .retryOnConnectionFailure(true);
+        ...
+        .addInterceptor(loggingInterceptor)
+        ...
+        .retryOnConnectionFailure(true);
 ```
 
 I am sure you have already noticed the call to `setLevel(HttpLoggingInterceptor.Level.BODY)` method. OkHttp3 can produce logs at 4 different detail levels:
 
-* NONE — No logs,
-* BASIC — Logs request and response lines + total request time (in milliseconds) and number of bytes sent / received,
-* HEADERS — All of the above + request/response headers,
-* BODY — All of the above + request/response bodies (if present).
+* NONE — no logs,
+* BASIC — logs request and response lines + total request time (in milliseconds) and number of bytes sent / received,
+* HEADERS — all of the above + request/response headers,
+* BODY — all of the above + request/response bodies (if present).
 
 If you need something different, just take a look at the sources of [HttpLoggingInterceptor](https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor) 
 class for some hints to get you started and write your own logger! 
@@ -194,10 +194,10 @@ Once it is present on the classpath, register a special call adapter factory whe
 
 ```
 Retrofit retrofit = new Retrofit.Builder()
-                       .baseUrl("http://user-details-service:8080/")
-                       .client(httpClient)
-                       .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                       .build();
+        .baseUrl("http://user-details-service:8080/")
+        .client(httpClient)
+        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+        .build();
 ```
 
 With `RxJavaCallAdapterFactory` adapter factory registered, my API’s method can return `rx.Single` and `rx.Observable` and so my API definition becomes:
@@ -207,13 +207,15 @@ import rx.Single;
 
 interface UserDetailsClientApi {
 
-   @Headers({ "Accept: application/json" })
-   @GET("users/{userId}")    
-   Single<ResponseBody> findUserDetailsById(@Path("userId") String userId);
+    @Headers({
+        "Accept: application/json"
+    })
+    @GET("users/{userId}")    
+    Single<ResponseBody> findUserDetailsById(@Path("userId") String userId);
 }
 ```
 
-Now instead of calling `enqueue` method to perform an asynchronous call, I can just get the `rx.Single` and subscribe to it:
+Now instead of calling `enqueue(Callback<T> callback)` method to perform an asynchronous call, I can just get the `rx.Single` and subscribe to it:
 
 ```
 UserDetailsClientApi client = retrofit.create(UserDetailsClientApi.class);
@@ -226,12 +228,12 @@ In fact, it is a regular `rx.Single` so we can basically do anything that is pos
 
 ### Timeouts
 
-When using `RxJava Adapter` for Retrofit2 you may want to use Rx `timeout` operator instead of the `OkHttpClient` based timeouts. The adapter is pretty 
+When using RxJava Adapter for Retrofit2 you may want to use Rx `timeout` operator instead of the `OkHttpClient` based timeouts. The adapter is pretty 
 smart and will try to cancel in-flight requests when subscriber unsubscribes. This way, we can define per-operation timeouts instead of a global timeout 
 for all requests. Just remember that it is still a good practice to set a maximum read timeout on the instance of `OkHttpClient` so that no ill-behaved 
 user of such `OkHttpInstance` can make it unusable by executing long running requests.
 
 ## Final thoughts
 
-I have been using Retrofit2 for a couple months now and it works very well on production. I love the API, RxJava integration and relatively few dependencies. 
-I am certain that I am going to use it in other projects as well and I do encourage you to give it a try and share your thoughts in comments. 
+I have been using Retrofit2 for a couple of months now and it works very well on production. I love the API, RxJava integration and relatively few dependencies. 
+I am certain that I am going to use it in other projects as well and I do encourage you to give it a try and to share your thoughts in comments. 
