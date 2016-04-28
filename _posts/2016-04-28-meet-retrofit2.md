@@ -2,7 +2,7 @@
 layout: post
 title: Meet Retrofit2
 author: rafal.glowinski
-tags: [java, rxjava, rest, async rest, asynchronous rest, retrofit2, okhttp, http client]
+tags: [tech, java, rxjava, rest, async rest, asynchronous rest, retrofit2, okhttp, http client]
 ---
 
 In this post I will introduce to you a recently released version of a well known library for consuming RESTful services — [Retrofit2](http://square.github.io/retrofit/). 
@@ -38,6 +38,7 @@ provide you with some code snippets as well.
 ### Dependencies
 
 In all of the examples I will be using following dependencies (shown here in Gradle format):
+
 ```
 group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.2.0'
 group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: '3.2.0'
