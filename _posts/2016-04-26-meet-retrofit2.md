@@ -32,7 +32,7 @@ well with server-side Java. OkHttp3 fully supports HTTP/2!
 
 ## Retrofit2 - how to start
 
-There is a [http://square.github.io/retrofit/](decent manual) available on Square’s Github page which should be enough to start but I will 
+There is a [decent manual](http://square.github.io/retrofit/) available on Square’s Github page which should be enough to start but I will 
 provide you with some code snippets as well.
 
 ### Dependencies
