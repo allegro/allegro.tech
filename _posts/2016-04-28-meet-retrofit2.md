@@ -6,7 +6,7 @@ tags: [tech, java, rxjava, rest, async rest, asynchronous rest, retrofit2, okhtt
 ---
 
 In this post I will introduce to you a recently released version of a well known library for consuming RESTful services — [Retrofit2](http://square.github.io/retrofit/). 
-Even though it is mainly targeted at Android platform it works very well on the „server” Java. Its lightness and low garbage generation 
+Even though it is mainly targeted at Android platform it works very well on the “server” Java. Its lightness and low garbage generation 
 overhead make it an interesting option if one does not like existing solutions (like [Jersey Client](https://jersey.java.net/documentation/latest/client.html), 
 or Spring’s [RestTemplate](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html)). I will also 
 show how to configure it properly and fully utilize its great [RxJava](https://github.com/ReactiveX/RxJava/wiki) compatibility. 
@@ -185,7 +185,7 @@ I am sure you have already noticed the call to `setLevel(HttpLoggingInterceptor.
 If you need something different, just take a look at the sources of [HttpLoggingInterceptor](https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor) 
 class for some hints to get you started and write your own logger! 
 
-One final word of caution: if you want to log full request headers then remember that it could possibly leak sensitive information like „Authorization” 
+One final word of caution: if you want to log full request headers then remember that it could possibly leak sensitive information like “Authorization” 
 header. This is exactly a case where you could consider writing your own Logger that would simply omit such headers completely.
 
 ## RxJava
