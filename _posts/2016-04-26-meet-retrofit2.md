@@ -5,28 +5,29 @@ author: rafal.glowinski
 tags: [java, rxjava, rest, async rest, asynchronous rest, retrofit2, okhttp, http client]
 ---
 
-In this post I will introduce to you a recently released version of a well known library for consuming RESTful services — Retrofit2. 
-Even though it is mainly targeted to Android platform it works very well on the ’server’ Java. Its lightness and low garbage generation 
-overhead make it an interesting option if one does not like existing solutions (like Jersey, or Spring’s RestTemplate). I will also 
-show how to configure it properly and fully utilize its great RxJava compatibility. 
+In this post I will introduce to you a recently released version of a well known library for consuming RESTful services — [Retrofit2](http://square.github.io/retrofit/). 
+Even though it is mainly targeted at Android platform it works very well on the „server” Java. Its lightness and low garbage generation 
+overhead make it an interesting option if one does not like existing solutions (like [Jersey Client](https://jersey.java.net/documentation/latest/client.html), 
+or Spring’s [RestTemplate](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html)). I will also 
+show how to configure it properly and fully utilize its great [RxJava](https://github.com/ReactiveX/RxJava/wiki) compatibility. 
 
 # Retrofit2 
 
-I code mostly in Java and recently also in Kotlin. I began my adventure with consuming RESTful services using [Jersey Client](https://jersey.java.net/documentation/latest/client.html). 
-It worked just fine (although there are a few things that I don’t like in Jersey) but I felt that using Jersey on Spring Framework is a 
-bit silly since there already is support for consuming REST resources in Spring: [RestTemplate](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html) & [AsyncRestTemplate](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/AsyncRestTemplate.html) and so I switched.
+I code mostly in Java and recently also in Kotlin. I began my adventure with consuming RESTful services using Jersey Client. 
+It worked just fine (although there are a few things that I don’t like about Jersey) but I felt that using Jersey on Spring Framework is a 
+bit silly since there already is support for consuming REST resources in Spring: RestTemplate & [AsyncRestTemplate](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/AsyncRestTemplate.html) and so I switched.
 
-After a while I noticed my increased frustration with (Async)RestTemplate. Mostly it is the API that I started to dislike. First of all: 
+After a while I noticed my increased frustration with (Async)RestTemplate. Mostly it was the API that I started to dislike. First of all: 
 why have two separate classes that need a completely different setup? When it comes to sync/async calls I liked Jersey’s approach much better. 
 There are also these tiny bits like for example: why is there no version of `getForEntity` method that accepts headers? Last but definitely 
 not least: no support for [Reactive Programming](http://reactivex.io/) - methods of AsyncRestTemplate class return instances of 
 [`org.springframework.util.concurrent.ListenableFuture`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/util/concurrent/ListenableFuture.html) class that have to be converted to an instance of [rx.Observable](http://reactivex.io/RxJava/javadoc/rx/Observable.html). Not the most useful.
 
-I started to look for a new way to consume RESTful services. My dreamd client would have to be lightweight, easy to use and extend, support 
+I started to look for a new way to consume RESTful services. My perfect client would have to be lightweight, easy to use and extend, support 
 RxJava out of the box and have support for HTTP/2. And I think I found one just like that!
 
 [Retrofit2](http://square.github.io/retrofit/) uses [OkHttp3](http://square.github.io/okhttp/) client - both of them are actively 
-developed and maintained by Square company. While both of these libraries are targeted for Android and mobile development, they work equally 
+developed and maintained by Square company. While both of these libraries are targeted at Android and mobile development, they work equally 
 well on the server-side Java. OkHttp3 fully supports HTTP/2!
 
 ## Retrofit2 - how to start
@@ -54,7 +55,7 @@ import okhttp3.OkHttpClient;
 OkHttpClient httpClient = new OkHttpClient.Builder().build();
 ```
 
-this will construct a client with all the timeouts, connections pools etc. set to default values. However, I strongly discourage you from 
+This will construct a client with all the timeouts, connections pools, etc. set to default values. However, I strongly discourage you from 
 using any defaults you don’t have control over, in production. You should use the builder class more extensively and define at least values for 
 timeouts and connection pool properties:
 
@@ -173,8 +174,7 @@ OkHttpClient httpClient = new OkHttpClient.Builder()
                  .retryOnConnectionFailure(true);
 ```
 
-I am sure you have already noticed the call to `setLevel(HttpLoggingInterceptor.Level.BODY)` method. OkHttp3 can produce logs at 4 d
-ifferent detail levels:
+I am sure you have already noticed the call to `setLevel(HttpLoggingInterceptor.Level.BODY)` method. OkHttp3 can produce logs at 4 different detail levels:
 
 * NONE — No logs,
 * BASIC — Logs request and response lines + total request time (in milliseconds) and number of bytes sent / received,
