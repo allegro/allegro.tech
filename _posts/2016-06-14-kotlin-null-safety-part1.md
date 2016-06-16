@@ -9,7 +9,7 @@ tags: [tech, java, kotlin, jvm, performance, null, x86, x64, assembler]
 Its history however dates [a few years back](http://www.infoworld.com/article/2622405/java/jetbrains-readies-jvm-based-language.html)
 and itʼs mature and stable enough to be used for developing solid reliable applications.
 Therefore at [Allegro](http://allegro.pl) we decided to give it a chance -- we built our new
-shiny application using Kotlin as its primary language and we do not regret it.
+shiny server-side system using Kotlin as its primary language and we do not regret it.
 
 One of the first features a Kotlin developer learns is the languageʼs approach to handling `null` values.
 It is quite interesting -- especially at times like these when the most popular way of handling
@@ -155,7 +155,7 @@ although one can think of using it also in tools like [FindBugs](http://findbugs
 or [Checker Framework](http://types.cs.washington.edu/checker-framework/current/checker-framework-manual.html#nullness-checker).
 2. The code in `setName` has a striking resemblance (surprise!) to the code we
 wrote in our smart cast example. The only difference is the usage of the `throwNpe` method.
-Weʼll delve into the details a bit later -- for now we can make a simplification and
+Weʼll delve into the details in part 2 -- for now we can make a simplification and
 state  that it throws `KotlinNullPointerException` (which extends `NullPointerException`).
 
 ### Parameter validation
@@ -219,7 +219,7 @@ upon every access that it is non-`null` and at the same time provide this inform
 outside world.
 
 We can also observe that to check whether a value of a parameter is not `null` the `checkParameterIsNotNull`
-method is used. Again weʼll investigate this method a bit later. For now it is enough to say that
+method is used. Again weʼll investigate this method in part 2. For now it is enough to say that
 upon receiving a `null` value an `IllegalArgumentException` will be thrown.
 
 ### Elvis operator
@@ -511,7 +511,7 @@ public void nonNullCase() {
 Now we have a validation in the generated code. `writeOut` expects a non-`null` type, but the
 `value` type is _platform type_ and in theory it could be `null`. Therefore the compiler
 produces a runtime check with the help of `checkExpressionValueIsNotNull` method which weʼll
-explore later.
+explore in part 2.
 
 Next example shows the code where only Java methods are used.
 
