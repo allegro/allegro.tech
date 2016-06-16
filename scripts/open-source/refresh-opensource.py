@@ -16,7 +16,7 @@ def refresh_opensource_data():
     }
 
     with open(sys.argv[1], 'w') as f:
-        json.dump(data, f)
+        json.dump(data, f, indent = 4, separators = (',', ': '))
 
 
 def load_repositories():
