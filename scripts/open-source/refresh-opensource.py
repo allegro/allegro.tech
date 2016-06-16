@@ -1,5 +1,4 @@
 import json
-import yaml
 import requests
 import sys
 import operator
