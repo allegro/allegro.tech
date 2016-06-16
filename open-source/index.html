@@ -3,9 +3,11 @@ layout: opensource
 title: open source software (OSS)
 ---
 
-{% assign repos = site.data.opensource.repos %}
-{% assign projectsRepo = site.data.repositories %}
-{% assign projectsMetadata = site.data.opensource-projects %}
+{% assign repos = site.data.opensource-repos.repos %}
+{% assign popularity = site.data.opensource-repos.popularity %}
+{% assign featured = site.data.opensource.featured %}
+{% assign ignored = site.data.opensource.ignored %}
+{% assign metadata = site.data.opensource.metadata %}
 
 <div class="opensource-content">
     <div class="main-grid">
@@ -18,7 +20,9 @@ title: open source software (OSS)
         <section class="opensource-featured-projects">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    {% for projectName in repos.featuredPrimary %}
+                    {% for projectName in featured.primary %}
+                        {% assign projectRepo = repos[projectName] %}
+                        {% assign projectMetadata = metadata[projectName] %}
                         <div class="swiper-slide">
                             {% include opensource/project.html %}
                         </div>
@@ -31,35 +35,15 @@ title: open source software (OSS)
 
         <div class="opensource-ranking-grid">
             <div class="featured-grid">
-                {% for projectName in repos.featuredSecondary %}
-                <section class="section-featured-projects-box opensource-box">
-
+                {% for projectName in featured.secondary %}
+                    {% assign projectRepo = repos[projectName] %}
+                    {% assign projectMetadata = metadata[projectName] %}
+                    <section class="section-featured-projects-box opensource-box">
                         <div class="repo-box">
                             {% include opensource/project.html %}
                         </div>
-
-                </section>
-    {% endfor %}
-    {%comment%}
-                <section class="authors-box opensource-box">
-                    <header><h2 class="section-title section-title-opensource">Who we are</h2></header>
-                        <ul>
-                        {% for authorLogin in site.data.opensource.authors %}
-                        {% assign authorData = site.data.members[authorLogin] %}
-                            <li class="opensource-author">
-                                <img src="/img/authors/{{authorLogin}}.jpg" alt="{{authorData.name}}"/>
-                                <header>
-                                    <h4>{{ authorData.name }}</h4>
-                                    {% if authorData.title %}<h5>{{ authorData.title }}</h5>{% endif %}
-                                </header>
-                                <div class="author-bio">
-                                    {{ authorData.bio | markdownify }}
-                                </div>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </section>
-        {%endcomment%}
+                    </section>
+                {% endfor %}
             </div>
 
             <section class="section-projects-ranking opensource-box">
@@ -68,12 +52,12 @@ title: open source software (OSS)
                 </header>
 
                 <ol>
-                    {% for project in site.data.opensource.repos.ranking %}
-                    {% assign projectData = site.data.repositories[project] %}
-                    <li>
-                        <a href="{{ projectData.html_url }}" class="project-name" title="{{ projectData.name }}">{{ projectData.name }}</a>
-                        <div class="star-gazers"><a href="{{ projectData.html_url }}/stargazers">{{ projectData.stargazers_count }}</a></div>
-                    </li>
+                    {% for projectName in popularity limit:10 %}
+                        {% assign projectRepo = repos[projectName] %}
+                        <li>
+                            <a href="{{ projectRepo.url }}" class="project-name" title="{{ projectRepo.name }}">{{ projectRepo.name }}</a>
+                            <div class="star-gazers"><a href="{{ projectRepo.url }}/stargazers">{{ projectRepo.stars }}</a></div>
+                        </li>
                     {% endfor %}
                 </ol>
             </section>
@@ -85,12 +69,17 @@ title: open source software (OSS)
             </header>
 
             <ul class="more-projects-grid">
-                {% for projectName in repos.all %}
-                <li>
-                    <div class="repo-box opensource-box">
-                        {% include opensource/project.html %}
-                    </div>
-                </li>
+                {% for projectName in popularity %}
+                    {% if featured.primary contains projectName or featured.secondary contains projectName or ignored contains projectName %}
+                        {% continue %}
+                    {% endif %}
+                    {% assign projectRepo = repos[projectName] %}
+                    {% assign projectMetadata = metadata[projectName] %}
+                    <li>
+                        <div class="repo-box opensource-box">
+                            {% include opensource/project.html %}
+                        </div>
+                    </li>
                 {% endfor %}
             </ul>
         </section>

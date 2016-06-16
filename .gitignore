@@ -3,3 +3,9 @@ _site
 
 .sass-cache
 Gemfile.lock
+
+scripts/open-source/bin
+scripts/open-source/lib
+scripts/open-source/include
+scripts/open-source/pip-*
+scripts/open-source/.Python

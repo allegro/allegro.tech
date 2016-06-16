@@ -1,19 +1,15 @@
-{% assign metadata = projectsMetadata[projectName] %}
-{% assign repodata = projectsRepo[projectName] %}
-
 <article class="opensource-project">
-    <a href="{{ repodata.html_url }}">
-        <h4>{{ repodata.name }}</h4>
-        <p class="repo-description">{{ repodata.description }}</p>
+    <a href="{{ projectRepo.url }}">
+        <h4>{{ projectRepo.name }}</h4>
+        <p class="repo-description">{{ projectRepo.description }}</p>
     </a>
     <div class="star-gazers">
-        <a href="{{ repodata.html_url }}/stargazers">{{ repodata.stargazers_count }}</a>
+        <a href="{{ projectRepo.url }}/stargazers">{{ projectRepo.stars }}</a>
     </div>
     <ul class="repo-metadata">
-        <li><a href="{{ repodata.html_url }}">repo</a></li>
-        {% if metadata.docs %}<li><a href="{{ metadata.docs }}">docs</a></li>{% endif %}
-        {% if metadata.contact %}<li><a href="{{ metadata.contact }}">contact</a></li>{% endif %}
-        {% if metadata.twitter %}<li><a href="{{ metadata.twitter }}">twitter</a></li>{% endif %}
+        <li><a href="{{ projectRepo.url }}">repo</a></li>
+        {% if projectMetadata.docs %}<li><a href="{{ projectMetadata.docs }}">docs</a></li>{% endif %}
+        {% if projectMetadata.contact %}<li><a href="{{ projectMetadata.contact }}">contact</a></li>{% endif %}
+        {% if projectMetadata.twitter %}<li><a href="{{ projectMetadata.twitter }}">twitter</a></li>{% endif %}
     </ul>
 </article>
-
