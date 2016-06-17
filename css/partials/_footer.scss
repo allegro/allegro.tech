@@ -64,8 +64,12 @@
 }
 
 .site-footer .site-title {
-    margin: 7px 1em;
-    display: block;
+  margin: 7px 1em;
+  display: block; 
+  line-height: 22px;
+  a {
+    color: #4ba7f8;
+  }
 }
 
 .site-footer .find-us {

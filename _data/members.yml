@@ -17,7 +17,7 @@ adam.dubiel:
 
 rafal.glowinski:
     name: Rafał Głowiński
-    bio: Rafał is an experienced software developer who has spent most of his career working in Java and related technologies. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis.
+    bio: Rafał is an experienced software developer who has spent most of his career working in Java and recently got very interested in Kotlin. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis. 
 
 michal.kosmulski:
     name: Michał Kosmulski
@@ -290,7 +290,7 @@ artur.stepniewski:
 
 rafal.bryk:
     name: Rafał Bryk
-    bio: Agile Coach with technological background. Passionate about creating good software in a proper way. Rafał works with people from Polish e-commerce and facilitates the process of making optimal decisions. Fan of modern technology, board games and cycling. 
+    bio: Agile Coach with technological background. Passionate about creating good software in a proper way. Rafał works with people from Polish e-commerce and facilitates the process of making optimal decisions. Fan of modern technology, board games and cycling.
     twitter: RafalBryk
     title: Agile Coach
 
@@ -298,3 +298,15 @@ joanna.tobola:
     name: Joanna Toboła
     bio: Agile Coach with 3 years of professional experience, especially coaching and mentoring Mobile teams. Passionate about people's behaviour and data visualisation. Follows the approach: you get what you focus on.
     title: Agile Coach
+
+lukasz.druminski:
+    name: Łukasz Drumiński
+    bio: Łukasz is a developer who likes to understand how things work under the hood. He is a core developer of [Hermes](http://hermes.allegro.tech), a message broker in which low response times and high throughput are important requirements.
+    twitter: lukaszDruminski
+    github: druminski
+
+tomasz.janiszewski:
+    name: Tomasz Janiszewski
+    bio: Tomasz is a software engineer passionate about distributed systems. He believes in free and open source philosophy and occasionally contributes to projects on GitHub.
+    twitter: janiszt
+    github: janisz
