@@ -75,7 +75,7 @@
         "ralph": {
             "url": "https://github.com/allegro/ralph",
             "name": "ralph",
-            "stars": 435,
+            "stars": 437,
             "description": "Ralph is an asset management system for your data center and back office."
         },
         "meeting2015": {
@@ -231,7 +231,7 @@
         "bigcache": {
             "url": "https://github.com/allegro/bigcache",
             "name": "bigcache",
-            "stars": 742,
+            "stars": 743,
             "description": "Efficient cache for gigabytes of data written in Go."
         },
         "ralph_pricing": {
