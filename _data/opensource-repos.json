@@ -3,7 +3,7 @@
         "php-protobuf": {
             "url": "https://github.com/allegro/php-protobuf",
             "name": "php-protobuf",
-            "stars": 360,
+            "stars": 361,
             "description": "PHP Protobuf - Fast PHP Protocol Buffers implementation"
         },
         "redux-storage-decorator-engines": {
@@ -249,7 +249,7 @@
         "selena": {
             "url": "https://github.com/allegro/selena",
             "name": "selena",
-            "stars": 31,
+            "stars": 32,
             "description": "SELENA is a tool used to test website performance by measuring response times or verifying the content of replies."
         },
         "ralph-docker": {
@@ -271,8 +271,8 @@
         "marathon-consul",
         "handlebars-spring-boot-starter",
         "fogger",
-        "elasticsearch-reindex-tool",
         "selena",
+        "elasticsearch-reindex-tool",
         "kafka-offset-monitor-graphite",
         "tradukisto",
         "slinger",
