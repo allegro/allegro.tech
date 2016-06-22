@@ -75,7 +75,7 @@
         "ralph": {
             "url": "https://github.com/allegro/ralph",
             "name": "ralph",
-            "stars": 437,
+            "stars": 442,
             "description": "Ralph is an asset management system for your data center and back office."
         },
         "meeting2015": {
@@ -142,7 +142,7 @@
             "url": "https://github.com/allegro/marathon-consul",
             "name": "marathon-consul",
             "stars": 71,
-            "description": "Event-based registration of Marathon apps in Consul"
+            "description": "Integrates Marathon apps with Consul service discovery."
         },
         "elasticsearch-reindex-tool": {
             "url": "https://github.com/allegro/elasticsearch-reindex-tool",
