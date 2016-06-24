@@ -3,7 +3,7 @@
         "php-protobuf": {
             "url": "https://github.com/allegro/php-protobuf",
             "name": "php-protobuf",
-            "stars": 361,
+            "stars": 364,
             "description": "PHP Protobuf - Fast PHP Protocol Buffers implementation"
         },
         "redux-storage-decorator-engines": {
@@ -33,7 +33,7 @@
         "tipboard": {
             "url": "https://github.com/allegro/tipboard",
             "name": "tipboard",
-            "stars": 459,
+            "stars": 462,
             "description": "Tipboard - in-house, tasty, local dashboarding system "
         },
         "allegro.github.io": {
@@ -75,7 +75,7 @@
         "ralph": {
             "url": "https://github.com/allegro/ralph",
             "name": "ralph",
-            "stars": 442,
+            "stars": 443,
             "description": "Ralph is an asset management system for your data center and back office."
         },
         "meeting2015": {
@@ -159,7 +159,7 @@
         "django-powerdns-dnssec": {
             "url": "https://github.com/allegro/django-powerdns-dnssec",
             "name": "django-powerdns-dnssec",
-            "stars": 14,
+            "stars": 15,
             "description": "Django application managing PowerDNS database"
         },
         "pyhermes": {
@@ -189,7 +189,7 @@
         "grunt-maven-plugin": {
             "url": "https://github.com/allegro/grunt-maven-plugin",
             "name": "grunt-maven-plugin",
-            "stars": 216,
+            "stars": 215,
             "description": "Grunt + Maven integration done right"
         },
         "hermes-page": {
@@ -231,7 +231,7 @@
         "bigcache": {
             "url": "https://github.com/allegro/bigcache",
             "name": "bigcache",
-            "stars": 743,
+            "stars": 744,
             "description": "Efficient cache for gigabytes of data written in Go."
         },
         "ralph_pricing": {
@@ -243,7 +243,7 @@
         "handlebars-spring-boot-starter": {
             "url": "https://github.com/allegro/handlebars-spring-boot-starter",
             "name": "handlebars-spring-boot-starter",
-            "stars": 46,
+            "stars": 47,
             "description": "Spring Boot auto-configuration for Handlebars"
         },
         "selena": {
