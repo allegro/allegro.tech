@@ -33,7 +33,7 @@
         "tipboard": {
             "url": "https://github.com/allegro/tipboard",
             "name": "tipboard",
-            "stars": 462,
+            "stars": 463,
             "description": "Tipboard - in-house, tasty, local dashboarding system "
         },
         "allegro.github.io": {
@@ -63,7 +63,7 @@
         "slinger": {
             "url": "https://github.com/allegro/slinger",
             "name": "slinger",
-            "stars": 19,
+            "stars": 20,
             "description": "Slinger - deep linking library for Android"
         },
         "newrelic-gradle-plugin": {
@@ -75,7 +75,7 @@
         "ralph": {
             "url": "https://github.com/allegro/ralph",
             "name": "ralph",
-            "stars": 443,
+            "stars": 446,
             "description": "Ralph is an asset management system for your data center and back office."
         },
         "meeting2015": {
@@ -141,7 +141,7 @@
         "marathon-consul": {
             "url": "https://github.com/allegro/marathon-consul",
             "name": "marathon-consul",
-            "stars": 71,
+            "stars": 72,
             "description": "Integrates Marathon apps with Consul service discovery."
         },
         "elasticsearch-reindex-tool": {
@@ -189,7 +189,7 @@
         "grunt-maven-plugin": {
             "url": "https://github.com/allegro/grunt-maven-plugin",
             "name": "grunt-maven-plugin",
-            "stars": 215,
+            "stars": 216,
             "description": "Grunt + Maven integration done right"
         },
         "hermes-page": {
@@ -231,7 +231,7 @@
         "bigcache": {
             "url": "https://github.com/allegro/bigcache",
             "name": "bigcache",
-            "stars": 744,
+            "stars": 746,
             "description": "Efficient cache for gigabytes of data written in Go."
         },
         "ralph_pricing": {
