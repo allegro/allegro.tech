@@ -3,7 +3,7 @@
         "php-protobuf": {
             "url": "https://github.com/allegro/php-protobuf",
             "name": "php-protobuf",
-            "stars": 364,
+            "stars": 365,
             "description": "PHP Protobuf - Fast PHP Protocol Buffers implementation"
         },
         "redux-storage-decorator-engines": {
@@ -75,7 +75,7 @@
         "ralph": {
             "url": "https://github.com/allegro/ralph",
             "name": "ralph",
-            "stars": 446,
+            "stars": 447,
             "description": "Ralph is an asset management system for your data center and back office."
         },
         "meeting2015": {
@@ -207,7 +207,7 @@
         "cassandra-modeling-kata": {
             "url": "https://github.com/allegro/cassandra-modeling-kata",
             "name": "cassandra-modeling-kata",
-            "stars": 12,
+            "stars": 13,
             "description": "Cassandra Modeling Kata"
         },
         "radar": {
