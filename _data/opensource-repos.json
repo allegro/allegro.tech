@@ -33,7 +33,7 @@
         "tipboard": {
             "url": "https://github.com/allegro/tipboard",
             "name": "tipboard",
-            "stars": 463,
+            "stars": 465,
             "description": "Tipboard - in-house, tasty, local dashboarding system "
         },
         "allegro.github.io": {
@@ -69,13 +69,13 @@
         "newrelic-gradle-plugin": {
             "url": "https://github.com/allegro/newrelic-gradle-plugin",
             "name": "newrelic-gradle-plugin",
-            "stars": 11,
+            "stars": 12,
             "description": "Newrelic Gradle plugin."
         },
         "ralph": {
             "url": "https://github.com/allegro/ralph",
             "name": "ralph",
-            "stars": 447,
+            "stars": 448,
             "description": "Ralph is an asset management system for your data center and back office."
         },
         "meeting2015": {
