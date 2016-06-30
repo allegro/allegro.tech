@@ -75,7 +75,7 @@
         "ralph": {
             "url": "https://github.com/allegro/ralph",
             "name": "ralph",
-            "stars": 448,
+            "stars": 449,
             "description": "Ralph is an asset management system for your data center and back office."
         },
         "meeting2015": {
@@ -189,7 +189,7 @@
         "grunt-maven-plugin": {
             "url": "https://github.com/allegro/grunt-maven-plugin",
             "name": "grunt-maven-plugin",
-            "stars": 216,
+            "stars": 217,
             "description": "Grunt + Maven integration done right"
         },
         "hermes-page": {
