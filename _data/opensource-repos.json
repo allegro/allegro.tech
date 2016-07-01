@@ -9,7 +9,7 @@
         "redux-storage-decorator-engines": {
             "url": "https://github.com/allegro/redux-storage-decorator-engines",
             "name": "redux-storage-decorator-engines",
-            "stars": 3,
+            "stars": 4,
             "description": "Composing decorator for redux-storage to use different storage types"
         },
         "selena-agent": {
@@ -249,7 +249,7 @@
         "selena": {
             "url": "https://github.com/allegro/selena",
             "name": "selena",
-            "stars": 32,
+            "stars": 33,
             "description": "SELENA is a tool used to test website performance by measuring response times or verifying the content of replies."
         },
         "ralph-docker": {
@@ -287,8 +287,8 @@
         "pyhermes",
         "json-avro-converter",
         "ralph_pricing",
-        "toper",
         "redux-storage-decorator-engines",
+        "toper",
         "selena-agent",
         "SimplePricingService",
         "ralph-docker",
