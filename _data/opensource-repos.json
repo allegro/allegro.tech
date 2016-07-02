@@ -3,13 +3,13 @@
         "php-protobuf": {
             "url": "https://github.com/allegro/php-protobuf",
             "name": "php-protobuf",
-            "stars": 365,
+            "stars": 366,
             "description": "PHP Protobuf - Fast PHP Protocol Buffers implementation"
         },
         "redux-storage-decorator-engines": {
             "url": "https://github.com/allegro/redux-storage-decorator-engines",
             "name": "redux-storage-decorator-engines",
-            "stars": 4,
+            "stars": 5,
             "description": "Composing decorator for redux-storage to use different storage types"
         },
         "selena-agent": {
@@ -27,7 +27,7 @@
         "inkpy-jinja": {
             "url": "https://github.com/allegro/inkpy-jinja",
             "name": "inkpy-jinja",
-            "stars": 2,
+            "stars": 3,
             "description": "Generate PDF documents from ODT templates."
         },
         "tipboard": {
@@ -75,7 +75,7 @@
         "ralph": {
             "url": "https://github.com/allegro/ralph",
             "name": "ralph",
-            "stars": 449,
+            "stars": 451,
             "description": "Ralph is an asset management system for your data center and back office."
         },
         "meeting2015": {
@@ -141,7 +141,7 @@
         "marathon-consul": {
             "url": "https://github.com/allegro/marathon-consul",
             "name": "marathon-consul",
-            "stars": 72,
+            "stars": 73,
             "description": "Integrates Marathon apps with Consul service discovery."
         },
         "elasticsearch-reindex-tool": {
@@ -290,9 +290,9 @@
         "redux-storage-decorator-engines",
         "toper",
         "selena-agent",
+        "inkpy-jinja",
         "SimplePricingService",
         "ralph-docker",
-        "inkpy-jinja",
         "vending-machine-kata",
         "braincode.mobi",
         "django-bob",
