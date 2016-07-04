@@ -159,7 +159,7 @@
         "django-powerdns-dnssec": {
             "url": "https://github.com/allegro/django-powerdns-dnssec",
             "name": "django-powerdns-dnssec",
-            "stars": 15,
+            "stars": 16,
             "description": "Django application managing PowerDNS database"
         },
         "pyhermes": {
