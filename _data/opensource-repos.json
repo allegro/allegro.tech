@@ -3,7 +3,7 @@
         "php-protobuf": {
             "url": "https://github.com/allegro/php-protobuf",
             "name": "php-protobuf",
-            "stars": 366,
+            "stars": 367,
             "description": "PHP Protobuf - Fast PHP Protocol Buffers implementation"
         },
         "redux-storage-decorator-engines": {
@@ -231,7 +231,7 @@
         "bigcache": {
             "url": "https://github.com/allegro/bigcache",
             "name": "bigcache",
-            "stars": 746,
+            "stars": 747,
             "description": "Efficient cache for gigabytes of data written in Go."
         },
         "ralph_pricing": {
