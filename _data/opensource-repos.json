@@ -9,7 +9,7 @@
         "redux-storage-decorator-engines": {
             "url": "https://github.com/allegro/redux-storage-decorator-engines",
             "name": "redux-storage-decorator-engines",
-            "stars": 5,
+            "stars": 6,
             "description": "Composing decorator for redux-storage to use different storage types"
         },
         "selena-agent": {
@@ -231,7 +231,7 @@
         "bigcache": {
             "url": "https://github.com/allegro/bigcache",
             "name": "bigcache",
-            "stars": 747,
+            "stars": 748,
             "description": "Efficient cache for gigabytes of data written in Go."
         },
         "ralph_pricing": {
