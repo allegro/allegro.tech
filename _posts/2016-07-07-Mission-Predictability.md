@@ -8,6 +8,7 @@ tags: [agile, predictability, sprint, measuring]
 A sprint start looks promising – task requirements are described and discussed. Other issues such as leave, training and additional meetings are taken into
 account. Team’s velocity is well-known too. Tasks have been estimated and scope of work has been established. Will we make it? Sure we will! The Product Owner is
 already happy about new features for users and a team discusses the successful planning over a coffee.
+
 After three days some tasks are somewhat complete and you do record some progress. It seems you should rather be able to deliver what you wanted to... at least
 some of it. Even burn-down chart looks promising. That is before the line goes flat instead of going down. Suddenly, control over sprint starts slipping away – a
 pattern often observed in sprints longer than a week. Tasks swell and a 5 story points task becomes a 13 story points colossus. What is worse, you usually notice
@@ -33,7 +34,7 @@ again. During a retrospective meeting, we answered some vital questions that hel
 - We want to know how much we can deliver per sprint.
 
 ### Experiment
-Some time ago I read an article on [measuring sprint progress](https://www.scrumalliance.org/community/articles/2011/may/measuring-sprint-progres) written
+Some time ago I read an article on [measuring sprint progress](https://www.scrumalliance.org/community/articles/2011/may/measuring-sprint-progress) written
 by Martin Alaimo. It is a very inspiring piece that gave me an idea. I asked team to estimate the work that still needs to be done during each daily 
 stand-up meeting.
 
@@ -76,7 +77,7 @@ scope.”
 - „We should continue with this approach.”, “Let’s do the same next time.”
 - „The board is ok.”
 - „Let’s keep the ETC guard because it played well.”
-
+<br />
 
 Scrum Master's observations (consecutive sprints)| Event     
 -------- | --------
