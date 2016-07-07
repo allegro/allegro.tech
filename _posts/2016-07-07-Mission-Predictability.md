@@ -77,7 +77,7 @@ scope.”
 - „We should continue with this approach.”, “Let’s do the same next time.”
 - „The board is ok.”
 - „Let’s keep the ETC guard because it played well.”
-<br />
+<br />  
 
 Scrum Master's observations (consecutive sprints)| Event     
 -------- | --------
