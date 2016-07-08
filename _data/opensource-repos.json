@@ -33,7 +33,7 @@
         "tipboard": {
             "url": "https://github.com/allegro/tipboard",
             "name": "tipboard",
-            "stars": 464,
+            "stars": 465,
             "description": "Tipboard - in-house, tasty, local dashboarding system "
         },
         "allegro.github.io": {
@@ -141,7 +141,7 @@
         "marathon-consul": {
             "url": "https://github.com/allegro/marathon-consul",
             "name": "marathon-consul",
-            "stars": 73,
+            "stars": 74,
             "description": "Integrates Marathon apps with Consul service discovery."
         },
         "elasticsearch-reindex-tool": {
@@ -159,7 +159,7 @@
         "django-powerdns-dnssec": {
             "url": "https://github.com/allegro/django-powerdns-dnssec",
             "name": "django-powerdns-dnssec",
-            "stars": 16,
+            "stars": 17,
             "description": "Django application managing PowerDNS database"
         },
         "pyhermes": {
@@ -231,7 +231,7 @@
         "bigcache": {
             "url": "https://github.com/allegro/bigcache",
             "name": "bigcache",
-            "stars": 749,
+            "stars": 751,
             "description": "Efficient cache for gigabytes of data written in Go."
         },
         "ralph_pricing": {
