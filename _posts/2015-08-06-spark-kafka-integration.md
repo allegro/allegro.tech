@@ -122,7 +122,7 @@ dstream.foreachRDD { rdd =>
   rdd.foreachPartition { partitionOfRecords =>
     val producer = createKafkaProducer()
     partitionOfRecords.foreach { message =>
-      connection.send(record))
+      connection.send(message)
     }
     producer.close()
   }
