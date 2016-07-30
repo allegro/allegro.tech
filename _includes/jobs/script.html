@@ -1,0 +1,17 @@
+<script>
+    (function(){
+        var img = document.querySelector('.job-add header img');
+
+        var getImg = function(n){
+            return '/img/jobs/'+n+'.png';
+        };
+
+        var i = 1;
+
+        setInterval(function(){
+            img.src = getImg(i);
+            i ++;
+            i = i > 6 ? 1:i;
+        }, 5000)
+    })()
+</script>
