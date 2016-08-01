@@ -45,21 +45,21 @@
         </li>-->
         <li>
             <a href="android-engineer.html">
-                <img src="/img/jobs/5.png"/>
+                <img src="/img/jobs/3.png"/>
                 <span class="title">Android Engineer</span>
 
             </a>
         </li>
         <li>
             <a href="ios-engineer.html">
-                <img src="/img/jobs/5.png"/>
+                <img src="/img/jobs/4.png"/>
                 <span class="title">iOS Engineer</span>
 
             </a>
         </li>
         <li>
             <a href="senior-front-end-software-engineer.html">
-                <img src="/img/jobs/6.png"/>
+                <img src="/img/jobs/5.png"/>
                 <span class="title">Senior Front-end Software Engineer</span>
 
             </a>
@@ -72,36 +72,3 @@
         </li>-->
     </ul>
 </div>
-<script>
-
-(function(){
-var imgs = [].slice.apply(document.querySelectorAll('.jobs img'));
-
-
-function rndArr(){
- var arr = [1,2,3,4,5,6];
- return arr.sort(function(a,b){return Math.random()-a/10});
-}
-
-// setInterval(function(){
-//   rndArr().forEach(function(item,i){
-//     imgs[i].src='/img/jobs/'+item+'.png';
-
-//   })
-// }, 5000)
-
-
-
-setInterval(function(){
-    var arr = rndArr();
-    imgs[0].src = '/img/jobs/'+ arr[0] +'.png';
-    imgs[1].src = '/img/jobs/'+ arr[1] +'.png';
-}, 5000)
-
-
-})()
-
-
-
-
-</script>
