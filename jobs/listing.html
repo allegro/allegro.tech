@@ -1,0 +1,74 @@
+{% if page.thank_you %}
+    <div id="job-added-alert" class="job-added">
+        <h2>Thank you, we will contact you soon!</h2>
+        <span class="close"></span>
+    </div>
+    <script>
+        window.addEventListener('load', function() {
+            var alert = document.getElementById('job-added-alert');
+            alert.querySelector('.close').addEventListener('click', function () {
+                alert.className += ' job-added__hidden';
+            });
+        });
+    </script>
+{% endif %}
+
+<div class="jobs">
+    <ul>
+        <li>
+            <a href="software-engineer.html">
+                <img src="/img/jobs/1.png"/>
+                <span class="title">Software Engineer</span>
+
+            </a>
+        </li>
+        <li>
+            <a href="senior-software-engineer.html">
+                <img src="/img/jobs/2.png"/>
+                <span class="title">Senior Software Engineer</span>
+
+            </a>
+        </li>
+        <!-- <li>
+            <a href="big-data-engineer.html">
+                <img src="/img/jobs/3.png"/>
+                <span class="title">Big Data Engineer</span>
+
+            </a>
+        </li>
+        <li>
+            <a href="senior-data-engineer.html">
+                <img src="/img/jobs/4.png"/>
+                <span class="title">Senior Big Data Engineer</span>
+
+            </a>
+        </li>-->
+        <li>
+            <a href="android-engineer.html">
+                <img src="/img/jobs/3.png"/>
+                <span class="title">Android Engineer</span>
+
+            </a>
+        </li>
+        <li>
+            <a href="ios-engineer.html">
+                <img src="/img/jobs/4.png"/>
+                <span class="title">iOS Engineer</span>
+
+            </a>
+        </li>
+        <li>
+            <a href="senior-front-end-software-engineer.html">
+                <img src="/img/jobs/5.png"/>
+                <span class="title">Senior Front-end Software Engineer</span>
+
+            </a>
+        </li>
+                <!-- <li>
+            <a href="web-performance-engineer.html">
+                <img src="/img/jobs/2.png"/>
+                <span class="title">Web Performance Engineer</span>
+            </a>
+        </li>-->
+    </ul>
+</div>
