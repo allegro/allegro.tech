@@ -13,11 +13,11 @@ text interesting. Non-mobile developers may find it an intriguing read as well.
 ## Bugs :bug::bug::bug::bug:
 
 Native mobile apps development is very exciting. The iOS platform offers such
-vast possibilities that more often than not apps are limited by a developer’s
-imagination only.
+vast possibilities that apps are often limited by a developer’s imagination
+only.
 
 A mobile device is a fully-fledged computer these days and as such it always
-does what it has been programmed to. If anything fails, this is because a
+does what it has been programmed to. If something fails, this is because a
 computer did things exactly as it was commanded to. We – as humans – make
 errors, which is part of our nature. Without mistakes, we would not be able to
 learn.
@@ -32,7 +32,7 @@ various tools:
 
 - crash loggers — crashes and non-fatal errors,
 - tracking tools — detecting user flow anomalies,
-- a/b test tools — possibility of disabling problematic features.
+- A/B test tools — possibility of disabling problematic features.
 
 Often, these tools are sufficient to analyze an issue. But occasionally, they
 can hardly detect if anything is wrong or, in the case of a very complex
@@ -63,7 +63,7 @@ situation was terrifying. Our iOS app has tens of thousands of active users
 daily. Even if the problem persisted for a small percentage of that volume, it
 could prevent users from selecting a parcel machine. That would block shopping
 for a large number of buyers — the last thing we really wanted. Any attempt to
-break `MKWebView` again failed (i.e. simulating a poor network, `MKMapView`
+break `MKMapView` again failed (i.e. simulating a poor network, `MKMapView`
 stress testing, etc.). Suddenly, when the bug re-appeared on two other devices,
 we had a chance to catch it.
 
@@ -100,9 +100,10 @@ immediately after the map had appeared on the screen.
 The delegate method invocation was caused by a `GEOErrorDomain` domain error.
 Its `userInfo` was a singleton dictionary, a single array of underlying errors
 under the `SimpleTileRequesterUnderlyingErrors` key. Each underlying error had
-two values in its `userInfo` dictionary: the first one under the HTTPStatus key
-and the second one under the NSErrorFailingURLStringKey key. It was a clear
-sign that a network error was a direct cause of failure to display map tiles.
+two values in its `userInfo` dictionary: the first one under the `HTTPStatus`
+key and the second one under the `NSErrorFailingURLStringKey` key. It was a
+clear sign that a network error was a direct cause of failure to display map
+tiles.
 
 ## The Man In The Middle :busts_in_silhouette:
 
@@ -111,10 +112,10 @@ yet one of the most powerful – tools you will ever need is
 [mitmproxy](mitmproxy.org). Never heard of it? You should no longer hesitate
 having it installed, because it will save you hours of debugging in the future.
 In this case, I only used it to intercept networking requests, but mitmproxy
-has much bigger possibilities (e.g. intercepting and scripting).
+has much bigger possibilities (e.g. scripting).
 
 I started to intercept network traffic and displayed the map to trigger its
-network activity. mitmproxy showed a lot of map tile requests.
+network activity. Mitmproxy showed a lot of map tile requests.
 
 ![mitmproxy](/img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_410.png)
 
@@ -200,12 +201,12 @@ Firstly, all iOS framework dylibs can be easily accessed from either:
 
 ![Frameworks](/img/articles/2016-08-01-the-ios-bug-chase/frameworks.png)
 
-Secondly, [Hooper](https://www.hopperapp.com/) makes decompilation nothing but
+Secondly, [Hopper](https://www.hopperapp.com/) makes decompilation nothing but
 pure pleasure. Hopper is such a powerful, yet simple and intuitive tool that
 any person without any particular knowledge of assembly or Mach-O could easily
-analyse any executable. The basic Hooper usage scenario is as simple as that:
+analyse any executable. The basic Hopper usage scenario is as simple as that:
 
-1. Use “Read Executable to Disassemble” and wait until Hooper processes the
+1. Use “Read Executable to Disassemble” and wait until Hopper processes the
 binary.
 2. Use the symbols panel to find the method of your interest.
 3. Use “Show Pseudo Code of Procedure” to see a selected method logic.
@@ -233,8 +234,8 @@ From between many other dylibs used by MapKit, `GeoServices.framework` looked
 like the obvious owner of `GEOResourceManifestConfiguration`.
 `GeoServices.framework` is a private system framework, no wonder I have never
 heard of it before. So I tried to inspect the `GeoServices` dynamic library
-using Hooper. I used `GEOResourceManifestManager` as a symbols filter and
-Hooper showed a bunch of `GEOResourceManifestManager` methods. One of them was
+using Hopper. I used `GEOResourceManifestManager` as a symbols filter and
+Hopper showed a bunch of `GEOResourceManifestManager` methods. One of them was
 the method:
 
 ```objc
@@ -292,10 +293,10 @@ app with the following code:
 }
 ```
 
-Notice that using a private API is a violation of the iPhone developer
-agreement. Any app found using a private API is being rejected by Apple. Even
-if such app passes the Apple review, for example by hiding selectors with
-simple [ROT13](https://en.wikipedia.org/wiki/ROT13), the app can be unstable.
+Notice that using a private API is a violation of the iOS Developer Program
+Agreement. Any app found using a private API is rejected by Apple. Even if such
+app passes the Apple review, for example by hiding selectors with simple 
+[ROT13](https://en.wikipedia.org/wiki/ROT13), the app can be unstable.
 Checking for `respondsToSelector:`? Still unsafe, because any private method
 behavior could change anytime or cause a trap after detecting an illegal flow.
 Do not ever try to release such code!
@@ -315,7 +316,7 @@ Forum](https://forums.developer.apple.com/thread/43077).
 
 ## The Engineer :apple:
 
-Sometime after filing the bug report, I managed to attend WWDC2016.
+Some time after filing the bug report, I managed to attend WWDC2016.
 
 WWDC is full of sessions about the latest iOS topics, but the real value lies
 in the labs. I visited a MapKit lab to ask what was going on with
@@ -325,15 +326,6 @@ iPhone and searched for the bug report. As it turned out, there was a lot of
 comments under the bug report – comments seen only by Apple engineers. He told
 me that my bug report helped to capture a 4-year old bug regarding incorrect
 `410` HTTP status handling and the bug was fixed on iOS 10 beta 1.
-
-Shortly after that conversation I received an update regarding the bug report —
-it was asking to test the issue in iOS 10 beta and to let Apple know if it
-still occurs. First thought — it would be really hard to test this
-indeterministic bug... or wouldn't it? The engineer told me the bug was about
-“incorrect `410` HTTP status handling”, so I thought I could reproduce the
-`410` status codes using the mitmproxy. Just had to write a simple mitmproxy
-script, that would change response of every tile request by replacing the
-status code with `410`.
 
 Shortly after that conversation, I received an update regarding the bug report
 — it asked me to test the issue on iOS 10 beta and to let Apple know if it
@@ -356,7 +348,7 @@ Then, by adding the script to mitmproxy, I could test the map behaviour on iOS
 
 ![mitmproxy_fixed](/img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_fixed.png)
 
-mitmproxy changed the status code of each tile request to `410`. Once the first
+Mitmproxy changed the status code of each tile request to `410`. Once the first
 tile request finished with the `410` status code, `geod` daemon immediately
 updated its manifest requesting fresh `/geomanifest/dynamic/config`. It worked
 just as expected! The bug was resolved! :tada:
@@ -364,7 +356,8 @@ just as expected! The bug was resolved! :tada:
 ## What could go wrong? :four_leaf_clover:
 
 A bug chase is often a long and hard process. In the one I have described, luck
-was a big contributor to success, because – as usual – anything could go wrong:
+was a big contributor to success, because – as usual – many things could go
+wrong:
 
 - the issue could just not occur on our test devices at all,
 - maps API could be secured with SSL-pinning,
@@ -377,7 +370,7 @@ was a big contributor to success, because – as usual – anything could go wro
 A good conclusion could be these four simple pieces of advice:
 
 1. Install [mitmproxy](https://mitmproxy.org/) now.
-2. Download [Hooper](https://www.hopperapp.com/), play with the trial version and add Hooper Personal Licence to your wishlist.
+2. Download [Hopper](https://www.hopperapp.com/), play with the trial version and add Hopper Personal Licence to your wishlist.
 3. File Apple bug reports — the Bug Reporter is not `/dev/null`, the whole Apple staff are just waiting for your reports.
 4. “Stay Hungry. Stay Foolish.” + Learn internals... internals of everything — this will make the Force be strong with you.
 
