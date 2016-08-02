@@ -80,8 +80,10 @@ div.jobs .title {
 .job-add header h1 {
 	color: #ff5825;
 }
-.job-add section h1, h2 {
-	text-transform: uppercase;
+.job-add section { 
+	h1, h2 {
+		text-transform: uppercase;
+	}
 }
 .job-add dt, dd {
 	display: inline-block;
