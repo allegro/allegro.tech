@@ -295,7 +295,7 @@ app with the following code:
 
 Notice that using a private API is a violation of the iOS Developer Program
 Agreement. Any app found using a private API is rejected by Apple. Even if such
-app passes the Apple review, for example by hiding selectors with simple 
+app passes the Apple review, for example by hiding selectors with simple
 [ROT13](https://en.wikipedia.org/wiki/ROT13), the app can be unstable.
 Checking for `respondsToSelector:`? Still unsafe, because any private method
 behavior could change anytime or cause a trap after detecting an illegal flow.
