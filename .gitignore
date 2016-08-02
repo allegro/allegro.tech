@@ -9,3 +9,5 @@ scripts/open-source/lib
 scripts/open-source/include
 scripts/open-source/pip-*
 scripts/open-source/.Python
+
+.DS_Store
