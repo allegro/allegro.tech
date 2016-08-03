@@ -74,7 +74,7 @@ ignore it just for the cause.
 Each time you start ignoring a bug, you end up looking just like the
 [owl](http://devopsreactions.tumblr.com/post/143885280016/when-you-get-accustomed-to-some-bugs).
 
-![owl](/img/articles/2016-08-01-the-ios-bug-chase/owl.gif)
+<video src="/img/articles/2016-08-01-the-ios-bug-chase/owl.mp4" autoplay loop></video>
 
 Now seriously... Although we could not fix the bug directly on iOS, we could at
 least try to bypass it, so that the bug would no longer occur in our app. The
