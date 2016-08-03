@@ -6,48 +6,86 @@ tags: [tech, cqk-top-10, cache]
 ---
 
 This article is a part of [CQK Top 10](). //TODO add link
-Many developers add cache to their application without measuring
-how it influences performance.
-We are advising here, that application caches should be used sparingly
-and each application cache should have vary good reasons to exists.
+Many developers add cache to their application without measuring performance impact.
+We are advising here, that each application cache should have vary good reasons to exists.
 
-## Placing cache in the right place
+## Do you know where you need a cache?
 
-Decision about using and maintaining a cache must be well-considered.
-An application cache makes sense only when you have high hit ratio.
-When creating a cache remember about:
+Using a cache makes costs, so it should earn for itself.
+Caching makes sense only if hit ratio is high, let’s say above 50%.
+Caching costs consist of:
 
-* extra use of resources, CPU and RAM,
-* extended duration of GC cycle (in case of heap-based allocation),
-* your code becoming even more complex,
-* potential errors that may occur, but are difficult to detect.
+* CPU and RAM resources,
+* more work for GC (in case of on-heap cache),
+* increased code complexity,
+* risk of introducing bugs which can be very difficult to detect (e.g. keys interference).
 
-If you do not know your hit ratio, measure it and remove any ineffective caches
-from your application.
+If you don’t know hit ratio of your cache,
+start to measure it. Remove ineffective caches from your application.
 
-## Metrics for your cache
+## Do you have metrics for your cache?
 
-To evaluate the performance of your cache, you need to monitor the following metrics:
+Following metrics let us evaluate performance of a cache:
 
-* hit ratio – percentage of access operations that result in cache hits,
-* request count – number of cache hits indicating how often it is used,
-* miss ratio – percentage of access requests to source service/function,
-* utilization – percentage of the cache in use.
+* request-count – number of cache access operations,
+* hit-count – number of access operations when results were returned from a cache,
+* miss-count – number of access operations when a source service/function was called,
+* cache-size - number of items stored in a cache,
+* max-size - maximum number of items in a cache (constant),
+* utilization – percentage of cache-size to max-size.
 
-As it’s a good practice to monitor these metrics, think about adding them to your service’s dashboard.
-In the event you use [Guava Cache](https://github.com/google/guava/wiki/CachesExplained),
-monitor metrics of the *gauge* type,
-which retrieve a `CacheStats` object on a regular basis from the `Cache.stats()`
-method and display values such as `CacheStats.hitRatio()` or `CacheStats.missRatio()`:
+First three metrics are *throughput* metrics and the last three are simple *sampling* metrics.
+
+Throughput metrics are usually visualized using moving average window, typically with one-minute or five-minute length.
+For example, if request-count measured at some point in time is 1000 and
+then measured after one minute is 2000, we calculate throughput as 1000 RPM (requests per minute)
+== 17 RPS (requests per second).
+
+It’s convenient to visualize hit and miss metrics as ratios or percentages:
+
+```
+hit-ratio = hit-count / request-count
+miss-ratio = miss-count / request-count
+```
+
+**Following examples** shows hot to measure a
+[Guava Cache](https://github.com/google/guava/wiki/CachesExplained) instance
+using [Dropwizard Metrics](http://metrics.dropwizard.io/) (standard for gathering metrics in the JVM world).
+
+In Dropwizard domain, throughput metric is called `Meter` and
+simple sampling metric is called `Gauge`.
+
+Gauges are registered once when the cache is created
+and then Dropwizard samples metered value whenever he wants:
 
 ```java
-MetricRegistry registry = ... // see https://github.com/dropwizard/metrics
-Cache<String, Object> myCache = CacheBuilder.newBuilder().build();
-
-registry.register("myCache.hit-ratio", (Gauge<Double>) () -> myCache.stats().hitRate());
-registry.register("myCache.miss-ratio", (Gauge<Double>) () -> myCache.stats().missRate());
-registry.register("myCache.request-count", (Gauge<Double>) () -> myCache.stats().requestCount());
+void registerCacheSizeMetric(Cache<K, V> myCache, MetricRegistry metricRegistry) {
+    metricRegistry.register("myCache.cacheSize", (Gauge) () -> myCache.size());
+}
 ```
+
+Meters requires more code, you need to `mark()` them explicitly,
+each time the cache is accessed:
+
+```java
+Optional<V> meteredGet(Cache<K, V> myCache, K key, MetricRegistry metricRegistry) {
+    metricRegistry.meter("myCache.requestCount").mark();
+
+    Optional<V> result = Optional.ofNullable(myCache.getIfPresent(key));
+
+    if (result.isPresent()){
+        metricRegistry.meter("myCache.hitCount").mark();
+    } else {
+        metricRegistry.meter("myCache.missCount").mark();
+    }
+    return result;
+}
+```
+
+As it’s a good practice to visualize these metrics, think about adding them to your service’s
+dashboard.
+
+//TODO images!!!
 
 ## Cache configuration
 
