@@ -2,7 +2,7 @@
 layout: post
 title: The iOS bug chase
 author: kamil.borzym
-tags: [tech, ios, debugging, decompiling, MapKit, hooper, mitmproxy]
+tags: [tech, ios, debugging, decompiling, MapKit, hopper, mitmproxy]
 ---
 
 This article tells a story of chasing an iOS bug – a bug hidden so deep that it
@@ -13,13 +13,13 @@ interesting. Non-mobile developers may find it an intriguing read as well.
 ## Bugs :bug::bug::bug::bug:
 
 Native mobile apps development is very exciting. The iOS platform offers such
-vast possibilities that apps are often limited by a developer’s imagination
-only.
+vast possibilities that apps are often limited only by a developer’s
+imagination.
 
 A mobile device is a fully-fledged computer these days and as such it always
 does what it has been programmed to. If something fails, this is because a
 computer did things exactly as it was commanded to. We – as humans – make
-errors, which is part of our nature. Without mistakes, we would not be able to
+errors, which is part of our nature. Without errors, we would not be able to
 learn.
 
 > I don't want to insist on it, Dave, but I am incapable of making an error.
@@ -111,10 +111,10 @@ yet one of the most powerful tools you will ever need is
 [mitmproxy](mitmproxy.org). Never heard of it? You should really check it out,
 as it can save you hours of debugging in the future. In this case, I only used
 it to intercept network requests, but mitmproxy has much bigger possibilities
-(e.g. intercepting and scripting).
+(e.g. scripting).
 
 I started to intercept network traffic and displayed the map to trigger its
-network activity. mitmproxy showed a lot of map tile requests.
+network activity. Mitmproxy showed a lot of map tile requests.
 
 ![mitmproxy](/img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_410.png)
 
