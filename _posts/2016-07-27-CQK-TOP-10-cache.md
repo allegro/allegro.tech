@@ -50,13 +50,11 @@ miss-ratio = miss-count / request-count
 
 **Following examples** shows hot to measure a
 [Guava Cache](https://github.com/google/guava/wiki/CachesExplained) instance
-using [Dropwizard Metrics](http://metrics.dropwizard.io/) (standard for gathering metrics in the JVM world).
+using [Dropwizard Metrics](http://metrics.dropwizard.io/) (standard tool for gathering metrics in the JVM world).
+In Dropwizard domain, throughput metric is called `Meter` and sampling metric is called `Gauge`.
 
-In Dropwizard domain, throughput metric is called `Meter` and
-simple sampling metric is called `Gauge`.
-
-Gauges are registered once when the cache is created
-and then Dropwizard samples metered value whenever he wants:
+Gauges are registered once when the cache is created and then Dropwizard samples metered values
+whenever he wants:
 
 ```java
 void registerCacheSizeMetric(Cache<K, V> myCache, MetricRegistry metricRegistry) {
@@ -64,7 +62,7 @@ void registerCacheSizeMetric(Cache<K, V> myCache, MetricRegistry metricRegistry)
 }
 ```
 
-Meters requires more code, you need to `mark()` them explicitly,
+Meters requires more code. You need to `mark()` them explicitly,
 each time the cache is accessed:
 
 ```java
@@ -82,10 +80,21 @@ Optional<V> meteredGet(Cache<K, V> myCache, K key, MetricRegistry metricRegistry
 }
 ```
 
+Basic reporting to `System.out`:
+
+```java
+void printSomeMetrics(MetricRegistry metricRegistry) {
+    double requests = metricRegistry.meter("myCache.requestCount").getOneMinuteRate();
+    double hit = metricRegistry.meter("myCache.hitCount").getOneMinuteRate();
+    double hitRatio = hit / requests;
+
+    System.out.println("cache throughput = " + requests + " RPS (m1 rate)");
+    System.out.println("cache hitRatio =   " + hitRatio +" (m1 rate)");
+}
+```
+
 As it’s a good practice to visualize these metrics, think about adding them to your service’s
 dashboard.
-
-//TODO images!!!
 
 ## Cache configuration
 
