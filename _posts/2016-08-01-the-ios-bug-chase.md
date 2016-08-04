@@ -13,11 +13,11 @@ text interesting. Non-mobile developers may find it an intriguing read as well.
 ## Bugs :bug::bug::bug::bug:
 
 Native mobile apps development is very exciting. The iOS platform offers such
-vast possibilities that apps are often limited by a developer’s imagination
-only.
+vast possibilities that more often than not apps are limited by a developer’s
+imagination only.
 
 A mobile device is a fully-fledged computer these days and as such it always
-does what it has been programmed to. If something fails, this is because a
+does what it has been programmed to. If anything fails, this is because a
 computer did things exactly as it was commanded to. We – as humans – make
 errors, which is part of our nature. Without mistakes, we would not be able to
 learn.
@@ -32,7 +32,7 @@ various tools:
 
 - crash loggers — crashes and non-fatal errors,
 - tracking tools — detecting user flow anomalies,
-- A/B test tools — possibility of disabling problematic features.
+- a/b test tools — possibility of disabling problematic features.
 
 Often, these tools are sufficient to analyze an issue. But occasionally, they
 can hardly detect if anything is wrong or, in the case of a very complex
@@ -41,43 +41,43 @@ that even a single undetected non-fatal error can affect experience of
 thousands of users. That is why here, at Allegro, we have to be very serious
 about all potential issues.
 
-This article describes an iOS MapKit bug analysis and a resolution to the bug,
-starting with a source code, through network stack, down to the assembly, and
-ending up in San Francisco.
+This article describes an iOS MapKit bug analysis and it's resolution, starting
+with source code, through network stack, down to the assembly, and ending up in
+San Francisco.
 
 ## The Bug :beetle:
 
-One of our quality assurance engineers reported a bug which no one else was
-able to reproduce. The problem could be seen in the process of selecting a
-parcel machine for shopping delivery and apparently it occurred on a single
-device only.
+One of our quality assurance engineers reported a strange bug. No one but him
+was able to reproduce it. The problem could be seen in the process of selecting
+a parcel machine for shopping delivery. Apparently the problem occurred on a
+single device only.
 
-The `MKMapView` controller had troubles displaying a map. Internet connection
-was ok on the device. Restarting or reinstalling the app did not fix the
-problem.
+The `MKMapView` controller had trouble displaying a map. Internet connection
+was working fine on the device. Restarting or reinstalling the app did not fix
+the problem.
 
 ![The Bug](/img/articles/2016-08-01-the-ios-bug-chase/the_bug.png)
 
 After playing with the bug for some time, the issue suddenly disappeared. The
-situation was terrifying. Our iOS app has tens of thousands of active users
-daily. Even if the problem persisted for a small percentage of that volume, it
+situation was terrifying. Our iOS app has tens of thousands of daily active
+users. Even if the problem persisted for a small percentage of that volume, it
 could prevent users from selecting a parcel machine. That would block shopping
 for a large number of buyers — the last thing we really wanted. Any attempt to
-break `MKMapView` again failed (i.e. simulating a poor network, `MKMapView`
+break `MKWebView` again failed (i.e. simulating a poor network, `MKMapView`
 stress testing, etc.). Suddenly, when the bug re-appeared on two other devices,
 we had a chance to catch it.
 
 Strangely enough, the iOS Maps app showed the same symptoms, so did all the
-third party apps installed. This seemed to be a bug on iOS, but we could not
-ignore it just for the cause.
+third party apps installed. This seemed to be a bug in iOS, but we could not
+ignore it anyway.
 
-Each time you start ignoring a bug, you end up looking just like the
+Each time you start ignoring a bug, you end up looking just like this
 [owl](http://devopsreactions.tumblr.com/post/143885280016/when-you-get-accustomed-to-some-bugs).
 
 ![owl](/img/articles/2016-08-01-the-ios-bug-chase/owl.gif)
 
-Now seriously... Although we could not fix the bug directly on iOS, we could at
-least try to bypass it, so that the bug would no longer occur in our app. The
+Now seriously... Although we could not fix the bug directly in iOS, we could at
+least try to bypass it, so that it would no longer occur in our app. The
 analysis began.
 
 ## The Code :floppy_disk:
@@ -91,31 +91,29 @@ handy delegate method:
 
 so I implemented it with some `NSLog` logging inside.
 
-I also added a breakpoint there, so I could visually debug and inspect the
-`error` in depth using Xcode Variables View. The breakpoint was reached almost
-immediately after the map had appeared on the screen.
+I also added a breakpoint there, so I could debug and inspect the `error` in
+depth using Xcode Variables View. The breakpoint was reached almost immediately.
 
 ![breakpoint](/img/articles/2016-08-01-the-ios-bug-chase/breakpoint.png)
 
 The delegate method invocation was caused by a `GEOErrorDomain` domain error.
 Its `userInfo` was a singleton dictionary, a single array of underlying errors
 under the `SimpleTileRequesterUnderlyingErrors` key. Each underlying error had
-two values in its `userInfo` dictionary: the first one under the `HTTPStatus`
-key and the second one under the `NSErrorFailingURLStringKey` key. It was a
-clear sign that a network error was a direct cause of failure to display map
-tiles.
+two values in its `userInfo` dictionary: the first one under the HTTPStatus key
+and the second one under the NSErrorFailingURLStringKey key. It was a clear
+sign that a network error was a direct cause of failure to display map tiles.
 
 ## The Man In The Middle :busts_in_silhouette:
 
-When it comes to the analysis of network communication, one of the simplest –
-yet one of the most powerful – tools you will ever need is
-[mitmproxy](mitmproxy.org). Never heard of it? You should no longer hesitate
-having it installed, because it will save you hours of debugging in the future.
-In this case, I only used it to intercept networking requests, but mitmproxy
-has much bigger possibilities (e.g. scripting).
+When it comes to the analysis of network communication, one of the simplest,
+yet one of the most powerful tools you will ever need is
+[mitmproxy](mitmproxy.org). Never heard of it? You should really check it out,
+as it can save you hours of debugging in the future. In this case, I only used
+it to intercept network requests, but mitmproxy has much bigger possibilities
+(e.g. intercepting and scripting).
 
 I started to intercept network traffic and displayed the map to trigger its
-network activity. Mitmproxy showed a lot of map tile requests.
+network activity. mitmproxy showed a lot of map tile requests.
 
 ![mitmproxy](/img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_410.png)
 
@@ -201,12 +199,12 @@ Firstly, all iOS framework dylibs can be easily accessed from either:
 
 ![Frameworks](/img/articles/2016-08-01-the-ios-bug-chase/frameworks.png)
 
-Secondly, [Hopper](https://www.hopperapp.com/) makes decompilation nothing but
+Secondly, [Hooper](https://www.hopperapp.com/) makes decompilation nothing but
 pure pleasure. Hopper is such a powerful, yet simple and intuitive tool that
 any person without any particular knowledge of assembly or Mach-O could easily
-analyse any executable. The basic Hopper usage scenario is as simple as that:
+analyse any executable. The basic Hooper usage scenario is as simple as that:
 
-1. Use “Read Executable to Disassemble” and wait until Hopper processes the
+1. Use “Read Executable to Disassemble” and wait until Hooper processes the
 binary.
 2. Use the symbols panel to find the method of your interest.
 3. Use “Show Pseudo Code of Procedure” to see a selected method logic.
@@ -234,8 +232,8 @@ From between many other dylibs used by MapKit, `GeoServices.framework` looked
 like the obvious owner of `GEOResourceManifestConfiguration`.
 `GeoServices.framework` is a private system framework, no wonder I have never
 heard of it before. So I tried to inspect the `GeoServices` dynamic library
-using Hopper. I used `GEOResourceManifestManager` as a symbols filter and
-Hopper showed a bunch of `GEOResourceManifestManager` methods. One of them was
+using Hooper. I used `GEOResourceManifestManager` as a symbols filter and
+Hooper showed a bunch of `GEOResourceManifestManager` methods. One of them was
 the method:
 
 ```objc
@@ -293,10 +291,10 @@ app with the following code:
 }
 ```
 
-Notice that using a private API is a violation of the iOS Developer Program
-Agreement. Any app found using a private API is rejected by Apple. Even if such
-app passes the Apple review, for example by hiding selectors with simple
-[ROT13](https://en.wikipedia.org/wiki/ROT13), the app can be unstable.
+Notice that using a private API is a violation of the iPhone developer
+agreement. Any app found using a private API is being rejected by Apple. Even
+if such app passes the Apple review, for example by hiding selectors with
+simple [ROT13](https://en.wikipedia.org/wiki/ROT13), the app can be unstable.
 Checking for `respondsToSelector:`? Still unsafe, because any private method
 behavior could change anytime or cause a trap after detecting an illegal flow.
 Do not ever try to release such code!
@@ -316,7 +314,7 @@ Forum](https://forums.developer.apple.com/thread/43077).
 
 ## The Engineer :apple:
 
-Some time after filing the bug report, I managed to attend WWDC2016.
+Sometime after filing the bug report, I managed to attend WWDC2016.
 
 WWDC is full of sessions about the latest iOS topics, but the real value lies
 in the labs. I visited a MapKit lab to ask what was going on with
@@ -325,10 +323,19 @@ issue”. He opened the [Radar](https://www.theiphonewiki.com/wiki/Radar) on his
 iPhone and searched for the bug report. As it turned out, there was a lot of
 comments under the bug report – comments seen only by Apple engineers. He told
 me that my bug report helped to capture a 4-year old bug regarding incorrect
-`410` HTTP status handling and the bug was fixed on iOS 10 beta 1.
+`410` HTTP status handling and the bug was fixed in iOS 10 beta 1.
+
+Shortly after that conversation I received an update regarding the bug report —
+it was asking to test the issue in iOS 10 beta and to let Apple know if it
+still occurs. First thought — it would be really hard to test this
+indeterministic bug... or wouldn't it? The engineer told me the bug was about
+“incorrect `410` HTTP status handling”, so I thought I could reproduce the
+`410` status codes using the mitmproxy. Just had to write a simple mitmproxy
+script, that would change response of every tile request by replacing the
+status code with `410`.
 
 Shortly after that conversation, I received an update regarding the bug report
-— it asked me to test the issue on iOS 10 beta and to let Apple know if it
+— it asked me to test the issue in iOS 10 beta and to let Apple know if it
 still occurred. My first thought was: “It will really be hard to test this
 non-deterministic bug...” but was it? The engineer told me the bug was about
 incorrect `410` HTTP status handling, so I thought I could reproduce the `410`
@@ -343,12 +350,12 @@ def response(context, flow):
         flow.response.content = b""
 ```
 
-Then, by adding the script to mitmproxy, I could test the map behaviour on iOS
+Then, by adding the script to mitmproxy, I could test the map behaviour in iOS
 10 beta 2.
 
 ![mitmproxy_fixed](/img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_fixed.png)
 
-Mitmproxy changed the status code of each tile request to `410`. Once the first
+mitmproxy changed the status code of each tile request to `410`. Once the first
 tile request finished with the `410` status code, `geod` daemon immediately
 updated its manifest requesting fresh `/geomanifest/dynamic/config`. It worked
 just as expected! The bug was resolved! :tada:
@@ -356,8 +363,7 @@ just as expected! The bug was resolved! :tada:
 ## What could go wrong? :four_leaf_clover:
 
 A bug chase is often a long and hard process. In the one I have described, luck
-was a big contributor to success, because – as usual – many things could go
-wrong:
+was a big contributor to success, because – as usual – anything could go wrong:
 
 - the issue could just not occur on our test devices at all,
 - maps API could be secured with SSL-pinning,
@@ -370,9 +376,9 @@ wrong:
 A good conclusion could be these four simple pieces of advice:
 
 1. Install [mitmproxy](https://mitmproxy.org/) now.
-2. Download [Hopper](https://www.hopperapp.com/), play with the trial version and add Hopper Personal Licence to your wishlist.
+2. Download [Hooper](https://www.hopperapp.com/), play with the trial version and add Hooper Personal Licence to your wishlist.
 3. File Apple bug reports — the Bug Reporter is not `/dev/null`, the whole Apple staff are just waiting for your reports.
-4. “Stay Hungry. Stay Foolish.” + Learn internals... internals of everything — this will make the Force be strong with you.
+4. “Stay Hungry. Stay Foolish.” + Learn internals... internals of everything — this will make the Force strong with you.
 
 This was a happy-ending story — the bug has been resolved the right way, Apple
 Maps will once again work seamlessly and the Allegro iOS app will provide the
