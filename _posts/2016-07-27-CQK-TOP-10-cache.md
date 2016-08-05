@@ -96,39 +96,40 @@ void printSomeMetrics(MetricRegistry metricRegistry) {
 As it’s a good practice to visualize these metrics, think about adding them to your service’s
 dashboard.
 
-## Cache configuration
+## Is your cache configured properly?
 
-A poorly configured cache will never record high hit ratio if:
+A poorly configured cache will never achieve high hit-ratio if:
 
-* the number of items significantly exceeds the cache size (high replacement rate),
-* TTL is too short – your items will disappear before the cache warms up.
+* the number of possible items significantly exceeds the cache max-size (high replacement rate),
+* TTL (time to live) is too short – items disappear before the cache warms up.
 
-## Application performance and cold cache
+## Do you know how your application performs on cold cache?
 
-Upon the application start, the cache is empty and its hit ratio amounts to 0%.
-So, what influence does the process of warming up cache have on the application performance?
-It might need more resources upon start or response time might be significantly
-longer in case of cold cache.
+Upon the application start, the cache is empty (cold) and its hit-ratio equals 0.
+During the cache warm up phase application might need more resources
+and response time might be significantly longer.
 
 One of the solutions involve loading cache before processing clients requests.
 
-## Setting TTL
-Quite often TTL, i.e. lifetime of data stored in a cache, is set upon no data at all.
-Is one minute OK? How about 15 minutes?
-Setting TTL properly without carrying out any research is actually almost impossible.
+## Can you justify your TTL configuration?
+
+Often TTL configuration is just a shot in the dark.
+Is one minute OK? How about 15 minutes? Setting TTL properly
+using only expert knowledge is hard.
 On the one hand, you have business requirements telling you to keep TTL short.
-On the other hand, short TTL may translate into low hit ration.
+On the other hand, short TTL may result in low hit-ratio.
 
 Do not use a crystal ball, but metrics to make the decision.
 
-## Data for performance testing
+## What kind of data do you use for performance testing?
 
-Test data of low variability is perfect for caching, so avoid it.
-When testing performance of your cache,
-always use data whose variability matches the variability of live environment data.
+Test data with low variability are perfect for caching, so avoid it.
+When testing overall performance of your application,
+always use test data witch characteristics similar to data from live environment.
 
-## Store necessary items only
-If a collection of data is large, think twice whether you really need to store a domain object.
+## Do you cache necessary data only?
+
+If a cache size grows too large think whether you really need to store big domain objects.
 Perhaps several IDs will do just fine?
 
 ## Construction of cache keys
