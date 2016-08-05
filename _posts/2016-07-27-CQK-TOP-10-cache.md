@@ -132,18 +132,28 @@ always use test data witch characteristics similar to data from live environment
 If a cache size grows too large think whether you really need to store big domain objects.
 Perhaps several IDs will do just fine?
 
-## Construction of cache keys
-Any errors in the construction of cache keys are difficult to detect and cause a lot of problems.
+## Do you know how your cache keys are constructed?
 
-* If the key is less distinctive (two different items are assigned the same cache key),
-  the application will mix up some data, and errors will look like non-deterministic ones.
-* If the key is more distinctive (two different items are assigned different, but incorrect keys),
-  the hit ratio will be low and the cache will underperform.
+Errors in the construction of cache keys can be difficult to detect and very painful.
 
-## Using local cache in the first place
-Use a local cache first if possible, as distributed cache (5Cache, Redis) is more demanding:
+* If the key is less distinctive than it should be
+  (different items are assigned the same cache key) –
+  the application will mix up some data, and errors will look non-deterministic.
+* If the key is more distinctive than it should be
+  (different keys are assigned to the same items) –
+  the hit-ratio will be low and the cache will perform poorly.
+
+## Do you use local cache in the first place?
+
+Use the local cache as a first choice.
+Distributed cache (like Hazelcast, Redis) complicates architecture and introduces additional
+stability risks and requirements:
 
 * Your items must be serialized.
-* The serialization format must be backwards-compatible (within application version/model).
-* In fact, a distributed cache is another service, which you have to maintain.
+* If your item model changes, some kind of migration/maintenance
+  must be handled. Either your application must be backward-compatible
+  with the previous item model or the cache must be purged before application deployment.
+* In fact, a distributed cache is another service dependency. You are supposed
+  to develop some fallback when in case of its outage.
+
 
