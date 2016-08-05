@@ -203,12 +203,12 @@ Firstly, all iOS framework dylibs can be easily accessed from either:
 Secondly, [Hopper](https://www.hopperapp.com/) makes decompilation nothing but
 pure pleasure. Hopper is such a powerful, yet simple and intuitive tool that
 any person without any particular knowledge of assembly or Mach-O could easily
-analyse any executable. The basic Hopper usage scenario is as simple as that:
+analyze any executable. The basic Hopper usage scenario is as simple as that:
 
 1. Use “Read Executable to Disassemble” and wait until Hopper processes the
 binary.
 2. Use the symbols panel to find the method of your interest.
-3. Use “Show Pseudo Code of Procedure” to see a selected method logic.
+3. Use “Show Pseudo Code of Procedure” to see selected method logic.
 
 What method to look for in order to find a `geo_manifest` trace? The obvious
 choice was to filter symbols using the `geomanifest` filter at first, and that
@@ -292,7 +292,7 @@ app with the following code:
 }
 ```
 
-Notice that using a private API is a violation of the iOS Developer Program
+Note that using a private API is a violation of the iOS Developer Program
 Agreement. Any app found using a private API is rejected by Apple. Even if such
 app passes the Apple review, for example by hiding selectors with simple
 [ROT13](https://en.wikipedia.org/wiki/ROT13), the app can be unstable.
@@ -342,8 +342,8 @@ def response(context, flow):
         flow.response.content = b""
 ```
 
-Then, by adding the script to mitmproxy, I could test the map behaviour in iOS
-10 beta 2.
+Then, by adding the script to mitmproxy, I could test the map behavior in iOS
+10 beta 2 (latest beta at that time).
 
 ![mitmproxy_fixed](/img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_fixed.png)
 
@@ -369,7 +369,7 @@ wrong:
 A good conclusion could be these four simple pieces of advice:
 
 1. Install [mitmproxy](https://mitmproxy.org/) now.
-2. Download [Hopper](https://www.hopperapp.com/), play with the trial version and add Hopper Personal Licence to your wishlist.
+2. Download [Hopper](https://www.hopperapp.com/), play with the trial version and add Hopper Personal License to your wish list.
 3. File Apple bug reports — the Bug Reporter is not `/dev/null`, the whole Apple staff are just waiting for your reports.
 4. “Stay Hungry. Stay Foolish.” + Learn internals... internals of everything — this will make the Force strong with you.
 
