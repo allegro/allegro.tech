@@ -35,8 +35,9 @@ Often, these tools are sufficient to analyze an issue. But occasionally, they
 can hardly detect if anything is wrong or, in the case of a very complex
 problem, even the most sophisticated tools are of no help. One should be aware
 that even a single undetected non-fatal error can affect the experience of
-thousands of users. That is why here, at [Allegro](https://kariera.allegro.pl/),
-we have to be very serious about all potential issues.
+thousands of users. That is why here, at
+[Allegro](https://en.wikipedia.org/wiki/Allegro_(auction_website)), we have to
+be very serious about all potential issues.
 
 This article describes an iOS MapKit bug analysis and its resolution, starting
 with source code, through network stack, down to the assembly, and ending up in
@@ -166,7 +167,7 @@ in between the `410` and `200` responses, just while the `v` was being changed.
 ![mitmproxy](/img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_geomanifest.png)
 
 One request looked particularly suspicious and that was the request for
-`/geo_manifest/dynamic/config`. It was also the only request that retrieved
+`/geo_manifest/dynamic/config`. It was also the only request that retrieved some
 serious data. Unfortunately, the response inspection revealed binary data with
 neither `11040529` nor `0xA87711` (in any endianness). Even though the new `v`
 value was not clearly visible in the `geo_manifest` data, it could still be
@@ -357,7 +358,7 @@ gone wrong:
 
 - the issue could just not have occurred on our test devices at all,
 - maps API could have been secured with SSL-pinning,
-- Apple could have ignored such an ephemeral bug report,
+- Apple could have ignored the report for such an ephemeral bug,
 - the investigation could have gone in a wrong direction,
 - the investigation could have required jumping through a decompiled framework call hierarchy — it is often very easy to get lost there.
 
