@@ -11,7 +11,7 @@ I think every native mobile app developer (not only an iOS developer) will find
 this text interesting. Non-mobile developers may find it an intriguing read as
 well.
 
-## Bugs :bug::bug::bug::bug:
+## Bugs
 
 A mobile device is a fully-fledged computer these days and as such it always
 does what it has been programmed to. If something fails, this is because a
@@ -42,7 +42,7 @@ This article describes an iOS MapKit bug analysis and its resolution, starting
 with source code, through network stack, down to the assembly, and ending up in
 San Francisco.
 
-## The Bug :beetle:
+## The Bug
 
 One of our quality assurance engineers reported a strange bug. No one but him
 was able to reproduce it. The problem could be seen in the process of selecting
@@ -78,7 +78,7 @@ Now seriously... Although we could not fix the bug directly in iOS, we could at
 least try to bypass it, so that it would no longer occur in our app. The
 analysis began.
 
-## The Code :floppy_disk:
+## The Code
 
 I tried the most basic level of debugging — logging an error. MapKit provides a
 handy delegate method:
@@ -102,7 +102,7 @@ key and the second one under the `NSErrorFailingURLStringKey` key. It was a
 clear sign that a network error was a direct cause of failure to display map
 tiles.
 
-## The Man In The Middle :busts_in_silhouette:
+## The Man In The Middle
 
 When it comes to the analysis of network communication, one of the simplest,
 yet most powerful tools you will ever need is [mitmproxy](mitmproxy.org). Never
@@ -158,8 +158,7 @@ maps.
 
 It was great! Imagine a world without the `v` parameter and a user browsing a
 map region and the region being edited at the same time. That would result in
-serious glitches. Map glitches are the last thing the car driver wants
-:anguished:.
+serious glitches. Map glitches are the last thing the car driver wants.
 
 The question was: what caused `v` to increment? A couple of requests happened
 in between the `410` and `200` responses, just while the `v` was being changed.
@@ -174,7 +173,7 @@ value was not clearly visible in the `geo_manifest` data, it could still be
 present there. Anyway, it would be hard, if not impossible, to understand
 binary data of an unknown format. But I still had a few more tricks to use.
 
-## The Machine Code :microscope:
+## The Machine Code
 
 `MapKit.framework` was the one that should understand `geo_manifest`, so the
 obvious option was to look for this understanding in the framework code. The
@@ -242,7 +241,7 @@ the method:
 
 Once again, I was very lucky.
 
-## The Hack :hammer:
+## The Hack
 
 By pure coincidence I got another device affected by the maps problem. Having
 the knowledge of `GeoServices.framework` internals, I could run the debugger
@@ -297,7 +296,7 @@ Checking for `respondsToSelector:`? Still unsafe, because any private method
 behavior could change anytime or cause a trap after detecting an illegal flow.
 Do not ever try to release such code!
 
-## The Radar :satellite:
+## The Radar
 
 The investigation showed one thing — the bug was clearly in iOS, affecting the
 whole system and could not be properly fixed in the app. The only thing that
@@ -310,7 +309,7 @@ MapKit” issue described above was reported as `rdar://25267344`. The issue was
 also described on the [Apple Developer
 Forum](https://forums.developer.apple.com/thread/43077).
 
-## The Engineer :apple:
+## The Engineer
 
 Some time after filing the bug report, I managed to attend
 [WWDC2016](https://developer.apple.com/wwdc/).
@@ -348,9 +347,9 @@ Then, by adding the script to mitmproxy, I could test the map behavior in iOS
 Mitmproxy changed the status code of each tile request to `410`. Once the first
 tile request finished with `410` status code, `geod` daemon immediately updated
 its manifest requesting fresh `/geomanifest/dynamic/config`. It worked just as
-expected! The bug was resolved! :tada:
+expected! The bug was resolved!
 
-## What could go wrong? :four_leaf_clover:
+## What could go wrong?
 
 A bug chase is often a long and hard process. In the one I have described, luck
 was a big contributor to success, because – as usual – many things could have
@@ -362,7 +361,7 @@ gone wrong:
 - the investigation could have gone in a wrong direction,
 - the investigation could have required jumping through a decompiled framework call hierarchy — it is often very easy to get lost there.
 
-## Summary :trophy:
+## Summary
 
 A good conclusion could be these four simple pieces of advice:
 
