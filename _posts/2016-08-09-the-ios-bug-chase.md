@@ -106,7 +106,7 @@ tiles.
 ## The Man In The Middle
 
 When it comes to the analysis of network communication, one of the simplest,
-yet most powerful tools you will ever need is [mitmproxy](mitmproxy.org). Never
+yet most powerful tools you will ever need is [mitmproxy](http://mitmproxy.org/). Never
 heard of it? You should really check it out, as it can save you hours of
 debugging in the future. In this case, I only used it to intercept network
 requests, but mitmproxy has many more features (e.g. scripting).
@@ -183,17 +183,9 @@ things that helped overcome that obstacle.
 
 Firstly, all iOS framework dylibs can be easily accessed from either:
 
-* iOS Simulator files — x86 and i386 dylibs
+* iOS Simulator files — x86 and i386 dylibs: `/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks`
 
-```
-/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks
-```
-
-* iOS Device Symbols — ARM dylibs
-
-```
-~/Library/Developer/Xcode/iOS\ DeviceSupport/*/Symbols/System/Library/Frameworks
-```
+* iOS Device Symbols — ARM dylibs: `~/Library/Developer/Xcode/iOS\ DeviceSupport/*/Symbols/System/Library/Frameworks`
 
 ![Frameworks](/img/articles/2016-08-01-the-ios-bug-chase/frameworks.png)
 
