@@ -55,7 +55,7 @@ All the evaluated engines handle failures on their own.
 Some are able to recompute only parts that got broken, some need to recompute the whole query from scratch.
 
 
-                        | [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
+| [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 ----------------------- | ----- | ----- | ------------- | ----------------- | -----------------
 Evaluated version 		| 0.5.3 | 0.98 	| 2.1.1-cdh5 	| 0.9.0- SNAPSHOT 	| 1.4.0-SNAPSHOT
 Kerberos Support 		| Yes 	| No 	| Yes 			| No 				| Yes
@@ -71,7 +71,7 @@ prefer different tools. Thus, it is important for us to know how queries can be 
 in each technology. In case of Presto and Impala, [JDBC](http://en.wikipedia.org/wiki/Java_Database_Connectivity) support has been only checked in the documentation.
 This happened due to hackathon time box. Not everything can be verified empirically in 48 hours ;-)
 
-				| [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
+| [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 ----------------|---------------|-------------------------------------------|-------------------|---------------|----------
 User Interface 	| [Hue Tez UI](http://gethue.com/) 	| [Shib](https://github.com/tagomoris/shib) | [Hue](http://gethue.com/), impala-shell | admin panel 	| Spark UI
 JDBC Connector 	| Yes 			| Yes 										| Yes 				| Yes 			| Yes
@@ -118,7 +118,7 @@ and `row_number` functionality.
 The last row of the below table determines how many of Allegro-analytics use cases we were able to
 execute after modifications to fit engine syntax.
 
-		| [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
+| [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 ------------------------|-------|-----------------------------------|-----------|-------------------------------|--------
 Query Language 			| HiveQL| ~SQL 								| ~HiveQL 	|ANSI SQL? 						| ~HiveQL
 Can modify metastore? 	| Yes 	| Yes 								| Yes 		| No 							| Yes
@@ -139,7 +139,7 @@ Impala supports Avro and Parquet but we could not write  data in such formats.
 It also lacks support for nested and composite data types (such as sets and maps)
 which are important for Allegro users to query existing datasets.
 
-		| [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
+| [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 --------|-----|-----|--------|----------|----
 CSV 	| Yes | Yes | Hmm... | Yes 		| Yes
 JSON 	| Yes | Yes | Hmm... | Yes 		| Yes
@@ -154,7 +154,7 @@ To gain some insight into that matter we checked [GitHub](https://github.com) st
 branches, releases and contributors
 
 
-				| [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
+| [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 ----------------|-------|-------|-------|-------|-------
 commits 		|  1458 |  4673 |  3427 |  1480 |  10264
 branches 		|  18 	|  2 	|  27	|  11 	|  13
