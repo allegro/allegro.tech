@@ -17,7 +17,7 @@ adam.dubiel:
 
 rafal.glowinski:
     name: Rafał Głowiński
-    bio: Rafał is an experienced software developer who has spent most of his career working in Java and recently got very interested in Kotlin. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis. 
+    bio: Rafał is an experienced software developer who has spent most of his career working in Java and recently got very interested in Kotlin. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis.
 
 michal.kosmulski:
     name: Michał Kosmulski
@@ -319,3 +319,16 @@ grzegorz.kaczmarczyk:
     name: Grzegorz Kaczmarczyk
     bio: Software developer with 4+ years of professional experience. Fan of simplicity and [YAGNI](http://martinfowler.com/bliki/Yagni.html) principle.
 
+tomasz.fijalkowski:
+    name: Tomasz Fijałkowski
+    bio: Tomek graduated with a master’s degree in physics. He is a professional programmer by trade, and is a carpenter in his heart. He likes pretty girls, cold tequila and old school black metal.
+
+pawel.piecyk:
+    name: Paweł Piecyk
+    bio: Software engineer who spend most of his time working with JVM-related technologies. Groovy & devops enthusiast.
+    github: pawel-piecyk
+
+rafal.zukowski:
+    name: Rafał Żukowski
+    bio: Rafał is an experienced software engineer with over 10 years in the field. In his work in Allegro he enjoys solving challenging problems, especially these related to algorithms and software design.
+    github: rzukow
