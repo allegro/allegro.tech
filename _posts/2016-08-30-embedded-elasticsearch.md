@@ -132,4 +132,6 @@ what is done in `cleanupSpec` method. Note that you don’t have to bother to st
 it’s done automatically in shutdown hook.
 
 # Source code
-Source code is available under Apache licence, and can be found on [GitHub](https://github.com/allegro/embedded-elasticsearch). Feel free to use that tool, submit suggestions and pull requests.
+Source code is available under Apache licence, and can be found on 
+[GitHub](https://github.com/allegro/embedded-elasticsearch). Feel free to use that tool, submit suggestions 
+and pull requests.
