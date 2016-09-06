@@ -6,7 +6,7 @@ tags: [tech, code review, peer review, source control, software quality, bitbuck
 ---
 
 Code reviews play an important role in how we develop software at [Allegro](http://allegro.pl/). Any code you write  will be reviewed by 
-your peers and we may ask you to review a sample piece of code during your job interview. A code review done right carries a lot of value,
+your peers. We may also ask you to review a sample piece of code during your job interview. A code review done right carries a lot of value,
 but if done wrong it can become a waste of time. In this article I will describe what I think makes a good code review, how reviews have 
 evolved over time at the teams I worked with and what you can do in order to make code reviews worthwhile.
 
@@ -25,7 +25,7 @@ speaking, there are two main goals of code reviews:
 
 The first one is probably quite intuitive, but I think it is the second one which really shines in the long run. It helps ensure that the
 code is maintainable, that developers stay up to date with technology, and prevents the formation of knowledge silos so that you don’t 
-end up with some magic code which only one person understands. It’s more about company culture than technology.
+end up with some magic code which only one person can understand. It’s more about company culture than technology.
 
 ## What?
 
@@ -62,10 +62,11 @@ error — both in the algorithm and in its tests — to be found and fixed even 
 
 Tests deserve special attention because they are usually themselves not subject to testing. Careful code review can make up for that. 
 There are tools for test verification such as [mutation testing](https://en.wikipedia.org/wiki/Mutation_testing), but they only find 
-the tip of the iceberg. Test coverage tools may be helpful but again they only measure a very simple metric and it is quite possible to 
-have high test coverage and yet the tests to be of little value. Pay attention to what the tests actually check, whether their names are 
-true to their actual content, and whether they won’t make your development harder in the future, for example due to
-[overmocking](/2015/05/is-overmocking-bad.html).
+the tip of the iceberg. Test coverage tools may be helpful but coverage is just a very simple metric and it is quite possible to 
+have high test coverage and yet the tests to be of little value. Such tools are also often slow and since they do not really understand 
+what a test is supposed to do (and what the tested software is supposed to do), their application is limited. When reviewing tests, pay 
+attention to what the tests actually check, whether their names are true to their actual content, and whether they won’t make your 
+development harder in the future, for example due to [overmocking](/2015/05/is-overmocking-bad.html).
 
 <figure>
 <img alt="Functionality added through annotations tends to be not be tested so well as normal code" src="/img/articles/2016-08-01-are-code-reviews-worth-your-time/annotations.png" />
@@ -74,10 +75,10 @@ tests</figcaption>
 </figure>
 
 Also, look out for missing tests: if a functionality or requirement is not covered by automated tests, it may
-accidentally disappear at some point when your refactor your code and you won’t even notice. Especially fragile are features added via 
+accidentally disappear at some point when you refactor your code and you won’t even notice. Especially fragile are features added via 
 annotations or [AOP](https://en.wikipedia.org/wiki/Aspect-oriented_programming), such as error-handling, retries, request validation,
-authentication etc. You may think that adding an annotation addds some piece of functionality but in practice invalid Spring setup or 
-conflicting aspects can render it inactive. So, such functionality requires tests, and code reviewers should be checking if these tests
+authentication etc. You may think that adding an annotation adds some piece of functionality but in practice invalid Spring setup or 
+conflicting aspects can render it inactive. So, such functionality requires tests, and code reviewers should check if these tests
 are present. 
 
 Using code reviews to spread knowledge in the team is crucial if you want to treat
@@ -92,7 +93,7 @@ others before I started using Kotlin myself.
 Discussions which arise during reviews allow the team to arrive at common standards and to learn the pros and cons of different approaches 
 to solving the same problem. This is very useful while a new team is forming: if you see a particular issue come up in code reviews more 
 than a few times and not everybody agrees, it’s an indicator that this issue should be discussed with the team and perhaps the preferred 
-solution you come up with together added to your coding standard.   
+solution you come up with together should be added to your coding standard.   
 
 ## How?
 
@@ -100,7 +101,7 @@ solution you come up with together added to your coding standard.
 
 There are several approaches to code reviews. In my experience, very informal over-the-shoulder reviews do not work on their own. They 
 can be helpful as a way of discussing a single problem, e.g. asking a colleague “which of these two options do you think is better?” but 
-they are not good enough for checking a whole day’s work or more. There are two reasons for this. First of all, without using a diff tool
+they are not good enough for checking a whole day’s work or more. There are two reasons for this. First, without using a diff tool
 it is not possible to see all changes clearly. Second, if the author is showing their code to the reviewer, they are introducing some 
 bias, e.g. skipping over parts of code which they think are trivial while in reality they may contain errors. There is also usually not
 enough time to think thoroughly about each piece of code when reviewing it together with another person.
@@ -131,7 +132,7 @@ always ask yet another person for their opinion. Note that code developed using 
 written by a single person, so it may be OK to review such code by just one person who wasn’t in the pair, though two is still better 
 than one. 
 
-Some teams just add all team members into each code review and hope that at least two will find time to review the code quickly. If 
+Some teams just assign all their members to each code review and hope that at least two will find time to review the code quickly. If 
 they don’t, the task may become blocked from further progress. A different approach, which I have seen to work quite well, is the author 
 asking two specific people who would agree to review the code. This means that these two people can start working right away and are 
 fully focused on the review. When a whole bunch of people are added to a review, there is the risk of them waiting for others to review 
@@ -146,7 +147,7 @@ classes between packages and then another one which adds a feature than one huge
 
 ### Be civil
 
-The point of a review is to create better code, so it is in the author’s best interest to have the code analyzed and commented on. Any 
+The goal of a review is to create better code, so it is in the author’s best interest to have the code analyzed and commented on. Any 
 issues found at this stage are issues saved from testing and production, meaning less work and less embarrassment for everyone. I have 
 had my code sometimes subjected to very strong criticism and I think it was very beneficial: the final version was much better than 
 the original and I learned a lot in the process. So, code reviews should be honest and strict but with the goal of producing better 
@@ -210,8 +211,8 @@ Just like depending on experience, people spot different issues with the same pi
 and better code reviews over time. When we started regular code reviews at [Allegro](http://allegro.pl/), they often boiled down to minor
 issues such as code formatting, renaming variables and maybe extracting some code to a separate method here and there. We dubbed this stage
 _Sonar-Driven Development_ since most code reviews were about things which could be found by Sonar as well. Fortunately, with time we 
-started paying attention to higher-level issues such as good design, separating business logic from the persistence layer, making sure 
-the code was understandable and maintainable and so on.
+started paying attention to higher-level issues such as good design, separating business logic from the persistence layer or making sure 
+the code was understandable and maintainable.
  
 Architecture and design are things which automated tools can’t take care of as well as of basic coding conventions but which in the
 long run are much more important than minor details. Of course, sticking to coding conventions is important, but fixes such as 
@@ -221,6 +222,6 @@ harder to fix later on.
 
 Discussing these higher-level properties of your code is the main source of increased quality and hopefully even if right now your reviews 
 boil down to only discussing basic coding conventions, gradually they can lead to much more serious improvements. They also encourage
-sharing knowledge and helping peers — for me personally this is very important for working on a team being fun. Even though code reviews 
-are a big time investment, I believe that if done right they can greatly improve the quality of your software and make it easier to 
+sharing knowledge and helping peers. For me personally this is one of the factors which make working on a team fun. Even though code 
+reviews are a big time investment, I believe that if done right they can greatly improve the quality of your software and make it easier to 
 maintain in the future.  
