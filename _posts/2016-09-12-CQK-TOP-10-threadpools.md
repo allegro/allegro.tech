@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CQK Top 10 — Thread pools
+title: Thread pools — CQK Top 10 
 author: piotr.betkier
 tags: [tech, cqk-top-10]
 ---

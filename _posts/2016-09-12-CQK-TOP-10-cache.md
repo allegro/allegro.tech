@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CQK Top 10 — Caching
+title: Caching — CQK Top 10
 author: bartosz.walacik
 tags: [tech, cqk-top-10, cache]
 ---
