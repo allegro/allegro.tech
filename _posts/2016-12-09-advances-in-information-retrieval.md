@@ -1,47 +1,50 @@
 ---
 layout: post
 title: Advances in Information Retrieval and Allegro use case at SIGIR 2016
-author: anna.wr√≥blewska
+author: anna.wrÛblewska
 author: lukasz.raczkowski
 tags: [tech, information retrieval, visual recommendation, image-based data, metrics, conference]
 ---
 #Advances in Information Retrieval and Allegro use case at SIGIR 2016
 
 
-In July we attended a scientific conference SIGIR 2016 held in Pisa, Italy. SIGIR is an annual conference related to 
-new advances in Information Retrieval. The shortcut is for 
+In July we attended a scientific conference SIGIR 2016 held in Pisa, Italy. SIGIR is an annual conference 
+related to new advances in Information Retrieval. The shortcut is for 
 [Special Interest Group on Information Retrieval](http://sigir.org/sigir2016/). 
 This is an annual conference with the highest ranking at 
 [Microsoft Academic Research in Information Retrieval](http://academic.research.microsoft.com/RankList?entitytype=3&topDomainID=2&subDomainID=8&last=0&start=1&end=100) 
 field and the 16th one in the ranking in the whole Computer Science field.
 
 
-The event concentrates around topics like metrics for information retrieval, evaluation techniques, ranking 
-challenges - called learning to rank, behavioral models, recommendation applications, and information retrieval from 
-heterogeneous resources and data, e.g. image, video, audio or multimodal models.
+The event concentrates around topics like metrics for information retrieval, evaluation techniques, 
+ranking challenges - called learning to rank, behavioral models, recommendation applications, 
+and information retrieval from heterogeneous resources and data, e.g. image, video, audio 
+or multimodal models.
 
 
-The first day of SIGIR2016 was dedicated to [tutorials](http://sigir.org/sigir2016/tutorials/) giving a quick look 
-inside current state-of-the-art of information retrieval technologies. 
+The first day of SIGIR2016 was dedicated to [tutorials](http://sigir.org/sigir2016/tutorials/) 
+giving a quick look inside current state-of-the-art of information retrieval technologies. 
 
 
 The Huawei Labs prepared a tutorial about deep learning basics, challenges and applications in industry
  ([slides](http://www.hangli-hl.com/uploads/3/4/4/6/34465961/deep_learning_for_information_retrieval.pdf)).
-It contained usage tips of recurrent and convolutional neural networks, embeddings, long short term memory networks 
-dedicated to classification, language modelling, translation, image matching. The tutorial provides a great bunch of 
-the newest references that confirm the fact that deep learning methods can significantly improve effectiveness of 
-retrieval tasks like matching text or images, classification and translations.
+It contained usage tips of recurrent and convolutional neural networks, embeddings, 
+long short term memory networks dedicated to classification, language modelling, translation, 
+image matching. The tutorial provides a great bunch of the newest references that confirm the fact that deep learning 
+methods can significantly improve effectiveness of retrieval tasks like matching text or images, 
+classification and translations.
 
 
-The other very interesting tutorial was about counterfactual evaluation of search, recommendation and advertisements
- systems ([slides](http://www.cs.cornell.edu/~adith/CfactSIGIR2016/)) . The main goal of this tutorial was to provide
- theoretical background and give a way to evaluate and optimize online metrics by exploiting logs of past user 
-interactions. They used inverse propensity scoring to model the bias in online A/B tests. The bias can be made by
- other (not in the focus) advert campaigns, or seasonal traffic etc.
+The other very interesting tutorial was about counterfactual evaluation of search, recommendation 
+and advertisements systems ([slides](http://www.cs.cornell.edu/~adith/CfactSIGIR2016/)) . The main goal of this tutorial 
+was to provide theoretical background and give a way to evaluate and optimize online metrics by exploiting logs 
+of past user interactions. They used inverse propensity scoring to model the bias in online A/B tests. 
+The bias can be made by other (not in the focus) advert campaigns, or seasonal traffic etc.
 
 
-Other tutorials covered topics such as learning to rank and search in heterogeneous or specific data. They were given 
-by people from Google, LinkedIn, Microsoft Research, Facebook and universities from all over the world.
+Other tutorials covered topics such as learning to rank and search in heterogeneous or specific data. 
+They were given by people from Google, LinkedIn, Microsoft Research, Facebook and universities 
+from all over the world.
 
 
 The main conference started with Chris Manning‚Äôs 
@@ -52,18 +55,18 @@ on deep learning in understanding and inference from natural language.
 There were many interesting short talks on e.g. Bayesian approach to the 
 [performance comparison of text classifiers](http://gridofpoints.dei.unipd.it/),  measuring how much system 
 components contribute to overall performances of IR system, various flavors of 
-[learning to rank models](https://sourceforge.net/p/lemur/wiki/RankLib/),e.g. learning to rank on personal sparse 
-corpora by Google, balancing diversity depending on user needs etc. There were a few very interesting works by Yahoo 
-Research e.g. image scoring or question answering.
+[learning to rank models](https://sourceforge.net/p/lemur/wiki/RankLib/),e.g. learning to rank 
+on personal sparse corpora by Google, balancing diversity depending on user needs etc. There were a few very 
+interesting works by Yahoo Research e.g. image scoring or question answering.
 
 
-The talks were divided in thematic blocks, which allowed the participants to choose which presentations they want to 
-attend. Particularly notable sessions were: ‚ÄúSpeech and Conversation Systems‚Äù, ‚ÄúMusic and Math‚Äù and ‚ÄúUser Needs‚Äù. The
- first one focused on research related with speech recognition and using voice queries to search on the web or talk 
-with a virtual assistant. The second included a presentation on a music recommendation system based on user behaviour 
-and two talks on how to crack the problem of searching with (and for) mathematical equations. The third of 
-aforementioned blocks covered research related with user needs. It showed how our need for new information correlates 
-with brain activity, how waiting for search results can improve user satisfaction and what can we learn from data on 
+The talks were divided in thematic blocks, which allowed the participants to choose which 
+presentations they want to attend. Particularly notable sessions were: Speech and Conversation Systemsù, ÄúMusic and MathÄù 
+and ÄúUser NeedsÄù. The first one focused on research related with speech recognition and using voice queries 
+to search on the web or talk with a virtual assistant. The second included a presentation on a music recommendation system
+based on user behaviour and two talks on how to crack the problem of searching with (and for) mathematical equations. 
+The third of aforementioned blocks covered research related with user needs. It showed how our need for new information 
+correlates with brain activity, how waiting for search results can improve user satisfaction and what can we learn from data on 
 re-finding Twitter posts. This arrays of topics was a great way to get a better perspective on what can be done 
 within the field of information retrieval.
 
@@ -118,14 +121,14 @@ industry and many students from all over the world. It was great to visit Pisa, 
 Italian region of Tuscany. 
 
 
-Ania Wr√≥blewska
-≈Åukasz RƒÖczkowski
+Ania WrÛblewska
+?Åukasz R?czkowski
 
 
 ![photo](https://farm9.staticflickr.com/8676/27835837403_6158e920c2_k.jpg)
 
 
-![photo](https://farm9.staticflickr.com/8884/28169044890_7b4b78a60b_k.jpg)[e][f][g]
+![photo](https://farm9.staticflickr.com/8884/28169044890_7b4b78a60b_k.jpg)
 
 
 ![photo](http://i.imgur.com/fgowGkN.jpg)
