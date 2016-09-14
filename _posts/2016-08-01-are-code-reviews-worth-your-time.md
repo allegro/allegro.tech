@@ -5,10 +5,10 @@ author: michal.kosmulski
 tags: [tech, code review, peer review, source control, software quality, bitbucket, stash, gerrit, git]
 ---
 
-Code reviews play an important role in how we develop software at [Allegro](http://allegro.pl/). Any code you write  will be reviewed by 
-your peers. We may also ask you to review a sample piece of code during your job interview. A code review done right carries a lot of value,
-but if done wrong it can become a waste of time. In this article I will describe what I think makes a good code review, how reviews have 
-evolved over time at the teams I worked with and what you can do in order to make code reviews worthwhile.
+Code reviews play an important role in how we develop software at [Allegro](http://allegro.pl/). All code we developers write is reviewed
+by our peers. If you apply for a job with us, we may ask you to review a sample piece of code during your interview. A code review done 
+right carries a lot of value, but if done wrong it can become a waste of time. In this article I will describe what I think makes a good 
+code review, how reviews have evolved over time at the teams I worked with and what you can do in order to make code reviews worthwhile.
 
 Note that the term _code review_ is sometimes used to describe a very formal meeting which takes place once in a while and 
 involves a lot of people and bureaucracy. This is absolutely not the kind of code review I’m talking about here. What I am talking 
@@ -93,7 +93,7 @@ others before I started using Kotlin myself.
 Discussions which arise during reviews allow the team to arrive at common standards and to learn the pros and cons of different approaches 
 to solving the same problem. This is very useful while a new team is forming: if you see a particular issue come up in code reviews more 
 than a few times and not everybody agrees, it’s an indicator that this issue should be discussed with the team and perhaps the preferred 
-solution you come up with together should be added to your coding standard.   
+solution you come up with together should be added to your coding standard. 
 
 ## How?
 
@@ -198,7 +198,7 @@ particular about keeping the domain model clean, another might care about naming
 missing test cases. Each of them can provide you with a unique insight. You can also invite people from other teams who are 
 known for their experience in a particular subject area to review code which is especially important or which uses libraries or 
 language features your team is not so experienced working with.
-  
+
 If you go through our recruitment process, we will probably among other things ask you to review some code, too. Seeing how a person 
 reads others’ code and what kind of issues they can spot tells you a lot about their experience and their approach to software development. 
 It’s really interesting that you can present the same piece of code to a junior fresh out of school and to a developer with ten years of 
@@ -224,4 +224,4 @@ Discussing these higher-level properties of your code is the main source of incr
 boil down to only discussing basic coding conventions, gradually they can lead to much more serious improvements. They also encourage
 sharing knowledge and helping peers. For me personally this is one of the factors which make working on a team fun. Even though code 
 reviews are a big time investment, I believe that if done right they can greatly improve the quality of your software and make it easier to 
-maintain in the future.  
+maintain in the future.
