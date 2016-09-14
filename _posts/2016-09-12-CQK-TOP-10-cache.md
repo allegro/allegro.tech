@@ -5,7 +5,7 @@ author: bartosz.walacik
 tags: [tech, cqk-top-10, cache]
 ---
 
-This article is a part of [CQK Top 10](). //TODO add link
+This article is a part of [CQK Top 10](/2016/09/CQK-TOP-10.html) series.<br/>
 Many developers add cache to their application without measuring performance its impact.
 We are advising here that each application cache should have a very good reason to exists.
 
