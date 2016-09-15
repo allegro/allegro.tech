@@ -151,7 +151,7 @@ The goal of a review is to create better code, so it is in the author’s best i
 issues found at this stage are issues saved from testing and production, meaning less work and less embarrassment for everyone. I have 
 had my code sometimes subjected to very strong criticism and I think it was very beneficial: the final version was much better than 
 the original and I learned a lot in the process. So, code reviews should be honest and strict but with the goal of producing better 
-software, not of making the author feel they are stupid. The author should not feel bad about their code being criticized, while
+software, not of making the author feel stupid. The author should not feel bad about their code being criticized, while
 reviewers should take care to comment on code rather than to attack the author.
 
 In order to facilitate this, comments should always be constructive. Don’t say _bad variable name_, suggest a specific better name. 
@@ -217,7 +217,7 @@ the code was understandable and maintainable.
 Architecture and design are things which automated tools can’t take care of as well as of basic coding conventions but which in the
 long run are much more important than minor details. Of course, sticking to coding conventions is important, but fixes such as 
 renaming a class take about 15 seconds thanks to our IDE’s refactoring functions, so you can easily fix the name any time. But if you 
-choose a bad architecture or if you mix different layers in the application, it may become hard to develop and maintain which is much 
+choose a bad architecture or if you mix different layers in the application, it may become cumbersome to develop and maintain which is much 
 harder to fix later on.
 
 Discussing these higher-level properties of your code is the main source of increased quality and hopefully even if right now your reviews 
