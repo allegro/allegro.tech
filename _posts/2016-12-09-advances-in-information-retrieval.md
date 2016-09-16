@@ -10,7 +10,7 @@ In July we attended a scientific conference SIGIR 2016 held in Pisa, Italy. SIGI
 related to new advances in Information Retrieval. The shortcut is for 
 [Special Interest Group on Information Retrieval](http://sigir.org/sigir2016/). 
 This is an annual conference with the highest ranking at 
-[Microsoft Academic Research in Information Retrieval](http://academic.research.microsoft.com/RankList?entitytype=3&topDomainID=2&subDomainID=8&last=0&start=1&end=100) 
+[Microsoft Academic Research in Information Retrieval field](http://academic.research.microsoft.com/RankList?entitytype=3&topDomainID=2&subDomainID=8&last=0&start=1&end=100) 
 field and the 16th in the ranking in the whole Computer Science field.
 
 The event concentrates around topics such as metrics for information retrieval, evaluation techniques, 
@@ -26,7 +26,7 @@ giving a quick look inside current state-of-the-art of information retrieval tec
 The Huawei Labs prepared a tutorial about deep learning basics, challenges and applications in industry
  ([slides](http://www.hangli-hl.com/uploads/3/4/4/6/34465961/deep_learning_for_information_retrieval.pdf)).
 It contained usage tips of recurrent and convolutional neural networks, embeddings, 
-long short-term memory networks dedicated to classification, language modelling, translation, 
+[long short-term memory networks](https://en.wikipedia.org/wiki/Long_short-term_memory) dedicated to classification, language modelling, translation, 
 image matching. The tutorial provides a great bunch of the newest references that confirm the fact that deep learning 
 methods can significantly improve effectiveness of retrieval tasks like matching text or images, 
 classification and translations.
