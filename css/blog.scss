@@ -1,6 +1,17 @@
 ---
 ---
 
+figure {
+    float: right;
+    display: table;
+    padding-top: 10px;
+}
+
+figcaption {
+    display: table-caption;
+    caption-side: bottom;
+}
+
 @import "post-author";
 @import 'syntax-highlight';
 
