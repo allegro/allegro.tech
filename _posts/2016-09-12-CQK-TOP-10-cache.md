@@ -15,7 +15,7 @@ Using a cache has its costs, so it should pay its way.
 Caching makes sense only if hit ratio is high, let’s say above 50%.
 Caching costs consist of:
 
-* CPU and RAM resources,
+* CPU (GC time) and RAM resources,
 * more work for GC (in case of on-heap cache),
 * increased code complexity,
 * risk of introducing bugs which can be very difficult to detect (e.g. keys interference).
