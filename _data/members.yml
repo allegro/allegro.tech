@@ -17,7 +17,7 @@ adam.dubiel:
 
 rafal.glowinski:
     name: Rafał Głowiński
-    bio: Rafał is an experienced software developer who has spent most of his career working in Java and recently got very interested in Kotlin. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis. 
+    bio: Rafał is an experienced software developer who has spent most of his career working in Java and recently got very interested in Kotlin. His areas of interest include code quality assurance, highly scalable, cloud-oriented architectures and all aspects of system’s performance analysis.
 
 michal.kosmulski:
     name: Michał Kosmulski
@@ -318,4 +318,8 @@ konrad.kaminski:
 grzegorz.kaczmarczyk:
     name: Grzegorz Kaczmarczyk
     bio: Software developer with 4+ years of professional experience. Fan of simplicity and [YAGNI](http://martinfowler.com/bliki/Yagni.html) principle.
+
+pawel.ustaborowicz:
+    name: Paweł Ustaborowicz
+    bio: Mobile passionate with over 10 years of experience on various positions within the mobile industry.
 
