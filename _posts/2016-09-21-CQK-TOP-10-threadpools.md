@@ -36,8 +36,9 @@ processing any at all. Watch out for retries performed by the caller though! Cli
 
 You can bound your queues e.g. by using an `ArrayBlockingQueue` instead of the default `LinkedBlockingQueue`. Here’s an example using raw JDK API:
 
-```
-ThreadPoolExecutor executorService = new ThreadPoolExecutor(..., ..., ..., ..., new ArrayBlockingQueue(100));
+``` java
+ThreadPoolExecutor executorService =
+    new ThreadPoolExecutor(..., ..., ..., ..., new ArrayBlockingQueue(100));
 ```
 
 Attempt to submit a task to a full queue will cause a `RejectedExecutionException` to be thrown by default. You can override this behaviour by
@@ -67,7 +68,7 @@ e.g. viewing a thread dump to discover the state of an application, that’s a p
 
 Guava makes naming threads very easy by providing a `ThreadFactoryBuilder`:
 
-```
+```java
 ThreadFactory namedThreadsFactory = new ThreadFactoryBuilder().setNameFormat("my-pool-%d").build;
 Executors.newFixedThreadPool(..., namedThreadsFactory);
 ```
@@ -79,7 +80,7 @@ With threads configured this way it’s going to be easy to discover e.g. that a
 It’s hard to reason about performance bottlenecks or to locate the causes of stability issues without proper metrics. You should measure at least
 the number of active threads in the pool and the task queue size. Here’s how you could do it:
 
-```
+```java
 MetricRegistry registry = ...;  // e.g. when using dropwizard-metrics
 BlockingQueue<Runnable> q = new ArrayBlockingQueue<>(...);
 ThreadPoolExecutor executorService = ...;
