@@ -139,7 +139,7 @@ Perhaps several IDs will do just fine?
 Errors in the construction of cache keys can be difficult to detect and very painful.
 
 * If the key is less distinctive than it should be
-  (different items are assigned the same cache key) –
+  (different items are assigned to the same cache key) –
   the application will mix up some data, and errors will look non-deterministic.
 * If the key is more distinctive than it should be
   (different keys are assigned to the same items) –
