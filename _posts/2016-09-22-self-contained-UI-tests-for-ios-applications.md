@@ -346,6 +346,7 @@ Our build configurations should look like this afterwards:
 Now we have to add a new custom flag for
 [Swift](https://developer.apple.com/swift/)
 compiler on Build Settings screen like this:
+
 ![Custom flag](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/custom_flag.png)
 
 It's time to make sure localhost is used instead of our real API URL in Localhost configuration.
