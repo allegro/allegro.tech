@@ -1,11 +1,11 @@
 ---
 layout: post
-title: CQK TOP 10 – Thread pools
+title: Thread pools — CQK Top 10 
 author: piotr.betkier
 tags: [tech, cqk-top-10]
 ---
 
-This article is a part of CQK Top 10 series.
+This article is a part of [CQK Top 10](/2016/09/CQK-TOP-10.html) series.<br/>
 Modern applications process their work in multiple thread pools. Knowing where they are and
 how to set them up correctly is crucial for making sure applications behave well in production. We observe that 
 stability and peformance issues are often a result of mistakes in this area.
