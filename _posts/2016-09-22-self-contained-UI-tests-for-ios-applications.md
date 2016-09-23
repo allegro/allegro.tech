@@ -2,7 +2,7 @@
 layout: post
 title: Self-contained UI tests for iOS applications
 author: pawel.ustaborowicz
-tags: [tech, ios, testing, UI testing, test automation, WireMock, XCode]
+tags: [tech, ios, testing, UI testing, test automation, WireMock, Xcode]
 ---
 We're all familiar with
 [TDD](https://en.wikipedia.org/wiki/Test-driven_development)
@@ -12,23 +12,23 @@ write UI tests.
 
 Automated UI tests of your mobile application can help you detect problems with your code during everyday
 [Continuous Integration (CI)](https://en.wikipedia.org/wiki/Continuous_integration)
-process. It may however be hard achieve a stable test environment if your application
-presents data obtained from remote servers.
+process. It may however be hard achieve a stable test environment if your application presents data obtained from remote
+ servers.
 
 This article explains how to set up a self-contained test environment for connected iOS application, that can be used
 both in Continuous Integration and manual testing.
 
 We’ll be using
 [WireMock](http://wiremock.org/index.html) and
-[XCode UI Testing](https://developer.apple.com/videos/play/wwdc2015/406/) with
+[Xcode UI Testing](https://developer.apple.com/videos/play/wwdc2015/406/) with
 [Page Object Pattern](http://martinfowler.com/bliki/PageObject.html) to achieve our goal.
 
 ## UI Tests
 
-We’ll use [XCode UI Testing](https://developer.apple.com/videos/play/wwdc2015/406/) for our UI tests.
+We’ll use [Xcode UI Testing](https://developer.apple.com/videos/play/wwdc2015/406/) for our UI tests.
 It’s the official UI testing framework from Apple that reduces the need for explicit waits in test code.
 Less explicit waits means faster and more readable test code, that's very important for test suite maintenance.
-Also as it's the official Apple framework we’ll hopefully avoid situations when test framework breaks with new XCode
+Also as it's the official Apple framework we’ll hopefully avoid situations when test framework breaks with new Xcode
 releases.
 
 Unfortunately there isn’t much official documentation for the framework, but [Joe Masilotti](http://masilotti.com/) did
@@ -201,7 +201,7 @@ But if we run our test, we'll discover a nasty side-effect of our helper methods
 Error marker is placed within the helper method when the test fails.
 This is not a big problem when the helper is used only once, but we'll be using it multiple times in our test methods.
 
-Thankfully this is easy to fix. Every assert method takes two additional parameters, which tell XCode from where in the
+Thankfully this is easy to fix. Every assert method takes two additional parameters, which tell Xcode from where in the
 source file the assert comes. We'll use those parameters to place the error marker in our test function.
 
 Let's improve our helpers:
@@ -348,16 +348,6 @@ Now we have to add a new custom flag for
 compiler on Build Settings screen like this:
 ![Custom flag](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/custom_flag.png)
 
-We are using
-[CocoaPods](https://cocoapods.org/)
-so we have to ensure configuration mapping in our __Podfile__ by adding one simple line:
-
-```ruby
-project 'application', 'Localhost' => :debug
-```
-
-This way CocoaPods will setup the needed debug flags for all pods in Localhost configuration.
-
 It's time to make sure localhost is used instead of our real API URL in Localhost configuration.
 We have to add conditional code in the place where our API URL is defined:
 
@@ -408,7 +398,7 @@ Afterwards we'll have a reference to the *__files* directory in our project stru
 
 ![Directory reference](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/directory_reference.png)
 
-This way we can easily access our mock files in XCode and they will be automatically bundled with our test bundle.
+This way we can easily access our mock files in Xcode and they will be automatically bundled with our test bundle.
 
 We can write our parser code now.
 
