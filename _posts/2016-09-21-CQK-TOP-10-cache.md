@@ -6,7 +6,7 @@ tags: [tech, cqk-top-10, cache]
 ---
 
 This article is a part of [CQK Top 10](/2016/09/CQK-TOP-10.html) series.<br/>
-Many developers add cache to their application without measuring performance its impact.
+Many developers add cache to their application without measuring its performance impact.
 We are advising here that each application cache should have a very good reason to exists.
 
 ## Do you know where you need a cache?
@@ -15,8 +15,8 @@ Using a cache has its costs, so it should pay its way.
 Caching makes sense only if hit ratio is high, let’s say above 50%.
 Caching costs consist of:
 
-* CPU (GC time) and RAM resources,
-* more work for GC (in case of on-heap cache),
+* CPU and RAM resources,
+* GC time (in case of on-heap cache),
 * increased code complexity,
 * risk of introducing bugs which can be very difficult to detect (e.g. keys interference).
 
