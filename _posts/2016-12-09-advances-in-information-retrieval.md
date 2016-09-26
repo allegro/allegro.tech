@@ -115,11 +115,11 @@ Italian region of Tuscany.
 Ania Wróblewska
 Łukasz Rączkowski
 
-![photo](https://farm9.staticflickr.com/8676/27835837403_6158e920c2_k.jpg)
-![photo](https://farm9.staticflickr.com/8884/28169044890_7b4b78a60b_k.jpg)
-![photo](http://i.imgur.com/fgowGkN.jpg)
-![photo](http://i.imgur.com/Lcw2e1E.jpg)
-![photo](http://i.imgur.com/FcYrOIq.jpg)
-![photo](http://i.imgur.com/HpUnVLI.jpg)
-![photo](http://i.imgur.com/HaDnNcT.jpg)
-![photo](http://i.imgur.com/Dw56VLs.jpg)
+![SIGIR2016 talk photo](/img/articles/2016-12-09-advances-in-information-retrieval/27835837403_6158e920c2_k.jpg)
+![SIGIR2016 talk photo](/img/articles/2016-12-09-advances-in-information-retrieval/28169044890_7b4b78a60b_k.jpg)
+![Arno river in Pisa](/img/articles/2016-12-09-advances-in-information-retrieval/fgowGkN.jpg)
+![Pisa street](/img/articles/2016-12-09-advances-in-information-retrieval/Lcw2e1E.jpg)
+![SIGIR2016 banquet](/img/articles/2016-12-09-advances-in-information-retrieval/FcYrOIq.jpg)
+![Leaning tower of Pisa](/img/articles/2016-12-09-advances-in-information-retrieval/HpUnVLI.jpg)
+![Pisa cathedral](/img/articles/2016-12-09-advances-in-information-retrieval/HaDnNcT.jpg)
+![Łukasz in front of the conference venue](/img/articles/2016-12-09-advances-in-information-retrieval/Dw56VLs.jpg)
