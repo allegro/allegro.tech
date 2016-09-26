@@ -35,7 +35,7 @@ The other very interesting tutorial was about counterfactual evaluation of searc
 and advertisements systems ([slides](http://www.cs.cornell.edu/~adith/CfactSIGIR2016/)) . The main goal of this tutorial 
 was to provide theoretical background and give a way to evaluate and optimize online metrics by exploiting logs 
 of past user interactions. They used inverse propensity scoring to model the bias in online A/B tests. 
-The bias can be made by other (not in the focus) advert campaigns, or seasonal traffic etc.
+The bias can be caused by other (not in the focus) advert campaigns, or seasonal traffic etc.
 
 Other tutorials covered topics such as learning to rank and search in heterogeneous or specific data. 
 They were given by people from Google, LinkedIn, Microsoft Research, Facebook and universities 
@@ -55,12 +55,12 @@ on personal sparse corpora by Google, balancing diversity depending on user need
 interesting works by Yahoo Research e.g. image scoring or question answering.
 
 The talks were divided in thematic blocks, which allowed the participants to choose which 
-presentations they want to attend. Particularly notable sessions were: Speech and Conversation Systems, Music and Math and User Needs. The first one focused on research related with speech recognition and using voice queries 
+presentations they want to attend. Particularly notable sessions were: Speech and Conversation Systems, Music and Math and User Needs. The first one focused on research related to speech recognition and using voice queries 
 to search on the web or talk with a virtual assistant. The second included a presentation on a music recommendation system
 based on user behaviour and two talks on how to crack the problem of searching with (and for) mathematical equations. 
-The third of aforementioned blocks covered research related with user needs. It showed how our need for new information 
+The third of aforementioned blocks covered research related to user needs. It showed how our need for new information 
 correlates with brain activity, how waiting for search results can improve user satisfaction and what can we learn from data on 
-re-finding Twitter posts. This arrays of topics was a great way to get a better perspective on what can be done 
+re-finding Twitter posts. This array of topics was a great way to get a better perspective on what can be done 
 within the field of information retrieval.
 
 ##Industrial Day and Allegro Use Case
