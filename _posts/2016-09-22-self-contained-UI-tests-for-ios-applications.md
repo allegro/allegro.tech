@@ -7,12 +7,13 @@ tags: [tech, ios, testing, UI testing, test automation, WireMock, Xcode]
 We're all familiar with
 [TDD](https://en.wikipedia.org/wiki/Test-driven_development),
 everyone is writing unit tests these days — but unit tests won't check application state after complex UI interactions.
-If you want make sure that application behaves correctly when users interact with it, then you need to write UI tests.
+If you want yo make sure that application behaves correctly when users interact with it,
+then you need to write UI tests.
 
 Automated UI tests of your mobile application can help you detect problems with your code during everyday
 [Continuous Integration (CI)](https://en.wikipedia.org/wiki/Continuous_integration)
-process. It may however be hard achieve a stable test environment if your application presents data obtained from remote
-servers.
+process. It may however be hard to achieve a stable test environment if your application presents data obtained from
+remote servers.
 
 This article explains how to set up a self-contained test environment for connected iOS application, that can be used
 both in Continuous Integration and manual testing.
@@ -27,7 +28,7 @@ We’ll be using
 We’ll use [Xcode UI Testing](https://developer.apple.com/videos/play/wwdc2015/406/) for UI tests.
 It’s the official UI testing framework from Apple that reduces the need for explicit waits in test code.
 Less explicit waits means faster and more readable test code, that's very important for test suite maintenance.
-Also as it's the official Apple framework we’ll hopefully avoid situations when test framework breaks with new Xcode
+Also, as it's the official Apple framework, we’ll hopefully avoid situations when test framework breaks with new Xcode
 releases.
 
 Unfortunately there isn’t much official documentation for the framework, but [Joe Masilotti](http://masilotti.com/) did
@@ -83,13 +84,12 @@ The last thing that we need, is to check the key at application start and disabl
 in `AppDelegate`:
 
 ```swift
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
-        if NSProcessInfo.processInfo().environment["DISABLE_ANIMATIONS"] == "1" {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        if ProcessInfo.processInfo.environment["DISABLE_ANIMATIONS"] == "1" {
             UIView.setAnimationsEnabled(false)
         }
-
         return true
     }
 }
@@ -100,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 It's time to start writing our test code!
 
 Let's assume we're testing an e-commerce application like
-[Allegro](https://en.wikipedia.org/wiki/Allegro_(auction_website)). It displays a listing of tappable products and we
+[Allegro](https://itunes.apple.com/us/app/allegro/id305659772). It displays a listing of tappable products and we
 want to check if correct product is open after a tap.
 
 We could write something like this:
@@ -110,13 +110,13 @@ func testTapOnListingItemShouldOpenCorrectProduct() {
     // tap on first item
     XCUIApplication().collectionViews.cells["listingItem0"].tap()
     // check item title
-    XCTAssertTrue(XCUIApplication().staticTexts["productTitle"], "Product 1")
+    XCTAssertEqual(XCUIApplication().staticTexts["productTitle"], "Product 1")
     // check item price
-    XCTAssertTrue(XCUIApplication().staticTexts["productPrice"], "€ 1.00")
+    XCTAssertEqual(XCUIApplication().staticTexts["productPrice"], "€ 1.00")
 }
 ```
 
-But even with comments it's not really readable isn't it? Moreover we can't reuse this code in other test methods
+But even with comments it's not really readable, isn't it? Moreover we can't reuse this code in other test methods
 and copying those `XCUIApplication()` calls over and over again is not feasible at all.
 
 This is the place where [Page Objects](http://martinfowler.com/bliki/PageObject.html) (a concept known well to anyone
@@ -133,7 +133,7 @@ Let's start with a simple listing object:
 
 ```swift
 class ListingScreen {
-    static func item(itemNumber: UInt) -> XCUIElement {
+    static func item(_ itemNumber: UInt) -> XCUIElement {
         return XCUIApplication().collectionViews.cells["listingItem" + String(itemNumber)]
     }
 }
@@ -157,9 +157,9 @@ func testTapOnListingItemShouldOpenCorrectProduct() {
     // tap on first item
     ListingScreen.item(0).tap()
     // check item title
-    XCTAssertTrue(ProductScreen.title.label, "Product 1")
+    XCTAssertEqual(ProductScreen.title.label, "Product 1")
     // check item price
-    XCTAssertTrue(ProductScreen.price.label, "€ 1.00")
+    XCTAssertEqual(ProductScreen.price.label, "€ 1.00")
 }
 ```
 
@@ -172,11 +172,11 @@ Let's try to move them to separate helper methods then:
 
 ```swift
 // MARK: Helper functions
-func checkProductTitle(title: String) {
+func checkProductTitle(_ title: String) {
     XCTAssertEqual(ProductScreen.title.label, title)
 }
 
-func checkProductPrice(price: String) {
+func checkProductPrice(_ price: String) {
     XCTAssertEqual(ProductScreen.price.label, price)
 }
 ```
@@ -206,11 +206,11 @@ source file the assert comes. We'll use those parameters to place the error mark
 Let's improve our helpers:
 
 ```swift
-func checkProductTitle(title: String, file: StaticString = #file, line: UInt = #line) {
+func checkProductTitle(_ title: String, file: StaticString = #file, line: UInt = #line) {
     XCTAssertEqual(ProductScreen.title.label, title, file: file, line: line)
 }
 
-func checkProductPrice(price: String, file: StaticString = #file, line: UInt = #line) {
+func checkProductPrice(_ price: String, file: StaticString = #file, line: UInt = #line) {
     XCTAssertEqual(ProductScreen.price.label, price, file: file, line: line)
 }
 ```
@@ -222,7 +222,7 @@ test method!
 
 ## Network data stubbing
 
-So far we were using hardcoded test data in the test method, but the truth is that our application is presenting data
+So far we were using hardcoded test data in the test method, but the truth is that our application presents data
 received from backend servers. Thus it's possible that this data will often change. If suddenly a different product
 is the first one on the product listing then the test will fail as the name or price won't match. Moreover a server
 outage will cause our tests to fail as well because we won't receive any data at all.
@@ -231,7 +231,7 @@ How can we ensure that our tests will be server data independent and that they w
 downtime? Network data stubbing can help us with that.
 
 There's a great, well documented, opensource project called [WireMock](http://wiremock.org/index.html) that we can use
-to serve network stubs. It can not only serve but also record stubs, which is really handy if you want to mock network
+to serve network stubs. It not only serves but also records stubs, which is really handy if you want to mock network
 communication quickly.
 
 ### WireMock script
@@ -309,7 +309,7 @@ fi
 Now we'll be able to start WireMock by simply running `./wiremock.sh` and stop it by running `./wiremock.sh -k`.
 We can even run WireMock in record mode to record new mappings with `./wiremock.sh -r`.
 
-The script will expect to find *mappings* and *__files* directories with mock files in the script directory — this can
+The script expects to find *mappings* and *__files* directories with mock files in the script directory — this can
 be changed by providing `-m path_to_mappings` option.
 
 ### Build configuration
@@ -352,7 +352,7 @@ It's time to make sure localhost is used instead of real API URL in Localhost co
 We have to add conditional code in the place where API URL is defined:
 
 ```swift
-private var baseURL: String {
+var baseURL: String {
 #if LOCALHOST
     return "http://localhost:8080"
 #else
@@ -383,6 +383,10 @@ then
 fi
 ```
 
+Build phases should be ordered like this:
+
+![Build phases](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/build_phases.png)
+
 ## Using data from mocks in tests
 
 So far our test methods included hardcoded data like "Product 1" for item name. This isn't really flexible as we
@@ -401,7 +405,7 @@ Afterwards we'll have a reference to the *__files* directory in our project stru
 
 This way we can easily access mock files in Xcode and they will be automatically bundled with test bundle.
 
-We can write our parser code now.
+We are ready to write our parser code now.
 
 Let's start with a simple base class for test data parsers that will load a specified mock file and deserialize it
 into a dictionary at initialisation time.
@@ -419,11 +423,11 @@ class TestDataParser {
     var json: JSONDict!
 
     init(testFile: TestFile) {
-        guard let path = NSBundle(forClass: self.dynamicType).pathForResource(testFile.rawValue, ofType: "json", inDirectory: "__files"),
-            jsonData = NSData(contentsOfFile: path) else { return }
+        guard let path = Bundle(for: type(of: self)).path(forResource: testFile.rawValue, ofType: "json", inDirectory: "__files"),
+            let jsonData = try? Data(contentsOf: URL(fileURLWithPath: path)) else { return }
 
         do {
-            json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? JSONDict
+            json = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? JSONDict
         } catch let jsonError {
             print(jsonError)
         }
@@ -448,10 +452,6 @@ Data parser for product file can be implemented like this:
 
 ```swift
 class ProductTestData: TestDataParser {
-
-    init(testFile: TestFile) {
-        super.init(testFile: testFile)
-    }
 
     var title: String {
         return product["title"] as! String
@@ -494,11 +494,11 @@ class applicationUITests: XCTestCase {
     }
 
     // MARK: Helper functions
-    func checkProductTitle(title: String, file: StaticString = #file, line: UInt = #line) {
+    func checkProductTitle(_ title: String, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(ProductScreen.title.label, title)
     }
 
-    func checkProductPrice(price: String, file: StaticString = #file, line: UInt = #line) {
+    func checkProductPrice(_ price: String, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(ProductScreen.price.label, price, file: file, line: line)
     }
 }
@@ -511,7 +511,7 @@ tests in similar manner.
 
 ## Summary
 
-At first glance  it might seem that it's not easy to set up UI test environment for iOS applications, but as you've seen
+At first glance it might seem that it's not easy to set up UI test environment for iOS applications, but as you've seen
 above it just takes a few simple steps.
 
 It's most definitely worth the effort as it can save you lots of manual testing and it will show you issues with your
