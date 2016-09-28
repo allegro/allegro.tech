@@ -18,7 +18,7 @@ available tools, frameworks and even languages is enormous, just to mention a fe
 [Selenium](http://www.seleniumhq.org/).
 Dozens of other tools can help you verify whether your code is working properly. Besides, I assume you are familiar with
 TDD and BDD methodologies which are rather standard nowadays. Nevertheless, all of these tools have common
-limitations – they check your test environment only. Let me show you how one of [Allegro](http://allegro.pl) teams responsible for the
+limitations – they check your test environment only. Let me show you how one of [Allegro](/about-us/) teams responsible for the
 [Offer Listing](http://allegro.pl/dodatki-do-plyt-cd-dvd-etui-albumy-4735) tests the production environment.
 
 ### Does it work?

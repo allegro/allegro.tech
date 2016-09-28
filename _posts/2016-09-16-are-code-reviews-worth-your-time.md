@@ -5,7 +5,7 @@ author: michal.kosmulski
 tags: [tech, code review, peer review, source control, software quality, bitbucket, stash, gerrit, git]
 ---
 
-Code reviews play an important role in how we develop software at [Allegro](http://allegro.pl/). All code we developers write is reviewed
+Code reviews play an important role in how we develop software at [Allegro](/about-us/). All code we developers write is reviewed
 by our peers. If you apply for a job with us, we may ask you to review a sample piece of code during your interview. A code review done 
 right carries a lot of value, but if done wrong it can become a waste of time. In this article I will describe what I think makes a good 
 code review, how reviews have evolved over time at the teams I worked with and what you can do in order to make code reviews worthwhile.
@@ -208,7 +208,7 @@ them can understand the code and the changes they suggest are what shows how wel
 ## Going through changes
 
 Just like depending on experience, people spot different issues with the same piece of code, likewise teams learn to conduct better 
-and better code reviews over time. When we started regular code reviews at [Allegro](http://allegro.pl/), they often boiled down to minor
+and better code reviews over time. When we started regular code reviews at [Allegro](/about-us/), they often boiled down to minor
 issues such as code formatting, renaming variables and maybe extracting some code to a separate method here and there. We dubbed this stage
 _Sonar-Driven Development_ since most code reviews were about things which could be found by Sonar as well. Fortunately, with time we 
 started paying attention to higher-level issues such as good design, separating business logic from the persistence layer or making sure 
