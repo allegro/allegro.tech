@@ -5,15 +5,14 @@ author: pawel.ustaborowicz
 tags: [tech, ios, testing, UI testing, test automation, WireMock, Xcode]
 ---
 We're all familiar with
-[TDD](https://en.wikipedia.org/wiki/Test-driven_development)
-, everyone is writing unit tests these days — but unit tests won't check application state after complex UI
-interactions. If you want make sure that application behaves correctly when users interact with it, then you need to
-write UI tests.
+[TDD](https://en.wikipedia.org/wiki/Test-driven_development),
+everyone is writing unit tests these days — but unit tests won't check application state after complex UI interactions.
+If you want make sure that application behaves correctly when users interact with it, then you need to write UI tests.
 
 Automated UI tests of your mobile application can help you detect problems with your code during everyday
 [Continuous Integration (CI)](https://en.wikipedia.org/wiki/Continuous_integration)
 process. It may however be hard achieve a stable test environment if your application presents data obtained from remote
- servers.
+servers.
 
 This article explains how to set up a self-contained test environment for connected iOS application, that can be used
 both in Continuous Integration and manual testing.
@@ -25,7 +24,7 @@ We’ll be using
 
 ## UI Tests
 
-We’ll use [Xcode UI Testing](https://developer.apple.com/videos/play/wwdc2015/406/) for our UI tests.
+We’ll use [Xcode UI Testing](https://developer.apple.com/videos/play/wwdc2015/406/) for UI tests.
 It’s the official UI testing framework from Apple that reduces the need for explicit waits in test code.
 Less explicit waits means faster and more readable test code, that's very important for test suite maintenance.
 Also as it's the official Apple framework we’ll hopefully avoid situations when test framework breaks with new Xcode
@@ -39,7 +38,7 @@ First of all we need a test target. We'll add a new UI Testing bundle to our pro
 
 ![UI Testing bundle](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/test_target.png)
 
-We want to run UI tests as part of CI and also allow our developers to immediately see if their code changes are passing
+We want to run UI tests as part of CI and also allow developers to immediately see if their code changes are passing
 UI tests when they run tests manually.
 Thus we will not create a separate scheme for UI tests, but we’ll build and execute them as a part of Test action for
 our default scheme.
@@ -53,11 +52,11 @@ To do this we have to set up our project as on the screens below:
 ### Disabling animations
 
 UI tests usually take a lot of time compared to simple unit tests. We want to make our tests as fast as possible as
-we'll be running them as part of CI. We'll disable UI animations in our application when UI tests are running to speed
+we'll be running them as part of CI. We'll disable UI animations in the application when UI tests are running to speed
 things up.
 
-This can be done by setting an environment key which we will later check at application start. We have to do this before
-every test so the best way to do this is to extend `XCUIApplication` class:
+This can be done by setting an environment key, which we will later check at application start.
+The best way to do this is to extend `XCUIApplication` class as it has to be done before every test:
 
 ```swift
 extension XCUIApplication {
@@ -68,7 +67,7 @@ extension XCUIApplication {
 }
 ```
 
-Now we can use this in our test class `setUp()` method instead of the regular `XCUIApplication().launch()` like this:
+Now we can call the new method in the test class `setUp()` instead of the regular `XCUIApplication().launch()`:
 
 ```swift
 class applicationUITests: XCTestCase {
@@ -80,7 +79,7 @@ class applicationUITests: XCTestCase {
 }
 ```
 
-The last thing that we need is to check the key at application start and disable animations if needed. This can be done
+The last thing that we need, is to check the key at application start and disable animations if needed. This can be done
 in `AppDelegate`:
 
 ```swift
@@ -107,7 +106,7 @@ want to check if correct product is open after a tap.
 We could write something like this:
 
 ```swift
-func testOpenProductFromListing() {
+func testTapOnListingItemShouldOpenCorrectProduct() {
     // tap on first item
     XCUIApplication().collectionViews.cells["listingItem0"].tap()
     // check item title
@@ -128,22 +127,21 @@ We have two screens within our application:
 * listing
 * product
 
-so we'll create two screen objects that we'll use in our tests.
+so we'll create two screen objects that we'll use in tests.
 
 Let's start with a simple listing object:
 
 ```swift
 class ListingScreen {
-
     static func item(itemNumber: UInt) -> XCUIElement {
         return XCUIApplication().collectionViews.cells["listingItem" + String(itemNumber)]
     }
 }
 ```
 
-Not only does it wrap our listing functionality nicely, but it's also reusable for any listing item.
+It not only wraps listing functionality nicely, but it's also reusable for any listing item.
 
-Our product screen will look like this:
+Product screen will look like this:
 
 ```swift
 class ProductScreen {
@@ -152,10 +150,10 @@ class ProductScreen {
 }
 ```
 
-Now we can use both screen objects in our test code:
+Now we can use both screen objects in test code:
 
 ```swift
-func testOpenProductFromListing() {
+func testTapOnListingItemShouldOpenCorrectProduct() {
     // tap on first item
     ListingScreen.item(0).tap()
     // check item title
@@ -169,10 +167,11 @@ Code looks definitely better, but we can improve it even further...
 
 ### Assert helpers
 
-Those asserts in the test code aren't really reusable, but we can expect to use them a lot in our test functions. Let's
-try to move them to separate helper methods then:
+Those asserts in the test code aren't really reusable, but we can expect to use them a lot in test methods.
+Let's try to move them to separate helper methods then:
 
 ```swift
+// MARK: Helper functions
 func checkProductTitle(title: String) {
     XCTAssertEqual(ProductScreen.title.label, title)
 }
@@ -185,7 +184,7 @@ func checkProductPrice(price: String) {
 Our test method will now look like this:
 
 ```swift
-func testOpenProductFromListing() {
+func testTapOnListingItemShouldOpenCorrectProduct() {
     ListingScreen.item(0).tap()
     checkProductTitle("Product 1")
     checkProductPrice("€ 1.00")
@@ -194,46 +193,46 @@ func testOpenProductFromListing() {
 
 It doesn't need comments anymore, does it?
 
-But if we run our test, we'll discover a nasty side-effect of our helper methods:
+But if we run the test, we'll discover a nasty side-effect of our helper methods:
 
 ![Error in helper](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/helper.png)
 
 Error marker is placed within the helper method when the test fails.
-This is not a big problem when the helper is used only once, but we'll be using it multiple times in our test methods.
+This is not a big problem when the helper is used only once, but we'll be using it multiple times in test methods.
 
 Thankfully this is easy to fix. Every assert method takes two additional parameters, which tell Xcode from where in the
-source file the assert comes. We'll use those parameters to place the error marker in our test function.
+source file the assert comes. We'll use those parameters to place the error marker in the test method.
 
 Let's improve our helpers:
 
 ```swift
-private func checkProductTitle(title: String, file: StaticString = #file, line: UInt = #line) {
+func checkProductTitle(title: String, file: StaticString = #file, line: UInt = #line) {
     XCTAssertEqual(ProductScreen.title.label, title, file: file, line: line)
 }
 
-private func checkProductPrice(price: String, file: StaticString = #file, line: UInt = #line) {
+func checkProductPrice(price: String, file: StaticString = #file, line: UInt = #line) {
     XCTAssertEqual(ProductScreen.price.label, price, file: file, line: line)
 }
 ```
 
-We can see that the marker is correctly placed when we run our test again. We didn't even have to change anything in our
+We can see that the marker is correctly placed when we run the test again. We didn't even have to change anything in our
 test method!
 
 ![Error in test method](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/helper_correct.png)
 
 ## Network data stubbing
 
-So far we were using hardcoded test data in our test method, but the truth is that our application is presenting data
-received from our backend servers. Thus it's possible that this data will often change. If suddenly a different product
-is the first one on the product listing then our test will fail as the name or price won't match. Moreover a server
+So far we were using hardcoded test data in the test method, but the truth is that our application is presenting data
+received from backend servers. Thus it's possible that this data will often change. If suddenly a different product
+is the first one on the product listing then the test will fail as the name or price won't match. Moreover a server
 outage will cause our tests to fail as well because we won't receive any data at all.
 
 How can we ensure that our tests will be server data independent and that they won't fail if the server is experiencing
 downtime? Network data stubbing can help us with that.
 
 There's a great, well documented, opensource project called [WireMock](http://wiremock.org/index.html) that we can use
-to serve our network stubs. It can not only serve but also record stubs, which is really handy if you want
-to mock your network communication quickly.
+to serve network stubs. It can not only serve but also record stubs, which is really handy if you want to mock network
+communication quickly.
 
 ### WireMock script
 
@@ -316,7 +315,7 @@ be changed by providing `-m path_to_mappings` option.
 ### Build configuration
 
 Now when we have our script, it would be good to start WireMock before every test session and stop it afterwards.
-We can achieve this by adding pre- and post-actions for Test action that would run our script with correct parameters.
+We can achieve this by adding pre- and post-actions for Test action that would run the script with correct parameters.
 
 Assuming that *wiremock.sh* is placed in *WireMock* directory under *applicationUITests* our actions would look like
 this:
@@ -325,7 +324,7 @@ this:
 
 ![Post-action](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/post_action.png)
 
-So now we start WireMock before every test session, but... our application is not using it. We have to configure our
+So now we start WireMock before every test session, but... our application is not using it. We have to configure the
 project and make a small change in application code so that it connects to localhost when needed.
 
 Let's start with project configuration.
@@ -339,7 +338,7 @@ screen and give the new configuration a meaningful name (e.g. Localhost).
 
 ![Configuration clone](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/configuration_clone.png)
 
-Our build configurations should look like this afterwards:
+Build configurations should look like this afterwards:
 
 ![Build configurations](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/configuration_localhost.png)
 
@@ -349,8 +348,8 @@ compiler on Build Settings screen like this:
 
 ![Custom flag](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/custom_flag.png)
 
-It's time to make sure localhost is used instead of our real API URL in Localhost configuration.
-We have to add conditional code in the place where our API URL is defined:
+It's time to make sure localhost is used instead of real API URL in Localhost configuration.
+We have to add conditional code in the place where API URL is defined:
 
 ```swift
 private var baseURL: String {
@@ -362,9 +361,9 @@ private var baseURL: String {
 }
 ```
 
-We'll be sending requests to WireMock over unencrypted connection so we need to allow arbitrary loads in our Info.plist.
-We only want to do this for Localhost configuration and no other so we'll add two additional build phases to our
-application target.
+We'll be sending requests to WireMock over unencrypted connection so we need to allow arbitrary loads in Info.plist.
+We only want to do this for Localhost configuration and no other so we'll add two additional build phases to
+the application target.
 
 First one will run before actual compilation takes place and will enable arbitrary loads for Localhost:
 
@@ -387,11 +386,12 @@ fi
 ## Using data from mocks in tests
 
 So far our test methods included hardcoded data like "Product 1" for item name. This isn't really flexible as we
-would need to change those hardcoded values every time we change our mocks. It would be way better if we used the data
-loaded from mocks. We can do this by creating a simple mock data parser for our tests.
+would need to change those hardcoded values every time we make a change in mocks.
+It would be way better if we used the data loaded from mocks.
+We can do this by creating a simple mock data parser for tests.
 
-But fist things first — let's bundle our mocks with the test bundle so we have files to read from. The easiest way to do
-it is to reference  *__files* directory in our UI test target like this:
+But first things first — let's bundle mocks with the test bundle so we have files to read from.
+The easiest way to do it is to reference  *__files* directory in the UI test target like this:
 
 ![Adding files](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/add_files.png)
 
@@ -399,7 +399,7 @@ Afterwards we'll have a reference to the *__files* directory in our project stru
 
 ![Directory reference](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/directory_reference.png)
 
-This way we can easily access our mock files in Xcode and they will be automatically bundled with our test bundle.
+This way we can easily access mock files in Xcode and they will be automatically bundled with test bundle.
 
 We can write our parser code now.
 
@@ -431,9 +431,9 @@ class TestDataParser {
 }
 ```
 
-Now, when our base class is ready, we can create a proper parser for our product mocks.
+Now, when the base class is ready, we can create a proper parser for product mocks.
 
-Let's assume we have a mock for our product request that looks like this:
+Let's assume we have a mock for a product request that looks like this:
 
 ```json
 {
@@ -470,7 +470,7 @@ class ProductTestData: TestDataParser {
 Now, if `testData` is an instance of `ProductTestData`, we can call `testData.title` to get product title from loaded
 mock.
 
-Let's modify our tests to use our new test data parser:
+Let's modify our tests to use the new test data parser:
 
 ```swift
 class applicationUITests: XCTestCase {
@@ -487,17 +487,18 @@ class applicationUITests: XCTestCase {
         super.tearDown()
     }
 
-    func testOpenProductFromListing() {
+    func testTapOnListingItemShouldOpenCorrectProduct() {
         ListingScreen.item(0).tap()
         checkProductTitle(testData.title)
         checkProductPrice(testData.price)
     }
 
-    private func checkProductTitle(title: String, file: StaticString = #file, line: UInt = #line) {
+    // MARK: Helper functions
+    func checkProductTitle(title: String, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(ProductScreen.title.label, title)
     }
 
-    private func checkProductPrice(price: String, file: StaticString = #file, line: UInt = #line) {
+    func checkProductPrice(price: String, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(ProductScreen.price.label, price, file: file, line: line)
     }
 }
@@ -505,7 +506,7 @@ class applicationUITests: XCTestCase {
 
 That's it!
 
-We now have a readable test that uses data received from WireMock. Our test environment is ready and we can write more
+We now have a readable test that uses data received from WireMock. The test environment is ready and we can write more
 tests in similar manner.
 
 ## Summary
