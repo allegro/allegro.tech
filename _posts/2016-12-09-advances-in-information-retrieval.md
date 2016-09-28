@@ -71,7 +71,7 @@ Amazon/A9 on learning to rank and their models, e.g. using positive and negative
 categories not chosen by a user, LinkedIn on their special job or skill search case, and estimating user skills 
 reputation, Microsoft Research on online testing and data processing issues in information retrieval. There were a 
 few small companies presenting on difference between academic/research work and industry deployment and how to start 
-business after working in research. And of course there was our presentation about visual recommendation use case in 
+business after working in research. And of course there was our presentation about visual recommendation use case at 
 Allegro. 
 
 We showed a systematic way step by step from the idea of using visual data in recommendations to deployment and 
@@ -116,7 +116,6 @@ Ania Wróblewska
 Łukasz Rączkowski
 
 ![SIGIR2016 talk photo](/img/articles/2016-12-09-advances-in-information-retrieval/27835837403_6158e920c2_k.jpg)
-![SIGIR2016 talk photo](/img/articles/2016-12-09-advances-in-information-retrieval/28169044890_7b4b78a60b_k.jpg)
 ![Arno river in Pisa](/img/articles/2016-12-09-advances-in-information-retrieval/fgowGkN.jpg)
 ![Pisa street](/img/articles/2016-12-09-advances-in-information-retrieval/Lcw2e1E.jpg)
 ![SIGIR2016 banquet](/img/articles/2016-12-09-advances-in-information-retrieval/FcYrOIq.jpg)
