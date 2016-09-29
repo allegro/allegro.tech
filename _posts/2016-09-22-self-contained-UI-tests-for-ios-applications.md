@@ -416,7 +416,7 @@ We'll also create a simple type alias called `JSONDict` for readability purposes
 typealias JSONDict = [String: AnyObject]
 
 enum TestFile: String {
-    case FirstProduct = "body-firstproduct"
+    case firstProduct = "body-firstproduct"
 }
 
 class TestDataParser {
@@ -475,7 +475,7 @@ Let's modify our tests to use the new test data parser:
 ```swift
 class applicationUITests: XCTestCase {
 
-    let testData = ProductTestData(testFile: .FirstProduct)
+    let testData = ProductTestData(testFile: .firstProduct)
 
     override func setUp() {
         super.setUp()
