@@ -7,7 +7,7 @@ tags: [tech, ios, testing, UI testing, test automation, WireMock, Xcode]
 We're all familiar with
 [TDD](https://en.wikipedia.org/wiki/Test-driven_development),
 everyone is writing unit tests these days — but unit tests won't check application state after complex UI interactions.
-If you want yo make sure that application behaves correctly when users interact with it,
+If you want to make sure that application behaves correctly when users interact with it,
 then you need to write UI tests.
 
 Automated UI tests of your mobile application can help you detect problems with your code during everyday
