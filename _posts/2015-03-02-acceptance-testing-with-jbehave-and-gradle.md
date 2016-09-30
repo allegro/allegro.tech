@@ -45,7 +45,7 @@ others. You can easily find some articles comparing them. In this article we wil
 
 ### Example project
 As a reference for this tutorial we will use a simple implementation of Pricing Service which will tell us how much we
-must pay when we list an offer in [allegro.pl](http://allegro.pl). Complete source code is available on
+must pay when we list an offer in [allegro.pl](/about-us/). Complete source code is available on
 [GitHub](https://github.com/allegro/SimplePricingService). Total price depends on selected promo options such as bold
 text in offer title. Prices also differ in different categories like computers, fashion, sport, etc. In the background,
 Pricing Service maintains several price lists. One of them is default and contains price for all promo options. There

@@ -8,8 +8,8 @@ author: [alicja.antkowiak, edyta.kopczynska, krystian.szczucki, piotr.plys]
 tags: [tech, ux]
 ---
 
-[Allegro.pl](http://allegro.pl) is a leading Central European e-commerce platform, offering a vast diversity of new
-and pre-owned products. Search engine is the main entry point to Allegro.pl product stock.
+[Allegro](/about-us/) is a leading Central European e-commerce platform, offering a vast diversity of new
+and pre-owned products. Search engine is the main entry point to allegro.pl product stock.
 Designing a bunch of UX metrics for a [SaaS](http://pl.wikipedia.org/wiki/Software_as_a_Service) solution or
 a social networking site is a must. Typically no one would dare
 discuss whether it is worth our time to measure the effect of changes through an
@@ -88,7 +88,7 @@ search engine. Second, the vast majority of our users regard it as the only way 
 regardless of the possible negative emotions it causes. How can we talk about adoption, retention or engagement in this
 case? Also, only search engine text input is visible to our users, every other aspect is hidden. Where does it
 demonstrate its quality then? Should we measure the success by listings, offer views or by purchases? How can we
-minimize the bias related to different designs of these pages and types of items sold at Allegro.pl? After a few intense
+minimize the bias related to different designs of these pages and types of items sold at allegro.pl? After a few intense
 meetings we agreed to give up on HEART entirely and find a custom way to accurately measure the quality of our search engine’s UX.
 
 After many long and lively debates we chose 10 main metrics which will allow us to approach search results differently
