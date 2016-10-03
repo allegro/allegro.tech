@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Advances in Information Retrieval and Allegro use case at SIGIR 2016
-author: anna.wroblewska
-author: lukasz.raczkowski
+author: [anna.wroblewska, lukasz.raczkowski]
 tags: [tech, information retrieval, visual recommendation, image-based data, metrics, conference]
 ---
 
