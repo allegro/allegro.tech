@@ -511,8 +511,8 @@ tests in similar manner.
 
 ## Summary
 
-At first glance it might seem that it’s not easy to set up UI test environment for iOS applications, but as you’ve seen
-above it just takes a few simple steps.
+At first glance it might seem that it’s not easy to set up a UI test environment for iOS applications,
+but as you’ve seen above it just takes a few simple steps.
 
 It’s most definitely worth the effort as it can save you lots of manual testing and it will show you issues with your
 code as soon as that code is committed.
