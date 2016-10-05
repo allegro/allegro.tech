@@ -389,7 +389,7 @@ Build phases should be ordered like this:
 
 ## Using data from mocks in tests
 
-So far our test methods included hardcoded data like "Product 1" for item name. This isn’t really flexible as we
+So far our test methods included hardcoded data like "Product 1" for item name. This isn’t really flexible because we
 would need to change those hardcoded values every time we make a change in mocks.
 It would be way better if we used the data loaded from mocks.
 We can do this by creating a simple mock data parser for tests.
