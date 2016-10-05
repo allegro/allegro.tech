@@ -317,8 +317,8 @@ be changed by providing `-m path_to_mappings` option.
 Now that we have our script, it would be good to start WireMock before every test session and stop it afterwards.
 We can achieve this by adding pre- and post-actions for Test action that will run the script with correct parameters.
 
-Assuming that `wiremock.sh` is placed in `WireMock` directory under `applicationUITests` our actions would look like
-this:
+Assuming that `wiremock.sh` is made executable and placed in `WireMock` directory under `applicationUITests` our actions
+would look like this:
 
 ![Pre-action](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/pre_action.png)
 
