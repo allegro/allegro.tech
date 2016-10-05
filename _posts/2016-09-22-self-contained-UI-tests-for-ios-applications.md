@@ -2,12 +2,12 @@
 layout: post
 title: Self-contained UI tests for iOS applications
 author: pawel.ustaborowicz
-tags: [tech, ios, testing, UI testing, test automation, WireMock, Xcode]
+tags: [tech, iOS, testing, UI testing, test automation, WireMock, Xcode]
 ---
 We’re all familiar with
-[TDD](https://en.wikipedia.org/wiki/Test-driven_development),
-everyone is writing unit tests these days — but unit tests won’t check application state after complex UI interactions.
-If you want to make sure that application behaves correctly when users interact with it,
+[TDD](https://en.wikipedia.org/wiki/Test-driven_development), or at least write unit tests for our software,
+but unit tests won’t check application state after complex UI interactions.
+If you want to make sure that an application behaves correctly when users interact with it,
 then you need to write UI tests.
 
 Automated UI tests of your mobile application can help you detect problems with your code during everyday
@@ -15,7 +15,7 @@ Automated UI tests of your mobile application can help you detect problems with 
 process. It may however be hard to achieve a stable test environment if your application presents data obtained from
 remote servers.
 
-This article explains how to set up a self-contained test environment for connected iOS application, that can be used
+This article explains how to set up a self-contained test environment for connected iOS applications, that can be used
 both in Continuous Integration and manual testing.
 
 We’ll be using
@@ -27,9 +27,9 @@ We’ll be using
 
 We’ll use [Xcode UI Testing](https://developer.apple.com/videos/play/wwdc2015/406/) for UI tests.
 It’s the official UI testing framework from Apple that reduces the need for explicit waits in test code.
-Less explicit waits means faster and more readable test code, that’s very important for test suite maintenance.
-Also, as it’s the official Apple framework, we’ll hopefully avoid situations when test framework breaks with new Xcode
-releases.
+Less explicit waiting means faster and more readable test code which is very important for test suite maintenance.
+Also, as it’s the official Apple framework, we’ll hopefully avoid situations when the test framework breaks with new
+Xcode releases.
 
 Unfortunately there isn’t much official documentation for the framework, but [Joe Masilotti](http://masilotti.com/) did
 a tremendous job of documenting and explaining all of the quirks.
@@ -56,7 +56,7 @@ UI tests usually take a lot of time compared to simple unit tests. We want to ma
 we’ll be running them as part of CI. We’ll disable UI animations in the application when UI tests are running to speed
 things up.
 
-This can be done by setting an environment key, which we will later check at application start.
+This can be done by setting an environment property, which we will later check at application start.
 The best way to do this is to extend `XCUIApplication` class as it has to be done before every test:
 
 ```swift
@@ -80,8 +80,8 @@ class applicationUITests: XCTestCase {
 }
 ```
 
-The last thing that we need, is to check the key at application start and disable animations if needed. This can be done
-in `AppDelegate`:
+The last thing we need is to check the property at application start and disable animations if needed.
+This can be done in `AppDelegate`:
 
 ```swift
 @UIApplicationMain
@@ -99,9 +99,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 It’s time to start writing our test code!
 
-Let’s assume we’re testing an e-commerce application like
+Let’s assume we’re testing an e-commerce application such as
 [Allegro](https://itunes.apple.com/us/app/allegro/id305659772). It displays a listing of tappable products and we
-want to check if correct product is open after a tap.
+want to check if correct product is opened after a tap.
 
 We could write something like this:
 
@@ -116,7 +116,7 @@ func testTapOnListingItemShouldOpenCorrectProduct() {
 }
 ```
 
-But even with comments it’s not really readable, isn’t it? Moreover we can’t reuse this code in other test methods
+But even with comments it’s not really readable, is it? Moreover we can’t reuse this code in other test methods
 and copying those `XCUIApplication()` calls over and over again is not feasible at all.
 
 This is the place where [Page Objects](http://martinfowler.com/bliki/PageObject.html) (a concept known well to anyone
@@ -167,7 +167,7 @@ Code looks definitely better, but we can improve it even further...
 
 ### Assert helpers
 
-Those asserts in the test code aren’t really reusable, but we can expect to use them a lot in test methods.
+Those assertions in the test code aren’t really reusable, but we can expect to use them a lot in test methods.
 Let’s try to move them to separate helper methods then:
 
 ```swift
@@ -200,8 +200,8 @@ But if we run the test, we’ll discover a nasty side-effect of our helper metho
 Error marker is placed within the helper method when the test fails.
 This is not a big problem when the helper is used only once, but we’ll be using it multiple times in test methods.
 
-Thankfully this is easy to fix. Every assert method takes two additional parameters, which tell Xcode from where in the
-source file the assert comes. We’ll use those parameters to place the error marker in the test method.
+Thankfully this is easy to fix. Every assertion method takes two additional parameters which tell Xcode from where in
+the source file the assert comes. We’ll use those parameters to place the error marker in the test method.
 
 Let’s improve our helpers:
 
@@ -309,15 +309,15 @@ fi
 Now we’ll be able to start WireMock by simply running `./wiremock.sh` and stop it by running `./wiremock.sh -k`.
 We can even run WireMock in record mode to record new mappings with `./wiremock.sh -r`.
 
-The script expects to find *mappings* and *__files* directories with mock files in the script directory — this can
+The script expects to find `mappings` and `__files` directories with mock files in the script directory — this can
 be changed by providing `-m path_to_mappings` option.
 
 ### Build configuration
 
-Now when we have our script, it would be good to start WireMock before every test session and stop it afterwards.
-We can achieve this by adding pre- and post-actions for Test action that would run the script with correct parameters.
+Now that we have our script, it would be good to start WireMock before every test session and stop it afterwards.
+We can achieve this by adding pre- and post-actions for Test action that will run the script with correct parameters.
 
-Assuming that *wiremock.sh* is placed in *WireMock* directory under *applicationUITests* our actions would look like
+Assuming that `wiremock.sh` is placed in `WireMock` directory under `applicationUITests` our actions would look like
 this:
 
 ![Pre-action](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/pre_action.png)
@@ -330,7 +330,7 @@ project and make a small change in application code so that it connects to local
 Let’s start with project configuration.
 
 We want our Test action to use localhost and we also want to use localhost for manual testing when needed.
-The easiest solution that would fullfil both requirements is to create a new build configuration that will set a special
+The easiest solution that fullfils both requirements is to create a new build configuration that will set a special
 build flag at compilation time.
 
 To achieve this we have to clone the Debug configuration (as this is the configuration used by Test) on project Info
@@ -342,7 +342,7 @@ Build configurations should look like this afterwards:
 
 ![Build configurations](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/configuration_localhost.png)
 
-Now we have to add a new custom flag for
+Now we have to add a new custom flag (-DLOCALHOST) for
 [Swift](https://developer.apple.com/swift/)
 compiler on Build Settings screen like this:
 
@@ -361,7 +361,7 @@ var baseURL: String {
 }
 ```
 
-We’ll be sending requests to WireMock over unencrypted connection so we need to allow arbitrary loads in Info.plist.
+We’ll be sending requests to WireMock over an unencrypted connection so we need to allow arbitrary loads in Info.plist.
 We only want to do this for Localhost configuration and no other so we’ll add two additional build phases to
 the application target.
 
@@ -395,11 +395,11 @@ It would be way better if we used the data loaded from mocks.
 We can do this by creating a simple mock data parser for tests.
 
 But first things first — let’s bundle mocks with the test bundle so we have files to read from.
-The easiest way to do it is to reference  *__files* directory in the UI test target like this:
+The easiest way to do it is to reference  `__files` directory in the UI test target like this:
 
 ![Adding files](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/add_files.png)
 
-Afterwards we’ll have a reference to the *__files* directory in our project structure:
+Afterwards we’ll have a reference to the `__files` directory in our project structure:
 
 ![Directory reference](/img/articles/2016-09-22-self-contained-ui-tests-for-ios-applications/directory_reference.png)
 
