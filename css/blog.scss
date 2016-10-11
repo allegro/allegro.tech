@@ -1,6 +1,17 @@
 ---
 ---
 
+figure {
+    float: right;
+    display: table;
+    padding-top: 10px;
+}
+
+figcaption {
+    display: table-caption;
+    caption-side: bottom;
+}
+
 @import "post-author";
 @import 'syntax-highlight';
 
@@ -22,6 +33,11 @@
     padding: 3em 0 1em;
     color: #fff;
     font-weight: 300;
+}
+
+.section-blog > header a {
+    color: #ffa500;
+    text-decoration: none;
 }
 
 .section-latest > header {
