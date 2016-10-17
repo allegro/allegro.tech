@@ -5,7 +5,7 @@ author: [anna.wroblewska, lukasz.raczkowski]
 tags: [tech, information retrieval, visual recommendation, image-based data, metrics, conference]
 ---
 
-In July we attended a scientific conference SIGIR 2016 held in Pisa, Italy. SIGIR is an annual conference 
+In July we attended the scientific conference SIGIR 2016 held in Pisa, Italy. SIGIR is an annual conference 
 related to new advances in Information Retrieval. The shortcut is for 
 [Special Interest Group on Information Retrieval](http://sigir.org/sigir2016/). 
 This is an annual conference with the highest ranking at 
@@ -17,7 +17,7 @@ ranking challenges — called learning to rank, behavioral models, recommendatio
 and information retrieval from heterogeneous resources and data, e.g. image, video, audio 
 or multimodal models.
 
-##SIGIR Tutorials
+## SIGIR Tutorials
 
 The first day of SIGIR2016 was dedicated to [tutorials](http://sigir.org/sigir2016/tutorials/) 
 giving a quick look inside current state-of-the-art of information retrieval technologies. 
@@ -40,7 +40,7 @@ Other tutorials covered topics such as learning to rank and search in heterogene
 They were given by people from Google, LinkedIn, Microsoft Research, Facebook and universities 
 from all over the world.
 
-##Main Conference Topics
+## Main Conference Topics
 
 The main conference started with Chris Manning's 
 [intro lecture](http://nlp.stanford.edu/~manning/talks/SIGIR2016-Deep-Learning-NLI.pdf "SIGIR 2016 intro lecture") 
@@ -62,7 +62,7 @@ correlates with brain activity, how waiting for search results can improve user 
 re-finding Twitter posts. This array of topics was a great way to get a better perspective on what can be done 
 within the field of information retrieval.
 
-##Industrial Day and Allegro Use Case
+## Industrial Day and Allegro Use Case
 
 The most attractive day for us was the 4th one when industry track was launched. There were  talks from the industry
  about IR systems at scale (big or small). The talks were given by Google, IBM Research on Watson applications, 
@@ -86,7 +86,7 @@ Our presentation was met with great interest. Many people were coming to us aski
 we managed to do it in quite a big company. It is a great success of Allegro as a company that we were able to 
 present its solutions amongst the biggest ones in the world like Google, Microsoft or Amazon.
 
-##Information Retrieval Workshops
+## Information Retrieval Workshops
 
 The conference ended with a few workshops, e.g. 
 [Neural IR by Microsoft](https://www.microsoft.com/en-us/research/event/neuir2016/) among others on deep learning 
@@ -95,7 +95,7 @@ We found the latter to be especially interesting, mainly because it showed how i
 be used in real life to help people. It also contained a talk about image search for medical images, so it was great 
 to compare it with what we did in our project.
 
-##Social Attractions
+## Social Attractions
 
 During the course of the conference it was possible to attend poster and demo sessions, which included fantastic 
 applications of information retrieval in science and small industry. It was possible to talk to each author about 
@@ -111,13 +111,14 @@ Summing up, the conference had a very bright, creative atmosphere. Among attende
 industry and many students from all over the world. It was great to visit Pisa, which is a truly nice place in the 
 Italian region of Tuscany. 
 
-Ania Wróblewska
+Ania Wróblewska<br>
 Łukasz Rączkowski
 
-![SIGIR2016 talk photo](/img/articles/2016-12-09-advances-in-information-retrieval/27835837403_6158e920c2_k.jpg)
-![Arno river in Pisa](/img/articles/2016-12-09-advances-in-information-retrieval/fgowGkN.jpg)
-![Pisa street](/img/articles/2016-12-09-advances-in-information-retrieval/Lcw2e1E.jpg)
-![SIGIR2016 banquet](/img/articles/2016-12-09-advances-in-information-retrieval/FcYrOIq.jpg)
-![Leaning tower of Pisa](/img/articles/2016-12-09-advances-in-information-retrieval/HpUnVLI.jpg)
-![Pisa cathedral](/img/articles/2016-12-09-advances-in-information-retrieval/HaDnNcT.jpg)
-![Łukasz in front of the conference venue](/img/articles/2016-12-09-advances-in-information-retrieval/Dw56VLs.jpg)
+![SIGIR2016 talk photo](/img/articles/2016-10-17-advances-in-information-retrieval/27835837403_6158e920c2_k.jpg)
+![Arno river in Pisa](/img/articles/2016-10-17-advances-in-information-retrieval/fgowGkN.jpg)
+![Pisa street](/img/articles/2016-10-17-advances-in-information-retrieval/Lcw2e1E.jpg)
+![SIGIR2016 banquet](/img/articles/2016-10-17-advances-in-information-retrieval/FcYrOIq.jpg)
+![Leaning tower of Pisa](/img/articles/2016-10-17-advances-in-information-retrieval/HpUnVLI.jpg)
+![Pisa cathedral](/img/articles/2016-10-17-advances-in-information-retrieval/HaDnNcT.jpg)
+![Łukasz in front of the conference venue](/img/articles/2016-10-17-advances-in-information-retrieval/Dw56VLs.jpg)
+
