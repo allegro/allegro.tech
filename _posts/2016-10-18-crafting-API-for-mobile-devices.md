@@ -12,9 +12,9 @@ author: [mariusz.wojtysiak]
 tags: [tech, api, rest api, mobile]
 ---
 
-Are you developing service and plan to make it publicly available? Do you want mobile appliactions developers integrate with your api fast and painless? Do you care how stable and predictable run mobile applications using your service?
+Are you developing service and plan to make it publicly available? Do you want developers of mobile appliactions integrate with your api fast and painless? Do you care how stable and predictable are mobile applications using your service?
 
-Below you find a bunch of our API aritecture decisions, which caused that new features in Allegro mobile apps were not delivered as fast as we expected, and caused some problems with stability.
+Below you find a bunch of our API architecture decisions, which caused that new features in Allegro mobile apps were not delivered as fast as we expected, and caused some problems with stability.
 
 ## Many requests to build one view
 On our backend we have microservices architecture. Every service supports narrow area of business logic. Let's see on example how introduced microservices affected our mobile development:
@@ -32,29 +32,30 @@ Mobile developer had to:
 - define 3 different data models
 - implement sending of 3 different requests
 - make 3 error handling routines
-- handle refreshing of view — 3 times
+- handle view refreshing — 3 times
 - we usually sends requests asynchronously — 3 async requests increases level of complexity
 
 Above work were done for all our applications: on android, ios and windows phone, so amount of needed work multiplied 3 times.
 
-Microservice architecture cuased that mobile app had to send many requests to display one view. It made our application less reliable. That's because phones often uses poor internect connection and each additional request increases probability of network failure.
+Microservice architecture cased that mobile app had to send many requests to display one view. It made our application less reliable. That's because phones often uses poor internect connection and each additional request increases probability of network failure.
 
 To avoid those problems, we introduced Service [Façade](https://en.wikipedia.org/wiki/Facade_pattern) also known as [Backend For Frontend](http://samnewman.io/patterns/architectural/bff/):
 
 ![Offer details](/img/articles/api-crafted-for-mobile/BFF.png)
 
 Now BFF service sends one response with all data needed by mobile app. Of course BFF is tightly coupled with client requirements, so it can be developed when UX team delivers view sketches.
-But our mobile developers integrates new features more quickly, views are refreshed faster (3 requests are still sent, but all are internal requests within datacenter) and applications are more stable.
+
+But thanks of BFF our mobile developers integrates new features more quickly, views are refreshed faster (3 requests are still sent, but all are internal requests within datacenter) and applications are more stable.
 Additionaly we uses less user's data packets and save phone battery.
 
 ## Null values returned from time to time
-At the very beginning we didn't care, which fields in API responses may return null. So our swagger documentation have not any hint, which field are optional. For example auctions on allegro cannot be bought using "buy now", so auctions have not buyNowPrice. Our swagger looked like this:
+At the very beginning we didn't care, which fields in API responses may return null. So our swagger documentation had not any hint, which fields are optional. For example auctions on allegro cannot be bought using "buy now", so auctions have not buyNowPrice. Our swagger looked like this:
 
 ![](/img/articles/api-crafted-for-mobile/offer-no-optional.png)
 
-Mobile developers had to predict somehow, for which fields imlements handling of null values. They made this predictions using theirs knowledge how Allegro works. But it's impossible in such big system to find all border cases, so prediction was not accurate. Our users noticed it, when they observed app crashes from time to time.
+Mobile developers had to predict somehow, for which fields implements null value handler. They made this predictions using theirs knowledge how Allegro works. But it's impossible in such big system to find all border cases, so prediction was not accurate. Our users noticed it, when they observed app crashes from time to time.
 
-Now in API documentation we specify in which fields expect null values, with short description in what case this null is returned.
+Now in API documentation we specify in which fields expect null values, together with short description in what case this null is returned.
 
 ![](/img/articles/api-crafted-for-mobile/offer-optional.png)
 
