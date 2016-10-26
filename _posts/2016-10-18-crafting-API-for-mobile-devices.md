@@ -5,13 +5,6 @@ author: [mariusz.wojtysiak]
 tags: [tech, api, rest api, mobile]
 ---
 
----
-layout: post
-title: Crafting API for mobile devices
-author: [mariusz.wojtysiak]
-tags: [tech, api, rest api, mobile]
----
-
 Are you developing service and planning to make it publicly available? Do you want developers of mobile appliactions integrate with your api fast and painless? Do you care how stable and predictable are mobile applications using your service?
 
 Below you find a bunch of API architecture decisions, which caused that new features in Allegro mobile apps were not delivered as fast as we expected, and caused some problems with stability.
