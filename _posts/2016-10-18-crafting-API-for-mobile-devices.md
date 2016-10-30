@@ -8,22 +8,22 @@ tags: [tech, api, rest api, mobile]
 Do you develop service and plan to make it publicly available? Do you want developers of mobile appliactions integrate
 with your api faslty and painlessly? Do you care how stable and predictable mobile applications using your service are?
 
-Below you find a bunch of API architecture decisions, which caused new features in Allegro mobile apps not being delivered
+Below you find a bunch of API architecture decisions, which caused new features in [Allegro](http://allegro.tech/about-us/) mobile apps not being delivered
 as fast as we expected and caused some problems with stability.
 
 ## Many requests to build one view
 On our backend we have microservices architecture. Every service supports narrow area of business logic. Let’s look at example
 how introducing of microservices affected our mobile development:
 
-![Offer details](/img/articles/api-crafted-for-mobile/offer-watch.png)
+![Offer details](/img/articles/2016-10-18-crafting-API-for-mobile-devices/offer-watch.png)
 
 Above we see Allegro application for Android presenting offer “Woman Watch VERSUS VERSACE”, with minimal delivery cost “7,90 zł”
 and seller reliability “99,4%”. Details of offer, delivery costs and seller rankings are supported by 3 microservices,
 so smartphone had to make 3 requests to show above view:
 
-- GET /offers/{offerId}
-- GET /delivery-prices/{delivery-list-id}
-- GET /sellers/{sellerId}
+- `GET /offers/{offerId}`
+- `GET /delivery-prices/{delivery-list-id}`
+- `GET /sellers/{sellerId}`
 
 Mobile developer had to:
 
@@ -41,7 +41,7 @@ That’s because phones often uses poor internet connection and each additional 
 To avoid those problems, we introduced Service [Façade](https://en.wikipedia.org/wiki/Facade_pattern) also known as
 [Backend For Frontend](http://samnewman.io/patterns/architectural/bff/):
 
-![Offer details](/img/articles/api-crafted-for-mobile/BFF.png)
+![Offer details](/img/articles/2016-10-18-crafting-API-for-mobile-devices/BFF.png)
 
 Now BFF service sends one response with all data needed by mobile app. Of course BFF is tightly coupled with client requirements,
 so it can be developed when UX team delivers view sketches.
@@ -55,7 +55,7 @@ At the very beginning we didn’t care, which fields in API responses may return
 which fields are optional. For example pure auctions on Allegro cannot be bought using “buy now”, so auctions do not have `buyNowPrice`.
 Our swagger documentation looked like this:
 
-![](/img/articles/api-crafted-for-mobile/offer-no-optional.png)
+![Swagger example without optional](/img/articles/2016-10-18-crafting-API-for-mobile-devices/offer-no-optional.png)
 
 Mobile developers had to predict somehow, for which fields implement null value handler. They made these predictions using theirs
 knowledge of how Allegro works. But it’s hard in such big system to find all border cases, so prediction was not accurate.
@@ -64,10 +64,10 @@ Users noticed it, when our application crashed from time to time.
 Now in API documentation we specify in which fields null values should be expected. Additionaly we add short description
 in what case null is returned.
 
-![](/img/articles/api-crafted-for-mobile/offer-optional.png)
+![Swagger example with optional](/img/articles/2016-10-18-crafting-API-for-mobile-devices/offer-optional.png)
 
 Property `optional` appears, when we ommit field name in API specification / required:
-![](/img/articles/api-crafted-for-mobile/swagger-required.png)
+![Required in Swagger spec](/img/articles/2016-10-18-crafting-API-for-mobile-devices/swagger-required.png)
 
 With `optional` properties in documentation, mobile developers no longer need to predict where to expect nulls.
 Our testers can precisely recognize corner cases and test it.
@@ -76,7 +76,7 @@ Our testers can precisely recognize corner cases and test it.
 Every microservice in Allegro is developed by independent team. After a few weeks of intruducing the new architecture we realized
 that every service has its own way to signal that error occured. Let's look at example:
 
-![](/img/articles/api-crafted-for-mobile/inconsistent-errors-handling.png)
+![Inconsistent errors handling](/img/articles/2016-10-18-crafting-API-for-mobile-devices/inconsistent-errors-handling.png)
 
 One error “Resource not found”, but each service signals it with different http status and different JSON structure.
 It causes that mobile developer have to implement different error handling for every service.
