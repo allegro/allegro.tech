@@ -14,10 +14,10 @@ Below you can read about a bunch of decisions concerning API architecture becaus
 In our backend we have a microservices architecture. Each service supports a narrow area of business logic. Let’s look at an example of
 how the introduction of microservices has affected our mobile development:
 
-![Offer details](/img/articles/2016-10-18-crafting-API-for-mobile-devices/offer-watch.png)
+![Offer details](/img/articles/2016-10-18-crafting-API-for-mobile-devices/offer-handbag.png)
 
-Above you can see Allegro application for Android presenting the offer “Woman Watch VERSUS VERSACE”, with a minimal delivery cost of “7.90 zł”
-and seller reliability equal to “99.4%”. Offer details, delivery costs and seller rankings are supported by 3 microservices,
+Above you can see Allegro application for Android presenting the offer “Woman handbag Wittchen shopper”, with a minimal delivery cost of “0.00 zł”
+and seller reliability equal to “99.5%”. Offer details, delivery costs and seller rankings are supported by 3 microservices,
 so a smartphone had to make 3 requests to show the above view:
 
 - `GET /offers/{offerId}`
@@ -38,7 +38,7 @@ In the microservice architecture the mobile app had to send many requests to dis
 That’s because phones often use poor internet connections and each additional request increases the probability of failure.
 
 To avoid these problems, we introduced a Service [Façade](https://en.wikipedia.org/wiki/Facade_pattern) also known as
-a [Backend For Frontend](http://samnewman.io/patterns/architectural/bff/)(BFF):
+a [Backend For Frontend](http://samnewman.io/patterns/architectural/bff/) (BFF):
 
 ![Offer details](/img/articles/2016-10-18-crafting-API-for-mobile-devices/BFF.png)
 
