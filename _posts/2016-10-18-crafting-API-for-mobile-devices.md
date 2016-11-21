@@ -8,16 +8,16 @@ tags: [tech, api, rest api, mobile]
 Are you developing a service and planning to make it publicly available? Do you want developers of mobile applications to get integrated
 with your API fast and painless? Do you care how stable and predictable mobile applications using your service are?
 
-Below you can read about a bunch of decisions concerning API architecture, because of which new features in [Allegro](http://allegro.tech/about-us/) mobile apps were not delivered as fast as we expected and caused problems with stability.
+Below you can read about a bunch of decisions concerning API architecture because of which new features in [Allegro](http://allegro.tech/about-us/) mobile apps were not delivered as fast as we expected and which caused problems with stability.
 
 ## Many requests to build one view
-In our backend we have a microservices architecture. Every service supports a narrow area of business logic. Let’s look an example of
+In our backend we have a microservices architecture. Each service supports a narrow area of business logic. Let’s look at an example of
 how the introduction of microservices has affected our mobile development:
 
 ![Offer details](/img/articles/2016-10-18-crafting-API-for-mobile-devices/offer-watch.png)
 
 Above you can see Allegro application for Android presenting the offer “Woman Watch VERSUS VERSACE”, with a minimal delivery cost of “7.90 zł”
-and seller reliability equaling “99.4%”. Offer details, delivery costs and seller rankings are supported by 3 microservices,
+and seller reliability equal to “99.4%”. Offer details, delivery costs and seller rankings are supported by 3 microservices,
 so a smartphone had to make 3 requests to show the above view:
 
 - `GET /offers/{offerId}`
@@ -35,50 +35,50 @@ Mobile developer had to:
 The same procedure applied to all our applications: for Android, iOS and Windows Phone, so the amount of needed work was multiplied by 3.
 
 In the microservice architecture the mobile app had to send many requests to display one view. It made our application less reliable.
-That’s because phones often uses poor internet connection and each additional request increases the probability of failure.
+That’s because phones often use poor internet connections and each additional request increases the probability of failure.
 
-To avoid those problems, we introduced Service [Façade](https://en.wikipedia.org/wiki/Facade_pattern) also known as
-[Backend For Frontend](http://samnewman.io/patterns/architectural/bff/):
+To avoid these problems, we introduced a Service [Façade](https://en.wikipedia.org/wiki/Facade_pattern) also known as
+a [Backend For Frontend](http://samnewman.io/patterns/architectural/bff/)(BFF):
 
 ![Offer details](/img/articles/2016-10-18-crafting-API-for-mobile-devices/BFF.png)
 
 Now, the BFF service sends one response with all data needed by the mobile app. Of course BFF is tightly coupled with client requirements,
-so it can be developed when the UX team delivers view sketches.
+so it can be developed when the UX team delivers view mockups.
 
 Owing to BFF, mobile developers integrate new features more quickly, views in mobile apps are refreshed faster (there are still 3 requests,
 but these are all internal requests within the datacenter) and applications are more stable. Additionally we use fewer mobile data packets
 and save phone battery.
 
-## Undocumented, which fields could return null value
-At the very beginning we didn’t care, which fields in API responses may return a null. So our swagger documentation did not have any hint on,
+## Lack of documentation about nullable fields
+At the very beginning we didn’t care which fields in API responses could return nulls. So our swagger documentation did not have any hint about
 which fields were optional. For example pure auctions on Allegro could not be bought using “buy now”, so they did not have any `buyNowPrice`.
 Our swagger documentation looked like this:
 
 ![Swagger example without optional](/img/articles/2016-10-18-crafting-API-for-mobile-devices/offer-no-optional.png)
 
-Mobile developers had to predict fields to implement the null value handler. They made the predictions based on their
+Mobile developers had to predict to which fields null value handler need to be implemented. They made the predictions based on their
 knowledge of Allegro operations. However, it was hard to find all border cases in such a big system, so the predictions were not accurate.
 Users noticed it, when our application crashed from time to time.
 
-Now we have made it clear in the API documentation in which fields the null values should be expected. We have also added a short description
-cases that return the “null”.
+So, we made it clear in the API documentation in which fields the null values should be expected. We also added a short description
+for the cases that returned “null”.
 
 ![Swagger example with optional](/img/articles/2016-10-18-crafting-API-for-mobile-devices/offer-optional.png)
 
-The `optional` property appears, when you omit the field name in API specification / required:
+The `optional` property appears when you omit the field name in API specification / required:
 ![Required in Swagger spec](/img/articles/2016-10-18-crafting-API-for-mobile-devices/swagger-required.png)
 
 The `optional` property in the documentation allows mobile developers to not have to predict where to expect nulls.
 Our testers can precisely recognize corner cases and test them.
 
-## Inconsistent errors reporting
-Every microservice on Allegro is developed by an independent team. After a few weeks  following the intruduction of the new architecture, we realized
-that every service had its own way to report errors. Let's look at example:
+## Inconsistent error reporting
+Each microservice at Allegro is developed by an independent team. After a few weeks following the introduction of the new architecture, we realized
+that each service had its own way to report errors. Let's look at an example:
 
 ![Inconsistent errors handling](/img/articles/2016-10-18-crafting-API-for-mobile-devices/inconsistent-errors-handling.png)
 
-The same “Resource not found” error was signaled by each service with a different http status and JSON structure.
-As a result, mobile developers had to implement a different error handling for every service.
+The same “Resource not found” error was signaled by each service with a different HTTP status and JSON structure.
+As a result, mobile developers had to implement different error handling for every service.
 
 Most applications communicate errors just by showing an appropriate message. In the above case, the message had to be figured out
 by the mobile developer. Good practice is to deliver a user message from the service.
@@ -111,7 +111,7 @@ delivered by the service. This is sufficient for 99% of errors. 1% of errors req
 preferences or refreshing the OAuth2 token.
 
 ## Summary
-In this article I presented 3 changes we have introduced into our REST API architecture, to speeds up the process of delivering new
+In this article I presented 3 changes we have introduced into our REST API architecture, in order to speed up the delivery of new
 features into mobile applications. These changes need some extra work on the backend side, but it’s usually cheaper to do it in backend
 than in apps on 3 mobile platforms.
 
