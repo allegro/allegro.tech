@@ -44,17 +44,16 @@ Why did we decided to try [deep learning](https://en.wikipedia.org/wiki/Deep_lea
 [convolutional neural networks](https://en.wikipedia.org/wiki/Convolutional_neural_network) (CNN) to solve this problem?
 
 CNNs are currently used in all state-of-the-art solutions to problems of image classification/segmentation etc.
-If you are interested in this topic we will briefly explain the building blocks of CNN, mainly convolution itself,
-neural network and making the network deep.
+If you are interested in this topic we will briefly explain the structure of the CNN and provide description of
+building blocks applied to construct it, namely:
+- convolutional and max-pooling layers, responsible for feature extraction
+- fully connected layers (along with dropout layer), which perform classification tasks.
 
 ## How does it work?
 
 ### Convolution
 
-Remark: Convolution used in CNN is not a convolution in mathematical sense&mdash;it is just inspired by original
-convolution operation.
-Let's illustrate what we mean by convolution in our context on a one dimensional signal :
-
+Let's illustrate what we mean by convolution in our context on a one dimensional signal
 
 ```python
 import numpy as np
@@ -62,34 +61,29 @@ import numpy as np
 signal = [1,4,5,10,5,3,4,15,4,3,2]
 convolution_filter = [ -1, 1, -1]
 
-def convolve(signal,convolution):
-    for i in range(0,len(signal)-len(convolution)+1):
-        signal_patch = signal[i:i+3]
-        yield (np.dot(signal_patch,convolution))
-
-print('existing lib result: %s' % list(np.convolve(signal,convolution_filter,mode='valid')))
-print('simple convolution : %s' % list(convolve(signal,convolution_filter)))
+np.convolve(signal,convolution_filter,mode='valid')
 ```
 
-    existing lib result: [-2, -9, 0, -8, -6, -14, 7, -14, -3]
-    simple convolution : [-2, -9, 0, -8, -6, -14, 7, -14, -3]
+[-2, -9, 0, -8, -6, -14, 7, -14, -3]
 
+So it is sliding the convolution filter over a signel and calculating a dot product between part of the signal and convolution
+filter. The same happens for image which we treat here as a 3D signal (width,height,color)
 
-So it is sliding the convolution filter over a signel and calculating a dot product between signal patch and convolution
-filter. The same happens for image which we treat here as a 3D signal (width,height,colors)
-
-You can find more in [explanation of convolution in CNN](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/)
+Here you can find a [detailed explanation of convolution in CNN](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/)
 
 ### Neuron
 
-Artifical neuron is a processing unit that has n inputs, each associated with a weight. When doing forward-pass the
+Artificial neuron is a processing unit that has n inputs, each associated with a weight. When doing forward-pass the
 data comes through the input, each input is multiplied by its weight, then weighted inputs are summed.
 Sum is passed to an 'activation' function that makes neuron non-linear. In CNN the best results are usually achieved
-when using [ReLu](https://en.wikipedia.org/wiki/Rectifier_%28neural_networks%29) activation.
+when using [ReLu](https://en.wikipedia.org/wiki/Rectifier_%28neural_networks%29) activation as they are fast for back-propagation
+and do not have the 'vanishing gradient' problem.
 
 ### Neural network
 
-Neural network is a combination of many neurons that work together and depending on their structure can mimic arbitrary functions
+Neural network is a combination of many neurons that work together and depending on their structure can mimic arbitrary functions.
+For binary classification last single neuron is followed by a [sigmoid activation function](https://en.wikipedia.org/wiki/Logistic_function)
+to make the output interpreted in terms of probability for each class.
 
 ![Network](/img/articles/2016-11-09-deep-learning-for-frame-detection/network.png)
 
@@ -100,7 +94,8 @@ together with operation called 'pooling' which makes the data smaller when it go
 Top layers closely resemble a traditional neural network with fully-connected layers.
 
 Example of a CNN:
-![http://www.rsipvision.com/wp-content/uploads/2015/04/Slide7.png](/img/articles/2016-11-09-deep-learning-for-frame-detection/lenet.png)
+![cnn](/img/articles/2016-11-09-deep-learning-for-frame-detection/cnn.png)
+(CC BY-SA 4.0 https://en.wikipedia.org/wiki/File:Typical_cnn.png)
 
 ## Our approach and experiments
 
@@ -109,7 +104,7 @@ Initially we used a Google Chrome plugin to download images tagged by human but 
 
 So we decided to use a semi-automated way of gathering test set which was:
 1. classify sample of images using existing frame detector which is known to have ~92% accuracy
-2. manually go through each class moving erroneuos 8% of images to a proper class
+2. manually go through each class moving erroneous 8% of images to a proper class
 
 This way we gathered around 5K images in a few hours time.
 
@@ -125,52 +120,11 @@ Our current best net has an input 128x128 pixels RGB image and consist of 4 conv
 
 ### final architecture
 
+![model](/img/articles/2016-11-09-deep-learning-for-frame-detection/model_s.png)
 
-    ______________________________________________________________________________________________
-    Layer (type)                     Output Shape          Param #     Connected to
-    ==============================================================================================
-    convolution2d_5 (Convolution2D)  (None, 128, 128, 16)  1216        convolution2d_input_1[0][0]
-    ______________________________________________________________________________________________
-    activation_7 (Activation)        (None, 128, 128, 16)  0           convolution2d_5[0][0]
-    ______________________________________________________________________________________________
-    maxpooling2d_5 (MaxPooling2D)    (None, 64, 64, 16)    0           activation_7[0][0]
-    ______________________________________________________________________________________________
-    convolution2d_6 (Convolution2D)  (None, 64, 64, 16)    6416        maxpooling2d_5[0][0]
-    ______________________________________________________________________________________________
-    activation_8 (Activation)        (None, 64, 64, 16)    0           convolution2d_6[0][0]
-    ______________________________________________________________________________________________
-    maxpooling2d_6 (MaxPooling2D)    (None, 32, 32, 16)    0           activation_8[0][0]
-    ______________________________________________________________________________________________
-    convolution2d_7 (Convolution2D)  (None, 32, 32, 16)    6416        maxpooling2d_6[0][0]
-    ______________________________________________________________________________________________
-    activation_9 (Activation)        (None, 32, 32, 16)    0           convolution2d_7[0][0]
-    ______________________________________________________________________________________________
-    maxpooling2d_7 (MaxPooling2D)    (None, 16, 16, 16)    0           activation_9[0][0]
-    ______________________________________________________________________________________________
-    convolution2d_8 (Convolution2D)  (None, 16, 16, 16)    6416        maxpooling2d_7[0][0]
-    ______________________________________________________________________________________________
-    activation_10 (Activation)       (None, 16, 16, 16)    0           convolution2d_8[0][0]
-    ______________________________________________________________________________________________
-    maxpooling2d_8 (MaxPooling2D)    (None, 8, 8, 16)      0           activation_10[0][0]
-    ______________________________________________________________________________________________
-    flatten_2 (Flatten)              (None, 1024)          0           maxpooling2d_8[0][0]
-    ______________________________________________________________________________________________
-    dense_3 (Dense)                  (None, 16)            16400       flatten_2[0][0]
-    ______________________________________________________________________________________________
-    activation_11 (Activation)       (None, 16)            0           dense_3[0][0]
-    ______________________________________________________________________________________________
-    dropout_2 (Dropout)              (None, 16)            0           activation_11[0][0]
-    ______________________________________________________________________________________________
-    dense_4 (Dense)                  (None, 1)             17          dropout_2[0][0]
-    ______________________________________________________________________________________________
-    activation_12 (Activation)       (None, 1)             0           dense_4[0][0]
-    ==============================================================================================
-    Total params: 36881
-    ______________________________________________________________________________________________
-
-
-We experimented with number of layers, depth of the layers, various pooling operations, removing/minimizing fully-connected layer.
-However we didn't want the network to become very big because of two reasons.
+We trained using stochastic gradient descent optimizer, we experimented with number of layers, depth of the layers,
+various pooling operations, removing/minimizing fully-connected layer.
+We wnated to make the model good enough but not become very big because of two reasons:
 1. Runtime performance depends on the size of the network
 2. Such networks already have 50K-100K of parameters that needs to be trained on only 5K images, so there is a
 chance of 'overfitting' (this is a situation when a model learns particular dataset properties and not a general problem)
@@ -182,9 +136,18 @@ horizontally when training to make the dataset artificially bigger without affec
 
 As a metric we choose 'Accuracy' (fraction of images correctly classified)
 
+Here is the sample from our trained models:
++------------------------------------------------------+------------------+----------------+
+| name                                                 |   train_accuracy |   val_accuracy |
+|------------------------------------------------------+------------------+----------------|
+| 128_32-32-32-32_conv3_fc16_sgd_lr_0_01_decay_0_00005 |            0.985 |          0.964 |
+| 128_16-16-16-16_conv3_fc16_sgd_lr_0_01_decay_0_00005 |            0.987 |          0.955 |
+| 128_16-16-16-16_conv7_fc16_sgd_lr_0_03_decay_0_00005 |            0.998 |          0.952 |
++------------------------------------------------------+------------------+----------------+
+
 Our baseline algorithm had 92.3% accuracy
 
-Best deep model had 96.2% accuracy on validation set.
+Best deep model had 96.4% accuracy on validation set.
 We were able to go even to 99.8 % accuracy on training set which proves that the model was complex enough for our data.
 
 We didn't took a more strict approach like cross-validation due to long training times. It took 5 hours to train 4-layered network for 200 epochs.

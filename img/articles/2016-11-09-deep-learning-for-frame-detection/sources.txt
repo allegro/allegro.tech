@@ -1,0 +1,10 @@
+cnn -> https://en.wikipedia.org/wiki/File:Typical_cnn.png (attribution)
+deepmask
+frame1, frame1, just_product -> allegro
+fridge, mirror -> allegro to replace
+ibis
+network
+neuraltalkv2.png
+neuron.png -> modified version of https://commons.wikimedia.org/wiki/File:Neurone_artificiale-2.svg (attribution)
+training_too_big_decay -> tomasz.bartczak
+model_s -> tomasz.bartczak
