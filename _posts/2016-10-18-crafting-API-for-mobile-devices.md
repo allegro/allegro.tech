@@ -56,12 +56,12 @@ Our swagger documentation looked like this:
 
 ![Swagger example without optional](/img/articles/2016-10-18-crafting-API-for-mobile-devices/offer-no-optional.png)
 
-Mobile developers had to predict to which fields null value handler need to be implemented. They made the predictions based on their
+Mobile developers had to predict for which fields `null` value handler need to be implemented. They made the predictions based on their
 knowledge of Allegro operations. However, it was hard to find all border cases in such a big system, so the predictions were not accurate.
 Users noticed it, when our application crashed from time to time.
 
-So, we made it clear in the API documentation in which fields the null values should be expected. We also added a short description
-for the cases that returned “null”.
+So, we made it clear in the API documentation in which fields the `null` values should be expected. We also added a short description
+for the cases that returned `null`.
 
 ![Swagger example with optional](/img/articles/2016-10-18-crafting-API-for-mobile-devices/offer-optional.png)
 
