@@ -84,8 +84,6 @@ Neural network is a combination of many neurons that work together and depending
 For binary classification last single neuron is followed by a [sigmoid activation function](https://en.wikipedia.org/wiki/Logistic_function)
 to make the output interpreted in terms of probability for each class.
 
-![Network](/img/articles/2016-11-09-deep-learning-for-frame-detection/network.png)
-
 ### Combining everything in one concept... Deep Convoluted Neural Networks
 
 Convolutional neural network is a neural network with multiple layers where first layers use convolution to process input
@@ -94,10 +92,8 @@ Top layers closely resemble a traditional neural network with fully-connected la
 
 Example of a CNN:
 
-<table class="image">
-<caption align="bottom">(CC BY-SA 4.0 https://en.wikipedia.org/wiki/File:Typical_cnn.png)</caption>
-<tr><td><img src="/img/articles/2016-11-09-deep-learning-for-frame-detection/cnn.png" alt="Convolutional Neural Network"/></td></tr>
-</table>
+![cnn](/img/articles/2016-11-09-deep-learning-for-frame-detection/cnn.png)
+*(CC BY-SA 4.0 https://en.wikipedia.org/wiki/File:Typical_cnn.png)*
 
 ## Our approach and experiments
 
@@ -140,17 +136,17 @@ As a metric we choose 'Accuracy' (fraction of images correctly classified)
 
 Here is the sample from our trained models:
 
-| name                                                 |   train_accuracy |   val_accuracy |
-| ---------------------------------------------------- |:----------------:| --------------:|
-| 128_32-32-32-32_conv3_fc16_sgd_lr_0_01_decay_0_00005 |            0.985 |          0.964 |
-| 128_16-16-16-16_conv3_fc16_sgd_lr_0_01_decay_0_00005 |            0.987 |          0.955 |
-| 128_16-16-16-16_conv7_fc16_sgd_lr_0_03_decay_0_00005 |            0.998 |          0.952 |
+| name                                                 | train_accuracy | val_accuracy |
+|:---------------------------------------------------- |:--------------:|:------------:|
+| 128_32-32-32-32_conv3_fc16_sgd_lr_0_01_decay_0_00005 |      0.985     |    0.964     |
+| 128_16-16-16-16_conv3_fc16_sgd_lr_0_01_decay_0_00005 |      0.987     |    0.955     |
+| 128_16-16-16-16_conv7_fc16_sgd_lr_0_03_decay_0_00005 |      0.998     |    0.952     |
 
 Our baseline algorithm had 92.3% accuracy
 
 Here is a comparison of auroc of both baseline and our new model:
 
-![AUROC](/img/2016-11-09-deep-learning-for-frame-detection/roc.png)
+![AUROC](/img/articles/2016-11-09-deep-learning-for-frame-detection/roc.png)
 
 Best deep model had 96.4% accuracy on validation set.
 We were able to go even to 99.8 % accuracy on training set which proves that the model was complex enough for our data.
@@ -191,15 +187,12 @@ although given a pixel-annotation dataset&mdash;deep learning can solve problem 
 
 * Deep Learning is nowadays used to solve many great challenges not only in image processing but as well in sound processing or NLP
    * [DeepMask](https://github.com/facebookresearch/deepmask) can segment each sheep independently
-
-    ![](/img/articles/2016-11-09-deep-learning-for-frame-detection/deepmask.jpg)
+    
    * [NeuralTalkv2](https://github.com/karpathy/neuraltalk2) creates textual descriptions of what is seen on an image
-
-    ![](/img/articles/2016-11-09-deep-learning-for-frame-detection/neuraltalkv2.PNG)
 
    * [Google deep dream](https://github.com/google/deepdream) Can create new art-pieces of given style
 
-    ![](/img/articles/2016-11-09-deep-learning-for-frame-detection/ibis.png)
+    ![](/img/articles/2016-11-09-deep-learning-for-frame-detection/DeepDreamingProcess.jpg)
 
 
 ### Resources
