@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Deep learning for frame detection on product images
+title: Deep learning for frame detection in product images
 author: tomasz.bartczak
 tags: [tech, ML, Machine Learning, Deep Learning]
 ---
-In [Allegro](allegro.pl) we are faced with a technical challenge to be able to recognize whether a given image
-(a product thumbnail) present just a product itself. One of the things that we would like to detect is when the product
-is surrounded by a frame. In this post we would like to present our approach for detecting a frame on the image.
+At [Allegro](/about-us/) we are faced with a technical challenge: how to recognize whether a given image
+(a product thumbnail) presents just a product itself. One of the things that we would like to detect is when the product
+is surrounded by a frame. In this post we would like to present our approach for detecting a frame in the image.
 
 ## Problem
 
-"Identify whether given image has a frame around a product"
+“Identify whether given image has a frame around a product”
 
 ### Example
 
@@ -40,7 +40,7 @@ amount of edges imply frame existence.
 
 ## Deep learning
 
-Why did we decided to try [deep learning](https://en.wikipedia.org/wiki/Deep_learning) and in particular
+Why did we decide to try [deep learning](https://en.wikipedia.org/wiki/Deep_learning) and in particular
 [convolutional neural networks](https://en.wikipedia.org/wiki/Convolutional_neural_network) (CNN) to solve this problem?
 
 CNNs are currently used in all state-of-the-art solutions to problems of image classification/segmentation etc.
@@ -66,8 +66,8 @@ np.convolve(signal,convolution_filter,mode='valid')
 
 [-2, -9, 0, -8, -6, -14, 7, -14, -3]
 
-So it is sliding the convolution filter over a signel and calculating a dot product between part of the signal and convolution
-filter. The same happens for image which we treat here as a 3D signal (width,height,color)
+So it is sliding the convolution filter over a signal and calculating a dot product between part of the signal and convolution
+filter. The same happens for an image which we treat here as a 3D signal (width,height,color)
 
 Here you can find a [detailed explanation of convolution in CNN](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/)
 
