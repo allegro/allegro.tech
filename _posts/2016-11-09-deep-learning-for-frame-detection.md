@@ -93,8 +93,11 @@ together with operation called 'pooling' which makes the data smaller when it go
 Top layers closely resemble a traditional neural network with fully-connected layers.
 
 Example of a CNN:
-![cnn](/img/articles/2016-11-09-deep-learning-for-frame-detection/cnn.png)
-(CC BY-SA 4.0 https://en.wikipedia.org/wiki/File:Typical_cnn.png)
+
+<table class="image">
+<caption align="bottom">(CC BY-SA 4.0 https://en.wikipedia.org/wiki/File:Typical_cnn.png)</caption>
+<tr><td><img src="/img/articles/2016-11-09-deep-learning-for-frame-detection/cnn.png" alt="Convolutional Neural Network"/></td></tr>
+</table>
 
 ## Our approach and experiments
 
@@ -136,15 +139,18 @@ horizontally when training to make the dataset artificially bigger without affec
 As a metric we choose 'Accuracy' (fraction of images correctly classified)
 
 Here is the sample from our trained models:
-+------------------------------------------------------+------------------+----------------+
+
 | name                                                 |   train_accuracy |   val_accuracy |
-|------------------------------------------------------+------------------+----------------|
+| ---------------------------------------------------- |:----------------:| --------------:|
 | 128_32-32-32-32_conv3_fc16_sgd_lr_0_01_decay_0_00005 |            0.985 |          0.964 |
 | 128_16-16-16-16_conv3_fc16_sgd_lr_0_01_decay_0_00005 |            0.987 |          0.955 |
 | 128_16-16-16-16_conv7_fc16_sgd_lr_0_03_decay_0_00005 |            0.998 |          0.952 |
-+------------------------------------------------------+------------------+----------------+
 
 Our baseline algorithm had 92.3% accuracy
+
+Here is a comparison of auroc of both baseline and our new model:
+
+![AUROC](/img/2016-11-09-deep-learning-for-frame-detection/roc.png)
 
 Best deep model had 96.4% accuracy on validation set.
 We were able to go even to 99.8 % accuracy on training set which proves that the model was complex enough for our data.
