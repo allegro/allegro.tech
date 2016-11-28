@@ -23,8 +23,9 @@ The frame can be of any color/texture and it can be present only on one side of 
 ![Frame](/img/articles/2016-12-05-deep-learning-for-frame-detection/frame2.png)
 
 This problem looks straightforward, at least for the human. It gets a bit more tricky if we consider products that are
-of rectangular shapes and they obviously shouldn't be detected as frame.
+of rectangular shapes and they obviously shouldn't be detected as frame:
 
+![iphone but not a frame](/img/articles/2016-12-05-deep-learning-for-frame-detection/iphone.jpeg)
 
 ## Baseline solution
 
