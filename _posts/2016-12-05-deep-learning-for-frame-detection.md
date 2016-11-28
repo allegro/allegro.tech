@@ -8,10 +8,6 @@ At [Allegro](/about-us/) we are faced with a technical challenge: how to recogni
 (a product thumbnail) presents just a product itself. One of the things that we would like to detect is when the product
 is surrounded by a frame. In this post we would like to present our approach for detecting a frame in the image.
 
-## Problem
-
-“Identify whether given image has a frame around a product”
-
 ### Example
 
 This is an image that presents just a product:
@@ -27,13 +23,13 @@ The frame can be of any color/texture and it can be present only on one side of 
 ![Frame](/img/articles/2016-12-05-deep-learning-for-frame-detection/frame2.png)
 
 This problem looks straightforward, at least for the human. It gets a bit more tricky if we consider products that are
-of rectangular shapes and they obviously shouldn't be detected as 'frame'.
+of rectangular shapes and they obviously shouldn't be detected as frame.
 
 
 ## Baseline solution
 
 As a baseline we used an existing system built in-house. It uses a
-[Canny-edge detector](https://en.wikipedia.org/wiki/Canny_edge_detector) and a ruleset for deciding whether particular
+[Canny edge detector](https://en.wikipedia.org/wiki/Canny_edge_detector) and a ruleset for deciding whether particular
 amount of edges imply frame existence.
 
 ## Deep learning
@@ -68,15 +64,15 @@ np.convolve(signal,convolution_filter,mode='valid')
 So it is sliding the convolution filter over a signal and calculating a dot product between part of the signal and convolution
 filter. The same happens for an image which we treat here as a 3D signal (width,height,color)
 
-Here you can find a [detailed explanation of convolution in CNN](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/)
+Here you can find a [detailed explanation of convolution in CNN](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/).
 
 ### Neuron
 
 Artificial neuron is a processing unit that has n inputs, each associated with a weight. When doing forward-pass the
 data comes through the input, each input is multiplied by its weight, then weighted inputs are summed.
-Sum is passed to an 'activation' function that makes neuron non-linear. In CNN the best results are usually achieved
+Sum is passed to an *activation* function that makes neuron non-linear. In CNN the best results are usually achieved
 when using [ReLu](https://en.wikipedia.org/wiki/Rectifier_%28neural_networks%29) activation as they are fast for back-propagation
-and do not have the 'vanishing gradient' problem.
+and do not have the *vanishing gradient* problem.
 
 ### Neural network
 
@@ -87,7 +83,7 @@ to make the output interpreted in terms of probability for each class.
 ### Combining everything in one concept... Deep Convoluted Neural Networks
 
 Convolutional neural network is a neural network with multiple layers where first layers use convolution to process input
-together with operation called 'pooling' which makes the data smaller when it goes through the network.
+together with operation called *pooling* which makes the data smaller when it goes through the network.
 Top layers closely resemble a traditional neural network with fully-connected layers.
 
 Example of a CNN:
@@ -108,9 +104,9 @@ This way we gathered around 5K images in a few hours.
 ### Network architectures
 
 There are no good guidelines on what architecture to use for a specific problem.
-Most researchers trust their intuition&mdash;which is not something one can learn easily.
+Most researchers trust their intuition &mdash; which is not something one can learn easily.
 
-We decided to start from not-so-deep network, and evolve&mdash;probing different aspects of architectures to find a good one.
+We decided to start from not-so-deep network, and evolve &mdash; probing different aspects of architectures to find a good one.
 One limitation was the size of our dataset which was far smaller than some public dataset used in really deep networks.
 Our current best net has an input 128x128 pixels RGB image and consist of 4 convolutional layers
 (each of 32 depth and 3x3 kernel size) together with maxpooling layers and on top a fully connected layer and a a binary classification layer.
@@ -121,17 +117,18 @@ Our current best net has an input 128x128 pixels RGB image and consist of 4 conv
 
 We trained using stochastic gradient descent optimizer, we experimented with number of layers, depth of the layers,
 various pooling operations, removing/minimizing fully-connected layer.
-We wnated to make the model good enough but not become very big because of two reasons:
+We wanted to make the model good enough but not become very big because of two reasons:
 1. Runtime performance depends on the size of the network
 2. Such networks already have 50K-100K of parameters that needs to be trained on only 5K images, so there is a
-chance of 'overfitting' (this is a situation when a model learns particular dataset properties and not a general problem)
+chance of overfitting (this is a situation when a model learns particular dataset properties and not a general problem)
 
 To tackle overfitting we were using a validation set and train data augmentation, e.g. flipping images vertically or
 horizontally when training to make the dataset artificially bigger without affecting image distinguishable features.
 
 ### Evaluation & Results
 
-As a metric we choose 'Accuracy' (fraction of images correctly classified)
+As a final metric we choose accuracy (fraction of images correctly classified) since our dataset was well-balanced
+(similar number of images in each class)
 
 Here is the sample from our trained models:
 
@@ -155,9 +152,9 @@ We didn't took a more strict approach like cross-validation due to long training
 ### Tools
 
 We used [Keras](http://keras.io/) which as a really awesome DSL for building Deep Learning models on top of [TensorFlow](http://tensorflow.org/).
-[Jupyter notebook](http://jupyter.org/) served as an environment for experimentation and 'data-driven-development'.
-We wrapped everything in a docker container for reproducibility and production deployment. We used commodity hardware
-(workstations and cloud machines) to train the models. We didn't try with GPU, although train times would be reduced significantly.
+[Jupyter notebook](http://jupyter.org/) served as an environment for experimentation and *data-driven-development*.
+We wrapped everything in a docker container for reproducibility and production deployment. We first used commodity hardware
+(workstations and cloud machines) and then switched to GPU machines to train the models.
 
 ### Production deployment
 
@@ -174,13 +171,12 @@ We decided to export the model to a file and read it on a server having Keras an
 Below you can see a chart of accuracy vs number of epochs of two experiments.
 The blue one didn't went very well comparing to green one.
 The reason for that is probably too big learning rate decay.
-
 ![too_big_decay](/img/articles/2016-12-05-deep-learning-for-frame-detection/training_too_big_decay.png)
 
-2. Data gathering is hard&mdash;errors sneak in all the time, so we were fixing the dataset through all of the experiment timespan.
+2. Data gathering is hard &mdash; errors sneak in all the time, so we were fixing the dataset through all of the experiment timespan.
 
 3. Baseline solution allowed to remove the frame altogether. This solution cannot do that so far,
-although given a pixel-annotation dataset&mdash;deep learning can solve problem of object segmentation as well
+although given a pixel-annotation dataset &mdash; deep learning can solve problem of object segmentation as well
 
 ### More on deep learning:
 
@@ -189,7 +185,7 @@ although given a pixel-annotation dataset&mdash;deep learning can solve problem 
     
    * [NeuralTalkv2](https://github.com/karpathy/neuraltalk2) creates textual descriptions of what is seen on an image
 
-   * [Google deep dream](https://github.com/google/deepdream) Can create new art-pieces of given style    
+   * [Google deep dream](https://github.com/google/deepdream) is able to create new art-pieces of a given style    
     
     <figure class="image"><img src="/img/articles/2016-12-05-deep-learning-for-frame-detection/DeepDreamingProcess.jpg" alt="dd"><figcaption>(CC BY-SA 4.0 https://commons.wikimedia.org/wiki/File:DeepDreamingProcess.jpg)</figcaption></figure>
 
@@ -198,7 +194,7 @@ although given a pixel-annotation dataset&mdash;deep learning can solve problem 
 
 if you are interested in this topic I recommend those resources as a starting point:
 
-* [Deep Learning Course on Udacity](https://classroom.udacity.com/courses/ud730)&mdash; a solid no-fluff course with short videos explaining many aspects of deep learning
+* [Deep Learning Course on Udacity](https://classroom.udacity.com/courses/ud730) &mdash;  a solid no-fluff course with short videos explaining many aspects of deep learning
 * [List of awesome deep vision resources](https://github.com/kjw0612/awesome-deep-vision)
 * [The 9 Deep Learning Papers You Need To Know About](https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html)
 * [Deep Learning Book](https://github.com/HFTrader/DeepLearningBook)
