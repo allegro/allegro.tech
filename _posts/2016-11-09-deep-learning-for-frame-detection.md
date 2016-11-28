@@ -27,10 +27,8 @@ The frame can be of any color/texture and it can be present only on one side of 
 ![Frame](/img/articles/2016-11-09-deep-learning-for-frame-detection/frame2.png)
 
 This problem looks straightforward, at least for the human. It gets a bit more tricky if we consider products that are
-of rectangular shapes and they obviously shouldn't be detected as 'frame':
+of rectangular shapes and they obviously shouldn't be detected as 'frame'.
 
-![](/img/articles/2016-11-09-deep-learning-for-frame-detection/fridge.jpeg)
-![](/img/articles/2016-11-09-deep-learning-for-frame-detection/mirror.jpeg)
 
 ## Baseline solution
 
@@ -62,9 +60,10 @@ signal = [1,4,5,10,5,3,4,15,4,3,2]
 convolution_filter = [ -1, 1, -1]
 
 np.convolve(signal,convolution_filter,mode='valid')
+
+>> [-2, -9, 0, -8, -6, -14, 7, -14, -3]
 ```
 
-[-2, -9, 0, -8, -6, -14, 7, -14, -3]
 
 So it is sliding the convolution filter over a signal and calculating a dot product between part of the signal and convolution
 filter. The same happens for an image which we treat here as a 3D signal (width,height,color)
@@ -106,7 +105,7 @@ So we decided to use a semi-automated way of gathering test set which was:
 1. classify sample of images using existing frame detector which is known to have ~92% accuracy
 2. manually go through each class moving erroneous 8% of images to a proper class
 
-This way we gathered around 5K images in a few hours time.
+This way we gathered around 5K images in a few hours.
 
 ### Network architectures
 
