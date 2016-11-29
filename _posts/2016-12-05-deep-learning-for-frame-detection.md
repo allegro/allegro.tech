@@ -41,14 +41,14 @@ Why did we decide to try [deep learning](https://en.wikipedia.org/wiki/Deep_lear
 CNNs are currently used in all state-of-the-art solutions to problems of image classification/segmentation etc.
 If you are interested in this topic we will briefly explain the structure of the CNN and provide description of
 building blocks applied to construct it, namely:
-- convolutional and [pooling](https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer) layers, responsible for feature extraction
+- convolutional and [pooling](https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer) layers, responsible for feature extraction.
 - fully connected layers (along with dropout layer), which perform classification tasks.
 
 ## How does it work?
 
 ### Convolution
 
-Let&rsquo;s illustrate what we mean by convolution in our context on a one dimensional signal
+Let&rsquo;s illustrate what we mean by convolution in our context on a one dimensional signal:
 
 ```python
 import numpy as np
@@ -63,7 +63,7 @@ np.convolve(signal,convolution_filter,mode='valid')
 
 
 So it is sliding the convolution filter over a signal and calculating a dot product between part of the signal and convolution
-filter. The same happens for an image which we treat here as a 3D signal (width,&nbsp;height,&nbsp;color)
+filter. The same happens for an image which we treat here as a 3D signal (width,&nbsp;height,&nbsp;color).
 
 Here you can find a [detailed explanation of convolution in CNN](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/).
 
@@ -140,7 +140,7 @@ Here is a sample from our trained models:
 | 128_16-16-16-16_conv3_fc16_sgd_lr_0_01_decay_0_00005 |      0.987     |    0.955     |
 | 128_16-16-16-16_conv7_fc16_sgd_lr_0_03_decay_0_00005 |      0.998     |    0.952     |
 
-Our baseline algorithm had 92.3% accuracy
+Our baseline algorithm had 92.3% accuracy.
 
 Here is a comparison of a [ROC Curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) of both baseline and our new model:
 
@@ -173,6 +173,7 @@ We decided to export the model to a file and read it on a server having Keras an
 Below you can see a chart of accuracy vs number of epochs of two experiments.
 The blue one didn&rsquo;t go very well comparing to the green one.
 The reason for that is probably too high learning rate decay.
+
 ![too_big_decay](/img/articles/2016-12-05-deep-learning-for-frame-detection/training_too_big_decay.png)
 
 2. Data gathering is hard &mdash; errors sneak in all the time, so we were fixing the dataset through all of the experiment timespan.
@@ -184,11 +185,11 @@ although given a pixel-annotation dataset &mdash; deep learning can solve the pr
 
 * Deep Learning is nowadays used to solve many great challenges not only in image processing but also in sound processing or 
 [Natural Language Processing](https://en.wikipedia.org/wiki/Natural_language_processing).
-   * [DeepMask](https://github.com/facebookresearch/deepmask) can segment each independent object in a picture
+   * [DeepMask](https://github.com/facebookresearch/deepmask) can segment each independent object in a picture.
     
-   * [NeuralTalkv2](https://github.com/karpathy/neuraltalk2) creates textual descriptions of what is seen on an image
+   * [NeuralTalkv2](https://github.com/karpathy/neuraltalk2) creates textual descriptions of what is seen on an image.
 
-   * [Google deep dream](https://github.com/google/deepdream) is able to create new art-pieces of a given style    
+   * [Google deep dream](https://github.com/google/deepdream) is able to create new art-pieces of a given style.    
     
     <figure class="image"><img src="/img/articles/2016-12-05-deep-learning-for-frame-detection/DeepDreamingProcess.jpg" alt="dd"><figcaption>(CC BY-SA 4.0 https://commons.wikimedia.org/wiki/File:DeepDreamingProcess.jpg)</figcaption></figure>
 
@@ -197,7 +198,7 @@ although given a pixel-annotation dataset &mdash; deep learning can solve the pr
 
 If you are interested in this topic I recommend these resources as a starting point:
 
-* [Deep Learning Course on Udacity](https://classroom.udacity.com/courses/ud730) &mdash;  a solid no-fluff course with short videos explaining many aspects of deep learning
+* [Deep Learning Course on Udacity](https://classroom.udacity.com/courses/ud730) &mdash; a solid no-fluff course with short videos explaining many aspects of deep learning.
 * [List of awesome deep vision resources](https://github.com/kjw0612/awesome-deep-vision)
 * [The 9 Deep Learning Papers You Need To Know About](https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html)
 * [Deep Learning Book](https://github.com/HFTrader/DeepLearningBook)
