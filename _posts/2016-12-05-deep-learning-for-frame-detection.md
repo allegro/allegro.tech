@@ -22,7 +22,7 @@ The frame can be of any color/texture and it can be present only on one side of 
 
 ![Frame](/img/articles/2016-12-05-deep-learning-for-frame-detection/frame2.png)
 
-This problem looks straightforward, at least for the human. It gets a bit more tricky if we consider products that are
+This problem looks straightforward, at least for humans. It gets a bit more tricky if we consider products that are
 of rectangular shapes and they obviously shouldn't be detected as frame:
 
 ![iphone but not a frame](/img/articles/2016-12-05-deep-learning-for-frame-detection/iphone.jpeg)
@@ -31,7 +31,7 @@ of rectangular shapes and they obviously shouldn't be detected as frame:
 
 As a baseline we used an existing system built in-house. It uses a
 [Canny edge detector](https://en.wikipedia.org/wiki/Canny_edge_detector) and a ruleset for deciding whether particular
-amount of edges imply frame existence.
+number of edges imply frame existence.
 
 ## Deep learning
 
@@ -41,7 +41,7 @@ Why did we decide to try [deep learning](https://en.wikipedia.org/wiki/Deep_lear
 CNNs are currently used in all state-of-the-art solutions to problems of image classification/segmentation etc.
 If you are interested in this topic we will briefly explain the structure of the CNN and provide description of
 building blocks applied to construct it, namely:
-- convolutional and max-pooling layers, responsible for feature extraction
+- convolutional and [pooling](https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer) layers, responsible for feature extraction
 - fully connected layers (along with dropout layer), which perform classification tasks.
 
 ## How does it work?
@@ -63,7 +63,7 @@ np.convolve(signal,convolution_filter,mode='valid')
 
 
 So it is sliding the convolution filter over a signal and calculating a dot product between part of the signal and convolution
-filter. The same happens for an image which we treat here as a 3D signal (width,height,color)
+filter. The same happens for an image which we treat here as a 3D signal (width,&nbsp;height,&nbsp;color)
 
 Here you can find a [detailed explanation of convolution in CNN](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/).
 
@@ -71,20 +71,21 @@ Here you can find a [detailed explanation of convolution in CNN](https://adeshpa
 
 Artificial neuron is a processing unit that has n inputs, each associated with a weight. When doing forward-pass the
 data comes through the input, each input is multiplied by its weight, then weighted inputs are summed.
-Sum is passed to an *activation* function that makes neuron non-linear. In CNN the best results are usually achieved
-when using [ReLu](https://en.wikipedia.org/wiki/Rectifier_%28neural_networks%29) activation as they are fast for back-propagation
-and do not have the *vanishing gradient* problem.
+Sum is passed to an [activation function](https://en.wikipedia.org/wiki/Activation_function) that makes the neuron non-linear. 
+In CNN the best results are usually achieved
+when using [ReLu](https://en.wikipedia.org/wiki/Rectifier_%28neural_networks%29) activation as ReLu is fast for back-propagation
+and do not have the [vanishing gradient](https://en.wikipedia.org/wiki/Vanishing_gradient_problem) problem.
 
 ### Neural network
 
-Neural network is a combination of many neurons that work together and depending on their structure can mimic arbitrary functions.
-For binary classification last single neuron is followed by a [sigmoid activation function](https://en.wikipedia.org/wiki/Logistic_function)
+A neural network is a combination of many neurons that work together and depending on their structure can mimic arbitrary functions.
+For binary classification last layer consists of a single neuron followed by a [sigmoid activation function](https://en.wikipedia.org/wiki/Logistic_function)
 to make the output interpreted in terms of probability for each class.
 
 ### Combining everything in one concept... Deep Convoluted Neural Networks
 
-Convolutional neural network is a neural network with multiple layers where first layers use convolution to process input
-together with operation called *pooling* which makes the data smaller when it goes through the network.
+A convolutional neural network is a neural network with multiple layers where first layers use convolution to process input
+together with an operation called pooling which decrease image resolution when it goes through the network.
 Top layers closely resemble a traditional neural network with fully-connected layers.
 
 Example of a CNN:
@@ -94,10 +95,10 @@ Example of a CNN:
 ## Our approach and experiments
 
 ### Dataset
-Initially we used a Google Chrome plugin to download images tagged by human but that process didn't scale well.
+Initially we used a Google Chrome plugin to download images tagged by humans but that process didn't scale well.
 
-So we decided to use a semi-automated way of gathering test set which was:
-1. classify sample of images using existing frame detector which is known to have ~92% accuracy
+So we decided to use a semi-automated way of gathering a test set which was:
+1. classify a sample of images using existing frame detector which is known to have ~92% accuracy
 2. manually go through each class moving erroneous 8% of images to a proper class
 
 This way we gathered around 5K images in a few hours.
@@ -107,31 +108,31 @@ This way we gathered around 5K images in a few hours.
 There are no good guidelines on what architecture to use for a specific problem.
 Most researchers trust their intuition &mdash; which is not something one can learn easily.
 
-We decided to start from not-so-deep network, and evolve &mdash; probing different aspects of architectures to find a good one.
-One limitation was the size of our dataset which was far smaller than some public dataset used in really deep networks.
-Our current best net has an input 128x128 pixels RGB image and consist of 4 convolutional layers
+We decided to start from a not-so-deep network, and evolve &mdash; trying out different aspects of architectures to find a good one.
+One limitation was the size of our dataset which was far smaller than some public datasets used in really deep networks.
+Our current best network takes a 128x128 pixels RGB image as an input and consists of 4 convolutional layers
 (each of 32 depth and 3x3 kernel size) together with maxpooling layers and on top a fully connected layer and a a binary classification layer.
 
-### final architecture
+### Final architecture
 
 ![model](/img/articles/2016-12-05-deep-learning-for-frame-detection/model_s.png)
 
-We trained using stochastic gradient descent optimizer, we experimented with number of layers, depth of the layers,
+We trained using stochastic gradient descent optimizer, we experimented with network configuration (number of layers, depth of the layers, global pooling layers)
 various pooling operations, removing/minimizing fully-connected layer.
 We wanted to make the model good enough but not become very big because of two reasons:
 1. Runtime performance depends on the size of the network
-2. Such networks already have 50K-100K of parameters that needs to be trained on only 5K images, so there is a
+2. Such networks already have 50K-100K of parameters that need to be trained on only 5K images, so there is a
 chance of overfitting (this is a situation when a model learns particular dataset properties and not a general problem)
 
-To tackle overfitting we were using a validation set and train data augmentation, e.g. flipping images vertically or
+To tackle overfitting we used a validation set and train data augmentation, e.g. flipping images vertically or
 horizontally when training to make the dataset artificially bigger without affecting image distinguishable features.
 
 ### Evaluation & Results
 
-As a final metric we choose accuracy (fraction of images correctly classified) since our dataset was well-balanced
-(similar number of images in each class)
+As a final metric we chose accuracy (fraction of images correctly classified) since our dataset was well-balanced
+(similar number of images in each class).
 
-Here is the sample from our trained models:
+Here is a sample from our trained models:
 
 | name                                                 | train_accuracy | val_accuracy |
 |:---------------------------------------------------- |:--------------:|:------------:|
@@ -141,20 +142,20 @@ Here is the sample from our trained models:
 
 Our baseline algorithm had 92.3% accuracy
 
-Here is a comparison of auroc of both baseline and our new model:
+Here is a comparison of a [ROC Curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) of both baseline and our new model:
 
 ![AUROC](/img/articles/2016-12-05-deep-learning-for-frame-detection/roc.png)
 
 Best deep model had 96.4% accuracy on validation set.
 We were able to go even to 99.8 % accuracy on training set which proves that the model was complex enough for our data.
 
-We didn't took a more strict approach like cross-validation due to long training times. It took 5 hours to train 4-layered network for 200 epochs.
+We didn't take a more strict approach like cross-validation due to long training times. It took 5 hours to train a 4-layered network for 200 epochs.
 
 ### Tools
 
-We used [Keras](http://keras.io/) which as a really awesome DSL for building Deep Learning models on top of [TensorFlow](http://tensorflow.org/).
+We used [Keras](http://keras.io/) which is a really awesome DSL for building Deep Learning models on top of [TensorFlow](http://tensorflow.org/).
 [Jupyter notebook](http://jupyter.org/) served as an environment for experimentation and *data-driven-development*.
-We wrapped everything in a docker container for reproducibility and production deployment. We first used commodity hardware
+We wrapped everything in a [Docker](https://www.docker.com/) container for reproducibility and production deployment. We first used commodity hardware
 (workstations and cloud machines) and then switched to GPU machines to train the models.
 
 ### Production deployment
@@ -162,7 +163,7 @@ We wrapped everything in a docker container for reproducibility and production d
 Prediction for a single image takes ~15ms which is fine for our case.
 
 We considered using [TensorFlow Serving](https://tensorflow.github.io/serving/) which is a tool for publishing
-TensorFlow models but we decided that this is a bit too heavy and complex for our simple use case.
+TensorFlow models but we decided that this was a bit too heavy and complex for our simple use case.
 
 We decided to export the model to a file and read it on a server having Keras and Tensorflow installed.
 
@@ -170,19 +171,20 @@ We decided to export the model to a file and read it on a server having Keras an
 
 1. Observe your experiments as they do not always tend to converge.
 Below you can see a chart of accuracy vs number of epochs of two experiments.
-The blue one didn't went very well comparing to green one.
-The reason for that is probably too big learning rate decay.
+The blue one didn't go very well comparing to the green one.
+The reason for that is probably too high learning rate decay.
 ![too_big_decay](/img/articles/2016-12-05-deep-learning-for-frame-detection/training_too_big_decay.png)
 
 2. Data gathering is hard &mdash; errors sneak in all the time, so we were fixing the dataset through all of the experiment timespan.
 
-3. Baseline solution allowed to remove the frame altogether. This solution cannot do that so far,
-although given a pixel-annotation dataset &mdash; deep learning can solve problem of object segmentation as well
+3. Baseline solution made it possible to remove the frame altogether. This solution cannot do that so far,
+although given a pixel-annotation dataset &mdash; deep learning can solve the problem of object segmentation as well.
 
 ### More on deep learning:
 
-* Deep Learning is nowadays used to solve many great challenges not only in image processing but as well in sound processing or NLP
-   * [DeepMask](https://github.com/facebookresearch/deepmask) can segment each sheep independently
+* Deep Learning is nowadays used to solve many great challenges not only in image processing but also in sound processing or 
+[Natural Language Processing](https://en.wikipedia.org/wiki/Natural_language_processing).
+   * [DeepMask](https://github.com/facebookresearch/deepmask) can segment each independent object in a picture
     
    * [NeuralTalkv2](https://github.com/karpathy/neuraltalk2) creates textual descriptions of what is seen on an image
 
@@ -193,7 +195,7 @@ although given a pixel-annotation dataset &mdash; deep learning can solve proble
 
 ### Resources
 
-if you are interested in this topic I recommend those resources as a starting point:
+If you are interested in this topic I recommend these resources as a starting point:
 
 * [Deep Learning Course on Udacity](https://classroom.udacity.com/courses/ud730) &mdash;  a solid no-fluff course with short videos explaining many aspects of deep learning
 * [List of awesome deep vision resources](https://github.com/kjw0612/awesome-deep-vision)
