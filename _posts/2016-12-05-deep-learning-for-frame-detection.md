@@ -169,16 +169,16 @@ We decided to export the model to a file and read it on a server having Keras an
 
 ## Conclusions
 
-1. Observe your experiments as they do not always tend to converge.
+ - Observe your experiments as they do not always tend to converge.
 Below you can see a chart of accuracy vs number of epochs of two experiments.
 The blue one didn&rsquo;t go very well comparing to the green one.
 The reason for that is probably too high learning rate decay.
 
 ![too_big_decay](/img/articles/2016-12-05-deep-learning-for-frame-detection/training_too_big_decay.png)
 
-2. Data gathering is hard &mdash; errors sneak in all the time, so we were fixing the dataset through all of the experiment timespan.
+- Data gathering is hard &mdash; errors sneak in all the time, so we were fixing the dataset through all of the experiment timespan.
 
-3. Baseline solution made it possible to remove the frame altogether. This solution cannot do that so far,
+- Baseline solution made it possible to remove the frame altogether. This solution cannot do that so far,
 although given a pixel-annotation dataset &mdash; deep learning can solve the problem of object segmentation as well.
 
 ### More on deep learning:
