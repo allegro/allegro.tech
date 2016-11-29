@@ -23,7 +23,7 @@ The frame can be of any color/texture and it can be present only on one side of 
 ![Frame](/img/articles/2016-12-05-deep-learning-for-frame-detection/frame2.png)
 
 This problem looks straightforward, at least for humans. It gets a bit more tricky if we consider products that are
-of rectangular shapes and they obviously shouldn't be detected as frame:
+of rectangular shapes and they obviously shouldn&rsquo;t be detected as frame:
 
 ![iphone but not a frame](/img/articles/2016-12-05-deep-learning-for-frame-detection/iphone.jpeg)
 
@@ -48,7 +48,7 @@ building blocks applied to construct it, namely:
 
 ### Convolution
 
-Let's illustrate what we mean by convolution in our context on a one dimensional signal
+Let&rsquo;s illustrate what we mean by convolution in our context on a one dimensional signal
 
 ```python
 import numpy as np
@@ -95,11 +95,11 @@ Example of a CNN:
 ## Our approach and experiments
 
 ### Dataset
-Initially we used a Google Chrome plugin to download images tagged by humans but that process didn't scale well.
+Initially we used a Google Chrome plugin to download images tagged by humans but that process didn&rsquo;t scale well.
 
 So we decided to use a semi-automated way of gathering a test set which was:
-1. classify a sample of images using existing frame detector which is known to have ~92% accuracy
-2. manually go through each class moving erroneous 8% of images to a proper class
+1. classify a sample of images using existing frame detector which is known to have ~92% accuracy.
+2. manually go through each class moving erroneous 8% of images to a proper class.
 
 This way we gathered around 5K images in a few hours.
 
@@ -120,9 +120,9 @@ Our current best network takes a 128x128 pixels RGB image as an input and consis
 We trained using stochastic gradient descent optimizer, we experimented with network configuration (number of layers, depth of the layers, global pooling layers)
 various pooling operations, removing/minimizing fully-connected layer.
 We wanted to make the model good enough but not become very big because of two reasons:
-1. Runtime performance depends on the size of the network
+1. Runtime performance depends on the size of the network.
 2. Such networks already have 50K-100K of parameters that need to be trained on only 5K images, so there is a
-chance of overfitting (this is a situation when a model learns particular dataset properties and not a general problem)
+chance of overfitting (this is a situation when a model learns particular dataset properties and not a general problem).
 
 To tackle overfitting we used a validation set and train data augmentation, e.g. flipping images vertically or
 horizontally when training to make the dataset artificially bigger without affecting image distinguishable features.
@@ -149,7 +149,7 @@ Here is a comparison of a [ROC Curve](https://en.wikipedia.org/wiki/Receiver_ope
 Best deep model had 96.4% accuracy on validation set.
 We were able to go even to 99.8 % accuracy on training set which proves that the model was complex enough for our data.
 
-We didn't take a more strict approach like cross-validation due to long training times. It took 5 hours to train a 4-layered network for 200 epochs.
+We didn&rsquo;t take a more strict approach like cross-validation due to long training times. It took 5 hours to train a 4-layered network for 200 epochs.
 
 ### Tools
 
@@ -171,7 +171,7 @@ We decided to export the model to a file and read it on a server having Keras an
 
 1. Observe your experiments as they do not always tend to converge.
 Below you can see a chart of accuracy vs number of epochs of two experiments.
-The blue one didn't go very well comparing to the green one.
+The blue one didn&rsquo;t go very well comparing to the green one.
 The reason for that is probably too high learning rate decay.
 ![too_big_decay](/img/articles/2016-12-05-deep-learning-for-frame-detection/training_too_big_decay.png)
 
