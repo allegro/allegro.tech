@@ -5,12 +5,12 @@ author: tomasz.bartczak
 tags: [tech, ML, Machine Learning, Deep Learning]
 ---
 At [Allegro](/about-us/) we are faced with a technical challenge: how to recognize whether a given image
-(a product thumbnail) presents just a product itself. One of the things that we would like to detect is when the product
+(a product thumbnail) shows just a product itself. One of the things that we would like to detect is when the product
 is surrounded by a frame. In this post we would like to present our approach for detecting a frame in the image.
 
 ### Example
 
-This is an image that presents just a product:
+This is an image that shows just a product:
 
 ![Just product](/img/articles/2016-12-05-deep-learning-for-frame-detection/just_product.png)
 
