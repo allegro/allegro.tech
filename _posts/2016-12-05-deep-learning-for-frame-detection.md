@@ -111,7 +111,7 @@ Most researchers trust their intuition &mdash; which is not something one can le
 We decided to start from a not-so-deep network, and evolve &mdash; trying out different aspects of architectures to find a good one.
 One limitation was the size of our dataset which was far smaller than some public datasets used in really deep networks.
 Our current best network takes a 128x128 pixels RGB image as an input and consists of 4 convolutional layers
-(each of 32 depth and 3x3 kernel size) together with maxpooling layers and on top a fully connected layer and a a binary classification layer.
+(each of 32 depth and 3x3 kernel size) together with maxpooling layers and on top a fully connected layer and a binary classification layer.
 
 ### Final architecture
 
