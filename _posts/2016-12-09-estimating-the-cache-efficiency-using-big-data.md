@@ -151,8 +151,8 @@ Our cache works as expected! We achieved 27% cache hit ratio in peak hours by ca
 instance (remember there is 50,000,000 items in total). Thus, we significantly decreased Cassandra cluster load and
 network traffic at the very small cost of 0.5 GB of RAM memory in each service instance.
 
-As it was mentioned before, counter clearings slightly affected cache efficiency - it can be seen as the „teeth”
-in the chart. 
+As it was mentioned before, counter clearings slightly affected cache efficiency - it can be seen as cyclic
+irregularities in the chart. 
 
 ## Further improvements - get rid of counters
 
@@ -172,8 +172,9 @@ of service. Then we compared both versions.
 The chart above represents rate (per second) of cached requests (*cachedIdsCount.m1_rate*), actual Cassandra
 requests (*cassandraIdsCount.m1_rate*) and the sum of both (*allIdsCount.m1_rate*). Instance *mesos-slave2047* had
 version with counters, while *mesos-slave1025* had improved version without counters.
-As we can see, with this improvement we simplified algorithm, decreased memory demand and removed unwanted „teeth”
-caused by counter clearings. Internal cache eviction logic works better than our simple counters algorithm.
+As we can see, with this improvement we simplified algorithm, decreased memory demand and removed unwanted
+efficiency irregularities caused by counter clearings. Internal cache eviction logic works better than our
+simple counters algorithm.
 
 ## What we have learned
 
