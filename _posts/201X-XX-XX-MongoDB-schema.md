@@ -5,28 +5,28 @@ author: [tomasz.fijalkowski]
 tags: [tech, MongoDB, NoSQL, RDBMS]
 ---
 
-Understanding data structures is sufficient requirement to design good database schema in *RDBMSs* (relational
-database management system). Having this knowledgeyou are able to construct normalized tables, add appropriate
-constraints and finally create indexes to perform queries.
+Understanding data model is sufficient to design good database schema in RDBMS (relational
+database management system). Having this knowledge you are able to construct normalized tables, add appropriate
+constraints and finally create indexes to speed up queries.
 
-In the world of NoSQL there are no simple solutions, rules and answers. That is why we can only talk about
-patterns, tips and hints. MongoDB is not an exception. Besides the comprehension of stored data, a deep
-understanding of access pattern, how the data is finding, inserting and updating by application is needed.
+In the world of NoSQL there are no simple solutions, rules and answers. That’s why we can only talk about
+patterns, tips and hints. MongoDB is not an exception. Besides the comprehension of stored data, deep
+understanding of an access pattern, how data is searched, inserted and updated by an application is needed.
 
 This is still not the end. The key is an old good experience which help you to find the optimal balance between
-performance and flexibility, establish appropriate level of denormalization, choose between optimize writes or
-reads, consistence and latency ect. Just like in life, if you buy a car you want to have a good acceleration,
-low fuel consumption, large trunk and not too much to pay. You can not have it all, you have to decide which
-requirements are important.
+performance and flexibility, establish appropriate level of denormalization, choose between optimizing writes or
+reads, consistence or latency, ect. Just like in life, if you buy a car you want to have a good acceleration,
+low fuel consumption, large trunk and low price. Since you can’t have them all, you have to decide which
+requirements are the most important.
 
-In this article I will give some guidance on how to work with MongoDB database, present its limitations and
-points to trade-off, and give some hints how to design collections and documents. This article concentrates
-on use MongoDB as typical app database — main database for single application with read mostly pattern.
+In this article I give some guidance on how to work with MongoDB database, present its limitations and
+trade-off points and give some hints how to design collections and documents. This article focuses on typical
+MongoDB usage — main database for single application with read mostly pattern.
 
 ## Consistency and the appropriate level of denormalization
 
-The first question which should be to answer is to embed documents or not embed? General rule says that if you
-operate on dependent documents it should be a separated collection. Lets take classic blog app as an example.
+The first question which should be answered is to embed documents or not to embed them? General rule says that if you
+operate on dependent documents they should be stored in a separated collection. Lets take classic blog app as an example.
 Each blog post has some comments. If comments are only show under the post they may be embedded, but if someone
 wants to make some operation like eg. filter or sort them to create top 10 comments page, it should be separated
 collection.
