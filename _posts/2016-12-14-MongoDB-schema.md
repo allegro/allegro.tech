@@ -19,50 +19,50 @@ reads, consistence or latency, ect. Just like in life, if you buy a car you want
 low fuel consumption, large trunk and low price. Since you can’t have them all, you have to decide which
 requirements are the most important.
 
-In this article I give some guidance on how to work with MongoDB database, present its limitations and
+In this article I give some guidance on how to work with MongoDB database, I present its limitations and
 trade-off points and give some hints how to design collections and documents. This article focuses on typical
 MongoDB usage — main database for single application with read mostly pattern.
 
 ## Consistency and the appropriate level of denormalization
 
 The first question which should be answered is to embed documents or not to embed them? General rule says that if you
-operate on dependent documents they should be stored in a separated collection. Lets take classic blog app as an example.
-Each blog post has some comments. If comments are only show under the post they may be embedded, but if someone
-wants to make some operation like eg. filter or sort them to create top 10 comments page, it should be separated
-collection.
+operate on dependent documents they should be stored in a separated collection. Let’s take classic blog app as an example.
+Each blog post has some comments. If comments are shown only under the post they may be embedded, but if someone
+wants to perform an operation like filtering or sorting them to create a page presented 10 best comments, it should be
+stored in a separated collection.
 
-Usually the real examples are more complicated. What about information about the authors of posts and comments?
-In our blog app each post and comment may has embedded information such as author name or his email address. This
-solution may improve read latency of generating post page — all necessary data can be obtained by one or two queries
- — but it also poses problems and threats. If any user will change an email address, all his post and comments must
-by founded and updated. Here are some of the consequences:
+Usually the real examples are more complicated. What about information about posts authors and comments authors?
+In our blog app each post and comment may has embedded information such as an author name or his email address. This
+solution may improve read latency of generating a post page — all necessary data can be obtained by one or two queries
+ — but it also poses problems and threats. If some user will change an email address, all his post and comments must
+by found and updated. Here are some of consequences:
 
 - A lot of code is needed to handle all write queries.
 - Write operations may take relatively long time.
-- Some updates may fail (eg. Because of database / app / network fails).
-- There is no isolation mechanism so write and read queries from many clients may be interlaced what causes reading of
-partial update data.
+- Some updates may fail (eg. because of database / app / network fails).
+- There is no transaction isolation mechanism so write and read queries from many clients may be interlaced which cause
+reading of partially updated data.
 
-It is one of significant trade-off. Embedding documents optimizes reading but increases the risk of inconsistency as
-well as the complexity of updates code and the difficulty of its maintenance. Normalized data guarantee consistent
-readings  but they are often time consuming due to the necessity of using several documents.
+It’s one of the significant trade-offs. Embedding documents optimizes reading but increases the risk of inconsistency as
+as well as the code maintenance difficulty. Normalized data guarantees consistent reads but page generation are often
+more time-consuming due to the necessity of using several documents and several queries.
 
-Fortunately we can live with that inconvenience. Normalization is very important when the database client is a person,
-not an app. The strict consistency is not as necessary as many think. Lets take a look on another classic example — bank
+Fortunately, we can live with that inconvenience. Normalization is very important when the database client is a person,
+not an app. The strict consistency is not as necessary as you may think. Let's take a look on another classic example — bank
 account money transfer. To do the transfer we take some money from one account and add it to second one. Old professors
-would give their lives for ACID transaction justifying that a situation in which money which disappear from one account
+would give their lives for ACID transaction — justifying that a situation in which money which disappears from one account
 will not appear on the other, can not take place.
 
-However, banking systems existed before computer systems and from the beginning they do not work with strict consistency
+However, banking systems existed before computer systems and from the beginning they don’t work with strict consistency
 but with eventual consistency. There is nothing surprising in a situation where the money after transfer will appear
-on destination account on the next day. If you take out money from an ATM it is theoretically possible to exceed the
-limit taking money from another one in a short period of time. But even if you succeed it, this fraud will be eventually
+on destination account on the next day. If you take out money from an ATM it's theoretically possible to exceed the
+limit by taking money from another one in a short period of time. But even if you succeed, this fraud will be eventually
 detected.
 
 How the method of banks operation can help to solve the problem of changing the email address on our blog application?
-To be able to detect inconsistencies the source of truth should be determined. You can update just one document in user
-collection and send acknowledge about succeeded operation. Other changes can be made asynchronously what improve writing
-latency. If something goes wrong with additional updates the process of detecting inconsistencies corrects errors,
+To be able to detect inconsistencies the source of truth should be determined. You can update just one document in users
+collection and send acknowledge about succeeded operation. Other changes can be made asynchronously to improve writing
+latency. If something goes wrong with additional updates the process of detecting inconsistencies correct errors,
 so the system will by eventually consistent.
 
 What does this have to do with the transfer of money between accounts? What is the source of truth? In this case
@@ -127,7 +127,7 @@ The solution is to use replication as follow:
 2. Promote the slave node to master.
 3. Create index on other slaves.
 
-That process lets your application work clear and smoothly even if whole migration takes hours.
+That process let's your application work clear and smoothly even if whole migration takes hours.
 
 ## Data Access Layer
 
