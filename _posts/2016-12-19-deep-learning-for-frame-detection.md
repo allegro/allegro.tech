@@ -12,20 +12,20 @@ is surrounded by a frame. In this post we would like to present our approach for
 
 This is an image that shows just a product:
 
-![Just product](/img/articles/2016-12-05-deep-learning-for-frame-detection/just_product.png)
+![Just product](/img/articles/2016-12-19-deep-learning-for-frame-detection/just_product.png)
 
 While this is the same product surrounded by a frame:
 
-![Frame](/img/articles/2016-12-05-deep-learning-for-frame-detection/frame1.png)
+![Frame](/img/articles/2016-12-19-deep-learning-for-frame-detection/frame1.png)
 
 The frame can be of any color/texture and it can be present only on one side of the image:
 
-![Frame](/img/articles/2016-12-05-deep-learning-for-frame-detection/frame2.png)
+![Frame](/img/articles/2016-12-19-deep-learning-for-frame-detection/frame2.png)
 
 This problem looks straightforward, at least for humans. It gets a bit more tricky if we consider products that are
 of rectangular shapes and they obviously shouldn&rsquo;t be detected as frame:
 
-![iphone but not a frame](/img/articles/2016-12-05-deep-learning-for-frame-detection/iphone.jpeg)
+![iphone but not a frame](/img/articles/2016-12-19-deep-learning-for-frame-detection/iphone.jpeg)
 
 ## Baseline solution
 
@@ -90,7 +90,7 @@ Top layers closely resemble a traditional neural network with fully-connected la
 
 Example of a CNN:
 
-<figure class="image"><img src="/img/articles/2016-12-05-deep-learning-for-frame-detection/cnn.png" alt="cnn"><figcaption>(CC BY-SA 4.0 https://en.wikipedia.org/wiki/File:Typical_cnn.png)</figcaption></figure>
+<figure class="image"><img src="/img/articles/2016-12-19-deep-learning-for-frame-detection/cnn.png" alt="cnn"><figcaption>(CC BY-SA 4.0 https://en.wikipedia.org/wiki/File:Typical_cnn.png)</figcaption></figure>
 
 ## Our approach and experiments
 
@@ -115,7 +115,7 @@ Our current best network takes a 128x128 pixels RGB image as an input and consis
 
 ### Final architecture
 
-![model](/img/articles/2016-12-05-deep-learning-for-frame-detection/model_s.png)
+![model](/img/articles/2016-12-19-deep-learning-for-frame-detection/model_s.png)
 
 We trained using stochastic gradient descent optimizer, we experimented with network configuration (number of layers, depth of the layers, global pooling layers)
 various pooling operations, removing/minimizing fully-connected layer.
@@ -144,7 +144,7 @@ Our baseline algorithm had 92.3% accuracy.
 
 Here is a comparison of a [ROC Curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) of both baseline and our new model:
 
-![AUROC](/img/articles/2016-12-05-deep-learning-for-frame-detection/roc.png)
+![AUROC](/img/articles/2016-12-19-deep-learning-for-frame-detection/roc.png)
 
 Best deep model had 96.4% accuracy on validation set.
 We were able to go even to 99.8 % accuracy on training set which proves that the model was complex enough for our data.
@@ -174,7 +174,7 @@ Below you can see a chart of accuracy vs number of epochs of two experiments.
 The blue one didn&rsquo;t go very well comparing to the green one.
 The reason for that is probably too high learning rate decay.
 
-![too_big_decay](/img/articles/2016-12-05-deep-learning-for-frame-detection/training_too_big_decay.png)
+![too_big_decay](/img/articles/2016-12-19-deep-learning-for-frame-detection/training_too_big_decay.png)
 
 - Data gathering is hard &mdash; errors sneak in all the time, so we were fixing the dataset through all of the experiment timespan.
 
@@ -191,7 +191,7 @@ although given a pixel-annotation dataset &mdash; deep learning can solve the pr
 
    * [Google deep dream](https://github.com/google/deepdream) is able to create new art-pieces of a given style.    
     
-    <figure class="image"><img src="/img/articles/2016-12-05-deep-learning-for-frame-detection/DeepDreamingProcess.jpg" alt="dd"><figcaption>(CC BY-SA 4.0 https://commons.wikimedia.org/wiki/File:DeepDreamingProcess.jpg)</figcaption></figure>
+    <figure class="image"><img src="/img/articles/2016-12-19-deep-learning-for-frame-detection/DeepDreamingProcess.jpg" alt="dd"><figcaption>(CC BY-SA 4.0 https://commons.wikimedia.org/wiki/File:DeepDreamingProcess.jpg)</figcaption></figure>
 
 
 ### Resources
