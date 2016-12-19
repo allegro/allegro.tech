@@ -8,7 +8,6 @@ tags: [tech, MongoDB, NoSQL, RDBMS]
 Understanding data model is sufficient to design good database schema in RDBMS (relational
 database management system). Having this knowledge you are able to construct normalized tables, add appropriate
 constraints and finally create indexes to speed up queries.
-
 In the world of NoSQL there are no simple solutions, rules and answers. That’s why we can only talk about
 patterns, tips and hints. MongoDB is not an exception. Besides the comprehension of stored data, deep
 understanding of an access pattern, how data is searched, inserted and updated by an application is needed.
@@ -28,7 +27,7 @@ MongoDB usage — main database for single application with read mostly pattern.
 The first question which should be answered is to embed documents or not to embed them? General rule says that if you
 operate on dependent documents they should be stored in a separated collection. Let’s take classic blog app as an example.
 Each blog post has some comments. If comments are shown only under the post they may be embedded, but if someone
-wants to perform an operation like filtering or sorting them to create a page presented 10 best comments, it should be
+wants to perform an operation like filtering or sorting them to create a page presented top ten comments, it should be
 stored in a separated collection.
 
 Usually the real examples are more complicated. What about information about posts authors and comments authors?
@@ -78,94 +77,97 @@ store in documents like:
 }
 ```
 
-The state of each account can be verified and reproduced based on this collection.
+The state of each account can be verified and reproduced based on this collection. This approach is similar to
+[Event Sourcing](http://martinfowler.com/eaaDev/EventSourcing.html) architectural pattern.
 
-There is one more thing should be aware of when repeating failed operation.
-Even if the command was successful, app may not receive acknowledge because of network failure.
-By repeating that command you will instruct another transfer.
+There is one more thing you should be aware of when repeating a failed operation.
+Even if the command was successful, the app might not receive an acknowledge because of a network failure.
+By repeating that command you will apply the same money transfer twice.
 To prevent that, writing operation to the source of truth should be **idempotent**.
 
-To perform verification process you can calculate and store snapshots of data from collection of truth.
+To perform the verification process you can calculate and store snapshots of data from the collection of truth.
 The collection size limitation can be achieved by making it
 [Capped Collections](https://docs.mongodb.com/manual/core/capped-collections/).
 
-In such case we give up strong consistency to eventual consistency and increase performance.
+In such case we trade up strong consistency to eventual consistency and increased performance.
 If  you can live with some percent of false positives or false negatives errors you can also
-give up eventual consistency and idempotent operations. A good example is counting of page views.
+give up eventual consistency and idempotent operations. A good example is counting of page views when
+high accuracy is not required.
 
-## Migration and refactorization
+## Migration and refactoring
 
-It is commonly said that MongoDB like most od NoSQL databases is schemaless. In practice, when you work
+It’s commonly said that MongoDB, like most NoSQL databases, is schemaless. In practice, when you work
 with MongoDB you actually work with *implicit schema* — each document has its own schema which you can control in your app.
-No matter how good was the schema when you design it, the necessity to change it will come eventually.
-Two important issues related to the maintenance of the applications are presented below.
+No matter how good was the schema when you design it, the necessity to change will come eventually.
+Two important issues related to application maintenance are presented below.
 
 ### Data migration
 
-
 Some applications operate on huge data set and need 24*7 uptime. To migrate data
-in such application you can not stop it for the migration time — the whole process may takes hours.
-I recommend following migration process which based on polymorphic data nature of document—oriented database:
+in such application you can’t stop it for the migration time — the whole process may takes hours.
+I recommend the following migration process which is based on
+[polymorphic data](http://stackoverflow.com/questions/39867278/what-is-polymorphic-data-nosql-databases)
+nature of document-oriented database:
 
-1. Modify code of Object—Document Mapper (ODM) to be compatible with both version of the document.
-2. Deploy new version of the application.
-3. Start migrate each document one by one.
+1. Modify the code of Object—Document Mapper (ODM) to be compatible with both version of the document.
+2. Deploy a new version of the application.
+3. Start migrating each document one by one.
 4. When migration is finished, remove support for the old version of the document from ODM.
 
-The step 4. is very important. Avoid to support more then two versions of document schema,
+The fourth step is very important. Avoid to support more then two versions of document schema,
 otherwise you may fall in conditions hell and make your ODM layer very complex.
 
-This is a way to change stored documents schema, but what about indexes?
+This is the way to change stored documents schema, but what about indexes?
 
 ### Creating new indexes
 
 New business requirements bring a need to add new database queries. To make them efficient, new indexes are required.
-Creating an index on collection of size about 50 GB may takes hours and has negative impact on production system.
+Creating an index on a collection of size about 50 GB may takes hours and has negative impact on a production system.
 The solution is to use replication as follow:
 
-1. Create index on slave node.
+1. Create index on a slave node.
 2. Promote the slave node to master.
 3. Create index on other slaves.
 
-That process let's your application work clear and smoothly even if whole migration takes hours.
+That process lets your application work clearly and smoothly even if whole migration takes hours.
 
 ## Data Access Layer
 
-To work effectively with MongoDB it is important to have clear separated data access layer in application. All accesses
+To work effectively with MongoDB it’s important to have clear separated data access layer. All access
 should be grouped in packages, modules or other code grouping units. This approach allows anyone to quickly analyze how
-application queries and uses the database.
+an application queries and uses the database.
 
 Another question is how to build ODM? Is it good or bad practise to use frameworks like Spring Data?
-Does their advantages not bring in the project too many restrictions?
-To answer that questions let define a good ODM layer as one which allows:
+Does their advantages bring in too many restrictions to a project?
+To answer that questions let's define a good ODM layer as one that allow:
 
-- make partial updates (modify part of document, change one field or add element to embedded list without changing whole
-document)
-- work with polymorphic data (many schema versions in one collection)
-- use specific MongoDB operation like findAndModify or update with upsert
--  inject some services or dependencies when working with rich domain mode
+- making partial updates (modifying part of a document, changing one field or adding an element to embedded list without
+changing a whole document),
+- work with polymorphic data (many schema versions in one collection),
+- use specific MongoDB operation like findAndModify or update with upsert,
+- inject some services or dependencies when working with rich domain model.
 
-That set of requirements makes me building own ODM layer with no any Spring Data like framework when working with MongoDB.
+That set of requirements convinces me to build my own ODM layer without Spring Data like framework when working with MongoDB.
 This allows me to use all advantages of MongoDB at the price of giving up take-and-use solutions.
 
 ## Saving disc space with short keys
 
-In MongoDB the keys selection is important for the size of the database. Keys are in fact stored together with the
-associated documents, each document keep its schema. If you are OK with *pa* key instead of *platform_account* you can
-save 14 bytes per document. It may seem not much, but if you store a 10^8 of such documents, you can save almost 1.4 GB
-of data size.
+In MongoDB keys selection is important for the size of the database. Keys are in fact stored together with the
+associated documents, each document keeps its schema. If you are OK with *pa* key instead of *platform_account* you can
+save 14 bytes per document. It may seem not much, but if you store 10^8 of such documents, you can save almost 1.4 GB
+of disk space.
 
 Smaller collection size means: quick backup and restore, more documents can be cached by database, smaller collection
-chunks in sharding etc.
+chunks in sharding, etc.
 
-Once I heard the story about the programmer who reduced the size of production collections by 30% just by shortening the
-keys. By sacrificing readability of documents, you can achieved the size of data reduction and performance improvement.
-Every time you have to find the right proportions.
+Once I heard the story about the programmer who reduced the size of production collections by 30% just by shortening
+keys. By sacrificing readability of documents, you can achieve data size reduction and performance improvement.
+Every time you have to find the right balance.
 
 ## Durability
 
-ACID transaction accustomed us to durability of write operations. If I saved a data it means that they are indeed saved.
-It is true for RDBMS with ACID transactions, but not for MongoDB in default configuration. It is especially important if
+ACID transaction accustomed us to durability of write operations. If I saved the data, does it mean that it’s indeed saved.
+It's true for RDBMS with ACID transactions but not for MongoDB in default configuration. It is especially important if
 you work with critical data (eg. financial). There are two typical issues:
 
 Whe you work with *replica set* and wait for write acknowledgment only from the master, you can loss data witch was
@@ -174,17 +176,17 @@ elected, not replicated data from old master will be unrolled). To prevent data 
 [`w`](https://docs.mongodb.com/manual/reference/write-concern/#wc-w) (`wValue`) connection. This option forces to wait
 for acknowledge until the data will be replicated on:
 
-- a certain number of of nodes
-- an any node in each data center (with taged nodes)
-- and finally in majority of nodes witch guarantees that no data will be rollback.
+- a certain number of of nodes,
+- any node in each data center (with taged nodes),
+- and finally, in majority of nodes witch guarantees that no data will be rolled back.
 
 Second threat for durability is [journaling](https://docs.mongodb.com/manual/core/journaling/). Write operation are
-stored in journal witch is synchronize with disc every 50 ms for WiredTiger and 100 ms for MMAPv1 *stored engine*.
-It means that you can lose writes from last 50 ms (or 100 ms for MMAPv1) when unclear shout down occurs. To prevent
-this you can tern off journaling which is not recommended or set
-[`j`](https://docs.mongodb.com/manual/reference/write-concern/#wc-j) write concern option as `true`. It cause of waiting
-for journal sync before send acknowledge. This flag only applies to master node so it makes sense to set it only when
-you are not using replication. Be careful about setting this flag for all writes, instead I suggest you put
+stored in journal witch is synchronized with disc every 50 ms for WiredTiger and 100 ms for MMAPv1 *stored engine*.
+It means that you can lose writes from last 50 ms (or 100 ms for MMAPv1) when unclear shutdown occurs. To prevent
+this you can turn off journaling (which is not recommended) or set
+[`j`](https://docs.mongodb.com/manual/reference/write-concern/#wc-j) write concern option as `true`. It causes waiting
+for journal sync before sending an acknowledge. This flag only applies to master node, so it makes sense to set it only when
+you are not using replication. Be careful about setting this flag for all writes, instead I suggest putting
 this flag only for critical operations if at all (replication with `w` option is more rational).
 
 This is another trade-off where you have to chose between latency and durability.
@@ -193,19 +195,19 @@ This is another trade-off where you have to chose between latency and durability
 
 ### A difficult compromise
 
-There is more trades-off then it was presented in this article like ex. allow or not to read from slave nodes. Usually
-there is more than one good solution, which can leads to conflicts between a team members who appreciate different values.
+There are more trade-offs then it was presented in this article. For example allow or not to read from slave nodes. Usually
+there is more than one good solution, which can lead to conflicts between team members who appreciate different values.
 For some people performance is more important than flexibility, for some it is the opposite. Everyone has the right, and
 at the same time is wrong.
 
 ### If it hurts, stop doing it!
 
-If you can't solve problems with clear model, probably you use wrong tool. Don't try to use tricky algorithm, instead of
-this thing about other solution like
+If you can't solve problems with clear model, probably you use wrong tool. Don't try to use tricky algorithm, instead of,
+think about other solutions like:
 
 - Other database
 - [Polyglot persistence](http://martinfowler.com/bliki/PolyglotPersistence.html)
 - [Lambda architecture](http://lambda-architecture.net)
 
-And remember, failed is a result. Don't try to be resistant for all failures, be ready for failures and be able
+And remember, failure is a result. Don't try to be resistant to all kind of failures, prepare for them
 to detect and fix them.
