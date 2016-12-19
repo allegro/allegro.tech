@@ -41,6 +41,7 @@ Why did we decide to try [deep learning](https://en.wikipedia.org/wiki/Deep_lear
 CNNs are currently used in all state-of-the-art solutions to problems of image classification/segmentation etc.
 If you are interested in this topic we will briefly explain the structure of the CNN and provide description of
 building blocks applied to construct it, namely:
+
 - convolutional and [pooling](https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer) layers, responsible for feature extraction.
 - fully connected layers (along with dropout layer), which perform classification tasks.
 
@@ -98,6 +99,7 @@ Example of a CNN:
 Initially we used a Google Chrome plugin to download images tagged by humans but that process didn&rsquo;t scale well.
 
 So we decided to use a semi-automated way of gathering a test set which was:
+
 1. classify a sample of images using existing frame detector which is known to have ~92% accuracy.
 2. manually go through each class moving erroneous 8% of images to a proper class.
 
@@ -120,6 +122,7 @@ Our current best network takes a 128x128 pixels RGB image as an input and consis
 We trained using stochastic gradient descent optimizer, we experimented with network configuration (number of layers, depth of the layers, global pooling layers)
 various pooling operations, removing/minimizing fully-connected layer.
 We wanted to make the model good enough but not become very big because of two reasons:
+
 1. Runtime performance depends on the size of the network.
 2. Such networks already have 50K-100K of parameters that need to be trained on only 5K images, so there is a
 chance of overfitting (this is a situation when a model learns particular dataset properties and not a general problem).
