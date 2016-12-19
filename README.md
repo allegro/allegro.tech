@@ -106,7 +106,7 @@ use ## (h2) for section headers ### (h3) for subsection headers.
 Never use # (H1) as it’s reserved for the title. Don’t repeat the title in the first header (Jekyll takes care of rendering the title of your post).
 
 ## Don’t confuse hyphens and dashes
-In English, we use hyphens (-) for hyphenation and phrases like *4–10 points*, *so-so*.
+In English, we use hyphens (-) for hyphenation and phrases like *4-10 points*, *so-so*.
 
 For separating two parts of a sentence we always use **em dash** character (—).
 
