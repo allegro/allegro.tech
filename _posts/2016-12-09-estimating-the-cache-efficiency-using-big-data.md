@@ -73,7 +73,7 @@ partial items cache is worth implementing.
 
 ### Computations for real-life situation
 
-Batch computations for 24 hours and whole traffic do not fit our case. We cannot cache items for one day, because 
+Batch computing every 24 hours does not fit our case. We cannot cache items for one day, because 
 changes in their data happen. Moreover, whole traffic taken into account is a distributed cache case, which violates
 our initial constraints. So we repeated computations for 15 minutes time window and with traffic limited to
 single service instance. We generated similar charts, but there were no straightforward conclusions from them.
