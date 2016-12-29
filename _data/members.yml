@@ -13,7 +13,6 @@ adam.dubiel:
     bio: Adam is the library guy, who loves designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. At Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier, the most significant one being [Hermes](http://hermes.allegro.tech/).
     twitter: dubieladam
     github: adamdubiel
-    title: Software Development Lead
 
 rafal.glowinski:
     name: Rafał Głowiński
@@ -292,12 +291,10 @@ rafal.bryk:
     name: Rafał Bryk
     bio: Agile Coach with technological background. Passionate about creating good software in a proper way. Rafał works with people from Polish e-commerce and facilitates the process of making optimal decisions. Fan of modern technology, board games and cycling.
     twitter: RafalBryk
-    title: Agile Coach
 
 joanna.tobola:
     name: Joanna Toboła
     bio: Agile Coach with 3 years of professional experience, especially coaching and mentoring Mobile teams. Passionate about people’s behaviour and data visualisation. Follows the approach - you get what you focus on.
-    title: Agile Coach
 
 lukasz.druminski:
     name: Łukasz Drumiński
@@ -322,16 +319,16 @@ grzegorz.kaczmarczyk:
 anna.wroblewska:
     name: Anna Wróblewska
     bio: Ania achieved her PhD in computer science in 2008 at Warsaw University of Technology. Her interests concentrates around information retrieval, semantic understanding of image and text. At Allegro she works as an expert in machine learning algorithms, she designs specialised methods and makes a lot of analytical tasks. She tries to bridge the gap between business, the world of programmers and her scientific passion. Privately she is a happy wife and a mother of great children from adolescence to a kindergarten guy.
-    title: Expert Data Scientist
 
 lukasz.raczkowski:
     name: Łukasz Rączkowski
     bio: Łukasz is a software engineer with a deep passion for science. He combines his work at Allegro with pursuing a PhD at the University of Warsaw. He wants to change the world for the better with his work as a computer scientist.
-    title: Software Engineer
 
 tomasz.fijalkowski:
     name: Tomasz Fijałkowski
     bio: Tomek graduated with a master’s degree in physics. He is a professional programmer by trade, and is a carpenter in his heart. He likes pretty girls, cold tequila and old school black metal.
+    twitter: TomaszFijalkows
+    github: tfij
 
 pawel.piecyk:
     name: Paweł Piecyk
