@@ -137,7 +137,7 @@ To work effectively with MongoDB it’s important to have clear separated data a
 should be grouped in packages, modules or other code grouping units. This approach allows anyone to quickly analyze how
 an application queries and uses the database.
 
-Another question is how to build ODM? Is it good or bad practise to use frameworks like Spring Data?
+Another question is how to build ODM? Is it good or bad practice to use frameworks like Spring Data?
 Does their advantages bring in too many restrictions to a project?
 To answer that questions let's define a good ODM layer as one that allow:
 
