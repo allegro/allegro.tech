@@ -31,7 +31,7 @@ wants to perform an operation like filtering or sorting them to create a page pr
 stored in a separated collection.
 
 Usually the real examples are more complicated. What about information about posts authors and comments authors?
-In our blog app each post and comment may has embedded information such as an author name or his email address. This
+In our blog app each post and comment may have embedded information such as an author name or his email address. This
 solution may improve read latency of generating a post page — all necessary data can be obtained by one or two queries
  — but it also poses problems and threats. If some user will change an email address, all his post and comments must
 by found and updated. Here are some of consequences:
@@ -170,7 +170,7 @@ ACID transaction accustomed us to durability of write operations. If I saved the
 It's true for RDBMS with ACID transactions but not for MongoDB in default configuration. It is especially important if
 you work with critical data (eg. financial). There are two typical issues:
 
-Whe you work with *replica set* and wait for write acknowledgment only from the master, you can loss data witch was
+Whe you work with *replica set* and wait for write acknowledgment only from the master, you can lose data which was
 not replicated to any slave node [Oplog](https://docs.mongodb.com/v3.2/core/replica-set-oplog/) (when new master is
 elected, not replicated data from old master will be unrolled). To prevent data loss you can set
 [`w`](https://docs.mongodb.com/manual/reference/write-concern/#wc-w) (`wValue`) connection. This option forces to wait
@@ -178,10 +178,10 @@ for acknowledge until the data will be replicated on:
 
 - a certain number of of nodes,
 - any node in each data center (with taged nodes),
-- and finally, in majority of nodes witch guarantees that no data will be rolled back.
+- and finally, in majority of nodes which guarantees that no data will be rolled back.
 
 Second threat for durability is [journaling](https://docs.mongodb.com/manual/core/journaling/). Write operation are
-stored in journal witch is synchronized with disc every 50 ms for WiredTiger and 100 ms for MMAPv1 *stored engine*.
+stored in a journal which is synchronized with disc every 50 ms for WiredTiger and 100 ms for MMAPv1 *stored engine*.
 It means that you can lose writes from last 50 ms (or 100 ms for MMAPv1) when unclear shutdown occurs. To prevent
 this you can turn off journaling (which is not recommended) or set
 [`j`](https://docs.mongodb.com/manual/reference/write-concern/#wc-j) write concern option as `true`. It causes waiting
