@@ -61,7 +61,7 @@ your heap utilization graph, check your GC and heap settings.
 There are many talks and tutorials on
 tuning a JVM. Finally we are running Marathon on 16 CPU VMs with 6 GB of heap.
 
-#### Zookeeper
+### Zookeeper
 Marathon uses [Zookeeper](https://zookeeper.apache.org/)
 as it's primary data storage.
 Zookeeper is a key value store focused
@@ -289,7 +289,7 @@ If you
 have more than thousands application and more then 10k tasks you will hit the
 wall.
 
-### How to avoid the wall:
+#### How to avoid the wall:
 
 * Shards you marathon
 * Monitor — enable metrics but remember configure them.
