@@ -271,8 +271,8 @@ asynchronous and events are delivery at most once.
 * If you need task life cycle events use custom executor.
 * Prefer batch deployments instead of many single ones.
 
-If above suggestions does not help think about sharding. You can use project like
-[Triatlon](https://github.com/schibsted/triathlon). If this still does not help
+If above suggestions does not help think about sharding.
+If this still does not help
 try [Aurora](https://aurora.apache.org/).
 It has less features and slower development but is battle tested
 [on huge capacity at Twitter](https://youtu.be/nNrh-gdu9m4)
