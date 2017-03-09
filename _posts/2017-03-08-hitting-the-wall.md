@@ -6,9 +6,6 @@ tags: [tech, mesos, marathon, mesosphere]
 publish: true
 ---
 
-_If there is no mention about Marathon version it is 1.3.10 and below. We need
-some time to test and deploy the latest 1.4 release._
-
 Running Mesosphere Marathon is like running... a marathon. When you are
 preparing for a long distance run, you’ll often hear about
 [Hitting the wall](https://en.wikipedia.org/wiki/Hitting_the_wall).
@@ -18,6 +15,9 @@ produce power and this results in a sudden “power loss” so you can’t run
 anymore. At Allegro we experienced a similar thing with Mesosphere Marathon. This
 is our story of using Marathon on a growing microservice ecosystem from tens of
 tasks and a couple applications to thousands of tasks and over a hundred applications.
+
+_If there is no mention about Marathon version it is 1.3.10 and below. We need
+some time to test and deploy the latest 1.4 release._
 
 If you are interested how our ecosystem is built, take a look at this MesosCon
 presentation where we presented our Apache Mesos ecosystem after
