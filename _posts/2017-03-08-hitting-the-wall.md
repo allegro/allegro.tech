@@ -25,8 +25,9 @@ presentation where we presented our Apache Mesos ecosystem after
 first year of production use
 
 <iframe
-  width="100%"
-  height="530"
+  class="youtube_iframe"
+  height="315"
+  width="420"
   src="https://www.youtube.com/embed/2dlCObSvgBc"
   frameborder="0"
   allowfullscreen>
