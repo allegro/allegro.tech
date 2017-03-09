@@ -6,20 +6,20 @@ tags: [tech, mesos, marathon, mesosphere]
 publish: true
 ---
 
-_If there is no mention about marathon version it is 1.3.10 and below. We need
-some time to test and deploy latest 1.4 release._
+_If there is no mention about Marathon version it is 1.3.10 and below. We need
+some time to test and deploy the latest 1.4 release._
 
 Running Mesosphere Marathon is like running... a marathon. When you are
-preparing for long distance run, you’ll often hear about
+preparing for a long distance run, you’ll often hear about
 [Hitting the wall](https://en.wikipedia.org/wiki/Hitting_the_wall).
 This effect is described mostly in running and cycling but affects all
-endurance sports. It happen when your body does not have enough glycogen to
-produce power and this results in sudden “power loss” so you can’t run
-anymore. At Allegro we experienced similar thing with Mesosphere Marathon. This
-is our story of using Marathon on growing microservice ecosystem from tens of
-tasks and couple applications to thousands tasks and hundred applications.
+endurance sports. It happens when your body does not have enough glycogen to
+produce power and this results in a sudden “power loss” so you can’t run
+anymore. At Allegro we experienced a similar thing with Mesosphere Marathon. This
+is our story of using Marathon on a growing microservice ecosystem from tens of
+tasks and a couple applications to thousands of tasks and over a hundred applications.
 
-If you are interested how our ecosystem is build, take a look at this MesosCon
+If you are interested how our ecosystem is built, take a look at this MesosCon
 presentation where we presented our Apache Mesos ecosystem after
 first year of production use
 
@@ -32,19 +32,19 @@ first year of production use
 </iframe>
 
 ## History
-Couple of years ago we decided to completely change architecture of our system.
-We used to have monolithic application written in PHP with bunch of maintenance
-scripts around it. Changing this system was not easy and what matter the
+Couple of years ago we decided to completely change the architecture of our system.
+We used to have a monolithic application written in PHP with a bunch of maintenance
+scripts around it. Changing this system was not easy, and what matters the,
 most not fast enough for our business to grow. We decided to switch to
-microservices based architecture. This switch required changing our infrastructure and
+microservice based architecture. This switch required changing our infrastructure and
 the way we operate and maintain our applications. We used to have one application and
-now we want to move to many small applications that can be developed, deployed
-and scaled separately. At the beginning we try to launch application in
-dedicated VMs but it wasn't neither efficient in terms of resource allocation nor
-fast and agile, so we searched for different solution to this problem.
+now we wanted to move to many small applications that can be developed, deployed
+and scaled separately. At the beginning we tried to launch applications in
+dedicated VMs, but it wasn't neither efficient in terms of resource allocation nor
+fast or agile, so we searched for different a solution to this problem.
 When we began our journey to microservices and containers there were not so
-many solutions on a market as of today. Most of them were fresh and not battle
-proven. We evaluated couple of them and finally decided to use Mesos and
+many solutions on the market as there are today. Most of them were fresh and not battle
+proven. We evaluated couple a of them and finally decided to use Mesos and
 Marathon as our main framework. Below is the story of our scaling issues with
 Marathon as our main (and so far only) framework on top of Apache Mesos.
 
@@ -53,27 +53,28 @@ Marathon as our main (and so far only) framework on top of Apache Mesos.
 ## Problems
 
 ### JVM
-Marathon is written in Scala and runs on Java Virtual Machine.
-It's default setting is modest. Take a look at metrics
-and if you see Marathon spends much time in GC or you can't see razor shape on
-your heap, check your GC and heap settings. There are many talks and talks on
-tuning JVM. Finally we are running Marathon on 16 CPU VM with 6 GB of heap.
+Marathon is written in Scala and runs on a Java Virtual Machine.
+It's default settings are modest. Take a look at GC and heap usage metrics
+and if you see Marathon spends much time in GC or you can't see a razor shapes on
+your heap utilization graph, check your GC and heap settings.
+There are many talks and tutorials on
+tuning a JVM. Finally we are running Marathon on 16 CPU VMs with 6 GB of heap.
 
 #### Zookeeper
 Marathon uses [Zookeeper](https://zookeeper.apache.org/)
 as it's primary data storage.
 Zookeeper is a key value store focused
-more on data consistency then availability. One of disadvantage of Zookeeper is it
+more on data consistency then availability. One of the disadvantages of Zookeeper is it
 doesn’t work well with huge objects. If stored objects are getting bigger,
-write takes more time. By default stored entry must fits in 1MB. Unfortunately
+writes take more time. By default, a stored entry must fit in 1MB. Unfortunately
 Marathon data layout does not fit well with this constraint. Marathon saves
 deployments as old group, deployment metadata and updated group
 [MARATHON-1836](https://jira.mesosphere.com/browse/MARATHON-1836)
-. This means if you deploy new
+. This means if you deploy a new
 application, deployment will take double of your application group state. In small
 installations it’s not a problem, but when you have more and more
-applications at some point you can notice your Zookeeper write times takes longer and
-at some point you will end with following error:
+applications at some point you will notice your Zookeeper write times take longer and
+at some point you will end up with the following error:
 
 ```shell
 422 - Failed to deploy app [/really/important/fix] to [prod].
@@ -92,77 +93,81 @@ RESPONSE: [{
 }]
 ```
 
-This error will be thrown by Marathon when you want to deploy critical fix
+This error will be thrown by Marathon when you want to deploy a critical fix
 ([Murphy's law](https://en.wikipedia.org/wiki/Murphy's_law) works perfectly).
-This was a huge problem until Marathon 0.13 but now Zookeeper compression is default
-and it’s generally working but still it’s not unlimited especially if you
-app definitions does not compress well.
+This was a huge problem until Marathon 0.13 but now Zookeeper compression is
+turned on by default
+and it’s generally working but still it’s not unlimited especially if your
+app definitions do not compress well.
 
-Another issue with Zookeeper like with any other high consistency storage is delay
-between the nodes. You really want to put them close and created backup cluster
-in other zone/region to quickly switch if there is an outage. Having cross DC
-Zookeeper cluster will cause long write times and often reelection.
+Another issue with Zookeeper, like with any other high consistency storage, is delay
+between the nodes. You really want to put them close and create a backup cluster
+in an other zone/region to quickly switch if there is an outage. Having cross DC
+Zookeeper clusters will cause long write times and often reelection.
 
-Zookeeper works best if you minimize number of objects it store. Changing
+Zookeeper works best if you minimize the number of objects it stores. Changing
 `zk_max_version` _(deprecated)_ from default 25 to 5 or less will save some space.
 Be careful with this if you often scale your applications because you can hit
 [MARATHON-4338](https://jira.mesosphere.com/browse/MARATHON-4338)
-and lost your health checks information.
+and lose your health check information.
 
 ### Metrics
 [Marathon 0.13](https://github.com/mesosphere/marathon/releases/tag/v0.13.0)
-was one of the biggest release in Marathon. It brings many
-improvements and bugfixes. It also bring metrics collection and sending them to
+was one of the biggest releases in Marathon. It brings many
+improvements and bugfixes. It also brought metric collection and sending them to
 graphite and datadog. This is nice.
 We started having problems with CPU usage on our Marathon cluster. We profiled
-it with honest profiler and it turns out Marathon spent 20% of it’s time on
+it with
+[Honest Profiler](https://github.com/RichardWarburton/honest-profiler/wiki)
+and it turned out Marathon spent 20% of it’s time on
 metrics collection. By default metrics are collected every 10s we changed this
-to 55s and reduced time to less than 2%.
+to 55s and reduced time spent on collection to less than 2%.
 
 ![Flame graph with default metrics setting](/img/articles/2017-03-08-hitting-the-wall/flam_metrics.png)
 
 ### Threads
-Marathon is build with Scala. It’s using Akka as a actor framework. It’s
+Marathon is build with Scala. It’s using Akka as an actor framework. It’s
 configuration suggest that there should be
 [64 threads in akka pool](https://github.com/mesosphere/marathon/blob/v1.3.10/src/main/scala/mesosphere/marathon/Main.scala#L100)
 and [100 threads in IO pool](https://github.com/mesosphere/marathon/blob/v1.3.10/src/main/scala/mesosphere/util/ThreadPoolContext.scala#L8).
-This configuration seems valid. When our cluster grows and
-we were having more and more applications we noticed that threads number also
-increased. With 2k tasks we have up to 4k of threads. This is quite a lot and
+This configuration seems valid. When our cluster grew and
+we were having more and more applications, we noticed that thread number also
+increased. With 2k tasks we had up to 4k of threads. This is quite a lot and
 we lost precious CPU time on task switching. After weeks of hard work we manage
 to reduce this number to 200 threads and our changes
-[was merged](https://github.com/mesosphere/marathon/pull/4912)
+[were merged](https://github.com/mesosphere/marathon/pull/4912)
 and released in [1.3.7](https://github.com/mesosphere/marathon/releases/tag/v1.3.7).
-Still it’s more than configured value but we can handle this.
+Still it’s more than the configured value but we can handle this.
 
 ![Marathon threads](/img/articles/2017-03-08-hitting-the-wall/marathon_threads_1.png)
 
 Another optimization we introduced was to increase
 `akka.default-dispatcher.throughput` to 20. According to
 [the docs](http://doc.akka.io/docs/akka/current/scala/dispatchers.html)
-this setting will make actor operate on batch of messages.
+this setting will make actors operate on batches of messages.
 
 > Throughput defines the maximum number of messages to be
 > processed per actor before the thread jumps to the next actor.
 > Set to 1 for as fair as possible.
 
-This is double edge sword. Too low value will totally decrease performance
-because of actor switching and totally disabling cache. On the other hand to
-high value could cause actor starvation and timeouts. We increased it 4 times
-and see small improvement.
+This is a double edge sword. Too low a value will totally decrease performance
+because of actor switching and totally disabling cache. On the other hand, too
+high a value could cause actor starvation and timeouts. We increased it 4 times
+and saw a small improvement.
 
 ### Healthchecks
 Marathon has HTTP health checks from the beginning, before they were introduced in
-Mesos. Every our task has configured HTTP healthcheck. Because Marathon makes
-requests from single machine - currently leading master it’s quite
-expensive especially when you need to make thousands HTTP requests. To reduce
-the load we increased Marathon health check interval. Fortunately in a
-mean time Mesos incorporated HTTP health checks and it was added to Marathon
-1.4 so soon we can switch and make checks locally on agents.
+Mesos. Our every task has a configured HTTP healthcheck. Because Marathon makes
+requests from a single machine — the currently leading master — it’s quite,
+expensive especially when you need to make thousands of HTTP requests. To reduce
+the load we increased the Marathon health check interval. Fortunately in the
+meantime Mesos incorporated HTTP health checks and it was added to Marathon
+[1.4](https://github.com/mesosphere/marathon/releases/tag/v1.4.0),
+so soon we can switch and make checks locally on agents.
 There is a great post on
 [Mesos Native HTTP healtchecks](https://mesosphere.com/blog/2017/01/05/introducing-mesos-native-health-checks-ap
 ache-mesos-part-1/)
-You can read there Marathon checks works up to 2k tasks while Mesos scales well.
+You can read there that Marathon checks work up to 2k tasks while Mesos scales well.
 If you want to switch to Marathon 1.4 and use Mesos healthchecks keep in mind
 it's new mechanism and there are issues with it:
 [MESOS-6786](https://issues.apache.org/jira/browse/MESOS-6786)
