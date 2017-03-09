@@ -1,0 +1,7 @@
+provisioning_command: "/bin/true"
+compose:
+  jekyll:
+    build: .
+    restart: always
+    ports:
+      - "4000"
