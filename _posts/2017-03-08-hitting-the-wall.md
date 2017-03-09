@@ -229,6 +229,15 @@ render response with only applications you can see.
 Instead of using plugin create a facade that will authenticate requests and
 sanitize output from data user should not see.
 
+### Sharding
+If you feel like your installation could grow and want to be
+prepared think about sharding.
+You can run many Marathon instances on single Mesos cluster.
+What's more you can run Marathon on Marathon (MoM).
+[Here](https://wiki.mesosphere.com/display/DCOS/MoM+1.4) is a test for it.
+With this setup you can mitigate most of described issues above, by reducing load
+on single Marathon.
+
 ### Community and support
 Community around Marathon is preety small epsecialy when comparing with
 Kubernetes or Docker. Container orchestration is still emerging and not many
@@ -276,6 +285,7 @@ wall.
 
 ### How to avoid the wall:
 
+* Shards you marathon
 * Monitor — enable metrics but remember configure them.
 * Update to 1.3.10 or later.
 * Minimize Zookeeper communication latency and objects size.
@@ -285,7 +295,6 @@ asynchronous and events are delivery at most once.
 * If you need task life cycle events use custom executor.
 * Prefer batch deployments instead of many single ones.
 
-If above suggestions does not help think about sharding.
 If this still does not help
 try [Aurora](https://aurora.apache.org/).
 It has less features and slower development but is battle tested
