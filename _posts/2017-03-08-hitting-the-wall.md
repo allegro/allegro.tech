@@ -19,9 +19,9 @@ anymore. At Allegro we experienced similar thing with Mesosphere Marathon. This
 is our story of using Marathon on growing microservice ecosystem from tens of
 tasks and couple applications to thousands tasks and hundred applications.
 
-If you are interested how our ecosystem is build take a look at this MesosCon
+If you are interested how our ecosystem is build, take a look at this MesosCon
 presentation where we presented our Apache Mesos ecosystem after
-First Year of Production Use
+first year of production use
 
 <iframe
   width="100%"
@@ -34,41 +34,45 @@ First Year of Production Use
 ## History
 Couple of years ago we decided to completely change architecture of our system.
 We used to have monolithic application written in PHP with bunch of maintenance
-scripts around it. Changing in this system was not easy and what matter the
+scripts around it. Changing this system was not easy and what matter the
 most not fast enough for our business to grow. We decided to switch to
-Microservice architecture. This switch require changing our infrastructure and
-the way we operate with our applications. We used to have one application and
-now we want to move to many small applications that can be  developed, deployed
+microservices based architecture. This switch required changing our infrastructure and
+the way we operate and maintain our applications. We used to have one application and
+now we want to move to many small applications that can be developed, deployed
 and scaled separately. At the beginning we try to launch application in
-dedicated VMs but it wasn’t as efficient in resources nor fast and agile, so
-we searched for something new.
+dedicated VMs but it wasn't neither efficient in terms of resource allocation nor
+fast and agile, so we searched for different solution to this problem.
 When we began our journey to microservices and containers there were not so
-many solutions on a market as today. Most of them were fresh and not battle
+many solutions on a market as of today. Most of them were fresh and not battle
 proven. We evaluated couple of them and finally decided to use Mesos and
 Marathon as our main framework. Below is the story of our scaling issues with
-Marathon.
+Marathon as our main (and so far only) framework on top of Apache Mesos.
 
 ![Microservices visualization](/img/articles/2017-03-08-hitting-the-wall/vizceral.jpg)
 
 ## Problems
 
 ### JVM
-Marathon running on JVM. It's default setting is modest. Take a look at metrics
+Marathon is written in Scala and runs on Java Virtual Machine.
+It's default setting is modest. Take a look at metrics
 and if you see Marathon spends much time in GC or you can't see razor shape on
 your heap, check your GC and heap settings. There are many talks and talks on
 tuning JVM. Finally we are running Marathon on 16 CPU VM with 6 GB of heap.
 
 #### Zookeeper
-Marathon uses [Zookeeper (ZK)](https://zookeeper.apache.org/) as it’s storage.
-ZK is a key value store focused
-more on data consistency then availability. One of disadvantage of ZK is it
-doesn’t work well with huge objects. If stored objects are getting bigger
-write to ZK take more. By default stored entry must fits in 1MB. Unfortunately
+Marathon uses [Zookeeper](https://zookeeper.apache.org/)
+as it's primary data storage.
+Zookeeper is a key value store focused
+more on data consistency then availability. One of disadvantage of Zookeeper is it
+doesn’t work well with huge objects. If stored objects are getting bigger,
+write takes more time. By default stored entry must fits in 1MB. Unfortunately
 Marathon data layout does not fit well with this constraint. Marathon saves
-deployments as a state before and after. This means if you deploy new
-application, deployment will take double of your applications state. In small
+deployments as old group, deployment metadata and updated group
+[MARATHON-1836](https://jira.mesosphere.com/browse/MARATHON-1836)
+. This means if you deploy new
+application, deployment will take double of your application group state. In small
 installations it’s not a problem, but when you have more and more
-applications at some point you can notice your ZK write times takes longer and
+applications at some point you can notice your Zookeeper write times takes longer and
 at some point you will end with following error:
 
 ```shell
@@ -88,21 +92,22 @@ RESPONSE: [{
 }]
 ```
 
-It will thrown by Marathon when you want to deploy critical fix
+This error will be thrown by Marathon when you want to deploy critical fix
 ([Murphy's law](https://en.wikipedia.org/wiki/Murphy's_law) works perfectly).
-This was a huge problem until Marathon 0.13 but now ZK compression is default
+This was a huge problem until Marathon 0.13 but now Zookeeper compression is default
 and it’s generally working but still it’s not unlimited especially if you
 app definitions does not compress well.
 
-Another issue with ZK like with any other high consistency storage is delay
+Another issue with Zookeeper like with any other high consistency storage is delay
 between the nodes. You really want to put them close and created backup cluster
 in other zone/region to quickly switch if there is an outage. Having cross DC
-ZK cluster will cause long write times and often reelection.
+Zookeeper cluster will cause long write times and often reelection.
 
-ZK works best if you minimize number of objects it store. Changing
+Zookeeper works best if you minimize number of objects it store. Changing
 `zk_max_version` _(deprecated)_ from default 25 to 5 or less will save some space.
 Be careful with this if you often scale your applications because you can hit
-[MARATHON-4338](https://jira.mesosphere.com/browse/MARATHON-4338).
+[MARATHON-4338](https://jira.mesosphere.com/browse/MARATHON-4338)
+and lost your health checks information.
 
 ### Metrics
 [Marathon 0.13](https://github.com/mesosphere/marathon/releases/tag/v0.13.0)
@@ -119,13 +124,15 @@ to 55s and reduced time to less than 2%.
 ### Threads
 Marathon is build with Scala. It’s using Akka as a actor framework. It’s
 configuration suggest that there should be
-[64 threads in akka pool](https://github.com/mesosphere/marathon/blob/v1.3.10/src/main/scala/mesosphere/marathon/Main.scala#L100) and [100 threads in IO pool](https://github.com/mesosphere/marathon/blob/v1.3.10/src/main/scala/mesosphere/util/ThreadPoolContext.scala#L8).
+[64 threads in akka pool](https://github.com/mesosphere/marathon/blob/v1.3.10/src/main/scala/mesosphere/marathon/Main.scala#L100)
+and [100 threads in IO pool](https://github.com/mesosphere/marathon/blob/v1.3.10/src/main/scala/mesosphere/util/ThreadPoolContext.scala#L8).
 This configuration seems valid. When our cluster grows and
 we were having more and more applications we noticed that threads number also
 increased. With 2k tasks we have up to 4k of threads. This is quite a lot and
 we lost precious CPU time on task switching. After weeks of hard work we manage
 to reduce this number to 200 threads and our changes
-[was merged and released](https://github.com/mesosphere/marathon/pull/4912).
+[was merged](https://github.com/mesosphere/marathon/pull/4912)
+and released in [1.3.7](https://github.com/mesosphere/marathon/releases/tag/v1.3.7).
 Still it’s more than configured value but we can handle this.
 
 ![Marathon threads](/img/articles/2017-03-08-hitting-the-wall/marathon_threads_1.png)
@@ -145,11 +152,11 @@ high value could cause actor starvation and timeouts. We increased it 4 times
 and see small improvement.
 
 ### Healthchecks
-Marathon has health checks from the beginning, before they were introduced in
+Marathon has HTTP health checks from the beginning, before they were introduced in
 Mesos. Every our task has configured HTTP healthcheck. Because Marathon makes
-makes requests from single machine - currently leading master it’s quite
+requests from single machine - currently leading master it’s quite
 expensive especially when you need to make thousands HTTP requests. To reduce
-the load we increased Marathon health check interval. Fortunately Mesos in a
+the load we increased Marathon health check interval. Fortunately in a
 mean time Mesos incorporated HTTP health checks and it was added to Marathon
 1.4 so soon we can switch and make checks locally on agents.
 There is a great post on
@@ -168,7 +175,7 @@ when events are pushed to subscriber with HTTP POST and SSE when
 subscriber make connection and receives events on one connection. Since
 callbacks looks easier from developer perspective we created services using
 this method. It’s just regular web application accepting POSTs. First problem
-is the size of events. They could be big
+is the size of events. They could be big (our biggest event is nearly 10MB )
 [(MARATHON-4510)](https://jira.mesosphere.com/browse/MARATHON-4510).
 For example deployment events
 contains whole deployment object this mean whole Marathon applications state
@@ -201,9 +208,15 @@ support and it's looks like nobody is using it
 ### Deployments
 In company with over 600 developers located in one timezone deployments
 multiple deployments occurs at the same time. This is a problem for Marathon
-since it must update the state in ZK and this sometimes timeout. If you can try
-to group deployments and sent them in one batch. Then marathon will work.
-Unfortunately this coupling is not perfect and we don’t introduced it yet.
+since it must update the state in Zookeeper and this blocking operation sometimes timeouts.
+If you can try
+to group deployments and sent them in one batch then marathon will work.
+Instead of sending many request (one for each application) send one request
+with array of applications to be deployed.
+This coupling is not perfect, for example you can't stop or rollback deployment
+of a single application in a batch so we don’t introduced it yet.
+By the way, stopping application is dangerous
+[MARATHON-2340](https://jira.mesosphere.com/browse/MARATHON-2340).
 
 ### Autentication and Authorization
 Marathon has plugin module that allows adding custom fine grained authentication
@@ -256,7 +269,8 @@ with no communication to community. Still there is no roadmap but you can figure
 out what will happen from Mesos and Marathon issues and pull requests.
 
 ## Summary
-To sum up, marathon is nice Mesos framework for small installations. If you
+To sum up, Marathon is nice Mesos framework for installations up to thousands applications.
+If you
 have more than thousands application and more then 10k tasks you will hit the
 wall.
 
@@ -264,7 +278,7 @@ wall.
 
 * Monitor — enable metrics but remember configure them.
 * Update to 1.3.10 or later.
-* Minimize ZK communication latency and objects size.
+* Minimize Zookeeper communication latency and objects size.
 * Tune JVM — add more heap and CPUs :)
 * Do not use event bus if you really need to use filtered SSE and accept it is
 asynchronous and events are delivery at most once.
@@ -277,3 +291,11 @@ try [Aurora](https://aurora.apache.org/).
 It has less features and slower development but is battle tested
 [on huge capacity at Twitter](https://youtu.be/nNrh-gdu9m4)
 and more stable then Marathon.
+If you need bigger community, support from more than one company and
+faster development try [Kubernetes](https://kubernetes.io/).
+
+Whatever way you choose remember:
+
+> The ecosystem around containerization is still emerging and is in a rapid
+> state of flux.
+> — [cookiecaper](https://news.ycombinator.com/item?id=13657441)
