@@ -216,6 +216,45 @@ render response with only applications you can see.
 Instead of using plugin create a facade that will authenticate requests and
 sanitize output from data user should not see.
 
+### Community and support
+Community around Marathon is preety small epsecialy when comparing with
+Kubernetes or Docker. Container orchestration is still emerging and not many
+people are involved in this projects.
+If you have a problem you can submit an
+[issue](https://jira.mesosphere.com/projects/MARATHON),
+ask on
+[mailing list](https://groups.google.com/forum/#!forum/marathon-framework)
+or
+[stack overflow](https://stackoverflow.com/questions/tagged/marathon).
+But do not expect fast answer.
+
+> We have to support the company first which has a more integrated solution
+> that actually has to make money at the end of the day.
+> We are also a pretty damn small team with a huge backlog to deliver
+> — [jasonmesosphere](https://news.ycombinator.com/item?id=13655629)
+
+Marathon team is small and need to work on Mesospheres paying clients.
+This means less important features or community request will not have attention.
+Being a business client does not mean you will have a proper support or
+documentation.
+
+> Could you please update the docs so we (paying enterprise customers)
+> don't have to discover it the hard way?
+> [MARATHON-1643](https://jira.mesosphere.com/browse/MARATHON-1643)
+
+If you want to monitor what is happening with Marathon codebase prepare for
+frequent changes. Over the years Marathon team try different code review
+and managing tools. They started with vanilla Github, then moved to Waffle.io
+to finally settle on JIRA. With code review they used Github, reviewable.io
+now they prefer [phabricator](https://phabricator.mesosphere.com/).
+CI system also chagned from Travis thru TeamCity to Jenkins.
+
+Over all it's easier to monitor what happen with Marathon then it used to be
+when Mesosphere worked [in a private repo](https://twitter.com/airburst/status/743439711851642884)
+and have [silence period](https://twitter.com/kamilchm/status/741261802487611392)
+with no communication to community. Still there is no roadmap but you can figure
+out what will happen from Mesos and Marathon issues and pull requests.
+
 ## Summary
 To sum up, marathon is nice Mesos framework for small installations. If you
 have more than thousands application and more then 10k tasks you will hit the
@@ -223,9 +262,10 @@ wall.
 
 ### How to avoid the wall:
 
-* Monitor - enable metrics but remember to reduce gather interval.
-* Update to 1.3.10 (usign edge release could be painful).
-* Tune JVM - add more heap and CPUs :)
+* Monitor — enable metrics but remember configure them.
+* Update to 1.3.10 or later.
+* Minimize ZK communication latency and objects size.
+* Tune JVM — add more heap and CPUs :)
 * Do not use event bus if you really need to use filtered SSE and accept it is
 asynchronous and events are delivery at most once.
 * If you need task life cycle events use custom executor.
@@ -234,5 +274,6 @@ asynchronous and events are delivery at most once.
 If above suggestions does not help think about sharding. You can use project like
 [Triatlon](https://github.com/schibsted/triathlon). If this still does not help
 try [Aurora](https://aurora.apache.org/).
-It has less features and slower development but is proven to work
-on huge capacity at Twitter and more stable then Marathon.
+It has less features and slower development but is battle tested
+[on huge capacity at Twitter](https://youtu.be/nNrh-gdu9m4)
+and more stable then Marathon.
