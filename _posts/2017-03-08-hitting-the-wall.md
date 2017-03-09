@@ -16,8 +16,9 @@ anymore. At Allegro we experienced a similar thing with Mesosphere Marathon. Thi
 is our story of using Marathon on a growing microservice ecosystem from tens of
 tasks and a couple applications to thousands of tasks and over a hundred applications.
 
-_If there is no mention about Marathon version it is 1.3.10 and below. We need
-some time to test and deploy the latest 1.4 release._
+{: style="color:gray; font-size: 80%; text-align: center; font-style: italic;"}
+If there is no mention about Marathon version it is 1.3.10 and below. We need
+some time to test and deploy the latest 1.4 release.
 
 If you are interested how our ecosystem is built, take a look at this MesosCon
 presentation where we presented our Apache Mesos ecosystem after
