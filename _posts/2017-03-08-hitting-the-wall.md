@@ -1,19 +1,23 @@
 ---
 layout: post
-title: How to Avoid Hitting the Wall in Mesosphere Marathon
+title: Hitting the Wall
 author: [tomasz.janiszewski]
 tags: [tech, mesos, marathon, mesosphere]
 publish: true
 ---
 
-Running Mesosphere Marathon is like running... a marathon. When you are
+Running
+[Mesosphere](https://mesosphere.com/)
+[Marathon](https://mesosphere.github.io/marathon/)
+is like running... a marathon. When you are
 preparing for a long distance run, you’ll often hear about
 [Hitting the wall](https://en.wikipedia.org/wiki/Hitting_the_wall).
 This effect is described mostly in running and cycling but affects all
 endurance sports. It happens when your body does not have enough glycogen to
 produce power and this results in a sudden “power loss” so you can’t run
-anymore. At Allegro we experienced a similar thing with Mesosphere Marathon. This
-is our story of using Marathon on a growing microservice ecosystem, from tens of
+anymore. At [Allegro](http://allegro.tech/about-us/)
+we have experienced a similar thing with Mesosphere Marathon. This
+is our story on the using Marathon on a growing microservice ecosystem, from tens of
 tasks and a couple applications, to thousands of tasks and over a hundred applications.
 
 {: style="color:gray; font-size: 80%; text-align: center; font-style: italic;"}
@@ -22,7 +26,7 @@ some time to test and deploy the latest 1.4 release.
 
 If you are interested in how our ecosystem is built, take a look at this MesosCon
 presentation where we presented our Apache Mesos ecosystem after
-the first year of production use
+the first year of production use.
 
 <iframe
   class="youtube_iframe"
@@ -38,24 +42,25 @@ Couple of years ago we decided to completely change the architecture of our syst
 We used to have a monolithic application written in PHP with a bunch of maintenance
 scripts around it. Changing this system was not easy, and what matters the
 most, not fast enough for our business to grow. We decided to switch to
-microservice based architecture. This switch required changing our infrastructure and
+the microservice based architecture. This switch required changing our infrastructure and
 the way we operate and maintain our applications. We used to have one application and
-now we wanted to move to many small applications that can be developed, deployed
-and scaled separately. At the beginning we tried to launch applications in
+now we wanted to move to many small applications that can be developed, deployed,
+and scaled separately. At the beginning, we tried to launch applications in
 dedicated VMs, but it was neither efficient in terms of resource allocation nor
-fast or agile, so we searched for different a solution to this problem.
-When we began our journey to microservices and containers there were not so
-many solutions on the market as there are today. Most of them were fresh and not battle
-proven. We evaluated a couple a of them and finally decided to use Mesos and
+fast or agile, so we searched for a different solution to this problem.
+When we began our journey to microservices and containers, there were not so
+many solutions on the market as there are today. Most of them were not matured and not battle
+proven. We evaluated a couple a of them and finally, we decided to use
+[Mesos](https://mesos.apache.org/) and
 Marathon as our main framework. Below is the story of our scaling issues with
-Marathon as our main (and so far only) framework on top of Apache Mesos.
+Marathon as our main (and so far only) framework on the top of Apache Mesos.
 
 ![Microservices visualization](/img/articles/2017-03-08-hitting-the-wall/vizceral.jpg)
 
 ## Problems
 
 ### JVM
-Marathon is written in Scala and runs on a Java Virtual Machine.
+Marathon is written in Scala and runs on the Java Virtual Machine.
 It's default settings are modest. Take a look at GC and heap usage metrics
 and if you see Marathon spends much time in GC or you can't see a razor shape on
 your heap utilization graph, check your GC and heap settings.
@@ -70,10 +75,10 @@ more on data consistency then availability. One of the disadvantages of Zookeepe
 doesn’t work well with huge objects. If stored objects are getting bigger,
 writes take more time. By default, a stored entry must fit in 1MB. Unfortunately
 Marathon data layout does not fit well with this constraint. Marathon saves
-deployments as old group, deployment metadata and updated group
+deployments as old application group, deployment metadata and updated group
 [MARATHON-1836](https://jira.mesosphere.com/browse/MARATHON-1836)
-. This means if you deploy a new
-application, deployment will take double of your application group state. In small
+. That means if you deploy a new
+application, deployment will take double of your application’s group state. In small
 installations it’s not a problem, but when you have more and more
 applications at some point you will notice your Zookeeper write times take longer and
 at some point you will end up with the following error:
@@ -97,15 +102,15 @@ RESPONSE: [{
 
 This error will be thrown by Marathon when you want to deploy a critical fix
 ([Murphy's law](https://en.wikipedia.org/wiki/Murphy's_law) works perfectly).
-This was a huge problem until Marathon 0.13 but now Zookeeper compression is
+This was a huge problem until Marathon 0.13 but now, Zookeeper compression is
 turned on by default
-and it’s generally working but still it’s not unlimited, especially if your
+and it’s generally working but still, it’s not unlimited, especially if your
 app definitions do not compress well.
 
 Another issue with Zookeeper, like with any other high consistency storage, is delay
-between the nodes. You really want to put them close and create a backup cluster
-in another zone/region to quickly switch if there is an outage. Having cross DC
-Zookeeper clusters will cause long write times and often reelection.
+between the nodes. You really want to put them close and to create a backup cluster
+in another zone/region to switch quickly in case of an outage. Having cross DC
+Zookeeper clusters cause long write times and often reelection.
 
 Zookeeper works best if you minimize the number of objects it stores. Changing
 `zk_max_version` _(deprecated)_ from default 25 to 5 or less will save some space.
@@ -243,7 +248,7 @@ You can run many Marathon instances on a single Mesos cluster.
 What is more, you can run Marathon on Marathon (MoM).
 [Here](https://wiki.mesosphere.com/display/DCOS/MoM+1.4) is a test for it and
 [here](https://github.com/mesosphere/universe/tree/version-3.x/repo/packages/M/marathon/8)
-you can find a DCOS package for marathon.
+you can find a [DCOS](https://dcos.io/) package for marathon.
 With this setup you can mitigate most of the issues described above, by reducing load
 on a single Marathon.
 
