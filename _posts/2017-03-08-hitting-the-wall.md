@@ -24,9 +24,8 @@ tasks and a couple applications, to thousands of tasks and over a hundred applic
 If there is no mention about Marathon version, it is 1.3.10 and below. We need
 some time to test and deploy the latest 1.4 release.
 
-If you are interested in how our ecosystem is built, take a look at this MesosCon
-presentation where we presented our Apache Mesos ecosystem after
-the first year of production use.
+If you are interested in how our ecosystem is built, take a look at below MesosCon
+presentation.
 
 <iframe
   class="youtube_iframe"
@@ -38,7 +37,7 @@ the first year of production use.
 </iframe>
 
 ## History
-Couple of years ago we decided to completely change the architecture of our system.
+A couple of years ago we decided to completely change the architecture of our system.
 We used to have a monolithic application written in PHP with a bunch of maintenance
 scripts around it. Changing this system was not easy, and what matters the
 most, not fast enough for our business to grow. We decided to switch to
@@ -71,7 +70,7 @@ tuning a JVM. Finally we are running Marathon on 16 CPU VMs with 6 GB of heap.
 Marathon uses [Zookeeper](https://zookeeper.apache.org/)
 as it's primary data storage.
 Zookeeper is a key value store focused
-more on data consistency then availability. One of the disadvantages of Zookeeper is it
+more on data consistency then availability. One of the disadvantages of Zookeeper is that it
 doesn’t work well with huge objects. If stored objects are getting bigger,
 writes take more time. By default, a stored entry must fit in 1MB. Unfortunately
 Marathon data layout does not fit well with this constraint. Marathon saves
@@ -113,27 +112,27 @@ in another zone/region to switch quickly in case of an outage. Having cross DC
 Zookeeper clusters cause long write times and often reelection.
 
 Zookeeper works best if you minimize the number of objects it stores. Changing
-`zk_max_version` _(deprecated)_ from default 25 to 5 or less will save some space.
+`zk_max_version` (deprecated) from default 25 to 5 or less will save some space.
 Be careful with this if you often scale your applications because you can hit
 [MARATHON-4338](https://jira.mesosphere.com/browse/MARATHON-4338)
 and lose your health check information.
 
 ### Metrics
 [Marathon 0.13](https://github.com/mesosphere/marathon/releases/tag/v0.13.0)
-was one of the biggest releases in Marathon. It brings many
-improvements and bugfixes. It also brought metric collection and sending them to
-graphite and datadog. This is nice.
+was one of the biggest releases of Marathon. It brings many
+improvements and bugfixes. It also brought metrics collection and sending them to
+[Graphite](http://graphiteapp.org/) and [Datadog](https://www.datadoghq.com/). This is nice.
 We started having problems with CPU usage on our Marathon cluster. We profiled
 it with
 [Honest Profiler](https://github.com/RichardWarburton/honest-profiler/wiki)
-and it turned out Marathon spent 20% of it’s time on
-metrics collection. By default metrics are collected every 10s we changed this
+and it turned out that Marathon was spending 20% of it’s time on
+metrics collection. By default metrics are collected every 10s so we changed this
 to 55s and reduced time spent on collection to less than 2%.
 
 ![Flame graph with default metrics setting](/img/articles/2017-03-08-hitting-the-wall/flam_metrics.png)
 
 ### Threads
-Marathon is build with Scala. It’s using Akka as an actor framework. It’s
+Marathon uses Akka as an actor framework. Its
 configuration suggest that there should be
 [64 threads in akka pool](https://github.com/mesosphere/marathon/blob/v1.3.10/src/main/scala/mesosphere/marathon/Main.scala#L100)
 and [100 threads in IO pool](https://github.com/mesosphere/marathon/blob/v1.3.10/src/main/scala/mesosphere/util/ThreadPoolContext.scala#L8).
