@@ -60,15 +60,15 @@ It is generated with [vizceral](https://github.com/Netflix/vizceral).
 
 ### JVM
 Marathon is written in Scala and runs on the Java Virtual Machine.
-It's default settings are modest. Take a look at GC and heap usage metrics
-and if you see Marathon spends much time in GC or you can't see a razor shape on
+It’s default settings are modest. Take a look at GC and heap usage metrics
+and if you see Marathon spends much time in GC or you can’t see a razor shape on
 your heap utilization graph, check your GC and heap settings.
 There are many talks and tutorials on
 tuning a JVM. Finally we are running Marathon on 16 CPU VMs with 6 GB of heap.
 
 ### Zookeeper
 Marathon uses [Zookeeper](https://zookeeper.apache.org/)
-as it's primary data storage.
+as it’s primary data storage.
 Zookeeper is a key value store focused
 more on data consistency then availability. One of the disadvantages of Zookeeper is that it
 doesn’t work well with huge objects. If stored objects are getting bigger,
@@ -100,7 +100,7 @@ RESPONSE: [{
 ```
 
 This error will be thrown by Marathon when you want to deploy a critical fix
-([Murphy's law](https://en.wikipedia.org/wiki/Murphy's_law) works perfectly).
+([Murphy’s law](https://en.wikipedia.org/wiki/Murphy's_law) works perfectly).
 This was a huge problem until Marathon 0.13 but now, Zookeeper compression is
 turned on by default
 and it’s generally working but still, it’s not unlimited, especially if your
@@ -182,7 +182,7 @@ There is a great post on
 ache-mesos-part-1/)
 You can read there that Marathon checks work up to 2k tasks while Mesos scales well.
 If you want to switch to Marathon 1.4 and use Mesos healthchecks keep in mind
-it's new mechanism and there are issues with it:
+it’s new mechanism and there are issues with it:
 [MESOS-6786](https://issues.apache.org/jira/browse/MESOS-6786)
 [MESOS-6790](https://issues.apache.org/jira/browse/MESOS-6790)
 
@@ -232,7 +232,7 @@ If you can try
 to group deployments and send them in one batch, then Marathon will work.
 Instead of sending many request (one for each application) send one request
 with an array of applications to be deployed.
-This coupling is not perfect, for example you can't stop or rollback deployment
+This coupling is not perfect, for example you can’t stop or rollback deployment
 of a single application in a batch so we didn’t introduced it yet.
 By the way, stopping an application is dangerous
 [MARATHON-2340](https://jira.mesosphere.com/browse/MARATHON-2340).
@@ -282,7 +282,7 @@ Being a business client does not necessarily mean you will have proper support o
 documentation.
 
 > Could you please update the docs so we (paying enterprise customers)
-> don't have to discover it the hard way?
+> don’t have to discover it the hard way?
 > [MARATHON-1643](https://jira.mesosphere.com/browse/MARATHON-1643)
 
 If you want to monitor what is happening with Marathon codebase prepare for
