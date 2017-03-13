@@ -17,13 +17,10 @@ endurance sports. It happens when your body does not have enough glycogen to
 produce power and this results in a sudden “power loss” so you can’t run
 anymore. At [Allegro](http://allegro.tech/about-us/)
 we have experienced a similar thing with Mesosphere Marathon. This
-is our story on the using Marathon on a growing microservice ecosystem, from tens of
+is our story on the using Marathon on a growing microservice ecosystem
+(if there is no mention about Marathon version, it is 1.3.10 and below. We need
+some time to test and deploy the latest 1.4 release), from tens of
 tasks and a couple applications, to thousands of tasks and over a hundred applications.
-
-{: style="color:gray; font-size: 80%; text-align: center; font-style: italic;"}
-If there is no mention about Marathon version, it is 1.3.10 and below. We need
-some time to test and deploy the latest 1.4 release.
-
 If you are interested in how our ecosystem is built, take a look at below MesosCon
 presentation.
 
@@ -53,6 +50,9 @@ proven. We evaluated a couple a of them and finally, we decided to use
 [Mesos](https://mesos.apache.org/) and
 Marathon as our main framework. Below is the story of our scaling issues with
 Marathon as our main (and so far only) framework on the top of Apache Mesos.
+Below image is a snapshot of a traffic visualization for our services.
+It is generated with [vizceral](https://github.com/Netflix/vizceral).
+
 
 ![Microservices visualization](/img/articles/2017-03-08-hitting-the-wall/vizceral.jpg)
 
@@ -128,6 +128,11 @@ it with
 and it turned out that Marathon was spending 20% of it’s time on
 metrics collection. By default metrics are collected every 10s so we changed this
 to 55s and reduced time spent on collection to less than 2%.
+Below you can see a [flame graph](http://www.brendangregg.com/flamegraphs.html)
+presenting how much CPU time every method takes.
+You can compare how much CPU time gathering metrics take with interval set to
+10 seconds (left) and 55 seconds (right).
+
 
 ![Flame graph with default metrics setting](/img/articles/2017-03-08-hitting-the-wall/flame_before_after.png)
 
@@ -144,6 +149,8 @@ to reduce this number to 200 threads and our changes
 [were merged](https://github.com/mesosphere/marathon/pull/4912)
 and released in [1.3.7](https://github.com/mesosphere/marathon/releases/tag/v1.3.7).
 Still, it’s more than the configured value but we can handle this.
+Below you can see diagram presenting how number of threads decreased after
+updating Marathon.
 
 ![Marathon threads](/img/articles/2017-03-08-hitting-the-wall/marathon_threads_1.png)
 
@@ -205,7 +212,8 @@ but we see it’s not the best way of registering services in discovery service.
 Due to JSON
 parsing and sending subscriptions are sensitive to CPU and network load. When
 many deployments are triggered at the same time we experienced lag on events
-for a couple of minutes.
+for a couple of minutes. Below graph presents typical events delay for one of
+our cluster in a typical workday.
 
 ![Marathon events delay](/img/articles/2017-03-08-hitting-the-wall/marathon-consul-dev.png)
 
@@ -214,7 +222,7 @@ that will register an application in our systems just like Aurora does. This wil
 give use necessary blocking features on actions that are critical and could not
 be done asynchronous. Unfortunately there is an issue with custom executor
 support and it looks like nobody is using it
-[MARATHON-4210](https://jira.mesosphere.com/browse/MARATHON-4210)
+[MARATHON-4210](https://jira.mesosphere.com/browse/MARATHON-4210).
 
 ### Deployments
 In a company with over 600 developers located in one timezone deployments
