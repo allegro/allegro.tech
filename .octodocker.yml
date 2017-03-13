@@ -1,0 +1,9 @@
+provisioning_command: "/bin/true"
+compose:
+  jekyll:
+    image: jekyll/jekyll:pages
+    command: jekyll serve -s /srv/src -d /srv/jekyll/_site -p /srv/jekyll/plugins
+    ports:
+        - 4000
+    volumes:
+        - .:/srv/src
