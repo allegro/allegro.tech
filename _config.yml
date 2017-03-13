@@ -1,0 +1,28 @@
+gems:
+    - jekyll-redirect-from
+    - jekyll-sitemap
+
+# Site settings
+title: allegro.tech
+menu: false
+#email: kariera@allegro.pl
+description: "We use Open Source solutions on a daily basis here at Allegro Group. Why not work on our karma and give something in return? Welcome to our open source technology blog."
+name: allegro.tech blog
+baseurl: ""
+url: "http://allegro.tech"
+twitter_username: AllegroTechBlog
+github_username:  allegro
+facebook_username: allegro.tech
+google_plus_id: +AllegroTechBlog
+meetup_username: allegrotech
+slideshare_username: allegrotech
+
+kramdown:
+    input: GFM
+    hard_wrap: false
+    coderay_line_numbers: nil
+
+sass:
+    sass_dir: css/partials
+
+permalink: /:year/:month/:title.html
