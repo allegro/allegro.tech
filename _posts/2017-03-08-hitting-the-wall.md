@@ -129,7 +129,7 @@ and it turned out that Marathon was spending 20% of it’s time on
 metrics collection. By default metrics are collected every 10s so we changed this
 to 55s and reduced time spent on collection to less than 2%.
 
-![Flame graph with default metrics setting](/img/articles/2017-03-08-hitting-the-wall/flam_metrics.png)
+![Flame graph with default metrics setting](/img/articles/2017-03-08-hitting-the-wall/flame_before_after.png)
 
 ### Threads
 Marathon uses Akka as an actor framework. Its
