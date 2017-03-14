@@ -248,13 +248,14 @@ By the way, stopping an application is dangerous
 ### Autentication and Authorization
 Marathon has a plugin module that allows adding custom fine-grained authentication
 and authorization. Do not use it. We tried and we failed. Its API changes with every
-release. But what is more, important plugin API is designed to get permissions for
-a single application. This means that if you have thousands of applications and you want
+release. But what is more, the API only allows checking permissions for
+a single application in one request.
+This means that if you have thousands of applications and you want
 to query `/v2/apps`, Marathon will call your plugin thousands of times, and then
 render a response with only the applications you can see.
 
 Instead of using this plugin, create a facade that will authenticate requests and
-sanitize output from a data user should not see.
+remove from them any data users should not see.
 
 ### Sharding
 If you feel like your installation could grow and want to be
