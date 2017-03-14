@@ -60,7 +60,7 @@ It is generated with [vizceral](https://github.com/Netflix/vizceral).
 
 ### JVM
 Marathon is written in Scala and runs on the Java Virtual Machine.
-Its default settings are modest. Take a look at GC and heap usage metrics
+Take a look at GC and heap usage metrics
 and if you see Marathon spends much time in GC or you can’t see a saw shape on
 your heap utilization graph, check your GC and heap settings.
 There are many talks and tutorials on
