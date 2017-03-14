@@ -17,10 +17,10 @@ endurance sports. It happens when your body does not have enough glycogen to
 produce power and this results in a sudden “power loss” so you can’t run
 anymore. At [Allegro](http://allegro.tech/about-us/)
 we have experienced a similar thing with Mesosphere Marathon. This
-is our story on the using Marathon on a growing microservice ecosystem
-(if there is no mention of Marathon version, it is 1.3.10 and below. We need
-some time to test and deploy the latest 1.4 release), from tens of
+is our story on using Marathon in a growing microservice ecosystem, from tens of
 tasks and a couple applications, to thousands of tasks and over a hundred applications.
+If there is no mention of Marathon version, it is 1.3.10 and below; we need
+some time to test and deploy the latest 1.4 release.
 If you are interested in how our ecosystem is built, take a look at below MesosCon
 presentation.
 
@@ -46,10 +46,10 @@ dedicated VMs, but it was neither efficient in terms of resource allocation nor
 fast or agile, so we searched for a different solution to this problem.
 When we began our journey to microservices and containers, there were not so
 many solutions on the market as there are today. Most of them were not matured
-and not battle-proven. We evaluated a couple a of them and finally, we decided to use
+and not battle-proven. We evaluated a couple of them and finally, we decided to use
 [Mesos](https://mesos.apache.org/) and
 Marathon as our main framework. Below is the story of our scaling issues with
-Marathon as our main (and so far only) framework on the top of Apache Mesos.
+Marathon as our main (and so far only) framework on top of Apache Mesos.
 Below image is a snapshot of a traffic visualization for our services.
 It is generated with [vizceral](https://github.com/Netflix/vizceral).
 
@@ -108,13 +108,13 @@ This was a huge problem until Marathon 0.13, but now Zookeeper compression is
 turned on by default.
 It generally works well, but still, it’s not unlimited, especially if your
 app definitions do not compress well. So if they don’t you will hit a wall.
-Marathon 1.4.0 brings [new persistent storage layout](https://github.com/mesosphere/marathon/blob/master/changelog.md#new-zk-persistent-storage-layout)
+Marathon 1.4.0 brings [a new persistent storage layout](https://github.com/mesosphere/marathon/blob/master/changelog.md#new-zk-persistent-storage-layout)
 so it might save you.
 
-Another issue with Zookeeper, like with any other high consistency storage, the network delay
+Another issue with Zookeeper, like with any other high consistency storage, is the network delay
 between nodes. You really want to put them close and to create a backup cluster
 in another zone/region to switch quickly in case of an outage. Having cross-DC
-Zookeeper clusters cause long write times and often
+Zookeeper clusters causes long write times and often
 [leader reelection](https://en.wikipedia.org/wiki/Leader_election).
 
 Zookeeper works best if you minimize the number of objects it stores. Changing
@@ -125,7 +125,7 @@ and lose your health check information.
 
 ### Metrics
 [Marathon 0.13](https://github.com/mesosphere/marathon/releases/tag/v0.13.0)
-was one of the biggest releases of Marathon. It brings many
+was one of the biggest releases of Marathon. It brought many
 improvements and bugfixes. It also brought metrics collection and sending them to
 [Graphite](http://graphiteapp.org/) and [Datadog](https://www.datadoghq.com/). This is nice.
 Unfortunately, soon we started having problems with CPU usage on our Marathon cluster.
@@ -136,7 +136,7 @@ metrics collection. By default metrics are collected every 10s so we changed thi
 to 55s and reduced time spent on collection to less than 2%.
 Below you can see a [flame graph](http://www.brendangregg.com/flamegraphs.html)
 presenting how much CPU time every method takes.
-You can compare how much CPU time gathering metrics take with interval set to
+You can compare how much CPU time gathering metrics takes with interval set to
 10 seconds (left) and 55 seconds (right).
 
 
@@ -155,7 +155,7 @@ to reduce this number to 200 threads and our changes
 [were merged](https://github.com/mesosphere/marathon/pull/4912)
 and released in [1.3.7](https://github.com/mesosphere/marathon/releases/tag/v1.3.7).
 Still, it’s more than the configured value but we will be able to handle this.
-Below you can see diagram presenting how number of threads decreased after
+Below you can see a diagram presenting how number of threads decreased after
 updating Marathon.
 
 ![Marathon threads](/img/articles/2017-03-08-hitting-the-wall/marathon_threads_1.png)
@@ -176,8 +176,8 @@ high a value could cause actor starvation and timeouts. We increased it 4 times
 and saw a small improvement.
 
 ### Healthchecks
-Marathon has HTTP health checks from the beginning, before they were introduced in
-Mesos. Each of our tasks has a configured HTTP healthcheck. Because Marathon makes
+Marathon has had HTTP health checks from the beginning, before they were introduced in
+Mesos. Each of our tasks have a configured HTTP healthcheck. Because Marathon makes
 requests from a single machine — the currently leading master — it’s quite
 expensive, especially when you need to make thousands of HTTP requests. To reduce
 the load we increased the Marathon health check interval. Fortunately in the
@@ -208,7 +208,7 @@ before and after deployment, and steps that will be performed by Marathon
 in order to complete it.
 Another drawback with callbacks is that events can’t be filtered, so it needs to be
 done on subscriber side. This is a waste of CPU and network resources, because events need
-to be parsed from Scala to JSON and then back from JSON to eventually be dropped.
+to be serialized to JSON and then parsed back, only to be eventually dropped.
 Currently Marathon spends most of it’s time on parsing events. We added
 [filtering by event type](https://github.com/mesosphere/marathon/blob/d408ef6abeea1e0d06de1d568c6f2cc79e90328a/docs/docs/event-bus.md#filtering-the-event-stream)
 to SSE and moved to this subscription.
@@ -296,11 +296,11 @@ documentation.
 If you want to monitor what is happening with Marathon codebase prepare for
 frequent changes. Over the years the Marathon team tried different code review
 and management tools. They started with vanilla Github, then moved to Waffle.io
-to finally settle on JIRA. For code review they used Github, reviewable.io
+to finally settled on JIRA. For code review they used Github, reviewable.io
 and now they prefer [phabricator](https://phabricator.mesosphere.com/).
 Their CI system also changed from Travis thru TeamCity to Jenkins.
 
-Overall, it is easier to monitor what happens with Marathon then it used to be
+Overall, it is easier to monitor what happens with Marathon than it used to be
 when Mesosphere worked [in a private repo](https://twitter.com/airburst/status/743439711851642884)
 and had a [silence period](https://twitter.com/kamilchm/status/741261802487611392)
 with no communication to the community. Still, there is no roadmap but you can figure
@@ -309,7 +309,7 @@ out what will happen based on Mesos and Marathon issues and pull requests.
 ## Summary
 To sum up, Marathon is a nice Mesos framework for installations of a few thousand applications.
 If you
-have more than a few thousand of applications and more then 10k tasks you will hit the
+have more than a few thousand applications and more then 10k tasks you will hit the
 wall.
 
 #### How to avoid the wall:
