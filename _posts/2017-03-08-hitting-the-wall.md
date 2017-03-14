@@ -128,7 +128,7 @@ and lose your health check information.
 was one of the biggest releases of Marathon. It brings many
 improvements and bugfixes. It also brought metrics collection and sending them to
 [Graphite](http://graphiteapp.org/) and [Datadog](https://www.datadoghq.com/). This is nice.
-Unfortunately, soon we we started having problems with CPU usage on our Marathon cluster.
+Unfortunately, soon we started having problems with CPU usage on our Marathon cluster.
 We profiled it with
 [Honest Profiler](https://github.com/RichardWarburton/honest-profiler/wiki)
 and it turned out that Marathon was spending 20% of its time on
