@@ -206,21 +206,21 @@ For example deployment events
 contain the whole deployment object — this means the whole Marathon application state
 before and after deployment, and steps that will be performed by Marathon
 in order to complete it.
-Another drawback with callbacks is that events can’t be filtered, so it needs to be
+Another drawback with callbacks is that events can’t be filtered, so filtering needs to be
 done on subscriber side. This is a waste of CPU and network resources, because events need
 to be serialized to JSON and then parsed back, only to be eventually dropped.
 Currently Marathon spends most of it’s time on parsing events. We added
 [filtering by event type](https://github.com/mesosphere/marathon/blob/d408ef6abeea1e0d06de1d568c6f2cc79e90328a/docs/docs/event-bus.md#filtering-the-event-stream)
 to SSE and moved to this subscription.
 
-Another problem with subscriptions is that they are asynchronous way of
-communication. We are currently using it in
+Another problem with subscriptions is that they are an asynchronous way of
+communication. We are currently using them in
 [marathon-consul](https://github.com/allegro/marathon-consul)
 but we see it’s not the best way of registering services in discovery service.
 Due to JSON
 parsing and sending, subscriptions performance is sensitive to CPU and network load. When
 many deployments are triggered at the same time we experienced lagging events
-for a couple of minutes. Below graph presents typical events delay for one of
+for a couple of minutes. The following graph presents typical events delay for one of
 our cluster in a typical workday.
 
 ![Marathon events delay](/img/articles/2017-03-08-hitting-the-wall/marathon-consul-dev.png)
@@ -241,7 +241,7 @@ to group deployments and send them in one batch, then Marathon will work.
 Instead of sending many request (one for each application), send one requests
 with an array of applications to be deployed.
 This solution is not perfect, for example you can’t stop or rollback the deployment
-of a single application in a batch so we didn’t introduced such a feature yet.
+of a single application in a batch so we didn’t introduce such a feature yet.
 By the way, stopping an application is dangerous
 [MARATHON-2340](https://jira.mesosphere.com/browse/MARATHON-2340).
 
