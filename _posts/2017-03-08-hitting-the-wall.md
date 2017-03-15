@@ -284,16 +284,19 @@ But do not expect a fast answer.
 > We have to support the company first which has a more integrated solution
 > that actually has to make money at the end of the day.
 > We are also a pretty damn small team with a huge backlog to deliver
+>
 > — [jasonmesosphere](https://news.ycombinator.com/item?id=13655629)
 
 Marathon team is small and needs to work on Mesosphere’s paying clients.
 This means less important features or community requests will not have much attention.
-Being a business client does not necessarily mean you will have proper support or
-documentation.
 
 > Could you please update the docs so we (paying enterprise customers)
 > don’t have to discover it the hard way?
-> [MARATHON-1643](https://jira.mesosphere.com/browse/MARATHON-1643)
+>
+> — [Matt DeBoer](https://jira.mesosphere.com/browse/MARATHON-1643?focusedCommentId=77506&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-77506)
+
+Being a business client does not necessarily mean you will have proper support or
+documentation.
 
 If you want to monitor what is happening with Marathon codebase prepare for
 frequent changes. Over the years the Marathon team tried different code review
@@ -338,4 +341,5 @@ Whatever way you choose remember:
 
 > The ecosystem around containerization is still emerging and is in a rapid
 > state of flux.
+>
 > — [cookiecaper](https://news.ycombinator.com/item?id=13657441)
