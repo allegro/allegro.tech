@@ -221,9 +221,10 @@ Due to JSON
 parsing and sending, subscriptions performance is sensitive to CPU and network load. When
 many deployments are triggered at the same time we experienced lagging events
 for a couple of minutes. The following graph presents typical events delay for one of
-our cluster in a typical workday.
+our cluster in a typical workday. On the left you can see unfiltered callbacks,
+on the right filtered SSE events delay. Data was gathered with marathon-consul.
 
-![Marathon events delay](/img/articles/2017-03-08-hitting-the-wall/marathon-consul-dev.png)
+![Marathon events delay](/img/articles/2017-03-08-hitting-the-wall/m-c-delay.png)
 
 Our solution to this problem is to create a custom executor
 that will register an application in our systems just like Aurora does. This will
