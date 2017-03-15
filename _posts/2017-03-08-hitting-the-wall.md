@@ -185,12 +185,12 @@ meantime Mesos incorporated HTTP health checks and they were added to Marathon
 [1.4](https://github.com/mesosphere/marathon/releases/tag/v1.4.0),
 so soon we can switch and make checks locally on agents.
 There is a great post on
-[Mesos Native HTTP healtchecks](https://mesosphere.com/blog/2017/01/05/introducing-mesos-native-health-checks-apache-mesos-part-1/)
+[Mesos Native HTTP healtchecks](https://mesosphere.com/blog/2017/01/05/introducing-mesos-native-health-checks-apache-mesos-part-1/).
 You can read there that Marathon checks work up to 2k tasks while Mesos scales well.
 If you want to switch to Marathon 1.4 and use Mesos healthchecks keep in mind
 it’s a new mechanism and there are issues with it:
-[MESOS-6786](https://issues.apache.org/jira/browse/MESOS-6786)
-[MESOS-6790](https://issues.apache.org/jira/browse/MESOS-6790)
+[MESOS-6786](https://issues.apache.org/jira/browse/MESOS-6786),
+[MESOS-6790](https://issues.apache.org/jira/browse/MESOS-6790).
 
 ### Events
 Marathon allows two ways of event subscription. HTTP callbacks
@@ -221,10 +221,11 @@ Due to JSON
 parsing and sending, subscriptions performance is sensitive to CPU and network load. When
 many deployments are triggered at the same time we experienced lagging events
 for a couple of minutes. The following graph presents typical events delay for one of
-our cluster in a typical workday. On the left you can see unfiltered callbacks,
-on the right filtered SSE events delay. Data was gathered with marathon-consul.
+our cluster in a typical workday. Below you can compare unfiltered callbacks,
+and filtered SSE events delay. Data was gathered with marathon-consul.
 
-![Marathon events delay](/img/articles/2017-03-08-hitting-the-wall/m-c-delay.png)
+![Marathon events delay](/img/articles/2017-03-08-hitting-the-wall/marathon-consul.png)
+![Marathon events delay (SSE)](/img/articles/2017-03-08-hitting-the-wall/marathon-consul-sse.png)
 
 Our solution to this problem is to create a custom executor
 that will register an application in our systems just like Aurora does. This will
