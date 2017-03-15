@@ -82,7 +82,7 @@ application, deployment will use twice as much space as your application’s gro
 installations it’s not a problem
 (until some of them leak [MARATHON-1724](https://jira.mesosphere.com/browse/MARATHON-1724)),
 but when you have more and more
-applications at some point you will notice your Zookeeper write times take longer and
+applications, over time you will notice your Zookeeper write times take longer and
 at some point you will end up with the following error:
 
 ```shell
