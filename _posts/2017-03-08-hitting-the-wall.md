@@ -315,7 +315,7 @@ wall.
 
 #### How to avoid the wall:
 
-* Shard you marathon.
+* Shard your marathon.
 * Monitor — enable metrics but remember to configure them.
 * Update to 1.3.10 or later.
 * Minimize Zookeeper communication latency and object size.
