@@ -23,15 +23,10 @@ If there is no mention of Marathon version, it is 1.3.10 and below; we need
 some time to test and deploy the latest 1.4 release.
 If you are interested in how our ecosystem is built, take a look at below MesosCon
 presentation.
+<div class="i-wrapper"><div>
+<iframe  height="315"  width="420"  src="https://www.youtube.com/embed/2dlCObSvgBc"  frameborder="0"  allowfullscreen></iframe>
+</div></div>
 
-<iframe
-  class="youtube_iframe"
-  height="315"
-  width="420"
-  src="https://www.youtube.com/embed/2dlCObSvgBc"
-  frameborder="0"
-  allowfullscreen>
-</iframe>
 
 ## History
 A couple of years ago we decided to completely change the architecture of our system.
