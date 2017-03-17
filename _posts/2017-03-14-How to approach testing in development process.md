@@ -41,8 +41,7 @@ If regression is run regularly, manual testers may quickly become frustrated and
 
 <li>They may be run continuously</li>
 
-And this is the main advantage of automated tests. They may be run continuously on daily builds and so they are the fastest way for development team to receive feedback about latest builds. But there is still a risk that this kind of tests may become blind over time as test scenarios, if not updated, check still and only the same paths as at the first run, when they were designed. It's possible that small change made by development team will change a lot of things in application but tests will always pass. This happens because those
-tests don't see UI changes or strings displayed outside the lines, they are focused only on checking if functionality itself works.
+And this is the main advantage of automated tests. They may be run continuously on daily builds and so they are the fastest way for development team to receive feedback about latest builds. But there is still a risk that this kind of tests may become blind over time as test scenarios, if not updated, check still and only the same paths as at the first run, when they were designed. It's possible that small change made by development team will change a lot of things in application but tests will always pass. This happens because those tests don't see UI changes or strings displayed outside the lines, they are focused only on checking if functionality itself works.
 </ol>
 
 * Manual testing
@@ -62,12 +61,9 @@ When application changes  from release to release and it's not a small change, Q
 As You see it's not easy to find good solution for the project. If testers have permission to decide It's depends of QA's knowledge and experience. How we to carry it off i describe below.
 
 ## Testing tools – what to choose and are they really needed?
-Beginners very often ask about tools which are used in testing. The
-main tool for every tester is a test management tool and this is absolutely must-have if any requirements-to-test cases coverage needs to be kept and bug-to-test cases tracking. On the market a
-lot of paid and free tools may be found as Test Link or HP Quality Center already mentioned earlier or free Polish tool Test Arena. The decision which tool to choose should be well thought out in terms of ROI (return of investment) as further transfer of test cases
+Beginners very often ask about tools which are used in testing. The main tool for every tester is a test management tool and this is absolutely must-have if any requirements-to-test cases coverage needs to be kept and bug-to-test cases tracking. On the market a lot of paid and free tools may be found as Test Link or HP Quality Center already mentioned earlier or free Polish tool Test Arena. The decision which tool to choose should be well thought out in terms of ROI (return of investment) as further transfer of test cases
 between different tools after change of decision might be time-consuming and sometimes hard to execute. The same relates to defect tracking tools – the most popular one is probably Jira developed by Atlassian. It’s big advantage is Jira Agile add-on (recently incorporated in standard Jira version) that allows also to manage user stories and connected test cases, so in Agile project can be used as the only one test management tool. All in all, Excel is never enough for test management.  
-Another topic is choosing tool for automation tests execution and design, but here everything depends on type of developed application/system (e.g. web app or mobile) and technology used in project. The most popular tool for websites is `Selenium`, for Android there is
-`Espresso` and for iOS `XCUITest`, but you may find your own framework
+Another topic is choosing tool for automation tests execution and design, but here everything depends on type of developed application/system (e.g. web app or mobile) and technology used in project. The most popular tool for websites is `Selenium`, for Android there is `Espresso` and for iOS `XCUITest`, but you may find your own framework
 fitting better for your project as well.
 
 
