@@ -15,7 +15,7 @@ preparing for a long distance run, you’ll often hear about
 This effect is described mostly in running and cycling but affects all
 endurance sports. It happens when your body does not have enough glycogen to
 produce power and this results in a sudden “power loss” so you can’t run
-anymore. At [Allegro](http://allegro.tech/about-us/)
+anymore. At [Allegro](/about-us/)
 we have experienced a similar thing with Mesosphere Marathon. This
 is our story on using Marathon in a growing microservice ecosystem, from tens of
 tasks and a couple applications, to thousands of tasks and over a hundred applications.
@@ -49,7 +49,7 @@ Below image is a snapshot of a traffic visualization for our services.
 It is generated with [vizceral](https://github.com/Netflix/vizceral).
 
 
-![Microservices visualization](/img/articles/2017-03-08-hitting-the-wall/vizceral.jpg)
+![Microservices visualization](/img/articles/2017-03-20-hitting-the-wall/vizceral.jpg)
 
 ## Problems
 
@@ -135,7 +135,7 @@ You can compare how much CPU time gathering metrics takes with interval set to
 10 seconds (left) and 55 seconds (right).
 
 
-![Flame graph with default metrics setting](/img/articles/2017-03-08-hitting-the-wall/flame_before_after.png)
+![Flame graph with default metrics setting](/img/articles/2017-03-20-hitting-the-wall/flame_before_after.png)
 
 ### Threads
 Marathon uses Akka as an actor framework. Its
@@ -153,7 +153,7 @@ Still, it’s more than the configured value but we will be able to handle this.
 Below you can see a diagram presenting how number of threads decreased after
 updating Marathon.
 
-![Marathon threads](/img/articles/2017-03-08-hitting-the-wall/marathon_threads_1.png)
+![Marathon threads](/img/articles/2017-03-20-hitting-the-wall/marathon_threads_1.png)
 
 Another optimization we introduced was to increase
 `akka.default-dispatcher.throughput` to 20. According to
@@ -219,8 +219,8 @@ for a couple of minutes. The following graph presents typical events delay for o
 our cluster in a typical workday. Below you can compare unfiltered callbacks,
 and filtered SSE events delay. Data was gathered with marathon-consul.
 
-![Marathon events delay](/img/articles/2017-03-08-hitting-the-wall/marathon-consul.png)
-![Marathon events delay (SSE)](/img/articles/2017-03-08-hitting-the-wall/marathon-consul-sse.png)
+![Marathon events delay](/img/articles/2017-03-20-hitting-the-wall/marathon-consul.png)
+![Marathon events delay (SSE)](/img/articles/2017-03-20-hitting-the-wall/marathon-consul-sse.png)
 
 Our solution to this problem is to create a custom executor
 that will register an application in our systems just like Aurora does. This will
