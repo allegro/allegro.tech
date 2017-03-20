@@ -277,11 +277,24 @@ or
 [stack overflow](https://stackoverflow.com/questions/tagged/marathon).
 But do not expect a fast answer.
 
-> We have to support the company first which has a more integrated solution
-> that actually has to make money at the end of the day.
-> We are also a pretty damn small team with a huge backlog to deliver
+> Speaking as the lead of marathon, I'll say this:
 >
-> — [jasonmesosphere](https://news.ycombinator.com/item?id=13655629)
+> We have to support the company first which has a more integrated solution
+> that actually has to make money at the end of the day. We are also a pretty
+> damn small team with a huge backlog to deliver, so it sucks that we had to
+> abandon the UI outside of DCOS. We hope that the components of the DCOS UI for
+> marathon can become the native UI for marathon, but again, it's a balance of
+> priorities.
+>
+> Marathon by itself has a lot more coming in the future, some will be
+> restricted to DCOS, but not everything, it's a balancing act.
+> Given our history of changing course publicaly (I wasn't involved in these
+> decisions), I'm waiting to share our plans for 1.5 until I'm confident we're
+> committing to them.
+>
+> Just a quick two cents.
+>
+> — [Comment on Hacker News: “The Basics: Kubernetes, Mesosphere, and Docker Swarm (hpe.com)”, February 16, 2017 ](https://news.ycombinator.com/item?id=13657530)
 
 Marathon team is small and needs to work on Mesosphere’s paying clients.
 This means less important features or community requests will not have much attention.
@@ -289,7 +302,7 @@ This means less important features or community requests will not have much atte
 > Could you please update the docs so we (paying enterprise customers)
 > don’t have to discover it the hard way?
 >
-> — [Matt DeBoer](https://jira.mesosphere.com/browse/MARATHON-1643?focusedCommentId=77506&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-77506)
+> — [Comment on MARATHON-1643 (formerly dcos/metronome-#100), January 25, 2017 ](https://jira.mesosphere.com/browse/MARATHON-1643?focusedCommentId=77506&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-77506)
 
 Being a business client does not necessarily mean you will have proper support or
 documentation.
