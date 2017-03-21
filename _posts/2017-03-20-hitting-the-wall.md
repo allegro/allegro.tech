@@ -56,7 +56,7 @@ It is generated with [vizceral](https://github.com/Netflix/vizceral).
 ### JVM
 Marathon is written in Scala and runs on the Java Virtual Machine.
 Take a look at GC and heap usage metrics
-and if you see Marathon spends much time in GC or you can’t see a saw shape on
+and if you see Marathon spends a lot of time in GC or you can’t see a saw shape on
 your heap utilization graph, check your GC and heap settings.
 There are many talks and tutorials on
 tuning a JVM.
@@ -65,7 +65,7 @@ tuning a JVM.
 Marathon uses [Zookeeper](https://zookeeper.apache.org/)
 as its primary data storage.
 Zookeeper is a key-value store focused
-more on data consistency then availability. One of the disadvantages of Zookeeper is that it
+more on data consistency than availability. One of the disadvantages of Zookeeper is that it
 doesn’t work well with huge objects. If stored objects are getting bigger,
 writes take more time. By default, a stored entry must fit in 1 MB. Unfortunately
 Marathon data layout does not fit well with this constraint. Marathon saves
@@ -107,7 +107,7 @@ Marathon 1.4.0 brings [a new persistent storage layout](https://github.com/mesos
 so it might save you.
 
 Another issue with Zookeeper, like with any other high consistency storage, is the network delay
-between nodes. You really want to put them close and to create a backup cluster
+between nodes. You really want to put them close to each other and to create a backup cluster
 in another zone/region to switch quickly in case of an outage. Having cross-DC
 Zookeeper clusters causes long write times and often
 [leader reelection](https://en.wikipedia.org/wiki/Leader_election).
@@ -139,7 +139,7 @@ You can compare how much CPU time gathering metrics takes with interval set to
 
 ### Threads
 Marathon uses Akka as an actor framework. Its
-configuration suggest that there should be
+configuration suggests that there should be
 [64 threads in akka pool](https://github.com/mesosphere/marathon/blob/v1.3.10/src/main/scala/mesosphere/marathon/Main.scala#L100)
 and [100 threads in IO pool](https://github.com/mesosphere/marathon/blob/v1.3.10/src/main/scala/mesosphere/util/ThreadPoolContext.scala#L8).
 This configuration seems valid. When our cluster grew and
