@@ -351,4 +351,4 @@ Whatever way you choose remember:
 > The ecosystem around containerization is still emerging and is in a rapid
 > state of flux.
 >
-> — [cookiecaper](https://news.ycombinator.com/item?id=13657441)
+> — [Comment on Hacker News: “The Basics: Kubernetes, Mesosphere, and Docker Swarm (hpe.com)”, February 16, 2017](https://news.ycombinator.com/item?id=13657441)
