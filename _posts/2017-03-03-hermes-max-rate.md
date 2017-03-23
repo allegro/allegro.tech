@@ -11,8 +11,8 @@ It's definitely not the only limitation we empose on our systems, but with confi
 that comes to mind when considering input data. Among the others, we might find throughput, size of individual requests,
 and more complex measures.
 
-We are going to focus on limiting the rate of requests to a service from the perspective of a publish–subscribe message broker.
-In our case it's Hermes, which wraps Kafka and inverts the pull consumption model to a push based model.
+We are going to focus on limiting the rate of requests to a service from the perspective of a publish–subscribe message
+broker.  In our case it's Hermes, which wraps Kafka and inverts the pull consumption model to a push based model.
 
 In case of reading from Kafka, rate limiting the number of handled messages is simple, as the consumer of the messages
 controls the rate as a consequence of the pull model.
@@ -20,7 +20,9 @@ controls the rate as a consequence of the pull model.
 Hermes controls the delivery to consumers of the messages read from Kafka, trying to deliver messages reliably with
 retries, therefore it needs to take care of the rate limiting.
 
-Implementing the algorithm in Hermes was an interesting challenge and we'd like to share our experiences to highlight some challenges that appear when working with distributed systems. A real world example is always an interesting spark for discussion.
+Implementing the algorithm in Hermes was an interesting challenge and we'd like to share our experiences to highlight
+some challenges that appear when working with distributed systems. A real world example is always an interesting spark
+for discussion.
 
 ### Hermes architecture
 
@@ -44,8 +46,8 @@ Let's assume the following terms so we don't get confused:
 
 Instances of the Hermes Consumers service handle a lot of client subscriptions at runtime and need to distribute work.
 
-An algorithm that balances the subscriptions across present consumers is in place, and we configure it as we see fit with
-a number of parameters.
+An algorithm that balances the subscriptions across present consumers is in place, and we configure it as we see fit
+with a number of parameters.
 
 Among them there is the fixed amount of automatically assigned consumers per single subscription and as a manual step in
 case of need we can add more resources to the work pool. Consumers can come and go and the algorithm should adapt itself
@@ -58,8 +60,8 @@ distribution.
 
 ### Factors involved in rate limiting
 
-First, let's consider what problems Hermes faces for rate limiting and what are the grounds on which we
-will need to come up with a solution.
+First, let's consider what problems Hermes faces for rate limiting and what are the grounds on which we will need to
+come up with a solution.
 
 When handling a particular subscriber, there are usually multiple instances of the service. We have load balancing in
 place which tries to deliver messages fairly to the instances, preferably in the same data center. Scaling the service
@@ -91,11 +93,11 @@ share to full extent, we can't go beyond `limit / N`. Why do partitions lag? For
 themselves, which causes some partitions' consumers to wait a while. Hermes consumer handling some partitions can crash
 and the lag grows. And that's not the whole list.
 
-Second, we need to keep the rate limit across all DCs, as our subscribers can for instance just choose to run in a single DC. Or
-perhaps writes just happen in one data center, in an active–fallback setup. Consider that the subscriber expects up to `1000
-msgs/s` and you're running **dc1** as the active one, handling `800 msgs/s` at peak time. **dc2** is not receiving any
-messages. With one consumer per DC, you're limited to `500 msgs/s` and the lag grows until the incoming rate falls and
-you can catch up.
+Second, we need to keep the rate limit across all DCs, as our subscribers can for instance just choose to run in a
+single DC. Or perhaps writes just happen in one data center, in an active–fallback setup. Consider that the subscriber
+expects up to `1000 msgs/s` and you're running **dc1** as the active one, handling `800 msgs/s` at peak time. **dc2** is
+not receiving any messages. With one consumer per DC, you're limited to `500 msgs/s` and the lag grows until the
+incoming rate falls and you can catch up.
 
 Why not just set the total rate limit higher if we know this happens? The number provided comes from load testing
 service instances. If we set it above that level, in a scenario, where production rate is higher than the limit the
@@ -110,7 +112,8 @@ For our case, there would be too much communication across the network to implem
 and then (even for periods longer than 1s in advance) as this requires a constant stream of locked (or even CAS'ed if
 optimized) writes to a shared counter and coordination for resetting the counter.
 
-Other implementations [^1] require knowing the number of **incoming requests**. Based on that, an algorithm blocks them from proceeding further. That's a different version of rate limiting unfortunately.
+Other implementations [^1] require knowing the number of **incoming requests**. Based on that, an algorithm blocks them
+from proceeding further. That's a different version of rate limiting unfortunately.
 
 As we aim to deliver every message that can be delivered within a given time period (TTL described per subscription),
 our case of rate limiting is different than a discarding approach. We limit **delivery attempts**.
@@ -147,14 +150,14 @@ Let's start with pseudocode and then explain the details:
 
 ```
 calculate_max_rates(current_rates, current_max_rates):
-	(busy, not_busy) <- partitionByBusiness(current_rates, current_max_rates)
-	if count(busy) > 0:
-		(updated_not_busy, to_distribute) <- takeAwayFromNotBusy(not_busy)
-		updated_busy <- balanceBusy(busy)
-		final_busy <- distribute(updated_busy, to_distribute)
-		return union(updated_not_busy, final_busy)
-	else:
-		return NO_CHANGE // nothing to update
+  (busy, not_busy) <- partitionByBusiness(current_rates, current_max_rates)
+  if count(busy) > 0:
+    (updated_not_busy, to_distribute) <- takeAwayFromNotBusy(not_busy
+    updated_busy <- balanceBusy(busy)
+    final_busy <- distribute(updated_busy, to_distribute)
+    return union(updated_not_busy, final_busy)
+  else:
+    return NO_CHANGE // nothing to update
 ```
 
 Narrowing down to a subscription and a bunch of consumers, we might divide them into two groups: `busy` and `not_busy`.
@@ -189,8 +192,9 @@ coordinator).
 
 To handle the algorithm, a hierarchical, directory structure was created in Zookeeper:
 
-- There is a structure for each subscription's consumer's to store their `rate-history` (limited to single entry for now).
-- **the coordinator** is the reader of this data.  Next to it, **the coordinator** would store the `max-rate`.
+- There is a structure for each subscription's consumer's to store their `rate-history` (limited to single entry for
+now).
+- **the coordinator** is the reader of this data. Next to it, **the coordinator** would store the `max-rate`.
 - Each consumer reads their calculated value at given intervals.
 
 That sounds solid. Let's ship it.
@@ -269,9 +273,10 @@ Every time we attempt to calculate the shares, we sum up currently assigned `max
 
 In the early experiments with the algorithm without some optimizations, as the load on Zookeeper grew suddenly, the
 underlying workload balance algorithm would take too long to assign any work and nodes would fall out of the registry.
-So we optimized as much as we could, but still observed an issue that when deploying the new version, the workload
-would trigger a full rebalance of subscription assignments. That in turn caused a chain effect of losing max-rate
-assignment and triggered re–establishing connections to Kafka at the same time (which is quite costly due to Kafka partition balancing).
+So we optimized as much as we could, but still observed an issue that when deploying the new version, the workload would
+trigger a full rebalance of subscription assignments. That in turn caused a chain effect of losing max-rate assignment
+and triggered re–establishing connections to Kafka at the same time (which is quite costly due to Kafka partition
+balancing).
 
 Due course we needed to address the underpinnings of workload assignment to make the algorithm stable.
 
@@ -310,7 +315,6 @@ with a weird number.
 Here, that's how it ought to be:
 
 ```java
-
 for (SubscriptionConsumer consumer : subscriptionConsumers) {
   try {
     consumer.adjustRate();
@@ -324,8 +328,9 @@ for (SubscriptionConsumer consumer : subscriptionConsumers) {
 
 I mentioned we don't update consumer's rate in zookeeper all the time, but just after a significant change.
 
-One bug we discovered with that: if the significant update threshold is higher than business 
-threshold, a consumer would not be considered busy if it actually reached business. The bug occured long after the algorithm was enabled, as it wasn't very likely to happen.
+One bug we discovered with that: if the significant update threshold is higher than business threshold, a consumer would
+not be considered busy if it actually reached business. The bug occured long after the algorithm was enabled, as it
+wasn't very likely to happen.
 
 We needed to ensure the configuration is valid to ensure the problem doesn't happen.
 
@@ -340,59 +345,79 @@ Let's check how the algorithm performed in each of those cases.
 
 #### Lags during deployment
 
-During deployment, we perform a rolling update. Some consumers start faster than others and consuming partitions of a particular topic can get some lags. Around 10:08 a deploy of all instances was issued. From the output rate distribution across data centers, we can tell how they managed.
+During deployment, we perform a rolling update. Some consumers start faster than others and consuming partitions of a
+particular topic can get some lags. Around 10:08 a deploy of all instances was issued. From the output rate distribution
+across data centers, we can tell how they managed.
 
 ![Output rate](/img/articles/2017-03-03-hermes-max-rate/restart_output.png)
 
-Dropping to zero means all instances in that DC were starting. Yellow line is the DC in which we first issued deployment.
+Dropping to zero means all instances in that DC were starting. Yellow line is the DC in which we first issued
+deployment.
 
-Let's have a look at how the consumption went on and how max-rate was distributed. The subscription has a limit of 1000 requests per second.
+Let's have a look at how the consumption went on and how max-rate was distributed. The subscription has a limit of 1000
+requests per second.
 
 ![Consumption rate](/img/articles/2017-03-03-hermes-max-rate/restart_consumption.png)
 
 ![Max rate](/img/articles/2017-03-03-hermes-max-rate/restart_max.png)
 
-As we can see, for the short period of time when a consumer starts, a higher max-rate was granted. Then when the next one kicks in, the previous one is actually done and can give away it's share. As can be seen, this has happened quite quickly.
+As we can see, for the short period of time when a consumer starts, a higher max-rate was granted. Then when the next
+one kicks in, the previous one is actually done and can give away it's share. As can be seen, this has happened quite
+quickly.
 
-The algorithm leaves an uneven distribution, but that's ok, as none of the consumers is actually busy, so they're satisfied with their current max-rate.
+The algorithm leaves an uneven distribution, but that's ok, as none of the consumers is actually busy, so they're
+satisfied with their current max-rate.
 
 #### Distributing rate across data centers
 
-One of our Hermes clusters operates in an active–passive Kafka setup. Just one DC is handling production data, while the other one gets just a few requests per second.
+One of our Hermes clusters operates in an active–passive Kafka setup. Just one DC is handling production data, while the
+other one gets just a few requests per second.
 
-When we were about to deploy the new version of Hermes Consumers to this cluster, we noticed two bugs with the old version. Both of them had to do with the way the number of consumers was determined by looking up some metrics in Zookeeper.
+When we were about to deploy the new version of Hermes Consumers to this cluster, we noticed two bugs with the old
+version. Both of them had to do with the way the number of consumers was determined by looking up some metrics in
+Zookeeper.
 
-As a result, instead of dividing the subscription rate evenly across the consumers, all of them got the full amount. Luckily the services were scaled enough to handle the load.
+As a result, instead of dividing the subscription rate evenly across the consumers, all of them got the full amount.
+Luckily the services were scaled enough to handle the load.
 
-Nevertheless, once we deployed a fix for that, we noticed that the subscription limits were not properly defined in some cases. One subscription's rate limit was lower than the traffic on the topic.
+Nevertheless, once we deployed a fix for that, we noticed that the subscription limits were not properly defined in some
+cases. One subscription's rate limit was lower than the traffic on the topic.
 
 ![Delivery rate](/img/articles/2017-03-03-hermes-max-rate/dc_delivery.png)
 
-Until 13:45, before we deployed the fixed version, the traffic was around 1,2K reqs/s. After the rate limit was split evenly, the active DC got around 500 reqs/s limit, which, as can be observed, has impacted the delivery. The messages in the queue piled up and the lag was growing. Around 17:15 we deployed the version with new algorithm and around 17:45 bumped the rate limit to 5000 reqs/s to consume the lag.
+Until 13:45, before we deployed the fixed version, the traffic was around 1,2K reqs/s. After the rate limit was split
+evenly, the active DC got around 500 reqs/s limit, which, as can be observed, has impacted the delivery. The messages in
+the queue piled up and the lag was growing. Around 17:15 we deployed the version with new algorithm and around 17:45
+bumped the rate limit to 5000 reqs/s to consume the lag.
 
 ![Output rate](/img/articles/2017-03-03-hermes-max-rate/dc_output.png)
 
-That's how the output rate per DC looked like after the old version with the fix was deployed. We can see that between 17:15 and 17:40 the active DC had almost the entire rate limit at it's disposal, but still needed more. As we granted it more, the algorithm reacted as expected.
+That's how the output rate per DC looked like after the old version with the fix was deployed. We can see that between
+17:15 and 17:40 the active DC had almost the entire rate limit at it's disposal, but still needed more. As we granted it
+more, the algorithm reacted as expected.
 
 ![Max rate](/img/articles/2017-03-03-hermes-max-rate/dc_max.png)
 
-When we deployed the new algorithm around 17:15 max-rate metrics were generated and we can see what the distribution per consumer looked like.
+When we deployed the new algorithm around 17:15 max-rate metrics were generated and we can see what the distribution per
+consumer looked like.
 
 ![Consumption rate](/img/articles/2017-03-03-hermes-max-rate/dc_consumption.png)
 
-The above graph shows the actual consumption rate by each consumer, on which max-rate calculation is based. Again, data starts appearing after new version got deployed (~17:15).
+The above graph shows the actual consumption rate by each consumer, on which max-rate calculation is based. Again, data
+starts appearing after new version got deployed (~17:15).
 
 ![Lag](/img/articles/2017-03-03-hermes-max-rate/dc_lag.png)
 
-We can see clearly how the lag was growing and started to fall nicely when we increased the subscription rate limit to 5K reqs/s.
+We can see clearly how the lag was growing and started to fall nicely when we increased the subscription rate limit to
+5K reqs/s.
 
 ### Improvements and summary
 
 We can further improve the behaviour of the algorithm by exploring ideas around `rate-history` further for more smooth
 transitions.
 
-The algorithm could behave more predictively considering the trend in history, or could otherwise restrain from making rapid
-decisions – there's no easy answer which approach to take.
+The algorithm could behave more predictively considering the trend in history, or could otherwise restrain from making
+rapid decisions – there's no easy answer which approach to take.
 
 As we keep monitoring how the system behaves over time we will have more samples to improve the algorithm or leave it as
 it is. For now, we have greatly improved the adaptivity of the systems to lags and uneven load across data centers.
