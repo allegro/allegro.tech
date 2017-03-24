@@ -2,17 +2,23 @@
 layout: post
 title: Distributed rate limiting of delivery attempts
 author: dariusz.jedrzejczyk
-tags: [tech, Distributed Systems, Hermes]
+tags: [tech, distributed systems, hermes, architecture, algorithms, open source]
 ---
 
-In our services ecosystem it is usually the case that services can handle a limited amount of requests per second.
+In our services ecosystem it is usually the case that services can handle
+a limited amount of requests per second.
+We show how we introduced a new algorithm for a publish–subscribe queue system
+and discuss what key distributed systems' takeaways are based on the road to production.
 
-It's definitely not the only limitation we empose on our systems, but with confidence we might say it's the first one
+### Rate limiting
+
+Rate of requests is definitely not the only limitation we empose on our systems,
+but with confidence we might say it's the first one
 that comes to mind when considering input data. Among the others, we might find throughput, size of individual requests,
 and more complex measures.
 
 We are going to focus on limiting the rate of requests to a service from the perspective of a publish–subscribe message
-broker.  In our case it's Hermes, which wraps Kafka and inverts the pull consumption model to a push based model.
+broker. In our case it's Hermes, which wraps Kafka and inverts the pull consumption model to a push based model.
 
 In case of reading from Kafka, rate limiting the number of handled messages is simple, as the consumer of the messages
 controls the rate as a consequence of the pull model.
@@ -31,10 +37,16 @@ view. We omit the management part as it's not necessary for our considerations.
 
 ![Hermes architecture](/img/articles/2017-03-03-hermes-max-rate/architecture.png)
 
-Hermes users operate on *topics*, to which they write messages using Hermes Frontends.
+User processes include **Producers** that publish messages for anyone interested in them.
+**Consumer** processes are the ones interested.
 
-Messages on these topics are consumed by *subscribers*, and Hermes Consumers make sure to deliver messages to them via
-HTTP requests.
+Hermes users operate on *topics*, to which they write messages using **Hermes Frontends**.
+
+Messages on these topics are consumed by *subscribers* (**Consumers**),
+and **Hermes Consumers** make sure to deliver messages to them via HTTP requests.
+
+Internally, **Kafka** acts as the persistent storage for messages,
+while **Zookeeper** holds metadata and allows coordination of Hermes processes.
 
 Let's assume the following terms so we don't get confused:
 
@@ -193,7 +205,7 @@ coordinator).
 To handle the algorithm, a hierarchical, directory structure was created in Zookeeper:
 
 - There is a structure for each subscription's consumer's to store their `rate-history` (limited to single entry for
-now).
+now - `rate`, which we mentioned before).
 - **the coordinator** is the reader of this data. Next to it, **the coordinator** would store the `max-rate`.
 - Each consumer reads their calculated value at given intervals.
 
@@ -220,10 +232,10 @@ their share. We have to take that into account when calculating. To simplify the
 every instance.
 
 How, from the perspective of our algorithm, do we tell if we're dealing with a new consumer or an old one? Well, one
-clear indicator is that it doesn't report it's `rate-history`. Also, it doesn't have a `max-rate` assigned when we first
+clear indicator is that it doesn't report it's `rate`. Also, it doesn't have a `max-rate` assigned when we first
 encounter it. This is also true for new consumers we first calculate the value for.
 
-To cover both cases, we simply default to `subscription-rate-limit / N` and then when we have `rate-history` missing for
+To cover both cases, we simply default to `subscription-rate-limit / N` and then when we have `rate` missing for
 the old ones, so we don't change anything.
 
 #### Reading max-rate on each consumer tick
@@ -427,5 +439,5 @@ The implementation details are available on github, as Hermes and many other too
 contribute or share your comments below.
 
 
-[^1]: <https://www.microsoft.com/en-us/research/wp-content/uploads/2007/01/fp076-raghavan.pdf> [^2]:
-<https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing>
+[^1]: <https://www.microsoft.com/en-us/research/wp-content/uploads/2007/01/fp076-raghavan.pdf>
+[^2]: <https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing>
