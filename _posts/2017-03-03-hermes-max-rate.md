@@ -290,11 +290,11 @@ trigger a full rebalance of subscription assignments. That in turn caused a chai
 and triggered re–establishing connections to Kafka at the same time (which is quite costly due to Kafka partition
 balancing).
 
-Due course we needed to address the underpinnings of workload assignment to make the algorithm stable.
+Due course we needed to address the underpinnings of workload assignment to make the algorithm stable [^3].
 
 Once we got that right, max-rate calculations played along nicely.
 
-#### Bug in production
+#### Bug in production [^4]
 
 Finally, not to leave you with a feeling we are so smart and never make mistakes. We actually do, and we learn from them
 - most of this article is phrased as a record of what we learned instead of what we got wrong - as developers we need to
@@ -336,7 +336,7 @@ for (SubscriptionConsumer consumer : subscriptionConsumers) {
 }
 ```
 
-#### Yet another bug
+#### Yet another bug [^5]
 
 I mentioned we don't update consumer's rate in zookeeper all the time, but just after a significant change.
 
@@ -435,9 +435,15 @@ As we keep monitoring how the system behaves over time we will have more samples
 it is. For now, we have greatly improved the adaptivity of the systems to lags and uneven load across data centers.
 Further tuning is possible, but we've already seen great improvement by deploying the algorithm in current form.
 
-The implementation details are available on github, as Hermes and many other tools are Open Source. Feel free to
+The implementation details are available on github [^6], as Hermes and many other tools are Open Source [^7]. Feel free to
 contribute or share your comments below.
 
+---
 
 [^1]: <https://www.microsoft.com/en-us/research/wp-content/uploads/2007/01/fp076-raghavan.pdf>
 [^2]: <https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing>
+[^3]: <https://github.com/allegro/hermes/pull/688>
+[^4]: <https://github.com/allegro/hermes/pull/723>
+[^5]: <https://github.com/allegro/hermes/pull/743>
+[^6]: <https://github.com/allegro/hermes/pull/611>
+[^7]: <http://allegro.tech/open-source/>
