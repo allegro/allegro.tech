@@ -7,74 +7,172 @@ tags: [manual tests, tech, iOS, testing, UI testing, test automation, release pr
 
 ### Abstract
 
-Application release process or in fact software development process (as a release is the final stage of application development) is not an easy thing. Many different approaches can be found in books and on IT websites, all have their supporters and opponents. On the one hand, there are product owners or project managers and clients who want working application as soon as possible. On the other hand we the people, representing developing and testing team, would like to release application of the best quality, which might not mean the fastest delivery time. It is hard nut to crack to bring together those opposites. Usually, both sides need to make some compromises to establish common way of working. From the development and testing team perspective that means a need to answer several questions. Which software development methodology should we choose? What people skills are needed? Should we use automation or focus on manual tests? How and where should we store our test cases and history of tests? This article tries to answer what question should be taken into consideration when organizing the project to make software development process as effective as possible in existing project conditions.  
+Application release process, or in fact software development process, as a release is the final stage of application
+development, is not an easy thing. Books and IT websites discuss many approaches and each has its supporters and
+opponents. On the one hand, you have product owners, project managers and customers who want a ready-to-use application
+as soon as possible. On the other hand, we developers and testers, would like to release an application of the highest
+quality, which may somewhat affect the delivery time. Balancing these needs is a hard nut to crack. Usually, both
+sides need to make some compromises to establish a common way of working. For developers and testers, it involves
+answering several questions concerning software development methods, skills, use of manual or automated testing, and
+storage of test cases and test logs. In this article I describe best practices and tips for starting a new project.
+Follow them to make the software development process as effective as possible and adjusted to conditions of your project.
 
-## First of all, what testing skills are needed to deliver product of a good quality?
+## First of all, what testing skills are necessary to deliver a high-quality product?
 
-The answer for this question is basically also the answer for the question about what we want to achieve by testing. The most obvious response is (especially for commercial products) that we want properly working application or system, without any issues with happy end users who enjoy using the application and want to get back
-to it. To achieve that, testers and QA engineers should not only think of testing in terms of verification, e.g. whether features that were implemented are working in accordance to the specified requirements. Furthermore if those features fit user needs and make application ergonomic and usable, so it may be quickly learned by new users and be easy to operate.
-This is important skill as not all projects engage UX specialists. If such role is missing, this is tester’s responsibility to give feedback regarding application’s look and feel and how it may be received by end users. What is more, we should never forget about another factor that affects application perception by end users – the performance. Good looking but slow application will just irritate users, even if all functionalities are working correctly and there is no single trivial that bug was left opened after acceptance testing.
-Of course, usability or performance is only one aspect. Two others equally important that should be also taken into consideration are application security and compliance. Data leaks or others security issues may not only affect company’s image, but also cause financial consequences. The same for compliance issues understood as lack of consistency with some specific policies as e.g. aviation industry, medical devices or bank regulations.  
+To answer this question, you need to know what you want to achieve by testing. The first thing that comes to mind is
+(especially in the case of commercial products) an application or a system that is ready to use, has no bugs, and
+makes its end users happy and willing to use it. To get there, testers and QA engineers should not perceive testing
+in terms of simple verification, whether all features are working in accordance to the specified requirements. Their
+job is to make sure that these features fit user needs, and improve application usability, so make the application
+as user-friendly as possible. It is an important skill, as UX specialists are not always involved in a project.
+Therefore, a tester must give feedback regarding application’s look, feel, and potential reaction of end users. What
+is more, you should not forget about performance, another factor that affects the way users perceive an application.
+No matter how pretty app you have, users will be irritated if it is slow, even if no single bug slipped through testing.
+Naturally, usability or performance is only one aspect. The other two, equally important that should be also taken
+into consideration, are application security and compliance. Data leaks or others security issues may not only affect
+company’s image, but also cause financial consequences. The same for compliance issues understood as lack of
+consistency with specific policies applied to e.g. aviation industry, medical devices or banking applications.  
 
-## Waterfall or Agile. Always used as designed?
+## Waterfall or Agile. Always use as designed?
 
-Corporations usually choose one specific framework for software development that applies to all projects within the company. However, in seldom cases, sometimes it happens that it is Customer’s requirement to use certain methodology. All in all development & test teams usually have no influence on what methodology is chosen. But it is important to remember that they can always decide how the methodology will be used. Each of software development frameworks has some rules of engagement. Unfortunately, most teams tend to use them as a set of unalterable principles, see them as something completely not flexible and thus do not even try to adapt them to the real needs of projects and the team itself. For example, what happens when our requirements or application design are often changed and the changes must be quickly implemented and tested? Waterfall methodology was not designed to react easily for frequent changes, so Agile should fit better in such situation. On the other hand, they sometimes fail due to lack of decision or decision changing too often. In such cases it is hard to find the right path to develop and release the application effectively and strictly follow methodology’s principles in the same time. So how to find the most fitting way of working? The best thing is to stay flexible and do not follow rules restrictively, but to adapt them to changing conditions in the project. This may look like agile manifesto itself, but not always agile is the best solution for project. For stable and large project with elaborated and agreed requirements Waterfall (or some modification) may be better solution. This methodology is more predictable and more reliable for projects when team does not need to release application often, and in which there is a big pressure to have very good test coverage and very low internal to external defects found ratio. The second point might be hard to achieve in agile projects where there are frequent releases of application and so not enough time for bug fixing. In such cases team very often must reconcile with more bugs found on production environment.
+Companies usually choose one specific software development method for all of their projects. However, in seldom cases
+it is a customer who wants you to apply a certain methodology. Although development and test teams usually have no
+influence on the choice, they are the ones who decide how the method will be applied. Every software development
+framework has some rules of engagement. Unfortunately, most teams tend to perceive them as a set of unalterable
+principles, as something fixed that cannot be adapted to the real needs of a project and the team itself. For example,
+what happens when requirements or application design are subject to frequent changes that must be quickly implemented
+and tested? A waterfall model was not designed to deal with frequent changes, so theoretically agile should fit better
+here. On the other hand, both models may fail when there is no decision or the decision is changed too often. In such
+cases, it is difficult to find the right path to develop and release an application by strictly following one
+methodology’s principles. So how to find the most suitable way of working? Be flexible and instead of following the
+rules adjust them to the changing conditions of a project. Although it may sound as an agile manifesto, but agile
+is not always the best choice. In the event of large projects not subject to changes, with complex (and approved!)
+requirements, waterfall (or its variations) may be a better solution. This particular model is more predictable and
+reliable when a team does not need to release new versions too often. Waterfall may also work when it is crucial to
+have very good test coverage and very low internal to external defects found ratio. Obviously, the above requirements
+are difficult to meet when working in an agile way, with frequent releases and not enough time for bug fixing.
+Eventually, a team would have to come to terms with bugs found on production environment.
 
 ## Automation vs manual testing – only one or both?
-The most discussed thing is how we should test application. Whether to execute only manual, repeatable and thus boring tests or rely on fast and nice automated tests? The anser is not so obvious. Surprisingly there are situation when automated tests, at first sight looking very promising, occurred to be not so easy to implement or as a very time-consuming idea. Let’s go through some common opinions on manual and automated tests.
+Application testing is the most discussed topic. Should you execute only manual, repeatable, and thus boring tests or
+rely on fast and convenient automated testing? The answer is not that obvious. There are cases when automated testing,
+although looks very promising at the first sight, occurs to be difficult to implement or time-consuming. Let’s take a
+look at some common opinions on manual and automated tests.
 
 * Automated tests
 
 <ol>
-<li>They are faster and more effective</li>
+<li>Faster and more effective</li>
 
-That is indeed true, but only when test setup is stable and test scripts are well designed. The initial work for set up of whole environment defines further effectiveness of tests and possibility to reuse them. If this condition is not fulfilled, testers may spend more time on solving problems with test setup than on testing itself. Of course, when environment
-is stable, automated regression testing is faster than manual testing and may be often run even daily after each new build.
+That is indeed true, but only with a stable test setup and well-designed test scripts. The initial work that involves
+setting up the whole environment contributes to the effectiveness of tests and their further use. If you fail at this
+stage, testers may spend more time solving test setup problems than on testing. Naturally, when the environment is
+stable, automated regression testing is faster than the manual one, and may be even run for each new build on a daily basis.
 
-<li>They are cost effective</li>
+<li>Cost effective</li>
 
-At the beginning there is a high entry threshold for cost and time spent on test environment set up and test design, but if it is done properly and all works well, automated tests are indeed cheaper and faster than manual tests. In daily work writing automated tests are easily than working with not good designed setup.
+Test environment setup and test design are cost- and time-consuming. However, if it is done properly, automated
+testing is indeed cheaper and faster than the manual approach. Actually, it is easier to write automated tests than
+deal with poorly designed setup.
 
-<li>They are less tiresome</li>
+<li>Less tiresome</li>
 
-If regression is run regularly, manual testers may quickly become frustrated and bored of doing the same things again and again, what can affect their effectiveness and mindfulness. This is main reason why testers often are more interested in developing automation tests for the regression testing than to manually execute the same set of test cases every time.
+If regression testing is run on a regular basis, testers carrying out manual tests may become somewhat frustrated and
+bored of doing the same things again and again, which may affect their effectiveness and mindfulness. For this reason,
+testers are often more interested in developing automated tests for the regression testing purpose than to manually
+execute the same set of test cases every time.
 
-<li>They may be run continuously</li>
+<li>You can run them at a regular basis</li>
 
-And this is the main advantage of automated tests. They may be run continuously on daily builds and so they are the fastest way for development team to receive feedback about latest builds. But there is still a risk that this kind of tests may become blind over time as test scenarios, if not updated, check the same paths as at the first run, when they were designed. It is possible that small change made by development team will change a lot of things in application but tests will always pass. This happens because those tests do not see UI changes or strings displayed outside the lines, they are focused only on checking if functionality itself works (but it is depends of used frameworks)
+It is the main advantage of automated tests. As you can use them to test builds on a daily basis, the development team
+receives feedback almost immediately. However, there is a risk that the tests may become blind over time ¬– test
+scenarios, if not updated, verify the same paths as at the first run. It may happen that a small change in the code
+will remodel some of the application features, but the tests will pass anyway. How is it possible? Because these
+tests do not “see” UI changes or strings displayed outside the lines. They only check if all features are working
+properly (although it depends on applied frameworks).
 </ol>
 
 * Manual testing
 
 <ol>
 
-<li>It is closer to what the end user does</li>
-Automated tests are basically only working robots. They do not reflect fully the real user world. Frameworks go through by application with specific design. User may use application in a completely different and unexpected way than it's designed to be checked by automated tests. Testers have something calls intuition but robots haven't got it yet. It very important skill for exploratory testing. Also in manual tests QA may check more specific things like joint action with whole operating system. Of course frameworks for user host functionality are available but are not so flexible for automated scripts as for QA who can check them manually.
+<li>It simulates what the end user does</li>
+As automated tests are basically robots, they do not reflect the real user’s world in 100%. Testing frameworks operate
+by following a fixed pattern, while users may use an application in a completely different way, not covered by
+automated tests. Testers, unlike robots, have intuition, which is a substantial skill in the case of exploratory
+testing. Besides, manual tests allow QA engineers to check more specific things such as cooperation with an operating
+system. Naturally, there are frameworks that may test it, but they are not as flexible as QA engineers checking
+certain features manually.
 
-<li>It is easy to start</li>
-Main advantages of manual testing is a low entry threshold for new team members. When test cases are well defined in a test management tool (like `TestLink`, `HP Quality Center`, etc.), new person in a team may learn them easily and be able to start test execution very fast. Also creating new test cases is easy for beginners.
+<li>Easy to start with</li>
+A low entry threshold for new team members is the main advantage of manual testing. Well-designed test cases saved in
+a test management tool (such as ‘TestLink’, ‘HP Quality Center’, etc.) are easy to follow, so new team members can
+start the test execution on their own. Besides, as creating new test cases is not complicated even beginners can handle it.
 
-<li>It is faster and more effective in case of rapidly changing application</li>
-When application changes from release to release and it's not a small change, QA team may fall behind the changed with creating new automated tests. Manual testing in this case is faster and more effective as more flexible, but this situation should not prevent creating automated tests in wider perspective.
+<li>Faster and more effective in the case of applications undergoing frequent changes</li>
+When an application undergoes changes, the QA team may not keep up with creating new automated tests. So in this
+particular case, manual testing is faster and more effective due to its flexibility. Anyway, it does not mean that
+automated tests are unnecessary.
 </ol>
 
-It is now easy to find perfect solution for project. When testers or QA's decide what they should propose they way of working, they should keep in mind this factors. The best approach may be find in the given situation but it depends of QA's knowledge and experience.
+After reading the previous paragraphs, finding the best solution should be easier. Testers or QA engineers should
+consider their choice well and include all the factors mentioned above. Eventually, the best choice depends on
+knowledge and experience of QA engineers.
 
-## Testing tools – are we need it? What to choose?
+## Testing tools – do you need them? Which should you choose?
 
-Beginners very often ask about tools which are used in testing. The main tool for every tester is a test management tool and this is absolutely must-have if any requirements-to-test cases coverage needs to be kept and bug-to-test cases tracking. On the market a lot of paid and free tools may be found as Test Link or HP Quality Center already mentioned earlier or free Polish tool Test Arena. The decision which tool to choose should be well thought out in terms of ROI (return of investment) as further transfer of test cases
-between different tools after change of decision might be time-consuming and sometimes hard to execute. The same relates to defect tracking tools – the most popular one is probably Jira developed by Atlassian. It’s big advantage is Jira Agile add-on (recently incorporated in standard Jira version) that allows also to manage user stories and connected test cases, so in Agile project can be used as the only one test management tool. All in all, Excel is never enough for test management.  
-Another topic is choosing tool for automation tests execution and design, but here everything depends on type of developed application/system (e.g. web app or mobile) and technology used in project. The popular tools for websites is `Selenium`, for Android there is `Espresso` and for iOS `XCUITest`, but you may find your own framework
-fitting better for your project as well.
+Less experienced engineers often ask about testing tools. An absolute must-have is a test management tool to keep
+any requirements-to-test cases coverage and track bug-to-test cases. The market offers a lot of commercial and free
+tools such as `Test Link` or `HP Quality Center` mentioned above or a free Polish tool – `Test Arena`. A decision
+concerning the choice of a tool should be carefully considered in terms of ROI (return of investment). Any potential
+migration of test cases between different tools following a change of decision may be time-consuming and sometimes
+difficult to execute. The same rule applies to defect tracking tools, with `JIRA` developed by Atlassian being
+probably the most popular one. Its main advantage is a `JIRA` Agile add-on (recently incorporated in a standard `JIRA`
+  version) that allows users to manage user stories and linked test cases. Therefore, it can be used in an agile
+  project as the only test management tool. All in all, `Excel` spreadsheets are insufficient to do the job.  
+Next thing is choosing a tool for designing and execution of automation tests, which depends on a type of developed
+application/system (e.g. web or mobile app) and applied technology. If you are dealing with websites, try `Selenium`.
+In the case of Android apps, try `Espresso`, and for iOS – `XCUITest`. Nonetheless, test other frameworks to select
+the one that suits your project best.
 
+## Application release. Case study
 
-## So how to release application? Live example
+I discussed advantages and disadvantages of various testing approaches and software development methods in previous
+paragraphs. Nevertheless, it turns out that releasing a reliable application is not easy. When we started a new
+project, a German version of Allegro iOS app, we had to find the best solution. We decided to adjust an agile model to
+the needs and conditions of our project for more effective QA work. The problem was that we couldn’t receive final
+mock-ups and user stories, as they were continuously modified. So we decided to base on those few requirements that
+were already agreed on and could be considered stable. We started writing manual tests cases using our test management
+tool. It was a good idea, as we had a lot of questions about different states of an application, its behavior, edge
+cases, etc. Eventually, it resulted in fewer bugs at the end of a development stage. When TCs were ready, we asked
+developers, UX engineers and a product owner to review our tests. They pointed out cases we did not think of and
+cleared some information in TCs. It gave us better insight into how the application should work, and gave us great
+project documentation. We created manual test cases being a base for regression testing. But first, we used them for
+regular functional testing of new features. Then we included test cases created for new features to a new regression
+test set, and ran it one more time when a release candidate was ready. Although it may seem that with an increasing
+number of regression test cases it took more time to execute the regression tests with each release, it did not.
+For each release specific regression test, cases were chosen based on areas subject to changes. After testing new
+features for a specific release, there was no need to run all test cases for that feature if nothing was changed.
+It was sufficient to run the main test scenarios only. As a result, the set for regression testing were always
+different. Therefore, we knew how much time testing might take. And what happened when we found new bugs when running
+regression tests? In such situation, a product owner, QA engineers, UX specialists and developers discussed the bugs
+criticality. Such defect triage allowed us to decide what to fix in next releases, and what had to be fixed
+immediately. When developers created a new build with all necessary fixes, we ran the test once again, but we used
+less test cases just to check areas with modified code and verify core functionalities. After finding a new critical
+issue, we repeated the process one more time. Fixes are always checked using separate branches, so quite often a fix
+is developed based on the latest build.
 
-Last paragraphs describe advantages and disadvantages of different testing approaches and developing methodologies. It shows that there is no one perfect way to successfully release stable application. When we start new project for iOS Allegro application for Germany we must find the best solution for us. Here I would like to describe how we adapt Agile methodology to the needs and conditions in our project for more effective QA work. The problem was that we couldn’t receive final mock-ups and user stories as they were continuously changing. So as QA we decided to create our design based on those few rare requirements that were already agreed and can be considered stable. We start writing manual tests cases in our test managed tool. This occurred to be a good idea as a lot of questions appeared about different states of application, its behavior, edge cases, etc. It was added value for development process and so at the end of development phase there were fewer bugs implemented than it is usually done due to unstable and not clear requirements. When TCs were finished, we involved developers, UX and PO's in review process of our test cases. They pointed out cases we did not notice and also cleared some information in TCs. That helped all to understand well the way how the application should work and additionally gave us a great documentation of the project. In general in our project we create manual test cases. They are our base for regression testing, when release is coming. But first we use them for normal functional testing of newly implemented features after developers finish their work. Then we include those test cases for new features to new regression test set and we run it one more time when release candidate is ready. It may seem that in this way, as number of regression test cases is increasing, time for executing regression tests is growing in each release. This is not true as for each release specific regression test cases are chosen based on our knowledge about which application areas were affected by changes during ongoing release. After new features were tested in specific release and in the next one no changes were implemented in that area, there is no need to run all designed test cases for that feature. It is enough to run only main test scenarios. So as you see, regression test set is not always the same. This allows us to perform regression tests in predictable time. And what happen when we find new bugs during execution of regression test cases? In such situation Product owner, QA, UX and developer meet together and discuss the importance of found bugs. Such defect triage allow us to decide which of them may by fixed in next releases and which are considered critical and must be fixed  in current release. Then developers prepare new build with all necessary fixes and we start second test run with less test cases to check areas where code was changed and verify core functionalities. When some another new critical issue is found, we repeat all process one more time. But fixes are always checked on separate branches, so often fix is completed on latest build.
-
-You may ask where is the automation in this process? We have one set of automated sanity tests, which is used for smoke testes on new builds. It covers main functionalities in the application and it is run on every branch, so developers have quick feedback for their builds. Also we used it as basic check for regression tests. When number of automated tests increases, we use them to replace manual tests in regression. But it does not mean that in the course of time all regression manual tests cases will be automated. In the very beginning of the project, before we developed process described above, no automated tests were created as it was considered too time consuming due to the fact that some implemented functionalities were known to be part-time solution and meant to be changed in the nearest future. That means we would spend a lot of time on test environment setting and test design and those tests would be executed only few times, so the ROI would be very low. In such situation it was better to focus more on manual testing.  
-
+You may wonder where is the automation in this process? We have one set of automated sanity tests for new builds. It
+covers main functionalities of an application and is run on all branches, so feedback concerning builds is quick. We
+also use the set as a basic check for regression tests. When a number of automated tests is increasing, we replace
+manual tests with them in regression testing. But it does not mean that eventually all regression manual tests will
+be automated. At the very beginning of a project, before we developed the process described above, no automated tests
+were created. We considered it too time-consuming as some implemented functionalities were only a temporary solution
+and meant to be changed in the nearest future. In other words, we would spend a lot of time on test environment setup
+and test design to create tests to be executed only a few times, so the ROI would be very low. Therefore, it was
+better to focus more on manual testing.
 
 ## Summary
-There is no one ideal methodology that would fit for testing process in every project and QA engineers should decide how the testing process should look depending on the character of starting project. Few factors need to be taken into consideration. So how to find the happy medium? Keep maximum flexibility and adapt the methodology or some of it parts to
-fit the best for the specific conditions of the project.
+As there is no perfect model that would fit every project, QA engineers should decide about the testing process by
+taking into account project features. A few factors need to be taken into consideration as well. So, how to find the
+happy medium? Be flexible and adjust the model, or some of it parts, that suits the specific conditions of your project.
