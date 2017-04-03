@@ -85,7 +85,7 @@ execute the same set of test cases every time.
 <li>You can run them at a regular basis</li>
 
 It is the main advantage of automated tests. As you can use them to test builds on a daily basis, the development team
-receives feedback almost immediately. However, there is a risk that the tests may become blind over time ¬– test
+receives feedback almost immediately. However, there is a risk that the tests may become blind over time - test
 scenarios, if not updated, verify the same paths as at the first run. It may happen that a small change in the code
 will remodel some of the application features, but the tests will pass anyway. How is it possible? Because these
 tests do not “see” UI changes or strings displayed outside the lines. They only check if all features are working
@@ -123,13 +123,13 @@ knowledge and experience of QA engineers.
 
 Less experienced engineers often ask about testing tools. An absolute must-have is a test management tool to keep
 any requirements-to-test cases coverage and track bug-to-test cases. The market offers a lot of commercial and free
-tools such as `Test Link` or `HP Quality Center` mentioned above or a free Polish tool – `Test Arena`. A decision
+tools such as `HP Quality Center` or `Test Link` mentioned above or a free Polish tool – `Test Arena`. A decision
 concerning the choice of a tool should be carefully considered in terms of ROI (return of investment). Any potential
 migration of test cases between different tools following a change of decision may be time-consuming and sometimes
 difficult to execute. The same rule applies to defect tracking tools, with `JIRA` developed by Atlassian being
 probably the most popular one. Its main advantage is a `JIRA` Agile add-on (recently incorporated in a standard `JIRA`
-  version) that allows users to manage user stories and linked test cases. Therefore, it can be used in an agile
-  project as the only test management tool. All in all, `Excel` spreadsheets are insufficient to do the job.  
+version) that allows users to manage user stories and linked test cases. Therefore, it can be used in an agile
+project as the only test management tool. All in all, `Excel` spreadsheets are insufficient to do the job.  
 Next thing is choosing a tool for designing and execution of automation tests, which depends on a type of developed
 application/system (e.g. web or mobile app) and applied technology. If you are dealing with websites, try `Selenium`.
 In the case of Android apps, try `Espresso`, and for iOS – `XCUITest`. Nonetheless, test other frameworks to select
@@ -157,10 +157,10 @@ It was sufficient to run the main test scenarios only. As a result, the set for 
 different. Therefore, we knew how much time testing might take. And what happened when we found new bugs when running
 regression tests? In such situation, a product owner, QA engineers, UX specialists and developers discussed the bugs
 criticality. Such defect triage allowed us to decide what to fix in next releases, and what had to be fixed
-immediately. When developers created a new build with all necessary fixes, we ran the test once again, but we used
+immediately. When developers created a new build with all necessary fixes, we ran the regression tests once again, but we used
 less test cases just to check areas with modified code and verify core functionalities. After finding a new critical
-issue, we repeated the process one more time. Fixes are always checked using separate branches, so quite often a fix
-is developed based on the latest build.
+issue, we repeated the process one more time. Fixes are always checked using separate branches, before merge to next
+release candidate, but regression is performed on RC with all necessary fixes.
 
 You may wonder where is the automation in this process? We have one set of automated sanity tests for new builds. It
 covers main functionalities of an application and is run on all branches, so feedback concerning builds is quick. We
