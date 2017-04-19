@@ -17,8 +17,8 @@ it’s the first one that comes to mind when considering input data. Among other
 or the size of individual requests.
 
 We are going to focus on limiting the rate of requests to a service from the perspective of a publish–subscribe
-message broker. In our case it’s Hermes, which wraps Kafka and inverts a pull consumption model
-to a push based model.
+message broker. In our case it’s [Hermes](http://hermes.allegro.tech),
+which wraps Kafka and inverts a pull consumption model to a push based model.
 
 In case of Kafka, the consumer controls the rate at which it reads messages.
 That’s a direct consequence of the pull model.
@@ -61,7 +61,7 @@ Instances of the Hermes Consumers service handle a lot of client subscriptions a
 and need to distribute work.
 
 An algorithm that balances subscriptions across present consumers is in place, and we configure it as we see fit
-with a number of parameters.
+with a [number of parameters](http://hermes-pubsub.readthedocs.io/en/latest/configuration/rate-limiting/).
 
 Among them, there is the fixed amount of automatically assigned consumers per single subscription.
 We can add more resources to the work pool manually if needed. Consumers can come and go and the algorithm
@@ -129,7 +129,8 @@ every now and then (even for periods longer than 1s in advance).
 Token bucket would require a constant stream of locked writes (or even CAS’ed if optimized) to a shared counter
 and coordination for resetting the counter. For hundreds of subscriptions it would mean a lot of contention.
 
-Other implementations [^1] require knowing the number of *incoming requests*.
+[Other implementations](https://www.microsoft.com/en-us/research/wp-content/uploads/2007/01/fp076-raghavan.pdf)
+require knowing the number of *incoming requests*.
 Based on that, an algorithm blocks them from proceeding further.
 That’s unfortunately a different version of rate limiting.
 
@@ -230,7 +231,8 @@ Well, no.
 
 ### What can go wrong and how to avoid pitfalls
 
-The fallacies of distributed computing are well known these days [^2],
+The fallacies of distributed computing are
+[well known these days](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing),
 but one has to experience for themselves what they mean in practice to craft an adaptable system.
 
 That’s not all. You want to keep the system running at all times.
@@ -320,11 +322,12 @@ While deploying the new version, the workload algorithm would trigger a full reb
 That in turn caused a chain effect of losing max-rate assignment and triggered re–establishing connections
 to Kafka at the same time. And that is quite costly due to Kafka partition rebalancing.
 
-Due course we needed to address the underpinnings of workload assignment to make the algorithm stable [^3].
+Due course we needed to address the underpinnings of workload assignment to make the algorithm stable
+([hermes-688](https://github.com/allegro/hermes/pull/688)).
 
 Once we got that right, max-rate calculations played along nicely.
 
-#### Bug in production [^4]
+#### Bug in production ([hermes-723](https://github.com/allegro/hermes/pull/723))
 
 Finally, not to leave you with a feeling we are so smart and never make mistakes.
 We actually do, and we learn from them. Most of this article is phrased as a record of what we learned
@@ -372,7 +375,7 @@ for (SubscriptionConsumer consumer : subscriptionConsumers) {
 }
 ```
 
-#### Yet another bug [^5]
+#### Yet another bug ([hermes-743](https://github.com/allegro/hermes/pull/743))
 
 I mentioned we don’t update consumer’s rate in Zookeeper all the time, but only after a significant change.
 
@@ -485,15 +488,6 @@ For now, we have greatly improved the adaptivity of the system to lags and uneve
 
 Further tuning is possible, but we’ve already seen great improvement by deploying the algorithm in current form.
 
-The implementation details are available on github [^6], as Hermes and many other tools are Open Source [^7].
+The implementation details are available on GitHub ([hermes-611](https://github.com/allegro/hermes/pull/611)),
+as Hermes and many other tools are [Open Source](http://allegro.tech/open-source/).
 Feel free to contribute or share your comments below.
-
----
-
-[^1]: <https://www.microsoft.com/en-us/research/wp-content/uploads/2007/01/fp076-raghavan.pdf>
-[^2]: <https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing>
-[^3]: <https://github.com/allegro/hermes/pull/688>
-[^4]: <https://github.com/allegro/hermes/pull/723>
-[^5]: <https://github.com/allegro/hermes/pull/743>
-[^6]: <https://github.com/allegro/hermes/pull/611>
-[^7]: <http://allegro.tech/open-source/>
