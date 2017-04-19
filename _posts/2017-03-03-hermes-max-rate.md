@@ -5,9 +5,9 @@ author: dariusz.jedrzejczyk
 tags: [tech, distributed systems, hermes, architecture, algorithms, open source]
 ---
 
-In our services ecosystem it is usually the case that services can handle
+In our services ecosystem it’s usually the case that services can handle
 a limited amount of requests per second.
-We show how we introduced a new algorithm for our publish–subscribe queue system.
+We show how we introduced a new algorithm for our publish-subscribe queue system.
 The road to production deployment highlights some key distributed systems’ takeaways we’d like to discuss.
 
 ### Rate limiting
@@ -28,7 +28,7 @@ Then, it controls the delivery to clients, which might involve handling failures
 It’s vital for Hermes to take care of guaranteeing a required delivery rate.
 
 Implementing a new algorithm in Hermes was an interesting challenge and we’d like to share our experience.
-We think it shows some reoccuring themes with distributed systems. A real world example is always
+We think it shows some recurring themes with distributed systems. A real world example is always
 an interesting spark for discussion.
 
 ### Hermes architecture
@@ -41,9 +41,11 @@ view when delivering messages.
 Hermes’ clients include *Producers* that publish messages. These messages can be read by other clients,
 called *Consumers*.
 
-Hermes users operate on *topics*, to which they write messages using *Hermes Frontends*.
+Messages are stored in *topics*.
 
-Messages on these topics are consumed by *subscribers* (*Consumers* subscribe to topics), and *Hermes Consumers*
+*Hermes Frontends* are appending user messages to these topics.
+
+Then, they’re consumed by *subscribers* (*Consumers* subscribed to a topic), and *Hermes Consumers*
 make sure to deliver messages to them via HTTP requests.
 
 Internally, *Kafka* acts as the persistent message store, while *Zookeeper* holds metadata
@@ -52,8 +54,8 @@ and allows coordination of Hermes processes.
 Let’s assume the following terms so we don’t get confused:
 
 - *topic* – a Hermes topic,
-- *consumer* – Hermes Consumer instance handling a particular subscription,
-- *subscriber* – an instance of the service interested in receiving messages from a Hermes topic.
+- *consumer* – a Hermes Consumer instance handling a particular subscription,
+- *subscriber* – an instance of a service interested in receiving messages from a Hermes topic.
 
 ### Hermes consumers work distribution
 
@@ -79,18 +81,18 @@ to come up with a solution.
 When handling a particular subscriber, there are usually multiple instances of the service.
 We have load balancing in place which tries to deliver messages fairly to the instances,
 preferably in the same data center. Scaling the service is the responsibility of the team maintaining it,
-and what we require is a *number* – *how many reqs/s can we throw at your service*?
+and what we require is a limit – *how many reqs/s can we throw at your service*?
 
 That’s all we want to know. We don’t want to know how many instances there are.
-Especially as they probably won’t be homogeneous due to our cloud infrastructure running Mesos and OpenStack VMs.
+Especially, as they probably aren’t homogeneous due to our cloud infrastructure running Mesos and OpenStack VMs.
 We want a single number, regardless of your setup. You measure it, we meet that requirement.
 
-As we’ll see, we haven’t been using up that *number* very efficiently, and that’s why we needed to come up
+As you will see, we haven’t been using up that *number* very efficiently, and that’s why we needed to come up
 with a way to utilise it as best we can.
 
 Note also, Hermes has some logic to slow down delivery when the service is misbehaving,
-which we call *output rate limiting*. However, the upper limit for it is that actual magic *number* we talked about
-– *subscription rate limit* (AKA *max-rate*) which is what this article is about.
+which we call *output rate limiting*. However, the upper limit for it is the limit we talked about
+– *subscription rate limit* (aka *max-rate*) which is what this article is about.
 
 ### Motivations for solving the problem
 
@@ -111,9 +113,10 @@ And that’s not the whole list.
 
 Second, we need to keep the rate limit across all DCs, as our subscribers can for instance just choose to run
 in a single DC. Or perhaps writes just happen in one data center, in an active–fallback setup.
-Consider that the subscriber expects up to `1000 msgs/s` and you’re running *dc1* as the active one,
-handling `800 msgs/s` at peak time. *dc2* is not receiving any messages. With one consumer per DC,
-you’re limited to `500 msgs/s` and the lag grows until the incoming rate falls and you can catch up.
+Consider that the subscriber expects up to `1000 msgs/s` (messages per second) and you’re running *dc1*
+as the active one, handling `800 msgs/s` at peak time. *dc2* is not receiving any messages.
+With one consumer per DC, you’re limited to `500 msgs/s` and the lag grows until the incoming rate falls
+and you can catch up.
 
 Why not just set the total rate limit higher if we know this happens? The number provided comes from load testing
 service instances. If we set it above that level, in a scenario, where production rate is higher than the limit
@@ -121,12 +124,13 @@ the service can take, we inevitably kill a production service.
 
 ### Algorithms considered
 
-There are algorithms for distributed rate limiting, among which the most widely used is *token bucket*
-and more sophisticated versions of it.
+There are algorithms for distributed rate limiting, among which the most widely used
+is [*token bucket*](https://en.wikipedia.org/wiki/Token_bucket) and more sophisticated versions of it.
 
 For our case, there would be too much communication across the network to implement token bucket to get tokens
 every now and then (even for periods longer than 1s in advance).
-Token bucket would require a constant stream of locked writes (or even CAS’ed if optimized) to a shared counter
+Token bucket would require a constant stream of locked writes
+(or even [CAS](https://en.wikipedia.org/wiki/Compare-and-swap)’ed if optimized) to a shared counter
 and coordination for resetting the counter. For hundreds of subscriptions it would mean a lot of contention.
 
 [Other implementations](https://www.microsoft.com/en-us/research/wp-content/uploads/2007/01/fp076-raghavan.pdf)
