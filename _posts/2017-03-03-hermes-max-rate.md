@@ -18,7 +18,7 @@ or the size of individual requests.
 
 We are going to focus on limiting the rate of requests to a service from the perspective of a publish–subscribe
 message broker. In our case it’s [Hermes](http://hermes.allegro.tech),
-which wraps Kafka and inverts a pull consumption model to a push based model.
+which wraps [Kafka](https://kafka.apache.org/) and inverts a pull consumption model to a push based model.
 
 In case of Kafka, the consumer controls the rate at which it reads messages.
 That’s a direct consequence of the pull model.
@@ -38,18 +38,17 @@ view when delivering messages.
 
 ![Hermes architecture](/img/articles/2017-03-03-hermes-max-rate/architecture.png)
 
-Hermes’ clients include *Producers* that publish messages. These messages can be read by other clients,
-called *Consumers*.
+In more detail:
 
-Messages are stored in *topics*.
+- Hermes’ clients include *Producers* that publish messages.
+- These messages can be read by other clients, called *Consumers*.
+- Messages are stored in *topics*.
+- *Hermes Frontends* are appending user messages to these topics.
+- Then, they’re consumed by *subscribers* (*Consumers* subscribed to a topic)
+- *Hermes Consumers* make sure to deliver messages to *subscribers* via HTTP requests.
 
-*Hermes Frontends* are appending user messages to these topics.
-
-Then, they’re consumed by *subscribers* (*Consumers* subscribed to a topic), and *Hermes Consumers*
-make sure to deliver messages to them via HTTP requests.
-
-Internally, *Kafka* acts as the persistent message store, while *Zookeeper* holds metadata
-and allows coordination of Hermes processes.
+Internally, *Kafka* acts as the persistent message store, while [*Zookeeper*](https://zookeeper.apache.org/)
+holds metadata and allows coordination of Hermes processes.
 
 Let’s assume the following terms so we don’t get confused:
 
@@ -84,7 +83,8 @@ preferably in the same data center. Scaling the service is the responsibility of
 and what we require is a limit – *how many reqs/s can we throw at your service*?
 
 That’s all we want to know. We don’t want to know how many instances there are.
-Especially, as they probably aren’t homogeneous due to our cloud infrastructure running Mesos and OpenStack VMs.
+Especially, as they probably aren’t homogeneous due to our cloud infrastructure running
+[Mesos](http://mesos.apache.org/) and [OpenStack](https://www.openstack.org/) VMs.
 We want a single number, regardless of your setup. You measure it, we meet that requirement.
 
 As you will see, we haven’t been using up that *number* very efficiently, and that’s why we needed to come up
@@ -108,19 +108,19 @@ Unfortunately, even if the other `N - 1` consumers are not using their share to 
 we can’t go beyond `limit / N`.
 
 Why do partitions lag? For instance Kafka brokers rebalance themselves, which causes some partitions’ consumers
-to wait a while. Hermes consumer handling some partitions can crash and the lag grows.
+to wait a while. A Hermes consumer handling some partitions can crash and the lag grows.
 And that’s not the whole list.
 
 Second, we need to keep the rate limit across all DCs, as our subscribers can for instance just choose to run
 in a single DC. Or perhaps writes just happen in one data center, in an active–fallback setup.
-Consider that the subscriber expects up to `1000 msgs/s` (messages per second) and you’re running *dc1*
-as the active one, handling `800 msgs/s` at peak time. *dc2* is not receiving any messages.
-With one consumer per DC, you’re limited to `500 msgs/s` and the lag grows until the incoming rate falls
+Consider that the subscriber expects up to 1000 msgs/s (messages per second) and you’re running *dc1*
+as the active one, handling 800 msgs/s at peak time. *dc2* is not receiving any messages.
+With one consumer per DC, you’re limited to 500 msgs/s and the lag grows until the incoming rate falls
 and you can catch up.
 
-Why not just set the total rate limit higher if we know this happens? The number provided comes from load testing
-service instances. If we set it above that level, in a scenario, where production rate is higher than the limit
-the service can take, we inevitably kill a production service.
+Why not just set the total rate limit higher if we know this happens? The number provided comes from
+service instances load testing. If we set it above that level, in a scenario, where production rate is higher
+than the limit a service can take, we inevitably kill a service in production.
 
 ### Algorithms considered
 
@@ -128,10 +128,9 @@ There are algorithms for distributed rate limiting, among which the most widely 
 is [*token bucket*](https://en.wikipedia.org/wiki/Token_bucket) and more sophisticated versions of it.
 
 For our case, there would be too much communication across the network to implement token bucket to get tokens
-every now and then (even for periods longer than 1s in advance).
-Token bucket would require a constant stream of locked writes
-(or even [CAS](https://en.wikipedia.org/wiki/Compare-and-swap)’ed if optimized) to a shared counter
-and coordination for resetting the counter. For hundreds of subscriptions it would mean a lot of contention.
+every now and then (even for periods longer than 1 s in advance).
+Token bucket would require a constant stream of locked writes to a shared counter
+and coordination for resetting the counter. For hundreds of subscriptions it would mean high contention.
 
 [Other implementations](https://www.microsoft.com/en-us/research/wp-content/uploads/2007/01/fp076-raghavan.pdf)
 require knowing the number of *incoming requests*.
@@ -157,19 +156,19 @@ we can easily extract at runtime. That’s why we based the algorithm on the act
 
 Let’s consider an active consumer that’s running for a particular subscription.
 
-It needs to have a granted upper limit for the local rate limiter of delivery attempts. Let’s call it `max-rate`.
+It needs to have a granted upper limit for the local rate limiter of delivery attempts. Let’s call it *max-rate*.
 
 At a given moment in time, we can measure how many delivery attempts per second were made.
-If we consider that value with regard to `max-rate`, we get a number between `0` and `1` – let’s call it `rate`.
+If we consider that value with regard to *max-rate*, we get a number between 0 and 1 – let’s call it *rate*.
 
-Now, let’s have someone watch all `rate`’s for all consumers handling the subscription and decide
-how to distribute `subscription-rate-limit` among them. Let’s call this entity, *the coordinator*.
+Now, let’s have someone watch all *rates* for all consumers handling the subscription and decide
+how to distribute *subscription-rate-limit* among them. Let’s call this entity *the coordinator*.
 
 At configurable intervals, *the coordinator* runs through all the subscriptions and their respective consumers
-to recalculate their `max-rate` values.
+to recalculate their *max-rate* values.
 
-To make that possible, each consumer reports `rate` at given interval.
-We could in fact consider a number of recent values as `rate-history` and add more sophistication
+To make that possible, each consumer reports *rate* at given interval.
+We could in fact consider a number of recent values as *rate-history* and add more sophistication
 to our calculations, but we wanted to keep it simple for now.
 
 #### Calculation
@@ -182,8 +181,8 @@ calculate_max_rates(current_rates, current_max_rates):
   if count(busy) > 0:
     (updated_not_busy, to_distribute) <- takeAwayFromNotBusy(not_busy)
     updated_busy <- balanceBusy(busy)
-    final_busy <- distribute(updated_busy, to_distribute)
-    return union(updated_not_busy, final_busy)
+    final_busy <- distributeAvailableRate(updated_busy, to_distribute)
+    return union(updated_not_busy, final_busy) -- a set with both busy and not_busy
   else:
     return NO_CHANGE // nothing to update
 ```
@@ -191,17 +190,17 @@ calculate_max_rates(current_rates, current_max_rates):
 Narrowing down to a subscription and a bunch of consumers, we might divide them into two groups:
 `busy` and `not_busy`.
 
-If a consumer’s `rate` exceeds a configurable threshold, we consider it to be `busy` and try to grant it more
+If a consumer’s rate exceeds a configurable threshold, we consider it to be *busy* and try to grant it more
 of the share.
-Symmetrically, `not_busy` consumer falls below the threshold and is a candidate for stealing its share
+Symmetrically, *not busy* consumer falls below the threshold and is a candidate for stealing its share
 for further distribution.
 
-If more than one `busy` consumer exists, we’d like to spread the freed amount among them,
+If more than one busy consumer exists, we’d like to spread the freed amount among them,
 but also make sure none of them is favoured.
 
-To equalize the load, we calculate the share of each `busy` consumer’s `max-rate` in the sum of their `max-rate`
-and take away from those above average. We consider that "fair".
-Over time if they stay busy, their `max-rate` values should be more or less equal (with configurable error).
+To equalize the load, we calculate the share of each busy consumer’s max-rate in the sum of their max-rate
+and take away from those above average. We consider that *fair*.
+Over time, if they stay busy, their max-rate values should be more or less equal (with configurable error).
 
 ### Algorithm infrastructure
 
@@ -224,9 +223,9 @@ as usual (including *the coordinator*).
 
 To help the algorithm, a hierarchical directory structure was created in Zookeeper:
 
-- There is a structure for each subscription’s consumers to store their `rate-history`
-(limited to single entry for now - the `rate`, which we mentioned before),
-- *The coordinator* is the reader of this data. Next to it, *the coordinator* would store the `max-rate`,
+- There is a structure for each subscription’s consumers to store their rate-history
+(limited to single entry for now – the rate, which we mentioned before).
+- *The coordinator* is the reader of this data. Next to it, *the coordinator* would store the max-rate.
 - Each consumer reads their calculated value at given intervals.
 
 That sounds solid. Let’s ship it.
@@ -235,9 +234,9 @@ Well, no.
 
 ### What can go wrong and how to avoid pitfalls
 
-The fallacies of distributed computing are
-[well known these days](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing),
-but one has to experience for themselves what they mean in practice to craft an adaptable system.
+The [fallacies of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)
+are well known these days, but one has to experience for themselves, what they mean in practice,
+to craft an adaptable system.
 
 That’s not all. You want to keep the system running at all times.
 Deploying different versions of software might be risky if instances of varying versions communicate.
@@ -245,29 +244,29 @@ We anticipated all of that, but needed to tweak here and there, as some intricac
 
 Here’s the record of some interesting considerations.
 
-#### Versions – constant rate limit for old consumers
+#### Deploying different algorithm versions – constant rate limit for old consumers
 
 When we decide to deploy the version with a new approach, we must consider what will happen in presence
 of older instances.
 
-Let’s keep in mind they have a fixed `max-rate` which is `subscription-rate-limit / N`.
+Let’s keep in mind they have a fixed max-rate which is `subscription-rate-limit / N`.
 We can’t take away their share. We have to take that into account when calculating.
 To simplify the algorithm, we just use that default for every instance.
 
 How, from the perspective of our algorithm, do we tell if we’re dealing with a new consumer or an old one?
-Well, one clear indicator is that it doesn’t report it’s `rate`. Also, it doesn’t have a `max-rate` assigned
+Well, one clear indicator is that it doesn’t report its rate. Also, it doesn’t have a max-rate assigned
 when we first encounter it. This is also true for new consumers we first calculate the value for.
 
 To cover both cases, we simply default to `max-rate = subscription-rate-limit / N`.
-Then, when we have `rate` missing for an old consumer, we don’t change any `max-rate` value.
+Then, when we have the rate missing for an old consumer, we don’t change any max-rate value.
 
 #### Caching max-rate
 
-At a configured interval, consumers reach for `max-rate` to Zookeeper. What happens if they can’t fetch it?
+At a configured interval, consumers reach for max-rate to Zookeeper. What happens if they can’t fetch it?
 Zookeeper connections can get temporarily broken, or reading can exceed some timeout value. What do we do?
 
 We could default to a configured minimum value, which would definitely be a deal–breaker.
-We can’t randomly slow delivery with such knockout. It takes some time for the consumer to reach full speed
+We can’t randomly slow down the delivery with such knockout. It takes some time for the consumer to reach full speed
 (the slow down adjustment we mentioned earlier).
 
 We just ignore such update in that case and carry on with the previous one.
@@ -286,7 +285,7 @@ compared to a previously reported value. We save some write overhead too.
 
 #### Only updating max-rate when required
 
-Do we need to update `max-rate`’s constantly?
+Do we need to update max-rates constantly?
 
 When there is no busy consumer, there is no need to grant anyone a higher share,
 as they’re happy with what they already have. We eliminate most writes to Zookeeper.
@@ -305,15 +304,16 @@ The algorithm adapts rather quickly.
 
 #### Subscription rate change
 
-One game changer is definitely when a user changes the subscription rate limit. How can we tell something changed?
+One game changer is definitely when a user changes a subscription’s rate limit.
+How can we tell something has changed?
 Subscription updates are at a different conceptual level from our calculations.
 
-Every time we attempt to calculate the shares, we sum up currently assigned `max-rate`’s and compare it
-to current `subscription-rate-limit` and we reset to the default equal share to adjust in case of a difference.
+Every time we attempt to calculate the shares, we sum up currently assigned max-rates and compare it
+to current subscription-rate-limit and we reset to the default equal share to adjust in case of a difference.
 
 #### Deployment failure – underlying workload algorithm unstable and fixing it due course
 
-In the early experiments with the algorithm without some optimizations, Hermes Consumers would not pick up any work.
+In the early experiments with the algorithm without some optimizations, consumers would not pick up any work.
 
 The load on Zookeeper grew suddenly.
 
@@ -331,25 +331,25 @@ Due course we needed to address the underpinnings of workload assignment to make
 
 Once we got that right, max-rate calculations played along nicely.
 
-#### Bug in production ([hermes-723](https://github.com/allegro/hermes/pull/723))
+#### Bug in production
 
 Finally, not to leave you with a feeling we are so smart and never make mistakes.
 We actually do, and we learn from them. Most of this article is phrased as a record of what we learned
-instead of what we got wrong. As developers we need to stay positive in spite of all those bugs!
+instead of what we got wrong. As developers, we need to stay positive in spite of all those bugs!
 
-The algorithm has been running well for weeks. Suddenly things go bad.
+The algorithm was running well for weeks. Suddenly things went bad.
 Some subscriptions would just not process any messages.
 
-We investigated what happened and discovered that someone entered a number `1` as the rate limit.
+We investigated what happened and discovered that someone entered 1 as the rate limit.
 
-We considered a reasonable limit to not fall below `1` per consumer instance.
-Combined with this given global requirement of `1` the algorithm ended up calculating negative values.
+We considered a reasonable limit to not fall below 1 per consumer instance.
+Combined with this given global requirement of 1 the algorithm ended up calculating negative values.
 
 With all the hard thinking about the problem we failed to identify such a basic test.
 
 Nevertheless, it shouldn’t be a deal breaker for everyone, right?
 
-Somewhere else in the code, a task handling the slowing down in case of delivery errors, had a loop.
+Somewhere else in the code, a task handling the slowing down in case of delivery errors had a loop.
 Something more or less like this:
 
 ```java
@@ -362,7 +362,7 @@ try {
 }
 ```
 
-Here we have it. One of them throwing an exception caused the other ones to be abandoned completely!
+Here we have it. One rate adjustment throwing an exception caused the other ones to be abandoned completely!
 
 Moving the try/catch block inside the loop would prevent this from being a major issue.
 The exception would affect just the subscription with a weird number.
@@ -379,7 +379,9 @@ for (SubscriptionConsumer consumer : subscriptionConsumers) {
 }
 ```
 
-#### Yet another bug ([hermes-743](https://github.com/allegro/hermes/pull/743))
+Here’s how we addressed the issue: [hermes-723](https://github.com/allegro/hermes/pull/723).
+
+#### Yet another bug
 
 I mentioned we don’t update consumer’s rate in Zookeeper all the time, but only after a significant change.
 
@@ -388,20 +390,21 @@ a consumer would not be considered busy when it actually reached business.
 
 The bug occured long after the algorithm was enabled, as it wasn’t very likely to happen.
 
-We needed to ensure the configuration is valid to ensure the problem doesn’t happen.
+We needed to ensure the configuration is valid to ensure the problem doesn’t happen
+([hermes-743](https://github.com/allegro/hermes/pull/743)).
 
 ### Out in the wild (in production)
 
 Designing a better rate limiting algorithm had two goals:
 
-- Improving lag consumption when particular partitions had hiccups,
-- Better utilization of resources when load varies across data centers.
+- Improving lag consumption when particular partitions had hiccups.
+- Better utilization of resources when the load varies across data centers.
 
-Let’s check how the algorithm performed in each of those cases.
+Let’s check how the algorithm performed in each of these cases.
 
 #### Lags during deployment
 
-During deployment, we perform a rolling update.
+During a deployment, we perform a rolling update.
 
 Some consumers start faster than others and consuming partitions of a particular topic can get some lags.
 
@@ -427,12 +430,12 @@ As can be seen, this has happened quite quickly.
 The algorithm leaves an uneven distribution, but that’s ok.
 None of the consumers is actually busy, so they’re satisfied with their current max-rate.
 
-#### Distributing rate across data centers
+#### Distributing the rate across data centers
 
 One of our Hermes clusters operates in an active–passive Kafka setup.
 Just one DC is handling production data, while the other one gets just a few requests per second.
 
-When we were about to deploy the new version of Hermes Consumers to this cluster,
+When we were about to deploy the new version of consumers to this cluster,
 we noticed two bugs with the old version. Both of them had to do with the way the number of consumers
 was determined by looking up some metrics in Zookeeper.
 
@@ -444,13 +447,13 @@ in some cases. One subscription’s rate limit was lower than the traffic on the
 
 ![Delivery rate](/img/articles/2017-03-03-hermes-max-rate/dc_delivery.png)
 
-Until 13:45, before we deployed the fixed version, the traffic was around 1,2K reqs/s.
+Until 13:45, before we deployed the fixed version, the traffic was around 1.2K reqs/s.
 
 After the rate limit was split evenly, the active DC got around 500 reqs/s limit.
 That, as can be observed, has impacted the delivery.
 
-The messages in the queue piled up and the lag was growing. Around 17:15 we deployed the version with new algorithm
-and around 17:45 bumped the rate limit to 5000 reqs/s to consume the lag.
+The messages in the queue piled up and the lag was growing. Around 17:15 we deployed the version with
+the new algorithm and around 17:45 bumped the rate limit to 5000 reqs/s to consume the lag.
 
 ![Output rate](/img/articles/2017-03-03-hermes-max-rate/dc_output.png)
 
@@ -479,7 +482,7 @@ the subscription rate limit to 5K reqs/s.
 
 ### Improvements and summary
 
-We can further improve the behaviour of the algorithm by exploring ideas around `rate-history` further
+We can further improve the behaviour of the algorithm by exploring ideas around rate-history
 for more smooth transitions.
 
 The algorithm could behave more predictively considering the trend in history,
