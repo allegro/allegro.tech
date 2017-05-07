@@ -1,0 +1,68 @@
+---
+layout: post
+title: The Agile Testing Days Conference - Potsdam 2016
+author: michal.duleba
+tags: [tech, conference, testing, QA, agile]
+---
+
+Last year [Agile Testing Days Conference](https://agiletestingdays.com/) was held between 6 - 8th December at Potsdam, Germany. According to statistics provided by organizers there were around 600 attendants and about 30 speakers in keynotes / workshops. During the whole event around 22 different workshops took place, 9 keynotes and around 30 other speeches / presentations divided into 7 separate, parallel tracks. I had the opportunity to attend the first two days of the conference and in this article I'd like to share with You some short review of the most interesting sessions and my impressions about the event.
+
+### Lectures
+
+The first keynote of the conference was „*Pushing the edge on what’s possible*” conducted by Abby Fichtner. Abby says about herself that she is „*a software developer by trade, my roots are a mixture of developing bleeding-edge technology for startups and coaching teams on how to develop software better*”. From my point of view this keynote was an ideal kick-off of the conference - Abby told us about how in early days she became a hacker in the meaning of someone who „*…thinks outside of the box, someone that thinks differently than most people do*”. Presentation was focused on encourage audience to face their fears, to become more creative and innovative by leaving comfort zone - all that can help to become a hacker in her opinion. 
+
+Next interesting presentation was „*Continuous Delivery Anti-Patterns*” by Jeff Morgan - chief technology officer and cofounder of [LeanDog](https://www.leandog.com/) initiative, he has been teaching classes and coaching teams on agile and lean techniques since 2004. In this talk Jeff, based on his experience pointed out several Continuous Delivery anti-patterns: 
+
+- code branches and merging
+- not focused on quality
+- no or little test automation
+- developers and testers not working together
+- defects are acceptable
+- working in projects
+
+If You are interested, here is a [link](https://www.youtube.com/watch?v=ru1-CYouPjg) to this talk. 
+
+Next lecture, I found very interesting, was a keynote: „*NoEstimates*” by Vasco Duarte. Vasco as he describes himself is: Product Manager, Scrum Master, Project Manager, Director, Agile Coach working in the software industry since 1997, and Agile practitioner since 2004.
+
+First thing is that the idea of not having estimates, when running software projects could be shocking for someone who had to estimate a lot during his career. In the presentation we could find several examples and statistics that in my opinion prove that agile projects can be easily destroyed by estimating. Vasco stated that estimates don't really work in software industry and could ruin all value that agile project should deliver, especially to customers. Going further, estimations can be actively harmful for project and even in many cases for whole organization. At this point I have to admit that I agreed with almost every statement and thesis that Vasco gave in his lecture. Just after keynote I registered for a free copy of Vasco’s eBook titled "*No Estimates*" which is available here: [link](http://noestimatesbook.com).  So, please let me write below some of my impressions after reading that book and I hope it encourages You for digging into it.
+
+The book can be treated like a guide which can help us when: we want to reduce uncertainty in software projects, how to define, plan and run projects without estimates, what are the best ways for focusing on customers’ values and finally how *noestimates* approach can help manage a project in crisis. Vasco gave definitions of such terms like forecasting, prioritization, successful project, management of uncertainty, true progress of software delivery project and if there is a difference between estimations and guessing activity. I can imagine that for many people even from software industry statement like „*estimates don’t really work*” can be shocking, but reading the book I found couple forceful proofs and Laws which I totally agree with. Let me write below two of them:
+„*Hofstadler’s Law: It always takes longer than you expect, even when you take into account Hofstadler’s Law.*”
+Maybe sounds funny, but when I think about that statement through the prism of my software development experience it is hard not to agree. And second, Parkinson’s Law: 
+„*Work expands so as to fill the time available for its completion.*”,
+which is also something what I experienced couple times.
+
+As I mentioned earlier book can be treated like a user guide for people who play different roles in agile projects or any projects and find it difficult to define the level of estimations needed for managing it successfully. Vasco proposes the following steps for them: 
+
+- *move to story points*: eliminating such terms like ‚hours’ or ‚days’ can give many benefits in his opinion.
+- *stop estimating tasks* and for progress reporting try rather to ask Your team about Story progress and if they can finish task today. 
+- *limit the calendar duration of Features and Stories*: you should give one or maximum two days of calendar duration to finish each Story. 
+- *remove so called ‚planning poker’ card options if You use one*. Try to decrease the number of options that You give to your team while giving story points, the goal of this step is to finally ask simple question: „*Can we get this Story done by tomorrow if we start working on it today?*”.
+- *build histograms* which for example can help You keep track of average duration for Features or Stories.
+- *use the average cycle times for Stories* of different size which can be useful in providing Story-based forecasting.
+- *work with Stories as if they all had the same duration* and count number of Stories and project progress based of how many of them where delivered in the past.
+
+The conclusion that Vasco provided about given above steps is that some steps will be easy to implement, but when You find some step impossible to implement You should ask yourself questions „why?”. In my opinion in many cases this exercises can really help to find hidden project impediments. If You want find more useful advices, dig into Vasco’s book.
+
+Next event I attended to was workshop „*Story and Example Mapping Mashup*” conducted by Lisa Crispin and Joellen Carter. The main idea of story and example mapping is to map for ea. complicated software features into set of right-sized and understood stories. From my perspective main advantages of this technique were: scrum team members’ engagement in a process and easy identification of the first minimum valuable product release. 
+
+The last keynote of the first day was „*From Waterfall to Agile, the advantage is clear*” by Grammy awarded Michael “The Wanz” Wansley, author of „*Thrift Shop*” song. For me it was pretty stunning lecture, especially because of how original and great speaker is Michael. Here is a [link](https://www.youtube.com/watch?v=5egKHp17LcY) to this keynote. 
+
+Second day of the conference started with keynote „*Liftoff: Start and Sustain Successful Agile Teams*” given by [Diana Larsen](https://futureworksconsulting.com/about/diana-larsen). In presentation Diana showed process of launching agile team (called „lift off”) divided into three phases: 
+
+- answering the question: „are we ready for launching the agile team?” - it is important to make sure that all expectations toward the team are clarified
+- setting learning conditions of team members
+- define set of attributes that will fit your team, like: zero sprint, training sessions or retrospective meetings 
+
+One of the final Diana’s conclusion was that „*...an effective liftoff achieves alignment - a shared understanding about the work and why it matters to the organisation as a whole*”. 
+
+Next talk titled: „*Test properly – test properties!*” was held by Vagif Abilov. Presentation was based on code writing in *F#* using library *FsCheck*, but generally main objectives apply to various languages and platforms. The idea of testing properties according to Vagif was shift focus from treating tests as validating software towards describing behaviors and rules of tested components. Let’s take as an example a function in a program code - the approach is to focus on the properties of this function - attributes that are true of any correct implementation of it. To find more information about this approach please visit: [link](https://fsharpforfunandprofit.com/posts/property-based-testing/). 
+
+Second workshop I took part was „*Agile Leadership for All*” held by Selena Delasie. According to Selena *Agile Leadership* is not about managers or supervisors as we know but, that every agile team member could be a leader. During these interactive workshop participants worked on 7 leadership traits defined by Selena: *Class*, *Curiosity*, *Clarity*, *Connection*, *Creativity*, *Commitment* and *Communication* - this exercise showed how these traits can be implemented in agile practices. 
+
+The final keynote of the second day was: „*Lessons Learned in (Selling) Software Testing*” by Keith Klain, who for the last 20 years has built software quality management and testing teams for global financial services and IT companies in the US, UK, and Asia. In this presentation, Keith talked about his lessons learned in applying context-driven testing principles into viable commercial approach - I found it really interesting, especially practical aspects of managing test processes in commercial organizations. Presentation is available [here](https://wn.com/lessons_learned_in_(selling)_software_testing_|_keith_klain_|_stareast). 
+
+### Conclusions
+
+In my opinion conference was well organized, both logistically and in terms of its solid content. During the meeting participants could find more events than just lectures and workshops, such as: *Lean Coffee* sessions, *Opening Sessions*, *Award Ceremony for the Software Testing European Champions*, *Lightning Talks* or even private *Christmas Market*! Conference contents was well balanced - was equally divided into agile and testing subjects. I suppose that some participants could look for more technical aspects like: testing mobile applications, stress testing or newest frameworks. On the other hand, I think that the main goal that promoters of the event had was to create „*a festival for the agile community*” rather than purely technical meeting for developers. At this point, I have to agree that „Agile Testing Days” is a great place to meet opened and willing to help people from the European tester community and to share with them knowledge and experience.
+
