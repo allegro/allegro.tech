@@ -5,7 +5,7 @@ author: michal.duleba
 tags: [tech, conference, testing, QA, agile]
 ---
 
-Last year [Agile Testing Days Conference](https://agiletestingdays.com/) was held between 6 - 8th December at Potsdam, Germany. 
+Last year [Agile Testing Days Conference](https://agiletestingdays.com/) was held between 6th and 8th December at Potsdam, Germany. 
 According to statistics provided by organizers there were around 600 attendants and about 30 speakers in keynotes / workshops. 
 During the whole event around 22 different workshops took place, 9 keynotes
 and around 30 other speeches / presentations divided into 7 separate, parallel tracks. 
@@ -22,11 +22,11 @@ teams on how to develop software better”*.
 From my point of view this keynote was an ideal kick-off of the conference -
 Abby told us about how in early days she became a hacker in the meaning of
 someone who *„…thinks outside of the box, someone that thinks differently than most people do”*. 
-Presentation was focused on encourage audience to face their fears, to become
+Presentation was focused on encouraging the audience to face their fears, to become
 more creative and innovative by leaving comfort zone - all that can help to become a hacker in her opinion. 
 
-Next interesting presentation was *„Continuous Delivery Anti-Patterns”* by
-Jeff Morgan - chief technology officer and cofounder of
+Another interesting presentation was *„Continuous Delivery Anti-Patterns”* by
+Jeff Morgan - chief technology officer and cofounder of the
 [LeanDog](https://www.leandog.com/) initiative, he has been teaching classes
 and coaching teams on agile and lean techniques since 2004. 
 In this talk Jeff, based on his experience pointed out several Continuous
@@ -77,20 +77,20 @@ Let me write below two of them:
 *„Hofstadler’s Law: It always takes longer than you expect, even when you take
 into account Hofstadler’s Law.”*
 
-Maybe sounds funny, but when I think about that statement through the prism of
+Maybe it sounds funny, but when I think about that statement through the prism of
 my software development experience it is hard not to agree. 
 And second, Parkinson’s Law: 
 
 *„Work expands so as to fill the time available for its completion.”*,
 
-which is also something what I experienced couple times.
+which is also something what I experienced many times.
 
 As I mentioned earlier book can be treated like a user guide for people who
 play different roles in agile projects or any projects and find it difficult
 to define the level of estimations needed for managing it successfully. 
 Vasco proposes the following steps for them: 
 
-- *move to story points*: eliminating such terms like ‚hours’ or ‚days’ can give many benefits in his opinion
+- *move to story points*: eliminating such terms like „hours” or „days” can give many benefits in his opinion
 - *stop estimating tasks* and for progress reporting try rather to ask Your team about Story progress and if they can finish task today.
 - *limit the calendar duration of Features and Stories*: you should give one or maximum two days of calendar duration to finish each Story 
 - *remove so called ‚planning poker’ card options if You use one*. Try to decrease the number of options that You give to your team while giving story points, the goal of this step is to finally ask simple question: „*Can we get this Story done by tomorrow if we start working on it today?*”
