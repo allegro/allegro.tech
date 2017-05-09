@@ -10,7 +10,7 @@ According to statistics provided by organizers there were around 600 attendants 
 During the whole event around 22 different workshops took place, 9 keynotes
 and around 30 other speeches / presentations divided into 7 separate, parallel tracks. 
 I had the opportunity to attend the first two days of the conference and in
-this article I'd like to share with You some short review of the most
+this article I'd like to share with you some short review of the most
 interesting sessions and my impressions about the event.
 
 ### Lectures
@@ -39,7 +39,7 @@ Delivery anti-patterns:
 - defects are acceptable
 - working in projects
 
-If You are interested, here is a [link](https://www.youtube.com/watch?v=ru1-CYouPjg) to this talk. 
+If you are interested, here is a [link](https://www.youtube.com/watch?v=ru1-CYouPjg) to this talk. 
 
 Next lecture, I found very interesting, was a keynote: *„NoEstimates”* by
 Vasco Duarte. Vasco as he describes himself is: Product Manager, Scrum Master,
@@ -59,7 +59,7 @@ thesis that Vasco gave in his lecture.
 Just after keynote I registered for a free copy of Vasco’s eBook titled "*No
 Estimates*" which is available here: [link](http://noestimatesbook.com).  
 So, please let me write below some of my impressions after reading that book
-and I hope it encourages You for digging into it.
+and I hope it encourages you for digging into it.
 
 The book can be treated like a guide which can help us when: we want to reduce
 uncertainty in software projects, how to define, plan and run projects without
@@ -91,18 +91,18 @@ to define the level of estimations needed for managing it successfully.
 Vasco proposes the following steps for them: 
 
 - *move to story points*: eliminating such terms like „hours” or „days” can give many benefits in his opinion
-- *stop estimating tasks* and for progress reporting try rather to ask Your team about Story progress and if they can finish task today.
+- *stop estimating tasks* and for progress reporting try rather to ask your team about Story progress and if they can finish task today.
 - *limit the calendar duration of Features and Stories*: you should give one or maximum two days of calendar duration to finish each Story 
-- *remove so called ‚planning poker’ card options if You use one*. Try to decrease the number of options that You give to your team while giving story points, the goal of this step is to finally ask simple question: „*Can we get this Story done by tomorrow if we start working on it today?*”
-- *build histograms* which for example can help You keep track of average duration for Features or Stories
+- *remove so called ‚planning poker’ card options if you use one*. Try to decrease the number of options that you give to your team while giving story points, the goal of this step is to finally ask simple question: „*Can we get this Story done by tomorrow if we start working on it today?*”
+- *build histograms* which for example can help you keep track of average duration for Features or Stories
 - *use the average cycle times for Stories* of different size which can be useful in providing Story-based forecasting
 - *work with Stories as if they all had the same duration* and count number of Stories and project progress based of how many of them where delivered in the past
 
 The conclusion that Vasco provided about given above steps is that some steps
-will be easy to implement, but when You find some step impossible to implement
-You should ask yourself questions „why?”. 
+will be easy to implement, but when you find some step impossible to implement
+you should ask yourself questions „why?”. 
 In my opinion in many cases this exercises can really help to find hidden
-project impediments. If You want find more useful advices, dig into Vasco’s
+project impediments. If you want find more useful advices, dig into Vasco’s
 book.
 
 Next event I attended to was workshop *„Story and Example Mapping Mashup”* conducted by Lisa Crispin and Joellen Carter. 
