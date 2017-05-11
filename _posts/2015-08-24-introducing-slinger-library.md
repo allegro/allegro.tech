@@ -46,9 +46,7 @@ application.
 
 Here is conceptual diagram that shows how Slinger works:
 
-<center>
 ![Diagram explaining how Slinger works](/img/articles/2015-07-31-slinger-diagram.png)
-</center>
 
 ## Installation
 
