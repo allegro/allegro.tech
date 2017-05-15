@@ -47,7 +47,7 @@ Project Manager, Director, Agile Coach working in the software industry since
 
 First thing is that the idea of not having estimates when running software
 projects could be shocking for someone who had to estimate a lot during his
-career. In the presentation we could find severalcrisis examples and statistics that
+career. In the presentation we could find several crisis examples and statistics that
 in my opinion prove that agile projects can be easily destroyed by estimating. 
 Vasco stated that estimates don’t really work in software industry and could
 ruin all value that agile project should deliver, especially to customers.
