@@ -1,16 +1,16 @@
----
+———
 layout: post
 title: The Agile Testing Days Conference - Potsdam 2016
 author: michal.duleba
 tags: [tech, conference, testing, QA, agile]
----
+———
 
-Last year [Agile Testing Days Conference](https://agiletestingdays.com/) was held between 6th and 8th December at Potsdam, Germany. 
+Last year [Agile Testing Days Conference](https://agiletestingdays.com/) was held between 6th and 8th December in Potsdam, Germany. 
 According to statistics provided by organizers there were around 600 attendants and about 30 speakers in keynotes / workshops. 
 During the whole event around 22 different workshops took place, 9 keynotes
 and around 30 other speeches / presentations divided into 7 separate, parallel tracks. 
 I had the opportunity to attend the first two days of the conference and in
-this article I'd like to share with you some short review of the most
+this article I’d like to share with you some short review of the most
 interesting sessions and my impressions about the event.
 
 ### Lectures
@@ -27,9 +27,8 @@ more creative and innovative by leaving comfort zone - all that can help to beco
 
 Another interesting presentation was *„Continuous Delivery Anti-Patterns”* by
 Jeff Morgan - chief technology officer and cofounder of the
-[LeanDog](https://www.leandog.com/) initiative, he has been teaching classes
-and coaching teams on agile and lean techniques since 2004. 
-In this talk Jeff, based on his experience pointed out several Continuous
+[LeanDog](https://www.leandog.com/) initiative.
+In this talk Jeff, based on his experience, pointed out several Continuous
 Delivery anti-patterns: 
 
 - code branches and merging
@@ -37,42 +36,39 @@ Delivery anti-patterns:
 - no or little test automation
 - developers and testers not working together
 - defects are acceptable
-- working in projects
+- working in projects that can limit flexibility
 
 If you are interested, here is a [link](https://www.youtube.com/watch?v=ru1-CYouPjg) to this talk. 
 
-Next lecture, I found very interesting, was a keynote: *„NoEstimates”* by
+Next lecture, I found very interesting was a keynote *„NoEstimates”* by
 Vasco Duarte. Vasco as he describes himself is: Product Manager, Scrum Master,
 Project Manager, Director, Agile Coach working in the software industry since
 1997, and Agile practitioner since 2004.
 
-First thing is that the idea of not having estimates, when running software
+First thing is that the idea of not having estimates when running software
 projects could be shocking for someone who had to estimate a lot during his
-career. In the presentation we could find several examples and statistics that
+career. In the presentation we could find severalcrisis examples and statistics that
 in my opinion prove that agile projects can be easily destroyed by estimating. 
-Vasco stated that estimates don't really work in software industry and could
+Vasco stated that estimates don’t really work in software industry and could
 ruin all value that agile project should deliver, especially to customers.
 Going further, estimations can be actively harmful for project and even in
-many cases for whole organization. 
-At this point I have to admit that I agreed with almost every statement and
-thesis that Vasco gave in his lecture. 
+many cases for the whole organization. 
+
 Just after keynote I registered for a free copy of Vasco’s eBook titled "*No
 Estimates*" which is available here: [link](http://noestimatesbook.com).  
-So, please let me write below some of my impressions after reading that book
-and I hope it encourages you for digging into it.
+Below are some of my impressions after reading that book that I hope will encourage you to dig into it.
 
-The book can be treated like a guide which can help us when: we want to reduce
-uncertainty in software projects, how to define, plan and run projects without
-estimates, what are the best ways for focusing on customers’ values and
-finally how *noestimates* approach can help manage a project in crisis. 
-Vasco gave definitions of such terms like forecasting, prioritization,
+The book can be treated as a guide which can help us when we want to reduce
+uncertainty in software projects or learn how to define, plan and run projects without estimates, what are the best ways for focusing on customers’ values and
+finally how the *noestimates* approach can help to manage a project in crisis. 
+Vasco gives definitions of such terms like: forecasting, prioritization,
 successful project, management of uncertainty, true progress of software
 delivery project and if there is a difference between estimations and guessing
 activity. 
-I can imagine that for many people even from software industry statement like
+I can imagine that for many people, even from software industry, allegations like
 *„estimates don’t really work”* can be shocking, but reading the book I found
 couple forceful proofs and Laws which I totally agree with. 
-Let me write below two of them:
+Let me cite below two of them:
 
 *„Hofstadler’s Law: It always takes longer than you expect, even when you take
 into account Hofstadler’s Law.”*
@@ -85,24 +81,24 @@ And second, Parkinson’s Law:
 
 which is also something what I experienced many times.
 
-As I mentioned earlier book can be treated like a user guide for people who
-play different roles in agile projects or any projects and find it difficult
+The book is dedicated for people who
+play different roles in agile or any other projects and find it difficult
 to define the level of estimations needed for managing it successfully. 
-Vasco proposes the following steps for them: 
+Vasco proposes the following steps to help them: 
 
-- *move to story points*: eliminating such terms like „hours” or „days” can give many benefits in his opinion
-- *stop estimating tasks* and for progress reporting try rather to ask your team about Story progress and if they can finish task today.
-- *limit the calendar duration of Features and Stories*: you should give one or maximum two days of calendar duration to finish each Story 
-- *remove so called ‚planning poker’ card options if you use one*. Try to decrease the number of options that you give to your team while giving story points, the goal of this step is to finally ask simple question: „*Can we get this Story done by tomorrow if we start working on it today?*”
-- *build histograms* which for example can help you keep track of average duration for Features or Stories
-- *use the average cycle times for Stories* of different size which can be useful in providing Story-based forecasting
-- *work with Stories as if they all had the same duration* and count number of Stories and project progress based of how many of them where delivered in the past
+- *Move to story points*: eliminating such terms like „hours” or „days” can give many benefits in his opinion.
+- *Stop estimating tasks* and for progress reporting try rather to ask your team about Story progress and if they can finish task today.
+- *Limit the calendar duration of Features and Stories*: you should give one or maximum two days of calendar duration to finish each Story. 
+- *Remove so called "planning poker" card options if you use one*. Try to decrease the number of options that you give to your team while giving story points, the goal of this step is to finally ask simple question: „*Can we get this Story done by tomorrow if we start working on it today?*”.
+- *Build histograms* which for example can help you keep track of an average duration for Features or Stories.
+- *Use the average cycle times for Stories* of different size which can be useful in providing Story-based forecasting.
+- *Work with Stories as if they all had the same duration* and count the number of Stories and project progress based of how many of them where delivered in the past.
 
-The conclusion that Vasco provided about given above steps is that some steps
+The conclusion that Vasco provides about given above steps is that some steps
 will be easy to implement, but when you find some step impossible to implement
 you should ask yourself questions „why?”. 
-In my opinion in many cases this exercises can really help to find hidden
-project impediments. If you want find more useful advices, dig into Vasco’s
+In my opinion in many cases these exercises can really help to find hidden
+project impediments. If you want to find more useful advices, dig into Vasco’s
 book.
 
 Next event I attended to was workshop *„Story and Example Mapping Mashup”* conducted by Lisa Crispin and Joellen Carter. 
