@@ -101,36 +101,35 @@ In my opinion in many cases these exercises can really help to find hidden
 project impediments. If you want to find more useful advices, dig into Vasco’s
 book.
 
-Next event I attended to was workshop *„Story and Example Mapping Mashup”* conducted by Lisa Crispin and Joellen Carter. 
+Next event I attended to was *„Story and Example Mapping Mashup”*, a workshop conducted by Lisa Crispin and Joellen Carter. 
 The main idea of story and example mapping is to map for ea. complicated
-software features into set of right-sized and understood stories. 
-From my perspective main advantages of this technique were: scrum team
+software features into a set of right-sized and understood stories. 
+From my perspective the main advantages of this technique were: scrum team
 members’ engagement in a process and easy identification of the first minimum
 valuable product release. 
 
 The last keynote of the first day was *„From Waterfall to Agile, the advantage is clear”* by Grammy awarded Michael “The Wanz” Wansley, author of *„Thrift
-Shop”* song. For me it was pretty stunning lecture, especially because of how
-original and great speaker is Michael. Here is a
+Shop”* song. For me it was a pretty stunning presentation, especially because of how
+original and great speaker Michael is. Here is a
 [link](https://www.youtube.com/watch?v=5egKHp17LcY) to this keynote. 
 
-Second day of the conference started with keynote *„Liftoff: Start and Sustain
+Second day of the conference started with a keynote *„Liftoff: Start and Sustain
 Successful Agile Teams”* given by [Diana
-Larsen](https://futureworksconsulting.com/about/diana-larsen). In presentation
-Diana showed process of launching agile team (called „lift off”) divided into
+Larsen](https://futureworksconsulting.com/about/diana-larsen). In her presentation
+Diana showed the process of launching the agile team (called „lift off”) divided into
 three phases: 
 
 - answering the question: „are we ready for launching the agile team?” - it is important to make sure that all expectations toward the team are clarified
 - setting learning conditions of team members
-- define set of attributes that will fit your team, like: zero sprint, training sessions or retrospective meetings 
+- define a set of attributes that will fit your team, like: zero sprint, training sessions or retrospective meetings 
 
-One of the final Diana’s conclusion was that *„...an effective liftoff
+One of the Diana’s final conclusion was that *„...an effective liftoff
 achieves alignment - a shared understanding about the work and why it matters to the organisation as a whole”*. 
 
-Next talk titled: *„Test properly – test properties!”* was held by Vagif
-Abilov. Presentation was based on code writing in *F#* using library
-*FsCheck*, but generally main objectives apply to various languages and
+Next talk titled *„Test properly – test properties!”* was held by Vagif
+Abilov. His presentation was based on code writing in *F#* using *FsCheck* library, but generally the main points apply to various languages and
 platforms. 
-The idea of testing properties according to Vagif was shift focus from
+The idea of testing properties according to Vagif was to shift focus from
 treating tests as validating software towards describing behaviors and rules
 of tested components. 
 Let’s take as an example a function in a program code - the approach is to
@@ -138,11 +137,11 @@ focus on the properties of this function - attributes that are true of any
 correct implementation of it. 
 To find more information about this approach please visit: [link](https://fsharpforfunandprofit.com/posts/property-based-testing/). 
 
-Second workshop I took part was *„Agile Leadership for All”* held by Selena
+The second workshop I took part in was *„Agile Leadership for All”* held by Selena
 Delasie. 
-According to Selena *Agile Leadership* is not about managers or supervisors as
-we know but, that every agile team member could be a leader. 
-During these interactive workshop participants worked on 7 leadership traits
+According to Selena, the *Agile Leadership* is not about managers or supervisors as
+we know, but that every agile team member could be a leader. 
+During these interactive workshop the participants worked on 7 leadership traits
 defined by Selena: *Class*, *Curiosity*, *Clarity*, *Connection*,
 *Creativity*, *Commitment* and *Communication* - this exercise showed how
 these traits can be implemented in agile practices. 
@@ -151,26 +150,26 @@ The final keynote of the second day was: *„Lessons Learned in (Selling)
 Software Testing”* by Keith Klain, who for the last 20 years has built
 software quality management and testing teams for global financial services
 and IT companies in the US, UK and Asia. 
-In this presentation, Keith talked about his lessons learned in applying
+In this presentation Keith talked about his lessons learned in applying
 context-driven testing principles into viable commercial approach - I found it
-really interesting, especially practical aspects of managing test processes in
+really interesting, especially the practical aspects of managing test processes in
 commercial organizations. 
-Presentation is available [here](https://youtu.be/da7bbn4USxE). 
+This presentation is available [here](https://youtu.be/da7bbn4USxE). 
 
 ### Conclusions
 
-In my opinion conference was well organized, both logistically and in terms of
+In my opinion the conference was well organized, both logistically and in terms of
 its solid content. 
 During the meeting participants could find more events than just lectures and
 workshops, such as: *Lean Coffee* sessions, *Opening Sessions*, *Award
 Ceremony for the Software Testing European Champions*, *Lightning Talks* or
-even private *Christmas Market*! Conference contents was well balanced - was
+even private *Christmas Market*! The conference content was well balanced - was
 equally divided into agile and testing subjects. 
-I suppose that some participants could look for more technical aspects like:
-testing mobile applications, stress testing or newest frameworks. 
+I suppose that some participants could look for more technical aspects like
+testing mobile applications, stress testing or some newest frameworks. 
 On the other hand, I think that the main goal that promoters of the event had
 was to create *„a festival for the agile community”* rather than purely
 technical meeting for developers. 
-At this point, I have to agree that „Agile Testing Days” is a great place to
-meet opened and willing to help people from the European tester community and
+At this point I have to agree that „Agile Testing Days” is a great place to
+meet open-minded and willing to help people from the European tester community and
 to share with them knowledge and experience.
