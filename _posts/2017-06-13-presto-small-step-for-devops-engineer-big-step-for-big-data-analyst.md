@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Presto - a small step for DevOps engineer but big step for BigData analyst 
-author: [robert.mroczkowski]
+author: [robert.mroczkowski,piotr.wikiel]
 tags: [tech, fast sql, hadoop, presto, big data, analysis, data science]
 ---
 
@@ -212,7 +212,7 @@ in the case of Presto, Full GC in production environment should be treated as a 
 process showed too many objects responsible for communication with secured HDFS. The leak had been diagnosed and fixed 
 in a new version, so our part involved adjusting the patch.
 
-In April, Teradata released new Presto 167T. Teradata’s release cycle is different from the old one, with new versions 
+In April, Teradata released new Presto 167T. Teradata’s release cycle is different from the baseline, with new versions
 released less frequently, usually once a quarter. A single branch release includes several versions. Nevertheless, 
 such frequency suits us just fine, and we can always try to deploy changes earlier, if necessary.
  
