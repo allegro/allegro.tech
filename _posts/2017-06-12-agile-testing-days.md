@@ -1,9 +1,9 @@
-———
+---
 layout: post
 title: The Agile Testing Days Conference - Potsdam 2016
 author: michal.duleba
 tags: [tech, conference, testing, QA, agile]
-———
+---
 
 Last year [Agile Testing Days Conference](https://agiletestingdays.com/) was held between 6th and 8th December in Potsdam, Germany. 
 According to statistics provided by organizers there were around 600 attendants and about 30 speakers in keynotes / workshops. 
