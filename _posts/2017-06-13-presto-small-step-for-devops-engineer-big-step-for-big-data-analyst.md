@@ -101,7 +101,7 @@ Before we move on to discuss next stages of the project and tests we carried out
 than Hive. Cluster’s infrastructure involves one coordinator and many workers that are ready to process queries right 
 after being launched, so you do not waste time for creating a sessions and spawning Yarn containers.
 
-------------------------- img -----------------------------------
+<figure class="image"><img src="/img/articles/2017-01-26-estimating-the-cache-efficiency-using-big-data/presto-overview.png" alt="Presto archirecture overview"><figcaption>(Source: https://prestodb.io/overview.html)</figcaption></figure>
 
 Data is stored in memory as an optimized internal data structure and streamed between the processes when moving to 
 consecutive stages of execution plans. Therefore, intermediary data is never saved on a drive when computing the query 
@@ -132,9 +132,9 @@ problem by releasing a fix processing the request.
 ### Tests
 
 We also compared Presto to new Hive ver. 2.1 using the same infrastructure. Facebook’s solution won the easiest test to 
-carry out, i.e. execution time. The difference was each time at least twice as big.
- 
--------------- wykresy -------------------------
+carry out, i.e. execution time. In overall Presto performed test queries 3x faster.
+
+![Execution time benchmark](/img/articles/2017-01-26-estimating-the-cache-efficiency-using-big-data/presto_benchmark.png)
 
 ### Ecosystem
 
@@ -149,7 +149,7 @@ be shared between employees.
 With Teradata drivers we can extend our ecosystem by tools that use Fast SQL. It means you can create cubes and reports 
 in Tableau and users used to SQL Developer have DataGrip at their disposal. Nonetheless, remember that drivers are 
 compatible with a version released by Teradata, which somewhat binds you to this particular branch. And there is no 
-guarantee it will be opened in the future.
+guarantee it will be opened in the future, but so far all Teradata changes were contributed to opensource.
 
 ### Tests with analysts
 
