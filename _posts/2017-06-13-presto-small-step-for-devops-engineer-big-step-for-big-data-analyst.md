@@ -26,9 +26,9 @@ The idea of replacing commercial analytics solutions with a Hadoop cluster has b
 But analysts were skeptical about slow processing and inconvenient use. We had to be extra careful with the idea. 
 That is why we organized two hackathons in order to [evaluate the big three][1], i.e. 
 
-* Presto
-* Impala
-* Drill 
+* [Presto][3]
+* [Impala][4]
+* [Drill][5] 
 
 as well as Hive (on Tez, and on Spark) to set a benchmark. However, with a cluster filled with a vast set of data 
 formats coming from various sources, to be eventually saved in HDFS, the test results were obscure. We used a sample of 
@@ -243,3 +243,7 @@ key aspects here:
 
 [1]: /2015/06/fast-data-hackathon.html
 [2]: https://github.com/prestodb/presto/issues/8133
+[3]: https://prestodb.io/
+[4]: https://impala.incubator.apache.org/
+[5]: https://drill.apache.org/
+
