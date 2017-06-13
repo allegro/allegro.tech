@@ -12,7 +12,7 @@ I bet you have found this article after googling some of the following issues wh
 * clogged Yarn queues
 * launched container that slows down the start of an application.
 
-Before we deployed Presto — a Fast SQL engine provided by Facebook — our analysts struggled with these problems on a 
+Before we deployed Presto — a Fast SQL engine provided by [Facebook][6] — our analysts struggled with these problems on a 
 regular basis.
  
 ### Introduction
@@ -62,8 +62,8 @@ With a task in hand, we drafted a list of necessary and “nice to have” requi
 1. support carrying out analysis in a public cloud
 1. support high-class JDBC and ODBC drivers.
 
-After analyzing documentation, code stored on GitHub and community support, we realized that Presto — the query engine 
-developed by Facebook — was a quite fine candidate. It would allow us to call data stored in systems such as:
+After analyzing documentation, code stored on GitHub and community support, we realized that Presto was a quite fine 
+candidate. It would allow us to call data stored in systems such as:
 
 * Hive
 * Kafka
@@ -74,7 +74,7 @@ The fact that this open-source technology is highly appreciated by innovative te
 was intriguing. Presto is popular among Silicon Valley companies, but other renowned IT players such as Netflix, Uber, 
 Twitter, Dropbox and Airbnb have also switched to Presto and contribute actively to its development. 
 
-A groundbreaking moment for the project was when Teradata announced its official support. Therefore, all the problems 
+A groundbreaking moment for the project was when [Teradata][7] announced its official support. Therefore, all the problems 
 we had experienced during our first tests were fixed. Teradata added support for secured Hive, floating-point arithmetic 
 as well as free high-class JDBC and ODBC drivers. As a result, many analytical tools such as Tableau work with Presto 
 seamlessly.
@@ -101,7 +101,7 @@ Before we move on to discuss next stages of the project and tests we carried out
 than Hive. Cluster’s infrastructure involves one coordinator and many workers that are ready to process queries right 
 after being launched, so you do not waste time for creating a sessions and spawning Yarn containers.
 
-<figure class="image"><img src="/img/articles/2017-06-13-presto-small-step-for-devops-engineer-big-step-for-big-data-analyst/presto-overview.png" alt="Presto archirecture overview"><figcaption>(Source: https://prestodb.io/overview.html)</figcaption></figure>
+<figure class="image"><img src="/img/articles/2017-06-13-presto-small-step-for-devops-engineer-big-step-for-big-data-analyst/presto-overview.png" alt="Presto archirecture overview"><figcaption>(Based on: <a href="https://prestodb.io/overview.html">https://prestodb.io/overview.html</a>)</figcaption></figure>
 
 Data is stored in memory as an optimized internal data structure and streamed between the processes when moving to 
 consecutive stages of execution plans. Therefore, intermediary data is never saved on a drive when computing the query 
@@ -114,9 +114,10 @@ magnitude. However, to have a highly efficient cluster you need to invest in sep
 ### PoC
 
 Eventually, it was high time to test Presto under real-world conditions. As we were sure of our choice, we added 
-suitable modules to Allegro Hadoop Manager to deploy and conveniently manage Hadoop clusters and data processing tools. 
-We deployed Presto on the target infrastructure because we considered any tests carried out in other environments 
-(cloud?) to be unreliable. It took one engineer a few days to deploy and configure the platform.
+suitable modules to Allegro Hadoop Manager (developed in [Puppet][8])to deploy and conveniently manage Hadoop clusters 
+and data processing tools. We deployed Presto on the target infrastructure based on bare metal because we considered 
+any tests carried out in other environments (cloud?) to be unreliable. It took one engineer a few days to deploy and 
+configure the platform.
  
 The results of first tests carried out with real queries concerning real-world data were significantly better compared 
 to Hive ver. 1.2. Presto turned out to be at least 4 times faster than a control sample. 
@@ -142,7 +143,7 @@ You can work with Presto in many ways. Owing to HTTP protocol used in communicat
 you simply need to retrieve an executable jar file to submit queries via a computer’s command line interface. All you 
 need is Java — forget about any additional libraries or software.
  
-We chose Alation – a collaborative data platform for analysts – as a starting point for work with data because it 
+We chose [Alation][9] – a collaborative data platform for analysts – as a starting point for work with data because it 
 provides access to data from all processing engines we support in production. It is worth emphasizing that analyses can 
 be shared between employees.
  
@@ -246,4 +247,7 @@ key aspects here:
 [3]: https://prestodb.io/
 [4]: https://impala.incubator.apache.org/
 [5]: https://drill.apache.org/
-
+[6]: https://code.facebook.com/projects/
+[7]: http://www.teradata.com/
+[8]: https://puppet.com/
+[9]: https://alation.com/
