@@ -53,7 +53,7 @@
     line-height: 40px;
 }
 
-@media all and (min-width: 760px) {
+@media all and (min-width: 900px) {
     .site-nav {
         float: right;
         padding: 0;
@@ -86,6 +86,22 @@
     font-weight: bold;
     border: 2px solid #4ba7f8;
     border-radius: 3px;
+}
+
+.site-navlist li .social {
+    padding: 5px;
+}
+
+.site-navlist li .social .socicon {
+    top: 1px;
+    font-size: 90%;
+    color: #4ba7f8;
+}
+
+.site-navlist li .social:hover .socicon,
+.site-navlist li .social:focus .socicon {
+    color: #fff;
+    cursor: pointer;
 }
 
 .buttons {
