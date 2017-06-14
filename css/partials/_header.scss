@@ -27,7 +27,7 @@
 .page-link {
     text-decoration: none;
     color: #4ba7f8;
-    padding: 5px 15px;
+    padding: 5px 12px;
     border-radius: 3px;
     transition: all 75ms linear;
 }
@@ -90,6 +90,7 @@
 
 .site-navlist li .social {
     padding: 5px;
+    width: 33px;
 }
 
 .site-navlist li .social .socicon {
@@ -102,6 +103,10 @@
 .site-navlist li .social:focus .socicon {
     color: #fff;
     cursor: pointer;
+}
+
+.site-navlist li:last-of-type .social .socicon {
+    padding-right: 12px;
 }
 
 .buttons {
