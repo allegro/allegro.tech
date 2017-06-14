@@ -5,15 +5,12 @@ author: [robert.mroczkowski,piotr.wikiel]
 tags: [tech, fast sql, hadoop, presto, big data, analysis, data science]
 ---
 
-I bet you have found this article after googling some of the following issues when working with a Hadoop cluster: 
-
-* Hive queries used for exploratory data analysis that are processed way too long
-* Spark jobs that require programming skills despite being a complex tool themselves
-* clogged Yarn queues
-* launched container that slows down the start of an application.
-
-Before we deployed Presto — a Fast SQL engine provided by [Facebook][6] — our analysts struggled with these problems on a 
-regular basis.
+I bet you have found this article after googling some of the issues you encounter when working with a Hadoop cluster. 
+You probably deal with Hive queries used for exploratory data analysis that are processed way too long or cannot adapt 
+Spark in your organization because of the fact that writing jobs requires quite strong programming skills. Clogged Yarn 
+queues might be your nightmare and waiting for the launch of the container when you run even a small query drives you 
+mad. Before we deployed Presto — a Fast SQL engine provided by [Facebook][6] — our analysts struggled with these 
+problems on a regular basis.
  
 ### Introduction
 
