@@ -6,11 +6,11 @@ tags: [tech, fast sql, hadoop, presto, big data, analysis, data science]
 ---
 
 I bet you have found this article after googling some of the issues you encounter when working with a Hadoop cluster. 
-You probably deal with Hive queries used for exploratory data analysis that are processed way too long or cannot adapt 
-Spark in your organization because of the fact that writing jobs requires quite strong programming skills. Clogged Yarn 
-queues might be your nightmare and waiting for the launch of the container when you run even a small query drives you 
-mad. Before we deployed Presto — a Fast SQL engine provided by [Facebook][6] — our analysts struggled with these 
-problems on a regular basis.
+You probably deal with Hive queries used for exploratory data analysis that are processed way too long. Moreover, you 
+cannot adapt Spark in your organization for every use case because of the fact that writing jobs requires quite strong 
+programming skills. Clogged Yarn queues might be your nightmare and waiting for the launch of the container when you run 
+even a small query drives you mad. Before we deployed Presto — a Fast SQL engine provided by [Facebook][6] — our 
+analysts struggled with these problems on a regular basis.
  
 ### Introduction
 
@@ -111,7 +111,7 @@ magnitude. However, to have a highly efficient cluster you need to invest in sep
 ### PoC
 
 Eventually, it was high time to test Presto under real-world conditions. As we were sure of our choice, we added 
-suitable modules to Allegro Hadoop Manager (developed in [Puppet][8])to deploy and conveniently manage Hadoop clusters 
+suitable modules to Allegro Hadoop Manager (developed in [Puppet][8]) to deploy and conveniently manage Hadoop clusters 
 and data processing tools. We deployed Presto on the target infrastructure based on bare metal because we considered 
 any tests carried out in other environments (cloud?) to be unreliable. It took one engineer a few days to deploy and 
 configure the platform.
