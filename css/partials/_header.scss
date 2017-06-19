@@ -11,9 +11,15 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
+.site-header .content{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .site-header h1 {
-    display: inline-block;
+    min-width: 200px;
     max-width: 68%;
+    flex: 1;
 }
 
 .site-header img {
@@ -27,7 +33,7 @@
 .page-link {
     text-decoration: none;
     color: #4ba7f8;
-    padding: 5px 15px;
+    padding: 5px 12px;
     border-radius: 3px;
     transition: all 75ms linear;
 }
@@ -53,16 +59,22 @@
     line-height: 40px;
 }
 
-@media all and (min-width: 760px) {
+@media all and (min-width: 900px) {
     .site-nav {
-        float: right;
+        flex: 3;
         padding: 0;
     }
+    .site-navlist + .site-navlist {
+    float: right;
+}
 }
 
 .site-navlist {
     list-style: none;
+    display: inline-block
 }
+
+
 
 .site-navlist li {
     display: inline;
@@ -87,6 +99,33 @@
     border: 2px solid #4ba7f8;
     border-radius: 3px;
 }
+
+.site-navlist li .social {
+    padding: 5px;
+    width: 33px;
+}
+
+.site-navlist li .social .socicon {
+    top: 1px;
+    font-size: 90%;
+    color: #999;
+}
+
+.site-navlist li .social:hover,
+.site-navlist li .social:focus {
+    background: none;
+    border: 2px solid #fff;
+}
+
+.site-navlist li .social:hover .socicon,
+.site-navlist li .social:focus .socicon {
+    color: #ccc;
+    cursor: pointer;
+}
+
+// .site-navlist li:last-of-type .social .socicon {
+//     padding-right: 12px;
+// }
 
 .buttons {
     text-align: right;
