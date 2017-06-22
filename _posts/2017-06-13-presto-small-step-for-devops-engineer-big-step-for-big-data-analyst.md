@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Presto - a small step for DevOps engineer but big step for BigData analyst 
+title: Presto - a small step for DevOps engineer but a big step for BigData analyst 
 author: [robert.mroczkowski,piotr.wikiel]
 tags: [tech, fast sql, hadoop, presto, big data, analysis, data science]
 ---
