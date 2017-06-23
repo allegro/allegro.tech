@@ -32,7 +32,7 @@ formats coming from various sources, to be eventually saved in HDFS, the test re
 real-world queries our analysts work with on a daily basis, but with the benefit of hindsight, I must admit that 
 the sample was not as representative as it should be. Despite the task complexity, we added one more aspect. We took 
 into account an objective set of queries from a set of TPC-H benchmark queries. In the end, we were not able to make 
-an unanimous decision, and suspended the project.
+a unanimous decision, and suspended the project.
 
 Eventually, we resumed the work in order to deliver a product under the name Fast SQL. And this time, we acted 
 differently. The goal was clear: **speeding up in-cluster analytics by an order of magnitude**. Moreover, we wanted to 
@@ -71,10 +71,10 @@ The fact that this open-source technology is highly appreciated by innovative te
 was intriguing. Presto is popular among Silicon Valley companies, but other renowned IT players such as Netflix, Uber, 
 Twitter, Dropbox and Airbnb have also switched to Presto and contribute actively to its development. 
 
-A groundbreaking moment for the project was when [Teradata][7] announced its official support. Therefore, all the problems 
-we had experienced during our first tests were fixed. Teradata added support for secured Hive, floating-point arithmetic 
-as well as free high-class JDBC and ODBC drivers. As a result, many analytical tools such as Tableau work with Presto 
-seamlessly.
+A groundbreaking moment for the project was when [Teradata][7] announced its official support. Therefore, all the
+problems we had experienced during our first tests were fixed. Teradata added support for secured Hive, floating-point
+arithmetic as well as free high-class JDBC and ODBC drivers. As a result, many analytical tools such as Tableau work
+with Presto seamlessly.
 
 Presto supports ANSI SQL standard, which is crucial for analysts experienced in working with relational databases. 
 Support for popular standards was one of the key features we paid close attention to, as it would help lower the barrier 
@@ -96,7 +96,7 @@ After the preliminary examination, we decided to move to the next stage, i.e. pr
 
 Before we move on to discuss next stages of the project and tests we carried out, let us explain why Presto is faster 
 than Hive. Cluster’s infrastructure involves one coordinator and many workers that are ready to process queries right 
-after being launched, so you do not waste time for creating a sessions and spawning Yarn containers.
+after being launched, so you do not waste time for creating sessions and spawning Yarn containers.
 
 <figure class="image"><img src="/img/articles/2017-06-13-presto-small-step-for-devops-engineer-big-step-for-big-data-analyst/presto-overview.png" alt="Presto archirecture overview"><figcaption>(Based on: <a href="https://prestodb.io/overview.html">https://prestodb.io/overview.html</a>)</figcaption></figure>
 
@@ -189,11 +189,11 @@ when Hive data is concerned. Presto offers 4 authorization modes:
 At present, we use the sql-standard mode, which is secure from the data access control perspective and provides the 
 greatest work flexibility. The SQL mode involves modification of rights per user, which is a time-consuming operation 
 for platform engineers if you take into account the scale of operations in a data collection and massive migration of 
-analysts. Access to resources in a Hadoop cluster has been granted based on Active Directory groups in order to ensure 
-process security, auditability and automation. And we want to extend it over our new Fast SQL platform. The issue is 
-being verified, but Presto does not support Hive’s policy based on access rights to resources stored in HDFS (Storage 
-Based). Presto does not impersonate users when communicating with Hive Metastore, as impersonating takes place only 
-when communicating with HDFS.
+analysts to Presto. Access to resources in a Hadoop cluster has been granted based on Active Directory groups in order
+to ensure process security, auditability and automation. And we want to extend it over our new Fast SQL platform. The
+issue is being verified, but Presto does not support Hive’s policy based on access rights to resources stored in HDFS
+(Storage Based). Presto does not impersonate users when communicating with Hive Metastore, as impersonating takes place
+only when communicating with HDFS.
 
 ### Beta version
 
