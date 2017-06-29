@@ -359,6 +359,16 @@ dariusz.jedrzejczyk:
     bio: Likes to think of himself as a Platform Engineer. Aspires to employ engineering principles to his work. Applies Dev-Ops practice and is always eager to grasp all aspects of whatever he's working on. Distributed systems enthusiast, clean code fan and a constant learner.
     github: chemicL
 
+robert.mroczkowski:
+    name: Robert Mroczkowski
+    bio: Robert is a data platform engineer. He enjoys solving problems and learning new trends in Big Data. Believes in data driven products. He likes to play hockey and to roller skate.
+
+piotr.wikiel:
+    name: Piotr Wikieł
+    bio: Piotr is a data platform engineer. He strongly believes in scientific attitude so he enjous analytical part of his work the most. After hours he likes reading books with up to two and listening to some boring music.
+    github: wikp
+    twitter: pwikiel
+
 michal.duleba:
     name: Michał Dulęba
     bio: Michał is a software engineer with 11+ years of professional experience in testing software, working in Agile since 2014. He believes that QA role is much more than validation and bug chasing activity. At Allegro, he works in a team which develops solutions for the financial department.
