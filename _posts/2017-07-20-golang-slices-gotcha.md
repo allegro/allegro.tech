@@ -14,7 +14,7 @@ you run [latest version](https://github.com/allegro/marathon-consul/releases/).
 
 ### Dude, where is my service?
 
-![dude.jpg](https://draftin.com:443/images/52537?token=dI7aX0TJ-YueORUjzvysWmABYA692nRlqGjekNurdo6_nPMBu5bnKORQO53-FPZsttm4YMDooLgSAfwfSE5FZeg){: .center-image }
+![Dude, where is my service](/img/articles/2017-07-20-golang-slices-gotcha/dude.jpg){: .center-image }
 
 At Allegro we build our infrastructure on top of
 [Mesos](http://mesos.apache.org/) and
@@ -107,7 +107,7 @@ expecting.
 
 ### Slices
 
-![slices.jpg](https://draftin.com:443/images/52539?token=KKV3Vr4XJjUMwGrFv9cnTvckFe4Ow4DOgmGEN5aMONEGi0TLNIF2aGLSWNExKTqdGJXf6P3jksagD_8M2VjFr2g){: .center-image }
+![Slices](/img/articles/2017-07-20-golang-slices-gotcha/slices.jpg){: .center-image }
 
 To understand this not obvious behavior we need some background on [how slices
 works](https://blog.golang.org/go-slices-usage-and-internals) and what happen
@@ -117,7 +117,7 @@ Slice is a triple of pointer to first element, length and capacity (length <=
 capacity). Memory is continuous block of data but slice uses only length of
 capacity.
 
-![slice_1.svg](https://draftin.com:443/images/52541?token=v95GYf0hDIc1vTjYjn_tq8T6BWjJrIcx-e8oH4NTkNDwOH28lUnjt28gCDborrqo2_StZWFdhH_OHlnFy4lJu6Y){: .center-image }
+![slice_1.svg](/img/articles/2017-07-20-golang-slices-gotcha/slice_1.svg){: .center-image }
 
 According to documentation of `append`
 
@@ -134,7 +134,7 @@ slice could have the same address and capacity and differ only on a length.
 
 ### How slices grows?
 
-![growslice.jpg](https://draftin.com:443/images/52540?token=bOw14y28vTOCO8s0osR_YHBM8gEsrAsDeVLKZs6zRUKBLDsaQwqgMUtlANb9SqHNJy3Wa1xGNvVzDV4lb7wC1k8){: .center-image }
+![One does not simply append to a slice](/img/articles/2017-07-20-golang-slices-gotcha/boromir.jpg){: .center-image }
 
 Above paragraph does not answers why code works like this. To understand it we
 need to go deeper in Go code. Let’s take a look at
@@ -167,16 +167,16 @@ Let’s go thru `b()` step by step.
 
 1. `x := []int{0, 1}` Create a slice with 2 elements.
 
-![1.svg](https://draftin.com:443/images/52542?token=KVcdP1S51JgIRThTtDhEL7yhev98O2-I5UUtDVV4VobHYezuzw6mf-dyFq-IE9n07lMAUOv7AUA8kRm7uY6gtT4){: .center-image }
+![1.svg](/img/articles/2017-07-20-golang-slices-gotcha/1.svg){: .center-image }
 2. `x = append(x, 2)` Append one element. `x` is too small so it need to grow.
 It doubles its capacity.
-![2.svg](https://draftin.com:443/images/52543?token=KfGZ0YyVZCB1DDDXzAjN7JXgqlUZtw5NSSqC9hP6eoHz1pa9RidoxiGzrPDcxas5uP0unJhM5sUxXPlgkbjc5VM){: .center-image }
+![2.svg](/img/articles/2017-07-20-golang-slices-gotcha/2.svg){: .center-image }
 3. `y := append(x, 3)` Append one element. Slice has free space at the end so
 `3` is stored there.
-![3.svg](https://draftin.com:443/images/52544?token=YhMn5dg8T-lxwjbJOj-x6b1k42dIL898GnOGhsXgR9MnnBZitk5hjZAUB_SQDAEenAiSs_CYBqyUur0FlV4gj3c){: .center-image }
+![3.svg](/img/articles/2017-07-20-golang-slices-gotcha/3.svg){: .center-image }
 4. `z := append(x, 4)` Append one element. Slice has free space at the end so
 `4` is stored there and overwrites `3` stored before.
-![4.svg](https://draftin.com:443/images/52545?token=bqIQzCsEyGreMwPdyzj5_1KU6LjeIi2u6OyCZFjHl4o2dtAmZrXQxtJxACq3hSbLXTWncN3qGRTQhsh4PtHzt80){: .center-image }
+![4.svg](/img/articles/2017-07-20-golang-slices-gotcha/4.svg){: .center-image }
 
 All 3 slices: `x`, `y` and `z` points to the same memory block. Only difference
 is they are different structures and `x` is smaller.
@@ -185,7 +185,7 @@ Why it’s working in `a()`? Answer is really simple. There is slice of capacity
 2 and when we append one element it’s copied to new space. That’s why we end up
 with `x`, `y`, `z` pointing to different memory blocks.
 
-![5.svg](https://draftin.com:443/images/52546?token=bmBvyoqViskdVWQvBQmfz67pvcwxhGArJBqUFcPx881TqTM1MhAw2z-WR0EFBWSCdlot7Y7aVRda4d42xEfxsGw){: .center-image }
+![5.svg](/img/articles/2017-07-20-golang-slices-gotcha/5.svg){: .center-image }
 
 ### TL;DR
 
@@ -193,4 +193,4 @@ Be careful when use `append`. If you want to work on a copy of a slice data you
 append to, you must explicitly [`copy`](https://golang.org/pkg/builtin/#copy)
 it into new slice.
 
-![matrix.jpg](https://draftin.com:443/images/52538?token=kZ8CzKic3lIGOi01hDLNQ_ob_wSEwl2FljVZggTp1-ttKfgsKIjfqa2arcqpQS58fTT7NbBAoQa1YX3BS-hozzY){: .center-image }
+![What if I told you](/img/articles/2017-07-20-golang-slices-gotcha/matrix.jpg){: .center-image }
