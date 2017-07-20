@@ -12,7 +12,7 @@ for nearly a year in
 [allegro/marathon-consul](https://github.com/allegro/marathon-consul). Ensure
 you run [the latest version](https://github.com/allegro/marathon-consul/releases/).
 
-### Dude, where is my service?
+### The missing service
 
 ![Dude, where is my service](/img/articles/2017-07-20-golang-slices-gotcha/dude.jpg){: .center-image }
 
@@ -136,7 +136,7 @@ but when they fit they will be added at the end. `append` always returns a new
 slice but (as the slice is a triple of address, length and capacity) the new
 slice could have the same address and capacity and differs only on the length.
 
-### How slices grows?
+### How slices grow?
 
 ![One does not simply append to a slice](/img/articles/2017-07-20-golang-slices-gotcha/boromir.jpg){: .center-image }
 
