@@ -48,6 +48,7 @@ The bug lied in
 [the following code](https://github.com/allegro/marathon-consul/blob/1.3.3/apps/app.go#L119-L130):
 
 ```go
+commonTags := labelsToTags(app.Labels)
 var intents []RegistrationIntent
 for _, d := range definitions {
         intents = append(intents, RegistrationIntent{
@@ -62,8 +63,11 @@ When `commonTags` had 3 elements it worked but when there were 4 — it didn’t
 It’s a rare case that some service has multiple ports to register and even rarer
 when ports have additional tags.
 
-The bug can be distilled to the example below. Everything lies in how
-`commonTags` is created. What’s the output of the following code?
+The bug can be distilled to the example below.
+Let’s unroll the loop to just two iterations and use `int`s instead of structures.
+Then rename `commonTags` to `x` and
+use `y` and `z` instead of `intents[0]` and `intents[1]`.
+What’s the output of the following code?
 
 ```go
 package main
