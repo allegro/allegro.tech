@@ -2,7 +2,7 @@
 layout: post
 title: Golang slices gotcha
 author: [tomasz.janiszewski]
-tags: [golang]
+tags: [go, golang]
 ---
 
 In this post I’ll present a story of a bug that hit us recently. Everything was
@@ -14,7 +14,7 @@ you run [latest version](https://github.com/allegro/marathon-consul/releases/).
 
 ### Dude, where is my service?
 
-![dude.jpg](https://draftin.com:443/images/52537?token=dI7aX0TJ-YueORUjzvysWmABYA692nRlqGjekNurdo6_nPMBu5bnKORQO53-FPZsttm4YMDooLgSAfwfSE5FZeg)
+![dude.jpg](https://draftin.com:443/images/52537?token=dI7aX0TJ-YueORUjzvysWmABYA692nRlqGjekNurdo6_nPMBu5bnKORQO53-FPZsttm4YMDooLgSAfwfSE5FZeg){: .center-image }
 
 At Allegro we build our infrastructure on top of
 [Mesos](http://mesos.apache.org/) and
@@ -47,7 +47,7 @@ reproduce it and provide
 The bug lied in
 [the following code](https://github.com/allegro/marathon-consul/blob/1.3.3/apps/app.go#L119-L130):
 
-```go
+```
 var intents []RegistrationIntent
 for _, d := range definitions {
         intents = append(intents, RegistrationIntent{
@@ -105,9 +105,9 @@ but in fact it results in
 Function `a()` works as expected but behaviour of `b()` is not what we were
 expecting.
 
-# Slices
+### Slices
 
-![slices.jpg](https://draftin.com:443/images/52539?token=KKV3Vr4XJjUMwGrFv9cnTvckFe4Ow4DOgmGEN5aMONEGi0TLNIF2aGLSWNExKTqdGJXf6P3jksagD_8M2VjFr2g)
+![slices.jpg](https://draftin.com:443/images/52539?token=KKV3Vr4XJjUMwGrFv9cnTvckFe4Ow4DOgmGEN5aMONEGi0TLNIF2aGLSWNExKTqdGJXf6P3jksagD_8M2VjFr2g){: .center-image }
 
 To understand this not obvious behavior we need some background on [how slices
 works](https://blog.golang.org/go-slices-usage-and-internals) and what happen
@@ -117,7 +117,7 @@ Slice is a triple of pointer to first element, length and capacity (length <=
 capacity). Memory is continuous block of data but slice uses only length of
 capacity.
 
-![slice_1.svg](https://draftin.com:443/images/52541?token=v95GYf0hDIc1vTjYjn_tq8T6BWjJrIcx-e8oH4NTkNDwOH28lUnjt28gCDborrqo2_StZWFdhH_OHlnFy4lJu6Y)
+![slice_1.svg](https://draftin.com:443/images/52541?token=v95GYf0hDIc1vTjYjn_tq8T6BWjJrIcx-e8oH4NTkNDwOH28lUnjt28gCDborrqo2_StZWFdhH_OHlnFy4lJu6Y){: .center-image }
 
 According to documentation of `append`
 
@@ -132,15 +132,14 @@ but when they fit they will be added at the end. `append` always returns new
 slice but as the slice is a triple of address, length and capacity, the new
 slice could have the same address and capacity and differ only on a length.
 
-# How slices grows?
+### How slices grows?
 
-![growslice.jpg](https://draftin.com:443/images/52540?token=bOw14y28vTOCO8s0osR_
-YHBM8gEsrAsDeVLKZs6zRUKBLDsaQwqgMUtlANb9SqHNJy3Wa1xGNvVzDV4lb7wC1k8)
+![growslice.jpg](https://draftin.com:443/images/52540?token=bOw14y28vTOCO8s0osR_YHBM8gEsrAsDeVLKZs6zRUKBLDsaQwqgMUtlANb9SqHNJy3Wa1xGNvVzDV4lb7wC1k8){: .center-image }
 
 Above paragraph does not answers why code works like this. To understand it we
 need to go deeper in Go code. Let’s take a look at
-[`growslice`](https://github.com/golang/go/blob/eb88b3eefa113f67e7cf72dfd085f65b
-bd125179/src/runtime/slice.go#L72-L82) function of Go runtime. It’s is called
+[`growslice`](https://github.com/golang/go/blob/eb88b3eefa113f67e7cf72dfd085f65bbd125179/src/runtime/slice.go#L72-L82)
+function of Go runtime. It’s is called
 by `append` when slice does not have enough capacity for all appended elements.
 
 ```go
@@ -167,16 +166,17 @@ heuristics, but in our case it grows by power of two.
 Let’s go thru `b()` step by step.
 
 1. `x := []int{0, 1}` Create a slice with 2 elements.
-![1.svg](https://draftin.com:443/images/52542?token=KVcdP1S51JgIRThTtDhEL7yhev98O2-I5UUtDVV4VobHYezuzw6mf-dyFq-IE9n07lMAUOv7AUA8kRm7uY6gtT4)
+
+![1.svg](https://draftin.com:443/images/52542?token=KVcdP1S51JgIRThTtDhEL7yhev98O2-I5UUtDVV4VobHYezuzw6mf-dyFq-IE9n07lMAUOv7AUA8kRm7uY6gtT4){: .center-image }
 2. `x = append(x, 2)` Append one element. `x` is too small so it need to grow.
 It doubles its capacity.
-![2.svg](https://draftin.com:443/images/52543?token=KfGZ0YyVZCB1DDDXzAjN7JXgqlUZtw5NSSqC9hP6eoHz1pa9RidoxiGzrPDcxas5uP0unJhM5sUxXPlgkbjc5VM)
+![2.svg](https://draftin.com:443/images/52543?token=KfGZ0YyVZCB1DDDXzAjN7JXgqlUZtw5NSSqC9hP6eoHz1pa9RidoxiGzrPDcxas5uP0unJhM5sUxXPlgkbjc5VM){: .center-image }
 3. `y := append(x, 3)` Append one element. Slice has free space at the end so
 `3` is stored there.
-![3.svg](https://draftin.com:443/images/52544?token=YhMn5dg8T-lxwjbJOj-x6b1k42dIL898GnOGhsXgR9MnnBZitk5hjZAUB_SQDAEenAiSs_CYBqyUur0FlV4gj3c)
+![3.svg](https://draftin.com:443/images/52544?token=YhMn5dg8T-lxwjbJOj-x6b1k42dIL898GnOGhsXgR9MnnBZitk5hjZAUB_SQDAEenAiSs_CYBqyUur0FlV4gj3c){: .center-image }
 4. `z := append(x, 4)` Append one element. Slice has free space at the end so
 `4` is stored there and overwrites `3` stored before.
-![4.svg](https://draftin.com:443/images/52545?token=bqIQzCsEyGreMwPdyzj5_1KU6LjeIi2u6OyCZFjHl4o2dtAmZrXQxtJxACq3hSbLXTWncN3qGRTQhsh4PtHzt80)
+![4.svg](https://draftin.com:443/images/52545?token=bqIQzCsEyGreMwPdyzj5_1KU6LjeIi2u6OyCZFjHl4o2dtAmZrXQxtJxACq3hSbLXTWncN3qGRTQhsh4PtHzt80){: .center-image }
 
 All 3 slices: `x`, `y` and `z` points to the same memory block. Only difference
 is they are different structures and `x` is smaller.
@@ -185,7 +185,7 @@ Why it’s working in `a()`? Answer is really simple. There is slice of capacity
 2 and when we append one element it’s copied to new space. That’s why we end up
 with `x`, `y`, `z` pointing to different memory blocks.
 
-![5.svg](https://draftin.com:443/images/52546?token=bmBvyoqViskdVWQvBQmfz67pvcwxhGArJBqUFcPx881TqTM1MhAw2z-WR0EFBWSCdlot7Y7aVRda4d42xEfxsGw)
+![5.svg](https://draftin.com:443/images/52546?token=bmBvyoqViskdVWQvBQmfz67pvcwxhGArJBqUFcPx881TqTM1MhAw2z-WR0EFBWSCdlot7Y7aVRda4d42xEfxsGw){: .center-image }
 
 ### TL;DR
 
@@ -193,5 +193,4 @@ Be careful when use `append`. If you want to work on a copy of a slice data you
 append to, you must explicitly [`copy`](https://golang.org/pkg/builtin/#copy)
 it into new slice.
 
-![matrix.jpg](https://draftin.com:443/images/52538?token=kZ8CzKic3lIGOi01hDLNQ_ob_wSEwl2FljVZggTp1-ttKfgsKIjfqa2arcqpQS58fTT7NbBAoQa1YX3BS-hozzY)
-
+![matrix.jpg](https://draftin.com:443/images/52538?token=kZ8CzKic3lIGOi01hDLNQ_ob_wSEwl2FljVZggTp1-ttKfgsKIjfqa2arcqpQS58fTT7NbBAoQa1YX3BS-hozzY){: .center-image }
