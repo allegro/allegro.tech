@@ -62,7 +62,7 @@ func labelsToTags(labels map[string]string) []string {
 	tags := []string{}
 	for key, value := range labels {
 		if value == "tag" {
-			tags = append(tags, key)
+			tags = append(tags, key)  // ◀ Hint: The way we build tags is important
 		}
 	}
 	return tags
@@ -72,7 +72,7 @@ func labelsToTags(labels map[string]string) []string {
 The bug is not easy to hit and probably thats why it wasn’t covered in tests
 and nobody reported it before.
 To reproduce it, application must have at least two ports with different tag on each.
-When `commonTags` had 3 elements it worked but when there were 4 — it didn’t.
+When `commonTags` size is power of two it worked but in other case — it didn’t.
 It’s a rare case a service has multiple ports
 (80% of our applications has only one port)
 and even rarer when ports have additional tags
@@ -88,27 +88,31 @@ What’s the output of the following code?
 package main
 
 import (
-        "fmt"
+	"fmt"
 )
 
 func a() {
-        x := []int{0, 1}
-        y := append(x, 2)
-        z := append(x, 3)
-        fmt.Println(y, z)
+	x := []int{}
+	x = append(x, 0)
+	x = append(x, 1)  // commonTags := labelsToTags(app.Labels)
+	y := append(x, 2) // Tags: append(commonTags, labelsToTags(d.Labels)...)
+	z := append(x, 3) // Tags: append(commonTags, labelsToTags(d.Labels)...)
+	fmt.Println(y, z)
 }
 
 func b() {
-        x := []int{0, 1}
-        x = append(x, 2)
-        y := append(x, 3)
-        z := append(x, 4)
-        fmt.Println(y, z)
+	x := []int{}
+	x = append(x, 0)
+	x = append(x, 1)
+	x = append(x, 2)  // commonTags := labelsToTags(app.Labels)
+	y := append(x, 3) // Tags: append(commonTags, labelsToTags(d.Labels)...)
+	z := append(x, 4) // Tags: append(commonTags, labelsToTags(d.Labels)...)
+	fmt.Println(y, z)
 }
 
 func main() {
-        a()
-        b()
+	a()
+	b()
 }
 ```
 First guess could be
@@ -121,7 +125,7 @@ but in fact it results in
 [0, 1, 2] [0, 1, 3]
 [0, 1, 2, 4] [0, 1, 2, 4]
 ```
-Function `a()` works as expected but behaviour of `b()` is not what we were
+Function `a()` works as expected but behavior of `b()` is not what we were
 expecting.
 
 ### Slices
@@ -132,7 +136,7 @@ To understand this not obvious behavior we need some background on [how slices
 works](https://blog.golang.org/go-slices-usage-and-internals) and what happens
 when we call `append`.
 
-Slice is a triple of pointer to first element, length and capacity (length <=
+Slice is a triple of pointer to first element, length and capacity (length ≤
 capacity). Memory is continuous block of data but slice uses only length of
 capacity.
 
@@ -178,7 +182,7 @@ func growslice(et *_type, old slice, cap int) slice
 when slice needs to grow it
 [doubles its size](https://github.com/golang/go/blob/eb88b3eefa113f67e7cf72dfd085f65bbd125179/src/runtime/slice.go#L101).
 In fact there is more logic to handle growing
-heuristics, but in our case it grows by power of two.
+heuristics, but in our case it grows just like this.
 
 ### Connect the dots
 
