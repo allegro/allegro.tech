@@ -54,19 +54,34 @@ for _, d := range definitions {
         intents = append(intents, RegistrationIntent{
                 Name: app.labelsToName(d.Labels, nameSeparator),
                 Port: task.Ports[d.Index],
-                Tags: append(commonTags, labelsToTags(d.Labels)...),
+                Tags: append(commonTags, labelsToTags(d.Labels)...), // ◀ Wrong tags here
         })
+}
+
+func labelsToTags(labels map[string]string) []string {
+	tags := []string{}
+	for key, value := range labels {
+		if value == "tag" {
+			tags = append(tags, key)
+		}
+	}
+	return tags
 }
 ```
 
+The bug is not easy to hit and probably thats why it wasn’t covered in tests
+and nobody reported it before.
+To reproduce it, application must have at least two ports with different tag on each.
 When `commonTags` had 3 elements it worked but when there were 4 — it didn’t.
-It’s a rare case that some service has multiple ports to register and even rarer
-when ports have additional tags.
+It’s a rare case a service has multiple ports
+(80% of our applications has only one port)
+and even rarer when ports have additional tags
+(8% of our ports has port tags).
 
 The bug can be distilled to the example below.
 Let’s unroll the loop to just two iterations and use `int`s instead of structures.
-Then rename `commonTags` to `x` and
-use `y` and `z` instead of `intents[0]` and `intents[1]`.
+Then rename `commonTags` to `x` and fill it with some values.
+Finally, use `y` and `z` instead of `intents[0]` and `intents[1]`.
 What’s the output of the following code?
 
 ```go
@@ -192,8 +207,8 @@ with `x`, `y` and `z` pointing to different memory blocks.
 
 ### TL;DR
 
-Be careful when using `append`. If you want to work on a copy of a slice data you
-append to, you must explicitly [`copy`](https://golang.org/pkg/builtin/#copy)
+Be careful when using slices. If you want to work on a copy of a slice data,
+you must explicitly [`copy`](https://golang.org/pkg/builtin/#copy)
 it into a new slice.
 
 ![What if I told you](/img/articles/2017-07-20-golang-slices-gotcha/matrix.jpg){: .center-image }
