@@ -77,7 +77,7 @@ It’s a rare case a service has multiple ports
 (80% of our applications have only one port)
 and even rarer when ports have additional tags
 (8% of our ports have tags)
-and only one have multiple tagged ports.
+and only one has multiple tagged ports.
 
 The bug can be distilled to the example below.
 Let’s unroll the loop to just two iterations and use `int`s instead of structures.
