@@ -188,16 +188,31 @@ heuristics, but in our case it grows just like this.
 
 Let’s go through `b()` step by step.
 
-1. `x := []int{0, 1}` Create a slice with 2 elements.
-
+```go
+x := []int{0}
+x = append(x, 0)
+x = append(x, 1)
+```
+Create a slice with 2 elements.
 ![1.svg](/img/articles/2017-07-20-golang-slices-gotcha/1.svg){: .center-image }
-2. `x = append(x, 2)` Append one element. `x` is too small so it need to grow.
+
+```go
+x = append(x, 2)
+```
+Append one element. `x` is too small so it need to grow.
 It doubles its capacity.
 ![2.svg](/img/articles/2017-07-20-golang-slices-gotcha/2.svg){: .center-image }
-3. `y := append(x, 3)` Append one element. Slice has free space at the end so
+
+```go
+y := append(x, 3)
+```
+Append one element. Slice has free space at the end so
 `3` is stored there.
 ![3.svg](/img/articles/2017-07-20-golang-slices-gotcha/3.svg){: .center-image }
-4. `z := append(x, 4)` Append one element. Slice has free space at the end so
+```go
+z := append(x, 4)
+```
+Append one element. Slice has free space at the end so
 `4` is stored there and overwrites `3` stored before.
 ![4.svg](/img/articles/2017-07-20-golang-slices-gotcha/4.svg){: .center-image }
 
