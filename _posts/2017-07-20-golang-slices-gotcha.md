@@ -35,10 +35,10 @@ was responsible for malformed registration. Application configuration in
 Marathon looked good. There were some global service tags on application level
 and additional tags on each port. Why Marathon-Consul messed up with this?
 
-We checked what had changed in new the deployment and the only difference was
+We checked what had changed in the new deployment and the only difference was
 the service version and additional service tag that was added. Why adding a new tag
-results in a such weird behavior? We deleted this tag and the service was
-registered correctly. We added it and tags was filled wrong. We added a test to
+results in such a weird behavior? We deleted this tag and the service was
+registered correctly. We added it back and tags was filled wrong. We added a test to
 reproduce it and contributed
 [a fix](https://github.com/allegro/marathon-consul/pull/247).
 
@@ -71,12 +71,13 @@ func labelsToTags(labels map[string]string) []string {
 
 The bug is not easy to hit and probably thats why it wasn’t covered in tests
 and nobody reported it before.
-To reproduce it, application must have at least two ports with different tag on each.
+To reproduce it, an application must have at least two ports with different tags on each.
 When `commonTags` size is power of two it worked but in other case — it didn’t.
 It’s a rare case a service has multiple ports
-(80% of our applications has only one port)
+(80% of our applications have only one port)
 and even rarer when ports have additional tags
-(8% of our ports has port tags).
+(8% of our ports have tags)
+and only one have multiple tagged ports.
 
 The bug can be distilled to the example below.
 Let’s unroll the loop to just two iterations and use `int`s instead of structures.
@@ -150,7 +151,7 @@ elements. If it does not, a new underlying array will be allocated. Append
 returns the updated slice.** It is therefore necessary to store the result of
 append, often in the variable holding the slice itself:
 
-`append` allocates a new slice if new elements do not fit into a current slice,
+`append` allocates a new slice if new elements do not fit into the current slice,
 but when they fit they will be added at the end. `append` always returns a new
 slice but (as the slice is a triple of address, length and capacity) the new
 slice could have the same address and capacity and differs only on the length.
@@ -159,11 +160,11 @@ slice could have the same address and capacity and differs only on the length.
 
 ![One does not simply append to a slice](/img/articles/2017-07-20-golang-slices-gotcha/boromir.jpg){: .center-image }
 
-Above paragraph does’t answers why code works like this. To understand it, we
+Above paragraph does’t answer why code works like this. To understand it, we
 need to go deeper in Go code. Let’s take a look at
 [`growslice`](https://github.com/golang/go/blob/eb88b3eefa113f67e7cf72dfd085f65bbd125179/src/runtime/slice.go#L72-L82)
 function of Go runtime. It’s called
-by `append` when a slice does’t have enough capacity for all appended elements.
+by `append` when a slice doesn’t have enough capacity for all appended elements.
 
 ```go
 // growslice handles slice growth during append.
@@ -179,7 +180,7 @@ by `append` when a slice does’t have enough capacity for all appended elements
 func growslice(et *_type, old slice, cap int) slice
 ```
 
-when slice needs to grow it
+when slice needs to grow, it
 [doubles its size](https://github.com/golang/go/blob/eb88b3eefa113f67e7cf72dfd085f65bbd125179/src/runtime/slice.go#L101).
 In fact there is more logic to handle growing
 heuristics, but in our case it grows just like this.
@@ -199,7 +200,7 @@ Create a slice with 2 elements.
 ```go
 x = append(x, 2)
 ```
-Append one element. `x` is too small so it need to grow.
+Append one element. `x` is too small so it needs to grow.
 It doubles its capacity.
 ![2.svg](/img/articles/2017-07-20-golang-slices-gotcha/2.svg){: .center-image }
 
