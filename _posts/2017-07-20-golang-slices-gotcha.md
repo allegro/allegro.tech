@@ -62,7 +62,7 @@ func labelsToTags(labels map[string]string) []string {
 	tags := []string{}
 	for key, value := range labels {
 		if value == "tag" {
-			tags = append(tags, key)  // ◀ Hint: The way we build tags is important
+			tags = append(tags, key)
 		}
 	}
 	return tags
@@ -227,7 +227,9 @@ with `x`, `y` and `z` pointing to different memory blocks.
 
 ### TL;DR
 
-Be careful when using slices. If you want to work on a copy of a slice data,
+Be careful when using [`append`](https://golang.org/pkg/builtin/#append).
+Don't append to slices you want to keep unchanged.
+If you want to work on a copy of a slice data,
 you must explicitly [`copy`](https://golang.org/pkg/builtin/#copy)
 it into a new slice.
 
