@@ -30,15 +30,15 @@ although they were configured differently. This might not sound like a serious
 issue but it was. The service was unavailable because its clients couldn’t find it
 due to invalid tags on  a port responsible for handling clients’ requests.
 
-Marathon-Consul was not touched for some time, so it was very unlikely that it
+Marathon-Consul hasn't been touched for some time, so it was very unlikely that it
 was responsible for malformed registration. Application configuration in
 Marathon looked good. There were some global service tags on application level
-and additional tags on each port. Why Marathon-Consul messed up with this?
+and additional tags on each port. Why Marathon-Consul messed this up?
 
-We checked what had changed in the new deployment and the only difference was
-the service version and additional service tag that was added. Why adding a new tag
-results in such a weird behavior? We deleted this tag and the service was
-registered correctly. We added it back and tags was filled wrong. We added a test to
+We checked what had changed in the new deployment and the only differences were
+the service version and an additional service tag that was added. Why adding a new tag
+results in such a weird behavior? We deleted this tag and the service has
+registered correctly. We added it back and tags were filled wrong. We added a test to
 reproduce it and contributed
 [a fix](https://github.com/allegro/marathon-consul/pull/247).
 
@@ -69,7 +69,7 @@ func labelsToTags(labels map[string]string) []string {
 }
 ```
 
-The bug is not easy to hit and probably thats why it wasn’t covered in tests
+The bug is not easy to hit and probably that's why it wasn’t covered in tests
 and nobody reported it before.
 To reproduce it, an application must have at least two ports with different tags on each.
 When `commonTags` size is power of two it worked but in other case — it didn’t.
@@ -138,7 +138,7 @@ works](https://blog.golang.org/go-slices-usage-and-internals) and what happens
 when we call `append`.
 
 Slice is a triple of pointer to first element, length and capacity (length ≤
-capacity). Memory is continuous block of data but slice uses only length of
+capacity). Memory is a continuous block of data but slice uses only length of
 capacity.
 
 ![slice_1.svg](/img/articles/2017-07-20-golang-slices-gotcha/slice_1.svg){: .center-image }
@@ -160,7 +160,7 @@ slice could have the same address and capacity and differs only on the length.
 
 ![One does not simply append to a slice](/img/articles/2017-07-20-golang-slices-gotcha/boromir.jpg){: .center-image }
 
-Above paragraph does’t answer why code works like this. To understand it, we
+Above paragraph doesn’t answer why code works like this. To understand it, we
 need to go deeper in Go code. Let’s take a look at
 [`growslice`](https://github.com/golang/go/blob/eb88b3eefa113f67e7cf72dfd085f65bbd125179/src/runtime/slice.go#L72-L82)
 function of Go runtime. It’s called
