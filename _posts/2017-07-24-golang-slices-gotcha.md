@@ -190,7 +190,7 @@ heuristics, but in our case it grows just like this.
 Let’s go through `b()` step by step.
 
 ```go
-x := []int{0}
+x := []int{}
 x = append(x, 0)
 x = append(x, 1)
 ```
