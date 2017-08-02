@@ -43,14 +43,15 @@ what happens when requirements or application design are subject to frequent cha
 and tested? A waterfall model was not designed to deal with frequent changes, so theoretically agile should fit better
 here. On the other hand, both models may fail when there is no decision or the decision is changed too often. In such
 cases, it is difficult to find the right path to develop and release an application by strictly following one
-methodology’s principles. So how to find the most suitable way of working? Be flexible and instead of following the
-rules adjust them to the changing conditions of a project. Although it may sound as an agile manifesto, but agile
-is not always the best choice. In the event of large projects not subject to changes, with complex (and approved!)
-requirements, waterfall (or its variations) may be a better solution. This particular model is more predictable and
-reliable when a team does not need to release new versions too often. Waterfall may also work when it is crucial to
-have very good test coverage and very low internal to external defects found ratio. Obviously, the above requirements
-are difficult to meet when working in an agile way, with frequent releases and not enough time for bug fixing.
-Eventually, a team would have to come to terms with bugs found in production environment.
+methodology’s principles.
+So how to find the most suitable way of working? Be flexible and instead of following the rules adjust them to the
+changing conditions of a project. Although it may sound as an agile manifesto, but agile is not always the best
+choice. In the event of large projects not subject to changes, with complex (and approved!) requirements, waterfall
+(or its variations) may be a better solution. This particular model is more predictable and reliable when a team does
+not need to release new versions too often. Waterfall may also work when it is crucial to have very good test coverage
+and very low internal to external defects found ratio. Obviously, the above requirements are difficult to meet when
+working in an agile way, with frequent releases and not enough time for bug fixing. Eventually, a team would have to
+come to terms with bugs found in production environment.
 
 ## Automated vs manual testing – only one or both?
 Application testing is the most discussed topic. Should you execute only manual, repeatable, and thus boring tests or
@@ -62,12 +63,13 @@ look at some common opinions on manual and automated tests.
 
 1. Faster and more effective
 
- This is indeed true, but only with a stable test setup and well-designed test scripts. The initial work that involves
+This is indeed true, but only with a stable test setup and well-designed test scripts. The initial work that involves
  setting up the whole environment contributes to the effectiveness of tests and their further use. If you fail at this
  stage, testers may spend more time solving test setup problems than on testing. Naturally, when the environment is
  stable, automated regression testing is faster than the manual one, and may be even run for each new build on a daily basis.
 
 2. Cost effective
+
 
  Test environment setup and test design are cost- and time-consuming. However, if it is done properly, automated
  testing is indeed cheaper and faster than the manual approach. Actually, it is easier to write automated tests than
@@ -75,12 +77,14 @@ look at some common opinions on manual and automated tests.
 
 3. Less tiresome
 
+
  If regression testing is run on a regular basis, testers carrying out manual tests may become somewhat frustrated and
  bored of doing the same things again and again, which may affect their effectiveness and concentration. For this reason,
  testers are often more interested in developing automated tests for the regression testing purpose than to manually
  executing the same set of test cases every time.
 
 4. You can run them on a regular basis
+
 
  It is the main advantage of automated tests. As you can use them to test builds on a daily basis, the development team
  receives feedback almost immediately. However, there is a risk that the tests may become blind over time - test
@@ -94,6 +98,8 @@ look at some common opinions on manual and automated tests.
 
 
 1. It simulates what the end user does
+
+
  As automated tests are basically robots, they do not reflect the real user’s world. Testing frameworks operate
  by following a fixed pattern, while users may use an application in a completely different way, not covered by
  automated tests. Testers, unlike robots, have intuition, which is a substantial skill in the case of exploratory
@@ -102,12 +108,16 @@ look at some common opinions on manual and automated tests.
  certain features manually.
 
 2. Easy to start with
+
+
  This sort of test is the best solution for new members, as skills necessary to carry out manual testing are easy to
  acquire. Well-designed test cases saved in a test management tool (such as ‘TestLink’, ‘HP Quality Center’, etc.)
  are easy to follow, so new team members can start the test execution on their own. Besides, as creating new test cases
  is not complicated even beginners can handle it.
 
 3. Faster and more effective in the case of applications undergoing frequent changes
+
+
  When an application undergoes changes, the QA team may not keep up with creating new automated tests. So in this
  particular case, manual testing is faster and more effective due to its flexibility. Anyway, it does not mean that
  automated tests are unnecessary.
@@ -121,12 +131,12 @@ knowledge and experience of QA engineers.
 Less experienced engineers often ask about testing tools. An absolute must-have is a test management tool to keep
 any requirements-to-test cases coverage and track bug-to-test cases. The market offers a lot of commercial and free
 tools such as [HP Quality Center](https://saas.hpe.com/en-us/software/quality-center) or
-[Test Link](http://testlink.org/) mentioned above or a free Polish tool – [Test Arena](http://testarena.pl/). A decision
+[TestLink](http://testlink.org/) mentioned above or a free Polish tool – [TestArena](http://testarena.pl/). A decision
 concerning the choice of a tool should be carefully considered in terms of ROI (Return of Investment). Any potential
 migration of test cases between different tools following a change of decision may be time-consuming and sometimes
 difficult to execute. The same rule applies to defect tracking tools, with [JIRA](https://www.atlassian.com/software/jira)
 developed by Atlassian being probably the most popular one. Its main advantage is a `JIRA` Agile add-on (recently
-incorporated into a standard `JIRA` version) that allows users to manage user stories and linked test cases.
+incorporated into a standard JIRA version) that allows users to manage user stories and linked test cases.
 Therefore, it can be used in an agile project as the only test management tool. All in all, `Excel` spreadsheets are insufficient to do the job.  
 Next thing is choosing a tool for designing and executing of automation tests, which depends on the type of developed
 application/system (e.g. web or mobile app) and applied technology. If you are dealing with websites, try [Selenium](http://www.seleniumhq.org/).
@@ -144,18 +154,20 @@ mock-ups and user stories, as they were continuously modified. So we decided to 
 were already agreed on and could be considered stable. We started writing manual test cases using our test management
 tool. It was a good idea, as we had a lot of questions about different states of an application, its behavior, edge
 cases, etc. Eventually, it resulted in fewer bugs at the end of a development stage. When TCs ('Test Cases') were ready, we asked developers, UX engineers and a product owner to review our tests. They pointed out cases we did not think of and clarified some information in TCs. It gave us better insight into how the application should work, and gave us great project documentation. We created manual test cases being a base for regression testing. But first, we used them for regular functional testing of new features. Then we included test cases created for new features to a new regression
-test set, and ran it one more time when a release candidate was ready. Although it may seem that with an increasing
-number of regression test cases it took more time to execute the regression tests with each release, it did not.
-For each release-specific regression test, cases were chosen based on areas subject to changes. After testing new
-features for a specific release, there was no need to run all test cases for that feature if nothing was changed.
-It was sufficient to run the main test scenarios only. As a result, the set for regression testing was always
-different. Therefore, we knew how much time testing might take. And what happened when we found new bugs when running
-regression tests? In such situation, a product owner, QA engineers, UX specialists and developers discussed the bugs
-criticality. Such defect triage allowed us to decide what to fix in next releases, and what had to be fixed
-immediately. When developers created a new build with all necessary fixes, we ran the regression tests once again, but we used
-less test cases just to check areas with modified code and verify core functionalities. After finding a new critical
-issue, we repeated the process one more time. Fixes are always checked using separate branches, before being merged into next
-release candidate, but regression is performed on RC ('Release Candidate') with all necessary fixes.
+test set, and ran it one more time when a release candidate was ready.
+
+Although it may seem that with an increasing number of regression test cases it took more time to execute the
+regression tests with each release, it did not. For each release-specific regression test, cases were chosen based
+on areas subject to changes. After testing new features for a specific release, there was no need to run all test
+cases for that feature if nothing was changed. It was sufficient to run the main test scenarios only. As a result,
+the set for regression testing was always different. Therefore, we knew how much time testing might take. And what
+happened when we found new bugs when running regression tests? In such situation, a product owner, QA engineers,
+UX specialists and developers discussed the bugs criticality. Such defect triage allowed us to decide what to fix
+in next releases, and what had to be fixed immediately. When developers created a new build with all necessary fixes,
+we ran the regression tests once again, but we used less test cases just to check areas with modified code and verify
+core functionalities. After finding a new critical issue, we repeated the process one more time. Fixes are always
+checked using separate branches, before being merged into next release candidate, but regression is performed on RC
+(‘Release Candidate’) with all necessary fixes.
 
 You may wonder where is the automation in this process? We have one set of automated sanity tests for new builds. It
 covers main functionalities of an application and is run on all branches, so feedback concerning builds is quick. We
