@@ -129,9 +129,9 @@ tools such as [HP Quality Center](https://saas.hpe.com/en-us/software/quality-ce
 concerning the choice of a tool should be carefully considered in terms of ROI (Return of Investment). Any potential
 migration of test cases between different tools following a change of decision may be time-consuming and sometimes
 difficult to execute. The same rule applies to defect tracking tools, with [JIRA](https://www.atlassian.com/software/jira)
-developed by Atlassian being probably the most popular one. Its main advantage is a `JIRA` Agile add-on (recently
+developed by Atlassian being probably the most popular one. Its main advantage is a JIRA Agile add-on (recently
 incorporated into a standard JIRA version) that allows users to manage user stories and linked test cases.
-Therefore, it can be used in an agile project as the only test management tool. All in all, `Excel` spreadsheets are insufficient to do the job.  
+Therefore, it can be used in an agile project as the only test management tool. All in all, Excel spreadsheets are insufficient to do the job.  
 Next thing is choosing a tool for designing and executing of automation tests, which depends on the type of developed
 application/system (e.g. web or mobile app) and applied technology. If you are dealing with websites, try [Selenium](http://www.seleniumhq.org/).
 In the case of Android apps, try [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/),
