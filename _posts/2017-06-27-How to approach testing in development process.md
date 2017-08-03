@@ -147,8 +147,12 @@ the needs and conditions of our project for more effective QA work. The problem 
 mock-ups and user stories, as they were continuously modified. So we decided to base on those few requirements that
 were already agreed on and could be considered stable. We started writing manual test cases using our test management
 tool. It was a good idea, as we had a lot of questions about different states of an application, its behavior, edge
-cases, etc. Eventually, it resulted in fewer bugs at the end of a development stage. When TCs ('Test Cases') were ready, we asked developers, UX engineers and a product owner to review our tests. They pointed out cases we did not think of and clarified some information in TCs. It gave us better insight into how the application should work, and gave us great project documentation. We created manual test cases being a base for regression testing. But first, we used them for regular functional testing of new features. Then we included test cases created for new features to a new regression
-test set, and ran it one more time when a release candidate was ready.
+cases, etc. Eventually, it resulted in fewer bugs at the end of a development stage. When TCs ('Test Cases') were
+ready, we asked developers, UX engineers and a product owner to review our tests. They pointed out cases we did not
+think of and clarified some information in TCs. It gave us better insight into how the application should work, and
+gave us great project documentation. We created manual test cases being a base for regression testing. But first, we
+used them for regular functional testing of new features. Then we included test cases created for new features to a
+new regression test set, and ran it one more time when a release candidate was ready.
 
 Although it may seem that with an increasing number of regression test cases it took more time to execute the
 regression tests with each release, it did not. For each release-specific regression test, cases were chosen based
