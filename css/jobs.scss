@@ -1,6 +1,8 @@
 ---
 ---
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&subset=latin-ext');
+
 .jobs-site {
     color: #000;
     background: #eee;
@@ -247,9 +249,17 @@ div.jobs .title {
         }
     }
 }
+
+.recruiters {
+    background: #35769e;
+    margin-top: 1em;
+    padding: 1em;
+}
 .recruiter {
     display: inline-block;
     width: 49%;
+    color: #fff;
+
     &:first-of-type {
         border-right: 1px solid #fff;
     }
@@ -277,4 +287,90 @@ div.jobs .title {
             }
         }
     }
+}
+
+.m-card {
+    background-color: #fff;
+    padding: 8px;
+    margin: 1em auto;
+    max-width: 960px;
+}
+.m-card+.m-card {
+    margin-top: 8px;
+}
+@media only screen and (min-width: 48em) {
+    .m-card {
+        padding: 16px;
+    }
+}
+@media only screen and (min-width: 62em) {
+    .m-card {
+        padding: 24px;
+    }
+}
+
+p, div, h2, h3 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+    font-weight: 100;
+    font-size: 32px;
+    margin: 0 0 1em;
+}
+
+#jobs-image-header {
+    width: 100%;
+    height: 300px;
+    background: #35769e url('../img/jobs/jobs-header.jpg') center center no-repeat;
+    background-size: cover;
+
+    &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 300px;
+        background: rgba(53, 118, 158, 0.85);
+    }
+}
+#jobs-header {
+    max-width: 944px;
+    background: #35769e;
+    padding: 32px;
+    color: #fff;
+    margin: -150px auto 1em;
+}
+#job-offers {
+    list-style: none;
+
+    li {
+        a, a:focus, a:visited {
+            color: #00a790;
+            text-decoration: none;
+            line-height: 27px;
+            font-size: 18px;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            height: 50px;
+        }
+
+        a:hover {
+            color: #7fdcca;
+        }
+
+        span {
+            cursor: pointer;
+
+            &.city {
+                color: #000;
+            }
+        }
+    }
+}
+#job-offers-title {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0 0 0.5em;
 }
