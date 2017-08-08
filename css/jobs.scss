@@ -309,14 +309,16 @@ div.jobs .title {
     }
 }
 
-p, div, h2, h3 {
-    font-family: 'Open Sans', sans-serif;
-}
+.jobs-site {
+    p, div, h2, h3 {
+        font-family: 'Open Sans', sans-serif;
+    }
 
-h2 {
-    font-weight: 100;
-    font-size: 32px;
-    margin: 0 0 1em;
+    h2 {
+        font-weight: 100;
+        font-size: 32px;
+        margin: 0 0 1em;
+    }
 }
 
 #jobs-image-header {
