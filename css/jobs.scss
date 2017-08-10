@@ -1,8 +1,6 @@
 ---
 ---
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&subset=latin-ext');
-
 .jobs-site {
     color: #000;
     background: #eee;
@@ -312,10 +310,6 @@ div.jobs .title {
 }
 
 .jobs-site {
-    p, div, h2, h3 {
-        font-family: 'Open Sans', sans-serif;
-    }
-
     h2 {
         font-weight: 100;
         font-size: 32px;
@@ -329,7 +323,7 @@ div.jobs .title {
     background: #35769e url('../img/jobs/jobs-header.jpg') center center no-repeat;
     background-size: cover;
     position: relative;
-    border-top: 0.1em solid #fff;
+    border-top: 0.09em solid #fff;
 
     &:after {
         content: '';
