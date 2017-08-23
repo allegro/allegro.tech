@@ -253,13 +253,18 @@ div.jobs .title {
     margin-top: 1em;
     padding: 1em;
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
 
     li {
         display: inline-block;
         width: 32%;
         color: #fff;
-        border-right: 1px solid #fff;
+        border: 0;
         text-align: center;
+        flex: 1 1 250px;
+        padding-bottom: 1em;
+        margin-bottom: 1em;
 
         &:last-of-type {
             border: 0;
@@ -298,6 +303,9 @@ div.jobs .title {
 @media only screen and (min-width: 48em) {
     .m-card {
         padding: 16px;
+    }
+    .recruiters li {
+        border-right: 1px solid #fff;
     }
 }
 @media only screen and (min-width: 62em) {
