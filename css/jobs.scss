@@ -253,30 +253,32 @@ div.jobs .title {
     margin-top: 1em;
     padding: 1em;
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
 
     li {
         display: inline-block;
-        width: 49%;
+        width: 32%;
         color: #fff;
+        border: 0;
+        text-align: center;
+        flex: 1 1 250px;
+        padding-bottom: 1em;
+        margin-bottom: 1em;
 
-        &:first-of-type {
-            border-right: 1px solid #fff;
+        &:last-of-type {
+            border: 0;
         }
 
         img {
             width: 200px;
             height: 200px;
-            margin: 0 0 0 2rem;
+            margin: auto;
             border-radius: 100px;
-            float: left;
         }
 
         .recruiter-name {
-            display: inline-block;
-            float: left;
-            width: 45%;
-            text-align: left;
-            padding: 2rem 0 0 2rem;
+            padding: 0;
 
             a {
                 color: #c0e1ff;
@@ -301,6 +303,9 @@ div.jobs .title {
 @media only screen and (min-width: 48em) {
     .m-card {
         padding: 16px;
+    }
+    .recruiters li {
+        border-right: 1px solid #fff;
     }
 }
 @media only screen and (min-width: 62em) {
