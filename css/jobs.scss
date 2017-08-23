@@ -256,27 +256,24 @@ div.jobs .title {
 
     li {
         display: inline-block;
-        width: 49%;
+        width: 32%;
         color: #fff;
+        border-right: 1px solid #fff;
+        text-align: center;
 
-        &:first-of-type {
-            border-right: 1px solid #fff;
+        &:last-of-type {
+            border: 0;
         }
 
         img {
             width: 200px;
             height: 200px;
-            margin: 0 0 0 2rem;
+            margin: auto;
             border-radius: 100px;
-            float: left;
         }
 
         .recruiter-name {
-            display: inline-block;
-            float: left;
-            width: 45%;
-            text-align: left;
-            padding: 2rem 0 0 2rem;
+            padding: 0;
 
             a {
                 color: #c0e1ff;
