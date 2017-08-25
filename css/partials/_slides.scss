@@ -1,0 +1,194 @@
+#profiles {
+    overflow: hidden;
+    position: relative;
+    height: 480px;
+    padding: 0;
+}
+
+.who-we-are {
+    background: #f7f9ff;
+    position: relative;
+    margin-top: 2.5em;
+
+    & > div {
+        display: flex;
+        flex-flow: row wrap;
+        margin: 0 auto;
+        max-width: 62em;
+        width: 100%;
+        background: #f7f9ff;
+        background-size: cover;
+
+        .who-we-are-container {
+            padding: 0 2em;
+            font-size: 1em;
+            line-height: 1.5em;
+            background: #fff;
+            width: 100%;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            color: #444;
+        }
+
+        p {
+            line-height: 1.5em;
+            text-align: justify;
+            font-size: 1em;
+            padding: 5px 3px;
+        }
+
+        .profile {
+            display: none;
+            list-style-type: none;
+            height: 480px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &.active {
+                display: flex;
+            }
+
+            .profile-image {
+                flex: 1 1 300px;
+                width: 300px;
+                height: 450px;
+                margin-left: 1em;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+
+                &:before {
+                    content: ' ';
+                    display: block;
+                    position: absolute;
+                    border-left: 10px solid #ff5a00;
+                    height: 10em;
+                    width: 1em;
+                    top: 0;
+                    left: 0;
+                    margin-top: 3em;
+                }
+            }
+
+            .profile-text {
+                flex: 2 1 600px;
+                padding: 0 1em 0 2em;
+            }
+        }
+    }
+
+    @media (--m-queries-md) {
+        margin-top: 0;
+    }
+}
+
+#profiles-navigation {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-wrap: wrap;
+
+    a {
+        display: block;
+        margin: 4px;
+        width: 80px;
+        height: 80px;
+
+        &.active {
+            box-shadow: inset 0 -2px 0 0 #ff5a00;
+
+            div {
+                height: 78px;
+            }
+        }
+
+        &.profile-nav-element {
+            position: absolute;
+            top: 0;
+            margin-top: -280px;
+            width: 25px;
+            height: 32px;
+            border: 1px solid #bbb;
+            border-radius: 2px;
+            background: #fff;
+            text-decoration: none;
+
+            &::after {
+                content: '‹';
+                font-size: 2em;
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin-left: 6px;
+                margin-top: 2px;
+                speak: none;
+                color: #bbb;
+            }
+            &.prev {
+                left: 0;
+                margin-left: -2em;
+            }
+            &.next {
+                right: 0;
+                margin-right: -2em;
+
+                &::after {
+                    transform: rotateZ(180deg);
+                    margin-top: 7px;
+                }
+            }
+        }
+    }
+    div {
+        width: 80px;
+        height: 80px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+@media (max-width: 61em) {
+    .who-we-are {
+        & > div {
+            &.who-we-are-container {
+                width: 100%;
+                padding-right: 1.5em;
+                text-align: justify;
+            }
+
+            h2 {
+                text-align: center;
+            }
+
+            #profiles {
+                height: auto;
+
+                .profile, .profile-text, .profile-image {
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+                }
+
+                .profile.active {
+                    display: block !important;
+                }
+
+                .profile-image {
+                    height: 100px;
+                    background-position: 50% 10%;
+
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
