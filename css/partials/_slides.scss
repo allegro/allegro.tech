@@ -24,17 +24,6 @@
             line-height: 1.5em;
             background: #fff;
             width: 100%;
-
-            &:after {
-                content: ' ';
-                display: block;
-                position: absolute;
-                border-right: 4px solid #ff5a00;
-                height: 7em;
-                top: 0;
-                right: 0;
-                margin-top: 3em;
-            }
         }
 
         h3 {
@@ -195,17 +184,9 @@
                     height: 100px;
                     background-position: 50% 10%;
 
-                    .info & {
-                        background-position: 50% 30%;
-                    }
-
                     &:before {
                         display: none;
                     }
-                }
-
-                .info .profile-image {
-                    background-position: 50% 30%;
                 }
             }
         }
