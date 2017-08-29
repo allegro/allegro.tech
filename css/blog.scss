@@ -50,15 +50,11 @@ figcaption {
     padding: 3em 0 1em;
     color: #fff;
     font-weight: 300;
-}
 
-.section-blog > header a {
-    color: #ffa500;
-    text-decoration: none;
-}
-
-.section-latest > header {
-    padding: 1em 0 0;
+    a {
+        color: #ffa500;
+        text-decoration: none;
+    }
 }
 
 .section-latest section,
@@ -66,28 +62,37 @@ figcaption {
     padding: 2em 0;
 }
 
-.section-latest .posts li {
-    background: transparent;
-    color: #fff;
-    padding-bottom: 0;
-    border: 0;
+.section-latest {
+    & > header {
+        padding: 2em 0;
+    }
 
-    .post-date {
+    .content {
+        padding: 0 35px;
+    }
+
+    .posts li {
+        background: rgba(255, 255, 255, 0.2);
         color: #fff;
-    }
+        border: 0;
 
-    .post-meta {
-        background: #fff;
-        padding-top: 20px;
-        margin-top: 4rem;
-    }
+        .post-date {
+            color: #fff;
+        }
 
-    #latest-post-tag {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 35px;
-        color: #9ef490;
+        .post-meta {
+            background: rgba(255, 255, 255, 0.7);
+            padding-top: 20px;
+            margin-top: 4rem;
+        }
+
+        #latest-post-tag {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 35px;
+            color: #9ef490;
+        }
     }
 }
 
@@ -101,7 +106,7 @@ figcaption {
 
 .section-post-pagination {
     background: #eee;
-    padding: 3rem 0 0;
+    padding: 2rem 0 0;
     justify-content: center;
 
     & > * {
@@ -133,10 +138,9 @@ figcaption {
 .posts li {
     position: relative;
     background: #fff;
-    margin: 0;
+    margin: 1em auto;
     padding: 35px 35px 15px;
     font-weight: 300;
-    border-bottom: 1px solid #eee;
 }
 
 .section-posts {

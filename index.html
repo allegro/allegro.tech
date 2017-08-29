@@ -1,15 +1,12 @@
 ---
 layout: default
 title: blog
-pagination:
-    enabled: true
-    tag: tech
 ---
 
 <section class="section-latest">
     <header>
         <div class="content">
-            {% include posts.html limit="1" tag="tech" %}
+            {% include posts.html limit="1" %}
         </div>
     </header>
 </section>
@@ -17,7 +14,8 @@ pagination:
 <section class="section-posts">
     <section>
         <div class="content">
-            {% include posts.html offset="1" tag="tech"%}
+            {% include posts.html offset="1" limit="6" %}
+            {% include posts.html offset="7" short="true" %}
         </div>
     </section>
 </section>
