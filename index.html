@@ -1,6 +1,9 @@
 ---
 layout: default
 title: blog
+pagination:
+    enabled: true
+    tag: tech
 ---
 
 <section class="section-latest">
@@ -14,8 +17,7 @@ title: blog
 <section class="section-posts">
     <section>
         <div class="content">
-            {% include posts.html offset="1" limit="6" tag="tech"%}
-            {% include posts.html offset="7" short="true" tag="tech"%}
+            {% include posts.html offset="1" tag="tech"%}
         </div>
     </section>
 </section>

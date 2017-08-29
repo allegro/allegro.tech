@@ -1,0 +1,59 @@
+{% assign lastThree = paginator.total_pages | minus:2 %}
+
+<section class="section-post-pagination">
+    <div class="m-pagination m-pagination--maxi">
+
+        {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}" class="m-pagination__nav m-pagination__nav--prev" title="Prev">Previous</a>
+        {% endif %}
+
+        <div class="m-pagination__list">
+            <input class="m-pagination__input" type="number" name="name" value="{{ paginator.page }}">
+            <a href="{{ paginator.first_page_path }}" class="m-pagination__page{% if paginator.page == 1 %} is-selected{% endif %}">1</a>
+
+            {% if paginator.total_pages > 1 %}
+                {% if paginator.total_pages < 6 %}
+                    {% for trail in paginator.page_trail offset:1 %}
+                    <a href="{{ trail.path }}" class="m-pagination__page{% if trail.num == paginator.page %} is-selected{% endif %}">
+                        {{ trail.num }}
+                    </a>
+                    {% endfor %}
+                {% elsif paginator.page >= lastThree %}
+                    {% assign rangeBegin = lastThree | minus:1 %}
+                    <div class="m-pagination__ellipsis"></div>
+
+                    {% for trail in paginator.page_trail offset:rangeBegin %}
+                    <a href="{{ trail.path }}" class="m-pagination__page{% if trail.num == paginator.page %} is-selected{% endif %}">
+                        {{ trail.num }}
+                    </a>
+                    {% endfor %}
+                {% else %}
+                    {% if paginator.page >= 2 %}
+                        {% assign rangeBegin = paginator.page | minus:1 %}
+                    {% else %}
+                        {% assign rangeBegin = 1 %}
+                    {% endif %}
+
+                    {% if paginator.page > 2 %}
+                        <div class="m-pagination__ellipsis"></div>
+                    {% endif %}
+
+                    {% for trail in paginator.page_trail limit:3 offset:rangeBegin %}
+                    <a href="{{ trail.path }}" class="m-pagination__page{% if trail.num == paginator.page %} is-selected{% endif %}">
+                        {{ trail.num }}
+                    </a>
+                    {% endfor %}
+
+                    <div class="m-pagination__summary">of</div>
+                    <a href="{{ paginator.last_page_path }}" class="m-pagination__page{% if paginator.total_pages == paginator.page %} is-selected{% endif %}">{{ paginator.total_pages }}</a>
+                {% endif %}
+            {% endif %}
+
+        </div>
+
+        {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="m-pagination__nav m-pagination__nav--next" title="Next">Next</a>
+        {% endif %}
+
+    </div>
+</section>
