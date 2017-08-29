@@ -1,6 +1,7 @@
 gems:
     - jekyll-redirect-from
     - jekyll-sitemap
+    - jekyll-paginate
 
 # Site settings
 title: allegro.tech
@@ -26,3 +27,5 @@ sass:
     sass_dir: css/partials
 
 permalink: /:year/:month/:title.html
+
+paginate: 10

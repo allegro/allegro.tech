@@ -4,6 +4,8 @@
 @import "_header";
 @import "_footer";
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&subset=latin-ext');
+
 html,
 body,
 ul,
@@ -18,7 +20,7 @@ html {
 
 body {
     background: #fff;
-    font-family: Roboto, Arial, sans-serif;
+    font-family: 'Open Sans', Arial, sans-serif;
     font-size: 1.6em;
     line-height: 1.5;
     color: #333;

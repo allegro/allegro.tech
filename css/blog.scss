@@ -25,7 +25,7 @@ figcaption {
     .section-blog > header,
     .section-latest > header {
         background: #545a61 url('../img/top-bg.jpg');
-		background-size: cover;
+        background-size: cover;
     }
 }
 
@@ -41,12 +41,29 @@ figcaption {
 }
 
 .section-latest > header {
-    padding: 3em 0;
+    padding: 1em 0 0;
 }
 
 .section-latest section,
 .section-blog > header {
     padding: 2em 0;
+}
+
+.section-latest .posts li {
+    background: transparent;
+    color: #fff;
+    padding-bottom: 0;
+    border: 0;
+
+    .post-date {
+        color: #fff;
+    }
+
+    .post-meta {
+        background: #fff;
+        padding-top: 20px;
+        margin-top: 4rem;
+    }
 }
 
 .section-title {
@@ -79,10 +96,12 @@ figcaption {
 }
 
 .posts li {
-    background: #fff;
-    margin: 0 0 30px 0;
     position: relative;
-    padding: 20px;
+    background: #fff;
+    margin: 0;
+    padding: 35px 35px 15px;
+    font-weight: 300;
+    border-bottom: 1px solid #eee;
 }
 
 .section-posts {
@@ -100,26 +119,24 @@ figcaption {
 }
 
 .posts .post-link {
-    font-size: 2.4rem;
-    font-weight: 700;
+    font-size: 3.2rem;
+    font-weight: 300;
     color: inherit;
     text-decoration: none;
 }
 
 .posts .post-link:hover,
 .posts .post-link:focus {
-    color: #4ba7f8;
+    color: #54cab6;
 }
 
 .posts .post-date {
     display: block;
     color: #999;
-    border-bottom: 1px solid #ccc;
-    padding: 0 0 10px 0;
+    font-size: 1.3rem;
+    padding: 0 0 5px 0;
     margin: 0 0 10px 0;
 }
-
-
 
 .posts.posts-short {
     .post-link {
@@ -127,10 +144,9 @@ figcaption {
     }
 }
 
-
 @media all and (min-width: 760px) {
     .section-posts .content {
-        padding: 0 140px;
+        padding: 0 35px;
     }
 
     .section-twitter .content {
@@ -139,20 +155,6 @@ figcaption {
 
     .section-twitter iframe {
         margin: 0 auto;
-        display: block;
-    }
-
-    .posts li {
-        margin-left: 70px
-    }
-
-    .posts .post-date {
-        position: absolute;
-        left: -70px;
-        width: 70px;
-    }
-
-    .posts .post-date strong {
         display: block;
     }
 
@@ -173,9 +175,8 @@ figcaption {
 }
 
 .posts .post-meta {
-    border-top: 1px solid #eee;
     margin: 20px -20px 0;
-    padding: 20px 20px 0 20px;
+    padding: 20px 20px 17px;
     color: #555;
     text-align: right;
     overflow: hidden;
@@ -189,18 +190,19 @@ figcaption {
 }
 
 .posts .post-meta .author {
-    margin: 0 5px 5px;
+    margin: 0 5px;
     float: left;
 }
 
 .posts .post-meta .author a {
-    color: #999;
+    color: #00a790;
     font-size: 1.4rem;
-
+    font-weight: 500;
+    text-decoration: none;
 }
 
 .posts .post-meta .author a:hover {
-    color: #333;
+    color: #54cab6;
 }
 
 .comment-count {
