@@ -133,14 +133,38 @@ figcaption {
 
 .posts {
     list-style-type: none;
-}
 
-.posts li {
-    position: relative;
-    background: #fff;
-    margin: 1em auto;
-    padding: 35px 35px 15px;
-    font-weight: 300;
+    li {
+        position: relative;
+        background: #fff;
+        margin: 1em auto;
+        padding: 35px 35px 15px;
+        font-weight: 300;
+    }
+
+    &.posts-short li {
+        padding-top: 25px;
+    }
+
+    .post-link {
+        font-size: 3.2rem;
+        font-weight: 300;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    & .post-link:hover,
+    & .post-link:focus {
+        color: #54cab6;
+    }
+
+    .post-date {
+        display: block;
+        color: #999;
+        font-size: 1.3rem;
+        padding: 0 0 5px 0;
+        margin: 0 0 10px 0;
+    }
 }
 
 .section-posts {
@@ -155,26 +179,6 @@ figcaption {
     font-weight: 400;
     padding: 0 0 1em 0;
     margin: 0;
-}
-
-.posts .post-link {
-    font-size: 3.2rem;
-    font-weight: 300;
-    color: inherit;
-    text-decoration: none;
-}
-
-.posts .post-link:hover,
-.posts .post-link:focus {
-    color: #54cab6;
-}
-
-.posts .post-date {
-    display: block;
-    color: #999;
-    font-size: 1.3rem;
-    padding: 0 0 5px 0;
-    margin: 0 0 10px 0;
 }
 
 @media all and (min-width: 760px) {

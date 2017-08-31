@@ -8,15 +8,15 @@
         <nav class="site-nav">
             <ul class="site-navlist">
 
-                <li><a class="page-link {% if currentSubPage == 'index.html' %}current{% endif %}" href="/">tech blog</a></li>
+                <li><a class="page-link{% unless currentSubPage %} current{% endunless %}" href="/">tech blog</a></li>
 
-                <li><a class="page-link {% if currentSubPage == 'open-source' %}current{% endif %}" href="/open-source">open source</a></li>
+                <li><a class="page-link{% if currentSubPage == 'open-source' %} current{% endif %}" href="/open-source">open source</a></li>
 
-                <li><a class="page-link {% if currentSubPage == 'agile' %}current{% endif %}" href="/agile">agile</a></li>
+                <li><a class="page-link{% if currentSubPage == 'events' %} current{% endif %}" href="/events">events</a></li>
 
-                <li><a class="page-link {% if currentSubPage == 'jobs' %}current{% endif %}" href="/jobs">jobs</a></li>
+                <li><a class="page-link{% if currentSubPage == 'jobs' %} current{% endif %}" href="/jobs">jobs</a></li>
 
-                <li><a class="page-link {% if currentSubPage == 'about-us' %}current{% endif %}" href="/about-us">about us</a></li>
+                <li><a class="page-link{% if currentSubPage == 'about-us' %} current{% endif %}" href="/about-us">about us</a></li>
             </ul>
                   <ul class="site-navlist">
                 <li><a class="page-link social icon-link" href="http://facebook.com/{{ site.facebook_username }}" title="Facebook">

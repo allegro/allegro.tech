@@ -14,13 +14,13 @@
     position: relative;
     top: -3px;
     display: inline-block;
-    font-family: 'socicon';
+    font-family: 'socicon', fantasy;
     font-style: normal;
     font-weight: normal;
     font-size:2.4rem;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
-    color:#bbb;
+    color: #bbb;
 }
 .socicon:empty{
     width: 1em;
@@ -61,11 +61,12 @@
 .site-footer {
     border-top: 1px solid #ddd;
     padding: 2em 0;
+    background: #fff;
 }
 
 .site-footer .site-title {
   margin: 7px 1em;
-  display: block; 
+  display: block;
   line-height: 22px;
   a {
     color: #4ba7f8;
@@ -73,7 +74,7 @@
 }
 
 .site-footer .find-us {
-    margin: 0px 0.1em;
+    margin: 0 0.1em;
 }
 
 .site-footer .site-title img {
