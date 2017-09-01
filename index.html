@@ -6,7 +6,6 @@ title: blog
 <section class="section-latest">
     <header>
         <div class="content">
-            <h2 class="section-title">Latest tech post</h2><br/><br/>
             {% include posts.html limit="1" tag="tech" %}
         </div>
     </header>
@@ -15,8 +14,8 @@ title: blog
 <section class="section-posts">
     <section>
         <div class="content">
-            {% include posts.html offset="1" limit="6" tag="tech"%}
-            {% include posts.html offset="7" short="true" tag="tech"%}
+            {% include posts.html offset="1" limit="6" tag="tech" %}
+            {% include posts.html offset="7" short="true" tag="tech" %}
         </div>
     </section>
 </section>

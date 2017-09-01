@@ -68,7 +68,8 @@ request.onload = function (e) {
             cityList = [offer.location.city];
         span.innerHTML = offer.name;
         spanCities.classList.add('city');
-        a.href = 'https://www.smartrecruiters.com/AllegroGroup/' + offer.id + '-' + slugify(offer.name);
+        a.href = 'https://www.smartrecruiters.com/AllegroGroup/' + offer.id + '-' + slugify(offer.name)
+            + '?trid=de9dfdf3-7f9e-4ebf-8a64-49f6c69ad640';
         offer.customField.map(function(field) {
             if (cities.indexOf(field.fieldLabel) >= 0 && field.valueLabel === 'Tak') {
                 cityList.push(field.fieldLabel);

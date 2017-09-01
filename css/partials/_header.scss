@@ -32,9 +32,8 @@
 
 .page-link {
     text-decoration: none;
-    color: #4ba7f8;
+    color: #222;
     padding: 5px 12px;
-    border-radius: 3px;
     transition: all 75ms linear;
 }
 
@@ -50,8 +49,7 @@
 
 .page-link:hover,
 .page-link:focus {
-    color: #fff;
-    background: #4ba7f8;
+    color: #54cab6;
 }
 
 .site-nav {
@@ -81,13 +79,7 @@
 }
 
 .site-navlist li .page-link {
-    border: 2px solid #fff;
     transition: all 75ms linear;
-}
-
-.site-navlist li .page-link:hover,
-.site-navlist li .page-link:focus {
-    border: 2px solid #4ba7f8;
 }
 
 .site-navlist li .page-link:after {
@@ -95,9 +87,7 @@
 }
 
 .site-navlist li .current {
-    font-weight: bold;
-    border: 2px solid #4ba7f8;
-    border-radius: 3px;
+    color: #ff5a00;
 }
 
 .site-navlist li .social {

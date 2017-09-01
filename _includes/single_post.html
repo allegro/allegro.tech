@@ -1,7 +1,7 @@
 <time class="post-date">{{ post.date | date: "<strong>%b %-d</strong> %Y" }}</time>
+{% if forloop.first and forloop.length == 1 %}<span id="latest-post-tag">Latest post</span>{% endif %}
 <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 <p>{{ post.excerpt | markdownify | strip_html }}</p>
-<p class="buttons"><a href="{{ post.url | prepend: site.baseurl }}" class="page-link">read more</a></p>
 {% if include.hideAuthor != true %}
 <div class="post-meta">
     {% for author in post.author %}
