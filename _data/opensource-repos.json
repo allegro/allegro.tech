@@ -1,307 +1,377 @@
 {
-    "repos": {
-        "php-protobuf": {
-            "url": "https://github.com/allegro/php-protobuf",
-            "name": "php-protobuf",
-            "stars": 367,
-            "description": "PHP Protobuf - Fast PHP Protocol Buffers implementation"
-        },
-        "redux-storage-decorator-engines": {
-            "url": "https://github.com/allegro/redux-storage-decorator-engines",
-            "name": "redux-storage-decorator-engines",
-            "stars": 6,
-            "description": "Composing decorator for redux-storage to use different storage types"
-        },
-        "selena-agent": {
-            "url": "https://github.com/allegro/selena-agent",
-            "name": "selena-agent",
-            "stars": 3,
-            "description": "Agent for Selena"
-        },
-        "vaas": {
-            "url": "https://github.com/allegro/vaas",
-            "name": "vaas",
-            "stars": 126,
-            "description": "VaaS - Varnish as a Service"
-        },
-        "inkpy-jinja": {
-            "url": "https://github.com/allegro/inkpy-jinja",
-            "name": "inkpy-jinja",
-            "stars": 3,
-            "description": "Generate PDF documents from ODT templates."
-        },
-        "tipboard": {
-            "url": "https://github.com/allegro/tipboard",
-            "name": "tipboard",
-            "stars": 465,
-            "description": "Tipboard - in-house, tasty, local dashboarding system "
-        },
-        "allegro.github.io": {
-            "url": "https://github.com/allegro/allegro.github.io",
-            "name": "allegro.github.io",
-            "stars": 10,
-            "description": "Blog sources"
-        },
-        "grunt-maven-npm": {
-            "url": "https://github.com/allegro/grunt-maven-npm",
-            "name": "grunt-maven-npm",
-            "stars": 17,
-            "description": "npm tasks for grunt-maven-plugin 1.2+"
-        },
-        "tradukisto": {
-            "url": "https://github.com/allegro/tradukisto",
-            "name": "tradukisto",
-            "stars": 22,
-            "description": "Small java library created to convert numbers to their word representations"
-        },
-        "vending-machine-kata": {
-            "url": "https://github.com/allegro/vending-machine-kata",
-            "name": "vending-machine-kata",
-            "stars": 2,
-            "description": "vending-machine"
-        },
-        "slinger": {
-            "url": "https://github.com/allegro/slinger",
-            "name": "slinger",
-            "stars": 20,
-            "description": "Slinger - deep linking library for Android"
-        },
-        "newrelic-gradle-plugin": {
-            "url": "https://github.com/allegro/newrelic-gradle-plugin",
-            "name": "newrelic-gradle-plugin",
-            "stars": 12,
-            "description": "Newrelic Gradle plugin."
-        },
-        "ralph": {
-            "url": "https://github.com/allegro/ralph",
-            "name": "ralph",
-            "stars": 451,
-            "description": "Ralph is an asset management system for your data center and back office."
-        },
-        "meeting2015": {
-            "url": "https://github.com/allegro/meeting2015",
-            "name": "meeting2015",
-            "stars": 0,
-            "description": ""
-        },
-        "axion-release-plugin": {
-            "url": "https://github.com/allegro/axion-release-plugin",
-            "name": "axion-release-plugin",
-            "stars": 129,
-            "description": "Gradle release & version management plugin."
-        },
-        "braincode.mobi": {
-            "url": "https://github.com/allegro/braincode.mobi",
-            "name": "braincode.mobi",
-            "stars": 2,
-            "description": "BrainCode Mobi#2 Site"
-        },
-        "fogger": {
-            "url": "https://github.com/allegro/fogger",
-            "name": "fogger",
-            "stars": 41,
-            "description": "Fogger - a library to create blurred background under Android's UI elements"
-        },
-        "braincode": {
-            "url": "https://github.com/allegro/braincode",
-            "name": "braincode",
-            "stars": 1,
-            "description": ""
-        },
-        "ralph_assets": {
-            "url": "https://github.com/allegro/ralph_assets",
-            "name": "ralph_assets",
-            "stars": 11,
-            "description": "Assets Management module for Ralph"
-        },
-        "meeting": {
-            "url": "https://github.com/allegro/meeting",
-            "name": "meeting",
-            "stars": 0,
-            "description": "ATM v8 landing page"
-        },
-        "hue": {
-            "url": "https://github.com/allegro/hue",
-            "name": "hue",
-            "stars": 0,
-            "description": "Let\u2019s Big Data. Hue is an open source Web interface for analyzing data with Hadoop and Spark."
-        },
-        "jobs": {
-            "url": "https://github.com/allegro/jobs",
-            "name": "jobs",
-            "stars": 0,
-            "description": "allegro.tech jobs postings"
-        },
-        "django-bob": {
-            "url": "https://github.com/allegro/django-bob",
-            "name": "django-bob",
-            "stars": 2,
-            "description": "Django bob is a set of django helpers, widgets and form filters for Ralph DCIM/CMDB project ."
-        },
-        "marathon-consul": {
-            "url": "https://github.com/allegro/marathon-consul",
-            "name": "marathon-consul",
-            "stars": 74,
-            "description": "Integrates Marathon apps with Consul service discovery."
-        },
-        "elasticsearch-reindex-tool": {
-            "url": "https://github.com/allegro/elasticsearch-reindex-tool",
-            "name": "elasticsearch-reindex-tool",
-            "stars": 31,
-            "description": "Elasticsearch reindexing tool."
-        },
-        "ralph-cli": {
-            "url": "https://github.com/allegro/ralph-cli",
-            "name": "ralph-cli",
-            "stars": 13,
-            "description": "Command-line interface for the Ralph system."
-        },
-        "django-powerdns-dnssec": {
-            "url": "https://github.com/allegro/django-powerdns-dnssec",
-            "name": "django-powerdns-dnssec",
-            "stars": 17,
-            "description": "Django application managing PowerDNS database"
-        },
-        "pyhermes": {
-            "url": "https://github.com/allegro/pyhermes",
-            "name": "pyhermes",
-            "stars": 10,
-            "description": "The Python interface to the Hermes message broker."
-        },
-        "kafka-offset-monitor-graphite": {
-            "url": "https://github.com/allegro/kafka-offset-monitor-graphite",
-            "name": "kafka-offset-monitor-graphite",
-            "stars": 24,
-            "description": "Graphite reporter for Kafka Offset Monitor."
-        },
-        "json-avro-converter": {
-            "url": "https://github.com/allegro/json-avro-converter",
-            "name": "json-avro-converter",
-            "stars": 8,
-            "description": "JSON to Avro conversion tool designed to make migration to Avro easier."
-        },
-        "hermes": {
-            "url": "https://github.com/allegro/hermes",
-            "name": "hermes",
-            "stars": 183,
-            "description": "Fast and reliable message broker built on top of Kafka."
-        },
-        "grunt-maven-plugin": {
-            "url": "https://github.com/allegro/grunt-maven-plugin",
-            "name": "grunt-maven-plugin",
-            "stars": 217,
-            "description": "Grunt + Maven integration done right"
-        },
-        "hermes-page": {
-            "url": "https://github.com/allegro/hermes-page",
-            "name": "hermes-page",
-            "stars": 1,
-            "description": "Hermes OpenSource page."
-        },
-        "SimplePricingService": {
-            "url": "https://github.com/allegro/SimplePricingService",
-            "name": "SimplePricingService",
-            "stars": 3,
-            "description": "Simple implementation of pricing service, which calculates price for creating offers."
-        },
-        "cassandra-modeling-kata": {
-            "url": "https://github.com/allegro/cassandra-modeling-kata",
-            "name": "cassandra-modeling-kata",
-            "stars": 13,
-            "description": "Cassandra Modeling Kata"
-        },
-        "radar": {
-            "url": "https://github.com/allegro/radar",
-            "name": "radar",
-            "stars": 0,
-            "description": "allegro.tech radar"
-        },
-        "camus-compressor": {
-            "url": "https://github.com/allegro/camus-compressor",
-            "name": "camus-compressor",
-            "stars": 11,
-            "description": "Camus Compressor merges files created by Camus and saves them in a compressed format."
-        },
-        "toper": {
-            "url": "https://github.com/allegro/toper",
-            "name": "toper",
-            "stars": 4,
-            "description": "PHP Rest client based on popular Guzzle Rest Client."
-        },
-        "bigcache": {
-            "url": "https://github.com/allegro/bigcache",
-            "name": "bigcache",
-            "stars": 751,
-            "description": "Efficient cache for gigabytes of data written in Go."
-        },
-        "ralph_pricing": {
-            "url": "https://github.com/allegro/ralph_pricing",
-            "name": "ralph_pricing",
-            "stars": 7,
-            "description": "A pricing module for Ralph"
-        },
-        "handlebars-spring-boot-starter": {
-            "url": "https://github.com/allegro/handlebars-spring-boot-starter",
-            "name": "handlebars-spring-boot-starter",
-            "stars": 47,
-            "description": "Spring Boot auto-configuration for Handlebars"
-        },
-        "selena": {
-            "url": "https://github.com/allegro/selena",
-            "name": "selena",
-            "stars": 33,
-            "description": "SELENA is a tool used to test website performance by measuring response times or verifying the content of replies."
-        },
-        "ralph-docker": {
-            "url": "https://github.com/allegro/ralph-docker",
-            "name": "ralph-docker",
-            "stars": 3,
-            "description": "Ralph docker image configuration"
-        }
-    },
     "popularity": [
         "bigcache",
-        "tipboard",
         "ralph",
+        "tipboard",
         "php-protobuf",
-        "grunt-maven-plugin",
         "hermes",
+        "grunt-maven-plugin",
         "axion-release-plugin",
+        "node-worker-nodes",
         "vaas",
         "marathon-consul",
         "handlebars-spring-boot-starter",
+        "embedded-elasticsearch",
         "fogger",
-        "selena",
         "elasticsearch-reindex-tool",
-        "kafka-offset-monitor-graphite",
+        "selena",
+        "opel",
         "tradukisto",
+        "restapi-guideline",
+        "kafka-offset-monitor-graphite",
+        "json-avro-converter",
         "slinger",
-        "grunt-maven-npm",
+        "akubra",
+        "cassandra-modeling-kata",
         "django-powerdns-dnssec",
         "ralph-cli",
-        "cassandra-modeling-kata",
+        "grunt-maven-npm",
+        "marathon-appcop",
         "newrelic-gradle-plugin",
-        "ralph_assets",
-        "camus-compressor",
-        "allegro.github.io",
         "pyhermes",
-        "json-avro-converter",
-        "ralph_pricing",
+        "allegro.github.io",
         "redux-storage-decorator-engines",
-        "toper",
-        "selena-agent",
-        "inkpy-jinja",
-        "SimplePricingService",
+        "camus-compressor",
+        "ralph_assets",
+        "elasticsearch-analysis-morfologik",
+        "ralph_pricing",
         "ralph-docker",
-        "vending-machine-kata",
-        "braincode.mobi",
+        "inkpy-jinja",
         "django-bob",
-        "braincode",
+        "toper",
+        "vending-machine-kata",
+        "SimplePricingService",
+        "selena-agent",
+        "braincode.mobi",
         "hermes-page",
-        "meeting2015",
-        "meeting",
+        "atm-event-app",
+        "braincode",
+        "apt-repo",
         "hue",
-        "jobs",
-        "radar"
-    ]
+        "meeting",
+        "meeting2015",
+        "jobs-conf",
+        "radar",
+        "consul"
+    ],
+    "repos": {
+        "SimplePricingService": {
+            "description": "Simple implementation of pricing service, which calculates price for creating offers.",
+            "name": "SimplePricingService",
+            "stars": 3,
+            "url": "https://github.com/allegro/SimplePricingService"
+        },
+        "akubra": {
+            "description": "Simple solution to keep a independent S3 storages in sync",
+            "name": "akubra",
+            "stars": 24,
+            "url": "https://github.com/allegro/akubra"
+        },
+        "allegro.github.io": {
+            "description": "Blog sources",
+            "name": "allegro.github.io",
+            "stars": 12,
+            "url": "https://github.com/allegro/allegro.github.io"
+        },
+        "apt-repo": {
+            "description": "Ubuntu apt repository for Allegro open source projects",
+            "name": "apt-repo",
+            "stars": 0,
+            "url": "https://github.com/allegro/apt-repo"
+        },
+        "atm-event-app": {
+            "description": "ATM event application",
+            "name": "atm-event-app",
+            "stars": 1,
+            "url": "https://github.com/allegro/atm-event-app"
+        },
+        "axion-release-plugin": {
+            "description": "Gradle release & version management plugin.",
+            "name": "axion-release-plugin",
+            "stars": 192,
+            "url": "https://github.com/allegro/axion-release-plugin"
+        },
+        "bigcache": {
+            "description": "Efficient cache for gigabytes of data written in Go.",
+            "name": "bigcache",
+            "stars": 1048,
+            "url": "https://github.com/allegro/bigcache"
+        },
+        "braincode": {
+            "description": null,
+            "name": "braincode",
+            "stars": 1,
+            "url": "https://github.com/allegro/braincode"
+        },
+        "braincode.mobi": {
+            "description": "BrainCode Mobi#2 Site",
+            "name": "braincode.mobi",
+            "stars": 2,
+            "url": "https://github.com/allegro/braincode.mobi"
+        },
+        "camus-compressor": {
+            "description": "Camus Compressor merges files created by Camus and saves them in a compressed format.",
+            "name": "camus-compressor",
+            "stars": 11,
+            "url": "https://github.com/allegro/camus-compressor"
+        },
+        "cassandra-modeling-kata": {
+            "description": "Cassandra Modeling Kata",
+            "name": "cassandra-modeling-kata",
+            "stars": 23,
+            "url": "https://github.com/allegro/cassandra-modeling-kata"
+        },
+        "consul": {
+            "description": "Service Discovery and Configuration Made Easy",
+            "name": "consul",
+            "stars": 0,
+            "url": "https://github.com/allegro/consul"
+        },
+        "django-bob": {
+            "description": "Django bob is a set of django helpers, widgets and form filters for Ralph DCIM/CMDB project .",
+            "name": "django-bob",
+            "stars": 5,
+            "url": "https://github.com/allegro/django-bob"
+        },
+        "django-powerdns-dnssec": {
+            "description": "Django application managing PowerDNS database",
+            "name": "django-powerdns-dnssec",
+            "stars": 22,
+            "url": "https://github.com/allegro/django-powerdns-dnssec"
+        },
+        "elasticsearch-analysis-morfologik": {
+            "description": "Morfologik Polish Lemmatizer plugin for Elasticsearch",
+            "name": "elasticsearch-analysis-morfologik",
+            "stars": 9,
+            "url": "https://github.com/allegro/elasticsearch-analysis-morfologik"
+        },
+        "elasticsearch-reindex-tool": {
+            "description": "Elasticsearch reindexing tool.",
+            "name": "elasticsearch-reindex-tool",
+            "stars": 38,
+            "url": "https://github.com/allegro/elasticsearch-reindex-tool"
+        },
+        "embedded-elasticsearch": {
+            "description": "Tool that ease up creation of integration tests with Elasticsearch",
+            "name": "embedded-elasticsearch",
+            "stars": 57,
+            "url": "https://github.com/allegro/embedded-elasticsearch"
+        },
+        "fogger": {
+            "description": "Fogger - a library to create blurred background under Android's UI elements",
+            "name": "fogger",
+            "stars": 52,
+            "url": "https://github.com/allegro/fogger"
+        },
+        "grunt-maven-npm": {
+            "description": "npm tasks for grunt-maven-plugin 1.2+",
+            "name": "grunt-maven-npm",
+            "stars": 17,
+            "url": "https://github.com/allegro/grunt-maven-npm"
+        },
+        "grunt-maven-plugin": {
+            "description": "Grunt + Maven integration done right",
+            "name": "grunt-maven-plugin",
+            "stars": 223,
+            "url": "https://github.com/allegro/grunt-maven-plugin"
+        },
+        "handlebars-spring-boot-starter": {
+            "description": "Spring Boot auto-configuration for Handlebars",
+            "name": "handlebars-spring-boot-starter",
+            "stars": 68,
+            "url": "https://github.com/allegro/handlebars-spring-boot-starter"
+        },
+        "hermes": {
+            "description": "Fast and reliable message broker built on top of Kafka.",
+            "name": "hermes",
+            "stars": 280,
+            "url": "https://github.com/allegro/hermes"
+        },
+        "hermes-page": {
+            "description": "Hermes OpenSource page.",
+            "name": "hermes-page",
+            "stars": 1,
+            "url": "https://github.com/allegro/hermes-page"
+        },
+        "hue": {
+            "description": "Let\u2019s Big Data. Hue is an open source Web interface for analyzing data with Hadoop and Spark.",
+            "name": "hue",
+            "stars": 0,
+            "url": "https://github.com/allegro/hue"
+        },
+        "inkpy-jinja": {
+            "description": "Generate PDF documents from ODT templates.",
+            "name": "inkpy-jinja",
+            "stars": 6,
+            "url": "https://github.com/allegro/inkpy-jinja"
+        },
+        "jobs-conf": {
+            "description": "allegro.tech jobs postings",
+            "name": "jobs-conf",
+            "stars": 0,
+            "url": "https://github.com/allegro/jobs-conf"
+        },
+        "json-avro-converter": {
+            "description": "JSON to Avro conversion tool designed to make migration to Avro easier.",
+            "name": "json-avro-converter",
+            "stars": 25,
+            "url": "https://github.com/allegro/json-avro-converter"
+        },
+        "kafka-offset-monitor-graphite": {
+            "description": "Graphite reporter for Kafka Offset Monitor.",
+            "name": "kafka-offset-monitor-graphite",
+            "stars": 32,
+            "url": "https://github.com/allegro/kafka-offset-monitor-graphite"
+        },
+        "marathon-appcop": {
+            "description": "Marathon applications law enforcement",
+            "name": "marathon-appcop",
+            "stars": 17,
+            "url": "https://github.com/allegro/marathon-appcop"
+        },
+        "marathon-consul": {
+            "description": "Integrates Marathon apps with Consul service discovery.",
+            "name": "marathon-consul",
+            "stars": 133,
+            "url": "https://github.com/allegro/marathon-consul"
+        },
+        "meeting": {
+            "description": "ATM v8 landing page",
+            "name": "meeting",
+            "stars": 0,
+            "url": "https://github.com/allegro/meeting"
+        },
+        "meeting2015": {
+            "description": null,
+            "name": "meeting2015",
+            "stars": 0,
+            "url": "https://github.com/allegro/meeting2015"
+        },
+        "newrelic-gradle-plugin": {
+            "description": "Newrelic Gradle plugin.",
+            "name": "newrelic-gradle-plugin",
+            "stars": 13,
+            "url": "https://github.com/allegro/newrelic-gradle-plugin"
+        },
+        "node-worker-nodes": {
+            "description": "A node.js library to run cpu-intensive tasks in a separate processes and to not to block the event loop.",
+            "name": "node-worker-nodes",
+            "stars": 155,
+            "url": "https://github.com/allegro/node-worker-nodes"
+        },
+        "opel": {
+            "description": "OPEL - asynchronous expression language",
+            "name": "opel",
+            "stars": 35,
+            "url": "https://github.com/allegro/opel"
+        },
+        "php-protobuf": {
+            "description": "PHP Protobuf - Google's Protocol Buffers for PHP",
+            "name": "php-protobuf",
+            "stars": 577,
+            "url": "https://github.com/allegro/php-protobuf"
+        },
+        "pyhermes": {
+            "description": "The Python interface to the Hermes message broker.",
+            "name": "pyhermes",
+            "stars": 12,
+            "url": "https://github.com/allegro/pyhermes"
+        },
+        "radar": {
+            "description": "allegro.tech radar",
+            "name": "radar",
+            "stars": 0,
+            "url": "https://github.com/allegro/radar"
+        },
+        "ralph": {
+            "description": "Ralph is an asset management system for your data center and back office.",
+            "name": "ralph",
+            "stars": 694,
+            "url": "https://github.com/allegro/ralph"
+        },
+        "ralph-cli": {
+            "description": "Command-line interface for the Ralph system.",
+            "name": "ralph-cli",
+            "stars": 18,
+            "url": "https://github.com/allegro/ralph-cli"
+        },
+        "ralph-docker": {
+            "description": "Ralph docker image configuration",
+            "name": "ralph-docker",
+            "stars": 7,
+            "url": "https://github.com/allegro/ralph-docker"
+        },
+        "ralph_assets": {
+            "description": "Assets Management module for Ralph",
+            "name": "ralph_assets",
+            "stars": 11,
+            "url": "https://github.com/allegro/ralph_assets"
+        },
+        "ralph_pricing": {
+            "description": "A pricing module for Ralph",
+            "name": "ralph_pricing",
+            "stars": 8,
+            "url": "https://github.com/allegro/ralph_pricing"
+        },
+        "redux-storage-decorator-engines": {
+            "description": "Composing decorator for redux-storage to use different storage types",
+            "name": "redux-storage-decorator-engines",
+            "stars": 11,
+            "url": "https://github.com/allegro/redux-storage-decorator-engines"
+        },
+        "restapi-guideline": {
+            "description": "Allegro REST API Guideline.",
+            "name": "restapi-guideline",
+            "stars": 32,
+            "url": "https://github.com/allegro/restapi-guideline"
+        },
+        "selena": {
+            "description": "SELENA is a tool used to test website performance by measuring response times or verifying the content of replies.",
+            "name": "selena",
+            "stars": 37,
+            "url": "https://github.com/allegro/selena"
+        },
+        "selena-agent": {
+            "description": "Agent for Selena",
+            "name": "selena-agent",
+            "stars": 3,
+            "url": "https://github.com/allegro/selena-agent"
+        },
+        "slinger": {
+            "description": "Slinger - deep linking library for Android",
+            "name": "slinger",
+            "stars": 25,
+            "url": "https://github.com/allegro/slinger"
+        },
+        "tipboard": {
+            "description": "Tipboard - in-house, tasty, local dashboarding system ",
+            "name": "tipboard",
+            "stars": 611,
+            "url": "https://github.com/allegro/tipboard"
+        },
+        "toper": {
+            "description": "PHP Rest client based on popular Guzzle Rest Client.",
+            "name": "toper",
+            "stars": 4,
+            "url": "https://github.com/allegro/toper"
+        },
+        "tradukisto": {
+            "description": "Small java library created to convert numbers to their word representations",
+            "name": "tradukisto",
+            "stars": 34,
+            "url": "https://github.com/allegro/tradukisto"
+        },
+        "vaas": {
+            "description": "VaaS - Varnish as a Service",
+            "name": "vaas",
+            "stars": 153,
+            "url": "https://github.com/allegro/vaas"
+        },
+        "vending-machine-kata": {
+            "description": "vending-machine",
+            "name": "vending-machine-kata",
+            "stars": 4,
+            "url": "https://github.com/allegro/vending-machine-kata"
+        }
+    }
 }

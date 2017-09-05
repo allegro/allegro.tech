@@ -5,6 +5,7 @@ import operator
 
 RAW_DATA_SOURCE = 'github'
 
+
 def refresh_opensource_data():
     rawRepositories = load_repositories()
     repositories = structure_data(rawRepositories)
@@ -16,7 +17,7 @@ def refresh_opensource_data():
     }
 
     with open(sys.argv[1], 'w') as f:
-        json.dump(data, f, indent = 4, separators = (',', ': '))
+        json.dump(data, f, indent=4, separators=(',', ': '), sort_keys=True)
 
 
 def load_repositories():
@@ -26,6 +27,7 @@ def load_repositories():
     else:
         with open('repositories.json') as repositories_file:
             return json.load(repositories_file)
+
 
 def structure_data(rawRepositories):
     repositories = {}
@@ -39,14 +41,16 @@ def structure_data(rawRepositories):
         repositories[repo['name']] = repo
     return repositories
 
+
 def calculate_popularity(repositories):
     repositories_stars = []
     for name, repo in repositories.items():
         repositories_stars.append((name, repo['stars']))
-    return map(lambda t: t[0], sorted(repositories_stars, key = operator.itemgetter(1), reverse = True))
+    return [t[0] for t in sorted(repositories_stars, key=operator.itemgetter(1), reverse=True)]
+
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
-        print "Pass location of output JSON file as program parameter."
+        print("Pass location of output JSON file as program parameter.")
     else:
         refresh_opensource_data()
