@@ -6,8 +6,8 @@
         "php-protobuf",
         "hermes",
         "grunt-maven-plugin",
-        "axion-release-plugin",
         "node-worker-nodes",
+        "axion-release-plugin",
         "vaas",
         "marathon-consul",
         "handlebars-spring-boot-starter",
@@ -15,44 +15,44 @@
         "fogger",
         "elasticsearch-reindex-tool",
         "selena",
-        "opel",
         "tradukisto",
-        "restapi-guideline",
+        "opel",
+        "akubra",
         "kafka-offset-monitor-graphite",
+        "restapi-guideline",
         "json-avro-converter",
         "slinger",
-        "akubra",
         "cassandra-modeling-kata",
         "django-powerdns-dnssec",
         "ralph-cli",
         "grunt-maven-npm",
         "marathon-appcop",
         "newrelic-gradle-plugin",
-        "pyhermes",
         "allegro.github.io",
+        "pyhermes",
         "redux-storage-decorator-engines",
-        "camus-compressor",
         "ralph_assets",
+        "camus-compressor",
         "elasticsearch-analysis-morfologik",
         "ralph_pricing",
         "ralph-docker",
         "inkpy-jinja",
         "django-bob",
-        "toper",
         "vending-machine-kata",
-        "SimplePricingService",
+        "toper",
         "selena-agent",
+        "SimplePricingService",
         "braincode.mobi",
-        "hermes-page",
         "atm-event-app",
         "braincode",
-        "apt-repo",
-        "hue",
-        "meeting",
-        "meeting2015",
+        "hermes-page",
+        "consul",
         "jobs-conf",
-        "radar",
-        "consul"
+        "apt-repo",
+        "meeting2015",
+        "meeting",
+        "hue",
+        "radar"
     ],
     "repos": {
         "SimplePricingService": {
@@ -64,7 +64,7 @@
         "akubra": {
             "description": "Simple solution to keep a independent S3 storages in sync",
             "name": "akubra",
-            "stars": 24,
+            "stars": 34,
             "url": "https://github.com/allegro/akubra"
         },
         "allegro.github.io": {
@@ -88,13 +88,13 @@
         "axion-release-plugin": {
             "description": "Gradle release & version management plugin.",
             "name": "axion-release-plugin",
-            "stars": 192,
+            "stars": 193,
             "url": "https://github.com/allegro/axion-release-plugin"
         },
         "bigcache": {
             "description": "Efficient cache for gigabytes of data written in Go.",
             "name": "bigcache",
-            "stars": 1048,
+            "stars": 1049,
             "url": "https://github.com/allegro/bigcache"
         },
         "braincode": {
@@ -214,7 +214,7 @@
         "json-avro-converter": {
             "description": "JSON to Avro conversion tool designed to make migration to Avro easier.",
             "name": "json-avro-converter",
-            "stars": 25,
+            "stars": 26,
             "url": "https://github.com/allegro/json-avro-converter"
         },
         "kafka-offset-monitor-graphite": {
@@ -254,9 +254,9 @@
             "url": "https://github.com/allegro/newrelic-gradle-plugin"
         },
         "node-worker-nodes": {
-            "description": "A node.js library to run cpu-intensive tasks in a separate processes and to not to block the event loop.",
+            "description": "A node.js library to run cpu-intensive tasks in a separate processes and not block the event loop.",
             "name": "node-worker-nodes",
-            "stars": 155,
+            "stars": 202,
             "url": "https://github.com/allegro/node-worker-nodes"
         },
         "opel": {
@@ -286,7 +286,7 @@
         "ralph": {
             "description": "Ralph is an asset management system for your data center and back office.",
             "name": "ralph",
-            "stars": 694,
+            "stars": 696,
             "url": "https://github.com/allegro/ralph"
         },
         "ralph-cli": {
@@ -346,7 +346,7 @@
         "tipboard": {
             "description": "Tipboard - in-house, tasty, local dashboarding system ",
             "name": "tipboard",
-            "stars": 611,
+            "stars": 615,
             "url": "https://github.com/allegro/tipboard"
         },
         "toper": {
@@ -358,7 +358,7 @@
         "tradukisto": {
             "description": "Small java library created to convert numbers to their word representations",
             "name": "tradukisto",
-            "stars": 34,
+            "stars": 36,
             "url": "https://github.com/allegro/tradukisto"
         },
         "vaas": {
