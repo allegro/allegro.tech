@@ -4,20 +4,20 @@
         "ralph",
         "tipboard",
         "php-protobuf",
+        "node-worker-nodes",
         "hermes",
         "grunt-maven-plugin",
-        "node-worker-nodes",
         "axion-release-plugin",
         "vaas",
         "marathon-consul",
         "handlebars-spring-boot-starter",
         "embedded-elasticsearch",
         "fogger",
-        "elasticsearch-reindex-tool",
-        "selena",
         "tradukisto",
-        "opel",
+        "elasticsearch-reindex-tool",
         "akubra",
+        "selena",
+        "opel",
         "kafka-offset-monitor-graphite",
         "restapi-guideline",
         "json-avro-converter",
@@ -64,7 +64,7 @@
         "akubra": {
             "description": "Simple solution to keep a independent S3 storages in sync",
             "name": "akubra",
-            "stars": 34,
+            "stars": 37,
             "url": "https://github.com/allegro/akubra"
         },
         "allegro.github.io": {
@@ -88,13 +88,13 @@
         "axion-release-plugin": {
             "description": "Gradle release & version management plugin.",
             "name": "axion-release-plugin",
-            "stars": 193,
+            "stars": 194,
             "url": "https://github.com/allegro/axion-release-plugin"
         },
         "bigcache": {
             "description": "Efficient cache for gigabytes of data written in Go.",
             "name": "bigcache",
-            "stars": 1049,
+            "stars": 1054,
             "url": "https://github.com/allegro/bigcache"
         },
         "braincode": {
@@ -142,7 +142,7 @@
         "elasticsearch-analysis-morfologik": {
             "description": "Morfologik Polish Lemmatizer plugin for Elasticsearch",
             "name": "elasticsearch-analysis-morfologik",
-            "stars": 9,
+            "stars": 10,
             "url": "https://github.com/allegro/elasticsearch-analysis-morfologik"
         },
         "elasticsearch-reindex-tool": {
@@ -184,7 +184,7 @@
         "hermes": {
             "description": "Fast and reliable message broker built on top of Kafka.",
             "name": "hermes",
-            "stars": 280,
+            "stars": 281,
             "url": "https://github.com/allegro/hermes"
         },
         "hermes-page": {
@@ -232,7 +232,7 @@
         "marathon-consul": {
             "description": "Integrates Marathon apps with Consul service discovery.",
             "name": "marathon-consul",
-            "stars": 133,
+            "stars": 134,
             "url": "https://github.com/allegro/marathon-consul"
         },
         "meeting": {
@@ -256,7 +256,7 @@
         "node-worker-nodes": {
             "description": "A node.js library to run cpu-intensive tasks in a separate processes and not block the event loop.",
             "name": "node-worker-nodes",
-            "stars": 202,
+            "stars": 286,
             "url": "https://github.com/allegro/node-worker-nodes"
         },
         "opel": {
@@ -346,7 +346,7 @@
         "tipboard": {
             "description": "Tipboard - in-house, tasty, local dashboarding system ",
             "name": "tipboard",
-            "stars": 615,
+            "stars": 616,
             "url": "https://github.com/allegro/tipboard"
         },
         "toper": {
@@ -358,13 +358,13 @@
         "tradukisto": {
             "description": "Small java library created to convert numbers to their word representations",
             "name": "tradukisto",
-            "stars": 36,
+            "stars": 46,
             "url": "https://github.com/allegro/tradukisto"
         },
         "vaas": {
             "description": "VaaS - Varnish as a Service",
             "name": "vaas",
-            "stars": 153,
+            "stars": 154,
             "url": "https://github.com/allegro/vaas"
         },
         "vending-machine-kata": {
