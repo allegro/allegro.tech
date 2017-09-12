@@ -64,7 +64,7 @@
         "akubra": {
             "description": "Simple solution to keep a independent S3 storages in sync",
             "name": "akubra",
-            "stars": 37,
+            "stars": 38,
             "url": "https://github.com/allegro/akubra"
         },
         "allegro.github.io": {
@@ -88,13 +88,13 @@
         "axion-release-plugin": {
             "description": "Gradle release & version management plugin.",
             "name": "axion-release-plugin",
-            "stars": 194,
+            "stars": 195,
             "url": "https://github.com/allegro/axion-release-plugin"
         },
         "bigcache": {
             "description": "Efficient cache for gigabytes of data written in Go.",
             "name": "bigcache",
-            "stars": 1054,
+            "stars": 1061,
             "url": "https://github.com/allegro/bigcache"
         },
         "braincode": {
@@ -256,7 +256,7 @@
         "node-worker-nodes": {
             "description": "A node.js library to run cpu-intensive tasks in a separate processes and not block the event loop.",
             "name": "node-worker-nodes",
-            "stars": 286,
+            "stars": 308,
             "url": "https://github.com/allegro/node-worker-nodes"
         },
         "opel": {
@@ -286,7 +286,7 @@
         "ralph": {
             "description": "Ralph is an asset management system for your data center and back office.",
             "name": "ralph",
-            "stars": 696,
+            "stars": 697,
             "url": "https://github.com/allegro/ralph"
         },
         "ralph-cli": {
@@ -346,7 +346,7 @@
         "tipboard": {
             "description": "Tipboard - in-house, tasty, local dashboarding system ",
             "name": "tipboard",
-            "stars": 616,
+            "stars": 618,
             "url": "https://github.com/allegro/tipboard"
         },
         "toper": {
@@ -358,7 +358,7 @@
         "tradukisto": {
             "description": "Small java library created to convert numbers to their word representations",
             "name": "tradukisto",
-            "stars": 46,
+            "stars": 50,
             "url": "https://github.com/allegro/tradukisto"
         },
         "vaas": {
