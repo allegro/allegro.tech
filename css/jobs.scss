@@ -345,3 +345,89 @@ div.jobs .title {
     font-weight: 400;
     margin: 0 0 0.5em;
 }
+
+.recruitment-img {
+    float: right;
+    position: relative;
+    z-index: 20;
+    margin: 1rem 0 0;
+
+    img {
+        width: 400px;
+        height: 300px;
+    }
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: -1;
+        width: 100px;
+        height: 100px;
+        background: #1961ac;
+        top: 0;
+        right: 0;
+        margin: -10px -10px 0 0;
+    }
+
+    &.recruitment-img-right {
+        float: left;
+
+        &:after {
+            right: auto;
+            left: 0;
+            margin: -10px 0 0 -10px;
+        }
+    }
+}
+
+.recruitment-box {
+    background: #1961ac;
+    padding: 2rem 15rem 2rem 4rem;
+    width: 70%;
+    margin: 6rem 0 2rem;
+
+    h3, p {
+        color: #fff;
+    }
+
+    &.recruitment-box-right {
+        padding: 2rem 4rem 2rem 15rem;
+        margin-left: 30%;
+    }
+}
+
+#workshop, #workshop-img:after {
+    background: #13a538;
+}
+#algo, #algo-img:after {
+    background: #915ea0;
+}
+#hr-leader, #hr-leader-img:after {
+    background: #fac314;
+}
+
+@media only screen and (max-width: 52em) {
+    .recruitment-img, .recruitment-img.recruitment-img-right {
+        float: none;
+        width: 90%;
+        height: 150px;
+        overflow: hidden;
+        margin: 2rem auto 0;
+
+        img {
+            width: auto;
+            height: auto;
+            margin-top: -25%;
+        }
+
+        &:after {
+            display: none;
+        }
+    }
+
+    .recruitment-box, .recruitment-box.recruitment-box-right {
+        width: 90%;
+        margin: 0 auto 2rem;
+        padding: 2rem;
+    }
+}
