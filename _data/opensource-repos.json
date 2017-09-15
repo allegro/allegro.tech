@@ -24,8 +24,8 @@
         "slinger",
         "cassandra-modeling-kata",
         "django-powerdns-dnssec",
-        "ralph-cli",
         "grunt-maven-npm",
+        "ralph-cli",
         "marathon-appcop",
         "newrelic-gradle-plugin",
         "allegro.github.io",
@@ -42,8 +42,8 @@
         "toper",
         "selena-agent",
         "SimplePricingService",
-        "braincode.mobi",
         "atm-event-app",
+        "braincode.mobi",
         "braincode",
         "hermes-page",
         "consul",
@@ -82,7 +82,7 @@
         "atm-event-app": {
             "description": "ATM event application",
             "name": "atm-event-app",
-            "stars": 1,
+            "stars": 2,
             "url": "https://github.com/allegro/atm-event-app"
         },
         "axion-release-plugin": {
@@ -94,7 +94,7 @@
         "bigcache": {
             "description": "Efficient cache for gigabytes of data written in Go.",
             "name": "bigcache",
-            "stars": 1061,
+            "stars": 1070,
             "url": "https://github.com/allegro/bigcache"
         },
         "braincode": {
@@ -184,7 +184,7 @@
         "hermes": {
             "description": "Fast and reliable message broker built on top of Kafka.",
             "name": "hermes",
-            "stars": 281,
+            "stars": 285,
             "url": "https://github.com/allegro/hermes"
         },
         "hermes-page": {
@@ -232,7 +232,7 @@
         "marathon-consul": {
             "description": "Integrates Marathon apps with Consul service discovery.",
             "name": "marathon-consul",
-            "stars": 134,
+            "stars": 135,
             "url": "https://github.com/allegro/marathon-consul"
         },
         "meeting": {
@@ -256,19 +256,19 @@
         "node-worker-nodes": {
             "description": "A node.js library to run cpu-intensive tasks in a separate processes and not block the event loop.",
             "name": "node-worker-nodes",
-            "stars": 308,
+            "stars": 323,
             "url": "https://github.com/allegro/node-worker-nodes"
         },
         "opel": {
             "description": "OPEL - asynchronous expression language",
             "name": "opel",
-            "stars": 35,
+            "stars": 36,
             "url": "https://github.com/allegro/opel"
         },
         "php-protobuf": {
             "description": "PHP Protobuf - Google's Protocol Buffers for PHP",
             "name": "php-protobuf",
-            "stars": 577,
+            "stars": 579,
             "url": "https://github.com/allegro/php-protobuf"
         },
         "pyhermes": {
@@ -286,13 +286,13 @@
         "ralph": {
             "description": "Ralph is an asset management system for your data center and back office.",
             "name": "ralph",
-            "stars": 697,
+            "stars": 701,
             "url": "https://github.com/allegro/ralph"
         },
         "ralph-cli": {
             "description": "Command-line interface for the Ralph system.",
             "name": "ralph-cli",
-            "stars": 18,
+            "stars": 17,
             "url": "https://github.com/allegro/ralph-cli"
         },
         "ralph-docker": {
@@ -346,7 +346,7 @@
         "tipboard": {
             "description": "Tipboard - in-house, tasty, local dashboarding system ",
             "name": "tipboard",
-            "stars": 618,
+            "stars": 622,
             "url": "https://github.com/allegro/tipboard"
         },
         "toper": {
@@ -358,7 +358,7 @@
         "tradukisto": {
             "description": "Small java library created to convert numbers to their word representations",
             "name": "tradukisto",
-            "stars": 50,
+            "stars": 51,
             "url": "https://github.com/allegro/tradukisto"
         },
         "vaas": {
