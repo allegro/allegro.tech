@@ -328,15 +328,19 @@ wall.
 
 #### How to avoid the wall:
 
-* Shard your marathon.
-* Monitor — enable metrics but remember to configure them.
-* Update to 1.3.10 or later.
-* Minimize Zookeeper communication latency and object size.
-* Tune JVM — add more heap and CPUs :).
-* Do not use the event bus — if you really need to, use filtered SSE, and accept it is
+<div class="i-wrapper"><div>
+<iframe height="315"  width="420" src="https://www.youtube.com/embed/9lzOCVpvcpg" frameborder="0" allowfullscreen></iframe>
+</div></div>
+
+1. Monitor — enable metrics but remember to configure them.
+2. Update to 1.3.10 or later.
+3. Minimize Zookeeper communication latency and object size.
+4. Tune JVM — add more heap and CPUs :).
+5. Do not use the event bus — if you really need to, use filtered SSE, and accept it is
 asynchronous and events are delivered at most once.
-* If you need task life cycle events, use a custom executor.
-* Prefer batch deployments to many individual ones.
+6. If you need task life cycle events, use a custom executor.
+7. Prefer batch deployments to many individual ones.
+8. Shard your marathon.
 
 If this still does not help
 try [Aurora](https://aurora.apache.org/).
