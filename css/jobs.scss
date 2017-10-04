@@ -431,3 +431,19 @@ div.jobs .title {
         padding: 2rem;
     }
 }
+
+@media only screen and (max-width: 48em) {
+    #job-offers li {
+        border-bottom: 1px solid #ddd;
+        padding: 1rem 0;
+
+        a {
+            flex-wrap: wrap;
+            height: auto;
+
+            span {
+                flex: 1 1 100%;
+            }
+        }
+    }
+}
