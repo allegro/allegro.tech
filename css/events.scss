@@ -28,12 +28,12 @@
 
         .event-logo, .event-info {
             margin: auto;
-            text-align: center;
+            // text-align: center;
         }
 
-        h3, h4 {
-            text-align: center;
-        }
+        // h3, h4 {
+        //     text-align: center;
+        // }
 
         h4 {
             color: #107b1e;
@@ -70,3 +70,30 @@
         margin-bottom:32px;
     }
 }
+
+
+.company-logo{
+    max-width: 150px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+.event-speaker {
+    display: flex;
+    flex-wrap: wrap;
+    img{
+        max-width: 200px;
+    }
+    figure{
+        flex: 1;
+        float: none;
+        margin: 0 15px 0 0;
+    }
+
+    div{
+        flex: 2 1 300px;
+    }
+}
+
+
