@@ -23,6 +23,72 @@ thank_you: false
         Upcoming events
     </h2>
     <ul class="events">
+      <li>
+          <h3>
+              Allegro Tech Talks Poznań #6
+          </h3>
+          <script async src="https://widget.picatic.com/latest/js/embed.min.js" id="picatic-widget-script"></script>
+          <a href="https://www.picatic.com/135887" class="picatic-widget-button pwb-small pwb-flamingo">Register</a>
+          <div class="event-info">
+              <time>
+                  <b>
+                      Nov 13
+                  </b>
+                  2017, 18:00
+              </time>
+              <p>
+                  <b>
+                      Place:
+                  </b>
+                  Plus Jeden Poznań, <a href="https://maps.google.com/?q=Pozna%C5%84,+ul.+Za+bramk%C4%85+1,+Pozna%C5%84+(Poland&entry=gmail&source=g"> ul. Za bramką 1, Poznań (Poland) </a>
+              </p>
+          </div>
+          <div class="event-description">
+
+              <h3>
+                  Turbo Charge CPU Utilization in Fork/Join Using the ManagedBlocker
+              </h3>
+              <p>
+                  Fork/Join is a framework for parallelizing calculations using recursive decomposition, also called divide and conquer. These algorithms occasionally end up duplicating work, especially at the beginning of the run. We can reduce wasted CPU cycles by implementing a reserved caching scheme. Before a task starts its calculation, it tries to reserve an entry in the shared map. If it is successful, it immediately begins. If not, it blocks until the other thread has finished its calculation. Unfortunately this might result in a significant number of blocked threads, decreasing CPU utilization. In this talk we will demonstrate this issue and offer a solution in the form of the ManagedBlocker. Combined with the Fork/Join, it can keep parallelism at the desired level.
+              </p>
+              <div class="event-speaker">
+                  <figure>
+                      <img alt="Dr. Heinz Kabutz" src="/img/events/DrHeinzKabutz.png"/>
+                  </figure>
+                  <div>
+                      <h4>
+                          Dr. Heinz Kabutz
+                      </h4>
+                      <p>
+                        Dr. Heinz Kabutz is the mastermind behind The Java Specialists’ Newsletter. He has a PhD in Computer Science. Heinz has programmed significant portions of several large Java applications and has taught Java to thousands of professional programmers. He is a regular speaker at all the major Java conferences.
+                        Heinz was chosen as a Java Champion by Sun Microsystems, the inventors of Java, for his work in advancing Java.
+                        Heinz presents all Java Specialist training courses anywhere in the world, either in person or via remote teaching technologies. He is the author of all their courses, including Java Specialist Master, Design Patterns and Concurrency Specialist Courses.
+                      </p>
+                  </div>
+              </div>
+
+              <h3>
+                   <img alt="Allegro Tech" src="/img/allegro-tech.svg"  class="company-logo"/>
+                  Chaos monkey w Allegro
+              </h3>
+              <p>
+                  Dbając o stabilność tak dużej platformy jaką jest Allegro nie możemy zapominać o niespodziewanych problemach. Zamiast czekać na awarię w Allegro pracujemy nad projektem chaos monkey, który w kontrolowany sposób symuluje najróżniejsze scenariusze w losowych momentach. Dzięki temu na bieżąco testujemy odporność naszego ekosystemu i możemy spać spokojnie. Problemy sieciowe, współdzielone środowisko i cały wachlarz technologii powoduje, że źródeł problemów jest całkiem sporo. Dzięki chaos monkey możemy zabezpieczyć się przed wpływem większości z nich zanim wdrożymy nasze usługi na środowisko produkcyjne i zaczną obsługiwać naszych klientów.
+              </p>
+              <div class="event-speaker">
+                  <figure>
+                      <img alt="Michał Idzikowski" src="/img/events/MichalIdzikowski.jpg"/>
+                  </figure>
+                  <div>
+                      <h4>
+                          Michał Idzikowski
+                      </h4>
+                      <p>
+                          Software Engineer w Site Reliability Assurance Section, Allegro. Maniak wydajności - nie ma być szybko, tylko najszybciej. W Allegro naprawił Javę, a teraz pracuje nad chaos monkey, żeby było i wydajnie i stabilnie. Po godzinach pochałania go mała elektronika, nieplanowane podróże i motoryzacja.
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </li>
         <li>
             <h3>
                 Allegro Tech Talks Warszawa #4
@@ -34,7 +100,7 @@ thank_you: false
             <div class="event-info">
                 <time>
                     <b>
-                        Nov 8
+                        Nov 8, 18:00
                     </b>
                     2017
                 </time>
