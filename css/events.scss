@@ -19,6 +19,15 @@
     list-style: none;
 
     li {
+
+        & + li:before {
+            content: '';
+            border-top: 1px solid #ccc;
+            display: block;
+            width: 90%;
+            margin: 50px auto;
+        }
+
         display: block;
         width: 100%;
 
