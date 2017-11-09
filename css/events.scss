@@ -18,7 +18,7 @@
 .events {
     list-style: none;
 
-    li {
+    > li {
 
         & + li:before {
             content: '';
@@ -104,5 +104,3 @@
         flex: 2 1 300px;
     }
 }
-
-

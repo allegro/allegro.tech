@@ -71,6 +71,7 @@ thank_you: false
                    <img alt="Allegro Tech" src="/img/allegro-tech.svg"  class="company-logo"/>
                   Chaos monkey w Allegro
               </h3>
+
               <p>
                   Dbając o stabilność tak dużej platformy jaką jest Allegro nie możemy zapominać o niespodziewanych problemach. Zamiast czekać na awarię w Allegro pracujemy nad projektem chaos monkey, który w kontrolowany sposób symuluje najróżniejsze scenariusze w losowych momentach. Dzięki temu na bieżąco testujemy odporność naszego ekosystemu i możemy spać spokojnie. Problemy sieciowe, współdzielone środowisko i cały wachlarz technologii powoduje, że źródeł problemów jest całkiem sporo. Dzięki chaos monkey możemy zabezpieczyć się przed wpływem większości z nich zanim wdrożymy nasze usługi na środowisko produkcyjne i zaczną obsługiwać naszych klientów.
               </p>
@@ -91,16 +92,14 @@ thank_you: false
       </li>
         <li>
             <h3>
-                Allegro Tech Talks Warszawa #4
+                Allegro Tech Labs Warszawa #1
             </h3>
- <!--            <div class="event-logo">
-                <img alt="Warsaw Cloud Native Meetup" src="/img/events/logo_cloud.png" title="Warsaw Cloud Native Meetup">
-                </img>
-            </div> -->
+            <script async src="https://widget.picatic.com/latest/js/embed.min.js" id="picatic-widget-script"></script>
+            <a href="https://www.picatic.com/136394" class="picatic-widget-button pwb-small pwb-flamingo">Register</a>
             <div class="event-info">
                 <time>
                     <b>
-                        Nov 8, 18:00
+                        Nov 18, 9:00 - 17:00
                     </b>
                     2017
                 </time>
@@ -108,162 +107,56 @@ thank_you: false
                     <b>
                         Place:
                     </b>
-                    Allegro Office, al. Jana Pawła II 22, Warsaw (Poland)
+                    Allegro Office, <a href="https://maps.google.com/?q=al.+Jana+Paw%C5%82a+II+22,+Warsaw+(Poland&entry=gmail&source=g">al. Jana Pawła II 22, Warsaw (Poland)</a>
                 </p>
             </div>
             <div class="event-description">
-
+                <p>
+                  Przedstawiamy Wam nową inicjatywę Allegro Tech: Allegro Tech Labs. Jest to cykl całodniowych, darmowych warsztatów w czasie których będziecie mogli poznać technologie z jakich korzystamy w Allegro. Prowadzone przez doświadczonych inżynierów, którzy rozwiązali już niejeden produkcyjny problem.
+                </p>
                 <h3>
-                      <img alt="Allegro Tech" src="/img/allegro-tech.svg"  class="company-logo"/>
-                    Front-End w rozproszonej architekturze.
+                      Tematem pierwszych warsztatów będzie wprowadzenie do języka programowania Kotlin.
                 </h3>
                 <p>
-                    W Allegro stworzyliśmy modularny framework aplikacji frontendowych dla rozproszonej architektury setek mikroserwisów. Koncepcję niezależnych komponentów znaną m.in. z Reacta przenieśliśmy poziom wyżej. Od tej pory strony komponujemy z ponad setki aplikacji frontendowych łącząc je z bogactwem danych pochodzących z mikroserwisów Allegro. W prezentacji pokażę jak wygląda rozwój komponentu oraz jakie korzyści dla deweloperów płyną z wypracowanego przez nas podejścia.
+                  Kotlin przebojem wdarł się na produkcję Allegro. Nasza nowa platforma do promowania ofert Allegro Ads prawie w całości została napisana w tym języku. Co ważne, nie tylko korzystamy z Kotlina - nasi inżynierowie biorą także aktywny udział w rozwoju jego ekosystemu. W czasie warsztatu Konrad Kamiński (autor integracji kotlinowych coroutines ze Spring) oraz Piotr Procner (inżynier Allegro) przybliżą Wam możliwości tego języka oraz pokażą jak w praktyce wykorzystać jego moc do pisania aplikacji biznesowych na Spring.
+                </p>
+                <p>
+                  Poruszane zagadnienia:
+                  <ol>
+                   <li>Data, czyli jak wykorzystać Kotlin do sprawnej organizacji danych w aplikacji.</li>
+                   <li>Behaviour, czyli konstrukcje do opisu logiki w aplikacji.</li>
+                   <li>Standard library, czyli co daje bibliotek standardowa Koltina.</li>
+                   <li>Interop, czyli jak wprowadzić Kotlin do aplikacji biznesowej.</li>
+                </ol>
                 </p>
                 <div class="event-speaker">
                     <figure>
-                        <img alt="Paweł Wielądek" src="/img/events/IMG_2695.jpg"/>
+                        <img alt="Konrad Kamiński" src="/img/events/KonradKaminski.png"/>
                     </figure>
                     <div>
                         <h4>
-                            Paweł Wielądek
+                            Konrad Kamiński
                         </h4>
                         <p>
-                            Front-end Developer w Allegro. Prowadzi warsztaty z programowania w JavaScript i React. Świeży tech lead. Po godzinach pasjonat podróży i fotografii.
+                            Inżynier oprogramowania z dwudziestoletnim doświadczeniem na różnych stanowiskach - od developera po team ledera. Przez ostatnie 17 lat programował w technologiach opartych na JVM, w tym ostatnie 18 miesięcy prawie wyłącznie w Kotlinie. Prowadzi bloga i występuje na konferencjach (ostatnio KotlinConf San Francisco). Jest też kontrybutorem do projektów Open Source.
+                        </p>
+                    </div>
+                </div>
+                <div class="event-speaker">
+                    <figure>
+                        <img alt="Piotr Procner" src="/img/events/PiotrProcner.png"/>
+                    </figure>
+                    <div>
+                        <h4>
+                            Piotr Procner
+                        </h4>
+                        <p>
+                            Full Stack developer z ponad sześcioletnim doświadczeniem. Swoją przygodę rozpoczął w branży mediowej od projektowania archiwów cyfrowych, teraz tworzy platformę reklamową dla Allegro. Wielki fan Kotlina, zainteresowany wytwarzaniem czystego kodu, dobrym nazewnictwem i czytelnością testów.
                         </p>
                     </div>
                 </div>
 
-                <h3>
-                     <img alt="DreamLab" src="/img/events/dreamlab.png" class="company-logo"/>
-                    Subtelna sztuka optymalizacji
-                </h3>
-                <p>
-                    Zasady znacie – lekko, szybko i coraz szybciej. Ale im więcej produktów, stron i portali trzeba zoptymalizować, tym bardziej karkołomne wydaje się to zadanie. Jak lokalizować zagrożenia i błędy? Jak porównywać się z innymi żeby wyniki miały przełożenie na rzeczywistość? I wreszcie jak stworzyć proces, który naprawdę pozwoli na optymalizację wszystkich produktów na raz. W naszej prezentacji pokażemy nieprzypudrowaną twarz optymalizacji stron internetowych dla największych portali medialnych w Polsce
-                </p>
-                <div class="event-speaker">
-                    <figure>
-                        <img alt="Eryk Zimończyk" src="/img/events/IMG_2692.jpg"/>
-                    </figure>
-                    <div>
-                        <h4>
-                            Eryk Zimończyk
-                        </h4>
-                        <p>
-                            Full-Stack JavaScript Developer w DreamLabie.Na co dzień tworzy strony i API dla milionów polskich użytkowników internetu. Po godzinach czyta, gra w gry i dalej się uczy. Świeżo po ślubie😉
-                        </p>
-                    </div>
-                </div>
-                <div class="event-speaker">
-                    <figure>
-                        <img alt="Sebastian Szczerbowski" src="/img/events/IMG_2693.jpg"/>
-                    </figure>
-                    <div>
-                        <h4>
-                            Sebastian Szczerbowski
-                        </h4>
-                        <p>
-                            Szuka dziur w świecie IT od 9 lat. Obecnie na stanowisku Starszego Testera Oprogramowania pełni również rolę Team Lidera. W DreamLab z Quality Assurance związany jest od samego początku istnienia zespołu. W codziennej pracy optymista oraz zwolennik współpracy pomiędzy ludźmi, wierzy że w ten sposób można rozwiązać każdy problem. Pasjonat modelarstwa, burgerów i rollercoasterów.
-                        </p>
-                    </div>
-                </div>
             </div>
         </li>
     </ul>
 </section>
-<script type="text/javascript">
-    var submitted=false;
-</script>
-<iframe id="hidden_iframe" name="hidden_iframe" onload="if(submitted) {window.location='/events?register=success#register';}" style="display:none;">
-</iframe>
-<section class="m-card" id="register-form">
-    <h2>
-        <a name="register">
-            Register here
-        </a>
-    </h2>
-    <p>
-        If you wish to attend the above event, please register using the form below. All fields are required.
-        <b>
-            If you don't provide all the data, your submission will not be registered.
-        </b>
-    </p>
-    <p>
-        If you register successfully, you will receive a
-        <b>
-            confirmation e-mail
-        </b>
-        .
-    </p>
-    <p>
-        The provided data will be used for event organization purposes only. If you wish to remove your information
-        from our database, please contact us at
-        <a href="mailto:eb%40all%65gr%6Fgro%75%70.com">
-            eb@allegrogroup.com
-        </a>
-    </p>
-    <form action="https://docs.google.com/forms/d/1RY4P_FOFx37dEylQAtjTXU_TFi9xSIgySvHQXSFA0IQ/formResponse" autocomplete="off" class="metrum-form" method="post" onsubmit="submitted=true;" target="hidden_iframe">
-        <input name="entry.933286053" type="hidden" value="Allegro Tech Talks Warszawa #4">
-            <section>
-                <div class="m-field">
-                    <input class="m-field__input" id="entry.1056730379" name="entry.1056730379" placeholder="Full name" type="text">
-                        <label class="m-field__placeholder" for="entry.1056730379">
-                            Full name
-                        </label>
-                    </input>
-                </div>
-            </section>
-            <section>
-                <div class="m-field">
-                    <input class="m-field__input" id="entry.818128125" name="entry.818128125" placeholder="E-mail" type="text">
-                        <label class="m-field__placeholder" for="entry.818128125">
-                            E-mail
-                        </label>
-                    </input>
-                </div>
-            </section>
-            <p>
-                By filling out this registration form you allow for Grupa Allegro sp. z o.o. located in Poznań (Poland) to
-            process the information given by you in order to organize meetups as defined in the Article 31 of the Act of August 29,
-            1997 on the Protection of Personal Data (Journal of Laws of 2016, item 992).
-            </p>
-            <section>
-                <input class="m-choice m-choice--radio" id="entry.941182722" name="entry.941182722" type="radio" value="I agree">
-                    <label class="m-label" for="entry.941182722">
-                        I agree
-                    </label>
-                </input>
-            </section>
-            <input class="m-button m-button--primary m-button--wide" type="submit" value="Submit">
-            </input>
-        </input>
-    </form>
-    <div id="register-thank-you">
-        <div class="m-message-global">
-            <div class="m-message-global__close-icon" onclick="document.getElementById('register-thank-you').style.display = 'none';">
-            </div>
-            <div class="m-message-global__body">
-                <div class="m-message-global__title">
-                    <h4 class="m-heading m-heading--sm">
-                        Thank you for registering
-                    </h4>
-                </div>
-                <div class="m-message-global__content">
-                    <p class="m-type m-type--paragraph">
-                        Your registration for the event is complete. See you at the meetup!
-                    </p>
-                </div>
-            </div>
-            <div class="m-message-global__footer">
-                <button class="m-message-global__button m-type m-button m-button--secondary m-button--wide" onclick="document.getElementById('register-thank-you').style.display = 'none';">
-                    close
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
-<script type="text/javascript">
-    if (window.location.search.indexOf('register') >= 0) {
-        document.getElementById('register-thank-you').style.display = 'block';
-    }
-</script>
