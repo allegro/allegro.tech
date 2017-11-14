@@ -22,74 +22,9 @@ thank_you: false
     <h2>
         Upcoming events
     </h2>
+
+
     <ul class="events">
-      <li>
-          <h3>
-              Allegro Tech Talks Poznań #6
-          </h3>
-          <script async src="https://widget.picatic.com/latest/js/embed.min.js" id="picatic-widget-script"></script>
-          <a href="https://www.picatic.com/135887" class="picatic-widget-button pwb-small pwb-flamingo">Register</a>
-          <div class="event-info">
-              <time>
-                  <b>
-                      Nov 13
-                  </b>
-                  2017, 18:00
-              </time>
-              <p>
-                  <b>
-                      Place:
-                  </b>
-                  Plus Jeden Poznań, <a href="https://maps.google.com/?q=Pozna%C5%84,+ul.+Za+bramk%C4%85+1,+Pozna%C5%84+(Poland&entry=gmail&source=g"> ul. Za bramką 1, Poznań (Poland) </a>
-              </p>
-          </div>
-          <div class="event-description">
-
-              <h3>
-                  Turbo Charge CPU Utilization in Fork/Join Using the ManagedBlocker
-              </h3>
-              <p>
-                  Fork/Join is a framework for parallelizing calculations using recursive decomposition, also called divide and conquer. These algorithms occasionally end up duplicating work, especially at the beginning of the run. We can reduce wasted CPU cycles by implementing a reserved caching scheme. Before a task starts its calculation, it tries to reserve an entry in the shared map. If it is successful, it immediately begins. If not, it blocks until the other thread has finished its calculation. Unfortunately this might result in a significant number of blocked threads, decreasing CPU utilization. In this talk we will demonstrate this issue and offer a solution in the form of the ManagedBlocker. Combined with the Fork/Join, it can keep parallelism at the desired level.
-              </p>
-              <div class="event-speaker">
-                  <figure>
-                      <img alt="Dr. Heinz Kabutz" src="/img/events/DrHeinzKabutz.png"/>
-                  </figure>
-                  <div>
-                      <h4>
-                          Dr. Heinz Kabutz
-                      </h4>
-                      <p>
-                        Dr. Heinz Kabutz is the mastermind behind The Java Specialists’ Newsletter. He has a PhD in Computer Science. Heinz has programmed significant portions of several large Java applications and has taught Java to thousands of professional programmers. He is a regular speaker at all the major Java conferences.
-                        Heinz was chosen as a Java Champion by Sun Microsystems, the inventors of Java, for his work in advancing Java.
-                        Heinz presents all Java Specialist training courses anywhere in the world, either in person or via remote teaching technologies. He is the author of all their courses, including Java Specialist Master, Design Patterns and Concurrency Specialist Courses.
-                      </p>
-                  </div>
-              </div>
-
-              <h3>
-                   <img alt="Allegro Tech" src="/img/allegro-tech.svg"  class="company-logo"/>
-                  Chaos monkey w Allegro
-              </h3>
-
-              <p>
-                  Dbając o stabilność tak dużej platformy jaką jest Allegro nie możemy zapominać o niespodziewanych problemach. Zamiast czekać na awarię w Allegro pracujemy nad projektem chaos monkey, który w kontrolowany sposób symuluje najróżniejsze scenariusze w losowych momentach. Dzięki temu na bieżąco testujemy odporność naszego ekosystemu i możemy spać spokojnie. Problemy sieciowe, współdzielone środowisko i cały wachlarz technologii powoduje, że źródeł problemów jest całkiem sporo. Dzięki chaos monkey możemy zabezpieczyć się przed wpływem większości z nich zanim wdrożymy nasze usługi na środowisko produkcyjne i zaczną obsługiwać naszych klientów.
-              </p>
-              <div class="event-speaker">
-                  <figure>
-                      <img alt="Michał Idzikowski" src="/img/events/MichalIdzikowski.jpg"/>
-                  </figure>
-                  <div>
-                      <h4>
-                          Michał Idzikowski
-                      </h4>
-                      <p>
-                          Software Engineer w Site Reliability Assurance Section, Allegro. Maniak wydajności - nie ma być szybko, tylko najszybciej. W Allegro naprawił Javę, a teraz pracuje nad chaos monkey, żeby było i wydajnie i stabilnie. Po godzinach pochłania go mała elektronika, nieplanowane podróże i motoryzacja.
-                      </p>
-                  </div>
-              </div>
-          </div>
-      </li>
         <li>
             <h3>
                 Allegro Tech Labs Warszawa #1
@@ -164,6 +99,76 @@ thank_you: false
                     </div>
                 </div>
 
+            </div>
+        </li>
+        <li>
+            <h3>
+                Allegro Tech Talks Warszawa #5
+            </h3>
+              <script async src="https://widget.picatic.com/latest/js/embed.min.js" id="picatic-widget-script"></script>
+              <a href="https://www.picatic.com/136823" class="picatic-widget-button pwb-small pwb-flamingo">Register</a>
+            <div class="event-info">
+                <time>
+                    <b>
+                        Dec 06
+                    </b>
+                    2017, 18:00 - 21:00
+                </time>
+                <p>
+                    <b>
+                        Place:
+                    </b>
+                    Allegro Office, <a href="https://maps.google.com/?q=al.+Jana+Paw%C5%82a+II+22,+Warsaw+(Poland&entry=gmail&source=g">al. Jana Pawła II 22, Warsaw (Poland)</a>
+                </p>
+            </div>
+            <div class="event-description">
+                <h3>
+                  Container 2.0
+                </h3>
+                <p>
+                  In the past year, we migrated our applications to containers to isolate our applications and made them easily shippable. But now we are struggling running stateful applications to make them scalable and fault tolerant. And we run our big data and fast data frameworks in separate clusters because it is not super easy to integrate this into our current container stack. This means that our cluster utilization is not optimal and we resign scaling effects comprehensive containers and big data frameworks. Florian Leibert (Mesosphere, CEO) calls this phenomenon Container 2.0 and we will discuss this topic in this session.
+                </p>
+
+                <p>
+                  In this session, we will look at current container usages and show the actual problem. After this, we will see how DC/OS and Apache Mesos delivers Container 2.0 to optimize cluster resource sharing for all parts of your application.
+                </p>
+                <div class="event-speaker">
+                    <figure>
+                        <img alt="Johannes Unterstein" src="/img/events/JohannesUnterstein.jpg"/>
+                    </figure>
+                    <div>
+                        <h4>
+                          Johannes Unterstein
+                        </h4>
+                        <p>
+                          (@unterstein) organizes the Java user group in his hometown Kassel, teaches at DHBW Stuttgart and works as a distributed applications engineer at Mesosphere. He is working at the Marathon container orchestration framework to provide Twitter scale for everyone. In his previous life, he worked in java projects for large German customers. Besides his fascination for container orchestration, he loves to talk about elasticsearch and Neo4j.
+                        </p>
+                    </div>
+                </div>
+
+                <h3>
+                     <img alt="Allegro Tech" src="/img/allegro-tech.svg"  class="company-logo"/>
+                    Debug-Companion
+                </h3>
+                <p>
+                  Switching from VMs to Mesos has a lot of benefits for developers, but also one huge drawback: they are no longer in full control of the environment. For JVM this means losing access to tools like jstat, jmap, or perf. Giving full access to all containers on Mesos is too dangerous while asking ops each time a developer wants to create a heapdump contradicts all DevOps principles.
+                </p>
+                <p>
+                  This is why we decided to take a different approach and give back the power to the developers. During this talk we will present different problems with debugging apps on our Mesos cluster running 400+ services operated by 40 development teams. We will cover security and stability concerns and present our solution: debug-companion.
+                </p>
+                <div class="event-speaker">
+                    <figure>
+                        <img alt="Tomasz Ziarko" src="/img/events/TomaszZiarko.jpg"/>
+                    </figure>
+                    <div>
+                        <h4>
+                            Tomasz Ziarko
+                        </h4>
+                        <p>
+                            Programmer/Engineer with 7 years experience, on a daily basis dealing with cloud infrastructure in Allegro.pl,specifically with Mesos and Openstack. A supporter of open source software
+                        </p>
+                    </div>
+                </div>
             </div>
         </li>
     </ul>
