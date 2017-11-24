@@ -28,8 +28,8 @@ Therefore, a tester must give feedback regarding application’s look, feel, and
 is more, you should not forget about performance, another factor that affects the way users perceive an application.
 No matter how pretty an app you have, users will be irritated if it is slow, even if no single bug slipped through testing.
 Naturally, usability or performance is only one aspect. The other two, equally important that should be also taken
-into consideration, are applies to security and compliance. Data leaks or other security issues may not only affect
-a company’s image, but also cause financial consequences. The same for compliance issues understood as lack of
+into consideration, are application security and compliance. Data leaks or others security issues may not only affect
+company’s image, but also cause financial consequences. The same for compliance issues understood as lack of
 consistency with specific policies applied to e.g. aviation industry, medical devices or banking applications.  
 
 ## Waterfall or Agile. Always use as designed?
@@ -51,7 +51,7 @@ choice. In the event of large projects not subject to changes, with complex (and
 not need to release new versions too often. Waterfall may also work when it is crucial to have very good test coverage
 and very low internal to external defects found ratio. Obviously, the above requirements are difficult to meet when
 working in an agile way, with frequent releases and not enough time for bug fixing. Eventually, a team would have to
-come to terms with bugs found in a production environment.
+come to terms with bugs found in production environment.
 
 ## Automated vs manual testing – only one or both?
 Application testing is the most discussed topic. Should you execute only manual, repeatable, and thus boring tests or
@@ -63,32 +63,32 @@ look at some common opinions on manual and automated tests.
 
 1. Faster and more effective
 
- This is indeed true, but only with a stable test setup and well-designed test scripts. The initial work that involves
- setting up the whole environment contributes to the effectiveness of tests and their further use. If you fail at this
- stage, testers may spend more time solving test setup problems than on testing. Naturally, when the environment is
- stable, automated regression testing is faster than the manual one, and may be even run for each new build on a daily basis.
+   This is indeed true, but only with a stable test setup and well-designed test scripts. The initial work that involves
+   setting up the whole environment contributes to the effectiveness of tests and their further use. If you fail at this
+   stage, testers may spend more time solving test setup problems than on testing. Naturally, when the environment is
+   stable, automated regression testing is faster than the manual one, and may be even run for each new build on a daily basis.
 
 2. Cost effective
 
- Test environment setup and test design are cost- and time-consuming. However, if it is done properly, automated
- testing is indeed cheaper and faster than the manual approach. Actually, it is easier to write automated tests than
- to deal with a poorly designed setup.
+   Test environment setup and test design are cost- and time-consuming. However, if it is done properly, automated
+   testing is indeed cheaper and faster than the manual approach. Actually, it is easier to write automated tests than
+   to deal with poorly designed setup.
 
 3. Less tiresome
 
- If regression testing is run on a regular basis, testers carrying out manual tests may become somewhat frustrated and
- bored of doing the same things again and again, which may affect their effectiveness and concentration. For this reason,
- testers are often more interested in developing automated tests for regression testing purpose than to manually
- executing the same set of test cases every time.
+   If regression testing is run on a regular basis, testers carrying out manual tests may become somewhat frustrated and
+   bored of doing the same things again and again, which may affect their effectiveness and concentration. For this reason,
+   testers are often more interested in developing automated tests for the regression testing purpose than to manually
+   executing the same set of test cases every time.
 
 4. You can run them on a regular basis
 
- It is the main advantage of automated tests. As you can use them to test builds on a daily basis, the development team
- receives feedback almost immediately. However, there is a risk that the tests may become blind over time - test
- scenarios, if not updated, verify the same paths as at the first run. It may happen that a small change in the code
- will remodel some of the application features, but the tests will pass anyway. How is it possible? Because these
- tests do not “see” UI changes or strings displayed outside the defined fields. They only check if all features are working
- properly (although it depends on applied frameworks).
+   It is the main advantage of automated tests. As you can use them to test builds on a daily basis, the development team
+   receives feedback almost immediately. However, there is a risk that the tests may become blind over time - test
+   scenarios, if not updated, verify the same paths as at the first run. It may happen that a small change in the code
+   will remodel some of the application features, but the tests will pass anyway. How is it possible? Because these
+   tests do not “see” UI changes or strings displayed outside the defined fields. They only check if all features are working
+   properly (although it depends on applied frameworks).
 
 
 #### Manual testing
@@ -96,34 +96,34 @@ look at some common opinions on manual and automated tests.
 
 1. It simulates what the end user does
 
- As automated tests are basically robots, they do not reflect the real user’s world. Testing frameworks operate
- by following a fixed pattern, while users may use an application in a completely different way, not covered by
- automated tests. Testers, unlike robots, have intuition, which is a substantial skill in the case of exploratory
- testing. Besides, manual tests allow QA engineers to check more specific things such as cooperation with an operating
- system. Naturally, there are frameworks that may test it, but they are not as flexible as QA engineers checking
- certain features manually.
+   As automated tests are basically robots, they do not reflect the real user’s world. Testing frameworks operate
+   by following a fixed pattern, while users may use an application in a completely different way, not covered by
+   automated tests. Testers, unlike robots, have intuition, which is a substantial skill in the case of exploratory
+   testing. Besides, manual tests allow QA engineers to check more specific things such as cooperation with an operating
+   system. Naturally, there are frameworks that may test it, but they are not as flexible as QA engineers checking
+   certain features manually.
 
 2. Easy to start with
 
- This sort of test is the best solution for new members, as skills necessary to carry out manual testing are easy to
- acquire. Well-designed test cases saved in a test management tool (such as ‘TestLink’, ‘HP Quality Center’, etc.)
- are easy to follow, so new team members can start test execution on their own. Besides, as creating new test cases
- is not complicated even beginners can handle it.
+   This sort of test is the best solution for new members, as skills necessary to carry out manual testing are easy to
+   acquire. Well-designed test cases saved in a test management tool (such as ‘TestLink’, ‘HP Quality Center’, etc.)
+   are easy to follow, so new team members can start the test execution on their own. Besides, as creating new test cases
+   is not complicated even beginners can handle it.
 
 3. Faster and more effective in the case of applications undergoing frequent changes
 
- When an application undergoes changes, the QA team may not keep up with creating new automated tests. So in this
- particular case, manual testing is faster and more effective due to its flexibility. Anyway, it does not mean that
- automated tests are unnecessary.
+   When an application undergoes changes, the QA team may not keep up with creating new automated tests. So in this
+   particular case, manual testing is faster and more effective due to its flexibility. Anyway, it does not mean that
+   automated tests are unnecessary.
 
 After reading the previous paragraphs, finding the best solution should be easier. Testers or QA engineers should
-consider their choice well and consider all the factors mentioned above. Eventually, the best choice depends on
+consider their choice well and include all the factors mentioned above. Eventually, the best choice depends on
 knowledge and experience of QA engineers.
 
 ## Testing tools – do you need them? Which should you choose?
 
 Less experienced engineers often ask about testing tools. An absolute must-have is a test management tool to keep
-any requirements-to-test-cases coverage and track bug-to-test-cases. The market offers a lot of commercial and free
+any requirements-to-test cases coverage and track bug-to-test cases. The market offers a lot of commercial and free
 tools such as [HP Quality Center](https://saas.hpe.com/en-us/software/quality-center) or
 [TestLink](http://testlink.org/) mentioned above or a free Polish tool – [TestArena](http://testarena.pl/). A decision
 concerning the choice of a tool should be carefully considered in terms of ROI (Return of Investment). Any potential
