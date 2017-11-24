@@ -8,7 +8,7 @@ tags: [tech, digest]
 Some of our engineers run their own tech blogs.
 We encourage them to move here, but for various reasons,
 they prefer to publish on private blogs. We respect their decisions.
-What can we do is to gather all the blog posts published by allegro.tech
+What we can do is to gather all the blog posts published by allegro.tech
 engineers around the web in the one place.
 
 We prepared the digest with all these posts published this Fall.
