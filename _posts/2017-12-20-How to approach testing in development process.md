@@ -53,6 +53,8 @@ and very low internal to external defects found ratio. Obviously, the above requ
 working in an agile way, with frequent releases and not enough time for bug fixing. Eventually, a team would have to
 come to terms with bugs found in a production environment.
 
+![Waterfall or Agile](/img/articles/2017-12-20-how-to-approach-testing-in-development-proccess/wva.png)
+
 ## Automated vs manual testing – only one or both?
 Application testing is the most discussed topic. Should you execute only manual, repeatable, and thus boring tests or
 rely on fast and convenient automated testing? The answer is not that obvious. There are cases when automated testing,
@@ -120,6 +122,8 @@ After reading the previous paragraphs, finding the best solution should be easie
 consider their choice well and consider all the factors mentioned above. Eventually, the best choice depends on
 knowledge and experience of QA engineers.
 
+![Waterfall or Agile](/img/articles/2017-12-20-how-to-approach-testing-in-development-proccess/manualvsautomation.png)
+
 ## Testing tools – do you need them? Which should you choose?
 
 Less experienced engineers often ask about testing tools. An absolute must-have is a test management tool to keep
@@ -176,6 +180,8 @@ were created. We considered it too time-consuming as some implemented functional
 solution, were supposed to be changed in the nearest future. In other words, we would spend a lot of time on test
 environment setup and test design to create tests to be executed only a few times, so the ROI would be very low.
 Therefore, it was better to focus more on manual testing.
+
+![Waterfall or Agile](/img/articles/2017-12-20-how-to-approach-testing-in-development-proccess/tcidp.png)
 
 ## Summary
 As there is no perfect model that would fit every project, QA engineers should decide about the testing process by
