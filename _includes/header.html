@@ -14,7 +14,8 @@
 
                 <li><a class="page-link{% if currentSubPage == 'events' %} current{% endif %}" href="/events">events</a></li>
 
-                <li><a class="page-link{% if currentSubPage == 'jobs' %} current{% endif %}" href="/jobs">jobs</a></li>
+                <li><a class="page-link{% if page.url contains '/jobs/' %} current{% endif %}" href="/jobs">jobs</a></li>
+                <li><a class="page-link{% if page.url contains '/jobs/experience' %} current{% endif %}" href="/jobs/experience">e-Xperience</a></li>
 
                 <li><a class="page-link{% if currentSubPage == 'about-us' %} current{% endif %}" href="/about-us">about us</a></li>
             </ul>

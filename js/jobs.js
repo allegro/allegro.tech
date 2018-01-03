@@ -53,6 +53,8 @@ function slugify(text){
     return (slug.replace(/[^a-z\- ]*/gi,''));
 }
 
+function getOffers(smartEndPoint) {
+
 var request = new XMLHttpRequest();
 request.onload = function (e) {
     var offers = e.target.response.content,
@@ -82,6 +84,10 @@ request.onload = function (e) {
         append(resultsElement, li);
     });
 };
-request.open('GET', 'https://api.smartrecruiters.com/v1/companies/allegrogroup/postings?custom_field.58c15608e4b01d4b19ddf790=c807eec2-8a53-4b55-b7c5-c03180f2059b', true);
+request.open('GET', smartEndPoint, true);
 request.responseType = 'json';
 request.send();
+}
+
+
+
