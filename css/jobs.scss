@@ -314,11 +314,15 @@ div.jobs .title {
 
 .jobs-site.experience{
     .color-header:after {
-        background-color: #35769e;
-        background-image: url('../img/jobs/header-exp0.jpg'), url('../img/jobs/header-exp.jpg');
-        background-size: auto, cover;
+        background-color: #003724;
+        background-image: url('../img/jobs/allegro-tech-experience-bg.jpg');
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+    }
+
+    #allegro-tech-experience-logo {
+        max-width: 100%;
     }
 
     .color-header-content{
