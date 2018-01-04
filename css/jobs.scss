@@ -301,8 +301,8 @@ div.jobs .title {
 
 .jobs-site {
     .color-header:after {
-        background: #35769e url('../img/jobs/jobs-header.jpg') center center no-repeat;
-        background-size: cover;
+       background: #35769e url('../img/jobs/jobs-header.jpg') center center no-repeat;
+    background-size: cover;
     }
 
     .color-header-content {
@@ -310,6 +310,47 @@ div.jobs .title {
         color: #fff;
     }
 }
+
+
+.jobs-site.experience{
+    .color-header:after {
+        background-color: #003724;
+        background-image: url('../img/jobs/allegro-tech-experience-bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #allegro-tech-experience-logo {
+        max-width: 100%;
+    }
+
+    .color-header-content{
+        ul {
+            margin-left: 20px;
+        }
+        strong {
+            color: #b1efe6;
+        }
+    }
+    .color-header-content {
+        background-color: #35769e;
+        background-image:linear-gradient(rgba(0,55,36,1),rgba(0,55,36,0.6));
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .jobs-site.experience {
+    .color-header:after {
+            background-size: 100%, cover;
+        }
+    }
+}
+
+
+
+
+
 
 #job-offers {
     list-style: none;
