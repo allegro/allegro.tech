@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mesos Execut<sup style="color:red;">i</sup>o<sup style="color:red;">ne</sup>r
+title: Mesos Execut(i)o(ne)r
 author: [tomasz.janiszewski, adam.medzinski]
 tags: [tech, mesos, marathon, mesosphere]
 publish: true
