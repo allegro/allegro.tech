@@ -27,16 +27,16 @@ thank_you: false
     <ul class="events">
         <li>
             <h3>
-                Allegro Tech Talks Warszawa #5
+            <img alt="Allegro Tech" src="/img/allegro-tech.svg"  class="company-logo"/>  Allegro Tech Labs Warszawa #2
             </h3>
-              <script async src="https://widget.picatic.com/latest/js/embed.min.js" id="picatic-widget-script"></script>
-              <a href="https://www.picatic.com/136823" class="picatic-widget-button pwb-small pwb-flamingo">Register</a>
+            <script async src="https://widget.picatic.com/latest/js/embed.min.js" id="picatic-widget-script"></script>
+            <a href="https://www.picatic.com/140972" class="picatic-widget-button pwb-small pwb-pizazz">Register</a>
             <div class="event-info">
                 <time>
                     <b>
-                        Dec 06
+                        Jan 13
                     </b>
-                    2017, 18:00 - 21:00
+                    2018, 09:00 - 17:00
                 </time>
                 <p>
                     <b>
@@ -47,49 +47,56 @@ thank_you: false
             </div>
             <div class="event-description">
                 <h3>
-                  Container 2.0
+                  RxJava 2 dla początkujących - Tomasz Nurkiewicz
                 </h3>
                 <p>
-                  In the past year, we migrated our applications to containers to isolate our applications and made them easily shippable. But now we are struggling running stateful applications to make them scalable and fault tolerant. And we run our big data and fast data frameworks in separate clusters because it is not super easy to integrate this into our current container stack. This means that our cluster utilization is not optimal and we resign scaling effects comprehensive containers and big data frameworks. Florian Leibert (Mesosphere, CEO) calls this phenomenon Container 2.0 and we will discuss this topic in this session.
+                  Przedstawiamy Wam nową inicjatywę Allegro Tech: Allegro Tech Labs. Jest to cykl całodniowych, darmowych warsztatów, w czasie których będziecie mogli poznać technologie z jakich korzystamy w Allegro. Prowadzone przez doświadczonych inżynierów, którzy rozwiązali już niejeden produkcyjny problem.
                 </p>
+                <p>Prosimy o zabranie swoich laptopów.</p>
+                <p>Szkolenie dla programistów Javy, którzy chcieliby efektywnie wykorzystywać RxJavę 2.x w swoich projektach lub przyszło im takie projekty utrzymywać. Będą to warsztaty pozbawione slajdów. Skupimy się na aspektach rzadziej poruszanych i nieco gorzej udokumentowanych jak poprawna wielowątkowość i testowanie.</p>
 
-                <p>
-                  In this session, we will look at current container usages and show the actual problem. After this, we will see how DC/OS and Apache Mesos delivers Container 2.0 to optimize cluster resource sharing for all parts of your application.
-                </p>
-                <div class="event-speaker">
-                    <figure>
-                        <img alt="Johannes Unterstein" src="/img/events/JohannesUnterstein.jpg"/>
-                    </figure>
-                    <div>
-                        <h4>
-                          Johannes Unterstein
-                        </h4>
-                        <p>
-                          (@unterstein) organizes the Java user group in his hometown Kassel, teaches at DHBW Stuttgart and works as a distributed applications engineer at Mesosphere. He is working at the Marathon container orchestration framework to provide Twitter scale for everyone. In his previous life, he worked in java projects for large German customers. Besides his fascination for container orchestration, he loves to talk about elasticsearch and Neo4j.
-                        </p>
-                    </div>
+                <h5>Dlaczego warto uczestniczyć w warsztacie?</h5>
+                <div>
+                  Nauczysz się jak i kiedy wykorzystywać RxJavę<br/>
+                  Zrozumiesz jak działa model wielowątkowości<br/>
+                  Poznasz techniki testowania reaktywnego kodu, zwłaszcza opartego o upływ czasu (schedulowanie, timeouty)<br/>
+                  Warsztat to w stu procentach ćwiczenia praktyczne, zero slajdów i minimum wykładu<br/>
                 </div>
+                <h5>Agenda wydarzenia:</h5>
+                <div>
+                  09:00 - 09:20 - Rejestracja<br/>
+                  09:20 - 12:00 - Warsztaty<br/>
+                  12:00 - 13:00 - Lunch<br/>
+                  13:00 - 17:00 - Warsztaty<br/>
+                </div>
+                <h5>Plan szkolenia:</h5>
+                <ol>
+                  <li>Co to jest RxJava</li>
+                  <li>Skąd się biorą strumienie</li>
+                  <li>Pule wątków</li>
+                  <li>flatMap() i parallel() - wielowątkowość w praktyce</li>
+                  <li>zip() - łączenie strumieni</li>
+                  <li>Okna i bufory</li>
+                  <li>Błędy, ponawianie</li>
+                  <li>Zaawansowane testowanie</li>
+                  <li>Backpressure</li>
+                </ol>
+                <p>
+                  <a href="https://github.com/nurkiewicz/rxjava-workshop/tree/master/src/test/java/com/nurkiewicz/rxjava"> Zapoznaj się z materiałami </a>
+                </p>
+              </div>
 
-                <h3>
-                     <img alt="Allegro Tech" src="/img/allegro-tech.svg"  class="company-logo"/>
-                    Debug-Companion
-                </h3>
-                <p>
-                  Switching from VMs to Mesos has a lot of benefits for developers, but also one huge drawback: they are no longer in full control of the environment. For JVM this means losing access to tools like jstat, jmap, or perf. Giving full access to all containers on Mesos is too dangerous while asking ops each time a developer wants to create a heapdump contradicts all DevOps principles.
-                </p>
-                <p>
-                  This is why we decided to take a different approach and give back the power to the developers. During this talk we will present different problems with debugging apps on our Mesos cluster running 400+ services operated by 40 development teams. We will cover security and stability concerns and present our solution: debug-companion.
-                </p>
-                <div class="event-speaker">
+              <div class="event-speaker">
                     <figure>
-                        <img alt="Tomasz Ziarko" src="/img/events/TomaszZiarko.jpg"/>
+                        <img alt="Tomasz Nurkiewicz" src="/img/events/tomek-nurkiewicz.jpg"/>
                     </figure>
                     <div>
                         <h4>
-                            Tomasz Ziarko
+                          Tomasz Nurkiewicz
                         </h4>
                         <p>
-                            Programmer/Engineer with 7 years experience, on a daily basis dealing with cloud infrastructure in Allegro.pl,specifically with Mesos and Openstack. A supporter of open source software
+                          Autor książki o RxJavie: <a href="https://www.amazon.com/Reactive-Programming-RxJava-Asynchronous-Applications/dp/1491931655">Reactive Programming with RxJava: Creating Asynchronous, Event-Based Applications</a>.
+                          <br/> Zawodowo programista w Allegro.
                         </p>
                     </div>
                 </div>
