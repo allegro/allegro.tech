@@ -11,7 +11,7 @@ article we present one of its components called Executor and more specifically
 the Custom Executor. We also tell you why you should consider writing your own
 executor by giving examples of features that you can benefit from by taking
 more control of how tasks are executed. Our executor implementation is
-available at https://github.com/allegro/mesos-executor
+available at [github.com/allegro/mesos-executor](https://github.com/allegro/mesos-executor)
 
 **TL;DR**
 Apache Mesos is a great tool but to achieve truly cloud native
@@ -42,8 +42,13 @@ build a dedicated framework – [Aurora](http://aurora.apache.org/). Both projec
 foundation and became top level projects.
 
 
-Currently Mesos is used [by many companies including](http://mesos.apache.org/documentation/latest/powered-by-mesos/) Allegro, Apple, Twitter,
-Alibaba and others.
+Currently Mesos is used [by many companies including](http://mesos.apache.org/documentation/latest/powered-by-mesos/)
+Allegro, Apple, Twitter, Alibaba and others.
+At Allegro we started using
+[Mesos](https://github.com/apache/mesos/commit/512005c22736917dce27f8b300bc8f17fb3494fe#diff-4f719319416858e97f48d024cb67d40c)
+and
+[Marathon](https://github.com/mesosphere/marathon/commit/2b91ea8f0fd609c8bcb7caf7f07a2168f5fc1bee) in 2015.
+At this time there were no competitive solutions that were mature and battle-proof.
 
 ## Mesos Architecture
 
@@ -198,7 +203,15 @@ reduction of errors during deployments.
 What’s more, with this approach we can notify the user that an external
 service errored using [Task State Reson](http://mesos.apache.org/documentation/latest/task-state-reasons/), so details are visible for end
 user. Accidentally by implementing custom health checks and notifications we
-avoided [MESOS-6790](https://issues.apache.org/jira/browse/MESOS-6790)
+avoided [MESOS-6790](https://issues.apache.org/jira/browse/MESOS-6790).
+
+Previous solution (called [Marathon-Consul](https://github.com/allegro/marathon-consul))
+was based on [Marathon Events](https://mesosphere.github.io/marathon/docs/event-bus.html).
+Marathon-Consul was consuming events about task starting and killing
+that register or deregister instance from Consul. This caused a delay, instance
+was deregisterd when it was already gone. With Executor we have can guarantee
+that application will not get a traffic before we shut it down.
+
 
 ### XI. Logs – Treat logs as event streams
 
