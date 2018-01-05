@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mesos Execut(i)o(ne)r
+title: Mesos Executⁱoₙₑr
 author: [tomasz.janiszewski, adam.medzinski]
 tags: [tech, mesos, marathon, mesosphere]
 publish: true
@@ -23,7 +23,7 @@ write custom integrations with your ecosystem.
 ## Apache Mesos
 
 
-> [Sixty-four cores or 128 cores on a single chip look a lot like 64 machines or 128 machines in a data center. – Ben Hindman](https://www.wired.com/2013/03/google-borg-twitter-mesos/)
+> [“Sixty-four cores or 128 cores on a single chip look a lot like 64 machines or 128 machines in a data center.” – Ben Hindman](https://www.wired.com/2013/03/google-borg-twitter-mesos/)
 
 
 Apache Mesos is a tool to abstract your data center resources. In contrast to
@@ -39,7 +39,7 @@ development of Mesos started when one of its creators – Ben Hindman gave a
 talk at Twitter presenting Mesos - then development got a boost. Twitter
 employed Ben and decided to use Mesos as a resource management system and to
 build a dedicated framework – [Aurora](http://aurora.apache.org/). Both projects were donated to Apache
-foundation and become top level projects.
+foundation and became top level projects.
 
 
 Currently Mesos is used [by many companies including](http://mesos.apache.org/documentation/latest/powered-by-mesos/) Allegro, Apple, Twitter,
