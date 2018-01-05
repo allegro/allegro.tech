@@ -49,7 +49,7 @@ Alibaba and others.
 
 A Mesos Cluster is built out of 3 main elements: Masters, Agents and Frameworks
 
-![Mesos Architecture](/img/articles/2018-01-01-mesos_executor/mesos_architecture.jpg){: .center-image }
+![Mesos Architecture](/img/articles/2018-01-01-mesos_executor/mesos_architecture.png){: .center-image }
 
 
 ### Masters
@@ -103,7 +103,7 @@ task.
 * Docker Executor – Similar to command executor but launches a docker
 container instead of a command.
 * Default Executor – Introduced in Mesos 1.0 release. Similar to command
-executor but speaks V1 API and is capable of running pods (aka task groups).  
+executor but speaks V1 API and is capable of running pods (aka task groups).
 * Custom Executor – Above executors are built into Mesos. A custom executor
 is written by a user to handle custom workloads. It can use V0 or V1 API and
 can run single or multiple tasks depending on implementation. In this article
