@@ -36,7 +36,7 @@ resources to higher level applications called frameworks or schedulers. It’s
 up to a framework if it accepts an offer or declines it.
 
 
-Mesos development originate from Berkeley University. The idea was not totally
+Mesos development originates from Berkeley University. The idea was not totally
 new. Google already had a similar system called [Borg](https://research.google.com/pubs/pub43438.html) for some time. Rapid
 development of Mesos started when one of its creators – Ben Hindman gave a
 talk at Twitter presenting Mesos – then development got a boost. Twitter
