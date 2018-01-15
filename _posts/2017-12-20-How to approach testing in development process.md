@@ -122,7 +122,7 @@ After reading the previous paragraphs, finding the best solution should be easie
 consider their choice well and consider all the factors mentioned above. Eventually, the best choice depends on
 knowledge and experience of QA engineers.
 
-![Waterfall or Agile](/img/articles/2017-12-20-how-to-approach-testing-in-development-proccess/manualvsautomation.png)
+![Waterfall or Agile](/img/articles/2017-12-20-how-to-approach-testing-in-development-proccess/manualvsautomation.svg)
 
 ## Testing tools – do you need them? Which should you choose?
 
@@ -181,7 +181,7 @@ solution, were supposed to be changed in the nearest future. In other words, we 
 environment setup and test design to create tests to be executed only a few times, so the ROI would be very low.
 Therefore, it was better to focus more on manual testing.
 
-![Waterfall or Agile](/img/articles/2017-12-20-how-to-approach-testing-in-development-proccess/tlcidp.png)
+![Waterfall or Agile](/img/articles/2017-12-20-how-to-approach-testing-in-development-proccess/tlcidp.svg)
 
 ## Summary
 As there is no perfect model that would fit every project, QA engineers should decide about the testing process by
