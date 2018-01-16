@@ -181,7 +181,7 @@ solution, were supposed to be changed in the nearest future. In other words, we 
 environment setup and test design to create tests to be executed only a few times, so the ROI would be very low.
 Therefore, it was better to focus more on manual testing.
 
-![Waterfall or Agile](/img/articles/2017-12-20-how-to-approach-testing-in-development-proccess/tlcidp.svg)
+![Waterfall or Agile](/img/articles/2017-12-20-how-to-approach-testing-in-development-proccess/tlcdip.svg)
 
 ## Summary
 As there is no perfect model that would fit every project, QA engineers should decide about the testing process by
