@@ -53,7 +53,7 @@ and very low internal to external defects found ratio. Obviously, the above requ
 working in an agile way, with frequent releases and not enough time for bug fixing. Eventually, a team would have to
 come to terms with bugs found in a production environment.
 
-![Waterfall or Agile](/img/articles/2017-12-20-how-to-approach-testing-in-development-proccess/wva.png)
+![Waterfall or Agile](/img/articles/2017-12-20-how-to-approach-testing-in-development-proccess/wva.svg)
 
 ## Automated vs manual testing – only one or both?
 Application testing is the most discussed topic. Should you execute only manual, repeatable, and thus boring tests or

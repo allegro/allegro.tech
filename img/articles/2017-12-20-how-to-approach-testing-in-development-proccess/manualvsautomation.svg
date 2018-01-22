@@ -88,7 +88,7 @@
      inkscape:window-width="1368"
      inkscape:window-height="855"
      inkscape:window-x="2060"
-     inkscape:window-y="161"
+     inkscape:window-y="139"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata4347">
@@ -98,7 +98,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -171,7 +171,7 @@
          id="tspan5226"
          x="181.07422"
          y="209.77019"
-         style="font-size:4.93888903000000035px;stroke-width:0.26458332;fill:#0000f4;fill-opacity:1">automated - therotical project</tspan></text>
+         style="font-size:4.93888903px;fill:#0000f4;fill-opacity:1;stroke-width:0.26458332">automated - theoretical project</tspan></text>
     <path
        style="fill:none;stroke:#f00000;stroke-width:0.765;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m 24.811173,272.15229 c 1.444802,-17.41813 2.88958,-34.83597 8.951905,-48.40238 6.062325,-13.56641 16.742299,-23.28174 24.528146,-28.13919 7.785846,-4.85746 12.678008,-4.85746 20.188041,-4.85746 7.510034,0 17.639162,0 29.111165,0 11.472,0 24.28809,0 35.72571,-4.34085 11.43762,-4.34085 21.49751,-13.02268 29.83455,-17.50118 8.33703,-4.4785 14.9518,-4.75412 22.04853,-4.89192 7.09673,-0.1378 14.67626,-0.1378 22.32417,-10.05949 7.6479,-9.92168 15.36519,-29.76613 23.08208,-49.60956"
