@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title: Psychological needs at work
 author: [krystyna.abraham-walasiak]
@@ -23,7 +23,7 @@ you keep complaining about what you don’t have? Or perhaps it’s the opposite
 and the variety of challenges that the company puts in front of you? Or maybe you feel lost because you don’t 
 have a clearly defined role and place in the team? You don’t fully understand your responsibilities and that 
 frustrates you?
-With a similar level of discomfort at work, it is likely that your basic psychological needs aren’t being met 
+With a similar level of discomfort at work, it is likely that your basic psychological needs are not being met 
 which affects your feeling of satisfaction and fulfilment. Below is a description of these needs.  
  
 ### Psychological needs: the 3 hungers model
@@ -55,7 +55,7 @@ responsibilities and processes, or a predictable people environment.
 
 **2. Hunger of stimuli**
 When your hunger of stimuli is satisfied, it gives you a **feeling of control (“I will cope”)**. I have a feeling 
-of control if there are a good amount of challenges or stimuli for me so that I feel “Yes, I will be able to 
+of control if there is a good amount of challenges or stimuli for me so that I feel “Yes, I will be able to 
 cope 
 with it". The feeling of control is based on experience, education, coping with challenges, control of feelings 
 / 
@@ -152,7 +152,7 @@ personal life. These are two separate worlds, or two systems where totally diffe
 care 
 about different things, and accept different things as the norm or as deviation from the norm.
  
-I suggested this exercise to a developer team leader. He had some interesting insights, and said that a few 
+I suggested this exercise to a team leader. He had some interesting insights, and said that a few 
 months ago his scores on each of the axes would have been completely different. The situation changed, and so 
 did 
 the extent to which his needs are being fulfilled. The question is: do we consciously contribute to the 
