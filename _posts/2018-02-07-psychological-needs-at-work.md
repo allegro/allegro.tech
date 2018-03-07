@@ -29,7 +29,7 @@ During her workshop “Psychological Needs – base to develop identity, energiz
 boundaries”, [Anke von Platen](https://www.ankevonplaten.de/) vividly presented "the 3S model" (strokes, stimuli and structure). These are our 3 
 basic psychological needs which can be fulfilled or unfulfilled, both at personal and professional level.
  
-![the 3 hungers model](/img/articles/2018-02-07-psychological-needs-at-work/konikiSM.jpg){: .center-image }
+![the 3 hungers model](/img/articles/2018-02-07-psychological-needs-at-work/konikSM.jpg){: .center-image }
 
 
 Anke started her story with a metaphor. In the picture above, the cart represents the body (hardware), and the 
@@ -79,8 +79,8 @@ team to see what the team needs to feel good and have the right conditions to wo
 
 ## Example of self-assessment performed by an individual
 The person on the diagram below is a highly motivated developer. He uses a stretch goal that was set for his team 
-as his main source of energy. He has clarity as to what is to be done and why, and has experience in the language 
-and architecture that the team wants to use to build the solution (CONTROL). He rated “Appreciation” as medium. 
+as his main source of energy. He has Clarity as to what is to be done and why, and has experience in the language 
+and architecture that the team wants to use to build the solution (Control). He rated Appreciation as medium. 
 
 At this point, this doesn’t affect his satisfaction with work but if his frustration with the unfulfilled need 
 for stimuli or structure gets worse, it’ll be enough to affect his overall satisfaction.  
@@ -95,9 +95,9 @@ refactoring. The developers keep making patches. Two of them are really fed up w
 Control axis result from the lack of challenges and stimuli that work as a powerful driver for them when 
 developing new functionalities. They are starting to question why their team even exists. The Product Owner 
 appreciates their efforts but at this point, instead of acknowledgement, these two developers need more 
-interesting challenges (CONTROL) or at least CLARITY on what they still need to improve and how long this will 
+interesting challenges (Control) or at least Clarity on what they still need to improve and how long this will 
 take. The other two developers are coping with the lack of challenges. They are glad that they’ve been able to 
-work out a previously unfamiliar service which has earned them APPRECIATION from other teams. This explains the 
+work out a previously unfamiliar service which has earned them Appreciation from other teams. This explains the 
 high scores on each axis.
 
 ![Chart 3](/img/articles/2018-02-07-psychological-needs-at-work/chart3-eng.jpg){: .center-image }
@@ -147,7 +147,7 @@ drown?
 Another important conclusion from this conversation is that we need to accept that each of us, even when working 
 under the same conditions (team, company), may understand the axes and their extreme values differently. One person 
 may get extremely anxious about announced organizational changes, while another person may pay no attention to 
-them (CLARITY). Some people may need a lot of feedback and signs of appreciation from their colleagues, while 
-others may derive their satisfaction from their own contentment with the completion of a task (APPRECIATION). A 
+them (Clarity). Some people may need a lot of feedback and signs of appreciation from their colleagues, while 
+others may derive their satisfaction from their own contentment with the completion of a task (Appreciation). A 
 comparison of each team member’s rates on the axes may be a good reason to talk about what we’re doing, why 
 we’re doing it, and how we feel about it as a team and individually. 
