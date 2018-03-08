@@ -1,15 +1,15 @@
----
+—-
 layout: post
 title: Intuition Engineering at Allegro with Phobos
 author: tetiana.khotiaintseva
 tags: [tech, 'data visualization']
----
+—-
 
 At Allegro we put a high priority at feature velocity. We believe that one of our critical competitive advantages is
 the rate at which we introduce new features. To get feature velocity one of the architectural choices that Allegro
 has made a while back was to move to microservice architecture. So when somebody uses Allegro, a request comes in
-(and we just have a hypothetical example here) to service D -- and we can imagine a service D being a proxy or an API
-layer -- and whatever that service is, it is not going to have all the information it needs to serve a response. So the
+(and we just have a hypothetical example here) to service D — and we can imagine a service D being a proxy or an API
+layer — and whatever that service is, it is not going to have all the information it needs to serve a response. So the
 service D is going to reach out to the service C and service F, and F in turn will reach out to A, and it will in turn
 reach out to B and E, and you see that this very quickly gets complicated.  Allegro has somewhere around 500 micro
 services, so you can imagine how complicated the communication map looks like.
@@ -25,8 +25,9 @@ in real time. They are useful for showing exact numbers and how they correlate t
 able to know the now, to just take a quick glance and see that something could be going wrong.
 
 We are not the only ones who are facing this need. The approach of getting a gut feeling about the holistic state of
-the system was popularised by Netflix who called it “Intuition Engineering”. Netflix developed a tool called Vizceral
-to aid their traffic team in performing traffic failover between AWS availability zones.
+the system was popularised by Netflix who called it “Intuition Engineering”. Netflix developed a tool called
+[Vizceral](https://github.com/Netflix/vizceral) to aid their traffic team in performing traffic failover between AWS
+availability zones.
 
 ## Vizceral
 Let's have a look at a [video showing traffic failover simulation](https://youtu.be/KVbTjlZ0sfE).
@@ -50,7 +51,7 @@ fixed they can do it all in reverse: flip DNS again, and slowly dial back the pr
 steady state.
 
 Look at just how intuitively clear this visualization tool is. Even without comments it is fairly obvious what was
-happening in the simulation -- where errors happen, and where the traffic flows. This is something that is very hard to
+happening in the simulation — where errors happen, and where the traffic flows. This is something that is very hard to
 achieve with a dashboard. And it’s exactly what Vizceral is good for.
 
 ## Phobos
@@ -81,7 +82,7 @@ established between hosts.
 
 The frontend part of Vizceral, which is opesourced by Netflix, is written in WebGL with three.js library; and on top of
 the Vizceral we use a Vizceral-React  wrapper. The backend part consists of three logical parts. First, there are
-host-runners -- daemons that collect information about TCP connections between services and send this data via Apache
+host-runners — daemons that collect information about TCP connections between services and send this data via Apache
 Kafka to our Hadoop cluster. Second, there are spark jobs that analyse connection data and store it in Cassandra
 database. And finally there is the Phobos backend itself, which is written in Python using Django Rest Framework.
 Phobos backend crunches the data from Cassandra and exposes it in the form that Vizceral understands.
