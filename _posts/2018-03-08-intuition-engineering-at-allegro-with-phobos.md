@@ -6,7 +6,7 @@ tags: [tech, 'data visualization']
 ---
 
 At [Allegro](/about-us/), feature velocity is a top priority. We believe that one of our critical competitive advantages
-is the rate at which we introduce new features. In order to achieve a high feature velocity, one of the architectural \
+is the rate at which we introduce new features. In order to achieve a high feature velocity, one of the architectural
 choices that Allegro made a while back was to move to microservice architecture. So when somebody uses Allegro, a
 request comes in (and we just have a hypothetical example here) to service D — and we can imagine a service D being a
 proxy or an API layer — and whatever that service is, it is not going to have all the information it needs to serve a
@@ -32,7 +32,7 @@ availability zones.
 ## Vizceral
 Let's have a look at a video showing traffic failover simulation.
 <div class="i-wrapper"><div>
-<iframe height="315"  width="420" src="https://youtu.be/KVbTjlZ0sfE" frameborder="0" allowfullscreen></iframe>
+<iframe height="315"  width="420" src="https://www.youtube.com/embed/KVbTjlZ0sfE" frameborder="0" allowfullscreen></iframe>
 </div></div>
 At first, you see the normal state. The middle circle represents the Internet, showing how many requests are coming in
 per second and the error rate for that traffic. There are a lot of dots moving from the Internet to the surrounding
@@ -95,5 +95,5 @@ backend itself, which is written in Python using [Django Rest Framework](http://
 backend crunches the data from Cassandra and exposes it in JSON format via API endpoint in the form that Vizceral
 understands.
 
-Phobos became an invaluable tool that gives us an interface to a very complex system, giving us the capability of
-developing an intuition about its state and health.
+Phobos became an invaluable tool that gives us an interface to a very complex system, enabling us to develop
+an intuition about its state and health.
