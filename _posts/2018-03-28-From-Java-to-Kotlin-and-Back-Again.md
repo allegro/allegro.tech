@@ -116,7 +116,90 @@ In my opinion, the type system with all these `!`, `?`, and `!!` is too complex.
 Why Kotlin infers from Java `T` to `T!` and not to `T?`?
 Seems like Java interoperability spoils the Kotlin's killer feature &mdash; null-safe type system.     
  
+## Type inference
 
-  
+Local-variable type inference is a great improvement for programmers.
+It allows you tu simplify the code without compromising static type checking.
+In Kotlin, when you declare a `var` or `val`,
+you usually let the compiler to guess the variable type from the type of expression on the right.
+ 
+For example, this Kotlin code:
+
+```kotlin
+var a = "10"   
+```
+
+would be translated by the Kotlin compiler into:
+
+```kotlin
+var a : String = "10"
+```
+
+Do you miss it in Java? Good news &mdash;
+Java has it in version 10 and this version is available now.
+
+Type inference in Java 10:
+
+```java
+var a = "10";
+```
+
+More in this post about [Local-Variable Type Inference](https://medium.com/@afinlay/java-10-sneak-peek-local-variable-type-inference-var-3022016e1a2b) in Java.
+
+## Class literals
+
+Class literals are common when using Java libraries like Log4j or Gson.
+
+In Java, we write the class name with `.class` suffix:
+
+```java
+private Gson gson = 
+        new GsonBuilder().registerTypeAdapter(LocalDate.class, new LocalDateAdapter()).create();
+``` 
+    
+In Groovy, class literals are simplified to the essence. You can omit the `.class`
+and it doesn't matter if it's a Groovy or Java class.
+
+```groovy
+private Gson gson =
+        new GsonBuilder().registerTypeAdapter(LocalDate, new LocalDateAdapter()).create()
+```
+
+Kotlin distinguishes between Kotlin and Java classes and has the syntax ceremony for it:
+
+```kotlin
+val kotlinClass : KClass<LocalDate> = LocalDate::class
+val javaClass : Class<LocalDate> = LocalDate::class.java
+```
+
+So in Kotlin, you are forced to write:
+   
+```kotlin
+private Gson gson = 
+        GsonBuilder().registerTypeAdapter(LocalDate::class.java, LocalDateAdapter()).create();
+```
+
+which is ugly.
+
+## Reversed type declaration
+
+In the C-family of programming languages we have the standard way for declaring types of things.
+Shortly, first goes a type, then goes a typed thing (variable, fields, method, and so on).
+
+For example, in Java:
+
+```java
+int getSth() {
+    return 1;
+}
+```
+
+Kotlin has the reversed notation, infected probably from Scala:
+
+```kotlin
+fun getSth(): Int {
+    return 1
+}
+``` 
 
 
