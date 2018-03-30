@@ -118,11 +118,11 @@ Seems like Java interoperability spoils the Kotlin's killer feature &mdash; null
  
 ## Type inference
 
-Local-variable type inference is a great improvement for programmers.
-It allows you tu simplify the code without compromising static type checking.
 In Kotlin, when you declare a `var` or `val`,
 you usually let the compiler to guess the variable type from the type of expression on the right.
- 
+We call it local-variable type inference and it's the great improvement for programmers.
+It allows us tu simplify the code without compromising static type checking.
+            
 For example, this Kotlin code:
 
 ```kotlin
@@ -135,8 +135,8 @@ would be translated by the Kotlin compiler into:
 var a : String = "10"
 ```
 
-Do you miss it in Java? Good news &mdash;
-Java has it in version 10 and this version is available now.
+It's was the real advantage over Java. I deliberately said was, because &mdash; good news &mdash;
+Java 10 has it and Java 10 is available now.
 
 Type inference in Java 10:
 
@@ -186,20 +186,93 @@ which is ugly.
 In the C-family of programming languages we have the standard way for declaring types of things.
 Shortly, first goes a type, then goes a typed thing (variable, fields, method, and so on).
 
-For example, in Java:
+Standard notation in Java:
 
 ```java
-int getSth() {
-    return 1;
+int inc(int i) {
+    return i + 1;
 }
 ```
 
-Kotlin has the reversed notation, infected probably from Scala:
+Reversed notation in Kotlin:
 
 ```kotlin
-fun getSth(): Int {
-    return 1
+fun inc(i: Int): Int {
+    return i + 1
 }
 ``` 
+
+This is a disease, infected probably from Scala. It's annoying for several reasons.
+
+**First**, you need to type and read this noisy colon between names and types. 
+What is the purpose of this extra character? Why names are **separated** from their types? 
+I have no idea. Sadly, it makes your work in Kotlin harder. 
+
+**Second problem.** When you read a method declaration, first of all, you are interested in 
+the name and the return type, then you scan the arguments.
+
+In Kotlin, the method's return type could be far at the end of the line, so you need to scroll:
+
+```kotlin
+private fun getMetricValue(kafkaTemplate : KafkaTemplate<String, ByteArray>, metricName : String) : Double {
+    ...
+}
+```
+
+Or, if arguments are formatted line-by-line, you need to search.
+How much time do you need to find the return type of this method?
+
+```kotlin
+@Bean
+fun kafkaTemplate(
+        @Value("\${interactions.kafka.bootstrap-servers-dc4}") bootstrapServersDc4: String,
+        @Value("\${interactions.kafka.bootstrap-servers-dc5}") bootstrapServersDc5: String,
+        cloudMetadata: CloudMetadata,
+        @Value("\${interactions.kafka.batch-size}") batchSize: Int,
+        @Value("\${interactions.kafka.linger-ms}") lingerMs: Int,
+        metricRegistry : MetricRegistry
+): KafkaTemplate<String, ByteArray> {
+
+    val bootstrapServer = if (cloudMetadata.datacenter == "dc5") {
+        bootstrapServersDc5
+    }
+    ...
+}
+```   
+  
+**Third problem** with reversed notation is poor auto-completion in an IDE.
+In standard notation, you start from a type name and it's easy to find a type.
+Once you pick a type, an IDE gives you several suggestions about a variable name,
+derived from selected type.
+So you can easily type variables like this:
+
+```java
+MongoExperimentsRepository repository
+``` 
+
+Typing this variable in Kotlin is harder even in IntelliJ, the greatest IDE ever.
+If you have many repositories, you won't find the right pair on the auto-completion list.
+It means typing the full variable name by hand.
+
+```kotlin
+repository : MongoExperimentsRepository 
+``` 
+
+## Shadowing
+
+
+## Funny facts about Kotlin
+
+In Poland, Kotlin is one of the best selling brand of ketchup. 
+This name clash is nobody's fault, but it's funny.
+Kotlin sounds to our ears like Heinz.
+ 
+![Kotlin ketckup](/img/articles/2018-03-From-Java-to-Kotlin-and-Back-Again/Kotlin.jpg){: .center-image }
+
+
+
+
+  
+
 
 
