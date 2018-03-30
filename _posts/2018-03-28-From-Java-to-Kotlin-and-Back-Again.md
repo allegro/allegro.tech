@@ -42,17 +42,17 @@ println (a?.length)         // fine, prints null
 println (a?.length ?: 0)    // fine, prints 0
 ```
 
-So you can forget about the most common exception in Java &mdash; NullPointerException.
+Once you have these two kind of types, non-nullable `T` and nullable `T?`,
+you can forget about the most common exception in Java &mdash; NullPointerException.
 Really? Unfortunately, it's not that simple. 
-Things get nasty when your Kotlin code has to get along with Java code because
-libraries are written in Java (so pretty often I guess).
+Things get nasty when your Kotlin code has to get along with Java code
+(libraries are written in Java so pretty often I guess).
 
 Then, the third kind of type jumps in &mdash; `T!`.
 It's called platform type and somehow it means `T` or `T?`.
 Or if we want to be precise, `T!` means `T` with undefined nullability.
 This weird type can't be denoted in Kotlin, it can be only inferred from Java types. 
-`T!` can mislead you because it's relaxed about nulls and disables compile time safety net
-in Kotlin code. 
+`T!` can mislead you because it's relaxed about nulls and disables the null-safety net. 
 
 Consider the following Java method:
 
@@ -83,13 +83,15 @@ fun doSth(text: String) {
 }
 ```
 
-If you use `String?` &mdash; looks like you are null-safe.
+If you use `String?` &mdash; looks like you are null-safe:
  
+```kotlin
 fun doSth(text: String) {
     val f: String? = Utils.format(text)   // safe
     println ("f.len : " + f.length)       // compilation error, fine
     println ("f.len : " + f?.length)      // null-safe with ? operator
 }
+```
 
 But what if you just let the Kotlin do the fabulous type inferring?
 
@@ -112,7 +114,7 @@ fun doSth(text: String) {
 }
 ```
  
-In my opinion, the type system with all these `!`, `?`, and `!!` is too complex. 
+In my opinion, the Kotlin's type system with all these `!`, `?`, and `!!` is too complex. 
 Why Kotlin infers from Java `T` to `T!` and not to `T?`?
 Seems like Java interoperability spoils the Kotlin's killer feature &mdash; null-safe type system.     
  
@@ -260,6 +262,13 @@ repository : MongoExperimentsRepository
 
 ## Shadowing
 
+Shadowing was my biggest surprise in Kotlin.
+
+Clearly, it looks like the design flaw made by Kotlin team. 
+IDEA team tried to fixed this by showing you the laconic warning on each shadowed variable:
+`Name shadowed`. Both teams work in the same company, so maybe they can talk to each other
+and reach a consensus on the shadowing issue? My hint &mdash; IDEA guys are right.
+I can't imagine a valid use case for shadowing.
 
 ## Funny facts about Kotlin
 
