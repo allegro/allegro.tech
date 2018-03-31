@@ -332,7 +332,8 @@ A Java programmer comes to Kotlin.
 
 “And what's companion object?”
 
-“It's a singleton object bounded to your class. Put your logger there.”
+“It's a singleton object bounded to your class.
+Put your logger in the companion object.”
 
 “I see. Is it right?
 
@@ -346,13 +347,19 @@ class MyClass {
 
 “Yes!“
 
-“I see. So now I can call my logger like this &mdash; `MyClass.logger`,
+“Quite verbose syntax... but okay, now I can call my logger like this &mdash; `MyClass.logger`,
 just like a static member in Java?”
  
 “Um... yes, but it's not a static member! There are only objects here.
 Think of it as the anonymous inner class already instantiated as the singleton.
 And in fact this class isn't anonymous, it's named `Companion`, but you can ommit the name.
 See? That's simple.“
+
+I appreciate the concept of *object declaration* &mdash; singletons are useful.
+But removing static members from the language is impractical.
+In Java, we are using static loggers for years. It's classic.
+It's just a logger so we don't care about object-oriented purity.
+It works and it never did any harm. 
 
 ## Funny facts about Kotlin
 
