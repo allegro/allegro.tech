@@ -318,6 +318,42 @@ IDEA team tried to fixed this by showing you the laconic warning on each shadowe
 and reach a consensus on the shadowing issue? My hint &mdash; IDEA guys are right.
 I can't imagine a valid use case for shadowing a method argument.
 
+## Companion object
+
+A Java programmer comes to Kotlin.
+
+“Hi Kotlin. I'm new here, may I use static members?”
+
+“No. I'm object-oriented and static members aren't object-oriented.”
+
+“Fine, but I need the `logger` for `MyClass`, what should I do?”
+
+“No problem, use a companion object then.” 
+
+“And what's companion object?”
+
+“It's a singleton object bounded to your class. Put your logger there.”
+
+“I see. Is it right?
+
+```kotlin
+class MyClass {
+    companion object {
+        val logger = LoggerFactory.getLogger(MyClass::class.java)
+    }
+}
+```
+
+“Yes!“
+
+“I see. So now I can call my logger like this &mdash; `MyClass.logger`,
+just like a static member in Java?”
+ 
+“Um... yes, but it's not a static member! There are only objects here.
+Think of it as the anonymous inner class already instantiated as the singleton.
+And in fact this class isn't anonymous, it's named `Companion`, but you can ommit the name.
+See? That's simple.“
+
 ## Funny facts about Kotlin
 
 In Poland, Kotlin is one of the best selling brand of ketchup. 
