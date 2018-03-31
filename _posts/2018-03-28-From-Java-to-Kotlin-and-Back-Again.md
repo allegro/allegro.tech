@@ -320,22 +320,16 @@ I can't imagine a valid use case for shadowing a method argument.
 
 ## Companion object
 
-A Java programmer comes to Kotlin.
+A Java programmer came to Kotlin.
 
-“Hi Kotlin. I'm new here, may I use static members?”
-
-“No. I'm object-oriented and static members aren't object-oriented.”
-
-“Fine, but I need the `logger` for `MyClass`, what should I do?”
-
-“No problem, use a companion object then.” 
-
-“And what's companion object?”
-
-“It's a singleton object bounded to your class.
-Put your logger in the companion object.”
-
-“I see. Is it right?
+“Hi Kotlin. I'm new here, may I use static members?” He asked.<br/>
+“No. I'm object-oriented and static members aren't object-oriented,” Kotlin replied.<br/>
+“Fine, but I need the `logger` for `MyClass`, what should I do?”<br/>
+“No problem, use a companion object then.” <br/>
+“And what's a companion object?”<br/>
+“It's the singleton object bounded to your class.
+Put your logger in the companion object,” Kotlin explained.<br/>
+“I see. Is it right?”<br/>
 
 ```kotlin
 class MyClass {
@@ -345,21 +339,28 @@ class MyClass {
 }
 ```
 
-“Yes!“
-
-“Quite verbose syntax... but okay, now I can call my logger like this &mdash; `MyClass.logger`,
-just like a static member in Java?”
- 
+“Yes!“<br/>
+“Quite verbose syntax," the programmer seemed puzzled, "but okay, now I can call my logger like this &mdash; `MyClass.logger`,
+just like a static member in Java?”<br/> 
 “Um... yes, but it's not a static member! There are only objects here.
 Think of it as the anonymous inner class already instantiated as the singleton.
 And in fact this class isn't anonymous, it's named `Companion`, but you can ommit the name.
-See? That's simple.“
+See? That's simple.“<br/>
 
-I appreciate the concept of *object declaration* &mdash; singletons are useful.
+I appreciate the *object declaration* concept &mdash; singletons are useful.
 But removing static members from the language is impractical.
 In Java, we are using static loggers for years. It's classic.
 It's just a logger so we don't care about object-oriented purity.
 It works and it never did any harm. 
+
+
+## Collection literals
+
+In Java, creating a list requires a of ceremony:
+
+```java
+
+```
 
 ## Funny facts about Kotlin
 
