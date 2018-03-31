@@ -260,15 +260,63 @@ It means typing the full variable name by hand.
 repository : MongoExperimentsRepository 
 ``` 
 
-## Shadowing
+## Name shadowing
 
-Shadowing was my biggest surprise in Kotlin.
+Shadowing was my biggest surprise in Kotlin, consider this function:
 
-Clearly, it looks like the design flaw made by Kotlin team. 
+```kotlin
+fun inc(num : Int) {
+    val num = 2
+    if (num > 0) {
+        val num = 3
+    }
+    println ("num: " + num)
+}
+```
+
+What will be printed when you call `inc(1)`?
+Well, in Kotlin, method arguments are values, so you can't change
+the `num` argument.
+That's good language design, because you shouldn't change method arguments...
+But you can define another variable with the same name and initialize it to whatever you wish.
+Now you have two variables named `num` in the method level scope.
+Of course, you can access the only one (the latter), so effectively,
+the value of the `num` method argument is changed. Checkmate.
+
+In the `if` body, you can add another `num`, which is less shocking
+(new block level scope).
+
+Okay, so in Kotlin, `inc(1)` prints 2. The equivalent code in Java, wont compile:
+
+```java
+void inc(int num) {
+    int num = 2; //error: variable 'num' is already defined in the scope
+    if (num > 0) {
+        int num = 3; //error: variable 'num' is already defined in the scope
+    }
+    System.out.println ("num: " + num);
+}
+```
+
+Name shadowing wasn't invented by Kotlin. It's common in programming languages.
+In Java, we get used to shadow class fields with methods arguments:
+
+```java
+public class Shadow {
+    int val;
+
+    public Shadow(int val) {
+        this.val = val;
+    }
+}
+``` 
+
+But in Kotlin, shadowing goes to far.
+It looks like the design flaw made by Kotlin team. 
 IDEA team tried to fixed this by showing you the laconic warning on each shadowed variable:
-`Name shadowed`. Both teams work in the same company, so maybe they can talk to each other
+*Name shadowed*. Both teams work in the same company, so maybe they can talk to each other
 and reach a consensus on the shadowing issue? My hint &mdash; IDEA guys are right.
-I can't imagine a valid use case for shadowing.
+I can't imagine a valid use case for shadowing a method argument.
 
 ## Funny facts about Kotlin
 
