@@ -9,8 +9,8 @@ publish: true
 Spring is one of the most popular JVM-targeted frameworks. One of the reasons why it has become so popular is writing tests. 
 Even before Spring Boot era, it was easy to run an embedded Spring application in tests. With Spring Boot, it became trivial. 
 JUnit and Spock are two most popular frameworks for writing tests. They both provide great support and integration with Spring, 
-but until recently it was not possible to leverage Spring's @WebMvcTest in Spock. Why does it matter?
-@WebMvcTest is a type of an integration test, that only starts a specified slice of Spring Application and thus its 
+but until recently it was not possible to leverage Spring's `@WebMvcTest` in Spock. Why does it matter?
+`@WebMvcTest` is a type of an integration test, that only starts a specified slice of Spring Application and thus its 
 execution time is significantly lower comparing to full end-to-end tests.  
 Things have changed with Spock 1.2 and let me show you, how to leverage this new feature.
 
@@ -21,11 +21,11 @@ We create an unit test, stub interactions with dependencies and voila. Things ar
 controllers. [Until Spring Boot 1.4](https://spring.io/blog/2016/08/30/custom-test-slice-with-spring-boot-1-4) testing 
 REST controllers (and all the 'magic' done by Spring MVC) required running full application, which of course took a lot
 of time. Not only running time was the issue. Typically, one was also forced to setup entire system's state to test certain
-edge cases. This usually made tests less readable. @WebMvcTest is here to change that and now, supported in Spock.  
+edge cases. This usually made tests less readable. `@WebMvcTest` is here to change that and now, supported in Spock.  
  
 ## @WebMvcTest with Spock
 
-In order to use Spock's support for @WebMvcTest, you have to add a dependency on Spock 1.2-SNAPSHOT as GA version has not
+In order to use Spock's support for `@WebMvcTest`, you have to add a dependency on Spock 1.2-SNAPSHOT as GA version has not
 been released yet ([https://github.com/spockframework/spock](https://github.com/spockframework/spock)).  
 For Gradle, add snapshot repository:
 
@@ -188,8 +188,8 @@ and two more from Javax Validation API.
 
 ## First test
 
-Writing @WebMvcTest is trivial once you have a framework that supports it. Following example is a minimal working piece of 
-code to create a @WebMvcTest in Spock (written in Groovy):
+Writing `@WebMvcTest` is trivial once you have a framework that supports it. Following example is a minimal working piece of 
+code to create a `@WebMvcTest` in Spock (written in Groovy):
 
 ```groovy
 ...
@@ -382,6 +382,6 @@ A more complicated example of a test that uses the full setup presented here is 
 
 ## Summary
 
-This short article by no means covers all features of @WebMvcTest(s). There are lots of cool features available 
+This short article by no means covers all features of `@WebMvcTest`(s). There are lots of cool features available 
 (testing against Spring Security) and more are coming. JUnit always gets the support first but if you are a Spock 
 fan like me, then I hope you have found this article helpful.
