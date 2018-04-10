@@ -402,8 +402,8 @@ Simply, neat syntax for collection literals is what you expect
 from a modern programming language, especially if it's created from scratch. 
 Instead of collection literals, Kotlin offers the bunch of built-in functions: 
 `listOf()`, `mutableListOf()`, `mapOf()`, `hashMapOf()`, and so on.
-In maps, keys and values are paired with the `to` operator, which is good, but why not use `:`,
-which is so common?
+In maps, keys and values are paired with the `to` operator, which is good, but why not use
+well-known `:` for that?
 
 Kotlin:
 
