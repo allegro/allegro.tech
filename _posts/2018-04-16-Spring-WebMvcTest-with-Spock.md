@@ -2,15 +2,15 @@
 layout: post
 title: Spring @WebMvcTest with Spock Framework
 author: [rafal.glowinski]
-tags: [Spring Boot,Spock,@WebMvcTest,java,testing]
+tags: [Spring Boot,Spock,WebMvcTest,java,testing]
 publish: true
 ---
 
 Spring is one of the most popular JVM-targeted frameworks. One of the reasons why it has become so popular is writing tests. 
 Even before Spring Boot era, it was easy to run an embedded Spring application in tests. With Spring Boot, it became trivial. 
 JUnit and Spock are two most popular frameworks for writing tests. They both provide great support and integration with Spring, 
-but until recently it was not possible to leverage Spring's `@WebMvcTest` in Spock. Why does it matter?
-`@WebMvcTest` is a type of an integration test, that only starts a specified slice of Spring Application and thus its 
+but until recently it was not possible to leverage Spring’s `@WebMvcTest` in Spock. Why does it matter?
+`@WebMvcTest` is a type of an integration test, that only starts a specified slice of Spring Application and thus its
 execution time is significantly lower comparing to full end-to-end tests.  
 Things have changed with Spock 1.2 and let me show you, how to leverage this new feature.
 
@@ -19,13 +19,13 @@ Things have changed with Spock 1.2 and let me show you, how to leverage this new
 It is easy to write great tests (clear and concise) for most of the components in typical Spring Application. 
 We create an unit test, stub interactions with dependencies and voila. Things are not so easy when it comes to REST
 controllers. [Until Spring Boot 1.4](https://spring.io/blog/2016/08/30/custom-test-slice-with-spring-boot-1-4) testing 
-REST controllers (and all the 'magic' done by Spring MVC) required running full application, which of course took a lot
-of time. Not only running time was the issue. Typically, one was also forced to setup entire system's state to test certain
+REST controllers (and all the ’magic’ done by Spring MVC) required running full application, which of course took a lot
+of time. Not only running time was the issue. Typically, one was also forced to setup entire system’s state to test certain
 edge cases. This usually made tests less readable. `@WebMvcTest` is here to change that and now, supported in Spock.  
  
 ## @WebMvcTest with Spock
 
-In order to use Spock's support for `@WebMvcTest`, you have to add a dependency on Spock 1.2-SNAPSHOT as GA version has not
+In order to use Spock’s support for `@WebMvcTest`, you have to add a dependency on Spock 1.2-SNAPSHOT as GA version has not
 been released yet ([https://github.com/spockframework/spock](https://github.com/spockframework/spock)).  
 For Gradle, add snapshot repository:
 
@@ -183,7 +183,7 @@ public class NewUserRegistrationDTO {
 }
 ```
 
-What we have here is a POJO with 3 fields. Each of these fields has Jackson's `@JsonProperty` annotation 
+What we have here is a POJO with 3 fields. Each of these fields has Jackson’s `@JsonProperty` annotation 
 and two more from Javax Validation API. 
 
 ## First test
@@ -252,7 +252,7 @@ class SimplestUserRegistrationSpec extends Specification {
 
 First, there is a `@WebMvcTest` (1) annotation on the class level. We use it to inform Spring which controllers should be 
 started. In this example, `UserRegistrationController` will be created and mapped onto defined request paths, but to 
-make that happen we have to provide 'stub-beans' for all dependencies of `UserRegistrationController`. We do it by 
+make that happen we have to provide ’stub-beans’ for all dependencies of `UserRegistrationController`. We do it by 
 writing a custom configuration class and annotating it with `@TestConfiguration` (5):
 
 ```groovy
