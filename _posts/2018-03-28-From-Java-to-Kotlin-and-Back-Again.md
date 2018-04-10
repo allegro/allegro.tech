@@ -356,11 +356,63 @@ It works and it never did any harm.
 
 ## Collection literals
 
-In Java, creating a list requires a of ceremony:
+In Java, initializing a list requires a lot of ceremony:
 
 ```java
+import java.util.Arrays;
+...
 
+List<String> strings = Arrays.asList("Saab", "Volvo");
 ```
+
+Initializing a Map is so verbose, that lot of people use Guava:
+
+```java
+import com.google.common.collect.ImmutableMap;
+...
+
+Map<String, String> string = ImmutableMap.of("firstName", "John", "lastName", "Doe");
+```
+
+In Java, we are still waiting for new syntax to express collection and map literals.
+The syntax, which is so natural and handy in many languages.
+
+JavaScript:
+
+```javascript
+var list = ['Saab', 'Volvo']
+var map = {'firstName': 'John', 'lastName' : 'Doe'}
+```
+
+Python:
+
+```python
+list = ['Saab', 'Volvo']
+map = {'firstName': 'John', 'lastName': 'Doe'}
+```
+
+Groovy:
+
+```groovy
+def list = ['Saab', 'Volvo']
+def map = ['firstName': 'John', 'lastName': 'Doe']
+```
+
+Simply, neat syntax for collection literals is what you expect
+from a modern programming language, especially if it's created from scratch. 
+Instead of collection literals, Kotlin offers the bunch of built-in functions: 
+`listOf()`, `mutableListOf()`, `mapOf()`, `hashMapOf()`, and so on.
+In maps, keys and values are paired with the `to` operator, which is good, but why not use `:`,
+which is so common?
+
+Kotlin:
+
+```kotlin
+val list = listOf("Saab", "Volvo")
+val map = mapOf("firstName" to "John", "lastName" to "Doe")
+```
+
+Disappointing. 
 
 ## Funny facts about Kotlin
 
