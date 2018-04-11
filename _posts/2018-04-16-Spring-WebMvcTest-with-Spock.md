@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring WebMvcTest with Spock Framework
+title: Spring &#64;WebMvcTest with Spock Framework
 author: [rafal.glowinski]
 tags: [tech, Spring Boot, Spock, WebMvcTest, java, testing]
 ---
@@ -13,7 +13,7 @@ but until recently it was not possible to leverage Spring’s `@WebMvcTest` in S
 execution time is significantly lower compared to full end-to-end tests.  
 Things have changed with Spock 1.2. Let me show you, how to leverage this new feature.
 
-## @WebMvcTest
+## &#64;WebMvcTest
 
 It is easy to write great tests (clear and concise) for most of the components in a typical Spring Application. 
 We create a unit test, stub interactions with dependencies and voila. Things are not so easy when it comes to REST
@@ -22,7 +22,7 @@ REST controllers (and all the ’magic’ done by Spring MVC) required running f
 of time. Not only startup time was the issue. Typically, one was also forced to setup entire system’s state to test certain
 edge cases. This usually made tests less readable. `@WebMvcTest` is here to change that and now, supported in Spock.  
  
-## @WebMvcTest with Spock
+## &#64;WebMvcTest with Spock
 
 In order to use Spock’s support for `@WebMvcTest`, you have to add a dependency on Spock 1.2-SNAPSHOT, as GA version has not
 been released yet ([https://github.com/spockframework/spock](https://github.com/spockframework/spock)).  
@@ -328,7 +328,7 @@ public class ExceptionsHandlerAdvice {
 What we have here is a function annotated with `org.springframework.web.bind.annotation.ExceptionHandler`. Spring 
 recognizes this method and registers it as global exception handler. If `MethodArgumentNotValidException` is thrown 
 outside of the scope of the Rest Controller, this function is called to produce the response — an instance of `org.springframework.http.ResponseEntity`. 
-In this case, I have decided to return HTTP Status 422 — UNPROCESSABLE_ENTITY with my own, custom errors structure.
+In this case, I have decided to return HTTP Status 422 — UNPROCESSABLE\_ENTITY with my own, custom errors structure.
 
 Here is a more complicated example, that shows full test setup (make sure to check the sources on 
 [GitHub](https://github.com/rafal-glowinski/mvctest-spock)):
