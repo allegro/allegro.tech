@@ -331,40 +331,40 @@ outside of the scope of the Rest Controller, this function is called to produce 
 In this case, I have decided to return HTTP Status 422 — UNPROCESSABLE\_ENTITY with my own, custom errors structure.
 
 Here is a more complicated example, that shows full test setup (make sure to check the sources on 
-[GitHub](https://github.com/rafal-glowinski/mvctest-spock)):
+[GitHub](hhttps://github.com/rafal-glowinski/mvctest-spock/blob/master/src/test/groovy/com/rg/webmvctest/rest/UserRegistrationValidationSpec.groovy#L27)):
 
 ```groovy
-    @Unroll
-    def "should not allow creating a registration with an invalid email address: #emailAddress"() {
-        given:
-        Map request = [
-                email_address : emailAddress,
-                name          : 'John',
-                last_name     : 'Wayne'
-        ]
+@Unroll
+def "should not allow to create a registration with an invalid email address: #emailAddress"() {
+    given:
+    Map request = [
+            email_address : emailAddress,
+            name          : 'John',
+            last_name     : 'Wayne'
+    ]
 
-        when:
-        def result = doRequest(
-                post('/registrations').contentType(APPLICATION_JSON).content(toJson(request))
-        ).andReturn()
+    when:
+    def result = doRequest(
+            post('/registrations').contentType(APPLICATION_JSON).content(toJson(request))
+    ).andReturn()
 
-        then:
-        result.response.status == HttpStatus.UNPROCESSABLE_ENTITY.value()
+    then:
+    result.response.status == HttpStatus.UNPROCESSABLE_ENTITY.value()
 
-        and:
-        with (objectMapper.readValue(result.response.contentAsString, Map)) {
-            it.errors[0].code == 'MethodArgumentNotValidException'
-            it.errors[0].path == 'emailAddress'
-            it.errors[0].userMessage == userMessage
-        }
-
-        where:
-        emailAddress              || userMessage
-        'john.wayne(at)gmail.com' || 'Invalid email address.'
-        'abcdefg'                 || 'Invalid email address.'
-        ''                        || 'Invalid email address.'
-        null                      || 'Email must be provided.'
+    and:
+    with (objectMapper.readValue(result.response.contentAsString, Map)) {
+        it.errors[0].code == 'MethodArgumentNotValidException'
+        it.errors[0].path == 'emailAddress'
+        it.errors[0].userMessage == userMessage
     }
+
+    where:
+    emailAddress              || userMessage
+    'john.wayne(at)gmail.com' || 'Invalid email address.'
+    'abcdefg'                 || 'Invalid email address.'
+    ''                        || 'Invalid email address.'
+    null                      || 'Email must be provided.'
+}
 ```
 
 ## Summary
