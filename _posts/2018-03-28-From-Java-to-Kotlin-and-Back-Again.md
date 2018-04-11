@@ -353,6 +353,21 @@ In Java, we are using static loggers for years. It's classic.
 It's just a logger so we don't care about object-oriented purity.
 It works and it never did any harm. 
 
+Sometimes, you just **have to** use static.
+Old good `public static void main()` is stil the only way to launch a java app.
+Try to write this companion object spell without googling.
+
+Kotlin:
+
+```kotlin
+class AppRunner {
+    companion object {
+        @JvmStatic fun main(args: Array<String>) {
+            SpringApplication.run(AppRunner::class.java, *args)
+        }
+    }
+}
+```    
 
 ## Collection literals
 
@@ -402,8 +417,6 @@ Simply, neat syntax for collection literals is what you expect
 from a modern programming language, especially if it's created from scratch. 
 Instead of collection literals, Kotlin offers the bunch of built-in functions: 
 `listOf()`, `mutableListOf()`, `mapOf()`, `hashMapOf()`, and so on.
-In maps, keys and values are paired with the `to` operator, which is good, but why not use
-well-known `:` for that?
 
 Kotlin:
 
@@ -412,7 +425,65 @@ val list = listOf("Saab", "Volvo")
 val map = mapOf("firstName" to "John", "lastName" to "Doe")
 ```
 
-Disappointing. 
+In maps, keys and values are paired with the `to` operator, which is good, but why not use
+well-known `:` for that? Disappointing. 
+
+
+## Maybe? Nope
+
+Functional languages (like Haskell) don't have nulls,
+instead, they offer the Maybe monad
+(if you are not familiar with monads, read [this article](http://www.nurkiewicz.com/2016/06/functor-and-monad-examples-in-plain-java.html) by Tomasz Nurkiewicz).
+
+*Maybe* was introduced to the JVM world long time ago by Scala as Option, 
+and then, become adopted in Java 8 as Optional.
+Optionals become so popular,
+that we can say, it's now the standard way of dealing with nulls in Java,
+especially for method return types.
+ 
+There are no Optional evquivalent in Kotlin. 
+It seems that you should use bare Kotlin's nullable types.
+Let's investigate this issue.
+
+Typically, when you have an Optional,
+you want to apply a series of null-sate transformation and deal with null at the and.
+
+For example, in Java: 
+
+```java
+public int parseAndInc(String number) {
+    return Optional.ofNullable(number)
+                   .map(Integer::parseInt)
+                   .map(it -> it + 1)
+                   .orElse(0);
+}
+```  
+  
+No problem one might say, in Kotlin, for mapping you can use the `let` function:
+
+```kotlin
+fun parseAndInc(number: String?): Int {
+    return number.let { Integer.parseInt(it) }
+                 .let { it -> it + 1 } ?: 0
+}
+```        
+
+Can you? Yes, but it's not that simple. The above code is wrong and throws NPE from `parseInt()`.  
+Monadic-style `map` is executed only if the value is present, otherwise,
+null is just passed by. That's why `map` is so handy.
+Unfortunately, Kotlin's `let` doesn't work that way.
+It's just called on everything from the left, including nulls.
+
+So in order make this code null-safe, you have to add `?` before each `let`:
+
+```kotlin
+fun parseAndInc(number: String?): Int {
+    return number?.let { Integer.parseInt(it) }
+                 ?.let { it -> it + 1 } ?: 0
+}
+```      
+
+Now, compare readability of the Java and Kotlin versions. Which one do you prefer?
 
 ## Funny facts about Kotlin
 
