@@ -101,7 +101,8 @@ public class UserRegistrationController {
 }
 ```
 
-We tell Spring Web to validate incoming request body (`@Valid` annotation on function argument). If you are using Spring Boot 1.4.x then this will not work without an additional post-processor in Spring Configuration:
+We tell Spring Web to validate incoming request body (`@Valid` annotation on function argument). If you are using Spring Boot 1.4.x 
+then this will not work without an additional post-processor in Spring Configuration:
 
 ```java
 @SpringBootApplication
@@ -119,7 +120,8 @@ public class WebMvcTestApplication {
 
 ```
 
-Spring Boot 1.5.x is shipped with an additional [ValidationAutoConfiguration](https://github.com/spring-projects/spring-boot/blob/1.5.x/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/validation/ValidationAutoConfiguration.java) that automatically creates an instance of `MethodValidationPostProcessor` if necessary dependencies are present on classpath.
+Spring Boot 1.5.x is shipped with an additional [ValidationAutoConfiguration](https://github.com/spring-projects/spring-boot/blob/1.5.x/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/validation/ValidationAutoConfiguration.java) that automatically creates an instance of `MethodValidationPostProcessor` 
+if necessary dependencies are present on classpath.
 
 Now, having a REST Controller ready, we need a class to deserialize JSON request into. A simple POJO with 
 [Jackson](https://github.com/FasterXML/jackson) and [Javax Validation API](http://beanvalidation.org/1.1/) annotations is 
