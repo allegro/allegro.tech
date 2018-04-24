@@ -331,7 +331,7 @@ outside of the scope of the Rest Controller, this function is called to produce 
 In this case, I have decided to return HTTP Status 422 — UNPROCESSABLE\_ENTITY with my own, custom errors structure.
 
 Here is a more complicated example, that shows full test setup (make sure to check the sources on 
-[GitHub](hhttps://github.com/rafal-glowinski/mvctest-spock/blob/master/src/test/groovy/com/rg/webmvctest/rest/UserRegistrationValidationSpec.groovy#L27)):
+[GitHub](https://github.com/rafal-glowinski/mvctest-spock/blob/master/src/test/groovy/com/rg/webmvctest/rest/UserRegistrationValidationSpec.groovy#L27)):
 
 ```groovy
 @Unroll
