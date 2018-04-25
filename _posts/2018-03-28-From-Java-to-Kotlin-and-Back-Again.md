@@ -544,6 +544,22 @@ buildscript {
 }
 ```
 
+## Steep learning curve
+
+If you think that you can learn Kotlin quickly because you already know Java &mdash;
+you are wrong. Kotlin would throw you in the deep end.
+In fact, Kotlin's syntax is far more closer to Scala.
+It's the all-in bet. You would have to forget Java and switch the
+the completely different language. 
+
+On the contrary, learing Groovy is super easy. 
+Groovy would lead you by the hand.
+Java code is correct Groovy code, so you can start from
+changing the file extention form '.java' to '.groovy'.
+Then, you can remove semicolons and 'public' keywords.
+Each time when you learn a new Groovy feature, you can decide. Do you like it
+or do you prefer to stay with the Java way. Learing Groovy is a pleasent journey.
+
 ## Funny facts about Kotlin
 
 In Poland, Kotlin is one of the best selling brand of ketchup. 
