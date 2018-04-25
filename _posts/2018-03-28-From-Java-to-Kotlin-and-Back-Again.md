@@ -485,6 +485,65 @@ fun parseAndInc(number: String?): Int {
 
 Now, compare readability of the Java and Kotlin versions. Which one do you prefer?
 
+## Data classes
+
+[Data classes](https://kotlinlang.org/docs/reference/data-classes.html)
+are Kotlin's way to reduced the boilerplate that is inevitable in
+Java when implementing Value Objects (aka POJO, DTO).
+
+For example, you write only the essence:
+
+```kotlin
+data class User(val name: String, val age: Int)
+```
+
+and Kotlin generates good implementations of `equals()`, `hashCode()`, `toString()`, and `copy()`.
+
+It's realy useful when implementing simple DTOs.
+But remember, Data classes come with the serious limitation &mdash;
+they are final, you cannot extend a Data class or make it abstract.
+So probably, you won't use them in a core domain model. 
+
+This limitation is not a Kotlin's fault.
+There is no way to generate the correct value-based `equals()` without violating the Liskov Principle.
+That's why Kotlin doesn't allow inheritance for Data classes.
+
+## Open classes
+
+In Kotlin, classes are final by default. If you wan't to extend a class,
+you have to add the `open` modifier to it.
+
+Inheritance syntax looks like this:
+
+```kotlin
+open class Base
+
+class Derived : Base()
+```
+
+I have no idea why Kotlin changed the `extends` keyword into the `:` operator,
+which is already used to separate variable name from its type.
+It's just one more peace of confusing syntax.
+
+But making classes final by default is controversial.
+Maybe Java programers overuse inheritance. 
+Maybe you should think twice before allowing to extend a class.
+But we live in the frameworks world and frameworks love AOP.
+Spring uses libraries (cglib, jassist) to generate dynamic proxies for your beans.
+Hibernate extends you entities to enable lazy loading.
+
+If you are using Spring, you have two options.
+You can put `open` in front of all bean classes (which is rather boring),
+or use this tricky compiler plugin:
+
+```groovy
+buildscript {
+    dependencies {
+        classpath group: 'org.jetbrains.kotlin', name: 'kotlin-allopen', version: "$versions.kotlin"
+    }
+}
+```
+
 ## Funny facts about Kotlin
 
 In Poland, Kotlin is one of the best selling brand of ketchup. 
@@ -492,11 +551,3 @@ This name clash is nobody's fault, but it's funny.
 Kotlin sounds to our ears like Heinz.
  
 ![Kotlin ketckup](/img/articles/2018-03-From-Java-to-Kotlin-and-Back-Again/Kotlin.jpg){: .center-image }
-
-
-
-
-  
-
-
-
