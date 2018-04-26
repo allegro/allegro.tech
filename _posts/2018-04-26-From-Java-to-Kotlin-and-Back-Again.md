@@ -185,7 +185,7 @@ You need to fix it with Elvis:
 
 ```kotlin
 fun doSth(text: String) {
-    val f: String = Utils.format(text) ?:  // safe with Elvis
+    val f: String = Utils.format(text) ?: ""  // safe with Elvis
     println ("f.len : " + f.length)
 }
 ```
