@@ -6,8 +6,8 @@ tags: [java, kotlin]
 ---
 
 Kotlin is popular, Kotlin is trendy. Kotlin gives you compile time null-safety and
-less boilerplate. Simply, it’s better than Java. You should switch to Kotlin or die
-as a legacy coder. Hold on, or maybe you shouldn’t? Before you start writing in Kotlin
+less boilerplate. Naturally, it’s better than Java. You should switch to Kotlin or die
+as a legacy coder. Hold on, or maybe you shouldn’t? Before you start writing in Kotlin,
 read the story of one project. The story about quirks and obstacles that become so
 annoying that we decided to rewrite.
 
@@ -16,10 +16,10 @@ annoying that we decided to rewrite.
 I have my favorite set of JVM languages. Java in `/main` and Groovy in `/test` are the
 best-performing duo for me. In summer 2017 we started a new microservice project,
 and as usual, we talked about languages and technologies. There are a few Kotlin
-advocating teams in Allegro and we wanted to try something new so we decided to give
+advocating teams in Allegro, and we wanted to try something new, so we decided to give
 Kotlin a try. Since there is no Spock counterpart for Kotlin, we decided
 to stick with Groovy in `/test`. In winter 2018, after few months of working with
-Kotlin on the daily basis,  we summarized pros and cons and arrived at that conclusion
+Kotlin on a daily basis,  we summarized pros and cons and arrived at that conclusion
 that Kotlin made us *less* productive.  We started rewriting this microservice to Java.
 
 Here are the reasons why.
@@ -54,16 +54,16 @@ fun inc(num : Int) {
 What will be printed when you call `inc(1)`?
 Well, in Kotlin, method arguments are values, so you can’t change
 the `num` argument.
-That’s good language design, because you shouldn’t change method arguments...
+That’s good language design because you shouldn’t change method arguments...
 But you can define another variable with the same name and initialize it to whatever you wish.
 Now you have two variables named `num` in the method level scope.
 Of course, you can access the only one (the latter), so effectively,
 the value of the `num` method argument is changed. Checkmate.
 
 In the `if` body, you can add another `num`, which is less shocking
-(new block level scope).
+(new block-level scope).
 
-Okay, so in Kotlin, `inc(1)` prints 2. The equivalent code in **Java**, wont compile:
+Okay, so in Kotlin, `inc(1)` prints 2. The equivalent code in **Java**, won’t compile:
 
 ```java
 void inc(int num) {
@@ -76,7 +76,7 @@ void inc(int num) {
 ```
 
 Name shadowing wasn’t invented by Kotlin. It’s common in programming languages.
-In Java, we get used to shadow class fields with methods arguments:
+In Java, we get used to shadowing class fields with methods arguments:
 
 ```java
 public class Shadow {
@@ -88,9 +88,9 @@ public class Shadow {
 }
 ``` 
 
-But in Kotlin, shadowing goes to far.
-Definetly, it’s the design flaw made by Kotlin team. 
-IDEA team tried to fixed this by showing you the laconic warning on each shadowed variable:
+But in Kotlin, shadowing goes too far.
+Definitely, it’s the design flaw made by Kotlin team. 
+IDEA team tried to fix this by showing you the laconic warning on each shadowed variable:
 *Name shadowed*. Both teams work in the same company, so maybe they can talk to each other
 and reach a consensus on the shadowing issue? My hint &mdash; IDEA guys are right.
 I can’t imagine a valid use case for shadowing a method argument. 
@@ -99,8 +99,8 @@ I can’t imagine a valid use case for shadowing a method argument.
 
 In Kotlin, when you declare a `var` or `val`,
 you usually let the compiler to guess the variable type from the type of expression on the right.
-We call it local variable type inference and it’s the great improvement for programmers.
-It allows us tu simplify the code without compromising static type checking.
+We call it local variable type inference, and it’s the great improvement for programmers.
+It allows us to simplify the code without compromising static type checking.
             
 For example, this Kotlin code:
 
@@ -114,7 +114,7 @@ would be translated by the Kotlin compiler into:
 var a : String = "10"
 ```
 
-It was the real advantage over Java. I deliberately said was, because &mdash; good news &mdash;
+It was the real advantage over Java. I deliberately said *was*, because &mdash; good news &mdash;
 Java 10 has it and Java 10 is available now.
 
 Type inference in **Java 10**:
@@ -144,14 +144,14 @@ println (a?.length)         // fine, prints null
 println (a?.length ?: 0)    // fine, prints 0
 ```
 
-Once you have these two kind of types, non-nullable `T` and nullable `T?`,
+Once you have these this two kind of types, non-nullable `T` and nullable `T?`,
 you can forget about the most common exception in Java &mdash; NullPointerException.
 Really? Unfortunately, it’s not that simple. 
 
 Things get nasty when your Kotlin code has to get along with Java code
-(libraries are written in Java so it happens pretty often I guess).
+(libraries are written in Java, so it happens pretty often I guess).
 Then, the third kind of type jumps in &mdash; `T!`.
-It’s called platform type and somehow it means `T` or `T?`.
+It’s called platform type, and somehow it means `T` or `T?`.
 Or if we want to be precise, `T!` means `T` with undefined nullability.
 This weird type can’t be denoted in Kotlin, it can be only inferred from Java types. 
 `T!` can mislead you because it’s relaxed about nulls and disables the Kotlin’s null-safety net. 
@@ -188,7 +188,7 @@ fun doSth(text: String) {
 }
 ```
 
-**Second approach.** You can use `String?` and then you are null-safe:
+**Second approach.** You can use `String?`, and then you are null-safe:
  
 ```kotlin
 fun doSth(text: String) {
@@ -222,9 +222,9 @@ fun doSth(text: String) {
  
 In my opinion, the Kotlin’s type system with all these *scalish* `!`, `?`, and `!!` is too complex. 
 Why Kotlin infers from Java `T` to `T!` and not to `T?`?
-Seems like Java interoperability spoils the Kotlin’s killer feature &mdash;
+It seems like Java interoperability spoils the Kotlin’s killer feature &mdash;
 the type inferring.
-Looks like you should delcare types explicitly (as `T?`) for all Kotlin variables
+It looks like you should declare types explicitly (as `T?`) for all Kotlin variables
 populated by Java methods.     
 
 ## Class literals
@@ -260,11 +260,11 @@ private Gson gson =
         GsonBuilder().registerTypeAdapter(LocalDate::class.java, LocalDateAdapter()).create();
 ```
 
-which is ugly.
+Which is ugly.
 
 ## Reversed type declaration
 
-In the C-family of programming languages we have the standard way for declaring types of things.
+In the C-family of programming languages, we have the standard way of declaring types of things.
 Shortly, first goes a type, then goes a typed thing (variable, fields, method, and so on).
 
 Standard notation in **Java**:
@@ -286,11 +286,11 @@ fun inc(i: Int): Int {
 This is a disease, infected probably from Scala. It’s annoying for several reasons.
 
 **First**, you need to type and read this noisy colon between names and types. 
-What is the purpose of this extra character? Why names are **separated** from their types? 
+What is the purpose of this extra character? Why are names **separated** from their types? 
 I have no idea. Sadly, it makes your work in Kotlin harder. 
 
-**Second problem.** When you read a method declaration, first of all, you are interested in 
-the name and the return type, then you scan the arguments.
+**The second problem.** When you read a method declaration, first of all, you are interested in 
+the name and the return type, and then you scan the arguments.
 
 In Kotlin, the method’s return type could be far at the end of the line, so you need to scroll:
 
@@ -321,11 +321,11 @@ fun kafkaTemplate(
 }
 ```   
   
-**Third problem** with reversed notation is poor auto-completion in an IDE.
-In standard notation, you start from a type name and it’s easy to find a type.
+**The third problem** with reversed notation is poor auto-completion in an IDE.
+In standard notation, you start from a type name, and it’s easy to find a type.
 Once you pick a type, an IDE gives you several suggestions about a variable name,
 derived from selected type.
-So you can easily type variables like this:
+So you can quickly type variables like this:
 
 ```java
 MongoExperimentsRepository repository
