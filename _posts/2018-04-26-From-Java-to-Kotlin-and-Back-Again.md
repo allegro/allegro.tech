@@ -168,7 +168,7 @@ public class Utils {
 }
 ```
 
-which we want to call from Kotlin
+Now, you want to call `format(String)` from Kotlin.
 Which type should you use to consume the result of this Java method?
 Well, you have **three** options.
 
