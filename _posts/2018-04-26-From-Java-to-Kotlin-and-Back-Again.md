@@ -343,13 +343,13 @@ repository : MongoExperimentsRepository
 
 A Java programmer comes to Kotlin.
 
-“Hi Kotlin. I’m new here, may I use static members?” He asks.<br/>
+“Hi, Kotlin. I’m new here, may I use static members?” He asks.<br/>
 “No. I’m object-oriented and static members aren’t object-oriented,” Kotlin replies.<br/>
 “Fine, but I need the `logger` for `MyClass`, what should I do?”<br/>
 “No problem, use a companion object then.” <br/>
 “And what’s a companion object?”<br/>
 “It’s the singleton object bounded to your class.
-Put your logger in the companion object,” Kotlin explaines.<br/>
+Put your logger in the companion object,” Kotlin explains.<br/>
 “I see. Is it right?”<br/>
 
 ```kotlin
@@ -361,20 +361,20 @@ class MyClass {
 ```
 
 “Yes!“<br/>
-“Quite verbose syntax," the programmer seemes puzzled, "but okay, now I can call my logger like this &mdash; `MyClass.logger`,
+“Quite verbose syntax," the programmer seems puzzled, "but okay, now I can call my logger like this &mdash; `MyClass.logger`,
 just like a static member in Java?”<br/> 
 “Um... yes, but it’s not a static member! There are only objects here.
 Think of it as the anonymous inner class already instantiated as the singleton.
-And in fact this class isn’t anonymous, it’s named `Companion`, but you can ommit the name.
+And in fact this class isn’t anonymous, it’s named `Companion`, but you can omit the name.
 See? That’s simple.“<br/>
 
 I appreciate the *object declaration* concept &mdash; singletons are useful.
 But removing static members from the language is impractical.
 In Java, we are using static loggers for years. It’s classic.
-It’s just a logger so we don’t care about object-oriented purity.
-It works and it never did any harm. 
+It’s just a logger, so we don’t care about object-oriented purity.
+It works, and it never did any harm. 
 
-Sometimes, you just **have to** use static.
+Sometimes, you **have to** use static.
 Old good `public static void main()` is still the only way to launch a Java app.
 Try to write this companion object *spell* without googling.
 
@@ -432,7 +432,7 @@ def list = ['Saab', 'Volvo']
 def map = ['firstName': 'John', 'lastName': 'Doe']
 ```
 
-Simply, neat syntax for collection literals is what you expect
+Simply, the neat syntax for collection literals is what you expect
 from a modern programming language, especially if it’s created from scratch. 
 Instead of collection literals, Kotlin offers the bunch of built-in functions: 
 `listOf()`, `mutableListOf()`, `mapOf()`, `hashMapOf()`, and so on.
@@ -450,17 +450,17 @@ well-known `:` for that? Disappointing.
 
 ## Maybe? Nope
 
-Functional languages (like Haskell) don’t have nulls,
-instead, they offer the *Maybe* monad
+Functional languages (like Haskell) don’t have nulls.
+Instead, they offer the *Maybe* monad
 (if you are not familiar with monads, read [this article](http://www.nurkiewicz.com/2016/06/functor-and-monad-examples-in-plain-java.html) by Tomasz Nurkiewicz).
 
-Maybe was introduced to the JVM world long time ago by Scala as Option, 
+Maybe was introduced to the JVM world the long time ago by Scala as Option, 
 and then, become adopted in Java 8 as Optional.
-Optionals become so popular,
+Optionals become so popular
 that we can say, it’s now the standard way of dealing with nulls in Java,
 especially for method return types.
  
-There are no Optional evquivalent in Kotlin. 
+There is no Optional equivalent in Kotlin. 
 It seems that you should use bare Kotlin’s nullable types.
 Let’s investigate this issue.
 
@@ -488,8 +488,8 @@ fun parseAndInc(number: String?): Int {
 ```        
 
 Can you? Yes, but it’s not that simple. The above code is wrong and throws NPE from `parseInt()`.  
-Monadic-style `map` is executed only if the value is present, otherwise,
-null is just passed by. That’s why `map` is so handy.
+The monadic-style `map` is executed only if the value is present.
+Otherwise, null is just passed by. That’s why `map` is so handy.
 Unfortunately, Kotlin’s `let` doesn’t work that way.
 It’s just called on everything from the left, including nulls.
 
@@ -507,7 +507,7 @@ Now, compare readability of the Java and Kotlin versions. Which one do you prefe
 ## Data classes
 
 [Data classes](https://kotlinlang.org/docs/reference/data-classes.html)
-are Kotlin’s way to reduced the boilerplate that is inevitable in
+are Kotlin’s way to reduce the boilerplate that is inevitable in
 Java when implementing Value Objects (aka POJO, DTO).
 
 For example, in **Kotlin**, you write only the essence of a Value Object:
@@ -518,7 +518,7 @@ data class User(val name: String, val age: Int)
 
 and Kotlin generates good implementations of `equals()`, `hashCode()`, `toString()`, and `copy()`.
 
-It’s realy useful when implementing simple DTOs.
+It’s really useful when implementing simple DTOs.
 But remember, Data classes come with the serious limitation &mdash;
 they are final. You cannot extend a Data class or make it abstract.
 So probably, you won’t use them in a core domain model. 
@@ -545,9 +545,9 @@ which is already used to separate variable name from its type.
 One more peace of confusing syntax...
 
 What is controversial here is  making classes final by default.
-Maybe Java programers overuse inheritance. 
+Maybe Java programmers overuse inheritance. 
 Maybe you should think twice before allowing for extending your class.
-But we live in the frameworks world and frameworks love AOP.
+But we live in the frameworks world, and frameworks love AOP.
 Spring uses libraries (cglib, jassist) to generate dynamic proxies for your beans.
 Hibernate extends you entities to enable lazy loading.
 
@@ -567,28 +567,28 @@ buildscript {
 
 If you think that you can learn Kotlin quickly because you already know Java &mdash;
 you are wrong. Kotlin would throw you in the deep end.
-In fact, Kotlin’s syntax is far more closer to Scala.
-It’s the all-in bet. You would have to forget Java and switch the
+In fact, Kotlin’s syntax is far closer to Scala.
+It’s the all-in bet. You would have to forget Java and switch
 the completely different language. 
 
-On the contrary, learing Groovy is a pleasent journey. 
+On the contrary, learning Groovy is a pleasant journey. 
 Groovy would lead you by the hand.
-Java code is correct Groovy code, so you can start from
-changing the file extention form `.java` to `.groovy`.
+Java code is correct Groovy code, so you can start by
+changing the file extension form `.java` to `.groovy`.
 Each time when you learn a new Groovy feature, you can decide. Do you like it
-or do you prefer to stay with the Java way. That’s awesome.
+or do you prefer to stay with the Java way? That’s awesome.
 
 ## Final thoughts
 
 Learning a new technology is like an investment.
 We invest our time and then the technology should pay off.
-I’m not saying that Kotlin is a bad language.
-I’m just saying that in out case, the Return On Investment
+I’m not saying that Kotlin is bad language.
+I’m just saying that in our case, the Return On Investment
 was dissatisfactory low.
 
 ## Funny facts about Kotlin
 
-In Poland, Kotlin is one of the best selling brand of ketchup. 
+In Poland, Kotlin is one of the best selling brands of ketchup. 
 This name clash is nobody’s fault, but it’s funny.
 Kotlin sounds to our ears like Heinz.
  
