@@ -5,7 +5,7 @@ author: bartosz.walacik
 tags: [java, kotlin]
 ---
 
-Kotlin is popular, Kotlin is trendy. Kotlin gives you compile time null-safety and
+Kotlin is popular, Kotlin is trendy. Kotlin gives you compile-time null-safety and
 less boilerplate. Naturally, it’s better than Java. You should switch to Kotlin or die
 as a legacy coder. Hold on, or maybe you shouldn’t? Before you start writing in Kotlin,
 read the story of one project. The story about quirks and obstacles that become so
@@ -17,8 +17,10 @@ I have my favorite set of JVM languages. Java in `/main` and Groovy in `/test` a
 best-performing duo for me. In summer 2017 we started a new microservice project,
 and as usual, we talked about languages and technologies. There are a few Kotlin
 advocating teams in Allegro, and we wanted to try something new, so we decided to give
-Kotlin a try. Since there is no Spock counterpart for Kotlin, we decided
-to stick with Groovy in `/test`. In winter 2018, after few months of working with
+Kotlin a try. Since there is no [Spock](http://spockframework.org/) counterpart for Kotlin, we decided
+to stick with Groovy in `/test`
+([Speck](http://spekframework.org/) isn’t as good as Spock).
+In winter 2018, after few months of working with
 Kotlin on a daily basis,  we summarized pros and cons and arrived at that conclusion
 that Kotlin made us *less* productive.  We started rewriting this microservice to Java.
 
@@ -58,7 +60,7 @@ That’s good language design because you shouldn’t change method arguments...
 But you can define another variable with the same name and initialize it to whatever you wish.
 Now you have two variables named `num` in the method level scope.
 Of course, you can access the only one (the latter), so effectively,
-the value of the `num` method argument is changed. Checkmate.
+the value of the `num` is changed. Checkmate.
 
 In the `if` body, you can add another `num`, which is less shocking
 (new block-level scope).
@@ -224,7 +226,7 @@ In my opinion, the Kotlin’s type system with all these *scalish* `!`, `?`, and
 Why Kotlin infers from Java `T` to `T!` and not to `T?`?
 It seems like Java interoperability spoils the Kotlin’s killer feature &mdash;
 the type inferring.
-It looks like you should declare types explicitly (as `T?`) for all Kotlin variables
+Looks like you should declare types explicitly (as `T?`) for all Kotlin variables
 populated by Java methods.     
 
 ## Class literals
