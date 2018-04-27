@@ -8,20 +8,20 @@ tags: [java, kotlin]
 Kotlin is popular, Kotlin is trendy. Kotlin gives you compile-time null-safety and
 less boilerplate. Naturally, it’s better than Java. You should switch to Kotlin or die
 as a legacy coder. Hold on, or maybe you shouldn’t? Before you start writing in Kotlin,
-read the story of one project. The story about quirks and obstacles that become so
+read the story of one project. The story about quirks and obstacles becoming so
 annoying that we decided to rewrite.
 
-## We gave Kotlin a try, but now we are rewriting to Java 
+## We gave Kotlin a try, but now we are rewriting to Java 10
 
 I have my favorite set of JVM languages. Java in `/main` and Groovy in `/test` are the
 best-performing duo for me. In summer 2017 we started a new microservice project,
 and as usual, we talked about languages and technologies. There are a few Kotlin
-advocating teams in Allegro, and we wanted to try something new, so we decided to give
+advocating teams at Allegro, and we wanted to try something new, so we decided to give
 Kotlin a try. Since there is no [Spock](http://spockframework.org/) counterpart for Kotlin, we decided
 to stick with Groovy in `/test`
 ([Speck](http://spekframework.org/) isn’t as good as Spock).
 In winter 2018, after few months of working with
-Kotlin on a daily basis,  we summarized pros and cons and arrived at that conclusion
+Kotlin on a daily basis,  we summarized pros and cons and arrived at the conclusion
 that Kotlin made us *less* productive.  We started rewriting this microservice to Java.
 
 Here are the reasons why.
@@ -41,7 +41,7 @@ Here are the reasons why.
  
 ## Name shadowing
 
-Shadowing was my biggest surprise in **Kotlin**, consider this function:
+Shadowing was my biggest surprise in **Kotlin**. Consider this function:
 
 ```kotlin
 fun inc(num : Int) {
@@ -56,10 +56,10 @@ fun inc(num : Int) {
 What will be printed when you call `inc(1)`?
 Well, in Kotlin, method arguments are values, so you can’t change
 the `num` argument.
-That’s good language design because you shouldn’t change method arguments...
+That’s good language design because you shouldn’t change method arguments.
 But you can define another variable with the same name and initialize it to whatever you wish.
 Now you have two variables named `num` in the method level scope.
-Of course, you can access the only one (the latter), so effectively,
+Of course, you can access only the one `num` at a time, so effectively,
 the value of the `num` is changed. Checkmate.
 
 In the `if` body, you can add another `num`, which is less shocking
@@ -90,8 +90,7 @@ public class Shadow {
 }
 ``` 
 
-But in Kotlin, shadowing goes too far.
-Definitely, it’s the design flaw made by Kotlin team. 
+In Kotlin, shadowing goes too far. Definitely, it’s a design flaw made by Kotlin team. 
 IDEA team tried to fix this by showing you the laconic warning on each shadowed variable:
 *Name shadowed*. Both teams work in the same company, so maybe they can talk to each other
 and reach a consensus on the shadowing issue? My hint &mdash; IDEA guys are right.
@@ -100,8 +99,8 @@ I can’t imagine a valid use case for shadowing a method argument.
 ## Type inference
 
 In Kotlin, when you declare a `var` or `val`,
-you usually let the compiler to guess the variable type from the type of expression on the right.
-We call it local variable type inference, and it’s the great improvement for programmers.
+you usually let the compiler guess the variable type from the type of expression on the right.
+We call it local variable type inference, and it’s a great improvement for programmers.
 It allows us to simplify the code without compromising static type checking.
             
 For example, this Kotlin code:
@@ -125,10 +124,13 @@ Type inference in **Java 10**:
 var a = "10";
 ```
 
-More in this post about [Local-Variable Type Inference](https://medium.com/@afinlay/java-10-sneak-peek-local-variable-type-inference-var-3022016e1a2b) in Java.
+To be fair, I need to add, that Kotlin is still slightly better in this field.
+You can use type inference also in other contexts, for example, one-line methods.
+
+More about [Local-Variable Type Inference](https://medium.com/@afinlay/java-10-sneak-peek-local-variable-type-inference-var-3022016e1a2b) in Java 10.
 
 ### Compile time null-safety 
-Null-safe types are the Kotlin’s killer feature. The idea is great.
+Null-safe types are Kotlin’s killer feature. The idea is great.
 In Kotlin, types are by default non-nullable. If you need a nullable type you need
 to add `?` to it, for example:
  
@@ -156,7 +158,7 @@ Then, the third kind of type jumps in &mdash; `T!`.
 It’s called platform type, and somehow it means `T` or `T?`.
 Or if we want to be precise, `T!` means `T` with undefined nullability.
 This weird type can’t be denoted in Kotlin, it can be only inferred from Java types. 
-`T!` can mislead you because it’s relaxed about nulls and disables the Kotlin’s null-safety net. 
+`T!` can mislead you because it’s relaxed about nulls and disables Kotlin’s null-safety net. 
 
 Consider the following **Java** method:
 
@@ -200,8 +202,8 @@ fun doSth(text: String) {
 }
 ```
 
-**Third approach.** But what if you just let the Kotlin do the fabulous
-local variable type inferring?
+**Third approach.**  What if you just let the Kotlin do the fabulous
+local variable type inference?
 
 ```kotlin
 fun doSth(text: String) {
@@ -222,10 +224,10 @@ fun doSth(text: String) {
 }
 ```
  
-In my opinion, the Kotlin’s type system with all these *scalish* `!`, `?`, and `!!` is too complex. 
+In my opinion, Kotlin’s type system with all these scala-like `!`, `?`, and `!!` is too complex. 
 Why Kotlin infers from Java `T` to `T!` and not to `T?`?
-It seems like Java interoperability spoils the Kotlin’s killer feature &mdash;
-the type inferring.
+It seems like Java interoperability spoils Kotlin’s killer feature &mdash;
+the type inference.
 Looks like you should declare types explicitly (as `T?`) for all Kotlin variables
 populated by Java methods.     
 
@@ -236,16 +238,14 @@ Class literals are common when using Java libraries like Log4j or Gson.
 In **Java**, we write the class name with `.class` suffix:
 
 ```java
-private Gson gson = 
-        new GsonBuilder().registerTypeAdapter(LocalDate.class, new LocalDateAdapter()).create();
+Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, new LocalDateAdapter()).create();
 ``` 
     
 In **Groovy**, class literals are simplified to the essence. You can omit the `.class`
 and it doesn’t matter if it’s a Groovy or Java class.
 
 ```groovy
-private Gson gson =
-        new GsonBuilder().registerTypeAdapter(LocalDate, new LocalDateAdapter()).create()
+def gson = new GsonBuilder().registerTypeAdapter(LocalDate, new LocalDateAdapter()).create()
 ```
 
 **Kotlin** distinguishes between Kotlin and Java classes and has the syntax ceremony for it:
@@ -258,8 +258,7 @@ val javaClass : Class<LocalDate> = LocalDate::class.java
 So in **Kotlin**, you are forced to write:
    
 ```kotlin
-private Gson gson = 
-        GsonBuilder().registerTypeAdapter(LocalDate::class.java, LocalDateAdapter()).create();
+val gson = GsonBuilder().registerTypeAdapter(LocalDate::class.java, LocalDateAdapter()).create()
 ```
 
 Which is ugly.
@@ -285,7 +284,7 @@ fun inc(i: Int): Int {
 }
 ``` 
 
-This is a disease, infected probably from Scala. It’s annoying for several reasons.
+This disorder is annoying for several reasons.
 
 **First**, you need to type and read this noisy colon between names and types. 
 What is the purpose of this extra character? Why are names **separated** from their types? 
@@ -308,16 +307,16 @@ How much time do you need to find the return type of this method?
 ```kotlin
 @Bean
 fun kafkaTemplate(
-        @Value("\${interactions.kafka.bootstrap-servers-dc4}") bootstrapServersDc4: String,
-        @Value("\${interactions.kafka.bootstrap-servers-dc5}") bootstrapServersDc5: String,
+        @Value("\${interactions.kafka.bootstrap-servers-dc1}") bootstrapServersDc1: String,
+        @Value("\${interactions.kafka.bootstrap-servers-dc2}") bootstrapServersDc2: String,
         cloudMetadata: CloudMetadata,
         @Value("\${interactions.kafka.batch-size}") batchSize: Int,
         @Value("\${interactions.kafka.linger-ms}") lingerMs: Int,
         metricRegistry : MetricRegistry
 ): KafkaTemplate<String, ByteArray> {
 
-    val bootstrapServer = if (cloudMetadata.datacenter == "dc5") {
-        bootstrapServersDc5
+    val bootstrapServer = if (cloudMetadata.datacenter == "dc1") {
+        bootstrapServersDc1
     }
     ...
 }
@@ -416,8 +415,8 @@ The syntax, which is so natural and handy in many languages.
 **JavaScript**:
 
 ```javascript
-var list = ['Saab', 'Volvo']
-var map = {'firstName': 'John', 'lastName' : 'Doe'}
+const list = ['Saab', 'Volvo']
+const map = {'firstName': 'John', 'lastName' : 'Doe'}
 ```
 
 **Python**:
@@ -457,17 +456,15 @@ Instead, they offer the *Maybe* monad
 (if you are not familiar with monads, read [this article](http://www.nurkiewicz.com/2016/06/functor-and-monad-examples-in-plain-java.html) by Tomasz Nurkiewicz).
 
 Maybe was introduced to the JVM world the long time ago by Scala as Option, 
-and then, become adopted in Java 8 as Optional.
-Optionals become so popular
-that we can say, it’s now the standard way of dealing with nulls in Java,
-especially for method return types.
- 
+and then, became adopted in Java 8 as Optional.
+Now, Optional are quite popular way of dealing with nulls in return types at API boundaries.
+  
 There is no Optional equivalent in Kotlin. 
 It seems that you should use bare Kotlin’s nullable types.
 Let’s investigate this issue.
 
 Typically, when you have an Optional,
-you want to apply a series of null-sate transformation and deal with null at the and.
+you want to apply a series of null-safe transformations and deal with null at the and.
 
 For example, in **Java**: 
 
@@ -490,8 +487,8 @@ fun parseAndInc(number: String?): Int {
 ```        
 
 Can you? Yes, but it’s not that simple. The above code is wrong and throws NPE from `parseInt()`.  
-The monadic-style `map` is executed only if the value is present.
-Otherwise, null is just passed by. That’s why `map` is so handy.
+The monadic-style `map()` is executed only if the value is present.
+Otherwise, null is just passed by. That’s why `map()` is so handy.
 Unfortunately, Kotlin’s `let` doesn’t work that way.
 It’s just called on everything from the left, including nulls.
 
@@ -506,11 +503,13 @@ fun parseAndInc(number: String?): Int {
 
 Now, compare readability of the Java and Kotlin versions. Which one do you prefer?
 
+Read more about Optionals at [Stephen Colebourne’s blog](http://blog.joda.org/2015/08/java-se-8-optional-pragmatic-approach.html).
+
 ## Data classes
 
 [Data classes](https://kotlinlang.org/docs/reference/data-classes.html)
 are Kotlin’s way to reduce the boilerplate that is inevitable in
-Java when implementing Value Objects (aka POJO, DTO).
+Java when implementing Value Objects (aka DTO).
 
 For example, in **Kotlin**, you write only the essence of a Value Object:
 
@@ -525,7 +524,7 @@ But remember, Data classes come with the serious limitation &mdash;
 they are final. You cannot extend a Data class or make it abstract.
 So probably, you won’t use them in a core domain model. 
 
-This limitation is not a Kotlin’s fault.
+This limitation is not Kotlin’s fault.
 There is no way to generate the correct value-based `equals()` without violating the Liskov Principle.
 That’s why Kotlin doesn’t allow inheritance for Data classes.
 
@@ -542,9 +541,9 @@ open class Base
 class Derived : Base()
 ```
 
-I have no idea why Kotlin changed the `extends` keyword into the `:` operator,
+Kotlin changed the `extends` keyword into the `:` operator,
 which is already used to separate variable name from its type.
-One more peace of confusing syntax...
+Back to C++ syntax? For me it’s confusing. 
 
 What is controversial here is  making classes final by default.
 Maybe Java programmers overuse inheritance. 
@@ -571,12 +570,12 @@ If you think that you can learn Kotlin quickly because you already know Java &md
 you are wrong. Kotlin would throw you in the deep end.
 In fact, Kotlin’s syntax is far closer to Scala.
 It’s the all-in bet. You would have to forget Java and switch
-the completely different language. 
+to the completely different language. 
 
 On the contrary, learning Groovy is a pleasant journey. 
 Groovy would lead you by the hand.
 Java code is correct Groovy code, so you can start by
-changing the file extension form `.java` to `.groovy`.
+changing the file extension from `.java` to `.groovy`.
 Each time when you learn a new Groovy feature, you can decide. Do you like it
 or do you prefer to stay with the Java way? That’s awesome.
 
@@ -584,9 +583,9 @@ or do you prefer to stay with the Java way? That’s awesome.
 
 Learning a new technology is like an investment.
 We invest our time and then the technology should pay off.
-I’m not saying that Kotlin is bad language.
+I’m not saying that Kotlin is a bad language.
 I’m just saying that in our case, the Return On Investment
-was dissatisfactory low.
+was dissatisfactory.
 
 ## Funny facts about Kotlin
 
