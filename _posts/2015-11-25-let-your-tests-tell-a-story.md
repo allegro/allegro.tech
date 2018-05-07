@@ -19,7 +19,7 @@ framework in our team, so this article contains a few technical details specific
 presented in this article are applicable to any framework. They work very well with
 [Behavior—driven development](https://en.wikipedia.org/wiki/Behavior-driven_development) (BDD) frameworks, like JBehave,
 about which Grzegorz Witkowski recently
-[blogged](http://allegrotech.io/acceptance-testing-with-jbehave-and-gradle.html).
+[blogged](/2015/03/acceptance-testing-with-jbehave-and-gradle.html).
 
 ### Ubiquitous language in tests
 

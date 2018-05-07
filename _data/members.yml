@@ -47,7 +47,7 @@ krzysztof.kocel:
     github: kkocel
 
 mateusz.gajewski:
-    name: Mateusz 'Serafin' Gajewski
+    name: Mateusz ‘Serafin’ Gajewski
     bio: 'Mateusz is a solutions architect responsible for financial and payments systems. His main areas of research interest are: scalable, distributed computing in cloud environments, reactive programming and failure resilience.'
     twitter: wendigo
 
@@ -114,7 +114,7 @@ ewa.bugajska:
 
 zbyszko.papierski:
     name: Zbyszko Papierski
-    bio: JVM developer with 8 years of professional experience. He's interested in topics related to search engines, cloud computing and parallel computing. At Allegro, he works as solutions architect, mostly in areas related to searching.
+    bio: JVM developer with 8 years of professional experience. He’s interested in topics related to search engines, cloud computing and parallel computing. At Allegro, he works as solutions architect, mostly in areas related to searching.
     twitter: ZPapierski
 
 michal.nowostawski:
@@ -142,7 +142,7 @@ andrzej.wislowski:
 
 marcin.konkel:
     name: Marcin Konkel
-    bio:  Marcin is an Agile Coach at Allegro Group, passionate about agile, coaching and travelling. He helps teams to be more agile by coaching and learning with them, removing impediments and cooperating with the organisation to foster change and improve working environment. He has experience working with mature and ‘new to agile’ teams. Formerly acting as a Project Manager and coordinating globally dispersed (USA, Europe, India, China) as well as local project teams in financial / IT environment. Personally an avid photographer travelling to distant and less distant places to capture moments that stole his attention — sharing his stories at [marcinkonkel.com](http://marcinkonkel.com/). Additionally, he's writing and sharing his professional experience at [medium.com/@m_konkel](http://medium.com/@m_konkel).
+    bio:  Marcin is an Agile Coach at Allegro Group, passionate about agile, coaching and travelling. He helps teams to be more agile by coaching and learning with them, removing impediments and cooperating with the organisation to foster change and improve working environment. He has experience working with mature and ‘new to agile’ teams. Formerly acting as a Project Manager and coordinating globally dispersed (USA, Europe, India, China) as well as local project teams in financial / IT environment. Personally an avid photographer travelling to distant and less distant places to capture moments that stole his attention — sharing his stories at [marcinkonkel.com](http://marcinkonkel.com/). Additionally, he’s writing and sharing his professional experience at [medium.com/@m_konkel](http://medium.com/@m_konkel).
 
 pawel.czubachowski:
     name: Paweł Czubachowski
@@ -245,7 +245,7 @@ patryk.krawaczynski:
 
 krzysztof.muzalewski:
     name: Krzysztof Muzalewski
-    bio: Front-end enthusiast, HTML5/CSS3 and JavaScript passionate. He believes that esthetics and UX are as important as coding itself. A member of several teams developing portals for Allegro Group. At the moment he's deeply involved into website optimization for desktop and mobile.
+    bio: Front-end enthusiast, HTML5/CSS3 and JavaScript passionate. He believes that esthetics and UX are as important as coding itself. A member of several teams developing portals for Allegro Group. At the moment he’s deeply involved into website optimization for desktop and mobile.
 
 szymon.jasinski:
     name: Szymon Jasiński
@@ -316,7 +316,7 @@ adam.medzinski:
 
 konrad.kaminski:
     name: Konrad Kamiński
-    bio: Software developer who likes to have a broad picture of the things he's using/working with. An old timer.
+    bio: Software developer who likes to have a broad picture of the things he’s using/working with. An old timer.
 
 grzegorz.kaczmarczyk:
     name: Grzegorz Kaczmarczyk
@@ -362,7 +362,7 @@ tomasz.bartczak:
 
 dariusz.jedrzejczyk:
     name: Dariusz Jędrzejczyk
-    bio: Likes to think of himself as a Platform Engineer. Aspires to employ engineering principles to his work. Applies Dev-Ops practice and is always eager to grasp all aspects of whatever he's working on. Distributed systems enthusiast, clean code fan and a constant learner.
+    bio: Likes to think of himself as a Platform Engineer. Aspires to employ engineering principles to his work. Applies Dev-Ops practice and is always eager to grasp all aspects of whatever he’s working on. Distributed systems enthusiast, clean code fan and a constant learner.
     github: chemicL
 
 robert.mroczkowski:
@@ -378,3 +378,15 @@ piotr.wikiel:
 michal.duleba:
     name: Michał Dulęba
     bio: Michał is a software engineer with 11+ years of professional experience in testing software, working in Agile since 2014. He believes that QA role is much more than validation and bug chasing activity. At Allegro, he works in a team which develops solutions for the financial department.
+
+wojciech.lizakowski:
+    name: Wojciech Lizakowski
+    bio: QA/tester with several years of experience with various technologies (mobile, WWW, radio) and environments (Android, iOS, Windows, Symbian)
+
+krystyna.abraham-walasiak:
+    name: Krystyna Abraham-Walasiak
+    bio: Agile coach at Allegro, psychologist and experienced social skills trainer approved by Polish Psychologists` Association. She graduated from the School of Transactional Analysis and has participated in a 4-year programme of specialized training courses in the Organisational TA. While working in IT, she likes to look inside a team and analyse relationships between group members.
+
+tetiana.khotiaintseva:
+    name: Tetiana Khotiaintseva
+    bio: Software engineer in the monitoring team. Loves python, clean code, devops culture and challenging problems.

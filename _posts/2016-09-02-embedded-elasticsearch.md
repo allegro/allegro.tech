@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Allegro OpenSource &mdash; embedded-elasticsearch
+title: Allegro OpenSource — embedded-elasticsearch
 author: grzegorz.kaczmarczyk
 tags: [tech, elasticsearch, open source]
 ---
