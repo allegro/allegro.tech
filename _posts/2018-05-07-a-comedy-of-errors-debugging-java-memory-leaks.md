@@ -45,7 +45,7 @@ and the service behaved in a really magical way. Then it dawned on me. What is t
 Garbage collection of course.
 
 Just for cases like this, we keep GC logging on by default. I quickly downloaded the GC log and fired up
-[Censum](https://www.jclarity.com/censum/). Before my eyes, a grisly sight opened: full garbage collections happening
+[Censum](https://www.jclarity.com/censum/). Before my very eyes, a grisly sight opened: full garbage collections happening
 once every 15 minutes and causing 20-second long \[!\] stop-the-world pauses. No wonder the connection to ZooKeeper
 was timing out despite no issues with either ZooKeeper or the network!
 
