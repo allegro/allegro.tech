@@ -584,8 +584,8 @@ or do you prefer to stay with the Java way? That’s awesome.
 Learning a new technology is like an investment.
 We invest our time and then the technology should pay off.
 I’m not saying that Kotlin is a bad language.
-I’m just saying that in our case, the Return On Investment
-was dissatisfactory.
+I’m just saying that in our case, 
+the costs outweighed the benefits.
 
 ## Funny facts about Kotlin
 
