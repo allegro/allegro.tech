@@ -14,12 +14,12 @@ annoying that we decided to rewrite.
 ## We gave Kotlin a try, but now we are rewriting to Java 10
 
 I have my favorite set of JVM languages. Java in `/main` and Groovy in `/test` are the
-best-performing duo for me. In summer 2017 we started a new microservice project,
+best-performing duo for me. In summer 2017 my team started a new microservice project,
 and as usual, we talked about languages and technologies. There are a few Kotlin
 advocating teams at Allegro, and we wanted to try something new, so we decided to give
 Kotlin a try. Since there is no [Spock](http://spockframework.org/) counterpart for Kotlin, we decided
 to stick with Groovy in `/test`
-([Speck](http://spekframework.org/) isn’t as good as Spock).
+([Spek](http://spekframework.org/) isn’t as good as Spock).
 In winter 2018, after few months of working with
 Kotlin on a daily basis,  we summarized pros and cons and arrived at the conclusion
 that Kotlin made us *less* productive.  We started rewriting this microservice to Java.
