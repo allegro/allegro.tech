@@ -8,20 +8,20 @@ tags: [tech, ios, macos, static linking, dyld, dyld3]
 The following article has two parts. The first part describes improving
 [Allegro iOS
 app](https://itunes.apple.com/pl/app/allegro/id305659772?l=pl&mt=8) launch time
-by static linking and shows some time measurements. The second part describes,
-how I&nbsp;managed to launch custom macOS app using not-yet-released dyld3
-[dynamic linker](https://en.wikipedia.org/wiki/Dynamic_linker) and also
+by adopting static linking and shows some time measurements. The second part
+describes, how I&nbsp;managed to launch custom macOS app using not-yet-released
+dyld3 [dynamic linker](https://en.wikipedia.org/wiki/Dynamic_linker) and also
 completes with some time measurements.
 
 ## Improving iOS app launch time
 
 It takes some time to launch a mobile app, especially on system with limited
-power of mobile CPU. Apple suggests 400ms as a&nbsp;good launch time ([WWDC
-2016 - Session 406](https://developer.apple.com/videos/play/wwdc2016/406)).
-[iOS](https://en.wikipedia.org/wiki/IOS) performs zoom animation during the app
-launch – thus creating an opportunity to perform all CPU-exhausting tasks.
-Ideally the whole launch process on iOS should be completed as soon as the app
-opening animation ends.
+power of mobile CPU. Apple suggests
+[400ms](https://developer.apple.com/videos/play/wwdc2016/406) as a&nbsp;good
+launch time. [iOS](https://en.wikipedia.org/wiki/IOS) performs zoom animation
+during the app launch – thus creating an opportunity to perform all
+CPU-intensive tasks. Ideally the whole launch process on iOS should be
+completed as soon as the app opening animation ends.
 
 Apple engineers described some technics to improve launch times in [WWDC 2016 -
 Session 406: Optimizing App Startup
@@ -40,8 +40,8 @@ linking](https://en.wikipedia.org/wiki/Static_library).
 ## Static linking
 
 Allegro iOS app uses a&nbsp;lot of libraries. The app has modular architecture
-and each app module is a&nbsp;separate library. Aside from that, Allegro app
-uses a&nbsp;lot of 3rd-party libraries, integrated using the
+and each module is a&nbsp;separate library. Aside from that, Allegro app uses
+a&nbsp;lot of 3rd-party libraries, integrated using
 [CocoaPods](http://cocoapods.org/) package manager. All these libraries used to
 be integrated as
 [frameworks](https://developer.apple.com/library/content/documentation/MacOSX/Co
