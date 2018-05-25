@@ -234,7 +234,7 @@ them.
 [Dyld sources](https://opensource.apple.com/source/dyld/) contain
 `dyld_closure_util` – a&nbsp;tool that can be used to create and dump dyld
 closures. It looks like Apple open source can rarely be compiled on
-non-internal Apple system, because it has a&nbsp;lot of Apple private
+non-Apple-internal system, because it has a&nbsp;lot of Apple private
 dependencies (e.g. `Bom/Bom.h` and more...). I&nbsp;was lucky –
 `dyld_closure_util` could be compiled with just a&nbsp;couple of simple
 modifications.
