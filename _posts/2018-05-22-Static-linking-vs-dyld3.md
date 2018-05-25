@@ -15,8 +15,8 @@ completes with some time measurements.
 
 ## Improving iOS app launch time
 
-It takes some time to launch a mobile app, especially on system with limited
-power of mobile CPU. Apple suggests
+It takes some time to launch a&nbsp;mobile app, especially on system with
+limited power of mobile CPU. Apple suggests
 [400ms](https://developer.apple.com/videos/play/wwdc2016/406) as a&nbsp;good
 launch time. [iOS](https://en.wikipedia.org/wiki/IOS) performs zoom animation
 during the app launch – thus creating an opportunity to perform all
@@ -45,71 +45,71 @@ a&nbsp;lot of 3rd-party libraries, integrated using
 [CocoaPods](http://cocoapods.org/) package manager. All these libraries used to
 be integrated as
 [frameworks](https://developer.apple.com/library/content/documentation/MacOSX/Co
-nceptual/BPFrameworks/Concepts/WhatAreFrameworks.html) – a&nbsp;standard way of
-dylibs (dynamic libraries) distribution in Apple ecosystem. About 57 nested
-frameworks is a&nbsp;large number and the app launch time reflected that. iOS
-has 20 seconds app launch limit. Any app that hits the limit is instantly
-killed. Allegro app was often killed on a good old iPad 2, when the device was
-freshly started and all caches were empty.
+nceptual/BPFrameworks/Concepts/WhatAreFrameworks.html) – a&nbsp;standard way
+of dylibs (dynamic libraries) distribution in Apple ecosystem. About 57 nested
+frameworks is a&nbsp;number large enough to impact app launch time. iOS has a
+20 seconds app launch time limit. Any app that hits the limit is instantly
+killed. Allegro app was often killed on a&nbsp;good old iPad 2, when the device
+was freshly started and all caches were empty.
 
 Dynamic linker performs a&nbsp;lot of disk IO when searching for dependencies.
 Static linking eliminates the need for all that dylib searching – dependencies
-and executable becomes a&nbsp;one. We decided to give it a&nbsp;try and to link
-at least some of our libraries statically into main executable, hence reducing
+and executable become one. We decided to give it a&nbsp;try and to link at
+least some of our libraries statically into main executable, hence reducing
 frameworks count.
 
 We wanted to do this gradually, framework by framework. We also wanted to have
 a&nbsp;possibility to turn the static linking off in case of emergency.
 
-Our approach had two steps:
-
+We decided to use two-step approach:
 - compiling frameworks code to static libraries,
-
 - converting frameworks (dynamic library packages) to resource bundles
   (resources packages).
 
-### Compiling framework code as static library
+### Compiling framework code as a static library
 
 Xcode 9 provides `MACH_O_TYPE = staticlib` build setting –
 [linker](https://en.wikipedia.org/wiki/Linker_(computing)) produces static
-library when the flag is set. As for CocoaPods libraries, we had to create
-custom script in [Podfile](https://guides.cocoapods.org/syntax/podfile.html) to
-set this flag only for selected external libraries during `pod install` (that
-is during dependencies installation, because CocoaPods create new project
-structures for managed libraries each dependencies reinstallation).
+library when the flag is set. As for libraries integrated through CocoaPods, we
+had to create custom script in
+[Podfile](https://guides.cocoapods.org/syntax/podfile.html) to set this flag
+only for selected external libraries during `pod install` (that is during
+dependencies installation, because CocoaPods creates new project structures for
+managed libraries with each reinstallation).
 
 `MACH_O_TYPE` does a&nbsp;great job, but we performed static linking even
 before Xcode&nbsp;9 was released. Although Xcode&nbsp;8 had no support for
-static Swift linking, there was a&nbsp;way to perform static linking using
+static Swift linking, there is a&nbsp;way to perform static linking using
 [`libtool`](http://www.manpagez.com/man/1/libtool/). In those dark times, we
 were just adding custom build phase with [buildstatic
 script](https://github.com/aliceatlas/buildstatic) for selected libraries. This
 may seem like a&nbsp;hack, but it is really just a&nbsp;hefty usage of
-well-documented tooling... and this was flawless.
+well-documented toolset... and this was flawless.
 
 That way we replaced our dynamic libraries with static libraries, but that was
 the easier part of the job.
 
 ### Converting framework to resource bundle
 
-Framework without nested dynamic library doesn't seems to be a&nbsp;good idea.
+Framework without nested dynamic library doesn't seem to be a&nbsp;good idea.
 Resource bundle is a&nbsp;standard way of wrapping resources in Apple
 ecosystem, so we created `framework_to_bundle.sh` which takes `*.framework` and
 outputs `*.bundle` with all the resources (images, NIBs, etc.).
 
-The resources handling code was redesigned to automatically find right resource
-location. Allegro iOS app has `Bundle.resourcesBundle(forModuleName:)` method,
-which always finds the right bundle, no matter what linking type was used.
+The resources-handling code was redesigned to automatically use right resource
+location. Allegro iOS app has a&nbsp;`Bundle.resourcesBundle(forModuleName:)`
+method, which always finds the right bundle, no matter what linking type was
+used.
 
 ### Results
 
-Last time the Allegro iOS app launch time was measured, the app still had 31
-dynamic libraries – so merely 45% libraries were linked statically and results
-already were very promising. Our job with static linking revolution is not
-completed yet, the target is 100%.
+Last time the Allegro iOS app launch time was measured, it still had 31 dynamic
+libraries – so merely 45% libraries were linked statically and results were
+already very promising. Our job with static linking revolution is not complete
+yet, the target is 100%.
 
-We measured launch time on few different devices for two app version: one with
-all libraries dynamically linked, and the second with 26 libraries statically
+We measured launch time on different devices for two app versions: one with all
+libraries dynamically linked, and the other one with 26 libraries statically
 linked. What measurement method did we use? A&nbsp;stopwatch... yes, real
 stopwatch. `DYLD_PRINT_STATISTICS=1` variable is a&nbsp;tool that can help
 identify the reason of a&nbsp;dynamic linker being slow, but it does not
@@ -129,7 +129,7 @@ Each measurement in the following table is an average of 6&nbsp;samples.
 31 dylibs app launch time | 6.62s  | 6.08s  | 5.39s  | 2.75s  | 1.75s  | 7.27s
 Launch speedup %          | 15.02% | 17.05% | 26.16% | 12.42% | 24.24% | 38.13%
 
-Allegro iOS app launch time increased by about 2&nbsp;second on iPhone 5c –
+Allegro iOS app launch time decreased by about 2&nbsp;second on iPhone 5c –
 this was a&nbsp;significant gain. The app launch time improved even more on
 freshly turned on iPad2 – the difference was about 4.5 seconds, which was about
 38% of the launch time with all libraries being dynamically linked.
@@ -149,12 +149,12 @@ dynamic library symbols and to detect duplicates.
 Dyld3, the brand new [dynamic
 linker](https://en.wikipedia.org/wiki/Dynamic_linker), was announced about
 a&nbsp;year ago at [WWDC
-2017](https://developer.apple.com/videos/play/wwdc2017/413/). It is close to
-WWDC 2018, and dyld3 still is not available for 3rd party apps. Currently only
-[system apps use
+2017](https://developer.apple.com/videos/play/wwdc2017/413/). At the time of
+writing this article, we are getting close to WWDC 2018, and dyld3 still is not
+available for 3rd party apps. Currently only [system apps use
 dyld3](https://twitter.com/lgerbarg/status/882055176298704896). I&nbsp;couldn't
-wait any longer, I&nbsp;was too curious about dyld3 real power. I&nbsp;decided
-to try launching my own app using dyld3.
+wait any longer, I&nbsp;was too curious about its real power. I&nbsp;decided to
+try launching my own app using dyld3.
 
 ### Looking for dyld3
 
@@ -191,21 +191,22 @@ libdyld.dylib`dyld3::AllImages::applyInterposingToDyldCache:
 Target 0: (Calculator) stopped.
 ```
 
-lldb hit some dyld3-symbol during system app launch, and did not during a test
-app launch. Inspecting the backtrace and the assembly showed that
+lldb hit some dyld3-symbol during system app launch, and did not during
+a&nbsp;test app launch. Inspecting the backtrace and the assembly showed that
 `/usr/lib/dyld` contained both the old dyld2 and the brand new dyld3. There had
-to be some `if` that decided which dyldX should be used in app launching.
+to be some `if` that decided which dyldX should be used.
 
 Reading assembly code is often a&nbsp;really hard process. Fortunately
-I&nbsp;remembered that some parts of apple code are open sources, including
+I&nbsp;remembered that some parts of apple code are open sourced, including
 [dyld](https://opensource.apple.com/source/dyld/). My local binary had
 `LC_SOURCE_VERSION = 551.3` and the most recent dyld source available was
 `519.2.2`. Are those versions distant? I&nbsp;was looking at local dyld
 assembly and corresponding dyld sources for a&nbsp;few nights and didn't see
-any significant difference. In fact I&nbsp;had strange feeling that the source
-code exactly matches the assembly – it was a&nbsp;perfect guide for debugging.
+any significant difference. In fact I&nbsp;had a&nbsp;strange feeling that the
+source code exactly matches the assembly – it was a&nbsp;perfect guide for
+debugging.
 
-What did I&nbsp;finish with? Hidden dyld3 can be activated on macOS High Sierra
+What did I&nbsp;end up with? Hidden dyld3 can be activated on macOS High Sierra
 using one of two following approaches:
 
 1. setting ``dyld`sEnableClosures``:
@@ -227,21 +228,22 @@ using one of two following approaches:
 
 [Louis Gerbarg](https://twitter.com/lgerbarg) mentioned the concept of dyld
 closure at [WWDC 2017](https://developer.apple.com/videos/play/wwdc2017/413/).
-Dyld closure contains all the informations needed to launch the app. Dyld
+Dyld closure contains all the informations needed to launch an app. Dyld
 closures can be cached, so the dyld can save a&nbsp;lot of time just restoring
-dyld closures from the cache.
+them.
 
 [Dyld sources](https://opensource.apple.com/source/dyld/) contain
-`dyld_closure_util` – the tool that can be used to create and dump dyld
-closures. It looks like Apple open source can rarely be compiled on non Apple
-internal system, because it has a&nbsp;lot of Apple-private dependencies (e.g.
-`Bom/Bom.h` and more...). I&nbsp;was lucky – `dyld_closure_util` could be
-compiled with just a&nbsp;couple of simple modifications.
+`dyld_closure_util` – a&nbsp;tool that can be used to create and dump dyld
+closures. It looks like Apple open source can rarely be compiled on
+non-internal Apple system, because it has a&nbsp;lot of Apple private
+dependencies (e.g. `Bom/Bom.h` and more...). I&nbsp;was lucky –
+`dyld_closure_util` could be compiled with just a&nbsp;couple of simple
+modifications.
 
-I created macOS app just to check the dyld3 in action. The `TestMacApp.app` app
-contained 20 frameworks, 1000 ObjC classes and about 1000~10000 methods each.
-I&nbsp;tried to create a&nbsp;dyld closure for the app, its JSON representation
-was pretty long - hundreds of thousands lines:
+I created a&nbsp;macOS app just to check the dyld3 in action. The
+`TestMacApp.app` contained 20 frameworks, 1000 ObjC classes and about
+1000~10000 methods each. I&nbsp;tried to create a&nbsp;dyld closure for the
+app, its JSON representation was pretty long - hundreds of thousands lines:
 
 ```bash
 $ dyld_closure_util -create_closure ~/tmp/TestMacApp.app/Contents/MacOS/TestMacApp | wc -l
@@ -279,8 +281,8 @@ The basic JSON representation of a&nbsp;dyld closure looks as follows:
 }
 ```
 
-Dyld closure contains fully resolved dylib dependency tree. That means: no more
-expensive dylibs searching.
+Dyld closure contains a&nbsp;fully resolved dylib dependency tree. That means:
+no more expensive dylibs searching.
 
 ### Dyld3 closure cache
 
