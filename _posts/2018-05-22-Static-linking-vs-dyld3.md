@@ -8,10 +8,11 @@ tags: [tech, ios, macos, static linking, dyld, dyld3]
 The following article has two parts. The first part describes improving
 [Allegro iOS
 app](https://itunes.apple.com/pl/app/allegro/id305659772?l=pl&mt=8) launch time
-by adopting static linking and evaluation metric. The second part describes,
-how I&nbsp;managed to launch custom macOS app using not-yet-released dyld3
-[dynamic linker](https://en.wikipedia.org/wiki/Dynamic_linker) and also
-completes with some time measurements.
+by adopting static linking and sums it up with evaluation metric. The second
+part describes, how I&nbsp;managed to launch custom macOS app using
+not-yet-released dyld3 [dynamic
+linker](https://en.wikipedia.org/wiki/Dynamic_linker) and also completes with
+evaluation metric.
 
 ## Improving iOS app launch time
 
@@ -44,13 +45,12 @@ architecture and each module is a&nbsp;separate library. Aside from that,
 Allegro app uses a&nbsp;lot of 3rd-party libraries, integrated using
 [CocoaPods](http://cocoapods.org/) package manager. All these libraries used to
 be integrated as
-[frameworks](https://developer.apple.com/library/content/documentation/MacOSX/Co
-nceptual/BPFrameworks/Concepts/WhatAreFrameworks.html) – a&nbsp;standard way
-of dylibs (dynamic libraries) distribution in Apple ecosystem. About 57 nested
-frameworks is a&nbsp;number large enough to impact app launch time. iOS has a
-20 seconds app launch time limit. Any app that hits the limit is instantly
-killed. Allegro app was often killed on a&nbsp;good old iPad 2, when the device
-was freshly started and all caches were empty.
+[frameworks](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WhatAreFrameworks.html) –
+a&nbsp;standard way of dylibs (dynamic libraries) distribution in Apple
+ecosystem. About 57 nested frameworks is a&nbsp;number large enough to impact
+app launch time. iOS has a 20 seconds app launch time limit. Any app that hits
+the limit is instantly killed. Allegro app was often killed on a&nbsp;good old
+iPad 2, when the device was freshly started and all caches were empty.
 
 Dynamic linker performs a&nbsp;lot of disk IO when searching for dependencies.
 Static linking eliminates the need for all that dylib searching – dependencies
@@ -91,10 +91,11 @@ the easier part of the job.
 
 ### Converting framework to resource bundle
 
-Framework without nested dynamic library doesn't seem to be a&nbsp;good idea.
-Resource bundle is a&nbsp;standard way of wrapping resources in Apple
-ecosystem, so we created `framework_to_bundle.sh` which takes `*.framework` and
-outputs `*.bundle` with all the resources (images, NIBs, etc.).
+Aside from dynamic libraries, framework can also contain resources (images,
+NIBs, etc.). We got rid of dynamic libraries, but we couldn't leave
+resource-only-frameworks. Resource bundle is a&nbsp;standard way of wrapping
+resources in Apple ecosystem, so we created `framework_to_bundle.sh` script,
+which takes `*.framework` and outputs `*.bundle` with all the resources.
 
 The resources-handling code was redesigned to automatically use right resource
 location. Allegro iOS app has a&nbsp;`Bundle.resourcesBundle(forModuleName:)`
@@ -123,15 +124,15 @@ TODO: insert gif
 
 Each measurement in the following table is an average of 6&nbsp;samples.
 
-&nbsp;                    | 4s     | iPad 2 | 5c     | 5s     | 7+     | iPad2 cold launch
---------------------------|--------|--------|--------|--------|--------|------------------
-57 dylibs app launch time | 7.79s  | 7.33s  | 7.30s  | 3.14s  | 2.31s  | 11.75s
-31 dylibs app launch time | 6.62s  | 6.08s  | 5.39s  | 2.75s  | 1.75s  | 7.27s
-Launch speedup %          | 15.02% | 17.05% | 26.16% | 12.42% | 24.24% | 38.13%
+&nbsp;                    | iPhone 4s | iPad 2 | iPhone 5c | iPhone 5s | iPhone 7+ | iPad 2 cold launch
+--------------------------|-----------|--------|-----------|-----------|-----------|------------------
+57 dylibs app launch time | 7.79s     | 7.33s  | 7.30s     | 3.14s     | 2.31s     | 11.75s
+31 dylibs app launch time | 6.62s     | 6.08s  | 5.39s     | 2.75s     | 1.75s     | 7.27s
+Launch speedup %          | 15.02%    | 17.05% | 26.16%    | 12.42%    | 24.24%    | 38.13%
 
 Allegro iOS app launch time decreased by about 2&nbsp;second on iPhone 5c –
 this was a&nbsp;significant gain. The app launch time improved even more on
-freshly turned on iPad2 – the difference was about 4.5 seconds, which was about
+freshly turned on iPad 2 – the difference was about 4.5 seconds, which was about
 38% of the launch time with all libraries being dynamically linked.
 
 ![speedup](/img/articles/2018-05-22-Static-linking-vs-dyld3/speedup.png)
@@ -140,7 +141,7 @@ freshly turned on iPad2 – the difference was about 4.5 seconds, which was abou
 
 Having some statically linked library, beware of linking it with more than one
 dynamic library – this will result in static library objects being duplicated
-across dynamic libraries and that could be a&nbsp;serious problem.
+across different dynamic libraries and that could be a&nbsp;serious problem.
 [`otool`](http://www.manpagez.com/man/1/otool/) can be used to display all
 dynamic library symbols and to detect duplicates.
 
@@ -191,7 +192,7 @@ Target 0: (Calculator) stopped.
 ```
 
 lldb hit some dyld3-symbol during system app launch and did not during
-a&nbsp;test app launch. Inspecting the backtrace and the assembly showed that
+any custom app launch. Inspecting the backtrace and the assembly showed that
 `/usr/lib/dyld` contained both the old dyld2 and the brand new dyld3. There had
 to be some `if` that decided which dyldX should be used.
 
@@ -295,13 +296,14 @@ an&nbsp;`update_dyld_shared_cache` tool source code. Unfortunately this tool
 uses some Apple-private libraries, I&nbsp;was not able to compile it on my
 system. By pure accident I&nbsp;found that this tool is available in every
 macOS High Sierra in `/usr/bin/update_dyld_shared_cache`. Also the [`man
-update_dyld_shared_cache`](http://www.manpagez.com/man/1/update_dyld_shared_cach
-e/) was present – this made the cache rebuild even simpler.
+update_dyld_shared_cache`](http://www.manpagez.com/man/1/update_dyld_shared_cache/)
+was present – this made the cache rebuild even simpler.
 
 `update_dyld_shared_cache` sources showed that it generates dyld closures cache
 only for a&nbsp;set of predefined system apps. I&nbsp;could modify the tool
-binary to use my test app, but I&nbsp;ended up renaming my test app to
-`Calculator.app` and moving it to `/Applications` – simple, but effective.
+binary to take `TestMacApp.app` into account, but I&nbsp;ended up renaming the
+test app to `Calculator.app` and moving it to `/Applications` – simple, but
+effective.
 
 I updated the dyld closure cache:
 
