@@ -8,9 +8,9 @@ tags: [tech, ios, macos, static linking, dyld, dyld3]
 The following article has two parts. The first part describes improving
 [Allegro iOS
 app](https://itunes.apple.com/pl/app/allegro/id305659772?l=pl&mt=8) launch time
-by adopting static linking and shows some time measurements. The second part
-describes, how I&nbsp;managed to launch custom macOS app using not-yet-released
-dyld3 [dynamic linker](https://en.wikipedia.org/wiki/Dynamic_linker) and also
+by adopting static linking and evaluation metric. The second part describes,
+how I&nbsp;managed to launch custom macOS app using not-yet-released dyld3
+[dynamic linker](https://en.wikipedia.org/wiki/Dynamic_linker) and also
 completes with some time measurements.
 
 ## Improving iOS app launch time
@@ -32,7 +32,7 @@ Future](https://developer.apple.com/videos/play/wwdc2017/413/). Looking at the
 history of dyld, one can see that Apple is constantly trying to make OS
 infrastructure faster.
 
-In Allegro we also try to make our apps as fast as possible. Aside from using
+At Allegro we also try to make our apps as fast as possible. Aside from using
 Swift (Swift performs much better than ObjC in terms of launch time and app
 speed), we build our iOS apps using [static
 linking](https://en.wikipedia.org/wiki/Static_library).
@@ -109,7 +109,7 @@ already very promising. Our job with static linking revolution is not complete
 yet, the target is 100%.
 
 We measured launch time on different devices for two app versions: one with all
-libraries dynamically linked, and the other one with 26 libraries statically
+libraries dynamically linked and the other one with 26 libraries statically
 linked. What measurement method did we use? A&nbsp;stopwatch... yes, real
 stopwatch. `DYLD_PRINT_STATISTICS=1` variable is a&nbsp;tool that can help
 identify the reason of a&nbsp;dynamic linker being slow, but it does not
@@ -150,7 +150,7 @@ Dyld3, the brand new [dynamic
 linker](https://en.wikipedia.org/wiki/Dynamic_linker), was announced about
 a&nbsp;year ago at [WWDC
 2017](https://developer.apple.com/videos/play/wwdc2017/413/). At the time of
-writing this article, we are getting close to WWDC 2018, and dyld3 still is not
+writing this article, we are getting close to WWDC 2018 and dyld3 still is not
 available for 3rd party apps. Currently only [system apps use
 dyld3](https://twitter.com/lgerbarg/status/882055176298704896). I&nbsp;couldn't
 wait any longer, I&nbsp;was too curious about its real power. I&nbsp;decided to
@@ -158,8 +158,7 @@ try launching my own app using dyld3.
 
 ### Looking for dyld3
 
-I wondered: What makes system apps so special, that they are launched with
-dyld3?
+I wondered: What makes system apps so special that they are launched with dyld3?
 
 First guess: `LC_LOAD_DYLINKER` load command points to dyld3 executable...
 
@@ -191,7 +190,7 @@ libdyld.dylib`dyld3::AllImages::applyInterposingToDyldCache:
 Target 0: (Calculator) stopped.
 ```
 
-lldb hit some dyld3-symbol during system app launch, and did not during
+lldb hit some dyld3-symbol during system app launch and did not during
 a&nbsp;test app launch. Inspecting the backtrace and the assembly showed that
 `/usr/lib/dyld` contained both the old dyld2 and the brand new dyld3. There had
 to be some `if` that decided which dyldX should be used.
@@ -212,7 +211,7 @@ using one of two following approaches:
 1. setting ``dyld`sEnableClosures``:
   - ``dyld`sEnableClosures`` needs to be set by e.g. using lldb `memory write`
     (unfortunately undocumented `DYLD_USE_CLOSURES=1` variable only works on
-    Apple internall systems),
+    Apple internal systems),
   - `/usr/libexec/closured` needs be compiled from [dyld
     sources](https://opensource.apple.com/source/dyld/) (it needs a&nbsp;few
     modifications to compile),
@@ -282,7 +281,7 @@ The basic JSON representation of a&nbsp;dyld closure looks as follows:
 ```
 
 Dyld closure contains a&nbsp;fully resolved dylib dependency tree. That means:
-no more expensive dylibs searching.
+no more expensive dylib searching.
 
 ### Dyld3 closure cache
 
@@ -294,14 +293,14 @@ closure is currently not being cached.
 [Dyld sources](https://opensource.apple.com/source/dyld/) contain
 an&nbsp;`update_dyld_shared_cache` tool source code. Unfortunately this tool
 uses some Apple-private libraries, I&nbsp;was not able to compile it on my
-system. By the pure accident I&nbsp;found, that this tool is available in every
+system. By pure accident I&nbsp;found that this tool is available in every
 macOS High Sierra in `/usr/bin/update_dyld_shared_cache`. Also the [`man
 update_dyld_shared_cache`](http://www.manpagez.com/man/1/update_dyld_shared_cach
 e/) was present – this made the cache rebuild even simpler.
 
-`update_dyld_shared_cache` sources showed that the tool generates dyld closures
-cache only for a&nbsp;set of predefined system apps. I&nbsp;could modify the
-tool binary to use my test app, but I&nbsp;ended up renaming my test app to
+`update_dyld_shared_cache` sources showed that it generates dyld closures cache
+only for a&nbsp;set of predefined system apps. I&nbsp;could modify the tool
+binary to use my test app, but I&nbsp;ended up renaming my test app to
 `Calculator.app` and moving it to `/Applications` – simple, but effective.
 
 I updated the dyld closure cache:
@@ -310,7 +309,7 @@ I updated the dyld closure cache:
 sudo update_dyld_shared_cache -force
 ````
 
-and restarted my macOS (as stated by `man update_dyld_shared_cache`). After
+and restarted my system (as stated by `man update_dyld_shared_cache`). After
 that, my test app launched using dyld3! I&nbsp;verified that with lldb. Also
 setting `DYLD_PRINT_WARNINGS=1` variable showed that the dyld closure was not
 generated, but taken from the dyld cache:
@@ -333,9 +332,9 @@ invoking the launch command and the app exit. I&nbsp;didn't use
 dyld3 does not even support this variable yet.
 
 Test platform was MacBook Pro Retina, 13-inch, Early 2015 (3,1 GHz Intel Core
-i7). Unfortunately I&nbsp;didn't have access to any significantly slower
-machine. Each measurement in the following tables is an average of
-6&nbsp;samples. Two types of launches were measured:
+i7) with macOS High Sierra 10.13.4 (17E202). Unfortunately I&nbsp;didn't have
+access to any significantly slower machine. Each measurement in the following
+tables is an average of 6&nbsp;samples. Two types of launches were measured:
 
 - warm launch – without system restart,
 - cold launch – system restart between each measured time sample.
@@ -348,7 +347,7 @@ warm        | 0.737s | 0.726s | 0.676s
 cold        | 1.166s | 1.094s | 0.871s
 
 I tried measuring app launch from some slower drive configuration – an old USB
-drive (having terribly low read speed of 17.1 MB/s). The disk IO supposed to be
+drive (having terribly low read speed of 17.1 MB/s). Disk IO was supposed to be
 a&nbsp;bottleneck of dyld2 loading. I&nbsp;faked `/Application/Calculator.app`
 path using `ln -s /Volumes/USB/Calculator.app` and regenerated dyld caches.
 
@@ -364,18 +363,20 @@ cold        | 3.687s | 2.947s | 2.276s
 
 ### dyld3 status
 
-Mind, that dyld3 in still under the development, it has not yet been released.
+Mind that dyld3 in still under the development, it has not yet been released.
 I&nbsp;guess it is currently available for system apps, not to increase their
 speed, but mainly to test dyld3 stability.
 
-Louis Gerbarg told, that dyld3 has its daemon. On macOS High Sierra there is no
-dyld3 daemon. `closured` is currently invoked by dyld3 as a&nbsp;command line
-tool with `fork`+`execve`. It does not even cache created dyld closures. For
-sure we will see a&nbsp;lot of changes in the near future.
+[Louis Gerbarg](https://twitter.com/lgerbarg) told that dyld3 has its daemon.
+On macOS High Sierra there is no dyld3 daemon. `closured` is currently invoked
+by dyld3 as a&nbsp;command line tool with `fork`+`execve`. It does not even
+cache created dyld closures. For sure we will see a&nbsp;lot of changes in the
+near future.
 
 Are you curious about my opinion? I&nbsp;think the fully working dyld3 with
 `closured` daemon will be shipped with the next major macOS version.
-I&nbsp;think this new dyld3 version will implement even faster in-memory closure
-cache. Everyone will feel a&nbsp;drastic app launch time improvement on all the
-Apple platforms – launch time much closer to the statically linked app launching
-than to the current dyld2 launching time. I&nbsp;keep my fingers crossed.
+I&nbsp;think this new dyld3 version will implement even faster in-memory
+closure cache. Everyone will feel a&nbsp;drastic app launch time improvement on
+all Apple platforms – launch time much closer to the statically linked app
+launching than to the current dyld2 launching time. I&nbsp;keep my fingers
+crossed.
