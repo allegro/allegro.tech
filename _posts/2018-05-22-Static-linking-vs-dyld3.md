@@ -98,7 +98,8 @@ resources in Apple ecosystem, so we created `framework_to_bundle.sh` script,
 which takes `*.framework` and outputs `*.bundle` with all the resources.
 
 The resources-handling code was redesigned to automatically use right resource
-location. Allegro iOS app has a&nbsp;`Bundle.resourcesBundle(forModuleName:)`
+location. Allegro iOS app has
+a&nbsp;[`Bundle.resourcesBundle(forModuleName:)`](https://gist.github.com/kam800/b98b25ed56dd704feffeadce474ae251)
 method, which always finds the right bundle, no matter what linking type was
 used.
 
