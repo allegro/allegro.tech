@@ -39,9 +39,9 @@ linking](https://en.wikipedia.org/wiki/Static_library).
 
 ## Static linking
 
-Allegro iOS app uses a&nbsp;lot of libraries. The app has modular architecture
-and each module is a&nbsp;separate library. Aside from that, Allegro app uses
-a&nbsp;lot of 3rd-party libraries, integrated using
+Allegro iOS app uses **a&nbsp;lot** of libraries. The app has modular
+architecture and each module is a&nbsp;separate library. Aside from that,
+Allegro app uses a&nbsp;lot of 3rd-party libraries, integrated using
 [CocoaPods](http://cocoapods.org/) package manager. All these libraries used to
 be integrated as
 [frameworks](https://developer.apple.com/library/content/documentation/MacOSX/Co
