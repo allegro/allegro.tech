@@ -94,8 +94,9 @@ the easier part of the job.
 Aside from dynamic libraries, framework can also contain resources (images,
 NIBs, etc.). We got rid of dynamic libraries, but we couldn't leave
 resource-only-frameworks. Resource bundle is a&nbsp;standard way of wrapping
-resources in Apple ecosystem, so we created `framework_to_bundle.sh` script,
-which takes `*.framework` and outputs `*.bundle` with all the resources.
+resources in Apple ecosystem, so we created
+[`framework_to_bundle.sh`](https://gist.github.com/kam800/1fe287931ab4968633b068fe5359e76b) 
+script, which takes `*.framework` and outputs `*.bundle` with all the resources.
 
 The resources-handling code was redesigned to automatically use right resource
 location. Allegro iOS app has
@@ -143,8 +144,9 @@ freshly turned on iPad 2 – the difference was about 4.5 seconds, which was abo
 Having some statically linked library, beware of linking it with more than one
 dynamic library – this will result in static library objects being duplicated
 across different dynamic libraries and that could be a&nbsp;serious problem.
-[`otool`](http://www.manpagez.com/man/1/otool/) can be used to display all
-dynamic library symbols and to detect duplicates.
+We have created a
+[`check_duplicated_classes.sh`](https://gist.github.com/kam800/d9b4b986164503a13ca4c7f0a06ec7f9)
+script to be run as a final build phase.
 
 ## Dyld3
 
