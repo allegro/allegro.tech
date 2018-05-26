@@ -274,7 +274,7 @@ The basic JSON representation of a&nbsp;dyld closure looks as follows:
         },
         /* ... */
       ],
-      "fixups": [ /* ... */ ],
+      /* ... */
     },
     {
       "path": "/Users/kamil.borzym/tmp/TestMacApp.app/Contents/Frameworks/Frm1.framework/Versions/A/Frm1",
@@ -346,7 +346,8 @@ tables is an average of 6&nbsp;samples. Two types of launches were measured:
 - warm launch – without system restart,
 - cold launch – system restart between each measured time sample.
 
-Statically linked app always launched very fast, but I&nbsp;could not see any significant difference between dyld2 and dyld3 loading.
+Statically linked app always launched very fast, but I&nbsp;could not see any
+significant difference between dyld2 and dyld3 loading time.
 
 launch type | dyld2  | dyld3  | static
 ------------|--------|--------|-------
@@ -354,9 +355,10 @@ warm        | 0.737s | 0.726s | 0.676s
 cold        | 1.166s | 1.094s | 0.871s
 
 I tried measuring app launch from some slower drive configuration – an old USB
-drive (having terribly low read speed of 17.1 MB/s). Disk IO was supposed to be
-a&nbsp;bottleneck of dyld2 loading. I&nbsp;faked `/Application/Calculator.app`
-path using `ln -s /Volumes/USB/Calculator.app` and regenerated dyld caches.
+drive (having terribly low sequential read speed of 17.1 MB/s). Disk IO was
+supposed to be a&nbsp;bottleneck of dyld2 loading. I&nbsp;faked
+`/Application/Calculator.app` path using `ln -s /Volumes/USB/Calculator.app`
+and regenerated dyld cache.
 
 Next measurements looked much better. No difference at warm launch, but cold
 launch was 20% faster with dyld3 than with dyld2. Actually dyld3 cold launch
@@ -370,9 +372,9 @@ cold        | 3.687s | 2.947s | 2.276s
 
 ### dyld3 status
 
-Mind that dyld3 in still under development, it has not been released yet.
-I&nbsp;guess it is currently available for system apps not to increase their
-speed, but mainly to test dyld3 stability.
+Mind that dyld3 in still under development, it has not been released for 3rd
+party apps yet. I&nbsp;guess it is currently available for system apps not to
+increase their speed, but mainly to test dyld3 stability.
 
 [Louis Gerbarg](https://twitter.com/lgerbarg) said that dyld3 had its daemon.
 On macOS High Sierra there is no dyld3 daemon. `closured` is currently invoked
