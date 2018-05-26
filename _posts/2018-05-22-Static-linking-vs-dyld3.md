@@ -41,11 +41,11 @@ speed), we build our iOS apps using
 Allegro iOS app uses **a&nbsp;lot** of libraries. The app has modular
 architecture and each module is a&nbsp;separate library. Aside from that,
 Allegro app uses a&nbsp;lot of 3rd-party libraries, integrated using
-[CocoaPods](http://cocoapods.org/) package manager. All these libraries used to
+[CocoaPods](https://cocoapods.org/) package manager. All these libraries used to
 be integrated as
 [frameworks](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WhatAreFrameworks.html) –
 a&nbsp;standard way of dylibs (dynamic libraries) distribution in Apple
-ecosystem. 57 nested frameworks is a&nbsp;number large enough to impact app
+ecosystem. 57&nbsp;nested frameworks is a&nbsp;number large enough to impact app
 launch time. iOS has a&nbsp;20 seconds app launch time limit. Any app that hits
 that limit is instantly killed. Allegro app was often killed on a&nbsp;good old
 iPad 2, when the device was freshly started and all caches were empty.
@@ -79,9 +79,9 @@ managed libraries with each reinstallation).
 `MACH_O_TYPE` does a&nbsp;great job, but we performed static linking even
 before Xcode&nbsp;9 was released. Although Xcode&nbsp;8 had no support for
 static Swift linking, there is a&nbsp;way to perform static linking using
-[`libtool`](http://www.manpagez.com/man/1/libtool/). In those dark times, we
+[`libtool`](https://www.manpagez.com/man/1/libtool/). In those dark times, we
 were just adding custom build phase with
-[buildstatic script](https://github.com/aliceatlas/buildstatic) for selected 
+[buildstatic](https://github.com/aliceatlas/buildstatic) script for selected 
 libraries. This may seem like a&nbsp;hack, but it is really just a&nbsp;hefty
 usage of well-documented toolset... and it worked flawlessly.
 
@@ -301,7 +301,7 @@ an&nbsp;`update_dyld_shared_cache` tool source code. Unfortunately this tool
 uses some Apple-private libraries, I&nbsp;was not able to compile it on my
 system. By pure accident I&nbsp;found that this tool is available in every
 macOS High Sierra in `/usr/bin/update_dyld_shared_cache`. Also the
-[`man update_dyld_shared_cache`](http://www.manpagez.com/man/1/update_dyld_shared_cache/)
+[`man update_dyld_shared_cache`](https://www.manpagez.com/man/1/update_dyld_shared_cache/)
 was present – this made the cache rebuild even simpler.
 
 `update_dyld_shared_cache` sources showed that it generates dyld closures cache
@@ -333,7 +333,7 @@ a&nbsp;simple dependency network between those frameworks: main app depended on
 all frameworks, 1st framework depended on 19 frameworks, 2nd framework depended
 on 18 frameworks, 3rd framework depended on 17 frameworks, and so on... After
 launching, the app just invoked `exit(0)`. I&nbsp;used
-[`time`](http://www.manpagez.com/man/1/time/) to measure the time between
+[`time`](https://www.manpagez.com/man/1/time/) to measure the time between
 invoking the launch command and app exit. I&nbsp;didn't use
 `DYLD_PRINT_STATISTICS=1`, because, aside from the reasons presented above,
 dyld3 does not even support this variable yet.
