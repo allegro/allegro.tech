@@ -6,17 +6,16 @@ tags: [tech, ios, macos, static linking, dyld, dyld3]
 ---
 
 The following article has two parts. The first part describes improving
-[Allegro iOS
-app](https://itunes.apple.com/pl/app/allegro/id305659772?l=pl&mt=8) launch time
-by adopting static linking and sums it up with evaluation metric. The second
-part describes, how I&nbsp;managed to launch custom macOS app using
-not-yet-released dyld3 [dynamic
-linker](https://en.wikipedia.org/wiki/Dynamic_linker) and also completes with
-evaluation metric.
+[Allegro iOS app](https://itunes.apple.com/pl/app/allegro/id305659772?l=pl&mt=8)
+launch time by adopting static linking and sums it up with a speedup analysis.
+The second part describes how I&nbsp;managed to launch a custom macOS app using
+not-yet-fully-released dyld3
+[dynamic linker](https://en.wikipedia.org/wiki/Dynamic_linker) and also
+completes with a speedup analysis.
 
 ## Improving iOS app launch time
 
-It takes some time to launch a&nbsp;mobile app, especially on system with
+It takes some time to launch a&nbsp;mobile app, especially on a system with
 limited power of mobile CPU. Apple suggests
 [400ms](https://developer.apple.com/videos/play/wwdc2016/406) as a&nbsp;good
 launch time. [iOS](https://en.wikipedia.org/wiki/IOS) performs zoom animation
@@ -24,19 +23,18 @@ during the app launch – thus creating an opportunity to perform all
 CPU-intensive tasks. Ideally the whole launch process on iOS should be
 completed as soon as the app opening animation ends.
 
-Apple engineers described some technics to improve launch times in [WWDC 2016 -
-Session 406: Optimizing App Startup
-Time](https://developer.apple.com/videos/play/wwdc2016/406). This wasn't
-enough, the very next year they announced brand new dynamic linker in [WWDC
-2017 - Session 413: App Startup Time: Past, Present, and
-Future](https://developer.apple.com/videos/play/wwdc2017/413/). Looking at the
-history of dyld, one can see that Apple is constantly trying to make OS
-infrastructure faster.
+Apple engineers described some techniques to improve launch times in
+[WWDC 2016 - Session 406: Optimizing App Startup Time](https://developer.apple.com/videos/play/wwdc2016/406).
+This wasn't enough, so the very next year they announced a brand new dynamic
+linker in
+[WWDC 2017 - Session 413: App Startup Time: Past, Present, and Future](https://developer.apple.com/videos/play/wwdc2017/413/).
+Looking at the history of dyld, one can see that Apple is constantly trying to
+make their operating systems faster.
 
 At Allegro we also try to make our apps as fast as possible. Aside from using
 Swift (Swift performs much better than ObjC in terms of launch time and app
-speed), we build our iOS apps using [static
-linking](https://en.wikipedia.org/wiki/Static_library).
+speed), we build our iOS apps using
+[static linking](https://en.wikipedia.org/wiki/Static_library).
 
 ## Static linking
 
@@ -47,10 +45,10 @@ Allegro app uses a&nbsp;lot of 3rd-party libraries, integrated using
 be integrated as
 [frameworks](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WhatAreFrameworks.html) –
 a&nbsp;standard way of dylibs (dynamic libraries) distribution in Apple
-ecosystem. About 57 nested frameworks is a&nbsp;number large enough to impact
-app launch time. iOS has a 20 seconds app launch time limit. Any app that hits
-the limit is instantly killed. Allegro app was often killed on a&nbsp;good old
-iPad 2, when the device was freshly started and all caches were empty.
+ecosystem. 57 nested frameworks is a&nbsp;number large enough to impact app
+launch time. iOS has a 20 seconds app launch time limit. Any app that hits that
+limit is instantly killed. Allegro app was often killed on a&nbsp;good old iPad
+2, when the device was freshly started and all caches were empty.
 
 Dynamic linker performs a&nbsp;lot of disk IO when searching for dependencies.
 Static linking eliminates the need for all that dylib searching – dependencies
@@ -59,9 +57,10 @@ least some of our libraries statically into main executable, hence reducing
 frameworks count.
 
 We wanted to do this gradually, framework by framework. We also wanted to have
-a&nbsp;possibility to turn the static linking off in case of emergency.
+a&nbsp;possibility to turn the static linking off in case of any unexpected
+problem.
 
-We decided to use two-step approach:
+We decided to use a two-step approach:
 - compiling frameworks code to static libraries,
 - converting frameworks (dynamic library packages) to resource bundles
   (resources packages).
@@ -71,7 +70,7 @@ We decided to use two-step approach:
 Xcode 9 provides `MACH_O_TYPE = staticlib` build setting –
 [linker](https://en.wikipedia.org/wiki/Linker_(computing)) produces static
 library when the flag is set. As for libraries integrated through CocoaPods, we
-had to create custom script in
+had to create a custom script in
 [Podfile](https://guides.cocoapods.org/syntax/podfile.html) to set this flag
 only for selected external libraries during `pod install` (that is during
 dependencies installation, because CocoaPods creates new project structures for
@@ -81,25 +80,26 @@ managed libraries with each reinstallation).
 before Xcode&nbsp;9 was released. Although Xcode&nbsp;8 had no support for
 static Swift linking, there is a&nbsp;way to perform static linking using
 [`libtool`](http://www.manpagez.com/man/1/libtool/). In those dark times, we
-were just adding custom build phase with [buildstatic
-script](https://github.com/aliceatlas/buildstatic) for selected libraries. This
-may seem like a&nbsp;hack, but it is really just a&nbsp;hefty usage of
-well-documented toolset... and this was flawless.
+were just adding custom build phase with
+[buildstatic script](https://github.com/aliceatlas/buildstatic) for selected 
+libraries. This may seem like a&nbsp;hack, but it is really just a&nbsp;hefty
+usage of well-documented toolset... and it worked flawlessly.
 
 That way we replaced our dynamic libraries with static libraries, but that was
 the easier part of the job.
 
 ### Converting framework to resource bundle
 
-Aside from dynamic libraries, framework can also contain resources (images,
-NIBs, etc.). We got rid of dynamic libraries, but we couldn't leave
+Aside from dynamic libraries, a framework can also contain resources (images,
+[NIBs](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/LoadingResources/CocoaNibs/CocoaNibs.html),
+etc.). We got rid of dynamic libraries, but we couldn't leave
 resource-only-frameworks. Resource bundle is a&nbsp;standard way of wrapping
 resources in Apple ecosystem, so we created
 [`framework_to_bundle.sh`](https://gist.github.com/kam800/1fe287931ab4968633b068fe5359e76b) 
 script, which takes `*.framework` and outputs `*.bundle` with all the resources.
 
-The resources-handling code was redesigned to automatically use right resource
-location. Allegro iOS app has
+The resource-handling code was redesigned to automatically use the right
+resource location. Allegro iOS app has
 a&nbsp;[`Bundle.resourcesBundle(forModuleName:)`](https://gist.github.com/kam800/b98b25ed56dd704feffeadce474ae251)
 method, which always finds the right bundle, no matter what linking type was
 used.
@@ -125,13 +125,13 @@ visible.
 
 Each measurement in the following table is an average of 6&nbsp;samples.
 
-&nbsp;                    | iPhone 4s | iPad 2 | iPhone 5c | iPhone 5s | iPhone 7+ | iPad 2 cold launch
---------------------------|-----------|--------|-----------|-----------|-----------|------------------
-57 dylibs app launch time | 7.79s     | 7.33s  | 7.30s     | 3.14s     | 2.31s     | 11.75s
-31 dylibs app launch time | 6.62s     | 6.08s  | 5.39s     | 2.75s     | 1.75s     | 7.27s
-Launch speedup %          | 15.02%    | 17.05% | 26.16%    | 12.42%    | 24.24%    | 38.13%
+&nbsp;                        | iPhone 4s | iPad 2 | iPhone 5c | iPhone 5s | iPhone 7+ | iPad 2 cold launch
+------------------------------|-----------|--------|-----------|-----------|-----------|-------------------
+57 dylibs app launch time [s] | 7.79      | 7.33   | 7.30      | 3.14      | 2.31      | 11.75
+31 dylibs app launch time [s] | 6.62      | 6.08   | 5.39      | 2.75      | 1.75      | 7.27
+Launch speedup %              | 15.02     | 17.05  | 26.16     | 12.42     | 24.24     | 38.13
 
-Allegro iOS app launch time decreased by about 2&nbsp;second on iPhone 5c –
+Allegro iOS app launch time decreased by about 2&nbsp;seconds on iPhone 5c –
 this was a&nbsp;significant gain. The app launch time improved even more on
 freshly turned on iPad 2 – the difference was about 4.5 seconds, which was about
 38% of the launch time with all libraries being dynamically linked.
@@ -147,17 +147,19 @@ We have created a
 [`check_duplicated_classes.sh`](https://gist.github.com/kam800/d9b4b986164503a13ca4c7f0a06ec7f9)
 script to be run as a final build phase.
 
+We haven't found any other issue with this type of linking.
+
 ## Dyld3
 
-Dyld3, the brand new [dynamic
-linker](https://en.wikipedia.org/wiki/Dynamic_linker), was announced about
-a&nbsp;year ago at [WWDC
-2017](https://developer.apple.com/videos/play/wwdc2017/413/). At the time of
-writing this article, we are getting close to WWDC 2018 and dyld3 still is not
-available for 3rd party apps. Currently only [system apps use
-dyld3](https://twitter.com/lgerbarg/status/882055176298704896). I&nbsp;couldn't
-wait any longer, I&nbsp;was too curious about its real power. I&nbsp;decided to
-try launching my own app using dyld3.
+Dyld3, the brand new
+[dynamic linker](https://en.wikipedia.org/wiki/Dynamic_linker), was announced
+about a&nbsp;year ago at
+[WWDC 2017](https://developer.apple.com/videos/play/wwdc2017/413/). At the time
+of writing this article, we are getting close to WWDC 2018 and dyld3 is still
+not available for 3rd party apps. Currently only
+[system apps use dyld3](https://twitter.com/lgerbarg/status/882055176298704896).
+I&nbsp;couldn't wait any longer, I&nbsp;was too curious about its real power.
+I&nbsp;decided to try launching my own app using dyld3.
 
 ### Looking for dyld3
 
@@ -202,14 +204,14 @@ Reading assembly code is often a&nbsp;really hard process. Fortunately
 I&nbsp;remembered that some parts of apple code are open sourced, including
 [dyld](https://opensource.apple.com/source/dyld/). My local binary had
 `LC_SOURCE_VERSION = 551.3` and the most recent dyld source available was
-`519.2.2`. Are those versions distant? I&nbsp;was looking at local dyld
-assembly and corresponding dyld sources for a&nbsp;few nights and didn't see
-any significant difference. In fact I&nbsp;had a&nbsp;strange feeling that the
-source code exactly matches the assembly – it was a&nbsp;perfect guide for
+`519.2.2`. Are those versions distant? I&nbsp;spent a&nbsp;few nights looking
+at local dyld assembly and corresponding dyld sources and didn't see any
+significant difference. In fact I&nbsp;had a&nbsp;strange feeling that the
+source code exactly matched the assembly – it was a&nbsp;perfect guide for
 debugging.
 
 What did I&nbsp;end up with? Hidden dyld3 can be activated on macOS High Sierra
-using one of two following approaches:
+using one of the following two approaches:
 
 1. setting ``dyld`sEnableClosures``:
   - ``dyld`sEnableClosures`` needs to be set by e.g. using lldb `memory write`
@@ -218,11 +220,11 @@ using one of two following approaches:
   - `/usr/libexec/closured` needs be compiled from [dyld
     sources](https://opensource.apple.com/source/dyld/) (it needs a&nbsp;few
     modifications to compile),
-  - `read` invocation in `callClosureDaemon` needs to be fixed (I filled
+  - `read` invocation in `callClosureDaemon` needs to be fixed (I filed
     a&nbsp;[bug report](https://openradar.appspot.com/40522089) for this
     issue); for the sake of tests I&nbsp;fixed it with lldb `breakpoint
-    command` and custom lldb script that invoked `read` in loop until it
-    returned 0, or
+    command` and a&nbsp;custom lldb script that invoked `read` in a&nbsp;loop
+    until it returned 0, or
 2. dyld closure needs to be generated and saved to the dyld cache... but...
    what is a&nbsp;dyld closure?
 
@@ -231,21 +233,20 @@ using one of two following approaches:
 [Louis Gerbarg](https://twitter.com/lgerbarg) mentioned the concept of dyld
 closure at [WWDC 2017](https://developer.apple.com/videos/play/wwdc2017/413/).
 Dyld closure contains all the informations needed to launch an app. Dyld
-closures can be cached, so the dyld can save a&nbsp;lot of time just restoring
-them.
+closures can be cached, so dyld can save a&nbsp;lot of time just restoring them.
 
 [Dyld sources](https://opensource.apple.com/source/dyld/) contain
 `dyld_closure_util` – a&nbsp;tool that can be used to create and dump dyld
 closures. It looks like Apple open source can rarely be compiled on
-non-Apple-internal system, because it has a&nbsp;lot of Apple private
+a&nbsp;non-Apple-internal system, because it has a&nbsp;lot of Apple private
 dependencies (e.g. `Bom/Bom.h` and more...). I&nbsp;was lucky –
 `dyld_closure_util` could be compiled with just a&nbsp;couple of simple
 modifications.
 
-I created a&nbsp;macOS app just to check the dyld3 in action. The
-`TestMacApp.app` contained 20 frameworks, 1000 ObjC classes and about
-1000~10000 methods each. I&nbsp;tried to create a&nbsp;dyld closure for the
-app, its JSON representation was pretty long - hundreds of thousands lines:
+I created a&nbsp;macOS app just to check dyld3 in action. The `TestMacApp.app`
+contained 20 frameworks, 1000 ObjC classes and about 1000~10000 methods each.
+I&nbsp;tried to create a&nbsp;dyld closure for the app, its JSON representation
+was pretty long - hundreds of thousands lines:
 
 ```bash
 $ dyld_closure_util -create_closure ~/tmp/TestMacApp.app/Contents/MacOS/TestMacApp | wc -l
@@ -289,7 +290,7 @@ no more expensive dylib searching.
 ### Dyld3 closure cache
 
 In order to measure dyld3 launch speed gain, I&nbsp;had to use the dyld3
-activation method #2 – providing valid app dyld closure. Although setting
+activation method #2 – providing a&nbsp;valid app dyld closure. Although setting
 ``dyld`sEnableClosures`` creates a&nbsp;dyld closure during app launch, the
 closure is currently not being cached.
 
@@ -297,8 +298,8 @@ closure is currently not being cached.
 an&nbsp;`update_dyld_shared_cache` tool source code. Unfortunately this tool
 uses some Apple-private libraries, I&nbsp;was not able to compile it on my
 system. By pure accident I&nbsp;found that this tool is available in every
-macOS High Sierra in `/usr/bin/update_dyld_shared_cache`. Also the [`man
-update_dyld_shared_cache`](http://www.manpagez.com/man/1/update_dyld_shared_cache/)
+macOS High Sierra in `/usr/bin/update_dyld_shared_cache`. Also the
+[`man update_dyld_shared_cache`](http://www.manpagez.com/man/1/update_dyld_shared_cache/)
 was present – this made the cache rebuild even simpler.
 
 `update_dyld_shared_cache` sources showed that it generates dyld closures cache
@@ -331,7 +332,7 @@ all frameworks, 1st framework depended on 19 frameworks, 2nd framework depended
 on 18 frameworks, 3rd framework depended on 17 frameworks, and so on... After
 launching, the app just invoked `exit(0)`. I&nbsp;used
 [`time`](http://www.manpagez.com/man/1/time/) to measure the time between
-invoking the launch command and the app exit. I&nbsp;didn't use
+invoking the launch command and app exit. I&nbsp;didn't use
 `DYLD_PRINT_STATISTICS=1`, because, aside from the reasons presented above,
 dyld3 does not even support this variable yet.
 
@@ -356,7 +357,7 @@ a&nbsp;bottleneck of dyld2 loading. I&nbsp;faked `/Application/Calculator.app`
 path using `ln -s /Volumes/USB/Calculator.app` and regenerated dyld caches.
 
 Next measurements looked much better. No difference at warm launch, but cold
-launch was 20% faster with dyld3 than with dyld2. Actually the dyld3 cold launch
+launch was 20% faster with dyld3 than with dyld2. Actually dyld3 cold launch
 was right in the middle, between dyld2 launch time and statically linked app
 launch time.
 
@@ -367,20 +368,20 @@ cold        | 3.687s | 2.947s | 2.276s
 
 ### dyld3 status
 
-Mind that dyld3 in still under the development, it has not yet been released.
-I&nbsp;guess it is currently available for system apps, not to increase their
+Mind that dyld3 in still under development, it has not been released yet.
+I&nbsp;guess it is currently available for system apps not to increase their
 speed, but mainly to test dyld3 stability.
 
-[Louis Gerbarg](https://twitter.com/lgerbarg) told that dyld3 has its daemon.
+[Louis Gerbarg](https://twitter.com/lgerbarg) said that dyld3 had its daemon.
 On macOS High Sierra there is no dyld3 daemon. `closured` is currently invoked
 by dyld3 as a&nbsp;command line tool with `fork`+`execve`. It does not even
 cache created dyld closures. For sure we will see a&nbsp;lot of changes in the
 near future.
 
-Are you curious about my opinion? I&nbsp;think the fully working dyld3 with
+Are you curious about my opinion? I&nbsp;think a&nbsp;fully working dyld3 with
 `closured` daemon will be shipped with the next major macOS version.
 I&nbsp;think this new dyld3 version will implement even faster in-memory
 closure cache. Everyone will feel a&nbsp;drastic app launch time improvement on
-all Apple platforms – launch time much closer to the statically linked app
+all Apple platforms – launch time much closer to statically linked app
 launching than to the current dyld2 launching time. I&nbsp;keep my fingers
 crossed.
