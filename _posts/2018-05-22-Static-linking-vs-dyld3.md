@@ -7,15 +7,15 @@ tags: [tech, ios, macos, static linking, dyld, dyld3]
 
 The following article has two parts. The first part describes improving
 [Allegro iOS app](https://itunes.apple.com/pl/app/allegro/id305659772?l=pl&mt=8)
-launch time by adopting static linking and sums it up with a speedup analysis.
-The second part describes how I&nbsp;managed to launch a custom macOS app using
-not-yet-fully-released dyld3
+launch time by adopting static linking and sums it up with a&nbsp;speedup
+analysis. The second part describes how I&nbsp;managed to launch a custom macOS
+app using not-yet-fully-released dyld3
 [dynamic linker](https://en.wikipedia.org/wiki/Dynamic_linker) and also
-completes with a speedup analysis.
+completes with a&nbsp;speedup analysis.
 
 ## Improving iOS app launch time
 
-It takes some time to launch a&nbsp;mobile app, especially on a system with
+It takes some time to launch a&nbsp;mobile app, especially on a&nbsp;system with
 limited power of mobile CPU. Apple suggests
 [400ms](https://developer.apple.com/videos/play/wwdc2016/406) as a&nbsp;good
 launch time. [iOS](https://en.wikipedia.org/wiki/IOS) performs zoom animation
@@ -25,8 +25,8 @@ completed as soon as the app opening animation ends.
 
 Apple engineers described some techniques to improve launch times in
 [WWDC 2016 - Session 406: Optimizing App Startup Time](https://developer.apple.com/videos/play/wwdc2016/406).
-This wasn't enough, so the very next year they announced a brand new dynamic
-linker in
+This wasn't enough, so the very next year they announced a&nbsp;brand new
+dynamic linker in
 [WWDC 2017 - Session 413: App Startup Time: Past, Present, and Future](https://developer.apple.com/videos/play/wwdc2017/413/).
 Looking at the history of dyld, one can see that Apple is constantly trying to
 make their operating systems faster.
@@ -46,9 +46,9 @@ be integrated as
 [frameworks](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WhatAreFrameworks.html) –
 a&nbsp;standard way of dylibs (dynamic libraries) distribution in Apple
 ecosystem. 57 nested frameworks is a&nbsp;number large enough to impact app
-launch time. iOS has a 20 seconds app launch time limit. Any app that hits that
-limit is instantly killed. Allegro app was often killed on a&nbsp;good old iPad
-2, when the device was freshly started and all caches were empty.
+launch time. iOS has a&nbsp;20 seconds app launch time limit. Any app that hits
+that limit is instantly killed. Allegro app was often killed on a&nbsp;good old
+iPad 2, when the device was freshly started and all caches were empty.
 
 Dynamic linker performs a&nbsp;lot of disk IO when searching for dependencies.
 Static linking eliminates the need for all that dylib searching – dependencies
@@ -60,7 +60,7 @@ We wanted to do this gradually, framework by framework. We also wanted to have
 a&nbsp;possibility to turn the static linking off in case of any unexpected
 problem.
 
-We decided to use a two-step approach:
+We decided to use a&nbsp;two-step approach:
 - compiling frameworks code to static libraries,
 - converting frameworks (dynamic library packages) to resource bundles
   (resources packages).
@@ -70,7 +70,7 @@ We decided to use a two-step approach:
 Xcode 9 provides `MACH_O_TYPE = staticlib` build setting –
 [linker](https://en.wikipedia.org/wiki/Linker_(computing)) produces static
 library when the flag is set. As for libraries integrated through CocoaPods, we
-had to create a custom script in
+had to create a&nbsp;custom script in
 [Podfile](https://guides.cocoapods.org/syntax/podfile.html) to set this flag
 only for selected external libraries during `pod install` (that is during
 dependencies installation, because CocoaPods creates new project structures for
@@ -90,7 +90,8 @@ the easier part of the job.
 
 ### Converting framework to resource bundle
 
-Aside from dynamic libraries, a framework can also contain resources (images,
+Aside from dynamic libraries, a&nbsp;framework can also contain resources
+(images,
 [NIBs](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/LoadingResources/CocoaNibs/CocoaNibs.html),
 etc.). We got rid of dynamic libraries, but we couldn't leave
 resource-only-frameworks. Resource bundle is a&nbsp;standard way of wrapping
@@ -145,7 +146,7 @@ dynamic library – this will result in static library objects being duplicated
 across different dynamic libraries and that could be a&nbsp;serious problem.
 We have created a
 [`check_duplicated_classes.sh`](https://gist.github.com/kam800/d9b4b986164503a13ca4c7f0a06ec7f9)
-script to be run as a final build phase.
+script to be run as a&nbsp;final build phase.
 
 We haven't found any other issue with this type of linking.
 
