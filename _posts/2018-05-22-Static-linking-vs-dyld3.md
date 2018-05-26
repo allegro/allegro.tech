@@ -96,12 +96,12 @@ Aside from dynamic libraries, a&nbsp;framework can also contain resources
 etc.). We got rid of dynamic libraries, but we couldn't leave
 resource-only-frameworks. Resource bundle is a&nbsp;standard way of wrapping
 resources in Apple ecosystem, so we created
-[`framework_to_bundle.sh`](https://gist.github.com/kam800/1fe287931ab4968633b068fe5359e76b) 
+[`framework_to_bundle.sh`](https://gist.github.com/kam800/7e9b0fd55a3fbcd455695aab3ffa08ac) 
 script, which takes `*.framework` and outputs `*.bundle` with all the resources.
 
 The resource-handling code was redesigned to automatically use the right
 resource location. Allegro iOS app has
-a&nbsp;[`Bundle.resourcesBundle(forModuleName:)`](https://gist.github.com/kam800/b98b25ed56dd704feffeadce474ae251)
+a&nbsp;[`Bundle.resourcesBundle(forModuleName:)`](https://gist.github.com/kam800/ae364706988526abf5b09bf959c5646e)
 method, which always finds the right bundle, no matter what linking type was
 used.
 
@@ -145,7 +145,7 @@ Having some statically linked library, beware of linking it with more than one
 dynamic library – this will result in static library objects being duplicated
 across different dynamic libraries and that could be a&nbsp;serious problem.
 We have created a
-[`check_duplicated_classes.sh`](https://gist.github.com/kam800/d9b4b986164503a13ca4c7f0a06ec7f9)
+[`check_duplicated_classes.sh`](https://gist.github.com/kam800/0d04917b4f051c1dd906d629d685f571)
 script to be run as a&nbsp;final build phase.
 
 We haven't found any other issue with this type of linking.
@@ -246,12 +246,13 @@ modifications.
 
 I created a&nbsp;macOS app just to check dyld3 in action. The `TestMacApp.app`
 contained 20 frameworks, 1000 ObjC classes and about 1000~10000 methods each.
-I&nbsp;tried to create a&nbsp;dyld closure for the app, its JSON representation
-was pretty long - hundreds of thousands lines:
+I&nbsp;tried to create a&nbsp;dyld closure for the app, its
+[JSON representation (36.5&nbsp;MB)](https://raw.githubusercontent.com/kam800/dyld3-samples/master/sample_dyld_closure.txt)
+was pretty long - almost a milion lines:
 
 ```bash
 $ dyld_closure_util -create_closure ~/tmp/TestMacApp.app/Contents/MacOS/TestMacApp | wc -l
-  222757
+  832363
 ```
 
 The basic JSON representation of a&nbsp;dyld closure looks as follows:
