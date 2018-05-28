@@ -337,7 +337,8 @@ launching, the app just invoked `exit(0)`. I&nbsp;used
 [`time`](https://www.manpagez.com/man/1/time/) to measure the time between
 invoking the launch command and app exit. I&nbsp;didn't use
 `DYLD_PRINT_STATISTICS=1`, because, aside from the reasons presented above,
-dyld3 does not even support this variable yet.
+dyld3 does not even support this variable
+[yet](https://openradar.appspot.com/40593547).
 
 Test platform was MacBook Pro Retina, 13-inch, Early 2015 (3,1 GHz Intel Core
 i7) with macOS High Sierra 10.13.4 (17E202). Unfortunately I&nbsp;didn't have
@@ -388,5 +389,5 @@ Are you curious about my opinion? I&nbsp;think a&nbsp;fully working dyld3 with
 I&nbsp;think this new dyld3 version will implement even faster in-memory
 closure cache. Everyone will feel a&nbsp;drastic app launch time improvement on
 all Apple platforms – launch time much closer to statically linked app
-launching than to the current dyld2 launching time. I&nbsp;keep my fingers
+launching than to the current dyld2 launching. I&nbsp;keep my fingers
 crossed.
