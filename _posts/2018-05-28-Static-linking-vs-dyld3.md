@@ -80,7 +80,7 @@ managed libraries with each reinstallation).
 before Xcode&nbsp;9 was released. Although Xcode&nbsp;8 had no support for
 static Swift linking, there is a&nbsp;way to perform static linking using
 [`libtool`](https://www.manpagez.com/man/1/libtool/). In those dark times, we
-were just adding custom build phase with
+were just adding custom build phases with
 [buildstatic](https://github.com/aliceatlas/buildstatic) script for selected 
 libraries. This may seem like a&nbsp;hack, but it is really just a&nbsp;hefty
 usage of well-documented toolset... and it worked flawlessly.
