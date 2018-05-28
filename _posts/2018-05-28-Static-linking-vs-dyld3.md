@@ -92,7 +92,7 @@ the easier part of the job.
 
 Aside from dynamic libraries, a&nbsp;framework can also contain resources
 (images,
-[NIBs](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/LoadingResources/CocoaNibs/CocoaNibs.html),
+[nibs](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/LoadingResources/CocoaNibs/CocoaNibs.html),
 etc.). We got rid of dynamic libraries, but we couldn't leave
 resource-only-frameworks. Resource bundle is a&nbsp;standard way of wrapping
 resources in Apple ecosystem, so we created
@@ -130,7 +130,7 @@ Each measurement in the following table is an average of 6&nbsp;samples.
 ------------------------------|-----------|--------|-----------|-----------|-----------|-------------------
 57 dylibs app launch time [s] | 7.79      | 7.33   | 7.30      | 3.14      | 2.31      | 11.75
 31 dylibs app launch time [s] | 6.62      | 6.08   | 5.39      | 2.75      | 1.75      | 7.27
-Launch speedup %              | 15.02     | 17.05  | 26.16     | 12.42     | 24.24     | 38.13
+Launch speedup [%]            | 15.02     | 17.05  | 26.16     | 12.42     | 24.24     | 38.13
 
 Allegro iOS app launch time decreased by about 2&nbsp;seconds on iPhone 5c –
 this was a&nbsp;significant gain. The app launch time improved even more on
