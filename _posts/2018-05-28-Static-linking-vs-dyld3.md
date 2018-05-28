@@ -225,7 +225,7 @@ using one of the following two approaches:
     a&nbsp;[bug report](https://openradar.appspot.com/40522089) for this
     issue); for the sake of tests I&nbsp;fixed it with lldb `breakpoint
     command` and a&nbsp;custom
-    [lldb script](https://gist.github.com/kam800/4ac7a908cbed45b28e2c9066f5f287cf)
+    [lldb script](https://gist.github.com/kam800/e1f1fa143257c733a20aea2974929ab8)
     that invoked `read` in a&nbsp;loop until it returned 0, or
 2. dyld closure needs to be generated and saved to the dyld cache... but...
    what is a&nbsp;dyld closure?
