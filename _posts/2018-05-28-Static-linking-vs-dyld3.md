@@ -121,8 +121,8 @@ measure the whole launch time. We used a&nbsp;stopwatch and slow motion camera,
 to measure the time between an app icon tap and the app home screen being fully
 visible.
 
-![measurement_start.gif](/img/articles/2018-05-28-Static-linking-vs-dyld3/measurement_start.gif)
-![measurement_stop.gif](/img/articles/2018-05-28-Static-linking-vs-dyld3/measurement_stop.gif)
+<video src="/img/articles/2018-05-28-Static-linking-vs-dyld3/measurement_start.mp4" autoPlay loop></video>
+<video src="/img/articles/2018-05-28-Static-linking-vs-dyld3/measurement_stop.mp4" autoPlay loop></video>
 
 Each measurement in the following table is an average of 6&nbsp;samples.
 
