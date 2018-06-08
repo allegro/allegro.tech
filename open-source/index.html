@@ -1,5 +1,5 @@
 ---
-layout: opensource
+layout: default
 title: open source software (OSS)
 ---
 
@@ -90,19 +90,20 @@ title: open source software (OSS)
     <section>
         <div class="content">
             <a class="twitter-timeline" href="https://twitter.com/AllegroTechBlog" data-widget-id="502727718861942784"
-               data-chrome="nofooter noborders transparent" width="400" data-tweet-limit="4" data-link-color="#FF5A00">Tweets
+               data-chrome="nofooter noborders transparent" width="100%" data-tweet-limit="4" data-link-color="#FF5A00">Tweets
                 by @AllegroTechBlog</a>
         </div>
     </section>
 </section>
 
+<script src="//platform.twitter.com/widgets.js" defer></script>
 <script src="/js/swiper.min.js"></script>
 <script>
-    var mySwiper = new Swiper('.swiper-container', {
+    new Swiper('.swiper-container', {
         loop: true,
         speed: 600,
         autoplay: 4000,
         nextButton: '.showcase-button-next',
         prevButton: '.showcase-button-prev'
-    })
+    });
 </script>

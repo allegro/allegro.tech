@@ -1,35 +1,25 @@
 ---
 layout: default
-title: blog
+title: Homepage
 ---
-
 <section class="section-latest">
     <header>
         <div class="content">
-            {% include posts.html limit="1" tag="tech" %}
+            {% include posts.html limit="1" %}
         </div>
     </header>
 </section>
 
-<section class="section-posts">
-    <section>
-        <div class="content">
-            {% include posts.html offset="1" limit="6" tag="tech" %}
-            {% include posts.html offset="7" short="true" tag="tech" %}
-        </div>
+<div class="desk">
+    <section class="content">
+        {% include events.html limit="1" status="upcoming" %}
     </section>
-</section>
+    <section class="content">
+        {% include jobs/engineers.html %}
+    </section>
+</div>
 
-<section class="section-blog manifesto">
-    <header>
-        <div class="content"><h2 class="section-title">allegro.tech</h2>
+<script type="text/javascript" src="/js/slides.min.js" defer></script>
 
-            <p> At Allegro, we build and maintain some of the most distributed and scalable applications in Central
-                Europe. This poses many challenges, starting with architecture and design, through the choice of
-                technologies, code quality and performance tuning, and ending with deployment and devops. In this blog,
-                our engineers share their experiences and write about some of the interesting things taking place at the
-                company.</p>
-        </div>
-    </header>
-</section>
-{% include disqus_snippet.html %}
+
+{% include manifesto.html %}

@@ -1,0 +1,14 @@
+---
+layout: default
+title: blog
+---
+
+<section class="section-posts desk ">
+    <div class="content">
+        <h1 class="title">Posts:</h1>
+        {% include posts.html offset="1" limit="6"%}
+        {% include posts.html offset="7" short="true" %}
+    </div>
+</section>
+
+{% include manifesto.html %}

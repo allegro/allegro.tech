@@ -43,39 +43,15 @@ h2 {
     margin-top: 0;
 }
 
-/* banner */
-
-.banner {
-    background-color: #ff5a00;
-    overflow: hidden;
-}
-
-.banner img {
-    float: right;
-    max-width: 100%;
-}
-
-.color-header {
-    width: 100%;
-    position: relative;
-    border-top: 0.1em solid #fff;
-
-    &:after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 300px;
-        background: rgba(53, 118, 158, 0.5);
-        background-size: cover;
-        position: absolute;
-        top: 0;
-        z-index: -1;
-    }
+.title {
+    font-size: 2em;
+    margin: 0;
+    font-weight: 100;
 }
 
 .color-header-content {
-    max-width: 960px;
-    margin: 150px auto 0;
+    max-width: 900px;
+    margin: 161px auto 0;
     background: #35769e;
     padding: 32px;
     color: #fff;
@@ -88,7 +64,7 @@ h2 {
     }
 }
 
-.iframe-wrapper {
+.video-wrapper {
     width: 100%;
     max-width: 560px;
     margin: auto;

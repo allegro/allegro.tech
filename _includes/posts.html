@@ -4,6 +4,7 @@
     <li>
         <time class="post-date">{{ post.date | date: "<strong>%b %-d</strong> %Y" }}</time>
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <p></p>
     </li>
     {% endfor %}
 </ul>

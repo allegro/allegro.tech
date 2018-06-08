@@ -1,19 +1,18 @@
 ---
 layout: default
-footer: false
 title: blog authors
 ---
 
         {%assign authorKey = page.author %}
 		{%assign title = page.author %}
-        {%assign authorData = {{site.data.members[page.author] %}
+        {%assign authorData = site.data.members[page.author] %}
 
 <section>
     <header class="post-header">
         <div class="content"><h1 class="post-title">All posts by {{authorData.name}}</h1>
                 <div class="post-meta"><ul class="breadcrumb">
                     <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <a href="/authors" itemprop="url"><span itemprop="title">Authors</a></span>
+                        <a href="/authors" itemprop="url"><span itemprop="title">Authors</span></a>
                     </li>
                     <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
                     {% for author in page.author %}
@@ -26,7 +25,7 @@ title: blog authors
     </header>
  </section>
 
-<section class="section-posts">
+<section class="section-posts desk ">
 <div class="content">
 	{% assign index = true %}
         <ul class="posts">

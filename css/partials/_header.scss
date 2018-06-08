@@ -1,60 +1,82 @@
-@charset "UTF-8";
-.site-header h1,
-.site-header p {
-    padding: 0;
-    margin: 0;
+@charset "utf-8";
+
+@font-face {
+    font-family: 'socicon';
+    font-style: normal;
+    font-weight: 400;
+    src: local('socicon'),
+    url(../../font/socicon/font/socicon.woff2) format('woff2'),
+    url(../../font/socicon/font/socicon.woff) format('woff'),
+    url(../../font/socicon/font/socicon.ttf) format('truetype'),
+    url(../../font/socicon/font/socicon.svg#socicon) format('svg');
+    text-transform: initial;
 }
 
 .site-header {
     padding: 1em 0;
     background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
 
-.site-header .content{
-    display: flex;
-    flex-wrap: wrap;
-}
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-.site-header h1 {
-    min-width: 200px;
-    max-width: 68%;
-    flex: 1;
-}
-
-.site-header img {
-    width: 203px;
-    height: 40px;
-    display: block;
-    border: 0;
-    max-width: 100%;
-}
-
-.page-link {
-    text-decoration: none;
-    color: #222;
-    padding: 5px 12px;
-    transition: all 75ms linear;
-}
-
-.page-link:after {
-    content: ' ▶';
-    font-size: 70%;
-    line-height: 1;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 0 0 7px;
-    font-weight: 100;
-}
-
-.page-link:hover,
-.page-link:focus {
-    color: #54cab6;
+    h1, p {
+        padding: 0;
+        margin: 0;
+        min-width: 200px;
+        max-width: 68%;
+        flex: 1;
+    }
+    img {
+        width: 203px;
+        height: 40px;
+        display: block;
+        border: 0;
+        max-width: 100%;
+    }
+    .page-link {
+        padding: 5px 12px;
+    }
 }
 
 .site-nav {
     padding: 10px 0 0;
     line-height: 40px;
+
+    .site-navlist {
+        list-style: none;
+        display: inline-block;
+
+        li {
+            display: inline;
+        }
+
+        li .page-link {
+            transition: all 75ms linear;
+        }
+
+        li .current {
+            color: #ff5a00;
+        }
+
+        li .social {
+            padding: 5px;
+            width: 33px;
+        }
+
+        li .social .socicon {
+            top: 1px;
+            font-size: 90%;
+            color: #999;
+        }
+
+        li .social:hover .socicon,
+        li .social:focus .socicon {
+            color: #ccc;
+            cursor: pointer;
+        }
+    }
 }
 
 @media all and (min-width: 900px) {
@@ -63,60 +85,80 @@
         padding: 0;
     }
     .site-navlist + .site-navlist {
-    float: right;
-}
-}
-
-.site-navlist {
-    list-style: none;
-    display: inline-block
+        float: right;
+    }
 }
 
-
-
-.site-navlist li {
-    display: inline;
+.socicon {
+    position: relative;
+    top: -3px;
+    display: inline-block;
+    font-family: 'socicon', fantasy;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.4rem;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    color: #bbb;
 }
 
-.site-navlist li .page-link {
-    transition: all 75ms linear;
+.socicon:empty {
+    width: 1em;
 }
 
-.site-navlist li .page-link:after {
-    display: none;
+.socicon-twitter:before {
+    content: "a";
 }
 
-.site-navlist li .current {
-    color: #ff5a00;
+.socicon-facebook:before {
+    content: "b";
 }
 
-.site-navlist li .social {
-    padding: 5px;
-    width: 33px;
+.socicon-google:before {
+    content: "c";
 }
 
-.site-navlist li .social .socicon {
-    top: 1px;
-    font-size: 90%;
-    color: #999;
+.socicon-github:before {
+    content: "Q";
 }
 
-.site-navlist li .social:hover,
-.site-navlist li .social:focus {
-    background: none;
-    border: 2px solid #fff;
+.socicon-rss:before {
+    content: ",";
 }
 
-.site-navlist li .social:hover .socicon,
-.site-navlist li .social:focus .socicon {
-    color: #ccc;
-    cursor: pointer;
+.socicon-slideshare:before {
+    content: "8";
 }
 
-// .site-navlist li:last-of-type .social .socicon {
-//     padding-right: 12px;
-// }
+.socicon-meetup:before {
+    content: "]";
+}
 
-.buttons {
-    text-align: right;
+.socicon-mail:before {
+    content: "@";
+}
+
+.icon-link:hover .socicon {
+    opacity: .8;
+    border: none;
+}
+
+.icon-link-text {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.github-icon-svg,
+.twitter-icon-svg,
+.rss-icon-svg {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    top: 3px;
+    fill: #bbb;
+    padding-bottom: 5px;
 }

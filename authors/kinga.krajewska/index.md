@@ -1,4 +1,4 @@
 ---
-layout: author_index
+layout: author
 author: kinga.krajewska
 ---

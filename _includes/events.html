@@ -1,0 +1,14 @@
+<ul class="posts">
+    {% for event in site.data.events limit:include.limit offset:include.offset %}
+        {% if event.status == include.status %}
+        <li class="event-wrapper past" itemscope itemtype="http://schema.org/Event">
+            <time class="post-date">{{event.time | slice: 0, 10 | date: "<strong>%b %-d</strong> %Y"}}</time>
+            <a class="event-title post-link" itemprop="name" href="{{event.link}}">{{event.name}}</a>
+            <p>Venue: {{event.venue.name}}, {{event.venue.city}}, Attendees: {{event.yes_rsvp_count}}</p>
+            {% if event.status == 'upcoming' %}
+            <div class="post-meta"><span>Upcoming event</span></div>
+            {% endif %}
+        </li>
+        {% endif %}
+    {% endfor %}
+</ul>

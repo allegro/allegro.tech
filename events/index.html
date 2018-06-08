@@ -1,215 +1,28 @@
 ---
-layout: events
-thank_you: false
+layout: default
 ---
-<header class="color-header">
-    <div class="color-header-content">
-        <h2>
-            Events
-        </h2>
-        <p>
-            <strong>
-                Allegro Tech
-            </strong>
-            organizes, sponsors and takes part in many events gathering the IT community.
-        </p>
-        <p>
-            Check out upcoming events below. It's a great opportunity to meet our engineers and learn what we do and
-            what we work on.
-        </p>
-    </div>
-</header>
-<section class="m-card">
-    <h2>
-        Upcoming events
-    </h2>
-    <ul class="events">
+{% if site.data.events[0].status == 'upcoming' %}
+<section class="section-latest">
+    {% for event in site.data.events limit:1 %}
+    <header class="fixed-header-size" style="background-image: url('../img/events/header-image.jpg');">
+        <div class="content">
+            {% include events.html status="upcoming" limit="1" %}
+        </div>
+    </header>
+    {% endfor %}
+    {% endif %}
 
-
-
-
-        <li>
-            <h3>
-                <img alt="Allegro Tech" src="/img/allegro-tech.svg" class="company-logo"/> Allegro UX Talks Warszawa #1
-            </h3>
-            <script async src="https://widget.picatic.com/latest/js/embed.min.js" id="picatic-widget-script"></script>
-            <a href="https://www.picatic.com/204063" class="picatic-widget-button pwb-flamingo">Register</a>
-            <div class="event-info">
-                <time>
-                    <b>
-                        17 maja 2018 (czwartek)
-                    </b>
-                    18:00-21:00
-                </time>
-                <p>
-                    <b>
-                        Place:
-                    </b>
-                    Warszawa,
-                    <a href="https://goo.gl/maps/ovotc7CM33x">al. Jana Pawła II 22</a> biuro Allegro
-                </p>
-            </div>
-            <div class="event-description">
-                <div>
-                    <p>
-                        <i>Wymagana rejestracja na wydarzenie!</i>
-                    </p>
-                    <p>
-                        Zapraszamy Was na nowy cykl spotkań Allegro UX Talks. O czym pogadamy? Oczywiście o UX. Chcemy
-                        podzielić się z Wami naszymi doświadczeniami, ale także posłuchać o Waszych. Każde spotkanie
-                        będzie mieć inny temat przewodni. Zaś na start poruszymy temat researchu.<br/>
-
-                        Wstęp: spotkanie bezpłatne. Wymagana rejestracja.<br/>
-                    </p>
-                    <h3>Program spotkania</h3>
-                    <p>
-                        17:45 - 18:00 rejestracja<br/>
-                        18:00 - 18:30 Niezbędnik badacza UX w dużej organizacji - Alicja Antkowiak, Jakub Dodot<br/>
-                        18:30 - 19:00 Szybkie i tanie badania - zrób to sam - Patrycja Walencik<br/>
-                        19:00 - 19:15 przerwa networkingowa<br/>
-                        19:15 - 19:30 lightning talks (3 prezentacje po 5 minut)<br/>
-                        19:30 - 21:00 networking<br/>
-                    </p>
-                    <p>
-                        <b>Do prezentowania zapraszamy także Was!</b><br/>
-
-                    <p>W Allegro pracuje ok. 1300 osób, z czego połowa to deweloperzy. Przy takiej liczbie nie brakuje
-                        też UX-owców: badaczy i projektantów. Mamy się czym dzielić, ale z przyjemnością posłuchamy
-                        zaproszonych gości z innych organizacji, a także... Was!</p>
-
-                    <p><b>Podziel się swoim doświadczeniem podczas Lightning Talks!</b></p>
-
-                    <p>
-                        Poniżej znajdziecie link do zgłoszeń prezentacji w formule lightning talks.<br/>
-                        Co to znaczy? Macie 5 minut na opowiedzenie o Waszym doświadczeniu, rzecz jasna związanym z
-                        tematem przewodnim :). Z zegarkiem w ręku, to tylko 5 minut!<br/>
-                        <a href="https://goo.gl/forms/gzALARuJ5bkmFgi63"> Zatem nie ma co się namyślać, śmiało klikajcie
-                            i zgłaszajcie swoje wystąpienia. </a><br/>
-                        Na zgłoszenia Waszych prezentacji czekamy do 9 maja. Dzień później damy Wam odpowiedź zwrotną,
-                        które wystąpienia wchodzą do agendy.
-                    </p>
-                </div>
-            </div>
-        </li>
-
-
-
-
-        <li>
-            <h3>
-                <img alt="Allegro Tech" src="/img/allegro-tech.svg" class="company-logo"/> Allegro Tech Talks #10
-            </h3>
-            <!-- Start Picatic widget embed -->
-            <script async src="https://widget.picatic.com/latest/js/embed.min.js" id="picatic-widget-script"></script>
-            <a href="https://www.picatic.com/205460" class="picatic-widget-button pwb-flamingo">Register</a>
-            <!-- End Picatic widget embed -->
-            <div class="event-info">
-                <time>
-                    <b>
-                        21 maja 2018 (poniedziałek)
-                    </b>
-                    18:00-20:00
-                </time>
-                <p>
-                    <b>
-                        Place:
-                    </b>
-                    Pixel, Allegro Office, <a
-                    href="https://www.google.pl/maps/place/Grupa+Allegro+Sp.+z+oo/@52.3914255,16.8558904,17z/data=!4m13!1m7!3m6!1s0x47044519567b7349:0xe7308834dff3cc66!2sPixel,+Grunwaldzka+182,+60-166+Pozna%C5%84!3b1!8m2!3d52.3914388!4d16.8580919!3m4!1s0x4704451956f00003:0x9c1b5a2fe4a1ea9c!8m2!3d52.3914389!4d16.8580919?hl=pl">ul.
-                    Grunwaldzka 182, Poznań</a>
-                </p>
-            </div>
-            <div class="event-description">
-                <div>
-                    <p>
-                        <i>Wymagana rejestracja na wydarzenie!</i>
-                    </p>
-                    <p>
-                        Chcesz posłuchać o Machine Learning w Allegro? Zapraszamy na kolejny Allegro Tech Talks w
-                        Poznaniu!<br/>
-                    </p>
-                    <h3>Program spotkania</h3>
-                    <p>
-                        17:45 - Rejestracja<br/>
-                        18:00 - Przywitanie<br/>
-                        18:05 - 18:35 -Piotr Wikieł - "Fast.ai - jak zagłębić się w głębokie sieci?"<br/>
-                        18:35 - 18:50 - Przerwa<br/>
-                        18:50 - 19:20 - Piotr Jankowiak - "Jak wydobyć wszystko co możliwe z posiadanych danych?"<br/>
-                        19:20 - 20:00 - Krzysztof Dębski - "Jak nie odbić się od ściany przy wdrażaniu Machine
-                        Learning?"<br/>
-                        20:00 - Zakończenie<br/>
-                    </p>
-
-                    <h3>Fast.ai — jak zagłębić się w głębokie sieci?</h3>
-                    <p>Na rynku jest wiele bibliotek i frameworków stworzonych do uczenia głębokich sieci neuronowych.
-                        Niektóre z nich (np. Tensorflow) są bardzo rozbudowane, natomiast próg wejścia — zwłaszcza dla
-                        ludzi, który z ML nie mieli do czynienia - jest dość wysoki. Inne są przestarzałe, jeszcze inne
-                        mają piękne API, ale małą liczbę funkcji lub opierają uczenie na klasycznych metodach. fast.ai w
-                        pewien sposób zapełnia tę lukę. Stworzył ją były szef Kaggle by udostępnić deep learning masom.
-                        Jeśli chciałbyś zacząć naukę ML, a podchodzisz do tego jak pies do jeża, wpadnij i przekonaj
-                        się, że ów jeż to całkiem sympatyczne stworzonko.
-                    </p>
-
-                    <div class="event-speaker">
-                        <figure>
-                            <img alt="Piotr Wikieł" src="/img/events/piotr-wikiel.jpg"/>
-                        </figure>
-                        <div>
-                            <h4>Piotr Wikieł</h4>
-                            <p>Inżynier platformy danych szczególnie lubujący się w rozwiązaniach
-                                z pogranicza programowania i machine learningu. Aktualnie członek zespołu utrzymującego
-                                ekosystem Hadoopowy w Allegro. Zainteresowania: monotonna muzyka i nudne książki.
-                            </p></div>
-                    </div>
-
-                    <h3>Jak wydobyć wszystko co możliwe z posiadanych danych?</h3>
-                    <p>Jakość i użyteczność modeli machine learningowych bardzo mocno zależy od tego, jakie będziemy
-                        mieć dane. Jeżeli na samym początku uda się podstawowy zbiór danych wzbogacić o dodatkowe
-                        informacje (czasem publicznie dostępne) lub sprytnie go przekształcić to model znacznie zyska na
-                        wartości. Na przykładzie ostatnich wydarzeń ze świata dotyczących przecieków danych pokaże jak
-                        użyteczne i pozornie nieszkodliwe narzędzia i informacje mogą się zamienić w kopalnię złota lub
-                        broń. Będę opowiadać m.in. o machine learningu, szpiegostwie, geografii i chińskich
-                        kredytach.
-                    </p>
-
-                    <div class="event-speaker">
-                        <figure>
-                            <img alt="Piotr Jankowiak" src="/img/events/piotr-jankowiak.jpg"/>
-                        </figure>
-                        <div>
-                            <h4>Piotr Jankowiak</h4>
-                            <p>Data scientist w zespole Search, gdzie bada to, jak zachowują
-                                się
-                                użytkownicy Allegro. Interesuje się najnowszymi odkryciami naukowymi, developmentem gier
-                                komputerowych oraz programowaniem.</p></div>
-                    </div>
-
-                    <h3>Jak nie odbić się od ściany przy wdrażaniu Machine Learning?</h3>
-                    <p>Wszyscy lubimy uczyć się nowych narzędzi i technik. Dostajemy wtedy nową magiczną różdżkę do
-                        ręki. Ostatnio taką technologią staje się Machine Learning. Podchodząc do niej widzimy wiele
-                        problemów, które moglibyśmy za jej pomocą rozwiązać. Na początku wszystko wygląda bardzo dobrze.
-                        Mamy dane wejściowe i wiemy co powinno być na wyjściu. Dość szybko okazuje się jednak, że jeśli
-                        nie masz dobrej wiedzy na temat swojego problemu, znacznie łatwiej jest zbudować rozwiązanie za
-                        pomocą prostszych narzędzi.
-                        W czasie prezentacji omówię problemy, które spotyka się przy budowaniu modeli i próbach ich
-                        późniejszego wdrożenia. Popatrzymy też na przykłady gdzie nie używać Machine Learningu.
-                    </p>
-
-                    <div class="event-speaker">
-                        <figure>
-                            <img alt="Krzysztof Dębski" src="/img/events/krzysztof-debski.jpg"/>
-                        </figure>
-                        <div>
-                            <h4>Krzysztof Dębski</h4>
-                            <p>Inżynier, architekt oraz techniczny właściciel produktów w
-                                Allegro. Posiada eksperckie doświadczenie w projektowaniu i budowaniu wysokowydajnych,
-                                rozproszonych aplikacji. Jest fanem transformacji technologicznych monolitów. Po godzinach fan
-                                snowboardu.</p></div>
-                    </div>
-                </div>
-            </div>
-        </li>
-
-
-    </ul>
 </section>
+<section class="section-posts desk ">
+    <div class="content">
+        <ul id="events-upcoming" class="posts">
+            {% include events.html offset="1" status="upcoming" %}
+        </ul>
+        <h1 class="title">Past Events</h1>
+        <ul id="events-past" class="posts">
+            {% include events.html status="past" %}
+        </ul>
+        <script src="/js/moment.min.js"></script>
+    </div>
+</section>
+

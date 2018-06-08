@@ -1,6 +1,10 @@
+{% assign current = page.url | downcase | split: '/' %}
+{% assign currentSubPage = current[1] %}
+
 <head itemscope itemtype="http://schema.org/WebSite">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
     <title itemprop='name'>{% if page.title %}{{ page.title }} &middot; {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 150 }}{% else %}{{ site.description }}{% endif %}">
@@ -23,7 +27,8 @@
     <link rel="stylesheet" href="{{ '/css/style.css' | prepend: site.baseurl }}">
     <link rel="stylesheet" href="{{ '/css/metrum.css' | prepend: site.baseurl }}">
     <link rel="stylesheet" href="{{ '/css/blog.css' | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="{{ '/css/jobs.css?v2' | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="{{ '/css/events.css' | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ '/css/jobs.css' | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ '/css/opensource.css' | prepend: site.baseurl }}">
+
 </head>
 
