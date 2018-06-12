@@ -26,3 +26,15 @@ sass:
     sass_dir: css/partials
 
 permalink: /:year/:month/:title.html
+
+collections:
+  events_collection:
+    output: true
+    permalink: /events/:name
+
+defaults:
+  - scope:
+      path: ""
+      type: events_collection
+    values:
+      layout: event

@@ -1,0 +1,56 @@
+---
+layout: default
+---
+<div class="post">
+
+    <header class="post-header">
+        <div class="content">
+            <time class="entry-date" datetime="{{ page.date}}">
+                <span>{{ page.time | slice: 0, 10| date: "%A, <strong>%b %-d</strong> %Y,  %I:%M %p" }}
+                </span>
+            </time>
+            <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+
+            <div class="post-meta">
+                <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a href="{{ site.url }}/events" itemprop="item">
+                            <span itemprop="name">allegro.tech events</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <span>{{ page.venue_city }}</span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <article class="post-content">
+        <div class="content">
+
+            <h2>When</h2>
+
+            {{ page.time | slice: 0, 10| date: "%A, <strong>%b %-d</strong> %Y,  %I:%M %p" }}
+
+            <h2>Venue</h2>
+
+            {{ page.venue_name }} <br/>
+            {{ page.venue_address_1 }} &middot; {{ page.venue_city }}
+
+            <h2>Status</h2>
+            {{ page.status }}
+
+
+            <h2>Event</h2>
+             {{ content }}
+
+            <br/>
+            See this event on <a href="{{ page.meetupLink }}">Meetup</a>
+
+     </div>
+  </article>
+
+</div>
