@@ -1,6 +1,5 @@
 {% assign current = page.url | downcase | split: '/' %}
 {% assign currentSubPage = current[1] %}
-
 <head itemscope itemtype="http://schema.org/WebSite">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,14 +12,12 @@
     <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
     <meta property="og:type" content="{% if page.title %}article{% else %}site{% endif %}"/>
     <meta property="og:image" content="{{ site.url }}/img/allegro-tech.png"/>
-
 	{% if page.title %}
     <meta name="twitter:creator" content="@AllegroTechBlog"/>
     <meta property="og:description" content="{{ page.excerpt | strip_html}}"/>
     <meta property="article:author" content="{{ page.author | join: ', ' }}"/>
     <meta property="article:publisher" content="https://www.facebook.com/allegro.tech"/>
     {% endif %}
-
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Feed" href="{{ site.url }}/feed.xml"/>
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" itemprop="url">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,700&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
@@ -29,6 +26,5 @@
     <link rel="stylesheet" href="{{ '/css/blog.css' | prepend: site.baseurl }}">
     <link rel="stylesheet" href="{{ '/css/jobs.css' | prepend: site.baseurl }}">
     <link rel="stylesheet" href="{{ '/css/opensource.css' | prepend: site.baseurl }}">
-
 </head>
 
