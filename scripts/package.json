@@ -1,0 +1,8 @@
+{
+    "name": "scripts",
+    "version": "1.0.0",
+    "dependencies": {
+        "axios": "^0.18.0",
+        "pretty": "^2.0.0"
+    }
+}

@@ -28,7 +28,7 @@ sass:
 permalink: /:year/:month/:title.html
 
 collections:
-  events_collection:
+  events:
     output: true
     permalink: /events/:name
 

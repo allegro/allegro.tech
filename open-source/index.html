@@ -3,29 +3,28 @@ layout: default
 title: open source software (OSS)
 ---
 
-{% assign repos = site.data.opensource-repos.repos %}
-{% assign popularity = site.data.opensource-repos.popularity %}
-{% assign featured = site.data.opensource.featured %}
-{% assign ignored = site.data.opensource.ignored %}
-{% assign metadata = site.data.opensource.metadata %}
+{% assign repos = site.data.repositories.repos %}
+{% assign popularity = site.data.repositories.popularity %}
 
 <div class="opensource-content">
     <div class="main-grid">
 
         <section class="opensource-manifesto opensource-box">
-            <h2>{{ site.data.opensource.manifesto.title }}</h2>
-            <p>{{ site.data.opensource.manifesto.text }}</p>
+            <h2>Open Source</h2>
+            <p>We, devs and ops working at Allegro, believe that experience we gained solving problems with large-scale
+                deployments, high availability and robustness during our everyday work should be shared. We use Open
+                Source solutions on daily basis, why not work on our karma and give something in return?</p>
         </section>
 
         <section class="opensource-featured-projects">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    {% for projectName in featured.primary %}
-                        {% assign projectRepo = repos[projectName] %}
-                        {% assign projectMetadata = metadata[projectName] %}
-                        <div class="swiper-slide">
-                            {% include opensource/project.html %}
-                        </div>
+                    {% for repository in repos %}
+                    {% if repository.featured.primary %}
+                    <div class="swiper-slide">
+                        {% include opensource/project.html repository=repository %}
+                    </div>
+                    {% endif %}
                     {% endfor %}
                 </div>
             </div>
@@ -35,14 +34,14 @@ title: open source software (OSS)
 
         <div class="opensource-ranking-grid">
             <div class="featured-grid">
-                {% for projectName in featured.secondary %}
-                    {% assign projectRepo = repos[projectName] %}
-                    {% assign projectMetadata = metadata[projectName] %}
-                    <section class="section-featured-projects-box opensource-box">
-                        <div class="repo-box">
-                            {% include opensource/project.html %}
-                        </div>
-                    </section>
+                {% for repository in repos %}
+                {% if repository.featured.secondary %}
+                <section class="section-featured-projects-box opensource-box">
+                    <div class="repo-box">
+                        {% include opensource/project.html repository=repository %}
+                    </div>
+                </section>
+                {% endif %}
                 {% endfor %}
             </div>
 
@@ -50,14 +49,20 @@ title: open source software (OSS)
                 <header>
                     <h2>most popular</h2>
                 </header>
-
                 <ol>
                     {% for projectName in popularity limit:10 %}
-                        {% assign projectRepo = repos[projectName] %}
-                        <li>
-                            <a href="{{ projectRepo.url }}" class="project-name" title="{{ projectRepo.name }}">{{ projectRepo.name }}</a>
-                            <div class="star-gazers"><a href="{{ projectRepo.url }}/stargazers">{{ projectRepo.stars }}</a></div>
-                        </li>
+                    {% for repository in repos %}
+                    {% if repository.name == projectName %}
+                    <li>
+                        <a href="{{ repository.url }}" class="project-name" title="{{ repository.name }}">
+                            {{ repository.name }}
+                        </a>
+                        <div class="star-gazers">
+                            <a href="{{ repository.url }}/stargazers">{{ repository.stars }}</a>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
                     {% endfor %}
                 </ol>
             </section>
@@ -69,34 +74,20 @@ title: open source software (OSS)
             </header>
 
             <ul class="more-projects-grid">
-                {% for projectName in popularity %}
-                    {% if featured.primary contains projectName or featured.secondary contains projectName or ignored contains projectName %}
-                        {% continue %}
-                    {% endif %}
-                    {% assign projectRepo = repos[projectName] %}
-                    {% assign projectMetadata = metadata[projectName] %}
-                    <li>
-                        <div class="repo-box opensource-box">
-                            {% include opensource/project.html %}
-                        </div>
-                    </li>
+                {% for repository in repos %}
+                {% if repository.featured.primary == false or repository.featured.secondary == false %}
+                <li>
+                    <div class="repo-box opensource-box">
+                        {% include opensource/project.html repository=repository %}
+                    </div>
+                </li>
+                {% endif %}
                 {% endfor %}
             </ul>
         </section>
     </div>
 </div>
 
-<section class="section-twitter">
-    <section>
-        <div class="content">
-            <a class="twitter-timeline" href="https://twitter.com/AllegroTechBlog" data-widget-id="502727718861942784"
-               data-chrome="nofooter noborders transparent" width="100%" data-tweet-limit="4" data-link-color="#FF5A00">Tweets
-                by @AllegroTechBlog</a>
-        </div>
-    </section>
-</section>
-
-<script src="//platform.twitter.com/widgets.js" defer></script>
 <script src="/js/swiper.min.js"></script>
 <script>
     new Swiper('.swiper-container', {
