@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /Reasons-to-learn-groovy.html
 layout: post
 title: 7 reasons why Java developer should consider learning Groovy
 author: michal.tydryszewski

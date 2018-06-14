@@ -54,10 +54,6 @@ figcaption {
         padding: 24px 0;
     }
 
-    & .fixed-header-size {
-        padding: 4.5em 0;
-    }
-
     .posts li {
         background: rgba(255, 255, 255, 0.2);
         color: #fff;
@@ -71,6 +67,7 @@ figcaption {
             background: rgba(255, 255, 255, 0.7);
             padding-top: 20px;
             margin-top: 4rem;
+            min-height: 32px;
         }
 
         #latest-post-tag {
@@ -122,6 +119,9 @@ figcaption {
     .posts {
         li {
             margin: 1em auto;
+            &:first-child {
+                margin: 0;
+            }
         }
     }
 }

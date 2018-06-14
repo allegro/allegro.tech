@@ -1,6 +1,6 @@
 ---
+layout: event
 title: Meet IT Toruń # 17
-meetupLink: https://www.meetup.com/allegrotech/events/245556960/
 time: 1512579600000
 venue_address_1: ul. Kościuszki 71
 venue_city: Toruń

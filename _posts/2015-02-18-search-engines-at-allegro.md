@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /search-engines-at-allegro.html
 layout: post
 title: Search Engines at Allegro — Part I — introduction
 author: zbyszko.papierski

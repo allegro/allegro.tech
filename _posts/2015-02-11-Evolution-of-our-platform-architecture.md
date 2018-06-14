@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /Evolution-of-our-platform-architecture.html
 layout: post
 title: Evolution of our platform architecture
 author: bartlomiej.ignasiak

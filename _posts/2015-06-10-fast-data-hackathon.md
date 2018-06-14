@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /fast-data-hackathon.html
 layout: post
 title: Fast Data Hackathon
 author: [pawel.leszczynski,pawel.zawistowski]

@@ -1,6 +1,6 @@
 ---
+layout: event
 title: Allegro Tech Talks Poznań #7
-meetupLink: https://www.meetup.com/allegrotech/events/246444391/
 time: 1517245200000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań

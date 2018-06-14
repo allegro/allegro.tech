@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /tradukisto.html
 layout: post
 title: "Allegro OpenSource: tradukisto"
 author: dorian.sarnowski

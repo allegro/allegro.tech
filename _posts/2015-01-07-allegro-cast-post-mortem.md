@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /allegro-cast-post-mortem.html
 layout: post
 title: Post-mortem report on 23-24, October 2014 failure
 tags: [tech,allegro, post-mortem, failure]

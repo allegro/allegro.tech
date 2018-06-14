@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /working-with-legacy-architecture.html
 layout: post
 title: Working with legacy architecture
 author: kamil.piska

@@ -1,6 +1,6 @@
 ---
+layout: event
 title: Allegro Tech Talks Warszawa #5
-meetupLink: https://www.meetup.com/allegrotech/events/244649142/
 time: 1512579600000
 venue_address_1: al. Jana Pawła II 22, Warszawa
 venue_city: Warsaw

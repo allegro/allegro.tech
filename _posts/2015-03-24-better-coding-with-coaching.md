@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /better-coding-with-coaching.html
 layout: post
 title: Better coding with coaching
 author: marcin.konkel

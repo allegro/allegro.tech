@@ -1,28 +1,27 @@
 ---
 layout: default
 ---
-{% if site.data.events[0].status == 'upcoming' %}
+{% for event in site.events %}
+{% if event.status == 'near' %}
 <section class="section-latest">
-    {% for event in site.data.events limit:1 %}
-    <header class="fixed-header-size" style="background-image: url('../img/events/header-image.jpg');">
+    <header style="background-image: url('../img/events/header-image.jpg');">
         <div class="content">
-            {% include events.html status="upcoming" limit="1" %}
+            {% include events.html status="near" limit="1" %}
         </div>
     </header>
-    {% endfor %}
-    {% endif %}
-
 </section>
+{% endif %}
+{% endfor %}
+
 <section class="section-posts desk ">
     <div class="content">
-        <ul id="events-upcoming" class="posts">
+        <ul class="posts">
             {% include events.html offset="1" status="upcoming" %}
         </ul>
         <h1 class="title">Past Events</h1>
-        <ul id="events-past" class="posts">
+        <ul class="posts">
             {% include events.html status="past" %}
         </ul>
-        <script src="/js/moment.min.js"></script>
     </div>
 </section>
 

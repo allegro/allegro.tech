@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /asynch-req-processing_p1.html
 layout: post
 title: Increasing Capacity and improving Resilience with asynchronous request processing, part I
 author: bartosz.walacik

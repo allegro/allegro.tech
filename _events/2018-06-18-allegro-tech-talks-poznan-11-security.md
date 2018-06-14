@@ -1,10 +1,10 @@
 ---
-title: Allegro Tech Talks Poznań #11 - Security 
-meetupLink: https://www.meetup.com/allegrotech/events/251680637/
+layout: event
+title: Allegro Tech Talks Poznań #11 - Security
 time: 1529337600000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań
-venue_name: Pixel 
+venue_name: Pixel
 status: upcoming
 id: 251680637
 ---

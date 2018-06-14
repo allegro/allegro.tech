@@ -1,11 +1,11 @@
 ---
+layout: event
 title: Hackathon Allegro Tech Days Warszawa - ZAPISY!
-meetupLink: https://www.meetup.com/allegrotech/events/251510035/
 time: 1529078400000
 venue_address_1: Aleja Poniatowskiego 1,
 venue_city: Warsaw
 venue_name: Stadion PGE Narodowy
-status: upcoming
+status: near
 id: 251510035
 ---
 

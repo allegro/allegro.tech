@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /frontend-made-simple.html
 layout: post
 title: Frontend made simple
 author: bartosz.galek

@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /testing-restful-service-and-clients.html
 layout: post
 title: Testing RESTful services and their clients
 author: rafal.glowinski

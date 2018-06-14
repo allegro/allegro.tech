@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /comparison-of-webdriver-based-solutions-for-tests-automation.html
 layout: post
 title: Comparison of WebDriver-based solutions for test automation
 author: ryszard.targonski

@@ -2,14 +2,13 @@
 layout: default
 ---
 <div class="post">
-    <header class="post-header">
+    <header class="post-header" style="background-image: url('../img/events/header-image.jpg');">
         <div class="content">
-            <time class="entry-date" datetime="{{ page.date}}">
+            <time class="entry-date" datetime="{{ page.date }}">
                 <span>{{ page.time | slice: 0, 10| date: "%A, <strong>%b %-d</strong> %Y,  %I:%M %p" }}
                 </span>
             </time>
             <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
-
             <div class="post-meta">
                 <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
@@ -18,7 +17,7 @@ layout: default
                         </a>
                     </li>
                     <li>
-                        <span>{{ page.venue_city }}</span>
+                        <span>{{ page.venue_name }}, {{ page.venue_address_1 }}, {{ page.venue_city }}</span>
                     </li>
                 </ul>
             </div>
@@ -27,27 +26,7 @@ layout: default
 
     <article class="post-content">
         <div class="content">
-
-            <h2>When</h2>
-
-            {{ page.time | slice: 0, 10| date: "%A, <strong>%b %-d</strong> %Y,  %I:%M %p" }}
-
-            <h2>Venue</h2>
-
-            {{ page.venue_name }} <br/>
-            {{ page.venue_address_1 }} &middot; {{ page.venue_city }}
-
-            <h2>Status</h2>
-            {{ page.status }}
-
-
-            <h2>Event</h2>
-             {{ content }}
-
-            <br/>
-            See this event on <a href="{{ page.meetupLink }}">Meetup</a>
-
-     </div>
-  </article>
-
+            {{ content }}
+        </div>
+    </article>
 </div>

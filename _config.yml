@@ -5,7 +5,7 @@ gems:
 # Site settings
 title: allegro.tech
 menu: false
-
+future: true
 description: "We use Open Source solutions on a daily basis here at Allegro Group. Why not work on our karma and give something in return? Welcome to our open source technology blog."
 name: allegro.tech
 baseurl: ""
@@ -31,10 +31,3 @@ collections:
   events:
     output: true
     permalink: /events/:name
-
-defaults:
-  - scope:
-      path: ""
-      type: events_collection
-    values:
-      layout: event

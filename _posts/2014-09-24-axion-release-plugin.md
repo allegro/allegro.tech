@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /axion-release-plugin.html
 layout: post
 title: "Allegro OpenSource: axion-release-plugin"
 author: adam.dubiel

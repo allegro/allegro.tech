@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /tdd-is-not-dead-yet-geecon-poznan-2015.html
 layout: post
 title: TDD is not dead yet — GeeCon Poznan 2015
 author: ewa.bugajska

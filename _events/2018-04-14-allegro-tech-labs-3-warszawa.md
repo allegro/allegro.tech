@@ -1,6 +1,6 @@
 ---
+layout: event
 title: Allegro Tech Labs #3 Warszawa
-meetupLink: https://www.meetup.com/allegrotech/events/249421556/
 time: 1523689200000
 venue_address_1: al. Jana Pawła II 22, Warszawa
 venue_city: Warsaw

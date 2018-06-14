@@ -1,6 +1,6 @@
 ---
+layout: event
 title: Allegro Tech Talks Poznań #10 - Machine Learning 
-meetupLink: https://www.meetup.com/allegrotech/events/250799242/
 time: 1526917500000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań

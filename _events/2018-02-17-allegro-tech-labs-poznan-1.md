@@ -1,21 +1,21 @@
 ---
-title: Allegro Tech Labs Poznań #2 - Język programowania Kotlin
-meetupLink: https://www.meetup.com/allegrotech/events/248573563/
-time: 1521273600000
+layout: event
+title: Allegro Tech Labs Poznań # 1
+time: 1518854400000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań
 venue_name: Pixel 
 status: past
-id: 248573563
+id: 247513717
 ---
 
 <p>Allegro Tech Labs to całodniowe, darmowe warsztaty w czasie których będziecie mogli poznać technologie z jakich korzystamy w Allegro. Prowadzone przez doświadczonych inżynierów, którzy rozwiązali już niejeden produkcyjny problem.</p>
-<p>Ze względu na bardzo duże zainteresowanie postanowiliśmy ponownie zorganizować warsztat z wprowadzenia do języka programowania Kotlin. Warsztaty prowadzone będą w języku polskim.</p>
-<p>Prosimy o zabranie swoich laptopów.</p>
-<p>BEZ ZAREJESTROWANIA SIĘ NIE MA MOŻLIWOŚCI UCZESTNICZENIA W WARSZTATACH!</p>
+<p>Tematem pierwszych warsztatów będzie wprowadzenie do języka programowania Kotlin.
+  <br/>Warsztaty prowadzone w języku polskim.
+  <br/>Prosimy o zabranie swoich laptopów.</p>
 <p>REJESTRACJA:
   <br/>
-  <a href="https://allegro.tech/events/" class="linkified">https://allegro.tech/events/</a> - prosimy o rejestrację poprzez przycisk "Register" przy opisie wydarzenia.</p>
+  <a href="https://allegro.tech/events/" class="linkified">https://allegro.tech/events/</a> - prosimy o rejestrację poprzez przycisk "Register" przy opisie wydarzenia. Bez zarejestrowania się nie ma możliwości uczestniczenia w warsztatach.</p>
 <p>Agenda wydarzenia:
   <br/>09:00 - 09:20 - Rejestracja
   <br/>09:20 - 12:00 - Warsztaty

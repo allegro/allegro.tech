@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /spring-boot-starter-handlebars.html
 layout: post
 title: Spring Boot Starter Handlebars
 author: pawel.lesiecki
