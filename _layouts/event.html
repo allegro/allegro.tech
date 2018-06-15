@@ -26,7 +26,25 @@ layout: default
 
     <article class="post-content">
         <div class="content">
+
+            <p>
+                <img src="/img/octicons/calendar.svg"/>
+                {{ page.time | slice: 0, 10| date: "%A, <strong>%b %-d</strong> %Y" }}
+            </p>
+
+            <p>
+                <img src="/img/octicons/clock.svg"/>
+                {{ page.time | slice: 0, 10| date: "%I:%M %p" }}
+            </p>
+
+            <p>
+                <img src="/img/octicons/location.svg"/>
+                {{ page.venue_name }},{{ page.venue_address_1 }}, {{ page.venue_city }}
+            </p>
+
+            <h2 style="margin-top: 20px">Event details</h2>
             {{ content }}
+
         </div>
     </article>
 </div>
