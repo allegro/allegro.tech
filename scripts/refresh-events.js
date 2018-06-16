@@ -2,11 +2,18 @@ const fs = require('fs');
 const axios = require('axios');
 const pretty = require('pretty');
 
-const SOURCE = 'https://api.meetup.com/allegrotech/events?status=past,upcoming&desc=true&photo-host=public&page=20';
+const MEETUP_SOURCE = 'https://api.meetup.com/allegrotech/events?status=past,upcoming&desc=true&photo-host=public&page=20';
+const PICATIC_SOURCE = 'https://api.picatic.com/v2/event?filter[user_id]=736756&page[limit]=100&page[offset]=0';
 
-axios.get(SOURCE)
+if (!process.argv[2]) {
+    console.error("picatic api key needed!");
+    process.exit(1);
+}
+
+axios.get(MEETUP_SOURCE)
     .then(response => response.data)
     .then(events => events.filter(event => event.venue))
+    .then(events => joinWithPicatic(events))
     .then(events => events.map(event => ({
         template: render(event),
         filename: `${formatDate(new Date(event.time))}-${slugify(event.name)}.md`
@@ -19,8 +26,24 @@ axios.get(SOURCE)
             }));
     })
     .catch(error => {
-        console.log(error);
+        console.error(error);
     });
+
+function addRegistrationLink(event, picatics) {
+    const id = picatics.filter(picatic => picatic.attributes.start_date === event.local_date).map(picatic => picatic.id);
+    if (id[0]) event.registration = `https://www.picatic.com/${id[0]}`;
+    return event;
+}
+
+function joinWithPicatic(events) {
+    const config = {headers: {'Authorization': `Bearer ${process.argv[2]}`}};
+    return axios.get(PICATIC_SOURCE, config)
+        .then(response => response.data.data)
+        .then(picatics => events.map(event => addRegistrationLink(event, picatics)))
+        .catch(error => {
+            console.error(error);
+        });
+}
 
 function render(event) {
     return `---
@@ -32,6 +55,7 @@ venue_city: ${event.venue.city}
 venue_name: ${event.venue.name}
 status: ${event.status}
 id: ${event.id}
+registration: ${event.registration ? event.registration : ''}
 ---
 
 ${pretty(event.description)}

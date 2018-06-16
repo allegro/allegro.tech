@@ -7,6 +7,7 @@ venue_city: Warsaw
 venue_name: Allegro Office Q22
 status: past
 id: 249421556
+registration: https://www.picatic.com/202289
 ---
 
 <p>Wymagana rejestracja na wydarzenie!

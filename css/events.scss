@@ -1,0 +1,20 @@
+---
+---
+.event-metadata {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#register-button {
+    font-size: 1em;
+    background-color: #e64a19;
+    padding: 10px;
+    display: inline-block;
+    color: #fff;
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+

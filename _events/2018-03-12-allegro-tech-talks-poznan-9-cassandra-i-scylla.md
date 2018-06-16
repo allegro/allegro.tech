@@ -7,6 +7,7 @@ venue_city: Poznań
 venue_name: Pixel 
 status: past
 id: 248262307
+registration: https://www.picatic.com/147298
 ---
 
 <p>Zapraszamy na kolejny Allegro Tech Talks w Poznaniu! Tym razem poruszymy tematykę Cassandry i Scylli.</p>

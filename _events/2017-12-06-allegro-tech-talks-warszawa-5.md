@@ -7,6 +7,7 @@ venue_city: Warsaw
 venue_name: Allegro Office Q22
 status: past
 id: 244649142
+registration: https://www.picatic.com/136823
 ---
 
 <p>All presentations will be delivered in English</p>

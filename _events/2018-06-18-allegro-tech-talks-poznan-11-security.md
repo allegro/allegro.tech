@@ -1,12 +1,13 @@
 ---
 layout: event
-title: Allegro Tech Talks Poznań #11 - Security
+title: Allegro Tech Talks Poznań #11 - Security 
 time: 1529337600000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań
-venue_name: Pixel
+venue_name: Pixel 
 status: upcoming
 id: 251680637
+registration: https://www.picatic.com/207259
 ---
 
 <p>Chcesz zobaczyć live hacking? Zarejestruj się na kolejny Allegro Tech Talks w Poznaniu!</p>
@@ -31,3 +32,4 @@ id: 251680637
 <p>Paweł Skarżyński - Specjalista bezpieczeństwa IT i pasjonat turystyki rowerowej. W pracy zajmuje się głównie testami bezpieczeństwa aplikacji webowych i mobilnych oraz konsultacjami, szczególnie tymi związanymi z kryptografią. Posiadacz certyfikatów CEH
   i OSCP.</p>
 <p>UWAGA: Ze względu na prezentowane treści w trakcie Allegro Tech Talks #11 nie będziemy prowadzili live streamingu na fanpage Allegro Tech na Facebooku.</p>
+<p>[masked]</p>

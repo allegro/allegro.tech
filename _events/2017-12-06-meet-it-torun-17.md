@@ -7,6 +7,7 @@ venue_city: Toruń
 venue_name: Kościuszko Business Point
 status: past
 id: 245556960
+registration: https://www.picatic.com/136823
 ---
 
 <p>Gorąco zapraszamy na mikołajkową edycję Meet IT Toruń! </p>

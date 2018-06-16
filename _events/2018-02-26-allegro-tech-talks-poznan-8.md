@@ -7,6 +7,7 @@ venue_city: Poznań
 venue_name: Pixel 
 status: past
 id: 247801149
+registration: https://www.picatic.com/145634
 ---
 
 <p>Zapraszamy na kolejny Allegro Tech Talks w Poznaniu. Tym razem poruszymy tematykę Python i Devops! Agenda:

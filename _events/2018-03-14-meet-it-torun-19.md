@@ -7,6 +7,7 @@ venue_city: Toruń
 venue_name: Kościuszko Business Point
 status: past
 id: 248654625
+registration: 
 ---
 
 <p>• What we'll do

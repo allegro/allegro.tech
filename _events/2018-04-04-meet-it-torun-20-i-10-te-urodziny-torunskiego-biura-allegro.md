@@ -7,6 +7,7 @@ venue_city: Toruń
 venue_name: Kościuszko Business Point
 status: past
 id: 249185099
+registration: 
 ---
 
 <p>Drogie Koleżanki, Drodzy Koledzy!

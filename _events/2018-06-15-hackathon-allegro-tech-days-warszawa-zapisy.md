@@ -4,9 +4,10 @@ title: Hackathon Allegro Tech Days Warszawa - ZAPISY!
 time: 1529078400000
 venue_address_1: aleja Poniatowskiego 1
 venue_city: Warsaw
-venue_name: Stadion PGE Narodowy
-status: near
+venue_name: PGE Narodowy
+status: upcoming
 id: 251510035
+registration: 
 ---
 
 <p>24h HACKATHON ALLEGRO TECH DAYS W WARSZAWIE</p>

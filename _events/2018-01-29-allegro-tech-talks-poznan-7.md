@@ -7,6 +7,7 @@ venue_city: Poznań
 venue_name: Pixel 
 status: past
 id: 246444391
+registration: https://www.picatic.com/140971
 ---
 
 <p>Zapraszamy na pierwszy w tym roku event frontendowy z serii Allegro Tech Talks w Poznaniu.</p>

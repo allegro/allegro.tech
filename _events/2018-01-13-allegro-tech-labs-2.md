@@ -7,6 +7,7 @@ venue_city: Warsaw
 venue_name: Allegro Office Q22
 status: past
 id: 246443420
+registration: https://www.picatic.com/140972
 ---
 
 <p>Przedstawiamy Wam nową inicjatywę Allegro Tech: Allegro Tech Labs. Jest to cykl całodniowych, darmowych warsztatów, w czasie których będziecie mogli poznać technologie z jakich korzystamy w Allegro. Prowadzone przez doświadczonych inżynierów, którzy rozwiązali

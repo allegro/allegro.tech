@@ -7,6 +7,7 @@ venue_city: Poznań
 venue_name: Pixel 
 status: past
 id: 247513717
+registration: https://www.picatic.com/143073
 ---
 
 <p>Allegro Tech Labs to całodniowe, darmowe warsztaty w czasie których będziecie mogli poznać technologie z jakich korzystamy w Allegro. Prowadzone przez doświadczonych inżynierów, którzy rozwiązali już niejeden produkcyjny problem.</p>
