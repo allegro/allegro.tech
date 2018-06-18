@@ -5,7 +5,7 @@ time: 1529078400000
 venue_address_1: aleja Poniatowskiego 1
 venue_city: Warsaw
 venue_name: PGE Narodowy
-status: upcoming
+status: past
 id: 251510035
 registration: 
 ---

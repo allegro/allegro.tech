@@ -1,6 +1,7 @@
 const fs = require('fs');
 const axios = require('axios');
 const pretty = require('pretty');
+const moment = require('moment');
 
 const MEETUP_SOURCE = 'https://api.meetup.com/allegrotech/events?status=past,upcoming&desc=true&photo-host=public&page=20';
 const PICATIC_SOURCE = 'https://api.picatic.com/v2/event?filter[user_id]=736756&page[limit]=100&page[offset]=0';
@@ -14,6 +15,7 @@ axios.get(MEETUP_SOURCE)
     .then(response => response.data)
     .then(events => events.filter(event => event.venue))
     .then(events => joinWithPicatic(events))
+    .then(events => setLatestStatus(events))
     .then(events => events.map(event => ({
         template: render(event),
         filename: `${formatDate(new Date(event.time))}-${slugify(event.name)}.md`
@@ -44,6 +46,24 @@ function joinWithPicatic(events) {
             console.error(error);
         });
 }
+
+function setLatestStatus(events) {
+    const now = new Date();
+    let closest = now;
+    events.map(it => it.local_date).forEach(d => {
+        const date = new Date(d);
+        if (date >= now && date < closest) {
+            closest = date;
+        }
+    });
+    events.forEach(event => {
+        if (new Date(event.local_date).toDateString() === closest.toDateString()) {
+            event.status = 'near';
+        }
+    });
+    return events;
+}
+
 
 function render(event) {
     return `---
