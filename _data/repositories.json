@@ -25,8 +25,8 @@
         "turnilo",
         "allegro-api",
         "cassandra-modeling-kata",
-        "slinger",
         "django-powerdns-dnssec",
+        "slinger",
         "ralph-cli",
         "grunt-maven-npm",
         "elasticsearch-analysis-morfologik",
@@ -117,7 +117,7 @@
         {
             "name": "hermes",
             "url": "https://github.com/allegro/hermes",
-            "stars": 359,
+            "stars": 360,
             "description": "Fast and reliable message broker built on top of Kafka.",
             "featured": {
                 "primary": true,
@@ -415,10 +415,10 @@
             }
         },
         {
-            "name": "slinger",
-            "url": "https://github.com/allegro/slinger",
+            "name": "django-powerdns-dnssec",
+            "url": "https://github.com/allegro/django-powerdns-dnssec",
             "stars": 26,
-            "description": "Slinger - deep linking library for Android",
+            "description": "Django application managing PowerDNS database",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -430,10 +430,10 @@
             }
         },
         {
-            "name": "django-powerdns-dnssec",
-            "url": "https://github.com/allegro/django-powerdns-dnssec",
-            "stars": 26,
-            "description": "Django application managing PowerDNS database",
+            "name": "slinger",
+            "url": "https://github.com/allegro/slinger",
+            "stars": 25,
+            "description": "Slinger - deep linking library for Android",
             "featured": {
                 "primary": false,
                 "secondary": false
