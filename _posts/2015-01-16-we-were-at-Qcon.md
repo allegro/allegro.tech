@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /we-were-at-Qcon.html
 layout: post
 title: We were at QCon SF 2014
 author: filip.marszelewski

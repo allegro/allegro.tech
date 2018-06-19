@@ -1,11 +1,11 @@
 ---
 layout: default
-comments: true
 ---
 <section class="post" itemscope itemtype="http://schema.org/TechArticle">
     <header class="post-header">
         <div class="content">
-            <time class="entry-date" datetime="{{ page.date}}"><span>{{ page.date | date: "<strong>%b %-d</strong> %Y" }}</span></time>
+            <time class="entry-date" datetime="{{ page.date}}"><span>{{ page.date | date: "<strong>%b %-d</strong> %Y" }}</span>
+            </time>
             <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
 
             <div class="post-meta">
@@ -15,21 +15,22 @@ comments: true
                     </li>
                     <li class="authors" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                         {% for author in page.author %}
-                        <a href="{{ site.url }}/authors/{{author}}" itemprop="item">{{site.data.members[author].name}}</a>
-						<meta itemprop="name" content="{{site.data.members[author].name}}" />
+                        <a href="{{ site.url }}/authors/{{author}}"
+                           itemprop="item">{{site.data.members[author].name}}</a>
+                        <meta itemprop="name" content="{{site.data.members[author].name}}"/>
                         {% endfor %}
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-						<link href="{{site.url}}{{ page.url }}" itemprop="item">
-						<span itemprop="name">{{ page.title }}</span>
+                        <link href="{{site.url}}{{ page.url }}" itemprop="item">
+                        <span itemprop="name">{{ page.title }}</span>
                     </li>
                 </ul>
             </div>
         </div>
     </header>
-	<meta itemprop="keywords" content="{{ page.tags | join: ', ' }}">
-	<meta itemprop="datePublished" content="{{ page.date }}">
-	<meta itemprop="image" content="{{ site.url }}/img/logo-allegro-tech.png">
+    <meta itemprop="keywords" content="{{ page.tags | join: ', ' }}">
+    <meta itemprop="datePublished" content="{{ page.date }}">
+    <meta itemprop="image" content="{{ site.url }}/img/logo-allegro-tech.png">
 
     <article class="post-content" itemprop="articleBody">
         <div class="content"> {{ content }}</div>
@@ -72,12 +73,11 @@ comments: true
     <div id="disqus_thread" class="content"></div>
 </section>
 <script>
-    var disqus_shortname = 'allegrotechio';
     (function () {
-        var dsq = document.createElement('script');
+        const dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        dsq.src = "//allegrotechio.disqus.com/embed.js";
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>

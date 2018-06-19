@@ -1,6 +1,5 @@
 ---
 ---
-
 figure {
     float: right;
     display: table;
@@ -47,16 +46,12 @@ figcaption {
 
 .section-latest section,
 .section-blog > header {
-    padding: 2em 0;
+    padding: 24px 0;
 }
 
 .section-latest {
     & > header {
-        padding: 2em 0;
-    }
-
-    .content {
-        padding: 0 35px;
+        padding: 24px 0;
     }
 
     .posts li {
@@ -72,6 +67,7 @@ figcaption {
             background: rgba(255, 255, 255, 0.7);
             padding-top: 20px;
             margin-top: 4rem;
+            min-height: 32px;
         }
 
         #latest-post-tag {
@@ -119,13 +115,23 @@ figcaption {
     margin-bottom: 25px;
 }
 
+.section-posts {
+    .posts {
+        li {
+            margin: 1em auto;
+            &:first-child {
+                margin: 0;
+            }
+        }
+    }
+}
+
 .posts {
     list-style-type: none;
 
     li {
         position: relative;
         background: #fff;
-        margin: 1em auto;
         padding: 35px 35px 15px;
         font-weight: 300;
     }
@@ -155,11 +161,6 @@ figcaption {
     }
 }
 
-.section-posts {
-    background: #eee;
-    padding: 2em 0;
-}
-
 .section-posts h2,
 .repos-box > h3 {
     color: #555;
@@ -170,10 +171,6 @@ figcaption {
 }
 
 @media all and (min-width: 760px) {
-    .section-posts .content {
-        padding: 0 35px;
-    }
-
     .section-twitter .content {
         padding: 0;
     }
@@ -230,7 +227,7 @@ figcaption {
 
 .post-content {
     background: #fff;
-    padding: 2em 0;
+    padding: 24px 0;
 }
 
 .post-content table {
@@ -260,7 +257,7 @@ figcaption {
 
 .comments {
     background: #f5f5f5;
-    padding: 2em 0;
+    padding: 24px 0;
 }
 
 .post-header {
@@ -427,7 +424,6 @@ figcaption {
     display: inline-block;
 }
 
-
 /* social */
 
 .social {
@@ -472,6 +468,7 @@ figcaption {
 .i-wrapper {
     max-width: 100%;
 }
+
 .i-wrapper div {
     position: relative;
     padding-bottom: 56.25%;
@@ -479,7 +476,7 @@ figcaption {
     overflow: hidden;
 }
 
-.i-wrapper iframe{
+.i-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -487,8 +484,7 @@ figcaption {
     height: 100%;
 }
 
-.center-image
-{
+.center-image {
     margin: 0 auto;
     display: block;
 }

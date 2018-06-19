@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /custom-resource-in-Jersey-configured-by-annotations.html
 layout: post
 title: Using Jersey model processor for supporting edge-service features
 author: piotr.glazar

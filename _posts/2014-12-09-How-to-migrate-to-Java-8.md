@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /How-to-migrate-to-Java-8.html
 layout: post
 title: How to migrate to Java 8
 author: michal.kosmulski

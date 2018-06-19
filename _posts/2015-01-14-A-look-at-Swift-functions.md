@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /A-look-at-Swift-functions.html
 layout: post
 title: A look at Swift functions
 author: szymon.tur

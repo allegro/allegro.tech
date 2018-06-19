@@ -1,0 +1,59 @@
+---
+layout: default
+---
+<div class="post">
+    <header class="post-header" style="background-image: url('../img/events/header-image.jpg');">
+        <div class="content">
+            <time class="entry-date" datetime="{{ page.date }}">
+                <span>{{ page.time | slice: 0, 10| date: "%A, <strong>%b %-d</strong> %Y,  %I:%M %p" }}
+                </span>
+            </time>
+            <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+            <div class="post-meta">
+                <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a href="{{ site.url }}/events" itemprop="item">
+                            <span itemprop="name">allegro.tech events</span>
+                        </a>
+                    </li>
+                    <li>
+                        <span>{{ page.venue_name }}, {{ page.venue_address_1 }}, {{ page.venue_city }}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <article class="post-content">
+        <div class="content event-metadata">
+            <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+                <p>
+                    <img style="height:13px" src="/img/octicons/location.svg" alt="where"/>
+                    <a itemprop="name"
+                       href="https://www.google.com/maps/place/{{ page.venue_address_1 }},{{page.venue_city}}">
+                        {{ page.venue_name }},&nbsp;{{ page.venue_address_1 }},&nbsp;{{ page.venue_city }}
+                    </a>
+                </p>
+                <p>
+                    <img style="height:13px" src="/img/octicons/calendar.svg" alt="date"/>
+                    <span>&nbsp;{{ page.time | slice: 0, 10| date: "%A, <strong>%b %-d</strong> %Y" }}</span>
+                </p>
+                <p>
+                    <img style="height:13px" src="/img/octicons/clock.svg" alt="time"/>
+                    <span>&nbsp;{{ page.time | slice: 0, 10| date: "%I:%M %p" }}</span>
+                </p>
+            </div>
+            <div>
+                {% if page.registration %}
+                <script async src="https://widget.picatic.com/latest/js/embed.min.js" id="picatic-widget-script"></script>
+                <a id="register-button" href="{{ page.registration }}" class="picatic-widget-button pwb-small pwb-flamingo">Register</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Event details</h2>
+            {{ content }}
+        </div>
+    </article>
+</div>

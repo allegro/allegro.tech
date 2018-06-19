@@ -1,5 +1,5 @@
 ---
-layout: author_index
+layout: author
 author: artur.stepniewski
 ---
 

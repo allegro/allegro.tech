@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /Adopting-Gradle-at-allegro-pl-a-success-story.html
 layout: post
 title: Adopting Gradle at Allegro — a success story
 author: [piotr.betkier, bartosz.walacik]

@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /digging-into-the-system.html
 layout: post
 title: Digging into the system
 author: mateusz.gajewski

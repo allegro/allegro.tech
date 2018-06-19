@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /scaling-graphite.html
 layout: post
 title: Scaling Graphite
 author: adam.dubiel

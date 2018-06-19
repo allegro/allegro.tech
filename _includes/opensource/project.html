@@ -1,15 +1,15 @@
 <article class="opensource-project">
-    <a href="{{ projectRepo.url }}">
-        <h4>{{ projectRepo.name }}</h4>
-        <p class="repo-description">{{ projectRepo.description }}</p>
+    <a href="{{ include.repository.url }}">
+        <h4>{{ include.repository.name }}</h4>
+        <p class="repo-description">{{ include.repository.description }}</p>
     </a>
     <div class="star-gazers">
-        <a href="{{ projectRepo.url }}/stargazers">{{ projectRepo.stars }}</a>
+        <a href="{{ include.repository.url }}/stargazers">{{ include.repository.stars }}</a>
     </div>
     <ul class="repo-metadata">
-        <li><a href="{{ projectRepo.url }}">repo</a></li>
-        {% if projectMetadata.docs %}<li><a href="{{ projectMetadata.docs }}">docs</a></li>{% endif %}
-        {% if projectMetadata.contact %}<li><a href="{{ projectMetadata.contact }}">contact</a></li>{% endif %}
-        {% if projectMetadata.twitter %}<li><a href="{{ projectMetadata.twitter }}">twitter</a></li>{% endif %}
+        <li><a href="{{ include.repository.url }}">repo</a></li>
+        {% if include.repository.metadata.docs %}<li><a href="{{ include.repository.metadata.docs }}">docs</a></li>{% endif %}
+        {% if include.repository.metadata.contact %}<li><a href="{{ include.repository.metadata.contact }}">contact</a></li>{% endif %}
+        {% if include.repository.metadata.twitter %}<li><a href="{{ include.repository.metadata.twitter }}">twitter</a></li>{% endif %}
     </ul>
 </article>

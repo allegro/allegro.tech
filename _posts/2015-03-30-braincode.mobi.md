@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /braincode.mobi.html
 layout: post
 title: Summarising the 2nd edition of BrainCode Mobi
 author: joanna.antkowiak

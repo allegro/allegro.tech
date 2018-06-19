@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /hadoop-world-2014-report.html
 layout: post
 title: Hadoop World 2014 New York from a developer’s point of view
 author: jaroslaw.grabowski

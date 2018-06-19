@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /thread-pools.html
 layout: post
 title: An introduction to thread pools in Java
 author: piotr.glazar

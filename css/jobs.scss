@@ -3,253 +3,6 @@
 
 @import 'slides';
 
-.jobs-site {
-    color: #000;
-    background: #eee;
-}
-
-.jobs-site a {
-    text-decoration: none;
-}
-
-.jobs {
-    margin-top: 1em;
-}
-
-/* listing */
-div.jobs ul, div.jobs li {
-    margin: 0;
-    padding: 0
-}
-div.jobs ul {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    list-style: none;
-    background: none;
-    width: 90%;
-    max-width: 960px;
-    margin: 0 auto;
-}
-div.jobs ul li {
-    -webkit-flex: 1 1 27%;
-    flex: 1 1 27%;
-    padding: 1em;
-    margin: 0.4em;
-    background: rgba(255, 255, 255, 1.0);
-    position: relative;
-}
-div.jobs  img {
-    max-height: 8em;
-    margin: 0 auto;
-    display: block;
-}
-div.jobs .title {
-    display: block;
-    font-size: 1.2em;
-    text-align: center;
-    margin-top: 1.5em;
-    color: #fc4e00;
-}
-.job-add > header, .job-add > section, .job-add > footer {
-    background: #fff;
-    margin: 1em auto;
-    width: 90%;
-    max-width: 960px;
-    padding: 1em
-}
-.job-add > footer {
-    background: #fc4e00;
-    padding: 0.6em;
-    font-size: 1.1em;
-    font-weight: 500;
-    color: white;
-    text-align: center;
-}
-.job-add header {
-    overflow: hidden;
-}
-.job-add header img {
-    float: left;
-    margin-right: 1em;
-    height: 100px;
-}
-.job-add header h1 {
-    margin: 0.75em 0 0 0;
-}
-
-.job-add header h1 {
-    color: #ff5825;
-}
-.job-add section {
-    h1, h2 {
-        text-transform: uppercase;
-    }
-}
-.job-add dt, dd {
-    display: inline-block;
-    float: left;
-    margin: 0 0 0.5em 0;
-    padding: 0;
-}
-.job-add dt {
-    width: 60%;
-    clear: left;
-    padding: 0 10% 0 0;
-}
-.job-add dd {
-    width: 20%;
-}
-.req {
-    position: relative;
-}
-.req:after {
-    content: '●';
-    display: inline-block;
-    color: #ff5825;
-    position: relative;
-    z-index: 2;
-    font-size: 24px
-}
-.req2:after {
-    content: '●●';
-}
-.req3:after {
-    content: '●●●';
-}
-.req:before {
-    content: '●●●';
-    display: inline-block;
-    color: #d2d1d1;
-    position: absolute;
-    z-index: 1;
-    font-size: 24px
-}
-.req span {
-    position: absolute;
-    left: -9999px;
-}
-.job-add-req div {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    clear: both;
-}
-.job-add-req div section {
-    -webkit-flex: 1 1 300px;
-            flex: 1 1 300px;
-}
-.job-add-offer ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: -webkit-flex;
-    -webkit-flex-wrap: wrap;
-    display: flex;
-    flex-wrap: wrap;
-}
-.job-add-offer li {
-    position: relative;
-    line-height: 24px;
-    padding: 0;
-    margin: 0.5rem 0;
-    -webkit-flex: 1 1 30%;
-    flex: 1 1 30%;
-    min-width: 200px
-}
-.job-add-offer li:after {
-    content: '✔';
-    display: inline-block;
-    font-size: 24px;
-    color: #ff5825;
-    margin-left: 15px
-}
-.job-added {
-    width: 90%;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 .4em;
-    box-sizing: border-box;
-    position: relative;
-    color: #3c763d;
-    overflow: hidden;
-    height: 7em;
-    transition: height 300ms ease-out;
-}
-.job-added__hidden {
-    height: 0;
-}
-.job-added h2 {
-    background: #dff0d8;
-    padding: 1em 1em .8em;
-    border: 1px solid #d6e9c6;
-}
-.job-added .close:after {
-    content: '✘';
-    display: block;
-    position: absolute;
-    height: 1em;
-    width: 1em;
-    top: 2em;
-    font-size: 1.5em;
-    right: 1em;
-    z-index: 1;
-    cursor: pointer;
-    text-align: center;
-}
-.contact-form input[type=text],
-.contact-form textarea {
-    font: 1.6rem/1.3 'Myriad Pro', Optima, Helvetica, Arial, sans-serif;
-    border: 0;
-    padding: .7em;
-    width: 100%;
-    margin: 0.3em 0 0 0;
-    box-sizing: border-box;
-}
-.contact-form .row {
-    margin: 1em;
-    text-align: left;
-}
-
-.contact-form button {
-    font: bold 2rem/1.3 'Myriad Pro', Optima, Helvetica, Arial, sans-serif;
-    background: #fff;
-    border: 0;
-    padding: .5em 1em;
-    cursor: pointer;
-}
-
-.job-add-confirm,
-.job-add header span{
-    font-family: Arial, sans-serif;
-    font-size: 90%;
-}
-
-.job-description {
-    h2 {
-        color: #999;
-    }
-    ul {
-        margin-left: 2em;
-    }
-    li {
-        line-height: 1.6em;
-        padding-bottom: 0.8em;
-    }
-    p {
-        line-height: 1.6em;
-        text-align: justify;
-    }
-    a {
-        color: #4ba7f8;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
-
 .recruiters {
     background: #35769e;
     margin-top: 1em;
@@ -299,58 +52,9 @@ div.jobs .title {
     }
 }
 
-.jobs-site {
-    .color-header:after {
-       background: #35769e url('../img/jobs/jobs-header.jpg') center center no-repeat;
-    background-size: cover;
-    }
-
-    .color-header-content {
-        background: #35769e;
-        color: #fff;
-    }
+.color-header-content {
+    background: #35769e;
 }
-
-
-.jobs-site.experience{
-    .color-header:after {
-        background-color: #003724;
-        background-image: url('../img/jobs/allegro-tech-experience-bg.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    #allegro-tech-experience-logo {
-        max-width: 100%;
-    }
-
-    .color-header-content{
-        ul {
-            margin-left: 20px;
-        }
-        strong {
-            color: #b1efe6;
-        }
-    }
-    .color-header-content {
-        background-color: #35769e;
-        background-image:linear-gradient(rgba(0,55,36,1),rgba(0,55,36,0.6));
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .jobs-site.experience {
-    .color-header:after {
-            background-size: 100%, cover;
-        }
-    }
-}
-
-
-
-
-
 
 #job-offers {
     list-style: none;
@@ -381,6 +85,7 @@ div.jobs .title {
         }
     }
 }
+
 #job-offers-title {
     font-size: 32px;
     font-weight: 400;
@@ -424,7 +129,7 @@ div.jobs .title {
 .recruitment-box {
     background: #1961ac;
     padding: 2rem 15rem 2rem 4rem;
-    width: 70%;
+    width: 46%;
     margin: 6rem 0 2rem;
 
     h3, p {
@@ -433,16 +138,18 @@ div.jobs .title {
 
     &.recruitment-box-right {
         padding: 2rem 4rem 2rem 15rem;
-        margin-left: 30%;
+        margin-left: 33%;
     }
 }
 
 #workshop, #workshop-img:after {
     background: #13a538;
 }
+
 #algo, #algo-img:after {
     background: #915ea0;
 }
+
 #hr-leader, #hr-leader-img:after {
     background: #fac314;
 }

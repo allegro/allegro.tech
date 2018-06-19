@@ -1,106 +1,20 @@
 ---
 ---
-
-.events-site {
-    background: #eee;
-
-    .color-header:after {
-        background: #107b1e url('../img/events/header-image.jpg') center center no-repeat;
-        background-size: cover;
-    }
-
-    .color-header-content {
-        background: #107b1e;
-        color: #fff;
-    }
-}
-
-.events {
-    list-style: none;
-
-    > li {
-
-        & + li:before {
-            content: '';
-            border-top: 1px solid #ccc;
-            display: block;
-            width: 90%;
-            margin: 50px auto;
-        }
-
-        display: block;
-        width: 100%;
-
-        .event-logo, .event-logo img {
-            max-width: 300px;
-        }
-
-        .event-logo, .event-info {
-            margin: auto;
-            // text-align: center;
-        }
-
-        // h3, h4 {
-        //     text-align: center;
-        // }
-
-        h4 {
-            color: #107b1e;
-        }
-
-        .event-image {
-            text-align: center;
-
-            img {
-                max-width: 90%;
-            }
-        }
-    }
-}
-
-#register-form {
-    position: relative;
-}
-
-#register-thank-you {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-
-    .m-message-global {
-        width: 80%;
-        margin: 2em auto;
-    }
-}
-.metrum-form {
-    section {
-        margin-bottom:32px;
-    }
-}
-
-
-.company-logo{
-    max-width: 150px;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 15px;
-}
-
-.event-speaker {
+.event-metadata {
     display: flex;
-    flex-wrap: wrap;
-    img{
-        max-width: 200px;
-    }
-    figure{
-        flex: 1;
-        float: none;
-        margin: 0 15px 0 0;
-    }
+    justify-content: space-between;
+    align-items: center;
+}
 
-    div{
-        flex: 2 1 300px;
+#register-button {
+    font-size: 1em;
+    background-color: #e64a19;
+    padding: 10px;
+    display: inline-block;
+    color: #fff;
+    a {
+        color: #fff;
+        text-decoration: none;
     }
 }
+

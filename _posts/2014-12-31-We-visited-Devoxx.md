@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /We-visited-Devoxx.html
 layout: post
 title: We visited Devoxx 2014
 author: adam.dubiel

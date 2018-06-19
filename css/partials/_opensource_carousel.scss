@@ -27,7 +27,7 @@
             }
         }
 
-            .repo-description {
+        .repo-description {
             max-width: 540px;
         }
 
@@ -46,6 +46,7 @@
         }
     }
 }
+
 .showcase-button {
     position: absolute;
     top: 40%;
@@ -75,6 +76,10 @@
 }
 
 @media all and (max-width: 1070px) {
-    .showcase-button-prev { left: 10px; }
-    .showcase-button-next { right: 10px; }
+    .showcase-button-prev {
+        left: 10px;
+    }
+    .showcase-button-next {
+        right: 10px;
+    }
 }

@@ -5,7 +5,10 @@ Write your article in Markdown, save it to `_posts` folder.
 If this is your first post, prepare your Bio.
 
 Launch the site using [jekyll](https://help.github.com/articles/using-jekyll-with-pages),
-does your article is rendered correctly?
+
+`bundle exec jekyll serve -i`
+
+Does your article is rendered correctly?
 
 Create a Pull Request and get some feedback.
 
@@ -192,4 +195,3 @@ source: [practicaltypography.com](http://practicaltypography.com)
 
 You can visit [fsymbols](http://fsymbols.com/keyboard/linux/compose/) for information about configuring and using Compose key on Linux.
 You can also enter any Unicode character based on its hex code as described [here](http://fsymbols.com/keyboard/linux/unicode/).
-

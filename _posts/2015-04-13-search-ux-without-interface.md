@@ -1,7 +1,4 @@
 ---
-redirect_from:
-   - /search-ux-without-interface.html
-
 layout: post
 title: How to UX without interface
 author: [alicja.antkowiak, edyta.kopczynska, krystian.szczucki, piotr.plys]

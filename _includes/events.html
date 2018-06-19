@@ -1,0 +1,19 @@
+<ul class="posts">
+    {% if include.status == 'past' %}
+        {% assign events = (site.events | sort: 'date') | reverse %}
+    {% else %}
+        {% assign events = site.events %}
+    {% endif %}
+    {% for event in events offset:include.offset %}
+    {% if event.status == include.status %}
+    <li class="event-wrapper past" itemscope itemtype="http://schema.org/Event">
+        <time class="post-date">{{event.time | slice: 0, 10 | date: "<strong>%b %-d</strong> %Y"}}</time>
+        <a class="event-title post-link" itemprop="name" href="{{ event.url }}">
+            {{ event.title }}
+        </a>
+        <p>{{ event.content | strip_html | truncatewords: 50 }}</p>
+        <div class="post-meta"><span>{{event.venue_name}}, {{event.venue_address_1}}, {{event.venue_city}}</span></div>
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>

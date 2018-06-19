@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /spark-kafka-integration.html
 layout: post
 title: Spark and Kafka integration patterns
 author: marcin.kuthan

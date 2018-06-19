@@ -1,100 +1,29 @@
 ---
-layout: events
-thank_you: false
+layout: default
+title: events
 ---
-<header class="color-header">
-    <div class="color-header-content">
-        <h2>
-            Events
-        </h2>
-        <p>
-            <strong>
-                Allegro Tech
-            </strong>
-            organizes, sponsors and takes part in many events gathering the IT community.
-        </p>
-        <p>
-            Check out upcoming events below. It's a great opportunity to meet our engineers and learn what we do and
-            what we work on.
-        </p>
-    </div>
-</header>
-<section class="m-card">
-    <h2>
-        Upcoming events
-    </h2>
-    <ul class="events">
-        <li>
-            <h3>
-                <img alt="Allegro Tech" src="/img/allegro-tech.svg" class="company-logo"/> Allegro Tech Talks Poznań #11
-            </h3>
 
-            <link rel="stylesheet" property="stylesheet" href="https://www.picatic.com/css/buy-button.css">
-            <a href="https://www.picatic.com/event15288134533645?utm_source=promotion&utm_medium=button&utm_campaign=207259" class="picatic-widget-button pwb-flamingo">Register</a>
-
-            <div class="event-info">
-                <time>
-                    <b>
-                      18 czerwiec 2018
-                    </b>
-                    17:45 - 21:00
-                </time>
-                <p>
-                    <b>
-                        Place:
-                    </b>
-                    Poznań
-                    <a href="https://goo.gl/GcCxFD">ul. Grunwaldzka 182</a> biuro Allegro
-                </p>
-            </div>
-            <div class="event-description">
-                <div>
-                    <p>
-                        <i>Chcesz zobaczyć live hacking? Zarejestruj się na kolejny Allegro Tech Talks w Poznaniu!</i>
-                    </p>
-                    <h3>Agenda:</h3>
-                    <p>
-                        17:45 - 18:00 - Rejestracja<br/>
-                        18:00 - 18:05 - Przywitanie<br/>
-                        18:05 - 18:50 - Marcin Ratajczyk - USB Forensics - jakie cenne informacje o urządzeniach magazynujących USB przechowuje system Windows?<br/>
-                        18:50 - 19:00 - przerwa<br/>
-                        19:00 - 20:00 - Paweł Skarżyński - Adolf Tango Down - o istotności pentestów.<br/>
-                        20:00 - pytania i pizza :)<br/>
-                    </p>
-                </div>
-                <div>
-                    <h3>USB Forensics - jakie cenne informacje o urządzeniach magazynujących USB przechowuje system Windows?</h3>
-                    <p>Jednym z najpopularniejszych wektorów ataku są urządzenia magazynujące USB tj. pendrive, zewnętrzne dyski twarde, odtwarzacze MP3 itp. Z urządzeń tych może zostać uruchomione złośliwe oprogramowanie lub mogą służyć do wykradania poufnych informacji. W jaki sposób system Windows przechowuje informacje o tych urządzeniach? Gdzie ich szukać? Czy w każdym przypadku uda się zidentyfikować konkretne urządzenie? Na te pytania postaram się odpowiedzieć podczas mojej prezentacji.</p>
-                    <div class="event-speaker">
-                        <figure>
-                            <img alt="Marcin Ratajczyk" src="/img/events/marcin-ratajczyk.png"/>
-                        </figure>
-                        <div>
-                            <h4>Marcin Ratajczyk</h4>
-                            <p>
-                              Obecnie Threat Analyst w zespole Rapid Detection Center w F-Secure, gdzie zajmuję się analizą zagrożeń w infrastrukturze teleinformatycznej klienta. Moimi ulubionymi obszarami w IT Security są analiza złośliwego oprogramowania oraz informatyka śledcza. Prywatnie fascynuje mnie geopolityka oraz włoska piłka nożna.
-                            </p>
-                        </div>
-                    </div>
-
-                    <h3>Adolf Tango Down - o istotności pentestów</h3>
-                    <p>
-                      Podczas prezentacji krótko wprowadzę publiczność w tematykę testów penetracyjnych, opowiem o tym dlaczego warto je robić oraz jakie pułapki czyhają na osoby wykonujące takie testy. Następnie zademonstruję live hacking pokazując jak parę błędów może doprowadzić do katastrofy całej organizacji.
-                    </p>
-
-                    <div class="event-speaker">
-                        <figure>
-                            <img alt="Paweł Skarżyński" src="/img/events/pawel-skarzynski.jpg"/>
-                        </figure>
-                        <div>
-                            <h4>Paweł Skarżyński</h4>
-                            <p>
-                               Specjalista bezpieczeństwa IT i pasjonat turystyki rowerowej. W pracy zajmuje się głównie testami bezpieczeństwa aplikacji webowych i mobilnych oraz konsultacjami, szczególnie tymi związanymi z kryptografią. Posiadacz certyfikatów CEH i OSCP.
-                            </p>
-                          </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
+{% for event in site.events %}
+{% if event.status == 'near' %}
+<section class="section-latest">
+    <header style="background-image: url('../img/events/header-image.jpg');">
+        <div class="content">
+            {% include events.html status="near" limit="1" %}
+        </div>
+    </header>
 </section>
+{% endif %}
+{% endfor %}
+
+<section class="section-posts desk ">
+    <div class="content">
+        <ul class="posts">
+            {% include events.html offset="1" status="upcoming" %}
+        </ul>
+        <h1 class="title">Past Events</h1>
+        <ul class="posts">
+            {% include events.html status="past" %}
+        </ul>
+    </div>
+</section>
+

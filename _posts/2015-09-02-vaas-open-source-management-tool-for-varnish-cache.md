@@ -1,6 +1,4 @@
 ---
-redirect_from:
-   - /vaas-open-source-management-tool-for-varnish-cache.html
 layout: post
 title: Varnish as a Service goes open source
 author: szymon.jasinski
