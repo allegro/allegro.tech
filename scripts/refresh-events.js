@@ -1,7 +1,6 @@
 const fs = require('fs');
 const axios = require('axios');
 const pretty = require('pretty');
-const moment = require('moment');
 
 const MEETUP_SOURCE = 'https://api.meetup.com/allegrotech/events?status=past,upcoming&desc=true&photo-host=public&page=20';
 const PICATIC_SOURCE = 'https://api.picatic.com/v2/event?filter[user_id]=736756&page[limit]=100&page[offset]=0';
