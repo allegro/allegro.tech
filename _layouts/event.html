@@ -7,6 +7,9 @@ layout: default
             <time class="entry-date" datetime="{{ page.date }}">
                 <span>{{ page.time | slice: 0, 10| date: "%A, <strong>%b %-d</strong> %Y,  %I:%M %p" }}
                 </span>
+                {% if page.status == 'past' %}
+                <span>&nbsp;(past)</span>
+                {% endif %}
             </time>
             <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
             <div class="post-meta">
@@ -37,6 +40,9 @@ layout: default
                 <p>
                     <img style="height:13px" src="/img/octicons/calendar.svg" alt="date"/>
                     <span>&nbsp;{{ page.time | slice: 0, 10| date: "%A, <strong>%b %-d</strong> %Y" }}</span>
+                    {% if page.status == 'past' %}
+                    <span>&nbsp;(past)</span>
+                    {% endif %}
                 </p>
                 <p>
                     <img style="height:13px" src="/img/octicons/clock.svg" alt="time"/>
@@ -44,7 +50,7 @@ layout: default
                 </p>
             </div>
             <div>
-                {% if page.registration %}
+                {% if page.registration && page.status == 'upcoming' %}
                 <script async src="https://widget.picatic.com/latest/js/embed.min.js" id="picatic-widget-script"></script>
                 <a id="register-button" href="{{ page.registration }}" class="picatic-widget-button pwb-small pwb-flamingo">Register</a>
                 {% endif %}
