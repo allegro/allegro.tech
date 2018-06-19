@@ -207,7 +207,7 @@
         {
             "name": "handlebars-spring-boot-starter",
             "url": "https://github.com/allegro/handlebars-spring-boot-starter",
-            "stars": 79,
+            "stars": 80,
             "description": "Spring Boot auto-configuration for Handlebars",
             "featured": {
                 "primary": false,
