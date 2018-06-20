@@ -42,7 +42,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 1526,
+            "stars": 1527,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -57,7 +57,7 @@
         {
             "name": "ralph",
             "url": "https://github.com/allegro/ralph",
-            "stars": 863,
+            "stars": 864,
             "description": "Ralph is an asset management system for your data center and back office.",
             "featured": {
                 "primary": true,
