@@ -87,7 +87,7 @@
         {
             "name": "php-protobuf",
             "url": "https://github.com/allegro/php-protobuf",
-            "stars": 662,
+            "stars": 663,
             "description": "PHP Protobuf - Google's Protocol Buffers for PHP",
             "featured": {
                 "primary": false,
@@ -132,7 +132,7 @@
         {
             "name": "axion-release-plugin",
             "url": "https://github.com/allegro/axion-release-plugin",
-            "stars": 246,
+            "stars": 247,
             "description": "Gradle release & version management plugin.",
             "featured": {
                 "primary": false,
