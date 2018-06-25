@@ -1,7 +1,7 @@
 ---
 layout: post
 title: From Java to C# and back again
-author: [hubert.gezikiewicz]
+author: hubert.gezikiewicz
 tags: [tech, java, C#]
 ---
 
