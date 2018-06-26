@@ -137,71 +137,71 @@ private void doSomething(List<URL> list) { ... }
 
 After type erasure takes place, the type of items contained in the collections is replaced by ```Object```. Because of this, 
 the two methods end up with an identical signature and the code would fail to compile. To overcome this, one needs to 
-modify the names of the methods. Type erasure also makes it more difficult to use reflection. For example, let’s say you 
-have a few classes that each has a different set of fields. 
+modify the names of the methods.
+
+Type erasure can also make it more difficult to use reflection. For example, let’s say we have two classes A and B,
+and that B inherits from A. Let’s also create and array of type A which contains a mix of instances of A and B.
 
 ```C#
 public class A {
-    public String field1;
-
-    public String field2;
+    public String field1 = "field1";
 }
 
-public class B {
-    public String field3;
+public class B : A {
+    public String field2 = "field2";
 }
+
+...
+
+A[] array = new A[2];
+array[0] = new A();
+array[1] = new B();
 ```
 
-Now, let’s say we want to process each of the fields in some way. The simplest approach would be to create two methods, 
-one dedicated for each of the classes, and explicitly perform the processing on the fields. 
+Now let’s write a generic method that iterates through the array and, for each item, writes out the value of each field. 
 
 ```C#
-public void Process(A value) {
-    DoSomething(value.field1);
-    DoSomething(value.field2);
-}
-
-public void Process(B value) {
-    DoSomething(value.field3);
-}
-```
-
-However, this solution doesn’t scale well with the number of classes and fields. If we expect them to change often, 
-a better approach might be to use reflection. In C# you could write it as:
-
-```C#
-public void Process<T>(T value) {
-    foreach (Field field in typeof(value).GetFields()) {
-        DoSomething(field.GetValue());
+public void Process<T>(T[] array) where T : A {
+    foreach (T item in array)
+    {
+        foreach (FieldInfo field in typeof(T).GetFields())
+        {
+            Console.WriteLine(field.GetValue(item));
+        }
     }
 }
+
 ```
 
-And use the code like this:
+Calling the method as:
 
 ```C#
-A a;
-B b;
-Process(a);
-Process(b);
+Process(array)
 ```
 
-This approach would not work in Java. It relies on the fact that we can get the actual runtime value of ```T``` using the 
-```typeof``` operator. Since Java’s type erasure replaces ```T``` with ```Object```, there’s no way we can determine what the actual 
-type is. To work around this, in Java we need to define an additional ```Class``` parameter. We can then use it to explicitly 
+would give the following result:
+
+```
+field1
+field1
+```
+
+Because we declared the type of items contained in the array as A we don’t see any occurrences of "field2" in the method’s 
+output. Achieving the same result in Java is a bit more tricky. The approach above relies on the fact that we can get the actual
+runtime value of ```T``` using the ```typeof``` operator. Since Java’s type erasure replaces ```T``` with ```Object```, 
+there’s no way we can determine what the actual type is. We could try checking the type of each item in the array using the 
+```getClass()``` method, but because our array contains some instances of type B, we would see ```field2``` appear in the output. 
+To work around this, in Java we need to define an additional ```Class``` parameter. We can then use it to explicitly 
 tell the method what type we’re processing.
 
 ```java
-public <T> void process(T value, Class<T> type) {
-    for (Field field : type.getDeclaredFields()) {
-        doSomething(field.getValue());
+public <T extends A> void process(T[] value, Class<T> type) {
+    for (T item : value) {
+        for (Field field : type.getDeclaredFields()) {
+            System.out.println(field.get(item));
+        }
     }
 }
-
-A a;
-B b;
-process(a, A.class);
-process(b, B.class);
 ```
 
 Adding the extra information in this case might not seem like a huge problem, but having to pass the type explicitly 
