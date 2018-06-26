@@ -140,29 +140,27 @@ the two methods end up with an identical signature and the code would fail to co
 modify the names of the methods.
 
 Type erasure can also make it more difficult to use reflection. For example, let’s say we have two classes A and B,
-and that B inherits from A. Let’s also create an array of type A which contains a mix of instances of A and B.
+and that B inherits from A. Let’s also create a list of type A which contains a mix of instances of A and B.
 
 ```C#
 public class A {
-    public String field1 = "field1";
 }
 
 public class B : A {
-    public String field2 = "field2";
 }
 
 ...
 
-A[] array = new A[2];
-array[0] = new A();
-array[1] = new B();
+List<A> list = new List<A>();
+list.Add(new A());
+list.Add(new B());
 ```
 
-Now let’s write a generic method that starts with logging the type of the array and then processes it some way: 
+Now let’s write a generic method that starts with logging the type of the list and then processes it some way: 
 
 ```C#
-public void Process<T>(T[] array) where T : A {
-    Console.WriteLine("Processing an array of {0}", typeof(T).Name);
+public void Process<T>(List<T> list) where T : A {
+    Console.WriteLine("Processing a list of {0}", typeof(T).Name);
     
     // do something else
 }
@@ -171,35 +169,35 @@ public void Process<T>(T[] array) where T : A {
 Calling the method as:
 
 ```C#
-Process(array);
+Process(list);
 ```
 
 would print the following line:
 
 ```
-Processing an array of A
+Processing a list of A
 ```
 
 This approach would not work in Java. It relies on the fact that we can get the actual runtime value of ```T``` using 
 the ```typeof``` operator. Since Java’s type erasure replaces ```T``` with ```Object```, there’s no way we can determine 
-the type of items in the array. We could try to iterate through them and check their types using the ```getClass()``` method, 
-but, because our array contains a mixture of different classes, we would need to walk up the inheritance tree and calculate a 
+the type of items in the list. We could try to iterate through them and check their types using the ```getClass()``` method, 
+but, because our list contains a mixture of different classes, we would need to walk up the inheritance tree and calculate a 
 common ancestor for them. This could get tricky if the classes implemented the same interfaces.
 A better approach, would be to define an additional ```Class``` parameter. We can then use it to explicitly 
 tell the method what type we’re processing.
 
 ```java
-    public <T extends A> void process(T[] value, Class<T> type) {
-        System.out.printf("Processing array of %s", type.getName());
+public <T extends A> void process(List<T> value, Class<T> type) {
+    System.out.printf("Processing a list of %s", type.getName());
 
-        // do something else
-    }
+    // do something else
+}
 ```
 
 The method would then be called like this:
 
 ```java
-process(array, A.class);
+process(list, A.class);
 ```
 
 Adding the extra information in this case might not seem like a huge problem, but having to pass the type explicitly 
