@@ -140,7 +140,7 @@ the two methods end up with an identical signature and the code would fail to co
 modify the names of the methods.
 
 Type erasure can also make it more difficult to use reflection. For example, let’s say we have two classes A and B,
-and that B inherits from A. Let’s also create and array of type A which contains a mix of instances of A and B.
+and that B inherits from A. Let’s also create an array of type A which contains a mix of instances of A and B.
 
 ```C#
 public class A {
@@ -158,50 +158,48 @@ array[0] = new A();
 array[1] = new B();
 ```
 
-Now let’s write a generic method that iterates through the array and, for each item, writes out the value of each field. 
+Now let’s write a generic method that starts with logging the type of the array and then processes it some way: 
 
 ```C#
 public void Process<T>(T[] array) where T : A {
-    foreach (T item in array)
-    {
-        foreach (FieldInfo field in typeof(T).GetFields())
-        {
-            Console.WriteLine(field.GetValue(item));
-        }
-    }
+    Console.WriteLine("Processing an array of {0}", typeof(T).Name);
+    
+    // do something else
 }
-
 ```
 
 Calling the method as:
 
 ```C#
-Process(array)
+Process(array);
 ```
 
-would give the following result:
+would print the following line:
 
 ```
-field1
-field1
+Processing an array of A
 ```
 
-Because we declared the type of items contained in the array as A we don’t see any occurrences of "field2" in the method’s 
-output. Achieving the same result in Java is a bit more tricky. The approach above relies on the fact that we can get the actual
-runtime value of ```T``` using the ```typeof``` operator. Since Java’s type erasure replaces ```T``` with ```Object```, 
-there’s no way we can determine what the actual type is. We could try checking the type of each item in the array using the 
-```getClass()``` method, but because our array contains some instances of type B, we would see ```field2``` appear in the output. 
-To work around this, in Java we need to define an additional ```Class``` parameter. We can then use it to explicitly 
+This approach would not work in Java. It relies on the fact that we can get the actual runtime value of ```T``` using 
+the ```typeof``` operator. Since Java’s type erasure replaces ```T``` with ```Object```, there’s no way we can determine 
+the type of items in the array. We could try to iterate through the items and check their types using the ```getClass()``` method, 
+but, because our array contains a mixture of different classes, we would need to walk up the inheritance tree and calculate a 
+common ancestor for them. This could get tricky if the classes implemented the same interfaces.
+A better approach, would be to define an additional ```Class``` parameter. We can then use it to explicitly 
 tell the method what type we’re processing.
 
 ```java
-public <T extends A> void process(T[] value, Class<T> type) {
-    for (T item : value) {
-        for (Field field : type.getDeclaredFields()) {
-            System.out.println(field.get(item));
-        }
+    public <T extends A> void process(T[] value, Class<T> type) {
+        System.out.printf("Processing array of %s", type.getName());
+
+        // do something else
     }
-}
+```
+
+The method would then be called like this:
+
+```java
+process(array, A.class);
 ```
 
 Adding the extra information in this case might not seem like a huge problem, but having to pass the type explicitly 
