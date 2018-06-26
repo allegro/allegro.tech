@@ -10,7 +10,7 @@ C# and back again to Java. This article gathers some of my thoughts on using bot
 a comprehensive comparison of Java and C#. There are a lot of other resources on the Internet that cover this topic. 
 Instead, I want to focus on what I personally liked about both languages and how it felt to transition between them.
 
-## From Java to C#
+## From Java to C\#
 Over the course of my computer science studies, Java was my primary programming language. It had everything I needed and 
 felt much easier to use than C++. Around that time I also briefly tried C# but was instantly discouraged by the horribly 
 slow Visual Studio 2008 IDE. So I stuck with Java for 5 years and considered myself a Java developer. That was until I 
