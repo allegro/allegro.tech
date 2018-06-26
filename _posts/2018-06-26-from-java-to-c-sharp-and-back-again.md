@@ -182,7 +182,7 @@ Processing an array of A
 
 This approach would not work in Java. It relies on the fact that we can get the actual runtime value of ```T``` using 
 the ```typeof``` operator. Since Java’s type erasure replaces ```T``` with ```Object```, there’s no way we can determine 
-the type of items in the array. We could try to iterate through the items and check their types using the ```getClass()``` method, 
+the type of items in the array. We could try to iterate through them and check their types using the ```getClass()``` method, 
 but, because our array contains a mixture of different classes, we would need to walk up the inheritance tree and calculate a 
 common ancestor for them. This could get tricky if the classes implemented the same interfaces.
 A better approach, would be to define an additional ```Class``` parameter. We can then use it to explicitly 
