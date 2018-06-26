@@ -132,7 +132,7 @@ work just as well. But type erasure can cause some inconveniences. For example c
 
 ```java
 private void doSomething(List<String> list) { ... }
-private void doSomething(List<URL>) list { ... }
+private void doSomething(List<URL> list) { ... }
 ```
 
 After type erasure takes place, the type of items contained in the collections is replaced by ```Object```. Because of this, 
