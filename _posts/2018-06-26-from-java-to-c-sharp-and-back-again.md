@@ -137,71 +137,67 @@ private void doSomething(List<URL> list) { ... }
 
 After type erasure takes place, the type of items contained in the collections is replaced by ```Object```. Because of this, 
 the two methods end up with an identical signature and the code would fail to compile. To overcome this, one needs to 
-modify the names of the methods. Type erasure also makes it more difficult to use reflection. For example, let’s say you 
-have a few classes that each has a different set of fields. 
+modify the names of the methods.
+
+Type erasure can also make it more difficult to use reflection. For example, let’s say we have two classes A and B,
+and that B inherits from A. Let’s also create a list of type A which contains a mix of instances of A and B.
 
 ```C#
 public class A {
-    public String field1;
-
-    public String field2;
 }
 
-public class B {
-    public String field3;
+public class B : A {
 }
+
+...
+
+List<A> list = new List<A>();
+list.Add(new A());
+list.Add(new B());
 ```
 
-Now, let’s say we want to process each of the fields in some way. The simplest approach would be to create two methods, 
-one dedicated for each of the classes, and explicitly perform the processing on the fields. 
+Now let’s write a generic method that starts with logging the type of the list and then processes it some way: 
 
 ```C#
-public void Process(A value) {
-    DoSomething(value.field1);
-    DoSomething(value.field2);
-}
-
-public void Process(B value) {
-    DoSomething(value.field3);
+public void Process<T>(List<T> list) where T : A {
+    Console.WriteLine("Processing a list of {0}", typeof(T).Name);
+    
+    // do something else
 }
 ```
 
-However, this solution doesn’t scale well with the number of classes and fields. If we expect them to change often, 
-a better approach might be to use reflection. In C# you could write it as:
+Calling the method as:
 
 ```C#
-public void Process<T>(T value) {
-    foreach (Field field in typeof(value).GetFields()) {
-        DoSomething(field.GetValue());
-    }
-}
+Process(list);
 ```
 
-And use the code like this:
+would print the following line:
 
-```C#
-A a;
-B b;
-Process(a);
-Process(b);
+```
+Processing a list of A
 ```
 
-This approach would not work in Java. It relies on the fact that we can get the actual runtime value of ```T``` using the 
-```typeof``` operator. Since Java’s type erasure replaces ```T``` with ```Object```, there’s no way we can determine what the actual 
-type is. To work around this, in Java we need to define an additional ```Class``` parameter. We can then use it to explicitly 
+This approach would not work in Java. It relies on the fact that we can get the actual runtime value of ```T``` using 
+the ```typeof``` operator. Since Java’s type erasure replaces ```T``` with ```Object```, there’s no way we can determine 
+the type of items in the list. We could try to iterate through them and check their types using the ```getClass()``` method, 
+but, because our list contains a mixture of different classes, we would need to walk up the inheritance tree and calculate a 
+common ancestor for them. This could get tricky if the classes implemented the same interfaces.
+A better approach, would be to define an additional ```Class``` parameter. We can then use it to explicitly 
 tell the method what type we’re processing.
 
 ```java
-public <T> void process(T value, Class<T> type) {
-    for (Field field : type.getDeclaredFields()) {
-        doSomething(field.getValue());
-    }
-}
+public <T extends A> void process(List<T> value, Class<T> type) {
+    System.out.printf("Processing a list of %s", type.getName());
 
-A a;
-B b;
-process(a, A.class);
-process(b, B.class);
+    // do something else
+}
+```
+
+The method would then be called like this:
+
+```java
+process(list, A.class);
 ```
 
 Adding the extra information in this case might not seem like a huge problem, but having to pass the type explicitly 
