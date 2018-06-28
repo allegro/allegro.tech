@@ -31,6 +31,9 @@
     padding: 10px 0 0;
     line-height: 40px;
 
+
+}
+
     .site-navlist {
         list-style: none;
         display: inline-block;
@@ -46,20 +49,8 @@
         li .current {
             color: #ff5a00;
         }
-
-        li .social {
-            padding: 5px;
-            width: 16px;
-            opacity: 0.5;
-            display: inline-block;
-            line-height: 1;
-
-            &:hover{
-                opacity:0.3;
-            }
-        }
     }
-}
+
 
 @media all and (min-width: 900px) {
     .site-nav {
