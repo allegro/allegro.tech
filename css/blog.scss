@@ -427,19 +427,23 @@ figcaption {
 /* social */
 
 .social {
-            padding: 5px;
-            width: 16px;
-            opacity: 0.5;
-            display: inline-block;
-            line-height: 1;
-            &:hover{
-                opacity:0.3;
-            }
+    width: 16px;
+    opacity: 0.5;
+    display: inline-block;
+    line-height: 1;
+
+    &:hover{
+        opacity:0.3;
+    }
+        img {
+        vertical-align: middle;
+    }
         }
 .social-icons {
     float: right;
-    img {
-        vertical-align: middle;
+
+    .social{
+        padding: 5px;
     }
 }
 
