@@ -27,15 +27,14 @@ worse until we crossed the critical line. We store metrics only for one week so 
 times got worse, we didn’t know if they increased suddenly or kept increasing slowly and consistently. Now, regardless 
 of the answer, we needed to fix this quickly because we couldn’t accept these times.
 
-The problem here is that since we were streaming data all the way with 
-[backpressure](https://github.com/ReactiveX/RxJava/wiki/Backpressure), we couldn’t see which part of the process was 
+The problem here is that since we were streaming data all the way, we couldn’t see which part of the process was 
 slowing everything down. With this architecture it’s hard to see one metric with a separate value for each step because 
 all steps execute in parallel. For this reason looking at the metrics gave me no certainty which step of the whole 
 process was a bottleneck. 
 
 ### First attempt
 First I took a look at the times of each step of the indexing part. It turned out that a 
-[forcemerge](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-forcemerge.html) lasted ~7 minutes 
+[forcemerge](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-forcemerge.html) lasted ~7 minutes 
 in each indexing. I turned this step off and started looking at metrics. It turned out that this part has a crucial 
 impact on search latency and without this step search times grew drastically. I gave this idea another try and 
 switched ``max_num_segments`` parameter from 1 (which compacts all the data in the index) back to its default (checking 
@@ -54,20 +53,20 @@ Due to lack of progress my colleague took over the helm and tried some different
 unsuitable:
 
 * set 
-[refresh_interval](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-update-settings.html#bulk) 
+[refresh_interval](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-update-settings.html#bulk) 
 to ``—1`` — since we do forcemerge in the end we don’t need to refresh during indexing,
 * turning off 
-[\_field_names](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-field-names-field.html) field — 
+[\_field_names](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/mapping-field-names-field.html) field — 
 this is Elasticsearch’s feature which comes with a price and since we didn’t take advantage of it we could easily 
 disable it,
-* playing with [translog](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-translog.html) 
+* playing with [translog](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/index-modules-translog.html) 
 options.
 
 Some helped a little:
 
-* turn off [doc_values](https://www.elastic.co/guide/en/elasticsearch/reference/current/doc-values.html) for fields we 
+* turn off [doc_values](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/doc-values.html) for fields we 
 don’t sort or group,
-* turn off [\_all](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-all-field.html) field,
+* turn off [\_all](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/mapping-all-field.html) field,
 * store in [\_source](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/mapping-source-field.html) only those 
 fields' values which we really need, although this one might be tricky because these fields will be harder to debug in 
 the future,
@@ -99,7 +98,7 @@ time by key-value pairs. The structure in the index was following:
 
 I turned these fields off for a couple of indexing runs and times dropped to ~4.5 minutes. The problem was that we had 
 many different keys and because of the way the index was organized internally it could be a 
-[performance issue](https://www.elastic.co/guide/en/elasticsearch/reference/current/general-recommendations.html#_normalize_document_structures). 
+[performance issue](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/general-recommendations.html#_normalize_document_structures). 
 Fortunately, since we only used filters for search we could refactor it a little bit to the following structure:
 
 ```json
