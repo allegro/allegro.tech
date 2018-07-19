@@ -98,7 +98,7 @@ time by key-value pairs. The structure in the index was following:
 
 I turned these fields off for a couple of indexing runs and times dropped to ~4.5 minutes. The problem was that we had 
 many different keys and because of the way the index was organized internally it could be a 
-[performance issue](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/general-recommendations.html#_normalize_document_structures). 
+[performance issue](https://www.elastic.co/guide/en/elasticsearch/reference/current/general-recommendations.html#_normalize_document_structures). 
 Fortunately, since we only used filters for search, we could refactor it a little bit to the following structure:
 
 ```json
