@@ -6,7 +6,7 @@ tags: [postmortem, devops, deployment, cloud]
 ---
 
 We messed up. On July 18<sup>th</sup>, 2018, at noon, Allegro went down and was unavailable for twenty minutes. The direct cause
-was a special offer in which one hundred Honor 7C phones whose street price is around PLN&nbsp;850 (about €&nbsp;200),
+was a special offer in which one hundred Honor 7C phones whose regular price is around PLN&nbsp;850 (about €&nbsp;200),
 were offered at a price of PLN&nbsp;1 (less than €&nbsp;1). This attracted more traffic than we anticipated and at the same time
 triggered a configuration error in the way services are scaled out. This caused the site to go down despite there
 being plenty of CPUs, RAM, and network capacity available in our data centers.
