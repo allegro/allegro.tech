@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Postmortem: why Allegro went down
+title: Postmortem — why Allegro went down
 author: michal.kosmulski
 tags: [postmortem, devops, deployment, cloud]
 ---
