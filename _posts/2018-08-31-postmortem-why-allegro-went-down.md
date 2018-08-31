@@ -49,7 +49,7 @@ of low traffic caused by frontend services failing around 12:05 and traffic risi
 </figure>
 
 At&nbsp;11:50, traffic to the major services was already 50% higher than the day before at the same time of day.
-At&nbsp;11:55 further traffic increase caused response times of major services to rise, forcing us to scale out these services.
+At&nbsp;11:55, further traffic increase caused response times of major services to rise, forcing us to scale out these services.
 A minute or two later, response times from Search and Listing services rose even more, forcing further scaling.
 
 By&nbsp;11:58, almost all resources in the part of the cluster provisioned for these services had been reserved even though
@@ -70,7 +70,7 @@ and tons of RAM laying around unused.
 src="/img/articles/2018-08-31-postmortem-why-allegro-went-down/listing-response-times.png" />
 <figcaption>
 Listing service response times (avg median - average between instances of the median value, max p99 - maximum between
-servers of 99<sup>th</sup> percentile). Response times stayed stable despite growing traffic but after reaching saturation,
+instances of 99<sup>th</sup> percentile). Response times stayed stable despite growing traffic but after reaching saturation,
 they increased very quickly, only to fall due to frontend services failing and later successful scaling of Listing service.
 </figcaption>
 </figure>
