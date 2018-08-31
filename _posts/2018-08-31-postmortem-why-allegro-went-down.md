@@ -8,9 +8,10 @@ tags: [postmortem, devops, deployment, cloud]
 We messed up. On July 18<sup>th</sup>, 2018, at noon, Allegro went down and was unavailable for twenty minutes. The direct cause
 was a special offer in which one hundred Honor 7C phones whose street price is around PLN&nbsp;850 (about €&nbsp;200),
 were offered at a price of PLN&nbsp;1 (less than €&nbsp;1). This attracted more traffic than we anticipated and at the same time
-triggered a configuration error in the way services are scaled out.  This caused the site to go down despite there
-being plenty of CPUs, RAM, and network capacity available in our data centers. In order to make up for the issues
-and apologize, [we made it possible to finish the transaction afterwards](https://www.spidersweb.pl/2018/07/allegro-honor-za-1zl-przeprosiny.html)
+triggered a configuration error in the way services are scaled out. This caused the site to go down despite there
+being plenty of CPUs, RAM, and network capacity available in our data centers.
+
+In order to make up for the issues and apologize, [we made it possible to finish the transaction afterwards](https://www.spidersweb.pl/2018/07/allegro-honor-za-1zl-przeprosiny.html)
 to buyers who managed to buy the phone at the low price but whose transactions were aborted as the system went down.
 
 But we believe that we also owe our customers and the tech community an explanation of how the crash came about
@@ -28,7 +29,7 @@ searching for an offer, clicking on it to view details, and then buying, followi
 * Listing — prepares data related to item listing (search result) pages
 * Search — responsible for low-level search in offers, based on keywords, parameters and other criteria
 * Transaction — allows items to be bought
-* [Opbox](/blog/2016/03/Managing-Frontend-in-the-microservices-architecture.html) — responsible for frontend rendering
+* [Opbox](/2016/03/Managing-Frontend-in-the-microservices-architecture.html) — responsible for frontend rendering
 of the data returned by backend services
 * Item — service for frontend rendering of item pages
 
@@ -39,7 +40,7 @@ At 11:15 we manually scaled out Listing service in order to be prepared for incr
 
 <figure>
 <img alt="Search service traffic around noon" 
-src="img/articles/2018-08-31-postmortem-why-allegro-went-down/search-traffic.png" />
+src="/img/articles/2018-08-31-postmortem-why-allegro-went-down/search-traffic.png" />
 <figcaption>
 Search service traffic around noon. The number of requests per unit of time rose before noon, causing some requests
 to fail after reaching a high enough level. Apart from natural changes in traffic, this chart also shows the time
@@ -66,7 +67,7 @@ and tons of RAM laying around unused.
 
 <figure>
 <img alt="Listing service response times" 
-src="img/articles/2018-08-31-postmortem-why-allegro-went-down/listing-response-times.png" />
+src="/img/articles/2018-08-31-postmortem-why-allegro-went-down/listing-response-times.png" />
 <figcaption>
 Listing service response times (avg median - average between instances of the median value, max p99 - maximum between
 servers of 99<sup>th</sup> percentile). Response times stayed stable despite growing traffic but after reaching saturation,
@@ -111,7 +112,7 @@ as well as the retry policies, we will be able to mitigate the impact of high tr
 
 <figure>
 <img alt="Undertow thread count in Listing service" 
-src="img/articles/2018-08-31-postmortem-why-allegro-went-down/undertow-threads.png" />
+src="/img/articles/2018-08-31-postmortem-why-allegro-went-down/undertow-threads.png" />
 <figcaption>
 Undertow thread count in Listing service. A sudden increase is visible during the time there were too few instances
 to handle incoming traffic. Compare with the graph of response times above.
