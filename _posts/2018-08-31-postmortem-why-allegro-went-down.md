@@ -108,7 +108,7 @@ Apart from the obvious resources of the cluster: CPU and RAM, another resource w
 the connection pools for incoming and outgoing network connections as well as file descriptors associated with them.
 If we run out of them, our service becomes unresponsive even if CPU and RAM are available, and this is what happened
 to some of the backend services during the outage. By better tuning the configuration of thread and connection pools
-as well as the retry policies, we will be able to mitigate the impact of high traffic for the next time it happens.
+as well as the retry policies, we will be able to mitigate the impact of high traffic the next time it happens.
 
 <figure>
 <img alt="Undertow thread count in Listing service" 
