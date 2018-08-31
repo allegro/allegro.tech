@@ -36,7 +36,7 @@ of the data returned by backend services
 ## Outage timeline
 
 The special offer was to start at noon sharp, and a direct link to its item page had been published before.
-At 11:15 we manually scaled out Listing service in order to be prepared for increased incoming traffic.
+At&nbsp;11:15 we manually scaled out Listing service in order to be prepared for increased incoming traffic.
 
 <figure>
 <img alt="Search service traffic around noon" 
@@ -48,11 +48,11 @@ of low traffic caused by frontend services failing around 12:05 and traffic risi
 </figcaption>
 </figure>
 
-At 11:50, traffic to the major services was already 50% higher than the day before at the same time of day.
-At 11:55 further traffic increase caused response times of major services to rise, forcing us to scale out these services.
+At&nbsp;11:50, traffic to the major services was already 50% higher than the day before at the same time of day.
+At&nbsp;11:55 further traffic increase caused response times of major services to rise, forcing us to scale out these services.
 A minute or two later, response times from Search and Listing services rose even more, forcing further scaling.
 
-By 11:58, almost all resources in the part of the cluster provisioned for these services had been reserved even though
+By&nbsp;11:58, almost all resources in the part of the cluster provisioned for these services had been reserved even though
 only a fraction of the cluster’s capacity (or even that particular compartment) was actually used. When an application
 is deployed to our cloud, it declares the amount of resources such as processor cores and memory which it needs for each
 instance. These resources are reserved for a particular instance and can’t be used by others even if the owner
@@ -75,7 +75,7 @@ they increased very quickly, only to fall due to frontend services failing and l
 </figcaption>
 </figure>
 
-Seconds before noon, the price of the special offer was decreased to PLN 1 in order to ensure that at 12:00 sharp
+Seconds before noon, the price of the special offer was decreased to PLN&nbsp;1 in order to ensure that at&nbsp;12:00 sharp
 it would already be visible in all channels, and the first sales took place.
 
 Also just before noon, traffic peaked at 200%-300% of the traffic from previous day, depending on service. At this stage,
@@ -86,7 +86,7 @@ spin up new instances of Search service. We manually added even more instances, 
 previously prevented us from scaling up as far as to decrease response times significantly.
 
 Increased response times caused some Opbox instances to not report their health status to the cluster correctly and
-at 12:05 the cluster started killing off unresponsive instances. While automated and manual scaling efforts continued,
+at&nbsp;12:05 the cluster started killing off unresponsive instances. While automated and manual scaling efforts continued,
 before 12:15 we started adding more resources to the cluster. At the same time, we started shutting down some non-critical
 services in order to free CPU and memory. Around 12:20, the situation was fully under control and Allegro became
 responsive again.
@@ -114,7 +114,7 @@ as well as the retry policies, we will be able to mitigate the impact of high tr
 <img alt="Undertow thread count in Listing service" 
 src="/img/articles/2018-08-31-postmortem-why-allegro-went-down/undertow-threads.png" />
 <figcaption>
-Undertow thread count in Listing service. A sudden increase is visible during the time there were too few instances
+Undertow thread count in Listing service. A sudden increase is visible during the time when there were too few instances
 to handle incoming traffic. Compare with the graph of response times above.
 </figcaption>
 </figure>
