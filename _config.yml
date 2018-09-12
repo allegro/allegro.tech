@@ -16,6 +16,7 @@ facebook_username: allegro.tech
 google_plus_id: +AllegroTechBlog
 meetup_username: allegrotech
 slideshare_username: allegrotech
+timezone: Europe/Warsaw
 
 kramdown:
     input: GFM
