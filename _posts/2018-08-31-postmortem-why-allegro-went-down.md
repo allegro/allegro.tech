@@ -79,7 +79,7 @@ Seconds before noon, the price of the special offer was decreased to PLN&nbsp;1 
 it would already be visible in all channels, and the first sales took place.
 
 Also just before noon, traffic peaked at 200%-300% of the traffic from previous day, depending on service. At this stage,
-traffic was at its highest but due to overt resource reservations, in some parts of the cluster we could not use
+traffic was at its highest but due to excessive resource reservations, in some parts of the cluster we could not use
 available CPUs and RAM for starting new service instances. Meanwhile, the frontend service, Opbox, was starting to fail.
 This caused a decrease in traffic to the backend services. It was still quite high, though, and autoscaler started to
 spin up new instances of Search service. We manually added even more instances, but the resource reservations created
@@ -99,7 +99,7 @@ endpoint can’t respond within a specified timeout, are automatically shut down
 respond quickly enough to rising traffic and we had to scale up manually. There were also some bad interactions between
 the autoscaler scaling services up and the cluster watchdog killing off unresponsive instances.
 
-Overt resource reservations were a major cause of problems since they prevented more instances from being started
+Excessive resource reservations were a major cause of problems since they prevented more instances from being started
 even though there were still plenty of resources available. As the probably most important action resulting from this
 postmortem, we plan to change the cluster’s approach to reserving resources so that there is less waste and resources
 are not locked out of the pool if they are not really used.
