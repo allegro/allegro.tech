@@ -1,6 +1,6 @@
 ---
 layout: event
-title: Allegro Tech Talks Poznań #9 - Cassandra i Scylla
+title: "Allegro Tech Talks Poznań #9 - Cassandra i Scylla"
 time: 1520873100000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań

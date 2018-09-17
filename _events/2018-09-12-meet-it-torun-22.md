@@ -1,11 +1,11 @@
 ---
 layout: event
-title: Meet IT Toruń # 22
+title: "Meet IT Toruń # 22"
 time: 1536768000000
 venue_address_1: ul. Kościuszki 71
 venue_city: Toruń
 venue_name: Kościuszko Business Point
-status: near
+status: past
 id: 254472695
 registration: 
 ---

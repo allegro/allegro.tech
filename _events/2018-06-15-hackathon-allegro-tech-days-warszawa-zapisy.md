@@ -1,6 +1,6 @@
 ---
 layout: event
-title: Hackathon Allegro Tech Days Warszawa - ZAPISY!
+title: "Hackathon Allegro Tech Days Warszawa - ZAPISY!"
 time: 1529078400000
 venue_address_1: aleja Poniatowskiego 1
 venue_city: Warsaw

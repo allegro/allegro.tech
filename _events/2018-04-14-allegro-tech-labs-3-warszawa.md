@@ -1,6 +1,6 @@
 ---
 layout: event
-title: Allegro Tech Labs #3 Warszawa
+title: "Allegro Tech Labs #3 Warszawa"
 time: 1523689200000
 venue_address_1: al. Jana Pawła II 22, Warszawa
 venue_city: Warsaw

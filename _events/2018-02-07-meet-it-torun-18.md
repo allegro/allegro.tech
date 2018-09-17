@@ -1,6 +1,6 @@
 ---
 layout: event
-title: Meet IT Toruń # 18
+title: "Meet IT Toruń # 18"
 time: 1518022800000
 venue_address_1: ul. Kościuszki 71
 venue_city: Toruń

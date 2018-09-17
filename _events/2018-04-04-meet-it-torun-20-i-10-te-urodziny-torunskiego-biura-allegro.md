@@ -1,6 +1,6 @@
 ---
 layout: event
-title: Meet IT Toruń # 20 i 10-te Urodziny toruńskiego biura Allegro
+title: "Meet IT Toruń # 20 i 10-te Urodziny toruńskiego biura Allegro"
 time: 1522857600000
 venue_address_1: ul. Kościuszki 71
 venue_city: Toruń

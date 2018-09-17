@@ -1,11 +1,11 @@
 ---
 layout: event
-title: Allegro Tech Talks Poznań #12 - iOS & Swift
+title: "Allegro Tech Talks Poznań #12 - iOS & Swift"
 time: 1537803900000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań
 venue_name: Pixel 
-status: upcoming
+status: near
 id: 254583136
 registration: https://www.picatic.com/213161
 ---

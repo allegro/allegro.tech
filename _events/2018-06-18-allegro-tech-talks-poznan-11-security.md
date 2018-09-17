@@ -1,6 +1,6 @@
 ---
 layout: event
-title: Allegro Tech Talks Poznań #11 - Security 
+title: "Allegro Tech Talks Poznań #11 - Security "
 time: 1529337600000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań

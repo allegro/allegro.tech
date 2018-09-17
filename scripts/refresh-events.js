@@ -51,7 +51,7 @@ function setLatestStatus(events) {
     let closest = now;
     events.map(it => it.local_date).forEach(d => {
         const date = new Date(d);
-        if (date >= now && date < closest) {
+        if (date >= now && date > closest) {
             closest = date;
         }
     });
@@ -67,7 +67,7 @@ function setLatestStatus(events) {
 function render(event) {
     return `---
 layout: event
-title: ${event.name}
+title: "${event.name.replace(/[\""]/g, '\\"')}"
 time: ${event.time}
 venue_address_1: ${event.venue.address_1}
 venue_city: ${event.venue.city}

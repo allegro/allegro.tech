@@ -1,6 +1,6 @@
 ---
 layout: event
-title: Allegro Tech Talks Poznań #7
+title: "Allegro Tech Talks Poznań #7"
 time: 1517245200000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań

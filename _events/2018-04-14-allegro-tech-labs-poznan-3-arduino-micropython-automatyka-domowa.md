@@ -1,6 +1,6 @@
 ---
 layout: event
-title: Allegro Tech Labs Poznań #3 - Arduino, Micropython, Automatyka domowa
+title: "Allegro Tech Labs Poznań #3 - Arduino, Micropython, Automatyka domowa"
 time: 1523688000000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań

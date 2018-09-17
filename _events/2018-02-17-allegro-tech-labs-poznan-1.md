@@ -1,6 +1,6 @@
 ---
 layout: event
-title: Allegro Tech Labs Poznań # 1
+title: "Allegro Tech Labs Poznań # 1"
 time: 1518854400000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań

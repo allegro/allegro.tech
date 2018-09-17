@@ -1,6 +1,6 @@
 ---
 layout: event
-title: Allegro Tech Labs Poznań #2 - Język programowania Kotlin
+title: "Allegro Tech Labs Poznań #2 - Język programowania Kotlin"
 time: 1521273600000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań
