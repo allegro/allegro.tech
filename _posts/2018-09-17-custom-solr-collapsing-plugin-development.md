@@ -10,9 +10,9 @@ over 100M items we need to develop custom optimizations. In this post I will des
 
 ## Business case
 
-Our business owners decided to change the presentation of search results on our e-commerce website. We were supposed 
-to group offers of a given product variants on the offer listings, so that, for instance, a seller could set offers of 
-trousers differing only with size to be presented as  one product on the offer listing.
+Our business owners decided to change the presentation of search results on our e-commerce website. In offer listings we were supposed 
+to group together offers representing different variants of the same product so that they would be displayed as a single item. Variants 
+are small modifications of the same product, for example the same model of trousers but in different size.
 
 ## Beginning of development
 
