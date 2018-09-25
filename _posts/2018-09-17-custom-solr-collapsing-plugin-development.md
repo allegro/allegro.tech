@@ -5,8 +5,9 @@ author: andrzej.wislowski
 tags: [solr, lucene, deployment]
 ---
 
-At [Allegro](/about-us/) we use Solr as our main search engine. Due to the traffic to our search engine being up to 10K rps and index size 
-around 100M documents we need to develop custom optimizations. In this post I will describe the story of our Solr plugin development.
+At [Allegro](/about-us/) we use Solr as our main search engine. Due to the traffic to our search engine being thousands of requests 
+per second and index size on the order of a hundred million documents we need to develop custom optimizations. In this post I will 
+describe the story of our Solr plugin development.
 
 ## Business case
 
