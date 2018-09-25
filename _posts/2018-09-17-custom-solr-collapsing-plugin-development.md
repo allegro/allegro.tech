@@ -6,7 +6,7 @@ tags: [solr, lucene, deployment]
 ---
 
 At [Allegro](/about-us/) we use Solr as our main search engine. Due to the traffic to our search engine being up to 10K rps and index size 
-over 100M items we need to develop custom optimizations. In this post I will describe the story of our Solr plugin development.
+around 100M documents we need to develop custom optimizations. In this post I will describe the story of our Solr plugin development.
 
 ## Business case
 
@@ -30,15 +30,14 @@ structures created in order to group the results during the execution of the req
 
 ## First version of custom plugin
 
-We decided to create our own optimized filter. In order to reduce remembering the number of best collected documents so far,
-which the Solr collapsing filter does, we  decided to sort the index by the identifier of document group. Thanks to this 
-solution, our filter received all documents for each group in sequence.  A change of the group identifier at the consumption 
-of the following document  was indicating another group of documents and triggered the publication of the best document from the 
-previous group.
+We decided to create our own optimized filter. To reduce memory needed to remember best collected documents so far -- which was 
+problematic with Solr collapsing filter, we decided to sort the index using identifier of each variant. Thanks to this a group 
+of documents related to given variant were laying next to each other in an index segment. A change of the group identifier at 
+the collection time triggers the publication of the best document. 
 
 This way we were able to use the filter to read all documents from the group, select the most suitable one and collect it. So 
 during the request we only needed to remember one best document from the group and to compare it with the current one. We didn’t need 
-more temporary data, that would need to be cleaned by GC, as in the Solr plugin.
+more temporary data, that would need to be cleaned by GC, as in our first attempt with Collapsing Query Parser.
 
 ```
 public void collect(int docId) throws IOException {
@@ -60,18 +59,19 @@ public void finish() throws IOException {       // when whole segment is read, w
 
 ```
 
-The drawback of this solution comes off from the Lucene structure itself.  The filter is performed for each segment separately. 
+The drawback of this solution comes from the Lucene structure itself.  The filter is executed for each segment separately. 
 Therefore, the documents from the same group may be in many segments. Documents from one group will occur in the response as many times as 
 a number of segments in which they occur. Due to our architecture, where documents from the same group are modified and created 
-together, there is a high probability that these documents will be in the same segment.
+together, there is a high probability that these documents will be in the same segment, but we do not have a 100% guarantee for it.
 
 ## Second version
 
-More then one document from same group in the response were rare, but nevertheless we decided to develop 100% consistent solution. 
+More than one document from same group in the response were rare, but nevertheless we decided to develop 100% consistent solution. 
 The first approach was to modify the Collapsing Query Parser to reduce the data structures which are loaded during the request. 
 The Solr plugin creates a structure that groups documents in memory, and finally presents them. In our case, however, we needed 
-to keep only one current best document per group. In addition, we separated faceting queries from document list queries. Faceting 
-queries require even less temporary data, as, for instance, there is no need to calculate the score of the document or to sort the 
+to keep only one current best document per group. It is important to emphasize that our api assumes separating queries into faceting 
+and returning a list of results. It allows us to separate faceting queries from document list queries. 
+Faceting queries require even less temporary data, as, for instance, there is no need to calculate the score of the document or to sort the 
 documents in order to find the best one in each group. The performance of faceting queries proved to be sufficient. However, 
 the performance of requests returning lists of results was not satisfactory.
 
@@ -82,7 +82,7 @@ was to implement grouping by attaching its implementation to [Rerank Query](http
 However, after analyzing the Lucene code, it turned out that our implementation would be based on the implementation of the 
 [TopDocsCollector](https://github.com/apache/lucene-solr/blob/master/lucene/core/src/java/org/apache/lucene/search/TopDocsCollector.java) 
 subclasses. This would require the implementation of our logic in several classes, so the upgrade of our cluster to higher Solr versions could 
-be hindered as dependent on solr internal implementation of 
+be hindered as dependent on Solr internal implementation of 
 [TopDocsCollector](https://github.com/apache/lucene-solr/blob/master/lucene/core/src/java/org/apache/lucene/search/TopDocsCollector.java) subclasses. 
 We decided to filter results earlier in the filter. As a consequence, we also limited the number of collector operations returning the results.
 
@@ -161,8 +161,8 @@ And finally in our search handler we turn it on:
 
 ## Conclusion
 
-Our experience with the possibilities of Solr in terms of efficiency and flexibility in modifying the request for search 
-has been very positive. With the development of large solutions, we are able to modify our search engine to meet the 
+Solr is a very flexible tool, it offers a lot of different ways to boost performance and customize query handling to fit better 
+for a particular use case. With the development of large solutions, we are able to modify our search engine to meet the 
 challenges that our business brings to us. Maintaining custom changes in the search code is possible to be handled at 
 the plugins level, which allows us to easily upgrade to newer versions of Solr.
 
