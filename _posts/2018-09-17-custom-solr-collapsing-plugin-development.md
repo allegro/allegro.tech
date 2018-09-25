@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Custom Solr collapsing plugin development
+title: From simple to fast - custom Solr document collapsing
 author: andrzej.wislowski
 tags: [solr, lucene, deployment]
 ---
