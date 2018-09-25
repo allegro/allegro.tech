@@ -1,6 +1,6 @@
 ---
 layout: post
-title: From simple to fast - custom Solr document collapsing
+title: From Simple to Fast - Custom Solr Document Collapsing
 author: andrzej.wislowski
 tags: [solr, lucene, deployment]
 ---
