@@ -177,7 +177,7 @@
         {
             "name": "embedded-elasticsearch",
             "url": "https://github.com/allegro/embedded-elasticsearch",
-            "stars": 161,
+            "stars": 162,
             "description": "Tool that ease up creation of integration tests with Elasticsearch",
             "featured": {
                 "primary": false,
@@ -192,7 +192,7 @@
         {
             "name": "marathon-consul",
             "url": "https://github.com/allegro/marathon-consul",
-            "stars": 150,
+            "stars": 151,
             "description": "Integrates Marathon apps with Consul service discovery.",
             "featured": {
                 "primary": false,
