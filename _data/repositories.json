@@ -9,31 +9,31 @@
         "axion-release-plugin",
         "grunt-maven-plugin",
         "vaas",
-        "marathon-consul",
         "embedded-elasticsearch",
+        "marathon-consul",
         "handlebars-spring-boot-starter",
         "tradukisto",
-        "fogger",
         "json-avro-converter",
-        "akubra",
+        "fogger",
         "restapi-guideline",
+        "akubra",
+        "turnilo",
         "opel",
+        "allegro-api",
+        "mesos-executor",
+        "kafka-offset-monitor-graphite",
         "elasticsearch-reindex-tool",
         "selena",
-        "kafka-offset-monitor-graphite",
-        "mesos-executor",
-        "turnilo",
-        "allegro-api",
         "cassandra-modeling-kata",
         "django-powerdns-dnssec",
         "slinger",
         "ralph-cli",
-        "grunt-maven-npm",
         "elasticsearch-analysis-morfologik",
+        "grunt-maven-npm",
         "marathon-appcop",
+        "pyhermes",
         "newrelic-gradle-plugin",
         "redux-storage-decorator-engines",
-        "pyhermes",
         "allegro.github.io",
         "ralph_assets",
         "camus-compressor"
@@ -42,7 +42,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 1527,
+            "stars": 1620,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -57,8 +57,8 @@
         {
             "name": "ralph",
             "url": "https://github.com/allegro/ralph",
-            "stars": 864,
-            "description": "Ralph is an asset management system for your data center and back office.",
+            "stars": 910,
+            "description": "Ralph is the CMDB / Asset Management system for data center and back office hardware.",
             "featured": {
                 "primary": true,
                 "secondary": false
@@ -72,7 +72,7 @@
         {
             "name": "tipboard",
             "url": "https://github.com/allegro/tipboard",
-            "stars": 714,
+            "stars": 734,
             "description": "Tipboard - in-house, tasty, local dashboarding system ",
             "featured": {
                 "primary": false,
@@ -87,7 +87,7 @@
         {
             "name": "php-protobuf",
             "url": "https://github.com/allegro/php-protobuf",
-            "stars": 663,
+            "stars": 701,
             "description": "PHP Protobuf - Google's Protocol Buffers for PHP",
             "featured": {
                 "primary": false,
@@ -102,7 +102,7 @@
         {
             "name": "node-worker-nodes",
             "url": "https://github.com/allegro/node-worker-nodes",
-            "stars": 377,
+            "stars": 389,
             "description": "A node.js library to run cpu-intensive tasks in a separate processes and not block the event loop.",
             "featured": {
                 "primary": false,
@@ -117,7 +117,7 @@
         {
             "name": "hermes",
             "url": "https://github.com/allegro/hermes",
-            "stars": 360,
+            "stars": 373,
             "description": "Fast and reliable message broker built on top of Kafka.",
             "featured": {
                 "primary": true,
@@ -132,7 +132,7 @@
         {
             "name": "axion-release-plugin",
             "url": "https://github.com/allegro/axion-release-plugin",
-            "stars": 247,
+            "stars": 263,
             "description": "Gradle release & version management plugin.",
             "featured": {
                 "primary": false,
@@ -162,7 +162,7 @@
         {
             "name": "vaas",
             "url": "https://github.com/allegro/vaas",
-            "stars": 171,
+            "stars": 173,
             "description": "VaaS - Varnish as a Service",
             "featured": {
                 "primary": true,
@@ -175,24 +175,9 @@
             }
         },
         {
-            "name": "marathon-consul",
-            "url": "https://github.com/allegro/marathon-consul",
-            "stars": 147,
-            "description": "Integrates Marathon apps with Consul service discovery.",
-            "featured": {
-                "primary": false,
-                "secondary": true
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
             "name": "embedded-elasticsearch",
             "url": "https://github.com/allegro/embedded-elasticsearch",
-            "stars": 133,
+            "stars": 161,
             "description": "Tool that ease up creation of integration tests with Elasticsearch",
             "featured": {
                 "primary": false,
@@ -205,9 +190,24 @@
             }
         },
         {
+            "name": "marathon-consul",
+            "url": "https://github.com/allegro/marathon-consul",
+            "stars": 150,
+            "description": "Integrates Marathon apps with Consul service discovery.",
+            "featured": {
+                "primary": false,
+                "secondary": true
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
             "name": "handlebars-spring-boot-starter",
             "url": "https://github.com/allegro/handlebars-spring-boot-starter",
-            "stars": 80,
+            "stars": 85,
             "description": "Spring Boot auto-configuration for Handlebars",
             "featured": {
                 "primary": false,
@@ -222,23 +222,8 @@
         {
             "name": "tradukisto",
             "url": "https://github.com/allegro/tradukisto",
-            "stars": 65,
+            "stars": 72,
             "description": "A Java library created to convert numbers to their word representations",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "fogger",
-            "url": "https://github.com/allegro/fogger",
-            "stars": 57,
-            "description": "Fogger - a library to create blurred background under Android's UI elements",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -252,7 +237,7 @@
         {
             "name": "json-avro-converter",
             "url": "https://github.com/allegro/json-avro-converter",
-            "stars": 56,
+            "stars": 68,
             "description": "JSON to Avro conversion tool designed to make migration to Avro easier.",
             "featured": {
                 "primary": false,
@@ -265,10 +250,10 @@
             }
         },
         {
-            "name": "akubra",
-            "url": "https://github.com/allegro/akubra",
-            "stars": 50,
-            "description": "Simple solution to keep a independent S3 storages in sync",
+            "name": "fogger",
+            "url": "https://github.com/allegro/fogger",
+            "stars": 59,
+            "description": "Fogger - a library to create blurred background under Android's UI elements",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -282,8 +267,38 @@
         {
             "name": "restapi-guideline",
             "url": "https://github.com/allegro/restapi-guideline",
-            "stars": 49,
+            "stars": 59,
             "description": "Allegro REST API Guideline.",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "akubra",
+            "url": "https://github.com/allegro/akubra",
+            "stars": 58,
+            "description": "Simple solution to keep a independent S3 storages in sync",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "turnilo",
+            "url": "https://github.com/allegro/turnilo",
+            "stars": 47,
+            "description": "Business intelligence, data exploration and visualization web application for Druid, formerly know as Swiv and Pivot",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -297,8 +312,53 @@
         {
             "name": "opel",
             "url": "https://github.com/allegro/opel",
-            "stars": 45,
+            "stars": 47,
             "description": "OPEL - asynchronous expression language",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "allegro-api",
+            "url": "https://github.com/allegro/allegro-api",
+            "stars": 46,
+            "description": "Issue tracker and wiki for Allegro WebAPI and REST API ",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "mesos-executor",
+            "url": "https://github.com/allegro/mesos-executor",
+            "stars": 41,
+            "description": "Customizable Apache Mesos task executor",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "kafka-offset-monitor-graphite",
+            "url": "https://github.com/allegro/kafka-offset-monitor-graphite",
+            "stars": 39,
+            "description": "Graphite reporter for Kafka Offset Monitor.",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -327,68 +387,8 @@
         {
             "name": "selena",
             "url": "https://github.com/allegro/selena",
-            "stars": 37,
+            "stars": 38,
             "description": "SELENA is a tool used to test website performance by measuring response times or verifying the content of replies.",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "kafka-offset-monitor-graphite",
-            "url": "https://github.com/allegro/kafka-offset-monitor-graphite",
-            "stars": 37,
-            "description": "Graphite reporter for Kafka Offset Monitor.",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "mesos-executor",
-            "url": "https://github.com/allegro/mesos-executor",
-            "stars": 35,
-            "description": "Customizable Apache Mesos task executor",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "turnilo",
-            "url": "https://github.com/allegro/turnilo",
-            "stars": 31,
-            "description": "Business intelligence, data exploration and visualization web application for Druid, formerly know as Swiv and Pivot",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "allegro-api",
-            "url": "https://github.com/allegro/allegro-api",
-            "stars": 30,
-            "description": "Issue tracker and wiki for Allegro WebAPI and REST API ",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -402,7 +402,7 @@
         {
             "name": "cassandra-modeling-kata",
             "url": "https://github.com/allegro/cassandra-modeling-kata",
-            "stars": 29,
+            "stars": 31,
             "description": "Cassandra Modeling Kata",
             "featured": {
                 "primary": false,
@@ -417,7 +417,7 @@
         {
             "name": "django-powerdns-dnssec",
             "url": "https://github.com/allegro/django-powerdns-dnssec",
-            "stars": 26,
+            "stars": 27,
             "description": "Django application managing PowerDNS database",
             "featured": {
                 "primary": false,
@@ -460,6 +460,21 @@
             }
         },
         {
+            "name": "elasticsearch-analysis-morfologik",
+            "url": "https://github.com/allegro/elasticsearch-analysis-morfologik",
+            "stars": 19,
+            "description": "Morfologik Polish Lemmatizer plugin for Elasticsearch",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
             "name": "grunt-maven-npm",
             "url": "https://github.com/allegro/grunt-maven-npm",
             "stars": 18,
@@ -475,10 +490,10 @@
             }
         },
         {
-            "name": "elasticsearch-analysis-morfologik",
-            "url": "https://github.com/allegro/elasticsearch-analysis-morfologik",
+            "name": "marathon-appcop",
+            "url": "https://github.com/allegro/marathon-appcop",
             "stars": 17,
-            "description": "Morfologik Polish Lemmatizer plugin for Elasticsearch",
+            "description": "Marathon applications law enforcement",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -490,10 +505,10 @@
             }
         },
         {
-            "name": "marathon-appcop",
-            "url": "https://github.com/allegro/marathon-appcop",
-            "stars": 17,
-            "description": "Marathon applications law enforcement",
+            "name": "pyhermes",
+            "url": "https://github.com/allegro/pyhermes",
+            "stars": 15,
+            "description": "The Python interface to the Hermes message broker.",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -524,21 +539,6 @@
             "url": "https://github.com/allegro/redux-storage-decorator-engines",
             "stars": 13,
             "description": "Composing decorator for redux-storage to use different storage types",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "pyhermes",
-            "url": "https://github.com/allegro/pyhermes",
-            "stars": 13,
-            "description": "The Python interface to the Hermes message broker.",
             "featured": {
                 "primary": false,
                 "secondary": false
