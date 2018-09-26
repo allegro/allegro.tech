@@ -62,15 +62,15 @@ public void finish() throws IOException {       // when whole segment is read, w
 
 The drawback of this solution comes from the Lucene structure itself.  The filter is executed for each segment separately. 
 Therefore, the documents from the same group may be in many segments. Documents from one group will occur in the response as many times as 
-a number of segments in which they occur. Due to our architecture, where documents from the same group are modified and created 
+the number of segments in which they occur. Due to our architecture, where documents from the same group are modified and created 
 together, there is a high probability that these documents will be in the same segment, but we do not have a 100% guarantee for it.
 
 ## Second version
 
-More than one document from same group in the response were rare, but nevertheless we decided to develop 100% consistent solution. 
+More than one document from same group in the response were rare, but nevertheless we decided to develop a 100% consistent solution. 
 The first approach was to modify the Collapsing Query Parser to reduce the data structures which are loaded during the request. 
 The Solr plugin creates a structure that groups documents in memory, and finally presents them. In our case, however, we needed 
-to keep only one current best document per group. It is important to emphasize that our api assumes separating queries into faceting 
+to keep only one current best document per group. It is important to emphasize that our API assumes separating queries into faceting 
 and returning a list of results. It allows us to separate faceting queries from document list queries. 
 Faceting queries require even less temporary data, as, for instance, there is no need to calculate the score of the document or to sort the 
 documents in order to find the best one in each group. The performance of faceting queries proved to be sufficient. However, 
@@ -102,11 +102,11 @@ The requirement is to set our filter to be performed as the last one.
 ## The problem with number of results
 
 The problem of our algorithm is the wrong number of results. The number of results in the response is the number of documents 
-returned by our filter to the TopDocsCollector collector  where this number is counted. However, we decided to return from 
+returned by our filter to the TopDocsCollector collector  where this number is calculated. However, we decided to return from 
 filter only the requested number of best documents. So, for instance, if we search for 30 best offers, we will get in response 
 30 documents and the total number of results will amount to 30 also. Unfortunately, this prevents us from building navigation 
 that presents the number of result pages. In order to handle the correct number of documents available for the given criterion, 
-we count the number of documents consumed on filter and save it on the request context variable. Then at 
+we calculate the number of documents consumed by the filter and save it in a request context variable. Then at 
 [SearchComponent](https://github.com/apache/lucene-solr/blob/master/solr/core/src/java/org/apache/solr/handler/component/SearchComponent.java) 
 we change the number of returned results in the 
 [Response](https://github.com/apache/lucene-solr/blob/master/solr/core/src/java/org/apache/solr/response/SolrQueryResponse.java) class.
@@ -162,8 +162,8 @@ And finally in our search handler we turn it on:
 
 ## Conclusion
 
-Solr is a very flexible tool, it offers a lot of different ways to boost performance and customize query handling to fit better 
-for a particular use case. With the development of large solutions, we are able to modify our search engine to meet the 
+Solr is a very flexible tool, it offers a lot of different ways to boost performance and customize query handling to better 
+fit a particular use case. With the development of large solutions, we are able to modify our search engine to meet the 
 challenges that our business brings to us. Maintaining custom changes in the search code is possible to be handled at 
 the plugins level, which allows us to easily upgrade to newer versions of Solr.
 
