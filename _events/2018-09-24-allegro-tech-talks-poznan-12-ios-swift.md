@@ -5,7 +5,7 @@ time: 1537803900000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań
 venue_name: Pixel 
-status: near
+status: past
 id: 254583136
 registration: https://www.picatic.com/213161
 ---
@@ -17,7 +17,7 @@ registration: https://www.picatic.com/213161
 <p>Agenda:
   <br/>17:45 - Rejestracja
   <br/>18:00 - Przywitanie
-  <br/>18:00 - 18:30 - Aleksandrer Grzyb - "Monorepo w Allegro"
+  <br/>18:00 - 18:30 - Aleksander Grzyb - "Monorepo w Allegro"
   <br/>18:30 - 19:05 - Kamil Borzym - “0xFEEDFACE”
   <br/>19:05 - 19:35 - przerwa na pizzę
   <br/>19:35 - 20:00 - Marcin Kliks - “Mikrousługi w Swifcie na serwerze “
