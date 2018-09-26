@@ -42,7 +42,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 1620,
+            "stars": 1621,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
