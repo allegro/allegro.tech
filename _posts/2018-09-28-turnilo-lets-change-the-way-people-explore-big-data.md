@@ -168,8 +168,8 @@ additional features. Amongst the most frequently raised issues were:
     Some of our business users were often exporting visualized data to this most popular spreadsheet application
     using CSV (comma separated values) export available in Turnilo. They faced the problem that even though
     the exported files could be opened in Excel they were not split into columns and presented as one column instead.
-    The root of the problem stems probably from localisation issues that Microsoft engineers had when
-    developing Excel for Polish locale. In Poland and a few other countries we use the comma as a decimal separator
+    This misbehaviour was a result of Microsoft Excel expecting the semicolon as decimal separator instead o the comma.
+    In Poland and a few other countries we use the comma as a decimal separator
     and that would most probably mess with the import. We looked for a convenient but still
     bulletproof solution for our users and we decided to provide TSV (tab separated values)
     as additional option to export data from Turnilo. The solution was easy to implement and welcomed
@@ -269,4 +269,4 @@ Feel free to create issues or even better pull requests that align well with Tur
 in [milestones](https://github.com/allegro/turnilo/milestones). We try hard to release a new Turnilo version
 every few weeks so do not forget to [watch and star the project](https://github.com/allegro/turnilo).
 
-Together we can change the way people think about the data!
+Together we can change the way people explore Big Data!
