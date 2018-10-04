@@ -11,12 +11,12 @@ queries, [Spark](https://spark.apache.org/) jobs and [Jupyter](https://jupyter.o
 years we have transformed it into a more efficient and easy to use
 [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing) platform. 
 
-## State of art when it comes to OLAP in Big Data
+## State of the art when it comes to OLAP in Big Data
 
 Having a setup like the one described above required a lot of technical knowledge and thus was not really user friendly.
-Analysts who were familiar with SQL but are also less familiar with programming had to write SQL-like queries:
+Analysts who were familiar with SQL but also less familiar with programming had to write SQL-like queries:
 HQL for Hive, almost SQL for Spark etc. Both preparing and running those queries to get the expected results
-were time consuming tasks which actually prevented iterative data exploration. We have sped up the queries
+were time consuming tasks which actually prevented iterative data exploration. We had sped up the queries
 by introducing [Presto](https://prestodb.io) but still there was a lot of mundane work to be done in order to answer
 typical business questions like: “What are the top 100 bestsellers in books category this week”.
 
@@ -36,7 +36,7 @@ Apache Druid is an online analytical processing (OLAP)
 software. It enables both real-time and batch data ingestion into data cubes with predefined dimensions and measures.
 It is a distributed, highly scalable platform making sub-second queries possible thanks to using:
 column-oriented storage, native search indexes, approximate algorithms, flexible schemas
-and time-optimized partitioning. Queries are an order of magnitude faster comparing to Hive, Spark SQL, Presto
+and time-optimized partitioning. Queries are an order of magnitude faster in comparison to Hive, Spark SQL, Presto
 and even [BigQuery](https://cloud.google.com/bigquery/). It may sound fantastic but there is really
 no hidden magic here. Besides the well designed architecture of Druid this level of performance is achieved
 by [rolling up](http://druid.io/docs/latest/tutorials/tutorial-rollup.html) the data during ingestion process
@@ -80,7 +80,7 @@ This is how [Turnilo](https://github.com/allegro/turnilo) was born. The name we 
 as it is all about turning around the data — like in pivot tables in Excel.
 We picked up the latest Apache licensed clone of Pivot called [Swiv](https://github.com/yahoo/swiv)
 which happened to be Yahoo’s fork of Pivot. We have spent a lot of time analyzing how this software works
-and how difficult it would be in order to add new features before we decided that we can adopt it.
+and how difficult it would be to add new features before we decided that we can adopt it.
 We were glad that Pivot was written in [TypeScript](https://www.typescriptlang.org/) as, having background
 in Scala and Java, we like strictly typed languages. We already had an idea what
 the biggest obstacles to using Pivot were but we also asked our users what they would need
@@ -97,7 +97,7 @@ which has evolved over time and now consists of the following points:
 1.  Stateless over stateful server-side architecture.
 1.  Support for most recent versions of standards-compliant browsers.
 
-With the manifesto defined we have been ready to start developing Turnilo. Or so we thought... 
+With the manifesto defined, we were ready to start developing Turnilo. Or so we thought... 
 
 ## Every journey starts with the first step — the most difficult one to take
 
@@ -116,9 +116,9 @@ combined with [webpack](https://webpack.js.org) for building both development an
 This not only simplified the whole build process but also changed the way we could develop new features
 with live reloading and source maps being available to the browser’s development tools.
 
-Equipped with the new build process we were ready to run some mundane tasks needed after making the fork:  
+Equipped with the new build process we were ready to perform some mundane tasks needed after making the fork:  
 
-*   Adjusting copyrights and proper licence for an open source.
+*   Adjusting copyrights and proper licence for an open source project.
 *   Changing the project name and most references to it from Pivot or Swiv to Turnilo.
 *   Upgrading the [Imply Plywood](https://github.com/implydata/plywood) dependency was the most time consuming
     but also the most important task because the library provides an API for querying Druid cluster. As a fun fact,
@@ -168,7 +168,7 @@ additional features. Amongst the most frequently raised issues were:
     Some of our business users were often exporting visualized data to this most popular spreadsheet application
     using CSV (comma separated values) export available in Turnilo. They faced the problem that even though
     the exported files could be opened in Excel they were not split into columns and presented as one column instead.
-    This misbehaviour was a result of Microsoft Excel expecting the semicolon as decimal separator instead o the comma.
+    This misbehaviour was a result of Microsoft Excel expecting the semicolon as a column separator instead of the comma.
     In Poland and a few other countries we use the comma as a decimal separator
     and that would most probably mess with the import. We looked for a convenient but still
     bulletproof solution for our users and we decided to provide TSV (tab separated values)
@@ -235,31 +235,31 @@ the inception of Turnilo but we are not going to rest on our laurels yet...
 It is worth a mention that Turnilo being available as an open source software helped us a lot. Only 10 days
 after we released the initial version on GitHub, we already received some issues and nice discussion
 on how to make it even better. Then it was encouraging to find out that Turnilo
-[had already been deployed in Wikimedia Foundation](https://phabricator.wikimedia.org/T194427) even though
+[had already been deployed at Wikimedia Foundation](https://phabricator.wikimedia.org/T194427) even though
 we did not seek visibility during the incubation phase of the project. Altogether it was a great way
 to bump up morale within our team. 
 
 Our roadmap for the nearest future consists of the following ideas:
 
-1.  [[184]](https://github.com/allegro/turnilo/issues/184) Enhancing prominence of measures in Turnilo
+1.  [#184](https://github.com/allegro/turnilo/issues/184) Enhancing prominence of measures in Turnilo
     with features like:
     1.  usage of measures in filters which would be an equivalent of a "HAVING" clause in SQL
     1.  user customizable formatters beside those predefined in configuration
     1.  user defined percentile tuning for approximate histogram measures
     1.  multiple measures drawn in one chart
     1.  user defined measure derivations, e.g. difference between predefined measures
-1.  [[157]](https://github.com/allegro/turnilo/issues/157) Making an interactive help system with tutorial
+1.  [#157](https://github.com/allegro/turnilo/issues/157) Making an interactive help system with tutorial
     so that data exploration becomes self-serviceable.
-1.  [[194]](https://github.com/allegro/turnilo/issues/194) Changing the bar charts so that they support
+1.  [#194](https://github.com/allegro/turnilo/issues/194) Changing the bar charts so that they support
     stacking and multiple splits.
-1.  [[169]](https://github.com/allegro/turnilo/issues/169) Simplification of an
+1.  [#169](https://github.com/allegro/turnilo/issues/169) Simplification of an
     [internal model](https://github.com/allegro/turnilo/blob/79629e91636aff0865ddb023874a87a5d169adaa/src/common/models/essence/essence.ts)
     in order to allow more flexibility for future development.
-1.  [[49]](https://github.com/allegro/turnilo/issues/49) Making it possible to hide side panels and look only
+1.  [#49](https://github.com/allegro/turnilo/issues/49) Making it possible to hide side panels and look only
     at the data as a first step to mobile friendly UI.
-1.  [[32]](https://github.com/allegro/turnilo/issues/32) Making the theme configurable so that every company
+1.  [#32](https://github.com/allegro/turnilo/issues/32) Making the theme configurable so that every company
     could have its own look and feel.
-1.  [[68]](https://github.com/allegro/turnilo/issues/68) Displaying Druid queries used to generate the view
+1.  [#68](https://github.com/allegro/turnilo/issues/68) Displaying Druid queries used to generate the view
     for the debugging purpose.
 
 Please keep in mind that Turnilo is open source software and that you can be a part of it.
