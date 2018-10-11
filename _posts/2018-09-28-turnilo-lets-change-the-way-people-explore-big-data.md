@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Turnilo — let’s change the way people explore Big Data
-author: [piotr.szczepanik]
+author: [piotr.szczepanik, piotr.guzik]
 tags: [tech, open source, big data]
 ---
 
