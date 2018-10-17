@@ -1,26 +1,27 @@
 ---
 layout: post
-title: It's all about naming
+title: It’s all about naming
 author: wojciech.jurczyk
 tags: [cleancode, craftsmanship, tests]
 ---
 
-We all know that there are only two hard things in Computer Science: cache
+We all know that “there are only two hard things in Computer Science: cache
 invalidation and naming things”. However, we know that writing good tests is
 hard, too. Does it mean that the author of the famous quote is wrong? Not
-necessarily! In fact, what are tests? These are descriptions of some concepts,
-they answer questions “what?”, “when?” and “how?”. When writing tests, you are
+necessarily! In fact, what are tests? These are descriptions of some concepts.
+They answer the questions: “what?”, “when?” and “how?”. When writing tests, you are
 answering these questions by giving names to objects, reasons, and processes. I
 think writing tests is hard because it is all about naming. I believe you can
-significantly improve your tests just by focusing on giving correct names. Let
-me tell you a story of a pull request I was reviewing some time ago. Even though
-it was a javascript code and I am a backend developer, my fellow frontend
-developers were grateful for my comments and suggestions.
+significantly improve your tests just by focusing on giving them correct names. Let
+me tell you a story of a pull request I was reviewing some time ago.
+
 
 At that time, one of the tasks of the frontend team was to modify a date picker
 component. A simple date picker should have a checkbox which, when checked,
 meant “select no date”. It seemed a fairly straightforward task and when the PR
-was ready for review I decided to give it a look.
+was ready for review I decided to give it a look. Even though
+it was a piece of javascript code and I am a backend developer, my fellow frontend
+developers were grateful for my comments and suggestions.
 
 ## An enigmatic test
 I opened the code and went directly to the tests to see what the change was
@@ -46,8 +47,8 @@ it('should handle happy path on checked form', () => {
    expect(onConfirm).to.have.been.calledWith(null);
 });
 ```
-### Name requirements by giving tests descriptive names        
-Test’s name said about handling a happy path, but I didn’t know what the happy
+### State requirements by giving tests descriptive names        
+Test’s name mentioned about handling a happy path, but I didn’t know what the happy
 path was... The problem was that the name was too generic. A happy path could be
 anything. I went through the whole test. It seemed to check if the date picker
 selects no date when the checkbox is checked. Since the checkbox was checked by
@@ -59,7 +60,7 @@ it: “should select no date when the checkbox is checked”.
 ```javascript
 it('should select no end date when noEndDate checkbox is checked', () => {
 ```
-Next time, when someone will read the test, he will know what it is about
+Next time, when someone reads the test, he will know what it is about
 because the name precisely describes it. Good test naming is important not only
 because it saves time during reviews. For example, when you change the code and
 one of the tests starts to fail you can verify if it’s because there’s a bug in
@@ -69,9 +70,9 @@ the code or some requirement is no longer valid.
 In the next step of the review, I examined the test’s body. What happens in the
 `given` section? -- I wondered. This part was even harder to understand because
 I didn’t know the frontend tools and libraries that much. I knew that in this
-part of the test the EndDateEditDialog component is created. However, I didn’t
-know how important to the test shallow(...) and dive() were. After a short
-discussion, it turned out that these were just a boilerplate. After all, the
+part of the test the EndDateEditDialog component was created. However, I didn’t
+know how important to the test ```shallow(...)``` and ```dive()``` were. After a short
+discussion, it turned out that these were just a boilerplate. The
 important things created in the `given` section were: onConfirm (a callback to
 test whether the correct value is “returned” by the component) and dialogWrapper
 (a handle to the tested component itself).
@@ -91,19 +92,19 @@ function getEndDateEditDialog() {
    return { onConfirm: props.onConfirm, endDateEditDialogWrapper };
 }
 ```
-Extracting a method is a good idea no only because it names a block of code.
-Very often the extracted method will be reused. Then, if something change, for
+Extracting a method is a good idea not only because it names a block of code.
+Very often the extracted method will be reused. Then, if something changes, for
 example, the way how EndDateEdit is created, only one place in the code will
-need to be changed.
+need to be modified.
 
 The getEndDateEditDialog method was not the only block that should have been
 extracted. The next candidate was:
 ```javascript
 checkboxComponent.props().onCheck({ target: { checked: true } });
 ```
-When I read the code above I started wondering if it was the IOCCC contest?
-Could it be re-written in a more obfuscated way? This line gabbles says “the
-checkbox component is checked”, so why not write it like below?
+When I read the code above I started wondering if this was the [IOCCC](https://www.ioccc.org/) contest?
+This obfuscated line says “the
+checkbox component is checked”, so why not write it as below?
 
 ```javascript
 setCheckboxChecked(endDateEditDialogWrapper, true);
@@ -122,7 +123,7 @@ Which just clicks the confirmation button and can be simplified to:
 ```javascript
 confirmButtonClicked(endDateEditDialogWrapper);
 ```
-I will left the body of the method to the reader :)
+I will leave the method body as an exercise for the reader :)
 
 After writing the comments and suggestions to the `given` and `when` sections, I
 reviewed the `then` section. It looked like this:
@@ -132,24 +133,24 @@ expect(endDateEditDialogWrapper.state('errorText')).to.be.null;
 expect(endDateEditDialogWrapper.dive().find('DatePickerInput').props().disabled).to.be.true;
 expect(onConfirm).to.have.been.calledWith(null);
 ```
-Before going forward, I want to tell that the first two assertions do not belong
+Before going forward, I want to say that the first two assertions do not belong
 to 'should select no end date...' and they were separated to another test cases.
-There are dozens of articles focusing on why you should use only one assertion
+There are dozens of articles focusing on why you should use only one assertion per test
 so I’m not going to focus on it here. More interesting was the last line.
 ```javascript
 expect(onConfirm).to.have.been.calledWith(null);
 ```
 It uses a fluent API and it’s readable. One thing it’s missing is that it
-doesn’t use the business language. It doesn’t tell what does calling onConfirm
+doesn’t use the business language. It doesn’t tell what calling onConfirm
 with null means from a business perspective. Ii might be a good thing to
 refactor it as follows:
 ```javascript
 noDateWasSelected(onConfirm);
 ```
 However, after refactoring and in the context of the test’s new name the
-original assertion is rather obvious and good enough to let it stay unchanged.
+original assertion is rather obvious and good enough to leave it unchanged.
 
-To this point, the code test after the code review looked like this:
+To this point, test code after code review looked like this:
 ```javascript
 it('should select no end date when noEndDate checkbox is checked', () => {
    // given
@@ -163,9 +164,9 @@ it('should select no end date when noEndDate checkbox is checked', () => {
    expect(onConfirm).to.have.been.calledWith(null);
 });
 ```
-### Name only necessary things - be concise by using builders
+### Name only necessary things -- be concise by using builders
 Still, there was one thing I wanted to change. I disliked the fact the checkbox
-is checked in the `when` section. For me, the test case was to test the behavior
+was set to checked state in the `when` section. For me, the test case was to test the behavior
 of the component with a checked checkbox rather than to test the behavior of
 checking and then confirming. I think that the checkbox should be checked in the
 `given` section. It is not hard to achieve because the getEndDateEditDialog
@@ -192,10 +193,9 @@ Writing good tests is a lot more than just names, but if you:
 * use custom assertions,
 
 you will very easily improve your tests and save reviewers’ and maintainers’
-time, and your and their frustration. I am happy and kind of proud that the
-frontend developers appreciated my comments, changed their code and make of use
-what they have learned during the review to this day. I hope that you have
-learned something, too. Let me leave you with a question: “what will happen when
-you broaden the idea of this article and say that other things are hard because
-they are analogous to naming things (like splitting code into classes, designing
-system architecture etc)?
+time, as well as spare everyone a bit of frustration. I am happy and kind of proud that the
+frontend developers appreciated my comments, changed their code and still make use of
+what they have learned during the review to this day. I hope you found this article helpful, too. Let me leave you with a question: “what will happen when
+you broaden the idea of this article and say that other things are also hard because
+they are analogous to naming things (think of splitting code into classes, designing
+system architecture, etc.)?
