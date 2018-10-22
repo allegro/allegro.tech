@@ -194,7 +194,7 @@ if Turnilo could display the view definition for a currently presented visualisa
 
 <figure>
 <img alt="Turnilo with a view definition payload ready to be explored or copied" 
-src="/img/articles/2018-09-28-turnilo-lets-change-the-way-people-explore-big-data/turnilo-view-definition.png" />
+src="/img/articles/2018-10-22-turnilo-lets-change-the-way-people-explore-big-data/turnilo-view-definition.png" />
 <figcaption>
 Turnilo with a view definition payload ready to be explored or copied.
 </figcaption>
@@ -211,7 +211,7 @@ users can observe the changes at a glance in Turnilo.
 
 <figure>
 <img alt="Turnilo with time-shifted line chart view" 
-src="/img/articles/2018-09-28-turnilo-lets-change-the-way-people-explore-big-data/turnilo-time-shift.png" />
+src="/img/articles/2018-10-22-turnilo-lets-change-the-way-people-explore-big-data/turnilo-time-shift.png" />
 <figcaption>
 Turnilo with time-shifted line chart view.
 </figcaption>
