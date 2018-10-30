@@ -1,20 +1,20 @@
 {
     "offset": 0,
     "limit": 100,
-    "totalFound": 27,
+    "totalFound": 26,
     "content": [
         {
-            "id": "743999678220731",
-            "name": "Mobile Software Engineer (Android)",
-            "uuid": "cf973816-90eb-4390-8187-c35c5416d33d",
-            "refNumber": "REF1589D",
+            "id": "743999678559160",
+            "name": "Software Test Engineer",
+            "uuid": "f6b3c5d9-0e54-4a97-9f62-3a7da87a9854",
+            "refNumber": "REF1592W",
             "company": {
                 "identifier": "AllegroGroup",
                 "name": "Allegro Group"
             },
-            "releasedDate": "2018-10-20T05:17:20.000Z",
+            "releasedDate": "2018-10-28T22:41:32.000Z",
             "location": {
-                "city": "Warszawa, Poznań, Toruń",
+                "city": "Warszawa",
                 "country": "pl"
             },
             "industry": {
@@ -62,7 +62,7 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999678220731",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999678559160",
             "creator": {
                 "name": "Martyna Niszczota"
             },
@@ -73,17 +73,18 @@
             }
         },
         {
-            "id": "743999678220706",
-            "name": "Mobile Software Engineer (iOS)",
-            "uuid": "5395a8cf-6724-49bf-bdaa-c256ed4ec91b",
-            "refNumber": "REF1590G",
+            "id": "743999678510366",
+            "name": "Site Reliability Engineer",
+            "uuid": "be42501f-05e3-4ee4-96c4-1a963f91728a",
+            "refNumber": "REF1583L",
             "company": {
                 "identifier": "AllegroGroup",
                 "name": "Allegro Group"
             },
-            "releasedDate": "2018-10-20T05:16:46.000Z",
+            "releasedDate": "2018-10-26T11:54:47.000Z",
             "location": {
-                "city": "Warszawa, Poznań, Toruń",
+                "city": "Warszawa",
+                "region": "mazowieckie",
                 "country": "pl"
             },
             "industry": {
@@ -91,8 +92,8 @@
                 "label": "Internet"
             },
             "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
+                "id": "1013445",
+                "label": "Technology - Infrastructure"
             },
             "function": {
                 "id": "information_technology",
@@ -121,8 +122,14 @@
                 {
                     "fieldId": "58c13159e4b01d4b19ddf729",
                     "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
+                    "valueId": "1013445",
+                    "valueLabel": "Technology - Infrastructure"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -131,9 +138,9 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999678220706",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999678510366",
             "creator": {
-                "name": "Martyna Niszczota"
+                "name": "Katarzyna Wiśniewska"
             },
             "language": {
                 "code": "pl",
@@ -142,17 +149,18 @@
             }
         },
         {
-            "id": "743999678051402",
-            "name": "Data Analyst - Technology Team",
-            "uuid": "d761410a-ff2e-42a0-8025-9d88f7ac5484",
-            "refNumber": "REF1559J",
+            "id": "743999678387950",
+            "name": "Channels Development Product Manager",
+            "uuid": "1df13cbe-e816-412a-a9c2-3e9d5992c642",
+            "refNumber": "REF1593Y",
             "company": {
                 "identifier": "AllegroGroup",
                 "name": "Allegro Group"
             },
-            "releasedDate": "2018-10-17T10:38:49.000Z",
+            "releasedDate": "2018-10-24T15:02:46.000Z",
             "location": {
-                "city": "Poznań, Warszawa",
+                "city": "Poznań",
+                "region": "Greater Poland Voivodeship",
                 "country": "pl"
             },
             "industry": {
@@ -160,12 +168,12 @@
                 "label": "Internet"
             },
             "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
+                "id": "1013292",
+                "label": "Customer Experience"
             },
             "function": {
-                "id": "analyst",
-                "label": "Analyst"
+                "id": "product_management",
+                "label": "Product Management"
             },
             "typeOfEmployment": {
                 "label": "Full-time"
@@ -182,16 +190,34 @@
                     "valueLabel": "IT Allegro"
                 },
                 {
+                    "fieldId": "58c1575ee4b01d4b19ddf797",
+                    "fieldLabel": "Kraków",
+                    "valueId": "bcab9d4f-8624-4d85-8e3d-dbf12239b972",
+                    "valueLabel": "Nie"
+                },
+                {
                     "fieldId": "COUNTRY",
                     "fieldLabel": "Country",
                     "valueId": "pl",
                     "valueLabel": "Poland"
                 },
                 {
+                    "fieldId": "58c15788e4b0614667d59733",
+                    "fieldLabel": "Błonie",
+                    "valueId": "25f6cb8c-81b3-434a-93ec-6dc851d5808d",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c15798e4b01d4b19ddf79b",
+                    "fieldLabel": "Wrocław",
+                    "valueId": "31873284-1e97-427d-8918-6ce504344351",
+                    "valueLabel": "Nie"
+                },
+                {
                     "fieldId": "58c13159e4b01d4b19ddf729",
                     "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
+                    "valueId": "1013292",
+                    "valueLabel": "Customer Experience"
                 },
                 {
                     "fieldId": "58c158e9e4b0614667d5973e",
@@ -212,15 +238,21 @@
                     "valueLabel": "Tak"
                 },
                 {
+                    "fieldId": "58c1576ee4b0614667d59732",
+                    "fieldLabel": "Toruń",
+                    "valueId": "a6765624-e047-4a26-9481-9621086d8b96",
+                    "valueLabel": "Nie"
+                },
+                {
                     "fieldId": "58c156e6e4b01d4b19ddf793",
                     "fieldLabel": "Warszawa",
                     "valueId": "6a428533-1586-4372-89ec-65fb45366363",
                     "valueLabel": "Tak"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999678051402",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999678387950",
             "creator": {
-                "name": "Jan Piętka"
+                "name": "Maciej Matwiejczyk"
             },
             "language": {
                 "code": "pl",
@@ -1029,82 +1061,6 @@
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999677242976",
             "creator": {
                 "name": "Joanna Dębska"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999677241080",
-            "name": "Product Owner",
-            "uuid": "46a864f1-d884-4f4f-9f0b-404007765c6f",
-            "refNumber": "REF1337N",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2018-09-28T08:52:32.000Z",
-            "location": {
-                "city": "Poznań",
-                "region": "Greater Poland Voivodeship",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999677241080",
-            "creator": {
-                "name": "Anna Śmiałek"
             },
             "language": {
                 "code": "pl",
