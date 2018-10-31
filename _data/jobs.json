@@ -4,15 +4,15 @@
     "totalFound": 22,
     "content": [
         {
-            "id": "743999678710866",
+            "id": "743999678714739",
             "name": "Data Platform Engineer",
-            "uuid": "9f91ecf3-cbde-4498-8cc3-20cb348cab23",
+            "uuid": "2271f7c9-46d6-46ae-8a8d-aff5532e8106",
             "refNumber": "REF1351B",
             "company": {
                 "identifier": "AllegroGroup",
                 "name": "Allegro Group"
             },
-            "releasedDate": "2018-10-31T11:45:11.000Z",
+            "releasedDate": "2018-10-31T13:00:20.000Z",
             "location": {
                 "city": "Warszawa, Toruń",
                 "country": "pl"
@@ -56,13 +56,31 @@
                     "valueLabel": "Technology - Product Development"
                 },
                 {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
+                    "valueLabel": "Tak"
+                },
+                {
                     "fieldId": "58c13159e4b01d4b19ddf728",
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "58c1576ee4b0614667d59732",
+                    "fieldLabel": "Toruń",
+                    "valueId": "987e8884-bad1-4a8f-b149-99e4184cc221",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c156e6e4b01d4b19ddf793",
+                    "fieldLabel": "Warszawa",
+                    "valueId": "6a428533-1586-4372-89ec-65fb45366363",
+                    "valueLabel": "Tak"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999678710866",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999678714739",
             "creator": {
                 "name": "Martyna Niszczota"
             },
