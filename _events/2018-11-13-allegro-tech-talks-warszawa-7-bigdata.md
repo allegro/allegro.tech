@@ -11,7 +11,7 @@ registration:
 ---
 
 <p>Cześć,<br />zapraszamy na 7 spotkanie w ramach Allegro Tech Talks w Warszawie! Tym razem tematem przewodnim będzie BigData!</p>
-<p>REJESTRACJA:<br /><a href="https://allegro.tech/events/" class="linkified">https://allegro.tech/events/</a> - prosimy o rejestrację poprzez przycisk "Register" przy opisie wydarzenia. Po zarejestrowaniu otrzymasz e-mail z potwierdzeniem oraz Twoim biletem.</p>
+<p>REJESTRACJA:<br /><a href="https://www.eventbrite.com/e/allegro-tech-talks-warszawa-7-tickets-52039666042" class="linkified">https://www.eventbrite.com/e/allegro-tech-talks-warszawa-7-tickets-52039666042</a> - prosimy o rejestrację poprzez przycisk "Register" przy opisie wydarzenia. Po zarejestrowaniu otrzymasz e-mail z potwierdzeniem oraz Twoim biletem.</p>
 <p>Agenda:<br />17:45 - rejestracja + pizza</p>
 <p>18:15 - przywitanie</p>
 <p>18:15-19:00 - Przetwarzania realtime dla analityków i data scientistów (+Q&amp;A) - Marcin Kuthan</p>
