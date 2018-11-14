@@ -48,7 +48,7 @@ it('should handle happy path on checked form', () => {
 });
 ```
 ### State requirements by giving tests descriptive names        
-Test’s name mentioned about handling a happy path, but I didn’t know what the happy
+Test’s name mentioned handling a happy path, but I didn’t know what the happy
 path was... The problem was that the name was too generic. A happy path could be
 anything. I went through the whole test. It seemed to check if the date picker
 selects no date when the checkbox is checked. Since the checkbox was checked by
@@ -72,7 +72,7 @@ In the next step of the review, I examined the test’s body. What happens in th
 I didn’t know the frontend tools and libraries that much. I knew that in this
 part of the test the EndDateEditDialog component was created. However, I didn’t
 know how important to the test ```shallow(...)``` and ```dive()``` were. After a short
-discussion, it turned out that these were just a boilerplate. The
+discussion, it turned out that these were just boilerplate. The
 important things created in the `given` section were: onConfirm (a callback to
 test whether the correct value is “returned” by the component) and dialogWrapper
 (a handle to the tested component itself).
