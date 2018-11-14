@@ -5,7 +5,7 @@ time: 1542128400000
 venue_address_1: al. Jana Pawła II 22, Warszawa
 venue_city: Warsaw
 venue_name: Allegro Office Q22
-status: near
+status: past
 id: 255992902
 registration: 
 ---
