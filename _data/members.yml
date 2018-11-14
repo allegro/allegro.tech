@@ -399,3 +399,11 @@ wojciech.jurczyk:
     name: Wojciech Jurczyk
     bio: Software engineer who likes breaking and fixing things. Open source contributor.
     github: wjur
+
+piotr.szczepanik:
+    name: Piotr Szczepanik
+    bio: Software engineer with 15+ years experience in IT. Currently working as a Senior Software Engineer in Big Data team at Allegro. Passionate about automation and strongly typed functional languages.
+
+piotr.guzik:
+    name: Piotr Guzik
+    bio: Big Data engineer. My passion is all about creating useful software. In love with DDD and Druid.io
