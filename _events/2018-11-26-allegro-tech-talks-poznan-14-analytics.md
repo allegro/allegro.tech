@@ -5,7 +5,7 @@ time: 1543251600000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań
 venue_name: Pixel 
-status: near
+status: upcoming
 id: 256403599
 registration: 
 ---
