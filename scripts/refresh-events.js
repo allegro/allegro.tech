@@ -3,17 +3,17 @@ const axios = require('axios');
 const pretty = require('pretty');
 
 const MEETUP_SOURCE = 'https://api.meetup.com/allegrotech/events?status=past,upcoming&desc=true&photo-host=public&page=20';
-const PICATIC_SOURCE = 'https://api.picatic.com/v2/event?filter[user_id]=736756&page[limit]=100&page[offset]=0';
+const EVENTBRITE_SOURCE = 'https://private-anon-9f312f5e4b-eventbriteapiv3public.apiary-mock.com/v3/organizations/1234/events/';
 
 if (!process.argv[2]) {
-    console.error("picatic api key needed!");
+    console.error("eventbrite api key needed!");
     process.exit(1);
 }
 
 axios.get(MEETUP_SOURCE)
     .then(response => response.data)
     .then(events => events.filter(event => event.venue))
-    .then(events => joinWithPicatic(events))
+    .then(events => joinWithEventbrite(events))
     .then(events => setLatestStatus(events))
     .then(events => events.map(event => ({
         template: render(event),
@@ -30,17 +30,17 @@ axios.get(MEETUP_SOURCE)
         console.error(error);
     });
 
-function addRegistrationLink(event, picatics) {
-    const id = picatics.filter(picatic => picatic.attributes.start_date === event.local_date).map(picatic => picatic.id);
-    if (id[0]) event.registration = `https://www.picatic.com/${id[0]}`;
+function addRegistrationLink(event, eventsFromEventbrite) {
+    const id = eventsFromEventbrite.filter(eventFromEventbrite => eventFromEventbrite.start.local === `${event.local_date}T${event.local_time}`);
+    if (id[0]) event.registration = id[0].url;
     return event;
 }
 
-function joinWithPicatic(events) {
+function joinWithEventbrite(events) {
     const config = {headers: {'Authorization': `Bearer ${process.argv[2]}`}};
-    return axios.get(PICATIC_SOURCE, config)
-        .then(response => response.data.data)
-        .then(picatics => events.map(event => addRegistrationLink(event, picatics)))
+    return axios.get(EVENTBRITE_SOURCE, config)
+        .then(response => response.data.events)
+        .then(eventbriteEvents => events.map(event => addRegistrationLink(event, eventbriteEvents)))
         .catch(error => {
             console.error(error);
         });
