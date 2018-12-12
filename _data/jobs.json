@@ -4,15 +4,15 @@
     "totalFound": 22,
     "content": [
         {
-            "id": "743999680400386",
-            "name": "Software engineer - Big Data Team",
-            "uuid": "8bd1d89c-6bb4-46cc-90b6-af7beb9bfa32",
+            "id": "743999680628885",
+            "name": "Software Engineer - Big Data Team",
+            "uuid": "91383c05-f26f-4729-81a0-81d8f9e5059c",
             "refNumber": "REF1212Q",
             "company": {
                 "identifier": "AllegroGroup",
                 "name": "Allegro Group"
             },
-            "releasedDate": "2018-12-07T08:47:01.000Z",
+            "releasedDate": "2018-12-12T15:04:08.000Z",
             "location": {
                 "city": "Warszawa / Kraków",
                 "country": "pl"
@@ -44,6 +44,12 @@
                     "valueLabel": "IT Allegro"
                 },
                 {
+                    "fieldId": "58c1575ee4b01d4b19ddf797",
+                    "fieldLabel": "Kraków",
+                    "valueId": "2cfcfcc1-da44-43f7-8eaa-3907faf2797c",
+                    "valueLabel": "Tak"
+                },
+                {
                     "fieldId": "COUNTRY",
                     "fieldLabel": "Country",
                     "valueId": "pl",
@@ -58,19 +64,25 @@
                 {
                     "fieldId": "58c158e9e4b0614667d5973e",
                     "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
+                    "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
+                    "valueLabel": "Tak"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "58c156e6e4b01d4b19ddf793",
+                    "fieldLabel": "Warszawa",
+                    "valueId": "6a428533-1586-4372-89ec-65fb45366363",
+                    "valueLabel": "Tak"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999680400386",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999680628885",
             "creator": {
-                "name": "Mateusz Jabłonowski"
+                "name": "Jan Piętka"
             },
             "language": {
                 "code": "pl",
