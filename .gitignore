@@ -1,7 +1,6 @@
 .sass-cache
 .jekyll-metadata
 _site
-Gemfile.lock
 scripts/open-source
 /.idea
 /*.iml
