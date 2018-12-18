@@ -4,15 +4,15 @@
     "totalFound": 22,
     "content": [
         {
-            "id": "743999680787768",
+            "id": "743999680885083",
             "name": "Mobile Software Engineer (iOS)",
-            "uuid": "0f737099-16a5-4a66-907e-2efd7b0a5886",
+            "uuid": "262a0bc4-e07f-441d-b784-4f8e55d71f6b",
             "refNumber": "REF1590G",
             "company": {
                 "identifier": "AllegroGroup",
                 "name": "Allegro Group"
             },
-            "releasedDate": "2018-12-14T19:03:09.000Z",
+            "releasedDate": "2018-12-18T08:49:06.000Z",
             "location": {
                 "city": "Warszawa",
                 "country": "pl"
@@ -62,7 +62,7 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999680787768",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999680885083",
             "creator": {
                 "name": "Martyna Niszczota"
             },
