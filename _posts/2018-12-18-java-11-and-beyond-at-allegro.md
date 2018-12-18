@@ -24,7 +24,7 @@ All microservices run on our in-house Platform-as-a-Service based on Mesos and M
 Resources like CPU and memory and recently also Java version, are specified declaratively in a deployment descriptor.
 This, in short, enables our ops teams to [treat microservices like cattle, not like pets](http://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/).
 
-## Backgorund
+## Background
 
 ### In the old days
 
