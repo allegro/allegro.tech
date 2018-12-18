@@ -5,7 +5,7 @@ author: adam.dubiel
 tags: [tech, java]
 ---
 
-Since the beginning of my career as a Java developer, keeping up to date with Java was fairly straightforward. 
+Since the beginning of my career as a Java developer, keeping up to date with Java was fairly straightforward.
 Big releases came every few years, causing a bit of mayhem in tooling, IDEs and job interview questions.
 However with each release there was a lot of time to adjust and migrate to newer versions.
 With Java 9 things have changed. The so called [new release cadence](https://blogs.oracle.com/java-platform-group/update-and-faq-on-the-java-se-release-cadence)
@@ -61,16 +61,16 @@ So an imaginary process to create a JDK 8 distribution package from sources coul
 * compile and pass compatibility tests ([Technology Compatibility Kit](https://en.wikipedia.org/wiki/Technology_Compatibility_Kit) — TCK or JCK)
 * build & publish package
 
-Starting from Java 11 Oracle public builds will solely rely on OpenJDK sources: 
+Starting from Java 11 Oracle public builds will solely rely on OpenJDK sources:
 
 * clone OpenJDK
 * compile and pass TCK
-* build & publish package 
+* build & publish package
 
 Oracle will only release (at most?) two packages: Java 11.0.1 and Java 11.0.2.
 And afterwards Java 12 will replace Java 11.
 
-However there is hope. Other companies like 
+However there is hope. Other companies like
 [RedHat](https://developers.redhat.com/blog/2018/09/24/the-future-of-java-and-openjdk-updates-without-oracle-support/)
 and [Azul](https://www.azul.com/eliminating-java-update-confusion/) committed to pushing security
 patches to selected releases of Java.
@@ -103,11 +103,11 @@ deployed in our infrastructure.
 At Allegro we have three major work environments with a process that forces each artifact to be deployed on
 all of them in given order:
 
-* **dev** - development environment, which includes so called **Phoenix** environments - isolated development spaces
+* **dev** — development environment, which includes so called **Phoenix** environments - isolated development spaces
     for teams - this is the place to see how a newly created feature works with other microservices
-* **test** - test or pre-prod environment - only tested and released artifacts can be deployed here, we run
+* **test** — test or pre-prod environment - only tested and released artifacts can be deployed here, we run
     additional high-level tests to ensure stability of critical paths
-* **prod** - what you see at [allegro.pl](https://allegro.pl) :)
+* **prod** — what you see at [allegro.pl](https://allegro.pl) :)
 
 ### New major version
 
@@ -136,7 +136,7 @@ Non-LTS versions will be deprecated and removed from the hosts a quarter after n
 
 All Technical Owners of services which use deprecated versions will be notified:
 
-* as soon as new major version is rolled out 
+* as soon as new major version is rolled out
 * a month before deprecation
 * our deployment gateway (Observatory) starts marking new versions of apps using deprecated Java
     as invalid a month before deprecation
@@ -146,7 +146,7 @@ If no action is taken by Technical Owner, the service will simply stop working a
 
 This of course creates a question — how to find time to update apps to newer Java versions every 6 months?
 I think by being transparent with the process and timeline, we provide all developers with all the information they need
-to make a decision: should I adopt non-LTS releases or stay on LTS? In short: 
+to make a decision: should I adopt non-LTS releases or stay on LTS? In short:
 **If you don’t have time to maintain non-LTS version updates, stay on LTS.**
 
 #### Example: deprecating Java 12 in favor of 13
@@ -173,7 +173,7 @@ migration between LTS versions of Java. This might look similar to:
 
 * application is built on CI using newer JDK
 * command line options are checked for deprecations
-* if everything is ok - application will run using newer version of Java
-* if build fails - Technical Owner has to react and fix the problems
+* if everything is ok — application will run using newer version of Java
+* if build fails — Technical Owner has to react and fix the problems
 
 This could apply not only to Java, but also to things like different libraries versions as well.
