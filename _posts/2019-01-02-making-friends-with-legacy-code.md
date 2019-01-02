@@ -8,10 +8,18 @@ tags: [tech, cleancode, craftsmanship, tests, legacy]
 What kind of builders do you use in your tests? Do you use the old good builders
 where properties are set by a withProperty method? Or maybe, you use builders
 that make use of closures? As soon as I joined my team, I found out that there
-is another approach to test builders, and it embraces maps. It seemed innovative, but after a while, it became an annoying legacy code. After one of the debugging sessions, I decided to get rid of it, but the monster fought me back.
+is another approach to test builders, and it embraces maps. It seemed
+innovative, but after a while, it became an annoying legacy code. After one of
+the debugging sessions, I decided to get rid of it, but the monster fought me
+back.
 
 ### Peculiar test builders
-When I joined the team, I noticed that the test builders were constructed in a very strange way. There was no class with a group of setters and a build() method. Instead, there was a class with a static map called `defaults` that had all default values for domain object’s properties, and a factory method that took another map with overrides. Let’s take a look at an example domain object and the corresponding map-based test builder:
+When I joined the team, I noticed that the test builders were constructed in a
+very strange way. There was no class with a group of setters and a build()
+method. Instead, there was a class with a static map called `defaults` that had
+all default values for domain object’s properties, and a factory method that
+took another map with overrides. Let’s take a look at an example domain object
+and the corresponding map-based test builder:
 
 ```groovy
 class DomainObject {
