@@ -1,7 +1,7 @@
 {
     "offset": 0,
     "limit": 100,
-    "totalFound": 25,
+    "totalFound": 24,
     "content": [
         {
             "id": "743999681813913",
@@ -705,99 +705,6 @@
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999680628885",
             "creator": {
                 "name": "Jan Piętka"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999679988347",
-            "name": "Product Manager - Performance Marketing",
-            "uuid": "ceab6d2f-4748-40fe-8812-8a0a0e85f3f1",
-            "refNumber": "REF1616C",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2018-11-29T08:00:01.000Z",
-            "location": {
-                "city": "Poznań, Warszawa, Kraków",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "58c1575ee4b01d4b19ddf797",
-                    "fieldLabel": "Kraków",
-                    "valueId": "2cfcfcc1-da44-43f7-8eaa-3907faf2797c",
-                    "valueLabel": "Tak"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
-                    "valueLabel": "Tak"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "58c156b9e4b01d4b19ddf792",
-                    "fieldLabel": "Poznań",
-                    "valueId": "ac20917b-cb6a-4280-aff3-4fae2532a33e",
-                    "valueLabel": "Tak"
-                },
-                {
-                    "fieldId": "58c156e6e4b01d4b19ddf793",
-                    "fieldLabel": "Warszawa",
-                    "valueId": "6a428533-1586-4372-89ec-65fb45366363",
-                    "valueLabel": "Tak"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999679988347",
-            "creator": {
-                "name": "Katarzyna Wiśniewska"
             },
             "language": {
                 "code": "pl",
