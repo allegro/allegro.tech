@@ -38,15 +38,57 @@
             },
             "customField": [
                 {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
                     "fieldId": "58c1575ee4b01d4b19ddf797",
                     "fieldLabel": "Kraków",
                     "valueId": "bcab9d4f-8624-4d85-8e3d-dbf12239b972",
                     "valueLabel": "Nie"
                 },
                 {
+                    "fieldId": "58c15798e4b01d4b19ddf79b",
+                    "fieldLabel": "Wrocław",
+                    "valueId": "31873284-1e97-427d-8918-6ce504344351",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c15788e4b0614667d59733",
+                    "fieldLabel": "Błonie",
+                    "valueId": "25f6cb8c-81b3-434a-93ec-6dc851d5808d",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
                     "fieldId": "58c158e9e4b0614667d5973e",
                     "fieldLabel": "Więcej lokalizacji",
                     "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "58c156b9e4b01d4b19ddf792",
+                    "fieldLabel": "Poznań",
+                    "valueId": "ac20917b-cb6a-4280-aff3-4fae2532a33e",
                     "valueLabel": "Tak"
                 },
                 {
@@ -60,48 +102,6 @@
                     "fieldLabel": "Warszawa",
                     "valueId": "5469d54b-ef5c-499c-a0c3-ed2bc29ada77",
                     "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c15788e4b0614667d59733",
-                    "fieldLabel": "Błonie",
-                    "valueId": "25f6cb8c-81b3-434a-93ec-6dc851d5808d",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c15798e4b01d4b19ddf79b",
-                    "fieldLabel": "Wrocław",
-                    "valueId": "31873284-1e97-427d-8918-6ce504344351",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "58c156b9e4b01d4b19ddf792",
-                    "fieldLabel": "Poznań",
-                    "valueId": "ac20917b-cb6a-4280-aff3-4fae2532a33e",
-                    "valueLabel": "Tak"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999682282898",
@@ -230,16 +230,16 @@
                     "valueLabel": "Poland"
                 },
                 {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
                     "fieldId": "58c158e9e4b0614667d5973e",
                     "fieldLabel": "Więcej lokalizacji",
                     "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
                     "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -248,15 +248,15 @@
                     "valueLabel": "Allegro"
                 },
                 {
-                    "fieldId": "58c156b9e4b01d4b19ddf792",
-                    "fieldLabel": "Poznań",
-                    "valueId": "ac20917b-cb6a-4280-aff3-4fae2532a33e",
-                    "valueLabel": "Tak"
-                },
-                {
                     "fieldId": "58c1576ee4b0614667d59732",
                     "fieldLabel": "Toruń",
                     "valueId": "987e8884-bad1-4a8f-b149-99e4184cc221",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c156b9e4b01d4b19ddf792",
+                    "fieldLabel": "Poznań",
+                    "valueId": "ac20917b-cb6a-4280-aff3-4fae2532a33e",
                     "valueLabel": "Tak"
                 },
                 {
@@ -381,15 +381,57 @@
             },
             "customField": [
                 {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
                     "fieldId": "58c1575ee4b01d4b19ddf797",
                     "fieldLabel": "Kraków",
                     "valueId": "bcab9d4f-8624-4d85-8e3d-dbf12239b972",
                     "valueLabel": "Nie"
                 },
                 {
+                    "fieldId": "58c15798e4b01d4b19ddf79b",
+                    "fieldLabel": "Wrocław",
+                    "valueId": "31873284-1e97-427d-8918-6ce504344351",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c15788e4b0614667d59733",
+                    "fieldLabel": "Błonie",
+                    "valueId": "25f6cb8c-81b3-434a-93ec-6dc851d5808d",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
                     "fieldId": "58c158e9e4b0614667d5973e",
                     "fieldLabel": "Więcej lokalizacji",
                     "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "58c156b9e4b01d4b19ddf792",
+                    "fieldLabel": "Poznań",
+                    "valueId": "ac20917b-cb6a-4280-aff3-4fae2532a33e",
                     "valueLabel": "Tak"
                 },
                 {
@@ -402,48 +444,6 @@
                     "fieldId": "58c156e6e4b01d4b19ddf793",
                     "fieldLabel": "Warszawa",
                     "valueId": "6a428533-1586-4372-89ec-65fb45366363",
-                    "valueLabel": "Tak"
-                },
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c15788e4b0614667d59733",
-                    "fieldLabel": "Błonie",
-                    "valueId": "25f6cb8c-81b3-434a-93ec-6dc851d5808d",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c15798e4b01d4b19ddf79b",
-                    "fieldLabel": "Wrocław",
-                    "valueId": "31873284-1e97-427d-8918-6ce504344351",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "58c156b9e4b01d4b19ddf792",
-                    "fieldLabel": "Poznań",
-                    "valueId": "ac20917b-cb6a-4280-aff3-4fae2532a33e",
                     "valueLabel": "Tak"
                 }
             ],
@@ -504,16 +504,16 @@
                     "valueLabel": "Poland"
                 },
                 {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013445",
-                    "valueLabel": "Technology - Infrastructure"
-                },
-                {
                     "fieldId": "58c158e9e4b0614667d5973e",
                     "fieldLabel": "Więcej lokalizacji",
                     "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
                     "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013445",
+                    "valueLabel": "Technology - Infrastructure"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -597,10 +597,10 @@
                     "valueLabel": "IT Allegro"
                 },
                 {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
+                    "fieldId": "58c15798e4b01d4b19ddf79b",
+                    "fieldLabel": "Wrocław",
+                    "valueId": "31873284-1e97-427d-8918-6ce504344351",
+                    "valueLabel": "Nie"
                 },
                 {
                     "fieldId": "58c15788e4b0614667d59733",
@@ -609,10 +609,10 @@
                     "valueLabel": "Nie"
                 },
                 {
-                    "fieldId": "58c15798e4b01d4b19ddf79b",
-                    "fieldLabel": "Wrocław",
-                    "valueId": "31873284-1e97-427d-8918-6ce504344351",
-                    "valueLabel": "Nie"
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf729",
@@ -708,10 +708,10 @@
                     "valueLabel": "IT Allegro"
                 },
                 {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
+                    "fieldId": "58c15798e4b01d4b19ddf79b",
+                    "fieldLabel": "Wrocław",
+                    "valueId": "31873284-1e97-427d-8918-6ce504344351",
+                    "valueLabel": "Nie"
                 },
                 {
                     "fieldId": "58c15788e4b0614667d59733",
@@ -720,10 +720,10 @@
                     "valueLabel": "Nie"
                 },
                 {
-                    "fieldId": "58c15798e4b01d4b19ddf79b",
-                    "fieldLabel": "Wrocław",
-                    "valueId": "31873284-1e97-427d-8918-6ce504344351",
-                    "valueLabel": "Nie"
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf729",
@@ -801,16 +801,16 @@
                     "valueLabel": "Poland"
                 },
                 {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
                     "fieldId": "58c158e9e4b0614667d5973e",
                     "fieldLabel": "Więcej lokalizacji",
                     "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
                     "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -933,16 +933,16 @@
             },
             "customField": [
                 {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
                     "fieldId": "58c1575ee4b01d4b19ddf797",
                     "fieldLabel": "Kraków",
                     "valueId": "2cfcfcc1-da44-43f7-8eaa-3907faf2797c",
                     "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
                 },
                 {
                     "fieldId": "COUNTRY",
@@ -951,16 +951,16 @@
                     "valueLabel": "Poland"
                 },
                 {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
                     "fieldId": "58c158e9e4b0614667d5973e",
                     "fieldLabel": "Więcej lokalizacji",
                     "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
                     "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -1101,16 +1101,16 @@
                     "valueLabel": "Poland"
                 },
                 {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
                     "fieldId": "58c158e9e4b0614667d5973e",
                     "fieldLabel": "Więcej lokalizacji",
                     "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
                     "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -1178,16 +1178,16 @@
                     "valueLabel": "Poland"
                 },
                 {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
                     "fieldId": "58c158e9e4b0614667d5973e",
                     "fieldLabel": "Więcej lokalizacji",
                     "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
                     "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -1253,16 +1253,16 @@
                     "valueLabel": "Poland"
                 },
                 {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
                     "fieldId": "58c158e9e4b0614667d5973e",
                     "fieldLabel": "Więcej lokalizacji",
                     "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
                     "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -1341,16 +1341,16 @@
                     "valueLabel": "Poland"
                 },
                 {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013445",
-                    "valueLabel": "Technology - Infrastructure"
-                },
-                {
                     "fieldId": "58c158e9e4b0614667d5973e",
                     "fieldLabel": "Więcej lokalizacji",
                     "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
                     "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013445",
+                    "valueLabel": "Technology - Infrastructure"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -1417,16 +1417,16 @@
                     "valueLabel": "Poland"
                 },
                 {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
                     "fieldId": "58c158e9e4b0614667d5973e",
                     "fieldLabel": "Więcej lokalizacji",
                     "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
                     "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -1464,7 +1464,10 @@
                 "id": "internet",
                 "label": "Internet"
             },
-            "department": {},
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
             "function": {
                 "id": "information_technology",
                 "label": "Information Technology"
@@ -1488,6 +1491,12 @@
                     "fieldLabel": "Country",
                     "valueId": "pl",
                     "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -1553,16 +1562,16 @@
                     "valueLabel": "Poland"
                 },
                 {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
                     "fieldId": "58c158e9e4b0614667d5973e",
                     "fieldLabel": "Więcej lokalizacji",
                     "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
                     "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -1856,16 +1865,16 @@
                     "valueLabel": "Poland"
                 },
                 {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
                     "fieldId": "58c158e9e4b0614667d5973e",
                     "fieldLabel": "Więcej lokalizacji",
                     "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
                     "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -1893,7 +1902,7 @@
                 "identifier": "AllegroGroup",
                 "name": "Allegro Group"
             },
-            "releasedDate": "2017-11-16T09:37:44.391Z",
+            "releasedDate": "2017-11-16T09:37:44.000Z",
             "location": {
                 "city": "Warszawa",
                 "country": "pl"
