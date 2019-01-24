@@ -129,7 +129,9 @@ class DomainObjectGroovyDelegatedClosureBuilder {
 ```
 
 The usage looks almost the same as in the map-based approach, but we gain some
-type-safety and IDE hints. However, the params' values are not aligned, unlike a map definition.
+type-safety and IDE hints. In the case of maps, IDE’s automatic formatting can
+easily align field names and values in columns, but it can't format this way
+automatically in the case of closures.
 
 Closure-based builders allow you to hide the build method inside the factory method,
 and the usage looks really similar to map-based approach. However, using
