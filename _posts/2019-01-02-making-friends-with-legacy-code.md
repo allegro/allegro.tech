@@ -210,6 +210,7 @@ were passing anyway. Luckily, no bugs this time. The code became less error
 prone. The “legacy code” was actually a pretty good piece of code, but with
 previously unsolved problems.
 
+
 ### Conclusion
 My battle with map-based builders reminds me a couple of things.
 First, different approaches have different advantages, but also disadvantages.
