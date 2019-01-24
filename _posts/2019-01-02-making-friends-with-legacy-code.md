@@ -9,7 +9,7 @@ What kind of builders do you use in your tests? Do you use the old good builders
 where properties are set by a withProperty method? Or maybe, you use builders
 that make use of closures? As soon as I joined my team, I found out that there
 is another approach to test builders, and it embraces maps. It seemed
-innovative, but after a while, it became an annoying legacy code. After one of
+innovative, but after a while, it became annoying legacy code. After one of
 the debugging sessions, I decided to get rid of it, but the monster fought me
 back.
 
@@ -18,8 +18,8 @@ When I joined the team, I noticed that the test builders were constructed in a
 very strange way. There was no class with a group of setters and a build()
 method. Instead, there was a class with a static map called `defaults` that had
 all default values for domain object’s properties, and a factory method that
-took another map with overrides. Let’s take a look at an example kotlin domain
-object and the corresponding groovy map-based test builder:
+took another map with overrides. Let’s take a look at an example Kotlin domain
+object and the corresponding Groovy map-based test builder:
 
 ```kotlin
 data class DomainObject(id: String, size: Long, createdAt: DateTime)
@@ -66,7 +66,7 @@ defaults) and you’ll release with a bug.
 
 ### Trying to replace legacy code
 I couldn’t find any good reason why we use map-based builders. My teammates
-didn’t really know the reason, too. Maybe the person that introduced the
+didn’t really know the reason, either. Maybe the person that introduced the
 approach does not work with us anymore? Maybe the approach seemed elegant and
 innovative? Maybe we didn’t know much about Groovy at the time we introduced
 map-based builders? So why bother?
@@ -74,9 +74,9 @@ map-based builders? So why bother?
 After another debugging session that ended with fixing a typo in the test
 builder, I was full of anger and I decided to get rid of map-based builders. To
 make a [decision](https://www.youtube.com/watch?v=EauykEv_2iA), I started
-experiments with different approaches to see what fits us the most.
+experiments with different approaches to see what would fit us the best.
 
-The "classic", method-based builders seem to be the best if you care about
+The “classic”, method-based builders seem to be the best if you care about
 type-safety and IDE hints. On the other hand, you have to repeat the build
 method.
 
@@ -95,7 +95,7 @@ def obj = domainObject {
     createdAt == "2019-10-07"
 }
 ```
-The idea behind this kind of builders is to have a method that have a name
+The idea behind this kind of builders is to have a method that has a name
 corresponding to the domain object and takes a closure as a parameter. In the
 closure, the values are assigned to a mutable, temporary object, and then passed
 to the DomainObject's constructor:
@@ -129,11 +129,11 @@ class DomainObjectGroovyDelegatedClosureBuilder {
 ```
 
 The usage looks almost the same as in the map-based approach, but we gain some
-type-safety and IDE hints. However, the params' values are not aligned.
+type-safety and IDE hints. However, the params' values are not aligned, unlike a map definition.
 
-Closure-based builders allow to hide the build method inside the factory method,
+Closure-based builders allow you to hide the build method inside the factory method,
 and the usage looks really similar to map-based approach. However, using
-Closures confuses IDE and the hints you get are sometimes not as precise
+Closures confuse IDE and the hints you get are sometimes not as precise
 as in method-based builders.
 
 ### If you can’t beat them, join them
@@ -142,7 +142,7 @@ time I felt dissatisfied. I found out I was used to the map-based builders. The
 code in each approach looked misformatted and wordy. I value both the quality
 and beauty of the code, but in this case, ugliness was not enough to stop me
 from trying to throw away map-based builders. However, I was uncertain whether
-it is worth to rewrite tons of tests to a different approach. I wasn’t sure
+it was worth rewriting tons of tests to a different approach. I wasn’t sure
 about the gains. Then, I found a case where map-based builders won.
 
 In some of the tests, we are building objects with incorrect values. We are
@@ -172,7 +172,7 @@ looks to me more declarative than imperative, which plays well with the given
 section of the tests. Moreover, if we don’t switch the approach, then our code
 will stay uniform. If we don’t switch the approach, we save a lot of time on
 rewriting tests (or maintaining two approaches). So what’s missing in the
-map-based approach? Even though IDE does not suggest properties name and even
+map-based approach? Even though IDE does not suggest properties’ names and even
 though type errors are uncovered at runtime instead of compile time, the
 important thing is that this approach doesn’t save you from making typos.
 
@@ -210,12 +210,12 @@ were passing anyway. Luckily, no bugs this time. The code became less error
 prone. The “legacy code” was actually a pretty good piece of code, but with
 previously unsolved problems.
 
-### Concusions
+### Conclusion
 My battle with map-based builders reminds me a couple of things.
 First, different approaches have different advantages, but also disadvantages.
 Which one is the best? Well, it depends on what you value the most.
 Second, switching an approach may cost a lot. Sometimes more than the actual
-gain of the change, some make the decisions wisely. Third, legacy code can be a
+gain of the change, so make the decisions wisely. Third, legacy code can be a
 dangerous monster, but in some cases, it is better to make friends instead of
-killing him (evolution over revolution). Forth, sometimes we overuse the term
+killing it (evolution over revolution). Forth, sometimes we overuse the term
 “legacy code”. Just because we can’t fix it, it doesn’t mean it’s legacy.
