@@ -3,7 +3,8 @@ const axios = require('axios');
 const pretty = require('pretty');
 
 const MEETUP_SOURCE = 'https://api.meetup.com/allegrotech/events?status=past,upcoming&desc=true&photo-host=public&page=20';
-const EVENTBRITE_SOURCE = 'https://private-anon-9f312f5e4b-eventbriteapiv3public.apiary-mock.com/v3/organizations/1234/events/';
+#const EVENTBRITE_SOURCE = 'https://private-anon-9f312f5e4b-eventbriteapiv3public.apiary-mock.com/v3/organizations/7906517899/events/';
+const EVENTBRITE_SOURCE = 'https://www.eventbriteapi.com/v3/organizations/7906517899/events/';
 
 if (!process.argv[2]) {
     console.error("eventbrite api key needed!");
