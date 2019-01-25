@@ -14,7 +14,8 @@ the debugging sessions, I decided to get rid of it, but the monster fought me
 back.
 
 ### Peculiar test builders
-When I joined the team, I noticed that the test builders were constructed in a
+
+When I joined the team, I noticed that test builders were constructed in a
 very strange way. There was no class with a group of setters and a build()
 method. Instead, there was a class with a static map called `defaults` that had
 all default values for domain object’s properties, and a factory method that
@@ -60,21 +61,22 @@ didn’t see any killer-feature. Passing properties’ values using methods in
 method-based builders give more type-safety than using arbitrary maps. IDE
 doesn’t hint what properties can be set. Moreover, you can make a typo in a
 property’s name, and, if you’re lucky a runtime exception will be thrown. If
-you’re not, you’ll spend hours on debugging sessions in frustration wondering
+you’re not, you’ll spend hours in debugging sessions in frustration wondering
 why the test does not pass. In the worst case, the test will pass (because of
 defaults) and you’ll release with a bug.
 
 ### Trying to replace legacy code
-I couldn’t find any good reason why we use map-based builders. My teammates
+
+I couldn’t find any good reason why we were using map-based builders. My teammates
 didn’t really know the reason, either. Maybe the person that introduced the
 approach does not work with us anymore? Maybe the approach seemed elegant and
 innovative? Maybe we didn’t know much about Groovy at the time we introduced
 map-based builders? So why bother?
 
 After another debugging session that ended with fixing a typo in the test
-builder, I was full of anger and I decided to get rid of map-based builders. To
+builder, I was full of anger and decided to get rid of map-based builders. To
 make a [decision](https://www.youtube.com/watch?v=EauykEv_2iA), I started
-experiments with different approaches to see what would fit us the best.
+experiments with different approaches to see what would fit us best.
 
 The “classic”, method-based builders seem to be the best if you care about
 type-safety and IDE hints. On the other hand, you have to repeat the build
@@ -129,7 +131,7 @@ class DomainObjectGroovyDelegatedClosureBuilder {
 ```
 
 The usage looks almost the same as in the map-based approach, but we gain some
-type-safety and IDE hints. In the case of maps, IDE’s automatic formatting can
+type-safety and IDE hints. In case of maps, IDE’s automatic formatting can
 easily align field names and values in columns, but it can't format this way
 automatically in the case of closures.
 
@@ -139,16 +141,17 @@ Closures confuse IDE and the hints you get are sometimes not as precise
 as in method-based builders.
 
 ### If you can’t beat them, join them
+
 I was trying to adapt our code to method- and closure-based builders, but every
 time I felt dissatisfied. I found out I was used to the map-based builders. The
 code in each approach looked misformatted and wordy. I value both the quality
-and beauty of the code, but in this case, ugliness was not enough to stop me
+and the beauty of the code, but in this case, ugliness was not enough to stop me
 from trying to throw away map-based builders. However, I was uncertain whether
 it was worth rewriting tons of tests to a different approach. I wasn’t sure
 about the gains. Then, I found a case where map-based builders won.
 
-In some of the tests, we are building objects with incorrect values. We are
-building an object that has certain properties with correct values and other
+In some of the tests, we build objects with incorrect values. We
+build an object that has certain properties with correct values and other
 properties with incorrect. To achieve that, we add two maps.
 
 ```groovy
@@ -164,8 +167,7 @@ incorrectProperties << [[createdAt: "2018-10-07"] /*, other cases */]
 
 Of course, a similar thing can be achieved in method-based builders by
 overloading the plus operator. However, doing so for every domain object test
-builder sounds like lots of boilerplate where stupid mistakes can happen. In the
-case of closure-based builders, it is not any better nor easier. Adding a map to
+builder sounds like lots of boilerplate where stupid mistakes can happen. The same applies to closure-based builders. Adding a map to
 another is a simple operation that is easy to write and read. This is what I
 need for tests!
 
@@ -212,9 +214,9 @@ were passing anyway. Luckily, no bugs this time. The code became less error
 prone. The “legacy code” was actually a pretty good piece of code, but with
 previously unsolved problems.
 
-
 ### Conclusion
-My battle with map-based builders reminds me a couple of things.
+
+My battle with map-based builders reminds me of a couple of things.
 First, different approaches have different advantages, but also disadvantages.
 Which one is the best? Well, it depends on what you value the most.
 Second, switching an approach may cost a lot. Sometimes more than the actual
