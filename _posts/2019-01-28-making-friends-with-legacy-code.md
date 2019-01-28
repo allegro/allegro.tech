@@ -93,8 +93,8 @@ them as closure-based builders:
 
 ```groovy
 def obj = domainObject {
-    id == "some-object-id",
-    createdAt == "2019-10-07"
+    id = "some-object-id",
+    createdAt = "2019-10-07"
 }
 ```
 The idea behind this kind of builders is to have a method that has a name
