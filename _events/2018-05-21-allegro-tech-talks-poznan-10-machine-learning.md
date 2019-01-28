@@ -7,7 +7,7 @@ venue_city: Poznań
 venue_name: Pixel 
 status: past
 id: 250799242
-registration: https://www.picatic.com/205460
+registration: 
 ---
 
 <p>Chcesz posłuchać o Machine Learning w Allegro? Zarejestruj się na kolejny Allegro Tech Talks w Poznaniu!</p>
