@@ -1,18 +1,18 @@
 {
     "offset": 0,
     "limit": 100,
-    "totalFound": 27,
+    "totalFound": 28,
     "content": [
         {
-            "id": "743999684195004",
+            "id": "743999684260711",
             "name": "Business Applications Specialist",
-            "uuid": "f2eaa60f-e69b-4c38-9efc-9ac3f5e71a7d",
+            "uuid": "f7cb5be2-22ff-4b5b-8159-91f639b880ae",
             "refNumber": "REF1677L",
             "company": {
                 "identifier": "AllegroGroup",
                 "name": "Allegro Group"
             },
-            "releasedDate": "2019-02-22T13:41:47.000Z",
+            "releasedDate": "2019-02-25T09:51:57.000Z",
             "location": {
                 "city": "Poznań",
                 "region": "Greater Poland Voivodeship",
@@ -69,7 +69,82 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999684195004",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999684260711",
+            "creator": {
+                "name": "Izabela Semrau"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999684260307",
+            "name": "IT Support Specialist",
+            "uuid": "fb42e86b-c2c8-4b9c-9995-2e1fbef8bb44",
+            "refNumber": "REF1623U",
+            "company": {
+                "identifier": "AllegroGroup",
+                "name": "Allegro Group"
+            },
+            "releasedDate": "2019-02-25T09:41:26.000Z",
+            "location": {
+                "city": "Poznań",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013275",
+                "label": "Corporate IT"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "associate",
+                "label": "Associate"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013275",
+                    "valueLabel": "Corporate IT"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999684260307",
             "creator": {
                 "name": "Izabela Semrau"
             },
