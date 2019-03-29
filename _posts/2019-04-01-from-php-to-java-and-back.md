@@ -6,7 +6,7 @@ tags: [tech, php, java, monolith, microservices]
 ---
 
 Five years ago we started a major technological transformation of the Allegro platform.
-We’ve been moving from a monolithic, 10 mln lines of code PHP application into a system of
+Since then, we’ve been moving from a monolithic, 10 mln lines of code PHP application into a system of
 800+ JVM‑based microservices. This new architecture however turned out to be a dead‑end,
 that we can no longer afford to follow. Today, April 1 2019, we announce going back to
 our roots, hoping to rewrite all our JVM microservices into a single PHP application
