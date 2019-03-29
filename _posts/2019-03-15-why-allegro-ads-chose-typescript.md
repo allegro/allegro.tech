@@ -5,21 +5,14 @@ tags: [tech, typescript, flow, javascript]
 author: pawel.grzeszczak
 ---
 
-<style>
-.terminal {
-    background-color: #000;
-    padding: 8px;
-}
-</style>
-
-Several hundred tests, a modern look and fully mobile-friendly design — this is how we created the new version of [ads.allegro.pl](https://ads.allegro.pl).
-Unfortunately, it did not protect us from errors.
-The last straw was when a simple but very annoying problem appeared in production from time to time.
+A modern look and fully mobile-friendly design — this is how we created the new version of [ads.allegro.pl](https://ads.allegro.pl).
+Unfortunately, several hundred tests did not protect us from errors.
+The last straw was when a simple but very annoying problem appeared in production.
 We decided to start a revolution. We considered [Flow](https://flow.org/), but ended up adopting [TypeScript](https://www.typescriptlang.org/)
 for Allegro Ads.
 
 ## The Beginning
-2017 was a breakthrough year for the Allegro Ads project whose goal is to enable sellers at [Allegro](/about-us/) to advertise their offers.
+The Allegro Ads project goal is to enable sellers at [Allegro](/about-us/) to advertise their offers. 2017 was a breakthrough year for it.
 The key change was to be the new web page, denoted “version 2.0”.
 It was to deliver a new quality to users, quick implementation to business,
 and the prospect of boredom to testers. Has this happened?
@@ -29,19 +22,17 @@ In keeping with the Agile spirit,
 we gradually supplemented it with all the functionality of the previous version and added completely new features.
 It was certainly not time to celebrate yet, but rather time for more hard work.
 
-We had no major errors, but their sheer number was slowing us down,
-extended the locally testing process and tasks came back from testers over and over again.
+We had no major errors, but their sheer number was slowing us down, lengthen tests as the tasks were coming back.
 In order to protect ourselves from this, we added several hundred tests using dedicated testing solutions:
 [mocha](https://mochajs.org/), [chai](https://www.chaijs.com/), [sinon](https://sinonjs.org/) and [enzyme](https://airbnb.io/enzyme/).
 
-The effort paid off. The number of errors and warnings decreases noticeably, but that was not enough for us.
+The effort paid off. The number of errors and warnings decreased noticeably, but that was not enough for us.
 All too often, problems occurred during integration with data from the test environment.
 Usually, the reason was incorrectly formatted or missing data.
 
-The straw that broke the camel’s back was when a production error occurred, caused by a programmer incorrectly assuming
-that a string was a number.
-This was due to the fact that all data returned by the backend is of string type and is only converted to number or date 
-in our system depending on each field’s meaning, then converted back to string for display.
+The straw that broke the camel’s back was a production error, caused by a programmer incorrectly assuming that a string was a number.
+This was due to the fact that all data returned by the backend is of a string type and is only converted to a number or a date 
+in our system depending on each field’s meaning, then converted back to a string for display.
 During these type conversions, we could not be sure that the type was right at every stage.
 An error appearing in production was such a bad thing that we decided to take a look at static typing.
 
@@ -50,7 +41,7 @@ An error appearing in production was such a bad thing that we decided to take a 
 
 There are two competing solutions on the market: Flow and TypeScript. The first one comes from Facebook and
 guarantees support for React — the main Ads library on which we based the user interface.
-It is not a transpiler, and its only role is to check types. Its use requires an additional tool, e.g. [Babel](https://babeljs.io/).
+It is not a transpiler, and its only role is to check types so unlike TypeScript requires an additional tool to work, e.g. [Babel](https://babeljs.io/).
 
 The other solution is TypeScript — a free and open-source programming language
 created by Microsoft as a superset of JavaScript. It has its own transpiler which converts code to JavaScript.
@@ -67,7 +58,7 @@ It became our choice in the end.
 ## Migration
 We started migrating “old” to “new”, but it was not a simple task.
 Already in the beginning, a problem appeared
-when in one task a file was rewritten in TypeScript (TS) and as part of another task, its original version,
+when in one task a file was rewritten in TypeScript (TS) and as a part of another task, its original version,
 still written in JavaScript (JS), was modified.
 On the one hand, a new TS file was created, on the other,
 the old JS file was updated with new features and this situation caused a conflict that was difficult to solve.
@@ -76,11 +67,8 @@ Therefore, during the interim stage, special caution was required.
 We decided to not rewrite everything, but we adopted the principle that we would not migrate all current code to TypeScript, only the main features.
 However, each new class would be created in the new, statically typed way.
 Thanks to this, we managed to convert more than half of the 1500 files to TS.
-<div class="terminal">
-    <img alt="TypeScript files" src="/img/articles/2019-03-15-why-allegro-ads-chose-typescript/ts-files.png" />
-<br />
-    <img alt="JavaScript files" src="/img/articles/2019-03-15-why-allegro-ads-chose-typescript/js-files.png" />
-</div>
+
+<img alt="TypeScript files" src="/img/articles/2019-03-15-why-allegro-ads-chose-typescript/files-comparison.png" />
 
 ## The project grows in complexity
 TypeScript introduces a lot of new syntax elements and some of them, e.g. generic types, increased the complexity of code
@@ -158,7 +146,7 @@ export class KeywordPhrasesModel extends Model<KeywordPhrasesModel> {
 ```
 
 ## When to use it?
-* The project is large and complex. Data goes through many layers.
+* The project has data passing through different layers.
 * The team is familiar with TypeScript, has experience in other statically-typed languages ​​or is motivated to learn.
 * Other libraries suggest its use, e.g. Angular 2.
 
@@ -171,7 +159,7 @@ There were doubts whether such a great change made sense in a situation of conti
 We were wondering if the overhead of writing strongly-typed code would pay off.
 The overhead of learning a new language did not make the Product Owner too happy, either ;-)
 
-We took the risk and it was the right decision. We are currently delighted with TypeScript.
+We took the risk and it turned out it was the right decision. We are currently delighted with TypeScript.
 We gained knowledge how to use it and the technology itself has improved the security of our applications.
 Situations in which casting errors occur are detected already at the coding stage.
 Even in a product as large and mature as Allegro Ads, static typing turned out to be achievable and worth investing in.
