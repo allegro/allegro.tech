@@ -7,7 +7,7 @@ venue_city: Poznań
 venue_name: Pixel 
 status: past
 id: 254583136
-registration: https://www.picatic.com/213161
+registration: 
 ---
 
 <p>Witamy po wakacjach! Wracamy do Was z Allegro Tech Talks # 12 w Poznaniu! Tym razem skupimy się na iOS i Swift!</p>

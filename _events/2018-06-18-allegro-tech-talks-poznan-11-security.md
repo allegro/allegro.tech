@@ -7,7 +7,7 @@ venue_city: Poznań
 venue_name: Pixel 
 status: past
 id: 251680637
-registration: https://www.picatic.com/207259
+registration: 
 ---
 
 <p>Chcesz zobaczyć live hacking? Zarejestruj się na kolejny Allegro Tech Talks w Poznaniu!</p>
