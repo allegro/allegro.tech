@@ -1,9 +1,11 @@
 ---
 layout: post
-title: "From PHP to Java and back again: a retreat from microservices"
+title: "[April 1st] From PHP to Java and back again: a retreat from microservices"
 author: piotr.betkier
 tags: [tech, php, java, monolith, microservices]
 ---
+
+> This post was published on April 1st, 2019, and should not be taken too seriously.
 
 Five years ago we started a major technological transformation of the [Allegro](/about-us/) platform.
 Since then, we’ve been moving from a monolithic, 10 mln lines of code PHP application into a system of
