@@ -20,9 +20,9 @@ and the prospect of boredom to testers. Has this happened?
 The application was launched without any major problems in the [MVP](https://en.wikipedia.org/wiki/Minimum_viable_product) version.
 In keeping with the Agile spirit,
 we gradually supplemented it with all the functionality of the previous version and added completely new features.
-It was certainly not time to celebrate yet, but rather time for more hard work.
 
-We had no major errors, but their sheer number was slowing us down, lengthen tests as the tasks were coming back.
+It was certainly not time to celebrate yet, but rather time for more hard work.
+We had no major errors, but their sheer number was slowing us down, lengthening tests as the tasks kept coming back to developers for fixing.
 In order to protect ourselves from this, we added several hundred tests using dedicated testing solutions:
 [mocha](https://mochajs.org/), [chai](https://www.chaijs.com/), [sinon](https://sinonjs.org/) and [enzyme](https://airbnb.io/enzyme/).
 
@@ -41,7 +41,7 @@ An error appearing in production was such a bad thing that we decided to take a 
 
 There are two competing solutions on the market: Flow and TypeScript. The first one comes from Facebook and
 guarantees support for React — the main Ads library on which we based the user interface.
-It is not a transpiler, and its only role is to check types so unlike TypeScript requires an additional tool to work, e.g. [Babel](https://babeljs.io/).
+It is not a transpiler, and its only role is to check types so unlike TypeScript, it requires an additional tool to work, e.g. [Babel](https://babeljs.io/).
 
 The other solution is TypeScript — a free and open-source programming language
 created by Microsoft as a superset of JavaScript. It has its own transpiler which converts code to JavaScript.
@@ -61,7 +61,7 @@ Already in the beginning, a problem appeared
 when in one task a file was rewritten in TypeScript (TS) and as a part of another task, its original version,
 still written in JavaScript (JS), was modified.
 On the one hand, a new TS file was created, on the other,
-the old JS file was updated with new features and this situation caused a conflict that was difficult to solve.
+the old JS file was updated with new features and this situation caused a conflict that was difficult to resolve.
 Therefore, during the interim stage, special caution was required.
 
 We decided to not rewrite everything, but we adopted the principle that we would not migrate all current code to TypeScript, only the main features.
