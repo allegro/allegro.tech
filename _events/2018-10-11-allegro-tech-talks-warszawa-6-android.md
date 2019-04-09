@@ -7,7 +7,7 @@ venue_city: Warsaw
 venue_name: Allegro Office Q22
 status: past
 id: 255020802
-registration: https://www.picatic.com/214758
+registration: 
 ---
 
 <p>Witamy po wakacyjnej przerwie! Zapraszamy na Allegro Tech Talks Warszawa #6. Temat przewodni to Android.</p>
