@@ -37,7 +37,7 @@ During these type conversions, we could not be sure that the type was right at e
 An error appearing in production was such a bad thing that we decided to take a look at static typing.
 
 ## TypeScript, Flow?
-<img alt="TypeScript, Flow" src="/img/articles/2019-03-15-why-allegro-ads-chose-typescript/ts-vs-flow.png" />
+<img alt="TypeScript, Flow" src="/img/articles/2019-04-09-why-allegro-ads-chose-typescript/ts-vs-flow.png" />
 
 There are two competing solutions on the market: Flow and TypeScript. The first one comes from Facebook and
 guarantees support for React — the main Ads library on which we based the user interface.
@@ -53,7 +53,7 @@ Both also provide similar basic features
 However, TypeScript is more popular, has a larger community and better documentation.
 It became our choice in the end.
 
-<img alt="npm trends" src="/img/articles/2019-03-15-why-allegro-ads-chose-typescript/npm-trends.png" />
+<img alt="npm trends" src="/img/articles/2019-04-09-why-allegro-ads-chose-typescript/npm-trends.png" />
 
 ## Migration
 We started migrating “old” to “new”, but it was not a simple task.
@@ -68,7 +68,7 @@ We decided to not rewrite everything, but we adopted the principle that we would
 However, each new class would be created in the new, statically typed way.
 Thanks to this, we managed to convert more than half of the 1500 files to TS.
 
-<img alt="TypeScript files" src="/img/articles/2019-03-15-why-allegro-ads-chose-typescript/files-comparison.png" />
+<img alt="TypeScript files" src="/img/articles/2019-04-09-why-allegro-ads-chose-typescript/files-comparison.png" />
 
 ## The project grows in complexity
 TypeScript introduces a lot of new syntax elements and some of them, e.g. generic types, increased the complexity of code
@@ -110,8 +110,8 @@ An additional motivation for using TypeScript is very good IDE support, which de
 Webstorm recognizes `*.ts` files and provides support for completing keywords, variables and parameters.
 It marks and highlights errors, suggesting how to solve them. It also provides on-the-fly compilation of JavaScript to TypeScript.
 
-<img alt="Compilation" src="/img/articles/2019-03-15-why-allegro-ads-chose-typescript/compiling.png" />
-<img alt="Autocomplete" src="/img/articles/2019-03-15-why-allegro-ads-chose-typescript/autocomplete.png" />
+<img alt="Compilation" src="/img/articles/2019-04-09-why-allegro-ads-chose-typescript/compiling.png" />
+<img alt="Autocomplete" src="/img/articles/2019-04-09-why-allegro-ads-chose-typescript/autocomplete.png" />
 
 ## The problem with Immutable.js
 Before the TypeScript era, our data structures were based on the `Record` class from [Immutable.js](https://github.com/immutable-js/immutable-js/) library.
@@ -128,7 +128,7 @@ export class KeywordPhrasesModel extends Record({
 
 After switching to TypeScript, it turned out that the library did not have good support for the `Record` class.
 
-<img alt="Record class from Immutable.js error" src="/img/articles/2019-03-15-why-allegro-ads-chose-typescript/error.png" />
+<img alt="Record class from Immutable.js error" src="/img/articles/2019-04-09-why-allegro-ads-chose-typescript/error.png" />
 
 We decided on a different solution based on the aforementioned `Model` class and the use of `readonly` keyword.
 From now on, TypeScript takes care of the immutability, but this fails to work when the class is used outside of TypeScript.
