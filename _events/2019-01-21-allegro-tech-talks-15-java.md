@@ -11,9 +11,12 @@ registration:
 ---
 
 <p>Hej,</p>
-<p>zapraszamy na pierwsze w tym roku spotkanie w ramach Allegro Tech Talks w Poznaniu!<br />Tematem przewodnim będzie Java.</p>
+<p>zapraszamy na pierwsze w tym roku spotkanie w ramach Allegro Tech Talks w Poznaniu!
+  <br/>Tematem przewodnim będzie Java.</p>
 <p>REJESTRACJA:</p>
-<p>Prosimy o rejestrację poprzez <a href="https://www.eventbrite.com/e/allegro-tech-talks-15-java-tickets-53946648879" class="linkified">https://www.eventbrite.com/e/allegro-tech-talks-15-java-tickets-53946648879</a>.<br />Po zarejestrowaniu otrzymasz e-mail z potwierdzeniem oraz Twoim biletem. Kod QR będzie potrzebny przy wejściu na wydarzenie :)</p>
+<p>Prosimy o rejestrację poprzez
+  <a href="https://www.eventbrite.com/e/allegro-tech-talks-15-java-tickets-53946648879" class="linkified">https://www.eventbrite.com/e/allegro-tech-talks-15-java-tickets-53946648879</a>.
+  <br/>Po zarejestrowaniu otrzymasz e-mail z potwierdzeniem oraz Twoim biletem. Kod QR będzie potrzebny przy wejściu na wydarzenie :)</p>
 <p>Agenda:</p>
 <p>17:40 - rejestracja + przekąski</p>
 <p>18:00 - 19:00 - Ogarnąć Git bestie - Paweł Warczyński</p>
@@ -28,5 +31,6 @@ registration:
 <p>Czyli krótki przegląd przez Garbage Collectory dostępne aktualnie w Javie.</p>
 <p>Michał Trojanowski - developer z doświadczeniem w różnych językach, wciąż poszukujący tego najlepszego.</p>
 <p>3. Object-Oriented Programming - powrót do korzeni</p>
-<p>Programowanie obiektowe cieszy się dużą popularnością wśród programistów. Na co dzień często tworzymy rozwiązania w oparciu o interfejsy, klasy i metody, korzystamy z abstrakcji i dziedziczenia. Ale czy to wystarczy? W trakcie tej prezentacji wrócimy do korzeni - przeanalizujemy (na przykładach!) jak znajomość cech programowania obiektowego oraz zasad SOLID przydaje się w codziennej pracy programisty.</p>
+<p>Programowanie obiektowe cieszy się dużą popularnością wśród programistów. Na co dzień często tworzymy rozwiązania w oparciu o interfejsy, klasy i metody, korzystamy z abstrakcji i dziedziczenia. Ale czy to wystarczy? W trakcie tej prezentacji wrócimy
+  do korzeni - przeanalizujemy (na przykładach!) jak znajomość cech programowania obiektowego oraz zasad SOLID przydaje się w codziennej pracy programisty.</p>
 <p>Maciej Sikorski - inżynier oprogramowania, fan tworzenia prostych i testowalnych rozwiązań</p>
