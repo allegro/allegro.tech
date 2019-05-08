@@ -58,8 +58,8 @@ receiving only messages it’s interested in, not the whole topic.
     * message retransmission. You can choose the date and time from which messages should be sent again to subscribing service.
     * subscription filter defining.
 
-    <img alt="Hermes pubsub" src="/img/articles/2019-05-09-hermes-1-released/hermes-console-topic-view.png" style="width:400px;"/>
-    <img alt="Hermes pubsub" src="/img/articles/2019-05-09-hermes-1-released/hermes-console-subscription-view.png" style="width:400px;"/>
+    <img alt="Hermes console topic view" src="/img/articles/2019-05-09-hermes-1-released/hermes-console-topic-view.png" style="width:49%;"/>
+    <img alt="Hermes console subscription view" src="/img/articles/2019-05-09-hermes-1-released/hermes-console-subscription-view.png" style="width:49%;"/>
 
 * **Multi-DC support**. Hermes can be spread across multiple data centers. When one DC goes down,
 its traffic can be redirected to others. 
@@ -93,8 +93,7 @@ Approximate numbers for our main production cluster
     * 99p: 10kB
 * 800 topics and 1300 subscriptions
 
-Beside the main cluster we also have two additional. One of them consists of just the consumers module that is used
-for sending messages via HTTP to subscribers (Hermes was not used for publishing the messages to Kafka).
+Beside the main cluster we also have two additional.
 
 We have been running Hermes in production constantly since 2014. During this, time we had several major datacenter
 breakdowns but Hermes remained available to all its clients, because its spread on many nodes and supports multiple DCs.
@@ -178,9 +177,53 @@ If you have any requirements related to Hermes, please [let us know](https://git
 
 Hermes has been in development and maintenance since 2014. This project depends on great people and talented developers
 with whom to work is a pleasure and a positive adventure. To appreciate their work, below you can find the list
-of all Hermes contributors:
+of all Hermes contributors (as of 9.5.2019):
 
-- a
-- b
-- c
-
+- [adamdubiel](https://github.com/adamdubiel)
+- [adididas122](https://github.com/adididas122)
+- [ajayk](https://github.com/ajayk)
+- [alasun](https://github.com/alasun)
+- [alberskib](https://github.com/alberskib)
+- [bgalek](https://github.com/bgalek)
+- [chemicL](https://github.com/chemicL)
+- [cristaloleg](https://github.com/cristaloleg)
+- [dankraw](https://github.com/dankraw)
+- [druminski](https://github.com/druminski)
+- [faderskd](https://github.com/faderskd)
+- [hajdukd](https://github.com/hajdukd)
+- [ingwarsw](https://github.com/ingwarsw)
+- [IvanVas](https://github.com/IvanVas)
+- [jakubdyszkiewicz](https://github.com/jakubdyszkiewicz)
+- [janisz](https://github.com/janisz)
+- [jmnarloch](https://github.com/jmnarloch)
+- [karolhor](https://github.com/karolhor)
+- [klacia](https://github.com/klacia)
+- [Kornel](https://github.com/Kornel)
+- [kretes](https://github.com/kretes)
+- [krzysiekbielicki](https://github.com/krzysiekbielicki)
+- [lukaszjackowski](https://github.com/lukaszjackowski)
+- [mictyd](https://github.com/mictyd)
+- [miguelpuyol](https://github.com/miguelpuyol)
+- [mproch](https://github.com/mproch)
+- [msulima](https://github.com/msulima)
+- [olekihnatowicz](https://github.com/olekihnatowicz)
+- [pbetkier](https://github.com/pbetkier)
+- [pbobruk](https://github.com/pbobruk)
+- [piorkowskiprzemyslaw](https://github.com/piorkowskiprzemyslaw)
+- [PiotrGoralczyk](https://github.com/PiotrGoralczyk)
+- [piotrrzysko](https://github.com/piotrrzysko)
+- [pivovarit](https://github.com/pivovarit)
+- [pjagielski](https://github.com/pjagielski)
+- [pszymczyk](https://github.com/pszymczyk)
+- [pwolaq](https://github.com/pwolaq)
+- [rprzystasz](https://github.com/rprzystasz)
+- [rzukow](https://github.com/rzukow)
+- [SathyaBhat](https://github.com/SathyaBhat)
+- [szpak](https://github.com/szpak)
+- [spooz](https://github.com/spooz)
+- [TheCK](https://github.com/TheCK)
+- [Theer108](https://github.com/Theer108)
+- [tmmi](https://github.com/tmmi)
+- [vi4m](https://github.com/vi4m)
+- [wendigo](https://github.com/wendigo)
+- [wojtkiewicz](https://github.com/wojtkiewicz)
