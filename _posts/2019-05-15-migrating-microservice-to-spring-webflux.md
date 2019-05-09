@@ -374,3 +374,18 @@ Our service also does much work which is not associated with the communication.
 Migrating flow to reactive around HTTP clients and controllers is critical, but not significant in terms
 of resource usage. As I said in the beginning, the expected benefit of migration is
 more scalability and resilience for latencies. We are sure that we obtained this target.
+
+## Conclusions
+
+Are you working on greenfield? It’s a great chance to get familiar with WebFlux or another reactive framework.
+
+Are you migrating existing microservice? Take factors covered in the article into consideration,
+not only technical ones — check time and people capability to work with new solutions.
+Decide consciously without blind faith in technology hype.
+
+Always test your application, integration and performance test covering external call latencies and errors
+are crucial in the migration process. Remember that reactive thinking is different from the well-known blocking,
+imperative approach.
+
+
+Have fun and build resilient microservices!
