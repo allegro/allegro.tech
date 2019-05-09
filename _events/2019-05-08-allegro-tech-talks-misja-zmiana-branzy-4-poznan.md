@@ -5,7 +5,7 @@ time: 1557331200000
 venue_address_1: Grunwaldzka 182
 venue_city: Poznań
 venue_name: Allegro
-status: upcoming
+status: past
 id: 260911426
 registration: 
 ---
