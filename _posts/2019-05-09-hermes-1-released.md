@@ -19,7 +19,7 @@ Hermes is a message broker with REST API and push model. It’s built on top of 
 
 Hermes mediates in communication between services. It’s a [pub-sub](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
 which means that publishing services (publishers) don’t know anything about subscribing services (subscribers).
-Publishers have to only publish messages on a topic. They don’t have to worry about which subscriber is reading their
+Publishers only have to publish messages on a topic. They don’t have to worry about which subscriber is reading their
 messages and whether it’s available or returns errors.
 
 
@@ -31,45 +31,55 @@ messages and whether it’s available or returns errors.
         *curl http://{hermes_address}/topics/pl.allegro.events.clicks
         --data ‘{“id”: “1234”, “page”: “main”}’ -H”Content-Type: application/json”*
 
-    * Message consumption from Hermes comes down to exposing an HTTP endpoint in consuming service.
+    * Message consumption from Hermes comes down to exposing an HTTP endpoint in a consuming service.
       Next we have to create a subscription in a simple and intuitive GUI or through the API.
-      After this, Hermes will start sending messages to the address provided in the subscription.
-      Furthermore, it will automatically adjust the rate of
+      After this, Hermes starts sending messages to the address provided in the subscription.
+      Furthermore, it automatically adjusts the rate of
       [messages sent per second](https://hermes-pubsub.readthedocs.io/en/latest/user/subscribing/) to the consuming service.
-    * Can be used by any technology supporting HTTP, for example: shell scripts, old PHP in monolithic system,
-      modern programming languages.
-* **Reliability**. Number one priority for Hermes is not to lose any sensitive data even if in the cloud everything goes south.
-* **Saving time**. Developers can focus on building business services. They don't have to know Hermes or Kafka 
-internals to use them successfully. When you use Hermes in business services, you don't have to worry about client
+    * Hermes can be used by any technology supporting HTTP, for example: modern programming languages, shell scripts and
+      old PHP in monolithic system
+* **Reliability**. Number one priority for Hermes is not to lose any message even if in the cloud everything goes south.
+* **Saving time**. Developers can focus on building business services. They don’t have to know Hermes or Kafka 
+internals to use them successfully. When you use Hermes in business services, you don’t have to worry about client’s
 dependency update or migration to a newer version.
-* **Metrics**. Hermes measures everything that is important, for example: rate, latency, throughput, successes, failures.
+* **Metrics**. Hermes measures everything that is important, for example for publishing and consuming messages measures
+their rate, latency, throughput, successes, failures.
+* **Multi-DC support**. Hermes can be spread across multiple data centers. When one DC goes down,
+its traffic can be redirected to others. 
 * **Tracking mechanism**. Base on *hermes-message-id* we can track how and when our message was processed by Hermes.
 * **AVRO support**. You can publish and consume messages in JSON or [AVRO](https://avro.apache.org/) format.
 Furthermore, you can have a topic of AVRO type and still publish and consume JSON as Hermes converts messages on the fly.
 Thanks to this, publishers and subscribers don’t have to use AVRO on their side but still can benefit from it on Hermes.  
 Each AVRO topic has a schema attached to it. So, message structure is documented and it’s easier to verify what kind
-of messages are on these topics in order to be compatible with them. Moreover, AVRO lowers the volume of data being
-sent and persisted in Kafka. It also simplifies data analysis when data is sent from Kafka to other BigData
+of messages are on a given topic in order to be compatible with them. Moreover, AVRO lowers the volume of data being
+sent and persisted in Kafka. It also simplifies data analysis when data is sent from Kafka to other Big Data
 platforms such as Hadoop.
-* **Filter support**. You can define message filters for a subscription. Thanks to them, subscribing service will be
-receiving only messages it’s interested in, not the whole topic.
-* **Intuitive GUI**. Hermes-console is a web app for:
-    * managing topics and subscriptions.
-    * message retransmission. You can choose the date and time from which messages should be sent again to subscribing service.
-    * subscription filter defining.
-
-    <img alt="Hermes console topic view" src="/img/articles/2019-05-09-hermes-1-released/hermes-console-topic-view.png" style="width:49%;"/>
-    <img alt="Hermes console subscription view" src="/img/articles/2019-05-09-hermes-1-released/hermes-console-subscription-view.png" style="width:49%;"/>
-
-* **Multi-DC support**. Hermes can be spread across multiple data centers. When one DC goes down,
-its traffic can be redirected to others. 
 * **Scalability**. You can easily add and remove nodes in Hermes cluster.
 * **Speed**. You get all of this at a price of milliseconds overhead over pure Kafka (plus network transfer time).
-* **Modularity**. Publishing to Hermes via REST API is one module. Consuming from Hermes via push model is another one.
-If you need only one of them, use just that one.
+* **Modularity**. Hermes is divided into modules, you can use them all or pick the subset that fits your needs.
 * **Backup storage**. It’s a buffer saving messages on local drive when Kafka is unavailable or responds too long
 when messages are published to it. Thanks to backup storage you gain extra time for bringing Kafka to life or stabilizing it.
+* **Filter support**. You can define message filters for a subscription. Thanks to them, subscribing service receive
+only messages it’s interested in, not the whole topic.
 * **OpenSource**. Hermes is available on [github](https://github.com/allegro/hermes). We are open for contributions.
+* **Intuitive GUI**. Hermes-console is a web app for:
+    * managing topics and subscriptions,
+    * message retransmission -- you can choose the date and time from which messages should be sent again to subscribing service,
+    * subscription filter defining.
+
+    <p align="center">
+      <img
+        alt="Hermes console topic view"
+        style="max-width:700px;width:90%"
+        src="/img/articles/2019-05-09-hermes-1-released/hermes-console-topic-view.png">
+    </p>
+    <br/>
+    <p align="center">
+          <img
+            alt="Hermes console subscription view"
+            style="max-width:700px;width:90%"
+            src="/img/articles/2019-05-09-hermes-1-released/hermes-console-subscription-view.png">
+    </p>
 
 ## How important is Hermes for Allegro?
 
@@ -78,42 +88,41 @@ Moreover, it’s a bridge between our old world in the form of PHP monolith and 
 
 ### In numbers
 
-Approximate numbers for our main production cluster
+Approximate numbers for our main production cluster:
 
-* Used by 60 teams and 400 services
-* Publishing on all topics: 40k msgs/s, subscribing from them: 50k msgs/s (we have more subscribers than publishers)
-* Incoming throughput 80MB/s, outgoing 120MB/s
-* Response latency for [99p](https://en.wikipedia.org/wiki/Percentile)
-    * [ack-leader](https://hermes-pubsub.readthedocs.io/en/latest/user/publishing/#acknowledgment-level): 45ms
-    * [ack-all](https://hermes-pubsub.readthedocs.io/en/latest/user/publishing/#acknowledgment-level): 60ms
-* Size of handled messages
-    * 50p: 0.4kB
-    * 75p: 1kB
-    * 95p: 5kB
-    * 99p: 10kB
-* 800 topics and 1300 subscriptions
+* Used by 60 teams and 400 services,
+* Publishing on all topics: 40k msgs/s, subscribing from them: 50k msgs/s (we have more subscribers than publishers),
+* Incoming throughput 80MB/s, outgoing 120MB/s,
+* Response latency for [99p](https://en.wikipedia.org/wiki/Percentile):
+    * [ack-leader](https://hermes-pubsub.readthedocs.io/en/latest/user/publishing/#acknowledgment-level): 45ms,
+    * [ack-all](https://hermes-pubsub.readthedocs.io/en/latest/user/publishing/#acknowledgment-level): 60ms,
+* Size of handled messages:
+    * 50p: 0.4kB,
+    * 75p: 1kB,
+    * 95p: 5kB,
+    * 99p: 10kB,
+* 800 topics and 1300 subscriptions.
 
-Beside the main cluster we also have two additional.
-
-We have been running Hermes in production constantly since 2014. During this, time we had several major datacenter
+We have been running Hermes in production constantly since 2014. During this time we had several major datacenter
 breakdowns but Hermes remained available to all its clients, because its spread on many nodes and supports multiple DCs.
-In our ecosystem, it’s one of the core services used by most developer teams and business services.
+In our ecosystem, it’s one of the core services used by most development teams and business services.
 
 ## Who should consider using Hermes
 
 Hermes fits very well into microservice architecture with HTTP as the main communication protocol.
 
-It's built from several modules. Additionally, to run it, Zookeeper and Kafka clusters are required.
-Therefore, it’s reasonable to have a dedicated team responsible for its maintenance. When is it worth to pay this cost?
+It’s built from several modules. Additionally, to run it, Zookeeper and Kafka clusters are required.
+Therefore, it’s reasonable to have a dedicated team responsible for its maintenance.
+Altogether, maintenance of Hermes and its dependencies is costly. When is it worth to pay this cost?
 
 When you have an environment with 20+ services, code sharing, maintenance and following updates become problematic.
-At Allegro we had the chance to find it out. It's better to take out dependencies from business services as much as possible.
+At Allegro we had the chance to find it out. It’s better to take out dependencies from business services as much as possible.
 This also applies to the message broker. It pays to use Hermes when you have an environment with 20+ services
 developed by many teams.
 
 Additionally, when you have a monolithic system and would like to connect it with a new architecture then you should also
 consider Hermes as a bridge between these two worlds. At Allegro we have a PHP monolith which shrinks every month
-due to us moving towards  microservice architecture. Hermes makes this process easier. 
+thanks to our efforts moving towards microservice architecture. Hermes makes this process easier. 
 
 ## The right message broker
 
@@ -131,8 +140,8 @@ Hermes was open sourced in 2015. Key goals which we have been following during i
   So we use [Undertow](http://undertow.io/) as an HTTP server and Apache Kafka as a message broker under Hermes.
 * Reliability. We want to send critical data using the message broker.
   When Hermes returns 2xx HTTP status code to a publisher, it provides a guarantee that the message will be delivered
-  to topic subscribers. We rely on Kafka and its data consistency mechanisms. What's more, we've implemented our own
-  backup storage mechanism on the publisher's side that can be used when brokers are unavailable.
+  to topic subscribers. We rely on Kafka and its data consistency mechanisms. What’s more, we’ve implemented our own
+  backup storage mechanism on the publisher’s side that can be used when brokers are unavailable.
 * High-availability. We want a message broker which is available all the time even if in the datacenter everything
   can go down. Kafka provides high availability within a local datacenter. We extended this high availability by adding
   multi-DC support. It means that we share topics and subscriptions over all datacenters. When Hermes in one DC goes
@@ -148,9 +157,6 @@ Also, they are cloud vendor agnostic. It means that you can install and migrate 
 In addition, Hermes is extendable, meaning you can plug in custom implementations of many interfaces used underneath.
 For example, our Hermes clusters are extended by internal functionalities like discovery service mechanism,
 service catalog ownership or custom OAuth provider.
-
-So which message broker should you use? There is no simple answer to this question. Before you make a decision,
-it’s worth to gather all your requirements, prioritize them and find out which message broker fits your needs best.
 
 In the end, there is no silver bullet for all challenges. At Allegro for example, most developer teams use Hermes,
 but a few teams use raw Kafka directly.
