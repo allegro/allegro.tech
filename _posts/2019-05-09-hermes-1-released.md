@@ -46,7 +46,7 @@ dependency update or migration to a newer version.
 their rate, latency, throughput, successes, failures.
 * **Multi-DC support**. Hermes can be spread across multiple data centers. When one DC goes down,
 its traffic can be redirected to others. 
-* **Tracking mechanism**. Base on *hermes-message-id* we can track how and when our message was processed by Hermes.
+* **Tracking mechanism**. Based on *hermes-message-id*, we can track how and when our message was processed by Hermes.
 * **AVRO support**. You can publish and consume messages in JSON or [AVRO](https://avro.apache.org/) format.
 Furthermore, you can have a topic of AVRO type and still publish and consume JSON as Hermes converts messages on the fly.
 Thanks to this, publishers and subscribers don’t have to use AVRO on their side but still can benefit from it on Hermes.  
@@ -104,7 +104,7 @@ Approximate numbers for our main production cluster:
 * 800 topics and 1300 subscriptions.
 
 We have been running Hermes in production constantly since 2014. During this time we had several major datacenter
-breakdowns but Hermes remained available to all its clients, because its spread on many nodes and supports multiple DCs.
+breakdowns but Hermes remained available to all it’s clients, because its spread onto many nodes and supports multiple DCs.
 In our ecosystem, it’s one of the core services used by most development teams and business services.
 
 ## Who should consider using Hermes
@@ -136,7 +136,7 @@ Hermes was open sourced in 2015. Key goals which we have been following during i
     Users don’t need to know how a message broker works under the hood, either, and can focus on developing their services.
 * Performance. We are aware that HTTP is not the fastest communication protocol but we chose it,
   because it’s a very common one and we already use it widely in our infrastructure.
-  However, we want to publish and acknowledge messages over HTTP with 50-60ms latency SLA for 99.9th percentile.
+  However, we want to publish and acknowledge messages over HTTP with 50-60ms latency SLA for 99th percentile.
   So we use [Undertow](http://undertow.io/) as an HTTP server and Apache Kafka as a message broker under Hermes.
 * Reliability. We want to send critical data using the message broker.
   When Hermes returns 2xx HTTP status code to a publisher, it provides a guarantee that the message will be delivered
