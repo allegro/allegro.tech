@@ -294,12 +294,6 @@
                     "fieldLabel": "Brands",
                     "valueId": "default",
                     "valueLabel": "Allegro Group"
-                },
-                {
-                    "fieldId": "5c93b106e21b840007fe20f4",
-                    "fieldLabel": "Słowa kluczowe",
-                    "valueId": "cda3d522-79c8-4087-bfb4-a9be2fa7a04b",
-                    "valueLabel": "Java, jvm, groovy, kotlin, scala"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999686277183",
@@ -515,12 +509,6 @@
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "5c93b106e21b840007fe20f4",
-                    "fieldLabel": "Słowa kluczowe",
-                    "valueId": "cda3d522-79c8-4087-bfb4-a9be2fa7a04b",
-                    "valueLabel": "Java, jvm, groovy, kotlin, scala"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999685471655",
