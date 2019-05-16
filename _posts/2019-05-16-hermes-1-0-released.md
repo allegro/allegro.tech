@@ -1,4 +1,4 @@
----
+
 layout: post
 title: Hermes 1.0 released
 tags: [tech, hermes, kafka, pubsub, broker]
@@ -15,7 +15,7 @@ It’s a cut-off from stable and mature code.
 Hermes is a message broker with REST API and push model. It’s built on top of [Apache Kafka](https://kafka.apache.org/) 2.0.
 
 
-<img alt="Hermes pubsub" src="/img/articles/2019-05-09-hermes-1-released/hermes-pubsub.png" />
+<img alt="Hermes pubsub" src="/img/articles/2019-05-16-hermes-1-0-released/hermes-pubsub.png" />
 
 Hermes mediates in communication between services. It’s a [pub-sub](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
 which means that publishing services (publishers) don’t know anything about subscribing services (subscribers).
@@ -71,14 +71,14 @@ only messages it’s interested in, not the whole topic.
       <img
         alt="Hermes console topic view"
         style="max-width:700px;width:90%"
-        src="/img/articles/2019-05-09-hermes-1-released/hermes-console-topic-view.png">
+        src="/img/articles/2019-05-16-hermes-1-0-released/hermes-console-topic-view.png">
     </p>
     <br/>
     <p align="center">
           <img
             alt="Hermes console subscription view"
             style="max-width:700px;width:90%"
-            src="/img/articles/2019-05-09-hermes-1-released/hermes-console-subscription-view.png">
+            src="/img/articles/2019-05-16-hermes-1-0-released/hermes-console-subscription-view.png">
     </p>
 
 ## How important is Hermes for Allegro?
