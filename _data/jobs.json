@@ -4,6 +4,82 @@
     "totalFound": 25,
     "content": [
         {
+            "id": "743999688746533",
+            "name": "Site Reliability Engineer",
+            "uuid": "2df0b10e-945b-4a33-92ee-ba5589f9c6d5",
+            "refNumber": "REF1583L",
+            "company": {
+                "identifier": "AllegroGroup",
+                "name": "Allegro Group"
+            },
+            "releasedDate": "2019-05-23T12:50:02.000Z",
+            "location": {
+                "city": "Warszawa",
+                "region": "mazowieckie",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013445",
+                "label": "Technology - Technical Platform"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013445",
+                    "valueLabel": "Technology - Technical Platform"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999688746533",
+            "creator": {
+                "name": "Mateusz Jabłonowski"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
             "id": "743999688485984",
             "name": "UX Researcher",
             "uuid": "e4ad2a31-c927-4b6c-8f76-d10a4a689aab",
@@ -1237,7 +1313,7 @@
                     "fieldId": "58c13159e4b01d4b19ddf729",
                     "fieldLabel": "Department",
                     "valueId": "1013445",
-                    "valueLabel": "Technology - Infrastructure"
+                    "valueLabel": "Technology - Technical Platform"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -1697,82 +1773,6 @@
             }
         },
         {
-            "id": "743999678510366",
-            "name": "Site Reliability Engineer",
-            "uuid": "be42501f-05e3-4ee4-96c4-1a963f91728a",
-            "refNumber": "REF1583L",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2018-10-26T11:54:47.000Z",
-            "location": {
-                "city": "Warszawa",
-                "region": "mazowieckie",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013445",
-                "label": "Technology - Infrastructure"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013445",
-                    "valueLabel": "Technology - Infrastructure"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999678510366",
-            "creator": {
-                "name": "Katarzyna Wiśniewska"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
             "id": "743999678046781",
             "name": "Software Engineer",
             "uuid": "84278b6f-a6a8-47e1-b752-bb84d078c2b4",
@@ -1899,7 +1899,7 @@
                     "fieldId": "58c13159e4b01d4b19ddf729",
                     "fieldLabel": "Department",
                     "valueId": "1013275",
-                    "valueLabel": "Corporate IT"
+                    "valueLabel": "IT Business Services"
                 },
                 {
                     "fieldId": "58c158e9e4b0614667d5973e",
