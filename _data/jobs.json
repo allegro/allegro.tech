@@ -171,6 +171,11 @@
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "DAX, microsoft dynamics, microsoft AX, ERP, developer"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999688270159",
@@ -351,6 +356,11 @@
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "test, tester, software tester, testy automatyczne, quality assurance, QA,"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999688208567",
@@ -585,6 +595,11 @@
                     "fieldLabel": "Brands",
                     "valueId": "default",
                     "valueLabel": "Allegro Group"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "java, kotlin, developer, backend, back end, programowanie, deweloper, programista, inżynier, scala"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999686277183",
@@ -1664,6 +1679,11 @@
                     "fieldLabel": "Warszawa",
                     "valueId": "6a428533-1586-4372-89ec-65fb45366363",
                     "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "Big Data, machine learning, bigdata, kafka, hadoop"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999678714739",
@@ -1892,6 +1912,11 @@
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "React, Angular, Node js., Javascript, Vue, front-end, front-end software engineer, frontend, front end, programista, inżynier, front-end developer,"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999674625019",
