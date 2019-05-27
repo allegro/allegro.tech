@@ -61,3 +61,18 @@
         float: right;
     }
 }
+
+.skip-link { 
+    position: absolute;
+    left: -999em;
+
+    &:visited {
+        color: #00a790;
+    }
+      
+    &:focus {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+}
