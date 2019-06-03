@@ -1395,6 +1395,11 @@
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "java, kotlin, scala, backend, java software engineer, java developer, spark, hadoop, spring, senior java engineer"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999685471655",
@@ -1464,6 +1469,11 @@
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "iOS, Swift, Xcode, mobile, iOS developer, iOS engineer, iOS app engineer, Objective-C"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999685194909",
@@ -1671,6 +1681,11 @@
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "java, kotlin, scala, backend, java software engineer, java developer, spark, hadoop, spring, senior java engineer"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999683940204",
@@ -1782,6 +1797,11 @@
                     "fieldLabel": "Warszawa",
                     "valueId": "5469d54b-ef5c-499c-a0c3-ed2bc29ada77",
                     "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "iOS, Swift, Xcode, mobile, iOS developer, iOS engineer, iOS app engineer, Objective-C"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999682282898",
@@ -1944,6 +1964,11 @@
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "iOS, Swift, Xcode, mobile, iOS developer, iOS engineer, iOS app engineer, Objective-C"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999680885083",
