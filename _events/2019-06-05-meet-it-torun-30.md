@@ -5,7 +5,7 @@ time: 1559750400000
 venue_address_1: ul. Kościuszki 71
 venue_city: Toruń
 venue_name: Kościuszko Business Point
-status: near
+status: upcoming
 id: 261734622
 registration: 
 ---
