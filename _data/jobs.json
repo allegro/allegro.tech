@@ -1473,7 +1473,7 @@
                 {
                     "fieldId": "5cdab2c84cedfd0006e7758c",
                     "fieldLabel": "Key words",
-                    "valueLabel": "iOS, Swift, Xcode, mobile, iOS developer, iOS engineer, iOS app engineer, Objective-C"
+                    "valueLabel": "iOS, Swift, Xcode, mobile, iOS developer, iOS engineer, iOS app engineer, Objective-C, programista iOS"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999685194909",
@@ -1543,6 +1543,11 @@
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "team leader, java, kotlin, scala, backend, java software engineer, management, team management, java developer, programista"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999685046638",
@@ -1612,6 +1617,11 @@
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "Javascript, React, Angular, Node js., Vue, front-end, frontend, front end developer, web performance, programista"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999684595587",
@@ -1685,7 +1695,7 @@
                 {
                     "fieldId": "5cdab2c84cedfd0006e7758c",
                     "fieldLabel": "Key words",
-                    "valueLabel": "java, kotlin, scala, backend, java software engineer, java developer, spark, hadoop, spring, senior java engineer"
+                    "valueLabel": "java, kotlin, scala, backend, java software engineer, java developer, spark, hadoop, spring, senior java engineer, programista"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999683940204",
@@ -2137,6 +2147,11 @@
                     "fieldLabel": "Brands",
                     "valueId": "default",
                     "valueLabel": "Allegro Group"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "java, kotlin, scala, backend, java software engineer, java developer, spark, hadoop, spring, senior java engineer, programista"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999678046781",
