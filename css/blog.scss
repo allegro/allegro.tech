@@ -117,7 +117,7 @@ figcaption {
 
 .section-posts {
     .posts {
-        li {
+        article {
             margin: 1em auto;
             &:first-child {
                 margin: 0;
@@ -129,14 +129,14 @@ figcaption {
 .posts {
     list-style-type: none;
 
-    li {
+    article {
         position: relative;
         background: #fff;
         padding: 35px 35px 15px;
         font-weight: 300;
     }
 
-    &.posts-short li {
+    &.posts-short article {
         padding-top: 25px;
     }
 
