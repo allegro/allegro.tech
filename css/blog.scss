@@ -44,7 +44,6 @@ figcaption {
     }
 }
 
-.section-latest section,
 .section-blog > header {
     padding: 24px 0;
 }
@@ -54,7 +53,7 @@ figcaption {
         padding: 24px 0;
     }
 
-    .posts li {
+    .posts article {
         background: rgba(255, 255, 255, 0.2);
         color: #fff;
         border: 0;

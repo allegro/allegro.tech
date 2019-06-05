@@ -29,13 +29,13 @@ title: blog authors
 <section class="section-posts desk ">
     <div class="content">
         {% assign index = true %}
-        <ul class="posts">
+        <section class="posts">
             {% for post in site.posts %}
             {% if post.author contains page.author %}
-            <li>{% include single_post.html hideAuthor = true %}</li>
+            <article>{% include single_post.html hideAuthor = true %}</article>
             {% endif %}
             {% endfor %}
-        </ul>
+        </section>
     </div>
 </section>
 

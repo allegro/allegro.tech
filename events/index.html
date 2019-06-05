@@ -15,15 +15,11 @@ title: events
 {% endif %}
 {% endfor %}
 
-<section class="section-posts desk ">
+<section class="section-posts desk">
     <div class="content">
-        <ul class="posts">
-            {% include events.html offset="1" status="upcoming" %}
-        </ul>
+        {% include events.html offset="1" status="upcoming" %}
         <h1 class="title">Past Events</h1>
-        <ul class="posts">
-            {% include events.html status="past" %}
-        </ul>
+        {% include events.html status="past" %}
     </div>
 </section>
 
