@@ -65,11 +65,8 @@
 .skip-link { 
     position: absolute;
     left: -999em;
+    color: #006456;
 
-    &:visited {
-        color: #00a790;
-    }
-      
     &:focus {
         position: absolute;
         left: 10px;
