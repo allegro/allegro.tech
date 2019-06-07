@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<div class="post">
+<div id="main-content" class="post">
     <header class="post-header" style="background-image: url('../img/events/header-image.jpg');">
         <div class="content">
             <time class="entry-date" datetime="{{ page.date }}">
@@ -56,9 +56,9 @@ layout: default
             </div>
         </div>
 
-        <div class="content">
+        <section class="content">
             <h2>Event details</h2>
-            {{ content }}
-        </div>
+            <div lang="pl-PL">{{ content }}</div>
+        </section>
     </article>
 </div>
