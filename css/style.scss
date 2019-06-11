@@ -84,3 +84,12 @@ h2 {
         max-width: 100%;
     }
 }
+
+.anchor {
+  a {
+    opacity:0;
+    &:hover {
+      opacity:1;
+    }
+  }
+}
