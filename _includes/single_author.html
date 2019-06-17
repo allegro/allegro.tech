@@ -1,9 +1,9 @@
 {%if include.showLinkToPost %}
-<a href="/authors/{{authorKey}}"><img src="/img/authors/{{authorKey}}.jpg" alt="{{authorKey}}" class="avatar" /></a>
-<h3><a href="/authors/{{authorKey}}">{{authorData.name}}</a></h3>
+<a href="/authors/{{authorKey}}" aria-hidden="true" tabindex="-1"><img src="/img/authors/{{authorKey}}.jpg" alt="" class="avatar" /></a>
+<h3 lang="pl-PL"><a href="/authors/{{authorKey}}">{{authorData.name}}</a></h3>
 {% else %}
-<img src="/img/authors/{{authorKey}}.jpg" alt="{{authorKey}}" class="avatar" />
-<h3>{{authorData.name}}</h3>
+<img src="/img/authors/{{authorKey}}.jpg" alt="" class="avatar" />
+<h3 lang="pl-PL">{{authorData.name}}</h3>
 {% endif %}
 
 {%if authorData.twitter %}

@@ -1,20 +1,20 @@
 {% if include.short == "true" %}
-<ul class="posts posts-short">
+<section class="posts posts-short">
     {% for post in site.posts offset:include.offset %}
-    <li>
+    <article>
         <time class="post-date">{{ post.date | date: "<strong>%b %-d</strong> %Y" }}</time>
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         <p></p>
-    </li>
+    </article>
     {% endfor %}
-</ul>
+</section>
 {% else %}
 
-<ul class="posts">
+<section class="posts">
     {% for post in site.posts limit:include.limit offset:include.offset%}
-    <li {% if forloop.first %} class="latest" {% endif %}>
+    <article {% if forloop.first %} class="latest" {% endif %}>
         {% include single_post.html %}
-    </li>
+    </article>
     {% endfor %}
-</ul>
+</section>
 {% endif %}
