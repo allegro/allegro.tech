@@ -4,15 +4,15 @@
     "totalFound": 28,
     "content": [
         {
-            "id": "743999690250332",
+            "id": "743999690260262",
             "name": "Front-end Software Engineer (Full Stack)",
-            "uuid": "85929a83-0ce0-4f1f-af00-d16faf986e95",
+            "uuid": "0fff4dde-7af8-43aa-b271-4850a97af491",
             "refNumber": "REF1794T",
             "company": {
                 "identifier": "AllegroGroup",
                 "name": "Allegro Group"
             },
-            "releasedDate": "2019-06-21T08:01:59.000Z",
+            "releasedDate": "2019-06-21T11:41:28.000Z",
             "location": {
                 "city": "Poznań",
                 "country": "pl"
@@ -73,7 +73,7 @@
                     "valueLabel": "backend, go, java, full stack, javascript, react, angular, js, web developer, frontend developer"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999690250332",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999690260262",
             "creator": {
                 "name": "Anna Śmiałek"
             },
