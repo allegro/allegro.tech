@@ -4,15 +4,15 @@
     "totalFound": 29,
     "content": [
         {
-            "id": "743999690475560",
+            "id": "743999690545518",
             "name": "Software Engineer",
-            "uuid": "b8ee9931-9ab6-40aa-8bf9-550a94bc8f96",
+            "uuid": "729be056-c5e3-44cc-a815-fd18d5fc9ba7",
             "refNumber": "REF960Z",
             "company": {
                 "identifier": "AllegroGroup",
                 "name": "Allegro Group"
             },
-            "releasedDate": "2019-06-26T09:13:12.000Z",
+            "releasedDate": "2019-06-27T09:08:32.000Z",
             "location": {
                 "city": "Warszawa",
                 "region": "mazowieckie",
@@ -69,7 +69,7 @@
                     "valueLabel": "java, kotlin, developer, backend, back end, programowanie, deweloper, programista, inżynier, scala"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999690475560",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999690545518",
             "creator": {
                 "name": "Jan Piętka"
             },
