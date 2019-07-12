@@ -110,7 +110,7 @@ encapsulated in one blocking method call, and to rewrite it to non-blocking styl
 Let’s try to do this on an example of the blocking method which uses `RestTemplate` to retrieve the result from an external
 service.
 ```java
-Pizza getPizzaBlocking(String id) {
+Pizza getPizzaBlocking(int id) {
     try {
         return restTemplate.getForObject("http://localhost:8080/pizza/" + id, Pizza.class);
     } catch (RestClientException ex) {
@@ -120,7 +120,7 @@ Pizza getPizzaBlocking(String id) {
 ```
 We pick only one thing from the rich set of WebFlux features — reactive WebClient — and use it to rewrite this method in a non-blocking way.
 ```java
-Mono<Pizza> getPizzaReactive(String id) {
+Mono<Pizza> getPizzaReactive(int id) {
     return webClient
         .get()
         .uri("http://localhost:8080/pizza/" + id)
@@ -132,7 +132,7 @@ Mono<Pizza> getPizzaReactive(String id) {
 Now it’s time to wire our new method with the rest of the application. The non-blocking method returns `Mono`,
 but we need a plain type instead. We can use the `.block()` method to retrieve the value from `Mono`. 
 ```java
-Pizza getPizzaBlocking(String id) {
+Pizza getPizzaBlocking(int id) {
     return getPizzaReactive(id).block();
 }
 ```
@@ -151,7 +151,7 @@ where non-blocking approach reveals its benefits.
 
 ```java
 //parallel call to two services using Java8 CompletableFuture
-Food orderFoodBlocking(String id) {
+Food orderFoodBlocking(int id) {
     try {
         return CompletableFuture.completedFuture(new FoodBuilder())
             .thenCombine(CompletableFuture.supplyAsync(() -> pizzaService.getPizzaBlocking(id), executorService), FoodBuilder::withPizza)
@@ -164,7 +164,7 @@ Food orderFoodBlocking(String id) {
 }
 
 //parallel call to two services using Reactor
-Mono<Food> orderFoodReactive(String id) {
+Mono<Food> orderFoodReactive(int id) {
     return Mono.just(new FoodBuilder())
         .zipWith(pizzaService.getPizzaReactive(id), FoodBuilder::withPizza)
         .zipWith(hamburgerService.getHamburgerReactive(id), FoodBuilder::withHamburger)
@@ -176,7 +176,7 @@ Blocking parts of the system can be easily merged with
 non-blocking code using `.subscribeOn()` method. We can use one of the default Reactor
 schedulers as well as thread pools created on our own and provided by `ExecutorService`.
 ```java
-Mono<Pizza> getPizzaReactive(String id) {
+Mono<Pizza> getPizzaReactive(int id) {
     return Mono.fromSupplier(() -> getPizzaBlocking(id))
         .subscribeOn(Schedulers.fromExecutorService(executorService));
 }
@@ -247,7 +247,7 @@ __The lesson learned__:
 WebFlux beginners sometimes forget that reactive streams tend to be as lazy as possible.
 Due to a lacking subscription, the following function never prints anything to console:
 ```java
-Food orderFood(String id) {
+Food orderFood(int id) {
     FoodBuilder builder = new FoodBuilder().withPizza(new Pizza("margherita"));
 
     hamburgerService.getHamburgerReactive(id).doOnNext(builder::withHamburger);
@@ -263,7 +263,7 @@ __The lesson learned__:
 
 As I showed before (in Stage 1), `.block()` is sometimes used to join a reactive function to blocking code.
 ```java
-Food getFoodBlocking(String id) {
+Food getFoodBlocking(int id) {
     return foodService.orderFoodReactive(id).block();
 }
 ```
@@ -284,14 +284,14 @@ Nothing prevents us from adding blocking code to a reactive flow.
 Moreover, we don’t need to use `.block()` - we can unconsciously introduce blocking by using a library which
 can block the current thread. Consider the following samples of code. The first one resembles proper, “reactive” delay.
 ```java
-Mono<Food> getFood(String id) {
+Mono<Food> getFood(int id) {
     return foodService.orderFood(id)
         .delayElement(Duration.ofMillis(1000));
 }
 ```
 The other sample simulates a dangerous delay, which blocks the subscriber thread.
 ```java
-Mono<Food> getFood(String id) throws InterruptedException {
+Mono<Food> getFood(int id) throws InterruptedException {
     return foodService
       .orderFood(id)
       .doOnNext(food -> Thread.sleep(1000));
@@ -327,7 +327,7 @@ gives us similar information.
 This requirement is easy to miss, mainly when we use `.retrieve()` method, which is a shortcut to `.exchange()`.
 We stumbled upon such an issue. We correctly mapped the valid response to an object and wholly ignored the response in case of an error. 
 ```java
-Mono<Pizza> getPizzaReactive(String id) {
+Mono<Pizza> getPizzaReactive(int id) {
     return webClient
         .get()
         .uri("http://localhost:8080/pizza/" + id)
