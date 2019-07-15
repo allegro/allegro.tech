@@ -43,7 +43,7 @@ The most important new features are functional endpoints, event loop concurrency
 You might think that by introducing a whole new stack and paradigm, compatibility between WebFlux and Web MVC has been broken.
 In fact, Pivotal worked on making coexistence as painless as possible.
 
-![Comparison of Spring Web MVC and Spring WebFlux capabilities](/img/articles/2019-05-15-migrating-microservices-to-spring-webflux/spring-mvc-and-webflux-venn.png)
+![Comparison of Spring Web MVC and Spring WebFlux capabilities](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/spring-mvc-and-webflux-venn.png)
 
 We are not forced to migrate every aspect of our code
 to the new approach. We can easily pick some reactive stuff (like
@@ -302,9 +302,9 @@ we can see similar behavior. “Hello, world!” is returned after 1 s delay. Ho
 misleading. Our service response changes drastically under higher traffic. Let’s use [JMeter](https://jmeter.apache.org/)
 to obtain some performance characteristics.
 
-![Performance of service with reactive delay](/img/articles/2019-05-15-migrating-microservices-to-spring-webflux/jmeter-reactive.png)
+![Performance of service with reactive delay](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/jmeter-reactive.png)
 
-![Performance of service with blocking delay](/img/articles/2019-05-15-migrating-microservices-to-spring-webflux/jmeter-blocking.png)
+![Performance of service with blocking delay](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/jmeter-blocking.png)
 
 Both versions were queried using 100 threads.
 As we can see, the version with reactive delay (upper) works well under heavy load, providing constant delay and high throughput.
@@ -385,9 +385,9 @@ How were low-level metrics affected?
 We observed fewer garbage collections, and also they took less time.
 The upper part of each chart shows the reactive version, while the lower part shows the blocking version.
 
-![GC count comparison — reactive vs blocking](/img/articles/2019-05-15-migrating-microservices-to-spring-webflux/gc-count.png)
+![GC count comparison — reactive vs blocking](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-count.png)
 
-![GC time comparison — reactive vs blocking](/img/articles/2019-05-15-migrating-microservices-to-spring-webflux/gc-time.png)
+![GC time comparison — reactive vs blocking](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-time.png)
 
 Also, the response time slightly decreased, although we did not expect such an effect.
 Other metrics, like CPU load, file descriptors usage and total memory consumed, did not change.
