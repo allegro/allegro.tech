@@ -44,7 +44,6 @@ figcaption {
     }
 }
 
-.section-latest section,
 .section-blog > header {
     padding: 24px 0;
 }
@@ -54,7 +53,7 @@ figcaption {
         padding: 24px 0;
     }
 
-    .posts li {
+    .posts article {
         background: rgba(255, 255, 255, 0.2);
         color: #fff;
         border: 0;
@@ -117,7 +116,7 @@ figcaption {
 
 .section-posts {
     .posts {
-        li {
+        article {
             margin: 1em auto;
             &:first-child {
                 margin: 0;
@@ -129,14 +128,14 @@ figcaption {
 .posts {
     list-style-type: none;
 
-    li {
+    article {
         position: relative;
         background: #fff;
         padding: 35px 35px 15px;
         font-weight: 300;
     }
 
-    &.posts-short li {
+    &.posts-short article {
         padding-top: 25px;
     }
 
