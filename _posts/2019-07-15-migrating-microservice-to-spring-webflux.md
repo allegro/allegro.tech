@@ -383,7 +383,7 @@ but also utilization of Undertow worker threads became one order of magnitude sm
 
 How were low-level metrics affected?
 We observed fewer garbage collections, and also they took less time.
-The upper part of each chart shows the reactive version, while the lower part shows the blocking version.
+The upper part of each chart shows the blocking version, while the lower part shows the reactive version.
 
 ![GC count comparison — reactive vs blocking](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-count.png)
 
