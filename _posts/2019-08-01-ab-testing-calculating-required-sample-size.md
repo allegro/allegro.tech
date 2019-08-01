@@ -185,7 +185,7 @@ We implemented our own sample size calculator for our experimentation platform. 
 
 <figure class="image">
   <img src="/img/articles/2019-07-23-ab-testing-calculating-required-sample-size/chi-calculator.png"
-  alt="Chi sample size calculator" width="700" style="margin-left:100px; margin-right:100px;">
+  alt="Chi sample size calculator"  width="90%" style="border:1px solid gray; padding:2%">
   <figcaption><center>Figure 3: The sample size calculator implemented by Allegro experimentation team</center></figcaption>
 </figure>
 
