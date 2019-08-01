@@ -184,7 +184,8 @@ Increasing the power will also result in an enlarged sample size. If you want to
 We implemented our own sample size calculator for our experimentation platform. Below, we describe the theory behind our calculator.
 
 <figure class="image">
-  <img src="/img/articles/2019-07-23-ab-testing-calculating-required-sample-size/chi-calculator.png" alt="Chi sample size calculator">
+  <img src="/img/articles/2019-07-23-ab-testing-calculating-required-sample-size/chi-calculator.png"
+  alt="Chi sample size calculator" width="700" style="margin-left:100px; margin-right:100px;">
   <figcaption><center>Figure 3: The sample size calculator implemented by Allegro experimentation team</center></figcaption>
 </figure>
 
