@@ -43,7 +43,14 @@ The most important new features are functional endpoints, event loop concurrency
 You might think that by introducing a whole new stack and paradigm, compatibility between WebFlux and Web MVC has been broken.
 In fact, Pivotal worked on making coexistence as painless as possible.
 
-![Comparison of Spring Web MVC and Spring WebFlux capabilities](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/spring-mvc-and-webflux-venn.png)
+<figure>
+<img alt="Comparison of Spring Web MVC and Spring WebFlux capabilities"
+src="/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/spring-mvc-and-webflux-venn.png" />
+<figcaption>
+Comparison of Spring Web MVC and Spring WebFlux capabilities
+(diagram from <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-framework-choice">WebFlux documentation</a>).
+</figcaption>
+</figure>
 
 We are not forced to migrate every aspect of our code
 to the new approach. We can easily pick some reactive stuff (like
