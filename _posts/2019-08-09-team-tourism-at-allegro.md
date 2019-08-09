@@ -56,11 +56,14 @@ obsolete library from the project or reduce technical debt. Or quite the contrar
 redesign existing peace of software.
 
 
-## How to organise it? Truth to be told, we don’t have strict rules or procedures how to do that. Whereas other
+## How to organise it?
 
-companies embrace explicit procedures, we mostly try to follow common sense, which can be described in a few sentences.
+Truth to be told, we don’t have strict rules or procedures how to do that. Whereas other companies embrace explicit
+procedures, we mostly try to follow common sense, which can be described in a few sentences.
 
-### Before the exchange First of all, the need for team tourism should be clarified. In most of the cases, team member
+### Before the exchange
+
+First of all, the need for team tourism should be clarified. In most of the cases, team member
 proposes the exchange, but there are cases when a leader can propose it for someone else.
 
 When there is a desire to go on an exchange, both teams and the person who will be on the exchange have to agree on:
@@ -73,18 +76,23 @@ do it, you should keep in mind different scrum teams, different times of sprint 
 situation is that the exchange should take two weeks. Ideal situation is that two teams starts its sprints on the same
 day. In practice it is rarely the case, so it is necessary to reach a compromise.
 
-### After the exchange When the dust settles, and the exchange is over, person on the exchange should summarise it. We
+### After the exchange
+When the dust settles, and the exchange is over, person on the exchange should summarise it. We
 do not impose the form. It should be in the form of the note, presentation or other way of sharing knowledge. It is
 often summarised what was done or what was learnt during that period of time.
 
-## How to facilitate team tourism from day one People who work for several years in an organisation usually have
+## How to facilitate team tourism from day one
+
+People who work for several years in an organisation usually have
 resistance to change teams, context or design. It is consistent with our habits and our human nature. We tend not to
 leave our comfort zones, which in this case is the team, What helps, is building a culture of tourism from the very
 beginning of our work. At Allegro this happens in some areas in technology - each new person joining the company spends
 2 to 4 weeks in 2 or 3 teams in their first 3 months of work. This greatly facilitates later tourism and makes the
 desire to develop your self in this way a natural habit.
 
-## Pitfalls During our practice with team tourism we encountered the following problems. If you are aware of them, you
+## Pitfalls
+
+During our practice with team tourism we encountered the following problems. If you are aware of them, you
 should do everything to avoid them.
 
 If we were working from a single office, without remote working option, there would be no problem at all. Yet, we are
@@ -100,15 +108,19 @@ daily routine. Unfortunately, it is easier said than done. There will always be 
 your colleague will stop by to ask you just one single question. The team should always be prepared to cope without one
 of its members.
 
-## Case studies In this section, we decided to write down our thoughts from different from different exchanges which had
+## Case studies
+
+In this section, we decided to write down our thoughts from different from different exchanges which had
 happened. You can analyse them by yourself, and really feel what it is.
 
-### Case study 1 ##### Machine Learning - Michał Lewandowski Data scientists are now one of the most wanted employees on
-the market and machine learning is a big thing. Ten years ago, when I was a student at Warsaw University of Technology I
-only had one subject called “Artificial neural networks”. Although the topic was interesting, the tooling was primitive
-compared to software development and there was little to none job perspectives. A few months ago I decided to join the
-“Machine Learning Research” team for a couple of days to work with them, to see how they prepare models and how they are
-used in such a big microservice ecosystem as Allegro has.
+### Case study 1
+##### Machine Learning - Michał Lewandowski
+Data scientists are now one of the most wanted employees on the market and machine learning is a big thing. Ten years
+ago, when I was a student at Warsaw University of Technology I only had one subject called “Artificial neural networks”.
+Although the topic was interesting, the tooling was primitive compared to software development and there was little to
+none job perspectives. A few months ago I decided to join the “Machine Learning Research” team for a couple of days to
+work with them, to see how they prepare models and how they are used in such a big microservice ecosystem as Allegro
+has.
 
 The knowledge I had from the university was priceless. Although the amount of data, training methods and models have
 been complicated, the core concept is still the same. With the help of team members, I was able to quickly understand
@@ -129,12 +141,13 @@ The final thought I had is that this branch of engineering is extremely extensiv
 on top with both Software Engineering and Machine Learning. If you decide to do Machine Learning on your daily basis you
 have to agree that you won't be able to keep up with all the stuff that is going on in Software Engineering.
 
-### Case study 2 ##### Content Automation (Google Cloud Dataflow) - Tomek Nurkiewicz On a daily basis I work for a team
-responsible for calculating commissions. Insanely important, but also rather mundane part of a marketplace business. We
-work in two environments: real-time and batch. We charge and refund commissions in near real-time, typically a few
-seconds after each transaction. This is done through a bunch of microservices, accessed via RESTful interfaces or
-[Hermes](https://allegro.tech/2019/05/hermes-1-0-released.html). On the other hand, there is a bunch of Spark jobs
-calculating daily and monthly reports, discovering inconsistencies and frauds.
+### Case study 2
+##### Content Automation (Google Cloud Dataflow) - Tomek Nurkiewicz
+On a daily basis I work for a team responsible for calculating commissions. Insanely important, but also rather mundane
+part of a marketplace business. We work in two environments: real-time and batch. We charge and refund commissions in
+near real-time, typically a few seconds after each transaction. This is done through a bunch of microservices, accessed
+via RESTful interfaces or [Hermes](https://allegro.tech/2019/05/hermes-1-0-released.html). On the other hand, there is a
+bunch of Spark jobs calculating daily and monthly reports, discovering inconsistencies and frauds.
 
 I enjoy this domain but for a while I've also been interested in streaming architectures. Processing large amounts of
 data, especially detecting trends and correlations over time, sounds really exciting to me, especially after reading
@@ -173,33 +186,41 @@ unrelated streams. Truly eye-opening experience.
 While getting back to my permanent team my head was full of ideas. Not only did I manage to deliver my small task but
 also gained experience that can definitely impact my day-to-day work.
 
-### Case study 3 ##### SEO - Bartosz Gałek In my everyday work I’m involved in developing [Opbox
+### Case study 3
+##### SEO - Bartosz Gałek
+In my everyday work I’m involved in developing [Opbox
 Project](https://allegro.tech/2016/03/Managing-Frontend-in-the-microservices-architecture.html). For software engineer
 like myself this project comes with a lot of challenges regarding high performance and traffic. Since my team rarely
 interact with the main product area (we are a platform for them) - I’ve decided to try and learn something totally
-different - a Search Engine Optimization (SEO) Team! I’ve done tourism few times so far - but this was my first time
-away from the development sector. At the beginning, we agreed that the main goal is to exchange our experiences. While
+different - a Search Engine Optimisation (SEO) Team! I’ve done tourism few times so far - but this was my first time
+away from the development sector.
+
+At the beginning, we agreed that the main goal is to exchange our experiences. While
 working with web development - SEO was always one of the main concerns - but I’ve never experienced working with this
-topic like I did during my tourism. Our SEO Team also had some web development talents, but never actually coded. On the
-first day I was trained and lectured. I’ve been shown a lot of data and statistics about our users and I’ve been
+topic like I did during my tourism. Our SEO Team also had some web development talents, but never actually coded.
+
+On the first day I was trained and lectured. I’ve been shown a lot of data and statistics about our users and I’ve been
 introduced to a lot of team online tools. We also went through our site and discussed places were improvement should be
-made. In general my tourism had two “parts”: Choose one of Allegro’s nearly 40k categories, and do something to improve
-it’s Search Engine Result Page position. Fix a lot small issues throughout the platform, to allow Search Engines perform
-better. It was astonishing two weeks. I’ve gained a new perspective - just by seeing how SEO Team works - hopefully some
+made. In general my tourism had two “parts”:
+- Choose one of Allegro’s nearly 40k categories, and do something to improve it’s Search Engine Result Page position.
+- Fix a lot small issues throughout the platform, to allow Search Engines perform better.
+
+It was astonishing two weeks. I’ve gained a new perspective - just by seeing how SEO Team works - hopefully some
 experiences will change my everyday work forever. Not only could learn something new but also I was able to bond with
 marketing part of the company (they’re really cool!). The best part was - I made tangible changes improving our site
 search visibility. I’ve made over 10 Pull Requests in various projects and my category got to the TOP3 of major Search
 Result Pages.
 
-### Case study 4 ##### Hermes - Bartosz Balukiewicz On a daily basis I am a software engineer in the team developing
-Allegro Smart. While building solutions in an event-based micro-service architecture, we use
-[Hermes](https://allegro.tech/2019/05/hermes-1-0-released.html) extensively -  message broker based on Kafka, which
-supports about 400 micro-services at Allegro. Hermes offers many functionalities and it is easy to use, but often there
-is not enough time to understand exactly how it works under the hood. In case of any problems, such knowledge allows
-faster and more effective response to failures and not being only a passive customer of the service. For these reasons,
-I decided to have my team tourism at the Skylab Eden team, which develops and maintains Hermes at Allegro. My team’s
-stakeholders are mostly business people so it was not only a great opportunity to change surroundings, but also a chance
-to work for other engineers as well.
+### Case study 4
+##### Hermes - Bartosz Balukiewicz
+On a daily basis I am a software engineer in the team developing Allegro Smart. While building solutions in an
+event-based micro-service architecture, we use [Hermes](https://allegro.tech/2019/05/hermes-1-0-released.html)
+extensively -  message broker based on Kafka, which supports about 400 micro-services at Allegro. Hermes offers many
+functionalities and it is easy to use, but often there is not enough time to understand exactly how it works under the
+hood. In case of any problems, such knowledge allows faster and more effective response to failures and not being only a
+passive customer of the service. For these reasons, I decided to have my team tourism at the Skylab Eden team, which
+develops and maintains Hermes at Allegro. My team’s stakeholders are mostly business people so it was not only a great
+opportunity to change surroundings, but also a chance to work for other engineers as well.
 
 We decided not to take one main purpose of my tourism - I wanted to enter the team's everyday work, learn about its work
 culture and feel as a real member.  During the intense month I managed to touch the core components of Hermes, fix a few
@@ -223,15 +244,17 @@ I know what questions to ask, which allows faster response in case of problems. 
 further work on developing Hermes as part of an open source contribution. The big advantage of tourism is also an
 ability to build relationships with new people and get to know their way of working.
 
-### Case study 5 ##### Web performance - Adrian Rydzyński Currently, I’m working with the Anteater’s team. We’re taking
-care of developing the list of offers on Allegro and we call it “listings”. This is a place, through which most people
-pass through, so we’re trying to have availability and efficiency as high priority. To achieve that, I went to the
-Webperf team, who’s taking care of performance and is trying to educate as much people as possible, that performance
-matters. I was hoping to learn what we can do on listings to make it faster and more robust for our users. In addition,
-they were building a new Single Page Application, which contains a homepage, listings and a view of a single offer.
-Their goal was to gain knowledge about listings and I had to pass this knowledge. Both sides had their goals, but it was
-clear, that we were going in the same direction. We didn’t specify exactly how many story points I had to make or how
-many new features I had to transfer to my team. We wanted to do as much as possible.
+### Case study 5
+##### Web performance - Adrian Rydzyński
+Currently, I’m working with the Anteater’s team. We’re taking care of developing the list of offers on Allegro and we
+call it “listings”. This is a place, through which most people pass through, so we’re trying to have availability and
+efficiency as high priority. To achieve that, I went to the Webperf team, who’s taking care of performance and is trying
+to educate as much people as possible, that performance matters. I was hoping to learn what we can do on listings to
+make it faster and more robust for our users. In addition, they were building a new Single Page Application, which
+contains a homepage, listings and a view of a single offer. Their goal was to gain knowledge about listings and I had to
+pass this knowledge. Both sides had their goals, but it was clear, that we were going in the same direction. We didn’t
+specify exactly how many story points I had to make or how many new features I had to transfer to my team. We wanted to
+do as much as possible.
 
 My friends from Webperf team introduced me to their core project: Single Page Application called “mweb SPA”. It is worth
 mentioning that in my daily job we have a component structure. That means listings are being built with many components:
@@ -272,6 +295,7 @@ My final thought is: not all users are browsing Allegro from their homes, with a
 expensive computer. We should always remember about the “mobile first” policy and take care about the performance of our
 product.
 
-## Summary All in all, we believe that team tourism is a great thing to do. Not only does it enable us to be more agile,
+## Summary
+All in all, we believe that team tourism is a great thing to do. Not only does it enable us to be more agile,
 but also help us improve our skills. Moreover, the costs of organising that kind of trips are little to none. We are
 working on pitfalls that we had, and we will continue to do team tourism.
