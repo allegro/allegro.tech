@@ -83,33 +83,16 @@ The final thought I had is that this branch of engineering is extremely extensiv
 
 ### Case study 2
 ##### Content Automation (Google Cloud Dataflow) - Tomek Nurkiewicz
-On a daily basis I work for a team responsible for calculating commissions. Insanely important, but also rather mundane part of a marketplace business. We work in two environments: real-time and batch. We charge and refund commissions in near real-time, typically a few seconds after each transaction. This is done through a bunch of microservices, accessed via RESTful interfaces or [Hermes](https://allegro.tech/2019/05/hermes-1-0-released.html).
-On the other hand, there is a bunch of Spark jobs calculating daily and monthly reports, discovering inconsistencies and frauds.
+On a daily basis I work for a team responsible for calculating commissions. Insanely important, but also rather mundane part of a marketplace business. We work in two environments: real-time and batch. We charge and refund commissions in near real-time, typically a few seconds after each transaction. This is done through a bunch of microservices, accessed via RESTful interfaces or [Hermes](https://allegro.tech/2019/05/hermes-1-0-released.html). On the other hand, there is a bunch of Spark jobs calculating daily and monthly reports, discovering inconsistencies and frauds.
 
-I enjoy this domain but for a while I've also been interested in streaming architectures.
-Processing large amounts of data, especially detecting trends and correlations over time, sounds really exciting to me, especially after reading [“_Designing Data-Intensive Applications_”](https://allegro.pl/listing?string=designing%20data%20intensive%20applications).
-Long story short, it turned out that [Marcin Kuthan's](https://allegro.tech/authors/marcin.kuthan/) team does exactly that, a few office rooms away. After a casual talk over coffee and finding some time in my permanent team, I moved temporarily, for a month, to a new project.
+I enjoy this domain but for a while I've also been interested in streaming architectures. Processing large amounts of data, especially detecting trends and correlations over time, sounds really exciting to me, especially after reading [“_Designing Data-Intensive Applications_”](https://allegro.pl/listing?string=designing%20data%20intensive%20applications). Long story short, it turned out that [Marcin Kuthan's](https://allegro.tech/authors/marcin.kuthan/) team does exactly that, a few office rooms away. After a casual talk over coffee and finding some time in my permanent team, I moved temporarily, for a month, to a new project.
 
-Marcin and his team’s task was to calculate CTRs of pages and individual [boxes](https://allegro.tech/2016/03/Managing-Frontend-in-the-microservices-architecture.html). It basically means how many people clicked on a page or a box upon seeing it. They did proof-of-concept and took advantage of [Google Cloud Dataflow](https://cloud.google.com/dataflow/).
-At an Allegro scale it amounts to ten thousand and more events per second.
-The classic approach would probably involve heavy, monolithic batch job using Spark that calculates these metrics daily.
-Streaming architecture, on the other hand, yields results every minute for the last ten minutes or so.
+Marcin and his team’s task was to calculate CTRs of pages and individual [boxes](https://allegro.tech/2016/03/Managing-Frontend-in-the-microservices-architecture.html). It basically means how many people clicked on a page or a box upon seeing it. They did proof-of-concept and took advantage of [Google Cloud Dataflow](https://cloud.google.com/dataflow/). At an Allegro scale it amounts to ten thousand and more events per second. The classic approach would probably involve heavy, monolithic batch job using Spark that calculates these metrics daily. Streaming architecture, on the other hand, yields results every minute for the last ten minutes or so.
 We need this data in (almost) real time in order to measure the effectiveness of presented content.
 
-The overall architecture pushes raw events from our internal Kafka to [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/) through Kafka Connect.
-When anonymised raw data is available in the cloud, we declaratively build data flows using [Apache BEAM](https://beam.apache.org/) abstraction over many streaming engines.
-Additionally we used [scio](https://github.com/spotify/scio) from Spotify that provides more idiomatic Scala experience to BEAM.
-We even [contributed](https://github.com/spotify/scio/commits?author=piter75) some bug fixes to scio.
-Dataflow graphs we implemented calculate CTRs in real time, publishing results to [Google Cloud BigQuery](https://cloud.google.com/bigquery/).
-Not getting too detailed, Cloud Dataflow worked well for us.
-It provided rather smooth experience and fast feedback loop.
-I managed to push my first changes to production (*the* cloud) the day I started in my new team.
-Unfortunately, we also experienced [20-hour long outage](https://status.cloud.google.com/incident/cloud-dataflow/19001) of Cloud Dataflow - which was an important lesson.
+The overall architecture pushes raw events from our internal Kafka to [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/) through Kafka Connect. When anonymised raw data is available in the cloud, we declaratively build data flows using [Apache BEAM](https://beam.apache.org/) abstraction over many streaming engines. Additionally we used [scio](https://github.com/spotify/scio) from Spotify that provides more idiomatic Scala experience to BEAM. We even [contributed](https://github.com/spotify/scio/commits?author=piter75) some bug fixes to scio. Dataflow graphs we implemented calculate CTRs in real time, publishing results to [Google Cloud BigQuery](https://cloud.google.com/bigquery/). Not getting too detailed, Cloud Dataflow worked well for us. It provided rather smooth experience and fast feedback loop. I managed to push my first changes to production (*the* cloud) the day I started in my new team. Unfortunately, we also experienced [20-hour long outage](https://status.cloud.google.com/incident/cloud-dataflow/19001) of Cloud Dataflow - which was an important lesson.
 
-Stream processing is quite complex once you are dealing with real problems like late data arrival, processing vs. creation time, understanding various windowing policies.
-My biggest "Eureka" moment was realising that stream processing is no different than batch processing.
-But with small, often overlapping batches.
-I learnt that virtually all non-trivial operations happen within windows, especially complex aggregations like grouping by key or joining two unrelated streams. Truly eye-opening experience.
+Stream processing is quite complex once you are dealing with real problems like late data arrival, processing vs. creation time, understanding various windowing policies. My biggest "Eureka" moment was realising that stream processing is no different than batch processing. But with small, often overlapping batches. I learnt that virtually all non-trivial operations happen within windows, especially complex aggregations like grouping by key or joining two unrelated streams. Truly eye-opening experience.
 
 While getting back to my permanent team my head was full of ideas. Not only did I manage to deliver my small task but also gained experience that can definitely impact my day-to-day work.
 
