@@ -2,7 +2,7 @@
 layout: post
 title: Page visibility and performance metrics
 author: [eryk.napierala, pawel.lesiecki]
-tags: [webperf, agile, culture, teamwork]
+tags: [webperf, frontend, performance, metrics, perfmatters]
 ---
 
 When we measure the page loading speed from the user's perspective, we pay attention to the appearance of subsequent elements on the screen. Metrics such as First Contentful Paint, First Meaningful Paint and Visually Complete directly reflect what the user sees and when. But what if the page is invisible, when it loads in the background, for example in a different tab? Should such views be interesting for us? Don’t the collected metrics distort the results?
