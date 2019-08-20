@@ -27,39 +27,39 @@ By comparing time of visual metrics with time of visibility changes, we can spli
 ## Results
 
 
-After taking into account such a partition, we can compare the number of page views of each type and the values of the main metrics collected for them. We did this for three Allegro pages: home page, offers listing and the page of single offer. The one loaded in the background the most was the offer page, then homepage and at last - listing page. This seems to correspond to the scenarios of using these pages - e.g. when browsing search results, users open multiple offers in the background to compare them with each other.
+After taking into account such a partition, we can compare the number of page views of each type and the values of the main metrics collected for them. We did this for three Allegro pages: home page, offers listing and the page of single offer. The one loaded in the background the most was the offer page, then homepage and at last — listing page. This seems to correspond to the scenarios of using these pages — e.g. when browsing search results, users open multiple offers in the background to compare them with each other.
 
-![Counts - desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image5.png "Counts - desktop")![Counts - smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image3.png "Counts - smartphone")
+![Counts — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image5.png "Counts — desktop")![Counts — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image3.png "Counts — smartphone")
 
 Much more views took place in the background for desktops than for smartphones. This data is not surprising as well, on the phone it is much less convenient to use websites in many tabs.
 
 For smartphones, First Contentful Paint time turned out to be several hundred seconds (!) larger for pages loading in the background than for visible pages. For desktops, it was much less, but still over 100 seconds.
 
-![FCP - smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image1.png "FCP - smartphone")![FCP - desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image9.png "FCP - desktop")
+![FCP — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image1.png "FCP — smartphone")![FCP — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image9.png "FCP — desktop")
 
-When we excluded an error in the aggregation algorithm, we looked at how to collect them. To better approximate the moment when content appears on the screen, we used to use the requestAnimationFrame API, which has been available for a long time in all major browsers. This function allows you to plug in our own code into the browser rendering process, just before the work of drawing the content. At this very moment - when the interesting parts of HTML was parsed, but before showing it on the screen - we send information to the server. Unfortunately, currently there is no API in browsers that would allow code to be executed right after the visible content has been updated.![sending performance mark](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image10.png)
+When we excluded an error in the aggregation algorithm, we looked at how to collect them. To better approximate the moment when content appears on the screen, we used to use the requestAnimationFrame API, which has been available for a long time in all major browsers. This function allows you to plug in our own code into the browser rendering process, just before the work of drawing the content. At this very moment — when the interesting parts of HTML was parsed, but before showing it on the screen — we send information to the server. Unfortunately, currently there is no API in browsers that would allow code to be executed right after the visible content has been updated.![sending performance mark](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image10.png)
 
-It turned out that to optimize the use of hardware resources, the browser does not render anything for tabs in the background. Despite it still downloads stylesheets and parseHTML, it omits calculation of elements’ dimensions (so called Layout) and drawing them. There is no animation frame rendered, thus the code passed to requestAnimationFrame is not executed. This stage of work is postponed until the tab is activated. The reporting function starts almost at the same time as sending information about the change of visibility of the page. We have experimentally proved this hypothesis, and it also found confirmation in the collected data. First Paint - metric reported by the browser itself - is also very high for hidden tabs. This means the first paint that the browser does is collected when tab becomes active.
+It turned out that to optimize the use of hardware resources, the browser does not render anything for tabs in the background. Despite it still downloads stylesheets and parseHTML, it omits calculation of elements’ dimensions (so called Layout) and drawing them. There is no animation frame rendered, thus the code passed to requestAnimationFrame is not executed. This stage of work is postponed until the tab is activated. The reporting function starts almost at the same time as sending information about the change of visibility of the page. We have experimentally proved this hypothesis, and it also found confirmation in the collected data. First Paint — metric reported by the browser itself — is also very high for hidden tabs. This means the first paint that the browser does is collected when tab becomes active.
 
-![FP - smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image12.png "FP - smartphone")![FP Desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image4.png "FP - desktop")
+![FP — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image12.png "FP — smartphone")![FP Desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image4.png "FP — desktop")
 
-In order not to disturb the results, we decided to conditionally - for invisible pages - collect metrics related to drawing at the time of parsing the HTML code of elements. We are aware that this is a distortion in the opposite direction (time is smaller than it should be), but the expected difference is much smaller than when using requestAnimationFrame.
+In order not to disturb the results, we decided to conditionally — for invisible pages — collect metrics related to drawing at the time of parsing the HTML code of elements. We are aware that this is a distortion in the opposite direction (time is smaller than it should be), but the expected difference is much smaller than when using requestAnimationFrame.
 
-![sending peformance mark - updated](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image13.png)
+![sending peformance mark — updated](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image13.png)
 
-After implementing the patch and re-checking the data, the picture changed significantly, but the trend remained visible - invisible pages load more slowly and their higher times affect the overall result.
+After implementing the patch and re-checking the data, the picture changed significantly, but the trend remained visible — invisible pages load more slowly and their higher times affect the overall result.
 
-![FCP - smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image14.png "FCP - smartphone")![FCP - desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image11.png "FCP - desktop")
+![FCP — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image14.png "FCP — smartphone")![FCP — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image11.png "FCP — desktop")
 
-At first glance, this might seem illogical - since the browser does not render the content of invisible tabs, i.e. it does less work for them, loading should end faster. Again, it is about optimizing utilization of resources and giving higher priority to the active tab. For pages loading in the background, the browser limits not only access to the CPU but also to network resources. In this way, the resources of inactive cards download more slowly, which results in increased measurement times.
+At first glance, this might seem illogical — since the browser does not render the content of invisible tabs, i.e. it does less work for them, loading should end faster. Again, it is about optimizing utilization of resources and giving higher priority to the active tab. For pages loading in the background, the browser limits not only access to the CPU but also to network resources. In this way, the resources of inactive cards download more slowly, which results in increased measurement times.
 
-![FMP - smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image7.png "FMP - smartphone")
+![FMP — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image7.png "FMP — smartphone")
 
-![FMP - desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image15.png "FMP - desktop")
+![FMP — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image15.png "FMP — desktop")
 
-![VC - smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image8.png "VC - smartphone")
+![VC — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image8.png "VC — smartphone")
 
-![VC - desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image6.png "VC - desktop")
+![VC — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image6.png "VC — desktop")
 
 ## Summary
 
