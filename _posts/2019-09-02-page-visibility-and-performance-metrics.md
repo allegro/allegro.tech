@@ -1,4 +1,4 @@
-    ---
+---
 layout: post
 title: Page visibility and performance metrics
 author: [eryk.napierala, pawel.lesiecki]
@@ -61,7 +61,7 @@ It turned out that in order to optimize the use of hardware resources, the brows
 still downloads stylesheets and parses HTML, it omits calculation of elements’ dimensions (so called Layout) and drawing them. There is no
 animation frame rendered, thus the code passed to ```requestAnimationFrame``` is not executed. This stage of work is postponed until the tab is
 activated. The reporting function starts almost at the same time as sending information about the change of visibility of the page. We have
-experimentally proved this hypothesis, and it also found confirmation in the collected data. First Paint — a metric reported by the browser
+experimentally proved this hypothesis, and it also found confirmation in the collected data. [First Paint](https://w3c.github.io/paint-timing/#first-paint) — a metric reported by the browser
 itself — is also very high for hidden tabs. This means the first frame render occcurs when a tab becomes active.
 
 ![First Paint — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image12.png "FP — smartphone")
