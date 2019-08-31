@@ -5,8 +5,8 @@ author: [michal.lewandowski, piotr.orlowski, bartosz.balukiewicz]
 tags: [tech]
 ---
 
-We often hear about the importance of exchanging knowledge and practices between totally different teams. However, less
-often do we hear concrete suggestions for how to do it. In this article, we discuss one of our practices to tackle the
+We often hear about the importance of exchanging knowledge and practices between different teams. However, less
+often do we hear concrete suggestions for how to do it. In this article, we discuss one of our practices to address the
 problem.
 
 <img alt="Team tourism" src="/img/articles/2019-08-09-team-tourism-at-allegro/team-tourism.jpg" />
@@ -14,12 +14,11 @@ problem.
 ## What is team tourism?
 
 The idea behind team tourism is simple. For a fixed period of time (for example one or two Scrum Sprints), one team
-member joins another team to work there. In most of the cases, we aim to do something different from our daily routine
-work. Naturally, in most of the cases, his or her efficiency is extremely low, but the long term benefits are
-overwhelming.
+member joins another team to work there. In most cases, we aim to do something different from our daily routine
+work. It may seem that her or his efficiency can be rather low, but the long term benefits are overwhelming.
 
-Other terms used for what we call “team tourism” are “exchange” or “rotations”. Although, they may look similar, in is
-highly likely that they deliver the same value.
+Other terms used for what we call “team tourism” are “exchange” or “rotations”, because sometimes we swap members between
+teams at the same time.
 
 ## The incentive
 
