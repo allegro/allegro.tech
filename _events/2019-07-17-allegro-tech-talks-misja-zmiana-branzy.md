@@ -5,7 +5,7 @@ time: 1563379200000
 venue_address_1: Podgórska 16
 venue_city: Kraków
 venue_name: Barka
-status: near
+status: past
 id: 262806751
 registration: 
 ---
