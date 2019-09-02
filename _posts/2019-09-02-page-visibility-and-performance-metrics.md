@@ -55,7 +55,16 @@ moment — when the interesting part of HTML was parsed, but before showing it o
 Unfortunately, currently there is no browser API that would allow code to be executed right after the visible content has been
 updated.
 
-[![sending performance mark](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image10.png)](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image10.png)
+```html
+<div id="meaningul-content-here"></div>
+<script>
+function sendMark() {
+  window.performance.mark('FirstMeaningfulPaint');
+}
+
+requestAnimationFrame(sendMark);
+</script>
+```
 
 It turned out that in order to optimize the use of hardware resources, the browser does not render anything for tabs in the background. Even though it
 still downloads stylesheets and parses HTML, it omits calculation of elements’ dimensions (so called Layout) and drawing them. There is no
@@ -71,7 +80,17 @@ In order not to bias the results, we decided to conditionally — for invisible 
 parsing the HTML code of elements. We are aware that this is a distortion in the opposite direction (measured time is smaller than it should be), but
 the expected difference is much smaller than when using ```requestAnimationFrame```.
 
-[![sending peformance mark — updated](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image13.png)](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image13.png)
+```html
+<div id="meaningul-content-here"></div>
+<script>
+function sendMark() {
+  window.performance.mark('FirstMeaningfulPaint');
+}
+  
+if (document.visibilityState != 'visible') sendMark();
+else requestAnimationFrame(sendMark);
+</script>
+```
 
 After implementing the patch and re-checking the data, the picture changed significantly, but the trend remained — invisible pages
 load noticeably slower and their higher times affect the overall result.
