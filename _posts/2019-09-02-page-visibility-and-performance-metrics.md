@@ -50,7 +50,7 @@ for visible pages. For desktops, it was much less, but still over 100 seconds.
 
 When we excluded an error in the aggregation algorithm, we looked at how to we collect metrics. To better approximate the moment when content
 appears on the screen, we used to use the ```requestAnimationFrame``` API, which has been available for a long time in all major browsers. This
-function allows to plug in custom code into the browser rendering process, just before the work of drawing the content. At this very
+function allows plugging in custom code into the browser rendering process, just before the work of drawing the content. At this very
 moment — when the interesting part of HTML was parsed, but before showing it on the screen — we send information to the server.
 Unfortunately, currently there is no browser API that would allow code to be executed right after the visible content has been
 updated.
@@ -100,7 +100,7 @@ load noticeably slower and their higher times affect the overall result.
 
 At first glance, this might seem illogical — since the browser does not render the content of invisible tabs, i.e. it does less work for
 them, loading should end faster. Again, it is about optimizing utilization of resources and giving higher priority to the active tab. For
-pages loading in the background, the browser limits not only access to the CPU but also to network resources. That way resources downloaded in inactive tabs have lower priority, which results in increased loading times.
+pages loading in the background, the browser limits not only access to the CPU but also to network resources. This way resources downloaded in inactive tabs have lower priority, which results in increased loading times.
 
 [![First Meaningful Paint — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image7.png "FMP — smartphone")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image7.png)
 
