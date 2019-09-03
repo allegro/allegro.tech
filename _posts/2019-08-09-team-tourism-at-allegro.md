@@ -80,22 +80,22 @@ the case, so it is necessary to reach a compromise.
 ### After the exchange
 
 When the dust settles, and the exchange is over, the person on the exchange should summarise it. We
-do not impose the form. It should be in the form of the note, presentation or other way of sharing knowledge. It is
+do not impose the form. It may be in the form of a note, a presentation or other way of sharing knowledge. It is
 often summarised what was done or what was learnt during that period of time.
 
 ## How to facilitate team tourism from day one
 
 People who work for several years in an organisation usually have
-resistance to change teams, context or design. It is consistent with our habits and our human nature. We tend not to
-leave our comfort zones, which in this case is the team, What helps, is building a culture of tourism from the very
+resistance to change teams, contexts or projects. It is consistent with our habits and our human nature. We tend not to
+leave our comfort zones, which in this case is the team. What helps, is building a culture of tourism from the very
 beginning of our work. At Allegro this happens in some areas in technology - each new person joining the company spends
-2 to 4 weeks in 2 or 3 teams in their first 3 months of work. This greatly facilitates later tourism and makes the
-desire to develop your self in this way a natural habit.
+from two to four weeks in two or three teams in their first three months of work. This greatly facilitates later tourism
+and makes the desire to develop your self in this way a natural habit.
 
 ## Pitfalls
 
-During our practice with team tourism we encountered the following problems. If you are aware of them, you
-should do everything to avoid them.
+During our practice with team tourism we encountered some problems, obviously. Knowing them beforehand might help you to
+be successful with tourism from the start.
 
 If we were working from a single office, without remote working option, there would be no problem at all. Yet, we are
 working in a few different cities in Poland and we can work remotely. When being on the exchange it is important to work
@@ -103,17 +103,18 @@ closely with your new team. Make sure that there will be no problems in terms of
 
 Quite a common problem that we had was the inadequate length of the exchange. As a result, we finished the project (or
 our task) after the return to our original team. You have to keep in mind that when learning something new or doing
-something for the first time, extra time for unexpected problems must be taken into account in the planning stage.
+something for the first time, extra time for unexpected problems must be taken into account during the planning stage.
 
-When you are gone for the exchange, your team should be ready to work effectively without you and do not bother you with
+When you are gone for the exchange, your team should be ready to work effectively without you and not bother you with
 daily routine. Unfortunately, it is easier said than done. There will always be some old task that will disrupt you or
 your colleague will stop by to ask you just one single question. The team should always be prepared to cope without one
 of its members.
 
 ## Summary
-All in all, we believe that team tourism is a great thing to do. Not only does it enable us to be more agile,
-but also help us improve our skills. Moreover, the costs of organising that kind of trips are little to none. We are
-working on pitfalls that we had, and we will continue to do team tourism.
+
+All in all, we believe that team tourism is a marvellous thing to implement. Not only does it enable us to be more agile,
+but it also help us improve our skills. Such benefits outweigh any organisational or personal costs mentioned earlier.
+We are working on pitfalls that we encountered and we will continue with team tourism in the future.
 
 In the next few weeks we will publish five case studies written by our engineers describing their exchanges and
 experiences during them. Stay tuned!
