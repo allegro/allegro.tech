@@ -23,10 +23,10 @@ teams at the same time.
 ## The incentive
 
 There are many reasons why we would like to change teams. Not only are there benefits for participants, but also for the
-company. In this section I will discuss reasons why do this.
+company. In this section I will discuss reasons for doing the tourism.
 
 First of all, there is a mutual exchange of knowledge. The person who is on the exchange can provide a fresh look at
-existing problems, as well as, he or she can bring new practices to his or her home team. The opportunity to observe
+existing problems and he or she can bring new practices to his or her home team, as well. The opportunity to observe
 different teams and their strategies of solving problems can force us to rethink processes in our team.
 
 Next, many developers want to learn new technical skills. For example, if your team is focused on backend engineering,
@@ -38,45 +38,48 @@ On the other hand, you may decide to go to the other team to explore your intere
 the exchange period, you should focus on one, and only one thing which interests you the most, to achieve a specific
 goal.
 
-Boredom, burnout, monotony may happen to each of us. By working for too long on single project you may want to refresh
-yourself. In that case, team tourism will probably have vast impact on your morale.
+Boredom, burnout and monotony may happen to each of us. After working for too long on a single project you may want to refresh
+yourself. In that case, team tourism will probably have a vast impact on your morale.
 
-If the product is enormous, it is often hard to keep track of all its aspects. As a result, different departments are
+If the product is enormous, it is often hard to keep track of all its facets. As a result, different departments are
 focused on totally different business requirements. While working in different teams, you may see other points of view
-which may be entirely beneficial.
+which may be very beneficial.
 
-What if this goes so well, that person on the exchange wants to stay? It is also possible and we do not say ‘no’. Of
-course that decision should not be immediate, and more measured actions should be taken. Regardless of that, team
-tourism is a good place when you want to potentially change your team permanently.
+What if this goes so well that the person on the exchange wants to stay? That is also possible and we do not say ‘no’. Of
+course that decision should not be immediate and more measured actions should be taken. Regardless of that, team
+tourism is a good place to start when you want to potentially change your team permanently.
 
-Last but not least, we decide to do that kind of exchange, because the team needs it. The person who is going to the
-exchange may go there in order to help the team achieve its goal. To illustrate, we may want to do this to remove some
+Last but not least, we decide to do that kind of exchange because the team needs it. The person who is going to the
+exchange may go there in order to help the team achieve its goals. To illustrate, we may want to do this to remove some
 obsolete library from the project or reduce technical debt. Or quite the contrary, to introduce a new library or
-redesign existing peace of software.
+redesign an existing piece of software.
 
 
 ## How to organise it?
 
-Truth to be told, we don’t have strict rules or procedures how to do that. Whereas other companies embrace explicit
+Truth be told, we don’t have strict rules or procedures how to carry out exchanges. Whereas other companies embrace explicit
 procedures, we mostly try to follow common sense, which can be described in a few sentences.
 
 ### Before the exchange
 
-First of all, the need for team tourism should be clarified. In most of the cases, team member
-proposes the exchange, but there are cases when a leader can propose it for someone else.
+First of all, the need for team tourism should be clarified. Generally, a team member
+proposes the exchange, but there are cases when a team leader can propose it for someone else.
 
 When there is a desire to go on an exchange, both teams and the person who will be on the exchange have to agree on:
-What is the goal of the exchange? How long it should take? When to do it? How to handle other duties, for example being
-on call. Notice that deciding how long it should take is completely different question from when to do it.
+* What is the goal of the exchange?
+* How long it should take? When to do it?
+* How to handle other duties (for example being on call)?
+Notice that deciding how long it should take is a completely different question from when to do it.
 
 When you ask yourself the question about the length, it should be long enough to fulfil the goal of the exchange, but
-short enough not to cause any problems with your origin team deliverables. On the contrary, when discussing the time to
-do it, you should keep in mind different scrum teams, different times of sprint start and end dates. Most common
-situation is that the exchange should take two weeks. Ideal situation is that two teams starts its sprints on the same
-day. In practice it is rarely the case, so it is necessary to reach a compromise.
+short enough not to cause any problems with your original team deliverables. On the contrary, when discussing the time to
+do it, you should keep in mind different lengths of sprints' starts. Most common situation is that the exchange should
+take two weeks. Ideal situation is that two teams start their sprints on the same day. In practice, this is rarely
+the case, so it is necessary to reach a compromise.
 
 ### After the exchange
-When the dust settles, and the exchange is over, person on the exchange should summarise it. We
+
+When the dust settles, and the exchange is over, the person on the exchange should summarise it. We
 do not impose the form. It should be in the form of the note, presentation or other way of sharing knowledge. It is
 often summarised what was done or what was learnt during that period of time.
 
