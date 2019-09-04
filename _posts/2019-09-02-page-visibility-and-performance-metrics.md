@@ -50,7 +50,7 @@ for visible pages. For desktops, it was much less, but still over 100 seconds.
 
 When we excluded an error in the aggregation algorithm, we looked at how to we collect metrics. To better approximate the moment when content
 appears on the screen, we used to use the ```requestAnimationFrame``` API, which has been available for a long time in all major browsers. This
-function allows you to plug in our own code into the browser rendering process, just before the work of drawing the content. At this very
+function allows plugging in custom code into the browser rendering process, just before the work of drawing the content. At this very
 moment — when the interesting part of HTML was parsed, but before showing it on the screen — we send information to the server.
 Unfortunately, currently there is no browser API that would allow code to be executed right after the visible content has been
 updated.
@@ -71,7 +71,7 @@ still downloads stylesheets and parses HTML, it omits calculation of elements’
 animation frame rendered, thus the code passed to ```requestAnimationFrame``` is not executed. This stage of work is postponed until the tab is
 activated. The reporting function starts almost at the same time as sending information about the change of visibility of the page. We have
 experimentally proved this hypothesis, and it also found confirmation in the collected data. [First Paint](https://w3c.github.io/paint-timing/#first-paint) — a metric reported by the browser
-itself — is also very high for hidden tabs. This means the first frame render occcurs when a tab becomes active.
+itself — is also very high for hidden tabs. This means the first frame render occurs when a tab becomes active.
 
 [![First Paint — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image12.png "FP — smartphone")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image12.png)
 [![First Paint — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image4.png "FP — desktop")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image4.png)
@@ -100,8 +100,7 @@ load noticeably slower and their higher times affect the overall result.
 
 At first glance, this might seem illogical — since the browser does not render the content of invisible tabs, i.e. it does less work for
 them, loading should end faster. Again, it is about optimizing utilization of resources and giving higher priority to the active tab. For
-pages loading in the background, the browser limits not only access to the CPU but also to network resources. In this way, the resources of
-inactive tabs download more slowly, which results in increased loading times.
+pages loading in the background, the browser limits not only access to the CPU but also to network resources. This way resources downloaded in inactive tabs have lower priority, which results in increased loading times.
 
 [![First Meaningful Paint — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image7.png "FMP — smartphone")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image7.png)
 
@@ -118,3 +117,4 @@ someone is looking at and ignore those loaded in the background. We will treat t
 another dimension on our dashboards and we will focus mostly on the measures collected from active tabs. We believe that data from inactive
 tabs should be considered unnecessary and distorting the picture.
 <style type="text/css">.post a img{margin: 0 auto;display: block;}</style>
+
