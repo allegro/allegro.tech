@@ -48,7 +48,7 @@ for visible pages. For desktops, it was much less, but still over 100 seconds.
 [![First Contentful Paint — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image1.png "FCP — smartphone")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image1.png)
 [![First Contentful Paint — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image9.png "FCP — desktop")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image9.png)
 
-When we excluded an error in the aggregation algorithm, we looked at how to we collect metrics. To better approximate the moment when content
+When we excluded an error in the aggregation algorithm, we looked at how we collect metrics. For better approximation of the moment when content
 appears on the screen, we used to use the ```requestAnimationFrame``` API, which has been available for a long time in all major browsers. This
 function allows plugging in custom code into the browser rendering process, just before the work of drawing the content. At this very
 moment — when the interesting part of HTML was parsed, but before showing it on the screen — we send information to the server.
