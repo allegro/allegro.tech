@@ -9,7 +9,7 @@ We often hear about the importance of exchanging knowledge and practices between
 often do we hear concrete suggestions for how to do it. In this article, we discuss one of our practices to address the
 problem.
 
-<img alt="Team tourism" src="/img/articles/2019-08-09-team-tourism-at-allegro/team-tourism.jpg" />
+<img alt="Team tourism" src="/img/articles/2019-09-16-team-tourism-at-allegro/team-tourism.jpg" />
 
 ## What is team tourism?
 
