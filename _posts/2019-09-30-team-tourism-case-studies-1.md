@@ -103,8 +103,8 @@ Our SEO team also had some web development talents, but never actually coded.
 On the first day I was trained and lectured. I’ve been shown a lot of data and statistics about our users and I’ve been
 introduced to a lot of team's online tools. We also went through our site and discussed places were improvements should
 be made. In general my tourism had two parts:
-- Choose one of Allegro’s nearly 40k categories, and do something to improve it’s Search Engine Result Page position.
-- Fix a lot small issues throughout the platform, to allow Search Engines perform better.
+* Choose one of Allegro’s nearly 40k categories, and do something to improve it’s Search Engine Result Page position.
+* Fix a lot small issues throughout the platform, to allow Search Engines perform better.
 
 These were astonishing two weeks. I’ve gained a new perspective - just by seeing how SEO team works - hopefully some
 experiences will change my everyday work forever. Not only could I learn something new but also I was able to bond with
