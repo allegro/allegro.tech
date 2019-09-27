@@ -75,7 +75,7 @@ Why?
 
 ## Proof
 
-Whatever you prepare — your blog posts, your youtube videos, photos on facebook from the meetups you participated in — will be your proof. Gather them in one place. Ideally
+Whatever you prepare — your blog posts, your YouTube videos, photos on Facebook from the meetups you participated in — will be your proof. Gather them in one place. Ideally
 you should have a single link that leads to what you have collected over the months — just as the link I have posted here earlier. This way there will be no questions.
 
 It is not a proof that you are an expert. It is not a proof that you now know everything about the field. But it is a proof that you are excited about what you are 
