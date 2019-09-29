@@ -2,9 +2,9 @@
 layout: event
 title: "Allegro Tech Talks #21 - iOS"
 time: 1569859200000
-venue_address_1: Grunwaldzka 182
+venue_address_1: Pixel
 venue_city: Poznań
-venue_name: Allegro
+venue_name: Allegro Poznań HQ
 status: upcoming
 id: 264923060
 registration: 

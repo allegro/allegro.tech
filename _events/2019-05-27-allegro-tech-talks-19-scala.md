@@ -2,9 +2,9 @@
 layout: event
 title: "Allegro Tech Talks #19 - Scala"
 time: 1558972800000
-venue_address_1: Grunwaldzka 182
+venue_address_1: Pixel
 venue_city: Poznań
-venue_name: Allegro
+venue_name: Allegro Poznań HQ
 status: past
 id: 261446585
 registration: 
