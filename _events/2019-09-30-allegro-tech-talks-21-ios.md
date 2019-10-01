@@ -5,7 +5,7 @@ time: 1569859200000
 venue_address_1: Pixel
 venue_city: Poznań
 venue_name: Allegro Poznań HQ
-status: upcoming
+status: past
 id: 264923060
 registration: 
 ---
