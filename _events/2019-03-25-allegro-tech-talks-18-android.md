@@ -2,9 +2,9 @@
 layout: event
 title: "Allegro Tech Talks #18 - Android"
 time: 1553533200000
-venue_address_1: Grunwaldzka 182
+venue_address_1: Pixel
 venue_city: Poznań
-venue_name: Allegro
+venue_name: Allegro Poznań HQ
 status: past
 id: 259672853
 registration: 

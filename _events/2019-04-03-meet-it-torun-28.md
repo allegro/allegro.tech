@@ -2,9 +2,9 @@
 layout: event
 title: "Meet IT Toruń #28"
 time: 1554307200000
-venue_address_1: ul. Kościuszki 71
+venue_address_1: Kościuszko Business Point
 venue_city: Toruń
-venue_name: Kościuszko Business Point
+venue_name: Allegro Toruń Office
 status: past
 id: 260168886
 registration: 
