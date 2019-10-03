@@ -2,9 +2,9 @@
 layout: event
 title: "Allegro Tech Labs #5 Poznań - Podstawy UX dla Developerów"
 time: 1560585600000
-venue_address_1: Grunwaldzka 182
+venue_address_1: Pixel
 venue_city: Poznań
-venue_name: Allegro
+venue_name: Allegro Poznań HQ
 status: past
 id: 262000316
 registration: 
