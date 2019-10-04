@@ -114,5 +114,5 @@ Engine Result Pages.
 As you can see, one can never be bored at Allegro. Purely technical and more business oriented team tourism is
 a great example of branching out, which should be a powerful tool of self-development for every engineer.
 
-In the next part we will talk about tourism in teams working on [Hermes](https://allegro.tech/2019/05/hermes-1-0-released.html)
+In the next part we will talk about tourism in teams working on [Hermes](/2019/05/hermes-1-0-released.html)
 and web performance.
