@@ -22,12 +22,12 @@ bunch of Spark jobs calculating daily and monthly reports, discovering inconsist
 I enjoy this domain but for a while I've also been interested in streaming architectures. Processing large amounts of
 data, especially detecting trends and correlations over time, sounds really exciting to me, especially after reading
 [“_Designing Data-Intensive Applications_”](https://allegro.pl listing?string=designing%20data%20intensive%20applications).
-Long story short, it turned out that [Marcin Kuthan's](https://allegro.tech/authors/marcin.kuthan/) team does exactly that,
+Long story short, it turned out that [Marcin Kuthan's](/authors/marcin.kuthan/) team does exactly that,
 a few office rooms away. After a casual talk over coffee and finding some time in my permanent team, I moved temporarily,
 for a month, to the new project.
 
 Marcin and his team’s task was to calculate ["click-through rates"](https://en.wikipedia.org/wiki/Click-through_rate)
-of pages and individual [boxes](https://allegro.tech/2016/03/Managing-Frontend-in-the-microservices-architecture.html).
+of pages and individual [boxes](/2016/03/Managing-Frontend-in-the-microservices-architecture.html).
 It basically means how many people clicked on a page or a box upon seeing it. They prepared a proof of concept
 and took advantage of [Google Cloud Dataflow](https://cloud.google.com/dataflow/). At Allegro scale it amounts to ten thousand
 and more events per second. The classic approach would probably involve a heavy, monolithic batch job using Spark
@@ -86,7 +86,7 @@ have to agree that you won't be able to keep up with all the stuff that is going
 
 ## Case study 3
 ### SEO - Bartosz Gałek
-In my everyday work I’m involved in developing [Opbox Project](https://allegro.tech/2016/03/Managing-Frontend-in-the-microservices-architecture.html).
+In my everyday work I’m involved in developing [Opbox Project](/2016/03/Managing-Frontend-in-the-microservices-architecture.html).
 For a software engineer like myself this project comes with a lot of challenges regarding high performance and traffic.
 Since my team rarely interact with the main product area (we are a platform for them) - I’ve decided to try and learn
 something totally different - [Search Engine Optimisation](https://en.wikipedia.org/wiki/Search_engine_optimization)!
