@@ -155,7 +155,7 @@ Second of all, even if you post something that is wrong, people online will poin
 In the long run this will make you better at what you want to learn. It’s much better to have your work judged and improve in this way, than to learn in isolation, realizing
 after some time that your knowledge is actually full of misconceptions.
 
-## I mean, common, it’s not THAT much more work!
+## I mean, come on, it’s not THAT much more work!
 
 You don’t have to become a YouTube superstar. Your blog doesn’t have to be known world-wide. This is not your goal. At least not yet (but who knows what might happen).
 
