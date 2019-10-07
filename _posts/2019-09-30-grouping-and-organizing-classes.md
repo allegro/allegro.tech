@@ -42,7 +42,7 @@ The benefits of the proposed division of the application will be visible only if
 This means that no class from outside the core can be used in the core.
 The relationships between the parts of the application will look like this:
 
-<img alt="Project Dependencies" src="/img/articles/2019-09-30-grouping-and-organizing-classes/project-dependencies.jpg" />
+<img alt="Project Dependencies" src="/img/articles/2019-09-30-grouping-and-organizing-classes/project-dependencies.png" />
 
 Using such a division we can easily:
 * change ways of presenting use cases without affecting the core
@@ -100,7 +100,7 @@ In this situation, the `team` package must also depend on the `project` package,
 Let's try to make this relationship as loose as possible.
 Let's present the dependencies between the packages in the `core` package on the diagram:
 
-<img alt="Core Dependencies" src="/img/articles/2019-09-30-grouping-and-organizing-classes/core-dependencies.jpg" />
+<img alt="Core Dependencies" src="/img/articles/2019-09-30-grouping-and-organizing-classes/core-dependencies.png" />
 
 Now let's think about how to encapsulate the `project` package.
 Generally, the less public classes and methods the better.
