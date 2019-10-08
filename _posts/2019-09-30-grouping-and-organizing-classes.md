@@ -116,7 +116,7 @@ Thus they will not be visible outside the `project` package.
 We'll limit the visibility for the rest of the `project`'s classes to package-private one.
 
 Let's do the same with the `team` package, let's create the `TeamService`, `Team` and` TeamRepository` classes.
-Let's also add a `ProjectType` to the`common` package.
+Let's also add a `ProjectType` to the `common` package.
 In the `common` package most classes will have public visibility.
 Similarly to the `project` and` team` packages, let's create an entry point for the `core` package: a `ProjectKeeper` class.
 The only stateless classes that the `ProjectKeeper` can access are `ProjectService` and `TeamService`.
