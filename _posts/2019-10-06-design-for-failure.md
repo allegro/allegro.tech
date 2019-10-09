@@ -10,16 +10,19 @@ When designing the architecture of a system, one always needs to think about wha
 what kind of failures can occur in the system. This kind of problem analysis is especially hard in case of distributed 
 systems. Failure is inevitable and the best we can do is to be prepared for it.
 
-Our team deals with collecting and serving statistics for the PPC advertising platform in Allegro.
-Our system was designed based on the [Lambda Architecture](http://lambda-architecture.net/). 
-On the diagram below you can see the simplified design. We’ve omitted parts responsible for emitting and billing ads, 
-leaving only parts required for collecting statistics.
+Our team deals with collecting and serving statistics for the [PPC](https://en.wikipedia.org/wiki/Pay-per-click) advertising platform in Allegro.
+We've decided to base our design on the [Lambda Architecture](http://lambda-architecture.net/), which gives us huge
+benefit when it comes to fault-tolerant. 
 
-<img alt="Our platform based on the Lambda Architecture" src="/img/articles/2019-10-06-design-for-failure/architecture.png" />
+On the diagram below you can see how Lambda Architecture maps into our platform.
+For simplicity we’re focusing only on components required for collecting statistics and two types of events:
+clicks and emissions.
+
+<img alt="platform architecture" src="/img/articles/2019-10-06-design-for-failure/architecture.png" />
 
 The system is divided into 3 parts:
 * _Speed (Online) Layer_, that is responsible for enriching clicks (front events) with data from emissions 
-(backend events) (Events Joiner service) and storing aggregated statistics in a database (Aggregator service).
+(backend events) (_Events Joiner service_) and storing aggregated statistics in a database (_Aggregator service_).
 * _Batch (Offline) Layer_, in which statistics’ reconciliation is performed. It also allows for data analysis,
 as all events are dumped into data lake.
 * _Serving Layer_, that serves aggregated statistics from database. 
@@ -42,17 +45,18 @@ Let’s say you’ve designed a data processing system. It’s blazing fast and 
 communication and added circuit breakers everywhere. But what if your service shuts down mid-processing? Or your network
 drops packages from time to time? Maybe your system is not as resilient as you thought? 
 
-**Don’t panic**. Designing data processing system that’s resilient to any kind of failure is hard. You should try to
+**Don’t panic**. Designing data processing system that’s resilient to any kind of failure is _hard_. You should try to
 cover as many edge cases as possible, but sometimes that is not enough. Especially if processing large amounts of events
 and maintaining accuracy at the same time is required. It is always possible something happens and your events do not
 reach their destination. For example your receiver service is down, or maybe it is the message broker that experiences
 difficulties. You can’t rule out network or hardware issues as well. So what can you do to not lose any sleep over your
 not-so-indestructible system? That’s where offline layer and batch processing come to play.
 
-Let’s talk details. Our Speed Layer consists of microservices communicating via Hermes. Most of our Hermes topics are
-persisted to HDFS. This means that in our Offline Layer we are able to once again process our click and emission events
-and reconstruct the state of the system at any given moment. It’s a very powerful feature, not only for data analysis,
-but for guaranteeing data accuracy as well.
+Let’s talk details. Our Speed Layer consists of microservices communicating via [Hermes](http://hermes.allegro.tech/).
+Most of our Hermes topics are persisted to [HDFS](https://en.wikipedia.org/wiki/Apache_Hadoop#HDFS).
+This means that in our Offline Layer we are able to once again process our click and emission events and reconstruct
+the state of the system at any given moment.
+It’s a very powerful feature, not only for data analysis, but for guaranteeing data accuracy as well.
 
 ### Offline data refinement and validation
 
@@ -68,7 +72,7 @@ We can tackle many kinds of inaccuracies:
 In simple steps, batch job goes over all clicks and emissions from previous day, recalculates statistics and overrides
 those saved by Online Layer. In our case, this happens once a day. 
 
-Your recalculation job Simplified statistics recalculation job could look like that:
+Your recalculation job could look like this:
 ```scala
 case class Click(offerId: String, emissionId: String)
 case class Emission(emissionId: String, placement: String, clickCost: BigDecimal)
@@ -114,7 +118,8 @@ You also have to make sure that all dependencies are ready before starting the j
 monitoring for the job’s SLA. We use [Airflow](https://airflow.apache.org/) as our job scheduler that handles
 all of that and more.
 
-<img alt="Simple Airflow dag visualisation for the above job" src="/img/articles/2019-10-06-design-for-failure/airflow.png" />
+Bellow you will find airflow dag visualisation for the recalculation job.
+<img alt="airflow dag visualisation" src="/img/articles/2019-10-06-design-for-failure/airflow.png" />
 
 You can also include some anti-fraud validation logic in such job (or any other kind of filtering logic for that matter), 
 to recognize fraudulent clicks and treat them appropriately, e.g. not count them in statistics and refund their cost.
@@ -133,7 +138,7 @@ available can greatly reduce that risk. For every idea your Business comes up wi
 would use it and what impact would it have on revenue. This allows your Business to make a decision based on data. 
 
 It’s not always about new features, data can also be used to improve our heuristics or even target functionality where
-maintenance cost is greater than profits. For example, having historical clicks, we can pin-point ad placement that
+maintenance cost is greater than profits. For example, having historical clicks, we can pinpoint ad placement that
 don’t attract any potential buyers. Last but not least, storing events is invaluable addition to A/B testing, both for
 proposing better candidates before the test and for in depth analysis after.
 
