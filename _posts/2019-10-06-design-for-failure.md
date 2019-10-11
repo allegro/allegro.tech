@@ -129,7 +129,7 @@ Also, in the case of any late events, you can run the job for the same day after
 include them in the results.
 
 ### Data analysis, correction and business reporting
-Offline/Batch Layer with all of the data persisted to HDFS gives you also a huge opportunity to do almost any kind of data
+The Offline/Batch Layer with all the data persisted to HDFS gives you also a huge opportunity to do almost any kind of data
 analysis and reports your business unit can come up with. Anything that is too complex/costly to compute
 in real-time, would greatly increase system latency, requires an additional context, is not available in real-time
 or simply is a one-time data analysis can be accomplished in the Offline Layer.
@@ -171,5 +171,3 @@ Having a best-effort Online Layer and an Offline Layer for reconciliation is a r
 benefits. It makes our Online Layer simpler and protects us against failures. We can reconcile, analyse and monitor.
 The Offline Layer is one of those things that lets you sleep well at night. It gives you confidence in your daily work and
 allows you to make mistakes.
-
-Always think of what can go wrong and protect against it.
