@@ -26,7 +26,7 @@ The system is divided into 3 parts:
 * _Batch (Offline) Layer_ performs statistics reconciliation. It also allows for data analysis, as all events
 are dumped into a data lake.
 * _Serving Layer_ serves aggregated statistics from a database. Statistics in the database are coming from both
-Online and Batch layers.
+Online and Batch Layers.
 
 In this article, we will focus solely on the Offline Layer.
 
@@ -35,7 +35,7 @@ We try to provide ‘near-real-time statistics’ to the users, but when anythin
 Online Layer, like message duplicates, lost events or late events, we have the option to _fix_ the data later in the
 Offline Layer.
 
-Of course, it would be possible to tackle mentioned problems in the Online part of the system, but in our case it would
+Of course, it would be possible to tackle the mentioned problems in the Online part of the system, but in our case it would
 have too big impact on the system performance. That is why we have decided on a real-time best-effort and
 reconcile-later approach. The issue of maintaining accuracy is where our Offline Layer shines.
 
@@ -46,12 +46,12 @@ Let’s say you’ve designed a data processing system. It’s blazing fast and 
 everywhere. But what if your service shuts down mid-processing? Or your network drops packages from time to time?
 Maybe your system is not as resilient as you thought?
 
-**Don’t panic**. Designing data processing system that’s resilient to any kind of failure is _hard_. You should try to
+**Don’t panic**. Designing a data processing system that’s resilient to any kind of failure is _hard_. You should try to
 cover as many edge cases as possible, but sometimes that is not enough. Especially if processing large amounts of events
 and maintaining accuracy at the same time is required. There is always a chance that something will happen and
 your events won't reach their destination. For example, your receiver service is down, or maybe it is the message broker
 that experiences difficulties. You can’t rule out network or hardware issues as well. So what can you do not to lose any
-sleep over your not-so-indestructible system? That’s where Offline layer and batch processing come to play.
+sleep over your not-so-indestructible system? That’s where the Offline Layer and batch processing come to play.
 
 Let’s talk details. Our Speed Layer consists of microservices communicating via [Hermes](http://hermes.allegro.tech/).
 Most of our Hermes topics are persisted to [HDFS](https://en.wikipedia.org/wiki/Apache_Hadoop#HDFS).
@@ -70,7 +70,7 @@ We can tackle many kinds of inaccuracies:
 * Duplicated clicks.
 * Fraudulent clicks.
 
-In simple steps, batch job loads all clicks and emissions from previous day, recalculates statistics and overwrites
+In simple steps, batch job loads all clicks and emissions from the previous day, recalculates statistics and overwrites
 those saved by Online Layer. In our case, this happens once a day. 
 
 Your recalculation job could look like this:
@@ -103,7 +103,7 @@ class RecalculateStatisticsJob(sparkSession: SparkSession) {
         count("emissionId").as("clicksCount")
       )
 
-    //store data in Hive table
+    //store data in a Hive table
     statistics.safeWrite(
         table="statistics",
         partitionColumn="date_partition",
@@ -130,7 +130,7 @@ include them in the results.
 
 ### Data analysis, correction and business reporting
 Offline/Batch Layer with all of the data persisted to HDFS gives you also a huge opportunity to do almost any kind of data
-analysis and business reports your business unit can come up with. Anything that is too complex/costly to compute
+analysis and reports your business unit can come up with. Anything that is too complex/costly to compute
 in real-time, would greatly increase system latency, requires an additional context, is not available in real-time
 or simply is a one-time data analysis can be accomplished in the Offline Layer.
 
@@ -144,7 +144,7 @@ don’t attract any potential buyers. Last but not least, storing events is an i
 proposing better candidates before the test and for in-depth analysis after.
 
 Another advantage of the Offline Layer emerges when a bug is discovered. All the historical source data (events
-persisted on HDFS) is still available, so you can easily perform bug analysis. In case any data for Serving Layer,
+persisted to HDFS) is still available, so you can easily perform bug analysis. In case any data for Serving Layer,
 reports or other data aggregates would require recalculation, you can simply reschedule the required job on Airflow.
 
 ### Metrics and alerting
@@ -161,15 +161,15 @@ in case something is wrong. It also can send emails for lower priority issues. O
 another service) also requires monitoring and alerting to be sure that it is working correctly.
 
 Business metrics mainly refer to data trends in time (e.g. amount of click events daily per placement). As we have all
-events persisted on HDFS, it can be accomplished by implementing a job that will gather statistics from them and check
+events persisted to HDFS, it can be accomplished by implementing a job that will gather statistics from them and check
 for anomalies.
 
 ### Summary
-Failures in a distributed system are inevitable. Guarding against every possible failure in Online layer is like tilting
+Failures in a distributed system are inevitable. Guarding against every possible failure in Online Layer is like tilting
 at windmills. It can lead to a very complex system, which ironically may create even more vulnerabilities.
-Having  best-effort Online layer and Offline layer for reconciliation is relatively easy step that gives us enormous
-benefits. It makes our Online layer simpler and protects us against failures. We can reconcile, analyse and monitor.
-The Offline layer is one of those things that lets you sleep well at night. It gives you confidence in your daily work and
+Having a best-effort Online Layer and an Offline Layer for reconciliation is a relatively easy step that gives us enormous
+benefits. It makes our Online Layer simpler and protects us against failures. We can reconcile, analyse and monitor.
+The Offline Layer is one of those things that lets you sleep well at night. It gives you confidence in your daily work and
 allows you to make mistakes.
 
 Always think of what can go wrong and protect against it.
