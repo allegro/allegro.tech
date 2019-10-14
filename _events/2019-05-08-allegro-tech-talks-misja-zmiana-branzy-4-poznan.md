@@ -2,9 +2,9 @@
 layout: event
 title: "Allegro Tech Talks - Misja zmiana branży #4 Poznań"
 time: 1557331200000
-venue_address_1: Grunwaldzka 182
+venue_address_1: Pixel
 venue_city: Poznań
-venue_name: Allegro
+venue_name: Allegro Poznań HQ
 status: past
 id: 260911426
 registration: 
