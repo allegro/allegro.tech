@@ -5,6 +5,8 @@ author: [tomasz.nurkiewicz, michal.lewandowski, bartosz.galek, bartosz.balukiewi
 tags: [tech]
 ---
 
+<style type="text/css">.post a img{margin: 0 auto;display: block;}</style>
+
 Following up on our previous post about [team tourism](/2019/09/team-tourism-at-allegro.html) at Allegro,
 as promised we present you with three case studies describing experiences of our engineers during their visits in other teams.
 The teams visited worked on content automation, machine learning and search engine optimisation.
