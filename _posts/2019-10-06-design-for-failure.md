@@ -116,7 +116,7 @@ That way, even if it fails during saving the results it will leave the data in a
 If anything fails or requires recomputing, you can just re-run the job.
 
 You also have to make sure that all dependencies are ready before starting the job. It would also be nice to have
-monitoring for the job’s SLA. We use [Airflow](https://airflow.apache.org/) as our job scheduler that handles
+monitoring for the job’s SLA. We use [Airflow](https://airflow.apache.org/) as our job scheduler, it handles
 all of that and more.
 
 Below you will find airflow dag visualisation for the recalculation job.
@@ -156,7 +156,7 @@ Technical include:
 * Task failures.
 * Task SLA (e.g. results of a job that runs daily must be available before 7 A.M.).
 
-Airflow allows configuring callbacks for task failure and SLA miss, that we use to send alerts to an on-call developer
+Airflow allows configuring callbacks for task failure and SLA miss. We use them to send alerts to an on-call developer
 in case something is wrong. It also can send emails for lower priority issues. Of course, Airflow itself (as it is just
 another service) also requires monitoring and alerting to be sure that it is working correctly.
 
