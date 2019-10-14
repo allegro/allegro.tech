@@ -10,4 +10,16 @@
     </div>
     {% include pixels/facebook_pixel.html %}
     {% include pixels/retargetting_pixel.html %}
+
+
+    <script>
+        var fullPage = window.location.toString().indexOf('fullPage') !== -1;
+        var showCloseButton = 1;
+
+        var DIGITAL_CLIMATE_STRIKE_OPTIONS = {
+            forceFullPageWidget: fullPage,
+            showCloseButtonOnFullPageWidget: showCloseButton
+        };
+    </script>
+    <script src="https://assets.digitalclimatestrike.net/widget.js" async></script>
 </footer>
