@@ -5,6 +5,7 @@ author: [grzegorz.dziadosz, malgorzata.karmazyn]
 tags: [tech, architecture, big data]
 ---
 
+<style type="text/css">.post img{margin: 0 auto;display: block;}</style>
 
 When designing the architecture of a system, one always needs to think about what can go wrong, 
 what kind of failures can occur in the system. This kind of problem analysis is especially hard in distributed systems.
