@@ -29,7 +29,7 @@ Let's call this part of the application a **presentation**.
 Our application will need to communicate with an external system: a database.
 Let's call the part responsible for this communication, but also for all other technical aspects not related to business logic, an **infrastructure**.
 It turns out that this is not an innovative view of the application.
-The above approach to splitting application is one of the fundamental assumptions of Domain-Driven Design, Clean and Hexagonal architectures.
+The above approach to splitting application is one of the fundamental assumptions of [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design), [Clean](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) and [Hexagonal](https://declara.com/content/va7eLmgJ) architectures.
 The assumptions of our application show that it must be prepared for changing the DI framework.
 So let's make the core independent of it.
 Such independence will also make it easier for us to test the core in isolation if we decide to implement such tests.
@@ -42,7 +42,7 @@ The benefits of the proposed division of the application will be visible only if
 This means that no class from outside the core can be used in the core.
 The relationships between the parts of the application will look like this:
 
-<img alt="Project Dependencies" src="/img/articles/2019-09-30-grouping-and-organizing-classes/project-dependencies.png" />
+![Project Dependencies](/img/articles/2019-09-30-grouping-and-organizing-classes/project-dependencies.png "Project Dependencies")
 
 Using such a division we can easily:
 * change ways of presenting use cases without affecting the core
@@ -93,20 +93,20 @@ By doing this that way we make it easy to:
 
 Here we also need to determine the dependencies between the packages.
 The `common` package should not have any dependencies.
-In an ideal world, the `project` and` team` packages should depend only on the `common` package.
+In an ideal world, the `project` and `team` packages should depend only on the `common` package.
 In fact, it can often be differently.
 Let's assume that each team is evaluated for the number of completed projects.
 In this situation, the `team` package must also depend on the `project` package, because information about which project has been completed must be passed to the `team` package.
 Let's try to make this relationship as loose as possible.
 Let's present the dependencies between the packages in the `core` package on the diagram:
 
-<img alt="Core Dependencies" src="/img/articles/2019-09-30-grouping-and-organizing-classes/core-dependencies.png" />
+![Core Dependencies](/img/articles/2019-09-30-grouping-and-organizing-classes/core-dependencies.png "Core Dependencies")
 
 Now let's think about how to encapsulate the `project` package.
 Generally, the less public classes and methods the better.
-Let's first create a publicly available `ProjectService`, which will be the entry point to the` project` package.
+Let's first create a publicly available `ProjectService`, which will be the entry point to the `project` package.
 According to Domain-Driven Design, we extract the `Project` [aggregate](https://martinfowler.com/bliki/DDD_Aggregate.html).
-Ideally, the `Project` methods would have a package-private visibility, but as I mentioned earlier, the` team` package will need access to the `Project`.
+Ideally, the `Project` methods would have a package-private visibility, but as I mentioned earlier, the `team` package will need access to the `Project`.
 To minimize this dependency, let's make public only those `Project`'s methods that do not change its state.
 With this approach, only the `project` package will have control over the `Project` object.
 The state of the `Project` needs to be persisted outside the application, for this we will use the `ProjectRepository` [repository](https://www.martinfowler.com/eaaCatalog/repository.html).
@@ -118,7 +118,7 @@ We'll limit the visibility for the rest of the `project`'s classes to package-pr
 Let's do the same with the `team` package, let's create the `TeamService`, `Team` and` TeamRepository` classes.
 Let's also add a `ProjectType` to the `common` package.
 In the `common` package most classes will have public visibility.
-Similarly to the `project` and` team` packages, let's create an entry point for the `core` package: a `ProjectKeeper` class.
+Similarly to the `project` and `team` packages, let's create an entry point for the `core` package: a `ProjectKeeper` class.
 The only stateless classes that the `ProjectKeeper` can access are `ProjectService` and `TeamService`.
 So let's delegate work from the `ProjectKeeper` to them.
 For the `ProjectKeeper` to be usable, you will need a number of [DTO](https://martinfowler.com/eaaCatalog/dataTransferObject.html) objects.
@@ -273,7 +273,7 @@ com.itcompany.projectkeeper
 ## Summary
 If you've never delved deeply into topics related to application architecture, I hope that I encouraged you to do so.
 The presented approach is obviously not the only right way to group classes.
-It works well in business applications but, for example, it doesn't quite fit into all kinds of libraries.
+It works well in business applications, but for example, it doesn't quite fit into all kinds of libraries.
 It also can be enhanced by using [Java 9+ modules](https://www.oracle.com/corporate/features/understanding-java-9-modules.html).
 If you know/use alternative ways to organize classes into packages, share them in the comment.
 
