@@ -4,9 +4,6 @@ title: Team tourism at Allegro — part 2 — case studies
 author: [tomasz.nurkiewicz, michal.lewandowski, bartosz.galek, bartosz.balukiewicz]
 tags: [tech]
 ---
-
-<style type="text/css">.post img{margin: 0 auto;display: block;}</style>
-
 Following up on our previous post about [team tourism](/2019/09/team-tourism-at-allegro.html) at Allegro,
 as promised we present you with three case studies describing experiences of our engineers during their visits in other teams.
 The teams visited worked on content automation, machine learning and search engine optimisation.
@@ -118,3 +115,4 @@ a great example of branching out, which should be a powerful tool of self-develo
 
 In the next part we will talk about tourism in teams working on [Hermes](/2019/05/hermes-1-0-released.html)
 and web performance.
+<style type="text/css">.post img{margin: 0 auto;display: block;}</style>
