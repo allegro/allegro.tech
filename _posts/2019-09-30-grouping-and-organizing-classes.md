@@ -5,29 +5,29 @@ author: mariusz.kopylec
 tags: [tech, architecture, package, ddd, domain, hexagonal, clean, java]
 ---
 
-One of the first challenges the programmer has to face is organizing classes within the project.
-The problem may look trivial but it's not.
-Still it's worth spending enough time to do it right.
+One of the first challenges a programmer has to face is organizing classes within a project.
+This problem may look trivial but it's not.
+Still, it's worth spending enough time to do it right.
 I'll show you why this aspect of software development is crucial by designing sample project's architecture.
 
 ## Assumptions
-Let's assume that we have to create a “Project Keeper” application for managing projects at IT company.
+Let's assume that we have to create a “Project Keeper” application for managing projects at an IT company.
 Thanks to the application, project managers will be able to create projects and assign teams to them.
-We know that after some time, the DI (dependency injection) framework currently used by company's software will be replaced by another solution.
+We know that after some time, the DI (dependency injection) framework currently used by the company's software will be replaced by another solution.
 As part of cost reduction, the company plans to stop using Oracle database and replace it with some open-source solution.
-The application has to be primarily available via HTTP through the browser.
-Sometimes, however, access from the operating system terminal will be needed.
+The application has to be primarily available via HTTP through a browser.
+Sometimes, however, access from an operating system terminal is needed.
 
 ## Implementation
 Bearing in mind the above assumptions, we want to implement the application in such a way that it is easy to introduce the changes mentioned in them.
 Let's think for a moment what our application really is.
-The main part of it will be business logic, that is the use cases that we expose to users.
+The main part of it will be a business logic, that is the use cases that we expose to users.
 Let's call this part of the application a **core**.
 Users must be able to use available use cases, which is why they should be presented to them in some way.
 At the moment, the use cases are to be presented via the HTTP API that the frontend application will consume and via the operating system's terminal.
 Let's call this part of the application a **presentation**.
 Our application will need to communicate with an external system: a database.
-Let's call the part responsible for this communication, but also for all other technical aspects not related to business logic, an **infrastructure**.
+Let's call the part responsible for this communication, but also for all other technical aspects not related to the business logic, an **infrastructure**.
 It turns out that this is not an innovative view of the application.
 The above approach to splitting application is one of the fundamental assumptions of [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design), [Clean](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) and [Hexagonal](https://declara.com/content/va7eLmgJ) architectures.
 The assumptions of our application show that it must be prepared for changing the DI framework.
@@ -45,9 +45,9 @@ The relationships between the parts of the application will look like this:
 ![Project Dependencies](/img/articles/2019-09-30-grouping-and-organizing-classes/project-dependencies.png "Project Dependencies")
 
 Using such a division we can easily:
-* change ways of presenting use cases without affecting the core
+* change the ways of presenting use cases without affecting the core
 * replace external systems which the application communicates with without affecting the core
-* test business logic in isolation by testing the core itself
+* test the business logic in isolation by testing the core itself
 * find the classes responsible for individual parts of the application
 * limit the visibility of classes to **encapsulate** the internal aspects of each part of the application
 
@@ -58,7 +58,7 @@ Thanks to it we can:
 * be sure that the class will not be used incorrectly and/or in the wrong place
 
 If we combine encapsulation at the package level with that at the level of a single class, we get a surprising result.
-Creating so-called spaghetti code will be seriously hindered :)
+Creating the so-called spaghetti code will be seriously hindered :)
 
 Let's divide our project into main packages according to the above information:
 ```
@@ -71,7 +71,7 @@ com.itcompany.projectkeeper
 Let's now focus on each package individually.
 
 ### Core
-Business logic will focus on projects and teams.
+The business logic will focus on projects and teams.
 At the IT company, various teams deal with various types of projects.
 For example, programmers create software, UX designers design user interfaces, analysts analyze data.
 Project type is therefore something common to the project and the team.
@@ -87,23 +87,23 @@ com.itcompany.projectkeeper
 └── presentation
 ```
 By doing this that way we make it easy to:
-* deduce what is the purpose of the application
+* deduce the purpose of the application
 * find classes operating on individual domain objects
 * use class visibility restrictions to encapsulate internal packages' aspects
 
 Here we also need to determine the dependencies between the packages.
 The `common` package should not have any dependencies.
 In an ideal world, the `project` and `team` packages should depend only on the `common` package.
-In fact, it can often be differently.
-Let's assume that each team is evaluated for the number of completed projects.
-In this situation, the `team` package must also depend on the `project` package, because information about which project has been completed must be passed to the `team` package.
+In fact, this is often not the case.
+Let's assume that each team is evaluated on for the number of completed projects.
+In this situation, the `team` package must also depend on the `project` package because information about which project has been completed must be passed on to the `team` package.
 Let's try to make this relationship as loose as possible.
 Let's present the dependencies between the packages in the `core` package on the diagram:
 
 ![Core Dependencies](/img/articles/2019-09-30-grouping-and-organizing-classes/core-dependencies.png "Core Dependencies")
 
-Now let's think about how to encapsulate the `project` package.
-Generally, the less public classes and methods the better.
+Now, let's think about how to encapsulate the `project` package.
+Generally, the fewer public classes and methods the better.
 Let's first create a publicly available `ProjectService`, which will be the entry point to the `project` package.
 According to Domain-Driven Design, we extract the `Project` [aggregate](https://martinfowler.com/bliki/DDD_Aggregate.html).
 Ideally, the `Project` methods would have a package-private visibility, but as I mentioned earlier, the `team` package will need access to the `Project`.
@@ -112,7 +112,7 @@ With this approach, only the `project` package will have control over the `Proje
 The state of the `Project` needs to be persisted outside the application, for this we will use the `ProjectRepository` [repository](https://www.martinfowler.com/eaaCatalog/repository.html).
 In order to make the core independent from the infrastructure, the repository must be an abstract entity.
 I suggest using an abstract class for this, not an interface, because the class methods may have protected visibility.
-Thus they will not be visible outside the `project` package.
+Thus, they will not be visible outside the `project` package.
 We'll limit the visibility for the rest of the `project`'s classes to package-private one.
 
 Let's do the same with the `team` package, let's create the `TeamService`, `Team` and` TeamRepository` classes.
@@ -188,7 +188,7 @@ com.itcompany.projectkeeper
 ### Presentation
 In the `http` and` console` packages, we implement access to the `core` package from the HTTP endpoint and the terminal.
 For HTTP purpose, let's add the `ProjectKeeperEndpoint` using the framework to help us handle the requests.
-Let's also add the `ProjectKeeperConosle` where we implement access from the terminal.
+Let's also add the `ProjectKeeperConsole` where we implement access from the terminal.
 Both of these classes will access the `core` package through the `ProjectKeeper`.
 Here, all the exceptions thrown from the `core` package will be handled.
 Classes' visibilities can be safely set to package-private.
@@ -222,7 +222,7 @@ com.itcompany.projectkeeper
 └── presentation
     ├── console
     │   ├── ErrorHandler.java
-    │   └── ProjectKeeperConosle.java
+    │   └── ProjectKeeperConsole.java
     └── http
         ├── ErrorHandler.java
         └── ProjectKeeperEndpoint.java
@@ -264,7 +264,7 @@ com.itcompany.projectkeeper
 └── presentation
     ├── console
     │   ├── ErrorHandler.java
-    │   └── ProjectKeeperConosle.java
+    │   └── ProjectKeeperConsole.java
     └── http
         ├── ErrorHandler.java
         └── ProjectKeeperEndpoint.java
@@ -275,7 +275,7 @@ If you've never delved deeply into topics related to application architecture, I
 The presented approach is obviously not the only right way to group classes.
 It works well in business applications, but for example, it doesn't quite fit into all kinds of libraries.
 It also can be enhanced by using [Java 9+ modules](https://www.oracle.com/corporate/features/understanding-java-9-modules.html).
-If you know/use alternative ways to organize classes into packages, share them in the comment.
+If you know/use alternative ways to organize classes into packages, share them in the comments below.
 
 And now the most important thing.
 One word for you to remember: **encapsulation**.
