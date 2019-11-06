@@ -1,30 +1,30 @@
 ---
 layout: post
-title: Team tourism at Allegro — part 3 — case studies
+title: Team tourism at Allegro — part 3 — more case studies
 author: [bartosz.balukiewicz, adrian.rydzynski]
 tags: [tech]
 ---
 
 In this last instalment of our series about [team tourism](/2019/09/team-tourism-at-allegro.html) at Allegro,
-our two engineers describe their eventful visits in two rather technical teams, dealing with our message broker - Hermes
-and web performance.
+our two engineers describe their eventful visits in two rather technical teams, one dealing with our message broker - Hermes,
+the other with web performance.
 
 ## Case study 1
 ####  Hermes - Bartosz Balukiewicz
-On a daily basis, I am a software engineer in the team developing Allegro Smart. While building solutions in an
-event-based micro-service architecture, we use [Hermes](/2019/05/hermes-1-0-released.html)
+On a daily basis, I am a software engineer in the team developing a product, which predicts delivery times of orders.
+While building solutions in an event-based micro-service architecture, we use [Hermes](/2019/05/hermes-1-0-released.html)
 extensively -  a message broker based on Kafka, which supports about 400 micro-services at Allegro. Hermes offers many
 functionalities, and it is easy to use, but often there is not enough time to understand exactly how it works under the
 hood. In case of any problems, such knowledge allows a faster and more effective response to failures and not being only a
-passive customer of the service. For these reasons, I decided to have my team tourism at the Skylab Eden team, which
+passive customer of the service. For these reasons, I decided to have my team tourism at a team, which
 develops and maintains Hermes at Allegro. My team’s stakeholders are mostly business people, so it was not only a great
 opportunity to change surroundings but also a chance to work for other engineers as well.
 
 <img alt="hermes" src="/img/articles/2019-10-28-team-tourism-case-studies-2/hermes-logo.jpg" />
 
-We decided not to take one main purpose of my tourism - I wanted to enter the team’s everyday work, learn about its work
-culture, and feel like a real member.  During the intense month, I managed to touch the core components of Hermes, fix a few
-bugs, create a diagnostic tool, and improved the management of its metrics. The result of this work was a pair of pull
+We decided not to set any single purpose for my tourism - I wanted to enter the team’s everyday work, learn about its work
+culture, and really feel as a part of the team.  During the intense month, I managed to touch the core components of Hermes,
+fix a few bugs, create a diagnostic tool, and improve the management of its metrics. The result of this work was a pair of pull
 requests in the [open-source project](https://github.com/allegro/hermes) on Github. Also, I touched other areas in which
 the team works, such as custom-made [Captcha](https://en.wikipedia.org/wiki/CAPTCHA) service and a global,
 scalable [cookie](https://en.wikipedia.org/wiki/HTTP_cookie) management solution.
@@ -34,7 +34,7 @@ numerous tests, it was not that difficult. The challenge was also to learn the e
 process, which is a responsible task, due to its criticality and complexity of architecture.
 
 During the tourism, the thing I paid attention to was the work culture of the team. At Allegro, every team is on duty
-over its services, but in Skylab, it is extended to the extreme. The use of such a critical service as Hermes requires
+over its services, but in my "new" team, it was extended to the extreme. The use of such a critical service as Hermes requires
 from the team a lot of concentration and in-depth knowledge, predicting possible problems, and expressing their response to
 them. Nevertheless, the team works in a great, friendly atmosphere. Every month, a kind of two-day hackathon is
 organised, during which everyone uses new technology or algorithms and later shares the results of their work. This is a
@@ -47,40 +47,39 @@ ability to build relationships with new people and get to know their way of work
 
 ## Case study 2
 ### Web performance - Adrian Rydzyński
-Currently, I’m working with the Anteater’s team. We’re taking care of developing the list of offers on Allegro, and we
-call it “listings”. This is a place, through which most people pass through, so we’re trying to have availability and
-efficiency as high priority. To achieve that, I went to the web performance team, who are taking care of performance and
- are trying to educate as many people as possible, that performance matters. I was hoping to learn what we can do on listings to
-make it faster and more robust for our users. Besides, they were building a new Single Page Application, which
-contains a homepage, listings, and a view of a single offer. Their goal was to gain knowledge about listings, and I had to
-pass this knowledge. Both sides had their goals, but it was clear that we were going in the same direction. We didn’t
-specify precisely how many story points I had to make or how many new features I had to transfer to my team. We wanted to
-do as much as possible.
+Currently, I’m working with a team, which takes care of developing the list of offers on Allegro. We call it “listings”.
+This is a place with heavy traffic, so we’re trying to have availability and efficiency as a high priority.
+To broaden my knowledge, I decided to have my tourism at the web performance team, who are taking care of performance and
+are trying to educate as many people as possible, that performance matters. I was hoping to learn what we can improve
+on listings to make it faster and more robust for our users. Besides, they were building a new
+[single page application](https://en.wikipedia.org/wiki/Single-page_application), which contains a homepage, listings,
+and a view of a single offer. Their goal was to gain knowledge about listings, and I had to pass this knowledge.
+Both sides had their goals, but it was clear that we were going in the same direction. We didn’t specify precisely
+how many story points I had to make or how many new features I had to transfer to my team. We wanted to do as much as possible.
 
 <img alt="webperf" src="/img/articles/2019-10-28-team-tourism-case-studies-2/webperf.jpg" />
 
-My friends from the web performance team introduced me to their core project: Single Page Application called
-[mobile-web SPA](https://en.wikipedia.org/wiki/Single-page_application). It is worth mentioning that in my daily job,
-we have a component structure. That means listings are built with many components: lists, filters, categories, articles,
-pagination, and so forth. Another approach was chosen in the mobile-web SPA. We have everything in one
-significant monolith component. Of course, there are pros and cons of this solution. For example, the advantages of monolith
-applications are no communication issues between components or reusing your styles or data in many places. On the other
-hand, it is hard to work on the same codebase. You are stuck with the technology, and you should get used to resolve
-conflicts because there will be a lot of them when you work with more than several people. So it was kind of obvious
-that there must be changes in my approach - both in the programming process and in the process of testing or releasing a
-new version of the mobile-web SPA.
+My friends from the web performance team introduced me to their core project: single page application called
+"mobile-web SPA". It is worth mentioning that in my daily job, we have a component structure. That means listings are
+built with many components: lists, filters, categories, articles, pagination, and so forth.
+Another approach was chosen in the mobile-web SPA. We have everything in one significant monolith component. Of course,
+there are pros and cons of this solution. For example, the advantages of monolith applications are no communication issues
+between components or reusing your styles or data in many places. On the other hand, it is hard to work on the same codebase.
+You are stuck with the technology, and you should get used to resolve conflicts because there will be a lot of them when
+you work with more than several people. So it was kind of obvious that there must be changes in my approach - both in the
+programming process and in the process of testing or releasing a new version of the mobile-web SPA.
 
 My first assignment was to change the pagination - everything was done before the end of the day. However, we had plenty
-of discussions in code review - about tests, architecture, variable names, and functionality. They explained to me why
+of discussions during the code review - about tests, architecture, variable names, and functionalities. They explained to me why
 they use specific solutions, and I told them how we do it on listings. They didn’t know about some features that the
 listings API already has and that they don’t have to do the same job on their side, and I understood why this kind of
 architecture could be useful. During these two weeks of team tourism, I was able to make three more tasks: a generic component
 for badges, replace old badges to the generic component, and add SMART! logo to listings. Like the previous time, there
-were many discussions, and I noted some of their arguments to talk with my team about because there were a few things
+were many discussions, and I noted some of their arguments to talk with my team, because there were a few things
 that we could do better.
 
-I have to admit, I was surprised at how many meetings the web performance team was involved in as consultants - both with dev
-teams, as well as more business ones, dealing, for example, with the content of the home page. They also provided
+I have to admit, I was surprised at how many meetings the web performance team was involved in as consultants - both with
+development teams, as well as more business ones, dealing, for example, with the content of the home page. They also provided
 research on the comparison of Allegro’s performance with other websites. Of course, as a temporary team member, I was
 involved in all aspects. So many meetings went hand in hand with the disadvantages: my work was often interrupted, so I
 was able to do fewer tasks than I initially thought.
