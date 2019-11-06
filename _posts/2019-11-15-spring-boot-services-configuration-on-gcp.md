@@ -14,12 +14,12 @@ out of the box. The approaches mentioned should be seen as complementary rather 
 ## What is GCP Runtime Configurator?
 The [Runtime Configurator](https://cloud.google.com/deployment-manager/runtime-configurator/) available for services deployed to Google Cloud Platform is a handy tool designed to solve multiple problems
 related to application state management as wall as application configuration management. In this article I will dig into the latter. Features of the Runtime Configurator include:
-* configuring services dynamically
-* communicating changes in application state between services
+* configuring services dynamically,
+* communicating changes in application state between services,
 * notifying about changes to application data ([Watching variable state changes](https://cloud.google.com/deployment-manager/runtime-configurator/watching-a-variable) 
 and creating [Waiter resources](https://cloud.google.com/deployment-manager/runtime-configurator/creating-a-waiter)
-are beyond the scope of this article, please consult the corresponding documentation)
-* sharing information between multiple tiers of services
+are beyond the scope of this article, please consult the corresponding documentation),
+* sharing information between multiple tiers of services.
 
 It can be used via the console gcloud utility, the Deployment Manager or as a Standalone API and lets you centralize
 configuration and reuse it between different GCP resources such as 
@@ -29,9 +29,12 @@ Google Compute Engine, Google App Engine, Google Kubernetes Engine or Google Clo
 
 The official [GCP documentation](https://cloud.google.com/deployment-manager/runtime-configurator/) provides an example as follows:
 
-"For example, imagine a scenario where you have a cluster of nodes that run a startup procedure. During startup, you can configure your nodes to report their status to the Runtime Configurator, and then have another application query the Runtime Configurator and run specific tasks based on the status of the nodes.
+"For example, imagine a scenario where you have a cluster of nodes that run 
+a startup procedure. During startup, you can configure your nodes to report their status 
+to the Runtime Configurator, and then have another application query the Runtime Configurator and run specific tasks based on the status of the nodes.
  
- The Runtime Configurator also offers a Watcher service and a Waiter service. The Watcher service watches a specific key pair and returns when the value of the key pair changes, while the Waiter service waits for a specific end condition and returns a response once that end condition has been met."
+ The Runtime Configurator also offers a Watcher service and a Waiter service. The Watcher service watches a specific key pair 
+ and returns when the value of the key pair changes, while the Waiter service waits for a specific end condition and returns a response once that end condition has been met."
 
 ### Managing configuration: basic terms
 
@@ -39,24 +42,24 @@ The Runtime Configurator is built on top of the idea of a config resource. It as
 as a hierarchical list of configuration variables, which may separate the configuration variables 
 environment-wise (prod, dev, test) and/or tier-wise (frontend, backend). 
 A configuration is local to a gcp project so there will be no interference between services managed by a GCP account (provided you deploy services as separate projects).
-Variables are simple key-value pairs that can be referenced in you Spring Boot service config files as environment variables.
+Variables are simple key-value pairs that can be referenced in your Spring Boot service config files as environment variables.
 The variable key has the following format, and is local to a config id (the config resource unique name), which as mentioned is on its own
 local to a project id:
 ```
 projects/[project_id]/configs/[CONFIG_ID]/variables/[VARIABLE_NAME]
 ```
-This is how you could store the database username for a cart service on the dev environment
+This is how you could store the database username for a cart service on the dev environment:
 ```
 projects/cart-service/configs/cart-db_dev/variables/DBUSER
 ```
-Variable keys can also have multiple levels
+Variable keys can also have multiple levels:
 ```
 projects/cart-service/configs/cart-db_dev/variables/connection-data/credentials/DBUSER
 ```
 It is of vital importance that the config name and the profile (environemt) name are separated by an underscore, otherwise it will not be
 interpreted correctly by Spring Boot on startup of your service.
 
-Also mind the fact that only leaf keys in the hierarchy can have assigned values so you cannot assign a value to
+Also mind the fact that only leaf keys in the hierarchy can have assigned values so you cannot assign a value to.
 ```
 projects/cart-service/configs/cart-db_dev/variables/connection-data
 ```
@@ -65,10 +68,10 @@ projects/cart-service/configs/cart-db_dev/variables/connection-data
 ### Using gcloud
 The simplest way to create and populate a config resource is to:
 * sign-in to an App Engine console account,
-* select a project you want to create the configuration for from the dropdown on the top-bar
+* select a project you want to create the configuration for from the dropdown on the top-bar,
 * run a Cloud Shell session by clicking on the ">_" icon in the top-right corner.
 
-Then run the following command (if you do it for the first time follow the API enabling instructions prompted on the command line)
+Then run the following command (if you do it for the first time follow the API enabling instructions prompted on the command line).
 ```
 gcloud beta runtime-config configs create cart-db_dev
 ```
@@ -79,7 +82,7 @@ gcloud beta runtime-config configs variables set DBUSER  "cart-admin"  --config-
 ```
 gcloud beta runtime-config configs variables get-value DBUSER --config-name cart-db_dev
 ```
-as well as to list variables
+as well as to list variables.
 ```
 gcloud beta runtime-config configs variables list --config-name cart-db_dev
 ```
@@ -96,14 +99,14 @@ https://runtimeconfig.googleapis.com/v1beta1/projects/cart-service/configs/
 
 ```
 
-There is analogous API do DELETE the config, list the variables and set or access variable values.
-You can look up the details in the [API specification](https://cloud.google.com/deployment-manager/runtime-configurator/reference/rest/)
+There is an analogous API do DELETE the config, list the variables and set or access variable values.
+You can look up the details in the [API specification](https://cloud.google.com/deployment-manager/runtime-configurator/reference/rest/).
 ### Using Deployment Manger
-You have to specify the config type as
+You have to specify the config type as:
 ```
 runtimeconfig.v1beta1.config
 ```
-by defining the properties, mind that the config name has to be provided twice
+by defining the properties, mind that the config name has to be provided twice.
 
 ```
 - name: cart-db_dev
@@ -118,7 +121,7 @@ This is pretty much it from the GCP perspective, as you can see the API of the r
 Let's now focus on how to set up a Spring Boot app to use the configuration we have created.
 ## Access GCP config from Spring Boot
 Set the active application profile in the main appengine/app.yaml file so that Spring boot can pickup the right config for a given environment. 
-Remember it is critical that the profile name is part of the config id you created on GCP in the form
+Remember it is critical that the profile name is part of the config id you created on GCP in the following form:
 ```
   config-name_profile-name eg cart-db_dev
 ```
@@ -157,7 +160,7 @@ Readiness_check:
 
 ```
 Then you have to create a following config file src/main/resources/bootstrap-dev.yml so that Spring Boot
-GCP integration picks up the config before other properties are read.
+GCP integration picks up the config before other properties are read:
 ```
 spring:
  cloud:
@@ -167,7 +170,7 @@ spring:
        name: cart-db
        profile: dev
 ```
-In the build.gradle file you will need the following plugin and dependencies. 
+In the build.gradle file you will need the following plugin and dependencies: 
 ```
 buildscript { 
 ext {
@@ -196,7 +199,7 @@ dependencyManagement {
             }    
         }
 ```
-And then use the DBUSER config variable in the corresponding src/main/application-dev.yml
+And then use the DBUSER config variable in the corresponding src/main/application-dev.yml:
 ```
 spring:
   data:
