@@ -107,7 +107,7 @@ Generally, the fewer public classes and methods the better.
 Let's first create a publicly available `ProjectService`, which will be the entry point to the `project` package.
 According to Domain-Driven Design, we extract the `Project` [aggregate](https://martinfowler.com/bliki/DDD_Aggregate.html).
 Ideally, the `Project` methods would have a package-private visibility, but as I mentioned earlier, the `team` package will need access to the `Project`.
-To minimize this dependency, let's make public only those `Project`'s methods that do not change its state.
+To minimize this dependency, let's make only those `Project` methods public that do not change `Project` state.
 With this approach, only the `project` package will have control over the `Project` object.
 The state of the `Project` needs to be persisted outside the application, for this we will use the `ProjectRepository` [repository](https://www.martinfowler.com/eaaCatalog/repository.html).
 In order to make the core independent from the infrastructure, the repository must be an abstract entity.
