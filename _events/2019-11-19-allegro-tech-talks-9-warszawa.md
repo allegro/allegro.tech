@@ -2,9 +2,9 @@
 layout: event
 title: "Allegro Tech Talks #9 Warszawa"
 time: 1574182800000
-venue_address_1: al. Jana Pawła II
-venue_city: Warszawa
-venue_name: Ewa Ogrodowska
+venue_address_1: Q22
+venue_city: Warsaw
+venue_name: Allegro Office Warsaw
 status: near
 id: 266236877
 registration: 
@@ -30,4 +30,5 @@ registration:
 <p>Krzysztof Kwiatkowski - programista front-end w Allegro. Współtworzy Opbox, rozwiązanie odpowiedzialne za renderowanie frontendu większości stron platformy Allegro.</p>
 <p>3. “Header Challenge - zróbmy to lepiej niż Ronaldo!” - Strona Allegro zbudowana jest z wielu komponentów z niezależnym procesem wdrożenia. Pracuję w zespole zajmującym się jej szczególną częścią, czyli nagłówkiem. W mojej prezentacji opowiem o tym, w jaki sposób jest zbudowany, z jakimi trudnościami szczególnie pod kątem wydajności mierzymy się w codziennej pracy oraz jakie optymalizacje udało się wdrożyć podczas akcji Header Challenge!</p>
 <p>Rafał Augustyniak - Frontend Software Engineer w warszawskiej siedzibie Allegro. Poza programowaniem nałogowy gracz na konsoli PS4.</p>
+<p>Dołącz również do wydarzenia:<br /><a href="https://www.facebook.com/events/2420954711455917/" class="linkified">https://www.facebook.com/events/2420954711455917/</a></p>
 <p>Zapraszamy!</p>
