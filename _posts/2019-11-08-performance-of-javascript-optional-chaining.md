@@ -7,7 +7,7 @@ tags: [performance, webperf, perfmatters, javascript, typescript, frontend]
 
 One of the coolest features added in [just announced TypeScript
 3.7](https://devblogs.microsoft.com/typescript/announcing-typescript-3-7/) is optional chaining syntax. It promises a
-much shorter and more readable code for dealing with deeply nested data structures. How this nice new feature may affect
+much shorter and more readable code for dealing with deeply nested data structures. How may this nice new feature affect
 the performance of your project?
 
 At first sight, optional chaining syntax can make the codebase significantly smaller. Instead of writing monstrous code
@@ -66,14 +66,14 @@ var l,n;null==u||null===(l=u.bar)||void 0===l||null===(n=l.baz)||void 0===n||n.q
 ```
 
 So in the best scenario, we're getting around 4 characters in the final bundle for each one of the source code. How many
-times you could use optional chaining in a mediocre project? 100 times? If you'd migrate to the new syntax in such a
+times could you use optional chaining in a medium-sized project? 100 times? If you'd migrate to the new syntax in such a
 case, you've just added 3,5 kB to the final bundle. That sucks.
 
 ## Alternatives
 
-Let's move a step back. Optional chaining isn't new idea at all. Solutions for `incredibly && long && double &&
-ampersands && chains` problem have existed already in so-called userspace for quite some time. Jason Miller's
-[`dlv`](https://github.com/developit/dlv) is only one among the many.
+Let's take a step back. Optional chaining isn't a new idea at all. Solutions for the `incredibly && long && double &&
+ampersands && chains` problem have already existed in the so-called userspace for quite some time. Jason Miller's
+[`dlv`](https://github.com/developit/dlv) is only one among many.
 
 
 ```js
