@@ -66,8 +66,8 @@ var l,n;null==u||null===(l=u.bar)||void 0===l||null===(n=l.baz)||void 0===n||n.q
 ```
 
 So in the best scenario, we're getting around 4 characters in the final bundle for each one of the source code. How many
-times could you use optional chaining in a medium-sized project? 100 times? If you'd migrate to the new syntax in such a
-case, you've just added 3,5 kB to the final bundle. That sucks.
+times could you use optional chaining in a medium-sized project? 100 times? If you migrate to the new syntax in such a case,
+you'll just add 3.5 kB to the final bundle. That sucks.
 
 ## Alternatives
 
@@ -81,7 +81,7 @@ dlv(foo, 'bar.baz.qux');
 ```
 
 Besides this approach isn't as good as the new syntax, because it's not type-safe, it requires slightly more code on the
-call site - 25 characters. Plus, you must import the function from the library. But, how the code looks in the final
+call site - 25 characters. Plus, you must import the function from the library. But, how does the code look in the final
 bundle?
 
 
@@ -91,8 +91,8 @@ d(u,'bar.baz.qux');
 
 What a surprise! 19 characters, that's as concise as optional chaining syntax itself.
 
-If you feel uncomfortable with strings, you can pass an array of strings to the function. Although it's more characters
-in both source and the final code, it may be worth to do it. You will see later why.
+If you feel uncomfortable with strings, you can pass an array of strings to the function. Although, there's more characters
+in both source and the final code, it may be worth doing. You will see later why.
 
 
 ```js
@@ -106,25 +106,25 @@ Implementation of the function itself takes only 101 characters after minificati
 function d(n,t,o,i,l){for(t=t.split?t.split("."):t,i=0;i<t.length;i++)n=n?n[t[i]]:l;return n===l?o:n}
 ```
 
-It means it's enough to use optional chaining transpiled with Babel two times and you'll get more code than with `dlv`.
+It means it's enough to use optional chaining transpiled with Babel twice and you'll get more code than with `dlv`.
 So, is the new syntax no-go?
 
 ## Parsing time
 
 The amount of the code affects not only downloading a file but also the time of parsing it. With
-[estimo](https://www.npmjs.com/package/estimo) we can estimate (😉) that value. Here are the median results of running
+[estimo](https://www.npmjs.com/package/estimo), we can estimate (😉) that value. Here are the median results of running
 the tool around 1000 times for all variants, each containing 100 equal optional chainings.
 
 [![code parsing
 time](/img/articles/2019-11-08-performance-of-javascript-optional-chaining/jdgt6978sx3gnc7i63sj-1.png)](https://docs.google.com/spreadsheets/d/17xD1LgKWQSoOYLRq-ZoMQr9s6LzwmF2i4_H39UquKAo/edit?usp=sharing)
 
-It seems that parsing time depends not only on the size of the code but also on used syntax. Relatively big "old spice"
+It seems that parsing time depends not only on the size of the code but also on the syntax used. Relatively big "old spice"
 variant gets significantly lower time than all the rest, even the smallest one (native optional chaining).
 
 But that's only a curiosity. As you can see, at this scale differences are negligible. All variants are parsed in time
-below 2 ms. It happens at most once per page load, so in practice that's free operation. If your project contains much
+below 2 ms. It happens at most once per page load, so in practice that's a free operation. If your project contains much
 more optional chaining occurrences, like ten thousand, or you run the code on very slow devices - it might matter.
-Otherwise, well, it's probably not worth to bother.
+Otherwise, well, it's probably not worth bothering about.
 
 ## Runtime performance
 
@@ -134,16 +134,16 @@ to `dlv`. If you use an array instead of a string, though, it's only 6x.
 
 ![jsPerf results](/img/articles/2019-11-08-performance-of-javascript-optional-chaining/wge5ljra79fxi6kr9i4w-1.png)
 
-No matter if [accessing empty object](https://jsperf.com/optional-chaining-empty-object), [full
+No matter whether you [access empty object](https://jsperf.com/optional-chaining-empty-object), [full
 one](https://jsperf.com/optional-chaining-full-path) or [one with null
 inside](https://jsperf.com/optional-chaining-null-inside), approaches not employing accessor function are far more
 performant.
 
 ## Conclusion
 
-So, is it optional chaining fast or slow? The answer is clear and not surprising: it depends. Do you need 150 M
+So, is optional chaining fast or slow? The answer is clear and not surprising: it depends. Do you need 150 M
 operations per second in your app, or 25 M is enough? Could the slower implementation decrease FPS below 60? Does it
-make sense to fight against these few kilobytes coming from transpilation? Is it possible the loading time of the app
+make sense to fight against these few kilobytes coming from transpilation? Is it possible that the loading time of the app
 increases significantly because of them?
 
 You have all the data now, you can decide.
