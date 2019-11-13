@@ -14,7 +14,7 @@ registration:
 <p>Zapraszamy na Allegro Tech Talks w Warszawie. Tematem spotkania będzie wydajność Front-endu.</p>
 <p>***REJESTRACJA***</p>
 <p>Wydarzenie darmowe.</p>
-<p>Prosimy o rejestrację poprzez: <a href="https://www.eventbrite.com/e/allegro-tech-talks-9-warszawa-tickets-80315707443" class="linkified">https://www.eventbrite.com/e/allegro-tech-talks-9-warszawa-tickets-80315707443</a></p>
+<p>Udział w evencie możliwy jedynie po rejestracji poprzez: <a href="https://www.eventbrite.com/e/allegro-tech-talks-9-warszawa-tickets-80315707443" class="linkified">https://www.eventbrite.com/e/allegro-tech-talks-9-warszawa-tickets-80315707443</a></p>
 <p>Po zarejestrowaniu otrzymasz e-mail z potwierdzeniem uczestnictwa oraz Twoim biletem.</p>
 <p>Tylko osoby z imiennym QRcodem mogą wziąć udział w wydarzeniu.</p>
 <p>AGENDA</p>
