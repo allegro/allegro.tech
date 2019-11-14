@@ -8,12 +8,12 @@ tags: [tech, java, cloud, gcp, spring-boot]
 Configuration management is one of the key challenges you have to face when you decide to build an application as a distributed platform based on microservices
 deployed to Cloud. There are multiple ways of addressing different aspects of this problem, using several tools such as [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/) 
 or [Hashicorp Consul](https://cloud.spring.io/spring-cloud-consul/reference/html/), this article will focus on the tools that Google Cloud Platform offers
-out of the box. The approaches mentioned should be seen as complementary rather than contradictory.
+out of the box. The approaches mentioned should be seen as complementary rather than mutually exclusive.
 
 
 ## What is GCP Runtime Configurator?
 The [Runtime Configurator](https://cloud.google.com/deployment-manager/runtime-configurator/) available for services deployed to Google Cloud Platform is a handy tool designed to solve multiple problems
-related to application state management as wall as application configuration management. In this article I will dig into the latter. Features of the Runtime Configurator include:
+related to application state management as well as application configuration management. In this article I will dig into the latter. Features of the Runtime Configurator include:
 * configuring services dynamically,
 * communicating changes in application state between services,
 * notifying about changes to application data ([Watching variable state changes](https://cloud.google.com/deployment-manager/runtime-configurator/watching-a-variable) 
@@ -21,7 +21,7 @@ and creating [Waiter resources](https://cloud.google.com/deployment-manager/runt
 are beyond the scope of this article, please consult the corresponding documentation),
 * sharing information between multiple tiers of services.
 
-It can be used via the console gcloud utility, the Deployment Manager or as a Standalone API and lets you centralize
+It can be used via the gcloud console utility, the Deployment Manager or as a Standalone API and lets you centralize
 configuration and reuse it between different GCP resources such as 
 Google Compute Engine, Google App Engine, Google Kubernetes Engine or Google Cloud Functions.
 
