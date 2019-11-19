@@ -21,7 +21,7 @@ For these reasons, I decided to have my team tourism at the team which develops 
 My team’s stakeholders are mostly business people, so it was not only a great opportunity to change surroundings
 but also a chance to work for other engineers as well.
 
-<img alt="hermes" src="/img/articles/2019-10-28-team-tourism-case-studies-2/hermes-logo.jpg" />
+<img alt="hermes" src="/img/articles/2019-11-19-team-tourism-case-studies-2/hermes-logo.jpg" />
 
 We decided not to set any single purpose for my tourism - I wanted to enter the team’s everyday work, learn about its work
 culture, and really feel as a part of the team.  During the intense month, I managed to touch the core components of Hermes,
@@ -58,7 +58,7 @@ and a view of a single offer. Their goal was to gain knowledge about listings, a
 Both sides had their goals, but it was clear that we were going in the same direction. We didn’t specify precisely
 how many story points I had to make or how many new features I had to transfer to my team. We wanted to do as much as possible.
 
-<img alt="webperf" src="/img/articles/2019-10-28-team-tourism-case-studies-2/webperf.jpg" />
+<img alt="webperf" src="/img/articles/2019-11-19-team-tourism-case-studies-2/webperf.jpg" />
 
 My friends from the web performance team introduced me to their core project: a single page application called
 "mobile-web SPA". It is worth mentioning that in my daily job, we have a component structure. That means listings are
