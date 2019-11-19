@@ -21,7 +21,7 @@ For these reasons, I decided to have my team tourism at the team which develops 
 My team’s stakeholders are mostly business people, so it was not only a great opportunity to change surroundings
 but also a chance to work for other engineers as well.
 
-<img alt="hermes" src="/img/articles/2019-11-19-team-tourism-case-studies-2/hermes-logo.jpg" />
+<img alt="hermes" src="/img/articles/2019-11-19-team-tourism-case-studies-2/hermes-logo.png" />
 
 We decided not to set any single purpose for my tourism - I wanted to enter the team’s everyday work, learn about its work
 culture, and really feel as a part of the team.  During the intense month, I managed to touch the core components of Hermes,
