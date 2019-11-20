@@ -50,8 +50,8 @@ ability to build relationships with new people and to get to know their way of w
 ### Web performance - Adrian Rydzyński
 Currently, I’m working with a team which takes care of developing the list of offers on Allegro. We call it “listings”.
 This is a place with heavy traffic, so we’re trying to have availability and efficiency as a high priority.
-To broaden my knowledge, I decided to have my tourism at the web performance team, who are taking care of performance and
-are trying to educate as many people as possible, that performance matters. I was hoping to learn what we can improve
+To broaden my knowledge, I decided to have my tourism at the web performance team, who are trying to educate
+as many people as possible, that performance matters. I was hoping to learn what we can improve
 on listings to make them faster and more robust for our users. Besides, they were building a new
 [single page application](https://en.wikipedia.org/wiki/Single-page_application) which contains a homepage, listings,
 and a view of a single offer. Their goal was to gain knowledge about listings, and I had to pass it knowledge on to my team.
