@@ -4,18 +4,17 @@
     "totalFound": 38,
     "content": [
         {
-            "id": "743999699882609",
+            "id": "743999700071725",
             "name": "Team Manager",
-            "uuid": "26812f9f-aa69-4474-a06f-1891be85723c",
+            "uuid": "9364e247-ad0a-44d1-ac09-b4221f29f419",
             "refNumber": "REF1920L",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2019-11-18T13:24:21.000Z",
+            "releasedDate": "2019-11-20T08:15:43.000Z",
             "location": {
-                "city": "Warsaw",
-                "region": "Masovian Voivodeship",
+                "city": "Warszawa",
                 "country": "pl"
             },
             "industry": {
@@ -69,9 +68,9 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699882609",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999700071725",
             "creator": {
-                "name": "Katarzyna Wiśniewska"
+                "name": "Mateusz Jabłonowski"
             },
             "language": {
                 "code": "pl",
