@@ -5,7 +5,7 @@ time: 1574182800000
 venue_address_1: Q22
 venue_city: Warsaw
 venue_name: Allegro Office Warsaw
-status: upcoming
+status: past
 id: 266236877
 registration: 
 ---
