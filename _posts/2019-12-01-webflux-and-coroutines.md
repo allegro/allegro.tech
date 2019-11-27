@@ -1,22 +1,24 @@
 ---
 layout: post
-title: Webflux and coroutines
+title: Making a Webflux code readable with kotlin coroutines
 author: [zbigniew.kuzera]
 tags: [tech, kotlin, coroutines]
 ---
 
 ## Introduction
 
-Recently, our crucial micro service delivering listing data [switched](/2019/07/migrating-microservice-to-spring-webflux.html) to 
+Recently, our crucial microservice delivering listing data [switched](/2019/07/migrating-microservice-to-spring-webflux.html) to 
 [Spring WebFlux](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html). 
-A non-blocking approach gave us the possibility to reduce the number of threads and to scale effectively.
-Also, we entered the world of functional programming where code becomes declarative and can use quite a neat chaining of method calls. 
+A non-blocking approach gave us the possibility to reduce the number of server worker threads comparing to [Spring WebMvc](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html). 
+The reactive approach helped us to effectively build a scalable solution.
+Also, we entered the world of functional programming where code becomes declarative, so we could use quite a neat chaining of method calls. 
+
 Assume the business requirement is to bake gingerbread optimally. The following diagram should help to understand the recipe steps:
 
 <img alt="gingerbread diagram" src="/img/articles/2019-12-01-webflux-and-coroutines/gingerbreadDiagram.jpg" />
 
 In the beginning, when not very complicated logic was translated into webflux, we felt comfortable with the chaining of two or three lines of code.
-But the further into the forest, the more trees. Each functionality added caused code to be more complicated.
+However, the more you get into it, the more complicated it becomes. Some new additions made the code unreadable.
 Finally, we constructed such a monster:
 
 ```kotlin
@@ -58,7 +60,8 @@ Having a traditionally-looking piece of code, calling special function marked as
 a new sub-task is being launched within the coroutine.
 
 ### Process of code migration from java to kotlin with coroutines:
-- convert a few classes into kotlin
+- convert a few classes into kotlin. In this step I used IntelliJ IDEA functionality: _Convert Java to kotlin_. 
+Of course, it also requires some experience in this language to correct automatic translation. 
 - run tests, make sure they are green
 - analyze which variables are relevant (those on which other things depend or those requiring network calls)
 - extract these variables from a complicated chain as they could be used in a good old-fashioned procedural style
@@ -71,7 +74,7 @@ As a result, the variable of `Mono<T>` becomes just of `T` type. Note that other
 - wrap the whole body function into `mono {}` coroutine builder block 
 (from [kotlinx-coroutines-reactor](https://github.com/Kotlin/kotlinx.coroutines/tree/master/reactive/kotlinx-coroutines-reactor) package). 
 Note that the last statement in a block is being returned as a value. This kind of reactive stream is called as _cold mono_ 
-(_cold_ - produced new data for each subscriber, _hot mono/flux_ - publishes data regardless of subscribers connecting).
+(_cold_ - produced new copy of data for each subscriber, _hot mono/flux_ - publishes data regardless of subscribers presence).
 - make sure the code compiles and tests are passed
 
 
@@ -109,8 +112,8 @@ different technologies:
 
 Tests were run on a single machine: 
 - in one terminal an auxiliary server is started. It exposes a few endpoints with random delay in order to simulate 
-typical backend micro-service network calls,
-- in the second - gingerbread application requesting these endpoints (with reading timeout set to 80ms). 
+typical backend micro-service network traffic,
+- in the second - gingerbread application requesting these endpoints (with read timeout set to 80ms). 
 
 To verify various techniques I used [vegeta](https://github.com/tsenart/vegeta) and its `attack` command for sending 
 huge traffic against the gingerbread server. I am aware that the test conditions were not a laboratory, but tests show 
@@ -129,20 +132,23 @@ compared to webflux; it is shown in the table below:
 Note that blocking flow performs significantly worse even at a lower rate.
 Of course, more server threads mean more memory and CPU context switching. And in the long run, it is not a scalable solution.
 
-##### Conclusions: 
+##### Conclusions from testing: 
 - It is important what kind of client is selected in implementation. Application with blocking clients - 
-without careful configuration of thread pools - cannot handle high traffic comparing to non-blocking ones. 
-- So for suspendingCoroutines we can see lower throughput, although coroutines were used.
+without careful configuration of thread pools - cannot handle traffic as high as non-blocking ones. 
+- Using only coroutines may not be enough: for suspendingCoroutines endpoint we can see lower throughput (thread pool misconfiguration).
 For fuel client we observe a quite high rate - it is since fuel client method is _suspendable_.
 - The most important - there is no significant difference in performance of webflux reactive and webflux wrapped into coroutines.  
 
-Summarizing, there are a few essential benefits from migration from typical webflux code to webflux combined with coroutines. 
-The obvious is much more readable and maintainable code. There is no need to carefully use nestings only to show where 
-we are in the sophisticated flow. Debugging is as easy as standard procedural code. And, what is very important, 
-performance should not be degraded.
+### Summary:
+There are a few essential benefits from migration from typical webflux code to webflux combined with coroutines: 
+- the obvious is much more readable and maintainable code. There is no need to carefully use nestings only to show where 
+we are in the sophisticated flow
+- debugging is as easy as standard procedural code
+- and, what is very important, performance should not be degraded.
 
-However, coroutines are not always recommended. For example, when a project uses quite simple flow. 
-Remember that coroutines have some overhead as the complicated mechanism behind a scene is not for free. 
-Also, some claims coroutines in kotlin are over-engineered, low-level and very hard to understand from the user. 
-There is some entry threshold and developer needs to follow some rules that are not always easy to understand and to remember. 
-But nevertheless, coroutines are worth deep consideration.
+However, coroutines are not always recommended:
+- when a project uses quite simple flow. Remember that coroutines have some overhead as the complicated mechanism behind a scene is not for free. 
+- some claims coroutines in kotlin are over-engineered, low-level and very hard to understand for the user. 
+There is some entry threshold and developer needs to follow some rules that are not always easy to understand and to remember.
+
+But nevertheless, coroutines are worth deep consideration!
