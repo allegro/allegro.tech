@@ -5,8 +5,6 @@ author: [zbigniew.kuzera]
 tags: [tech, kotlin, coroutines]
 ---
 
-## Introduction
-
 Recently, our crucial microservice delivering listing data [switched](/2019/07/migrating-microservice-to-spring-webflux.html) to
 [Spring WebFlux](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html).
 A non-blocking approach gave us the possibility to reduce the number of server worker threads comparing to [Spring WebMvc](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html).
@@ -15,7 +13,7 @@ Also, we entered the world of functional programming where code becomes declarat
 
 Assume the business requirement is to bake gingerbread optimally. The following diagram should help to understand the recipe steps:
 
-<img alt="gingerbread diagram" src="/img/articles/2019-12-01-webflux-and-coroutines/gingerbreadDiagram.jpg" />
+![gingerbread diagram](/img/articles/2019-12-01-webflux-and-coroutines/gingerbreadDiagram.jpg)
 
 In the beginning, when not very complicated logic was translated into webflux, we felt comfortable with the chaining of two or three lines of code.
 However, the more you get into it, the more complicated it becomes. Some new additions made the code unreadable.
@@ -120,14 +118,14 @@ huge traffic against the gingerbread server. I am aware that the test conditions
 general possibilities of selected client techniques.
 
 #### Tests results (with 64 server workers)
-<img alt="vegeta tests 64 workers" src="/img/articles/2019-12-01-webflux-and-coroutines/vegetaTests64workers.png" />
+![vegeta tests 64 workers](/img/articles/2019-12-01-webflux-and-coroutines/vegetaTests64workers.png)
 
 It is worth to notice that netty worker count was set to 64 in order to provide thread resources for restTemplate blocking
 flow (alternatively a dedicated thread pool may be used instead). Normally it is set to a number of CPU cores (but at least 2),
 which is optimized for reactive techniques. Without this custom netty configuration, restTemplate performance is much lower
 compared to webflux; it is shown in the table below:
 
-<img alt="vegeta tests default config" src="/img/articles/2019-12-01-webflux-and-coroutines/vegetaTestsDefaultConfig.png" />
+![vegeta tests default config](/img/articles/2019-12-01-webflux-and-coroutines/vegetaTestsDefaultConfig.png)
 
 Note that blocking flow performs significantly worse even at a lower rate.
 Of course, more server threads mean more memory and CPU context switching. And in the long run, it is not a scalable solution.
