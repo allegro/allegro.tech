@@ -4,15 +4,15 @@
     "totalFound": 39,
     "content": [
         {
-            "id": "743999701477004",
-            "name": "Product Manager - Big Data",
-            "uuid": "6addedce-7c4c-4b4b-ba20-3fa3ce6c9762",
+            "id": "743999701502967",
+            "name": "Product Manager - Big Data / Analytics",
+            "uuid": "31b99761-be13-46dd-8e2c-fa68de7e6040",
             "refNumber": "REF1927U",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2019-12-06T07:33:22.000Z",
+            "releasedDate": "2019-12-06T14:00:34.000Z",
             "location": {
                 "city": "Warszawa",
                 "country": "pl"
@@ -73,7 +73,7 @@
                     "valueLabel": "product manager, PM, manager, project manager"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999701477004",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999701502967",
             "creator": {
                 "name": "Angelika Szymkiewicz"
             },
