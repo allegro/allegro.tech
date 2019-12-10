@@ -4,15 +4,15 @@
     "totalFound": 41,
     "content": [
         {
-            "id": "743999701760170",
-            "name": "Business Applications Administrator",
-            "uuid": "2ee7e359-c44b-427b-9b91-54372683afe6",
+            "id": "743999701766803",
+            "name": "Contact Center Applications Administrator",
+            "uuid": "82eaef06-1159-4811-b7b6-e7652086edc8",
             "refNumber": "REF1940H",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2019-12-10T08:44:26.000Z",
+            "releasedDate": "2019-12-10T10:01:24.000Z",
             "location": {
                 "city": "Poznań",
                 "region": "Greater Poland Voivodeship",
@@ -69,7 +69,7 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999701760170",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999701766803",
             "creator": {
                 "name": "Iwona Zawolik"
             },
