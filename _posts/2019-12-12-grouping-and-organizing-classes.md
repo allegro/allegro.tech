@@ -51,7 +51,7 @@ To get things working as described above the core must be completely independent
 This means that no class from outside the core can be used in the core.
 The relationships between the parts of the application will look like this:
 
-![Project Dependencies](/img/articles/2019-09-30-grouping-and-organizing-classes/project-dependencies.png "Project Dependencies")
+![Project Dependencies](/img/articles/2019-12-12-grouping-and-organizing-classes/project-dependencies.png "Project Dependencies")
 
 In Java we can represent each of the application part as a package.
 Let’s divide our project into main packages:
@@ -116,7 +116,7 @@ In this situation, the `team` package must also depend on the `project` package 
 Let’s try to make this relationship as loose as possible.
 Let’s present the dependencies between the packages in the `core` package on the diagram below:
 
-![Core Dependencies](/img/articles/2019-09-30-grouping-and-organizing-classes/core-dependencies.png "Core Dependencies")
+![Core Dependencies](/img/articles/2019-12-12-grouping-and-organizing-classes/core-dependencies.png "Core Dependencies")
 
 Now, let’s think about how to encapsulate the `project` package.
 Generally, the fewer public classes and methods the better.
