@@ -151,6 +151,7 @@ about our internal infrastructure. Although you can watch
 cover of the song [Let it go](https://www.youtube.com/watch?v=EUNyUR4fY7U) played as a summary of the talk. 
 Let us know what you think about this work style!
 
+<img alt="speakers" src="/img/articles/2019-12-01-allegro-tech-meeting/let_me_code_speakers.png" />
 
 ## Networking
 ATM is a kind of technology celebration at Allegro. These are 2 days filled with lectures on various 
@@ -170,7 +171,3 @@ which leads to cool conversations and interesting ideas!
 ## What’s next
 If you want to continue this adventure by yourself — take a look on our fb profile — 
 [allegro.tech](https://www.facebook.com/allegro.tech) where you can find all of videos from the conference. 
-
-[#atm12](https://twitter.com/hashtag/atm12)  
-[#allegrotechmeeting](https://twitter.com/hashtag/allegrotechmeeting)  
-[#dobrzetubyc](https://twitter.com/hashtag/dobrzetubyc)
