@@ -37,7 +37,7 @@ function addRegistrationLink(event, eventsFromEventbrite) {
 }
 
 function joinWithEventbrite(events) {
-    const config = {headers: {'Authorization': `Bearer ${process.argv[2]}`}};
+    const config = { headers: { 'Authorization': `Bearer ${process.argv[2]}` } };
     return axios.get(EVENTBRITE_SOURCE, config)
         .then(response => response.data.events)
         .then(eventbriteEvents => events.map(event => addRegistrationLink(event, eventbriteEvents)))
@@ -55,11 +55,12 @@ function setLatestStatus(events) {
             closest = date;
         }
     });
-    events.forEach(event => {
-        if (new Date(event.local_date).toDateString() === closest.toDateString()) {
-            event.status = 'near';
+    for (let i = 0; i < events.length; i++) {
+        if (new Date(events[i].local_date).toDateString() === closest.toDateString()) {
+            events[i].status = 'near';
+            break;
         }
-    });
+    }
     return events;
 }
 

@@ -1,20 +1,705 @@
 {
     "offset": 0,
     "limit": 100,
-    "totalFound": 37,
+    "totalFound": 38,
     "content": [
         {
-            "id": "743999696317111",
-            "name": "Product Manager - Performance Marketing Team",
-            "uuid": "edb3b9c8-b8ef-407d-b40a-f9de2a0655bd",
-            "refNumber": "REF1800L",
+            "id": "743999699882609",
+            "name": "Team Manager",
+            "uuid": "26812f9f-aa69-4474-a06f-1891be85723c",
+            "refNumber": "REF1920L",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-10-01T13:09:18.000Z",
+            "releasedDate": "2019-11-18T13:24:21.000Z",
+            "location": {
+                "city": "Warsaw",
+                "region": "Masovian Voivodeship",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "product_management",
+                "label": "Product Management"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "executive",
+                "label": "Executive"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699882609",
+            "creator": {
+                "name": "Katarzyna Wiśniewska"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999699868130",
+            "name": "Software Engineer",
+            "uuid": "0c08ed20-f929-4c61-93a8-2406704ed9cc",
+            "refNumber": "REF1900E",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-11-18T09:20:15.000Z",
+            "location": {
+                "city": "Warszawa",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "entry_level",
+                "label": "Entry Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699868130",
+            "creator": {
+                "name": "Małgorzata Sejdak"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999699867845",
+            "name": "Senior Software Engineer",
+            "uuid": "b90a8f98-fb94-4e78-8a80-f4e1d5c05b21",
+            "refNumber": "REF1903G",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-11-18T09:17:07.000Z",
+            "location": {
+                "city": "Warszawa",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699867845",
+            "creator": {
+                "name": "Małgorzata Sejdak"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999699720468",
+            "name": "Junior Software Engineer",
+            "uuid": "13ef0e00-d03a-4fd1-b6aa-1d99b0e6004e",
+            "refNumber": "REF1812L",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-11-15T09:45:51.000Z",
             "location": {
                 "city": "Kraków",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "entry_level",
+                "label": "Entry Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699720468",
+            "creator": {
+                "name": "Sara Aloe"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999699720231",
+            "name": "Software Engineer",
+            "uuid": "3a276cc1-a8bf-4aee-97cf-32d18ab422fe",
+            "refNumber": "REF1010S",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-11-15T09:42:18.000Z",
+            "location": {
+                "city": "Toruń",
+                "region": "Kuyavian-Pomeranian Voivodeship",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "java, kotlin, scala, backend, java software engineer, java developer, spark, hadoop, spring, senior java engineer, programista"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699720231",
+            "creator": {
+                "name": "Maciej Matwiejczyk"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999699720139",
+            "name": "Junior Software Engineer",
+            "uuid": "2d868579-5601-4afb-a3e0-5d34bcf4bd21",
+            "refNumber": "REF1901Y",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-11-15T09:40:54.000Z",
+            "location": {
+                "city": "Warszawa",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "entry_level",
+                "label": "Entry Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699720139",
+            "creator": {
+                "name": "Iwona Zawolik"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999699719220",
+            "name": "Junior Software Engineer",
+            "uuid": "842e9dcc-d9f4-4391-aeef-5dc8902cc92f",
+            "refNumber": "REF1811A",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-11-15T09:30:47.000Z",
+            "location": {
+                "city": "Toruń",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "entry_level",
+                "label": "Entry Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "python, java, jvm, software, engineer, kotlin, scala, developer,"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699719220",
+            "creator": {
+                "name": "Maciej Matwiejczyk"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999699719124",
+            "name": "Junior Software Engineer",
+            "uuid": "d52d5205-ad5e-44b0-b1fd-269b7655dc68",
+            "refNumber": "REF1665I",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-11-15T09:29:39.000Z",
+            "location": {
+                "city": "Poznań",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "entry_level",
+                "label": "Entry Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "junior developer, programista, java, scala, kotlin, jvm, programmer, inżynier"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699719124",
+            "creator": {
+                "name": "Maciej Matwiejczyk"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999699637035",
+            "name": "Software Engineer",
+            "uuid": "b73e5465-e387-44ae-8eda-d8f8fb40d4b2",
+            "refNumber": "160553",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-11-14T16:28:26.000Z",
+            "location": {
+                "city": "Poznań",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "java, scala, kotlin, developer, backend, spring, inżynier, programista, programmer, architektura, architecture, architekt"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699637035",
+            "creator": {
+                "name": "Anna Śniedziewska"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999699570972",
+            "name": "Software Engineer (Python)",
+            "uuid": "781c50a7-c173-4196-8d01-58dde1cbdd65",
+            "refNumber": "REF1908U",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-11-13T21:25:02.000Z",
+            "location": {
+                "city": "Poznań",
                 "country": "pl"
             },
             "industry": {
@@ -66,11 +751,16 @@
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "python, java, vue, kotlin, programista, inżynier, developer"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999696317111",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699570972",
             "creator": {
-                "name": "Sara Aloe"
+                "name": "Anna Śniedziewska"
             },
             "language": {
                 "code": "pl",
@@ -79,17 +769,97 @@
             }
         },
         {
-            "id": "743999695333865",
-            "name": "Data Scientist - Search",
-            "uuid": "e68d5d8e-10f4-4726-b720-1649271fdcef",
-            "refNumber": "REF1669A",
+            "id": "743999699570684",
+            "name": "Senior Software Engineer",
+            "uuid": "e133b2cd-2d0f-4df7-9b64-4d17767f5484",
+            "refNumber": "REF1643I",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-09-17T14:19:01.000Z",
+            "releasedDate": "2019-11-13T21:20:55.000Z",
             "location": {
-                "city": "Poznań, Toruń, Warszawa",
+                "city": "Poznań",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "java, scala, kotlin, developer, backend, spring, inżynier, programista, programmer, architektura, architecture, architekt"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699570684",
+            "creator": {
+                "name": "Anna Śniedziewska"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999699387917",
+            "name": "Product Manager - Product Catalogue",
+            "uuid": "3210e5aa-ecf9-4c39-888a-f7a12cf23c9c",
+            "refNumber": "REF1909B",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-11-12T11:28:43.000Z",
+            "location": {
+                "city": "Poznań, Toruń",
                 "country": "pl"
             },
             "industry": {
@@ -153,17 +923,11 @@
                     "fieldLabel": "Poznań",
                     "valueId": "ac20917b-cb6a-4280-aff3-4fae2532a33e",
                     "valueLabel": "Tak"
-                },
-                {
-                    "fieldId": "58c156e6e4b01d4b19ddf793",
-                    "fieldLabel": "Warszawa",
-                    "valueId": "6a428533-1586-4372-89ec-65fb45366363",
-                    "valueLabel": "Tak"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999695333865",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699387917",
             "creator": {
-                "name": "Anna Śniedziewska"
+                "name": "Małgorzata Sejdak"
             },
             "language": {
                 "code": "pl",
@@ -172,17 +936,17 @@
             }
         },
         {
-            "id": "743999694917744",
-            "name": "Software Engineer - Devops",
-            "uuid": "5041a910-9b5b-48bd-88a6-7d278ae89fc7",
-            "refNumber": "REF1609I",
+            "id": "743999699148381",
+            "name": "Data Analyst",
+            "uuid": "0932d2ab-e4f6-49dc-874d-3e7878c9ce3e",
+            "refNumber": "REF1588D",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-09-11T13:08:37.000Z",
+            "releasedDate": "2019-11-08T09:58:29.000Z",
             "location": {
-                "city": "Warszawa",
+                "city": "Poznań",
                 "country": "pl"
             },
             "industry": {
@@ -190,19 +954,19 @@
                 "label": "Internet"
             },
             "department": {
-                "id": "1013445",
-                "label": "Technology - Technical Platform"
+                "id": "1013462",
+                "label": "Technology - Product Development"
             },
             "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
+                "id": "analyst",
+                "label": "Analyst"
             },
             "typeOfEmployment": {
                 "label": "Full-time"
             },
             "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
+                "id": "associate",
+                "label": "Associate"
             },
             "customField": [
                 {
@@ -226,19 +990,24 @@
                 {
                     "fieldId": "58c13159e4b01d4b19ddf729",
                     "fieldLabel": "Department",
-                    "valueId": "1013445",
-                    "valueLabel": "Technology - Technical Platform"
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "data analyst, data analysis, analiza danych, dane, analityk, analiza, data, SQL, big data, python"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999694917744",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699148381",
             "creator": {
-                "name": "Katarzyna Wiśniewska"
+                "name": "Izabela Semrau"
             },
             "language": {
                 "code": "pl",
@@ -247,15 +1016,131 @@
             }
         },
         {
-            "id": "743999694894600",
+            "id": "743999698025767",
+            "name": "UX Designer",
+            "uuid": "c4c5de21-afc0-44da-8d3c-035fea05d304",
+            "refNumber": "REF1352B",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-10-24T10:08:56.000Z",
+            "location": {
+                "city": "Warszawa, Poznań",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "58c1575ee4b01d4b19ddf797",
+                    "fieldLabel": "Kraków",
+                    "valueId": "bcab9d4f-8624-4d85-8e3d-dbf12239b972",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c15798e4b01d4b19ddf79b",
+                    "fieldLabel": "Wrocław",
+                    "valueId": "31873284-1e97-427d-8918-6ce504344351",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c15788e4b0614667d59733",
+                    "fieldLabel": "Błonie",
+                    "valueId": "25f6cb8c-81b3-434a-93ec-6dc851d5808d",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "58c156b9e4b01d4b19ddf792",
+                    "fieldLabel": "Poznań",
+                    "valueId": "ac20917b-cb6a-4280-aff3-4fae2532a33e",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c1576ee4b0614667d59732",
+                    "fieldLabel": "Toruń",
+                    "valueId": "a6765624-e047-4a26-9481-9621086d8b96",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c156e6e4b01d4b19ddf793",
+                    "fieldLabel": "Warszawa",
+                    "valueId": "6a428533-1586-4372-89ec-65fb45366363",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "UX, user experience, projektant, projektowanie, UI, Axure, Sketch, InVision"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999698025767",
+            "creator": {
+                "name": "Angelika Szymkiewicz"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999698019092",
             "name": "Agile Coach",
-            "uuid": "e453e9de-5477-4dfb-8f01-a341fc5c6daa",
+            "uuid": "8e862085-b52f-410b-ae67-56fa089d07d0",
             "refNumber": "REF1181Q",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-09-11T07:19:31.000Z",
+            "releasedDate": "2019-10-24T08:19:44.000Z",
             "location": {
                 "city": "Warszawa",
                 "country": "pl"
@@ -335,9 +1220,9 @@
                     "valueLabel": "Tak"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999694894600",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999698019092",
             "creator": {
-                "name": "Joanna Dębska"
+                "name": "Mateusz Jabłonowski"
             },
             "language": {
                 "code": "pl",
@@ -346,15 +1231,15 @@
             }
         },
         {
-            "id": "743999694165315",
+            "id": "743999697892622",
             "name": "Data Analyst",
-            "uuid": "d7654a7c-d85d-4e3b-86a8-62b5ecb37c6f",
+            "uuid": "1141b91a-6159-411c-858d-6a27af47fa8f",
             "refNumber": "REF1837D",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-08-29T12:46:46.000Z",
+            "releasedDate": "2019-10-22T18:37:44.000Z",
             "location": {
                 "city": "Kraków",
                 "region": "Lesser Poland Voivodeship",
@@ -405,7 +1290,7 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999694165315",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697892622",
             "creator": {
                 "name": "Sara Aloe"
             },
@@ -416,17 +1301,17 @@
             }
         },
         {
-            "id": "743999693703905",
-            "name": "Product Manager - Technology Team",
-            "uuid": "34d4f00c-0841-423b-b8f9-51982527becb",
-            "refNumber": "REF1825W",
+            "id": "743999697891137",
+            "name": "Team Leader - Technology",
+            "uuid": "144b0fc0-7953-44ae-ab5d-19a51ff9be7b",
+            "refNumber": "REF1699R",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-08-21T12:53:59.000Z",
+            "releasedDate": "2019-10-22T18:28:02.000Z",
             "location": {
-                "city": "Warszawa",
+                "city": "Kraków",
                 "country": "pl"
             },
             "industry": {
@@ -462,12 +1347,6 @@
                     "valueLabel": "Poland"
                 },
                 {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
                     "fieldId": "58c13159e4b01d4b19ddf729",
                     "fieldLabel": "Department",
                     "valueId": "1013462",
@@ -482,12 +1361,12 @@
                 {
                     "fieldId": "5cdab2c84cedfd0006e7758c",
                     "fieldLabel": "Key words",
-                    "valueLabel": "product manager, product owner, retail basics, scrum, project manager, product, price selection, produkt, zarządzanie produktem"
+                    "valueLabel": "team leader, java, kotlin, scala, backend, java software engineer, management, team management, java developer, programista"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999693703905",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697891137",
             "creator": {
-                "name": "Natalia Santorek"
+                "name": "Sara Aloe"
             },
             "language": {
                 "code": "pl",
@@ -496,17 +1375,17 @@
             }
         },
         {
-            "id": "743999693696445",
-            "name": "Senior Data Scientist",
-            "uuid": "546043e0-2c79-4feb-8ca8-c5fe4968d9c6",
-            "refNumber": "REF1843N",
+            "id": "743999697890847",
+            "name": "Product Manager - Performance Marketing Team",
+            "uuid": "e2a98520-9539-43cc-870d-85806bb9dc2f",
+            "refNumber": "REF1800L",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-08-21T09:54:11.000Z",
+            "releasedDate": "2019-10-22T18:26:06.000Z",
             "location": {
-                "city": "Warszawa",
+                "city": "Kraków",
                 "country": "pl"
             },
             "industry": {
@@ -514,12 +1393,12 @@
                 "label": "Internet"
             },
             "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
+                "id": "1013445",
+                "label": "Technology - Technical Platform"
             },
             "function": {
-                "id": "analyst",
-                "label": "Analyst"
+                "id": "information_technology",
+                "label": "Information Technology"
             },
             "typeOfEmployment": {
                 "label": "Full-time"
@@ -550,24 +1429,19 @@
                 {
                     "fieldId": "58c13159e4b01d4b19ddf729",
                     "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
+                    "valueId": "1013445",
+                    "valueLabel": "Technology - Technical Platform"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "data, science, data science, senior, python, pyspark, r"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999693696445",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697890847",
             "creator": {
-                "name": "Natalia Santorek"
+                "name": "Sara Aloe"
             },
             "language": {
                 "code": "pl",
@@ -576,15 +1450,15 @@
             }
         },
         {
-            "id": "743999693541159",
-            "name": "Data Engineer",
-            "uuid": "b1bae145-aab7-465a-894b-793ab7d112b7",
+            "id": "743999697890396",
+            "name": "Big Data Engineer",
+            "uuid": "35713086-216f-48c7-954b-160befc757eb",
             "refNumber": "REF1841K",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-08-19T08:38:09.000Z",
+            "releasedDate": "2019-10-22T18:22:54.000Z",
             "location": {
                 "city": "Kraków",
                 "country": "pl"
@@ -634,7 +1508,7 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999693541159",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697890396",
             "creator": {
                 "name": "Sara Aloe"
             },
@@ -645,15 +1519,91 @@
             }
         },
         {
-            "id": "743999693277419",
+            "id": "743999697890238",
+            "name": "Senior Software Engineer",
+            "uuid": "437f42f1-f661-4c67-9ab1-4c898387464e",
+            "refNumber": "REF1898H",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-10-22T18:21:18.000Z",
+            "location": {
+                "city": "Kraków",
+                "region": "Lesser Poland Voivodeship",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697890238",
+            "creator": {
+                "name": "Sara Aloe"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999697865924",
             "name": "Research Engineer - Machine Learning",
-            "uuid": "ec577bfd-1e72-4244-a4c5-45bc57081a8e",
+            "uuid": "634e2d62-13ed-41a2-8763-b58e779ef3d5",
             "refNumber": "REF1694Q",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-08-13T14:05:42.000Z",
+            "releasedDate": "2019-10-22T14:19:09.000Z",
             "location": {
                 "city": "Warszawa, Kraków, Poznań, Toruń",
                 "country": "pl"
@@ -750,7 +1700,7 @@
                     "valueLabel": "data scientist, NLP, ML, uczenie maszynowe, sieci neuronowe, modele lasów drzew decyzyjnych, modele Bayes’owskie, information retrieval, język naturalny, szeregi czasowe, dane, python, statystyka"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999693277419",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697865924",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
@@ -761,17 +1711,111 @@
             }
         },
         {
-            "id": "743999692829188",
-            "name": "Front-end Software Engineer",
-            "uuid": "d5705dc1-3e74-438a-952b-c7eae6c58925",
-            "refNumber": "REF1709E",
+            "id": "743999697774798",
+            "name": "Mobile Software Test Engineer (iOS/Android)",
+            "uuid": "a6c66af1-9409-4ae3-9961-fb2fe7c0184d",
+            "refNumber": "REF1905R",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-08-05T13:43:31.000Z",
+            "releasedDate": "2019-10-21T14:03:35.000Z",
             "location": {
-                "city": "Toruń",
+                "city": "Warszawa, Toruń",
+                "region": "Masovian Voivodeship",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "quality_assurance",
+                "label": "Quality Assurance"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "entry_level",
+                "label": "Entry Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "58c1576ee4b0614667d59732",
+                    "fieldLabel": "Toruń",
+                    "valueId": "987e8884-bad1-4a8f-b149-99e4184cc221",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c156e6e4b01d4b19ddf793",
+                    "fieldLabel": "Warszawa",
+                    "valueId": "6a428533-1586-4372-89ec-65fb45366363",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "tester, QA, quality assurance, Test specialist, test engineer, testing, quality, mobile, iOS, android"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697774798",
+            "creator": {
+                "name": "Angelika Szymkiewicz"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999697652035",
+            "name": "Junior Software Engineer",
+            "uuid": "2efc7230-fc0f-4ea7-950a-2edab3f67255",
+            "refNumber": "REF1899X",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-10-18T15:30:14.000Z",
+            "location": {
+                "city": "Kraków",
+                "region": "Lesser Poland Voivodeship",
                 "country": "pl"
             },
             "industry": {
@@ -807,6 +1851,12 @@
                     "valueLabel": "Poland"
                 },
                 {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
                     "fieldId": "58c13159e4b01d4b19ddf729",
                     "fieldLabel": "Department",
                     "valueId": "1013462",
@@ -819,9 +1869,9 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999692829188",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697652035",
             "creator": {
-                "name": "Małgorzata Sejdak"
+                "name": "Sara Aloe"
             },
             "language": {
                 "code": "pl",
@@ -830,17 +1880,18 @@
             }
         },
         {
-            "id": "743999692589452",
-            "name": "Mobile UX Designer",
-            "uuid": "03594367-8ace-413b-b699-803dd98d6326",
-            "refNumber": "REF1827G",
+            "id": "743999697646596",
+            "name": "Software Engineer",
+            "uuid": "a42f3bb2-1dfc-4c88-b298-74311956d2ca",
+            "refNumber": "REF1897G",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-07-31T11:06:48.000Z",
+            "releasedDate": "2019-10-18T14:45:21.000Z",
             "location": {
-                "city": "Poznań, Warszawa",
+                "city": "Kraków",
+                "region": "Lesser Poland Voivodeship",
                 "country": "pl"
             },
             "industry": {
@@ -852,15 +1903,15 @@
                 "label": "Technology - Product Development"
             },
             "function": {
-                "id": "design",
-                "label": "Design"
+                "id": "information_technology",
+                "label": "Information Technology"
             },
             "typeOfEmployment": {
                 "label": "Full-time"
             },
             "experienceLevel": {
-                "id": "associate",
-                "label": "Associate"
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
             },
             "customField": [
                 {
@@ -870,10 +1921,183 @@
                     "valueLabel": "IT Allegro"
                 },
                 {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697646596",
+            "creator": {
+                "name": "Sara Aloe"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999697614952",
+            "name": "Team Leader - BigData / Analytics",
+            "uuid": "e86ea388-aa0c-4a67-862a-d7f9b0337ed4",
+            "refNumber": "REF1886R",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-10-18T08:35:14.000Z",
+            "location": {
+                "city": "Warszawa",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "entry_level",
+                "label": "Entry Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "Team Leader, Big Data, Software Engineer"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697614952",
+            "creator": {
+                "name": "Małgorzata Sejdak"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999697540071",
+            "name": "Data Scientist",
+            "uuid": "ebeb5219-e76e-44b6-b3c1-d43cf195f386",
+            "refNumber": "REF1779Q",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-10-17T13:05:56.000Z",
+            "location": {
+                "city": "Warszawa, Poznań, Toruń",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "analyst",
+                "label": "Analyst"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
+            },
+            "customField": [
+                {
                     "fieldId": "58c1575ee4b01d4b19ddf797",
                     "fieldLabel": "Kraków",
                     "valueId": "bcab9d4f-8624-4d85-8e3d-dbf12239b972",
                     "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c1576ee4b0614667d59732",
+                    "fieldLabel": "Toruń",
+                    "valueId": "987e8884-bad1-4a8f-b149-99e4184cc221",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c156e6e4b01d4b19ddf793",
+                    "fieldLabel": "Warszawa",
+                    "valueId": "6a428533-1586-4372-89ec-65fb45366363",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
                 },
                 {
                     "fieldId": "58c15798e4b01d4b19ddf79b",
@@ -900,12 +2124,6 @@
                     "valueLabel": "Technology - Product Development"
                 },
                 {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
-                    "valueLabel": "Tak"
-                },
-                {
                     "fieldId": "58c13159e4b01d4b19ddf728",
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
@@ -918,26 +2136,14 @@
                     "valueLabel": "Tak"
                 },
                 {
-                    "fieldId": "58c1576ee4b0614667d59732",
-                    "fieldLabel": "Toruń",
-                    "valueId": "a6765624-e047-4a26-9481-9621086d8b96",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c156e6e4b01d4b19ddf793",
-                    "fieldLabel": "Warszawa",
-                    "valueId": "6a428533-1586-4372-89ec-65fb45366363",
-                    "valueLabel": "Tak"
-                },
-                {
                     "fieldId": "5cdab2c84cedfd0006e7758c",
                     "fieldLabel": "Key words",
-                    "valueLabel": "UX, user experience, UX design, UX designer, projektant, mobile"
+                    "valueLabel": "data science, data scientist, python, pyspark, machine learning, recommendations, ML, rekomendacje"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999692589452",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697540071",
             "creator": {
-                "name": "Izabela Semrau"
+                "name": "Anna Śniedziewska"
             },
             "language": {
                 "code": "pl",
@@ -946,93 +2152,93 @@
             }
         },
         {
-            "id": "743999692450812",
-            "name": "Software Engineer",
-            "uuid": "7c093712-45b5-4a93-ab73-920d17c97b9e",
-            "refNumber": "REF960Z",
+            "id": "743999697539169",
+            "name": "Team Leader - Technology",
+            "uuid": "a0bdb8e6-3f31-4648-b38f-1b1bb874e96a",
+            "refNumber": "REF1885V",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-07-29T12:51:53.000Z",
+            "releasedDate": "2019-10-17T12:51:23.000Z",
+            "location": {
+                "city": "Warszawa",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "entry_level",
+                "label": "Entry Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697539169",
+            "creator": {
+                "name": "Małgorzata Sejdak"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999697528945",
+            "name": "Front-End Software Engineer",
+            "uuid": "5ad59891-c7ef-4d19-99c2-1e709539fff2",
+            "refNumber": "REF1517J",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-10-17T09:36:59.000Z",
             "location": {
                 "city": "Warszawa",
                 "region": "mazowieckie",
-                "country": "pl",
-                "postalCode": "05"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "default",
-                    "valueLabel": "Allegro Group"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "java, kotlin, developer, backend, back end, programowanie, deweloper, programista, inżynier, scala"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999692450812",
-            "creator": {
-                "name": "Natalia Santorek"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999692004625",
-            "name": "Front-end Software Engineer (Web Performance)",
-            "uuid": "a3fd630d-f037-45df-83da-ff4d124bcc0a",
-            "refNumber": "REF1690E",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-07-19T08:27:41.000Z",
-            "location": {
-                "city": "Warszawa",
                 "country": "pl"
             },
             "industry": {
@@ -1068,6 +2274,12 @@
                     "valueLabel": "Poland"
                 },
                 {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
                     "fieldId": "58c13159e4b01d4b19ddf729",
                     "fieldLabel": "Department",
                     "valueId": "1013462",
@@ -1082,10 +2294,10 @@
                 {
                     "fieldId": "5cdab2c84cedfd0006e7758c",
                     "fieldLabel": "Key words",
-                    "valueLabel": "Javascript, React, Angular, Node js., Vue, front-end, frontend, front end developer, web performance, programista"
+                    "valueLabel": "React, Angular, Node js., Javascript, Vue, front-end, front-end software engineer, frontend, front end, programista, inżynier, front-end developer,"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999692004625",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697528945",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
@@ -1096,492 +2308,15 @@
             }
         },
         {
-            "id": "743999691798797",
-            "name": "Junior Software Engineer",
-            "uuid": "8ee4eada-ae45-46a7-9b83-9a660ff05880",
-            "refNumber": "REF1812L",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-07-16T11:24:16.000Z",
-            "location": {
-                "city": "Kraków",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999691798797",
-            "creator": {
-                "name": "Sara Aloe"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999691798487",
-            "name": "Junior Software Engineer",
-            "uuid": "200a6dd9-89c6-4923-8e84-9f983c6141d5",
-            "refNumber": "REF1666U",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-07-16T11:15:43.000Z",
-            "location": {
-                "city": "Warszawa",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "entry_level",
-                "label": "Entry Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "junior, software engineer, developer, deweloper, programista, java, jvm, kotlin, backend, back end, back-end, java, scala"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999691798487",
-            "creator": {
-                "name": "Natalia Santorek"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999691797541",
-            "name": "Junior Software Engineer",
-            "uuid": "2622fb5e-fbfd-4705-a6c2-c104736a395f",
-            "refNumber": "REF1811A",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-07-16T10:48:50.000Z",
-            "location": {
-                "city": "Toruń",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "entry_level",
-                "label": "Entry Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999691797541",
-            "creator": {
-                "name": "Małgorzata Sejdak"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999691794318",
-            "name": "Junior Software Engineer",
-            "uuid": "7031a244-69a2-4c25-9119-c50fa8f77bad",
-            "refNumber": "REF1665I",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-07-16T10:10:47.000Z",
-            "location": {
-                "city": "Poznań",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "entry_level",
-                "label": "Entry Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "junior developer, programista, java, scala, kotlin, jvm, programmer, inżynier"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999691794318",
-            "creator": {
-                "name": "Anna Śniedziewska"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999691485758",
-            "name": "Product Manager",
-            "uuid": "8fe7f2e6-e05c-4487-93dc-d51768a13409",
-            "refNumber": "REF1801Q",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-07-10T12:07:57.000Z",
-            "location": {
-                "city": "Poznań",
-                "region": "Greater Poland Voivodeship",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "PM, product owner, PO, agile, scrum, produkt, zarządzanie"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999691485758",
-            "creator": {
-                "name": "Anna Śniedziewska"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999690412476",
-            "name": "Software Engineer - Big Data Team",
-            "uuid": "02bd2128-e80a-44fc-8f3b-0c0163df6027",
-            "refNumber": "REF1795E",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-06-25T12:50:08.000Z",
-            "location": {
-                "city": "Warszawa, Kraków",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c1575ee4b01d4b19ddf797",
-                    "fieldLabel": "Kraków",
-                    "valueId": "2cfcfcc1-da44-43f7-8eaa-3907faf2797c",
-                    "valueLabel": "Tak"
-                },
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
-                    "valueLabel": "Tak"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "58c156e6e4b01d4b19ddf793",
-                    "fieldLabel": "Warszawa",
-                    "valueId": "6a428533-1586-4372-89ec-65fb45366363",
-                    "valueLabel": "Tak"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "Java, Scala, Spark, Druid, Airflow, Big Data, bigdata, Google Cloud Platform, Dataflow, BigQuery, unix, linux, developer, programista, programmer, dev, inżynier, engineer, Spark, Hadoop"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999690412476",
-            "creator": {
-                "name": "Jan Piętka"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999690261098",
+            "id": "743999696895750",
             "name": "Front-end Software Engineer",
-            "uuid": "b8b7da66-ba35-4d44-8946-42b0711b19ad",
+            "uuid": "45990779-b252-4af7-a41b-e2303fded77a",
             "refNumber": "REF1794T",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-06-21T12:07:33.000Z",
+            "releasedDate": "2019-10-08T19:17:40.000Z",
             "location": {
                 "city": "Poznań",
                 "country": "pl"
@@ -1591,8 +2326,8 @@
                 "label": "Internet"
             },
             "department": {
-                "id": "1013445",
-                "label": "Technology - Technical Platform"
+                "id": "1013462",
+                "label": "Technology - Product Development"
             },
             "function": {
                 "id": "information_technology",
@@ -1627,8 +2362,8 @@
                 {
                     "fieldId": "58c13159e4b01d4b19ddf729",
                     "fieldLabel": "Department",
-                    "valueId": "1013445",
-                    "valueLabel": "Technology - Technical Platform"
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
@@ -1642,7 +2377,7 @@
                     "valueLabel": "backend, go, java, full stack, javascript, react, angular, js, web developer, frontend developer"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999690261098",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999696895750",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
@@ -1653,250 +2388,15 @@
             }
         },
         {
-            "id": "743999689295451",
-            "name": "Data Scientist",
-            "uuid": "bcb7f161-1697-4748-85f7-c29339c725b1",
-            "refNumber": "REF1779Q",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-06-04T11:55:04.000Z",
-            "location": {
-                "city": "Warszawa",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "analyst",
-                "label": "Analyst"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "data science, data scientist, python, pyspark, machine learning, recommendations, ML, rekomendacje"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999689295451",
-            "creator": {
-                "name": "Natalia Santorek"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999689139646",
-            "name": "Systems Engineer",
-            "uuid": "578113c1-b3da-4069-bd19-e15ac3752850",
-            "refNumber": "REF1782F",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-05-31T08:33:11.000Z",
-            "location": {
-                "city": "Toruń",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013445",
-                "label": "Technology - Technical Platform"
-            },
-            "function": {
-                "id": "engineering",
-                "label": "Engineering"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013445",
-                    "valueLabel": "Technology - Technical Platform"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "systems, engineer, big data, bigdata, developer, hadoop"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999689139646",
-            "creator": {
-                "name": "Natalia Santorek"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999689013341",
-            "name": "Mobile Software Test Engineer (iOS)",
-            "uuid": "a1e53121-daca-4250-9a19-8c025478eecc",
-            "refNumber": "REF1769R",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-05-29T10:20:11.000Z",
-            "location": {
-                "city": "Poznań",
-                "region": "Greater Poland Voivodeship",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "tester, ios, android, swift, objective-c, testowanie, quality engineer, quality"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999689013341",
-            "creator": {
-                "name": "Anna Śniedziewska"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999689013134",
+            "id": "743999696633133",
             "name": "UX Researcher",
-            "uuid": "eddf45a5-014f-469b-8611-f968edce6717",
+            "uuid": "4ddb5500-51da-443f-a13c-06f3360208c9",
             "refNumber": "REF1740I",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-05-29T10:16:27.000Z",
+            "releasedDate": "2019-10-04T15:06:33.000Z",
             "location": {
                 "city": "Poznań, Warszawa",
                 "country": "pl"
@@ -1993,7 +2493,7 @@
                     "valueLabel": "badacz, analiza, analityk, badania, badania ilościowe, badania jakościowe, wywiady"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999689013134",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999696633133",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
@@ -2004,17 +2504,17 @@
             }
         },
         {
-            "id": "743999689012944",
-            "name": "UX Designer",
-            "uuid": "b9b31b16-6119-4f2f-a53f-d9952a601fb6",
-            "refNumber": "REF1352B",
+            "id": "743999696629956",
+            "name": "Mobile UX Designer",
+            "uuid": "5a841218-6343-40a3-9ab7-e3f174ea7ab9",
+            "refNumber": "REF1827G",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-05-29T10:10:49.000Z",
+            "releasedDate": "2019-10-04T14:46:19.000Z",
             "location": {
-                "city": "Warszawa, Poznań",
+                "city": "Poznań, Warszawa",
                 "country": "pl"
             },
             "industry": {
@@ -2026,15 +2526,15 @@
                 "label": "Technology - Product Development"
             },
             "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
+                "id": "design",
+                "label": "Design"
             },
             "typeOfEmployment": {
                 "label": "Full-time"
             },
             "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
+                "id": "associate",
+                "label": "Associate"
             },
             "customField": [
                 {
@@ -2106,12 +2606,12 @@
                 {
                     "fieldId": "5cdab2c84cedfd0006e7758c",
                     "fieldLabel": "Key words",
-                    "valueLabel": "projektant, projektowanie, UI, Axure, Sketch, InVision"
+                    "valueLabel": "UX, user experience, UX design, UX designer, projektant, mobile"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999689012944",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999696629956",
             "creator": {
-                "name": "Anna Śniedziewska"
+                "name": "Izabela Semrau"
             },
             "language": {
                 "code": "pl",
@@ -2120,257 +2620,15 @@
             }
         },
         {
-            "id": "743999689012852",
-            "name": "Senior Software Engineer",
-            "uuid": "c5eef00a-751b-48d3-a871-92d4beb2628f",
-            "refNumber": "REF1643I",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-05-29T10:09:21.000Z",
-            "location": {
-                "city": "Poznań",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "java, scala, kotlin, developer, backend, spring, inżynier, programista, programmer, architektura, architecture, architekt"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999689012852",
-            "creator": {
-                "name": "Anna Śniedziewska"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999689012784",
-            "name": "Software Engineer",
-            "uuid": "6c37d82f-258b-4707-aa54-62413e7207aa",
-            "refNumber": "160553",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-05-29T10:08:21.000Z",
-            "location": {
-                "city": "Poznań",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "default",
-                    "valueLabel": "Allegro Group"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "java, scala, kotlin, developer, backend, spring, inżynier, programista, programmer, architektura, architecture, architekt"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999689012784",
-            "creator": {
-                "name": "Anna Śniedziewska"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999685471655",
-            "name": "Software Engineer",
-            "uuid": "c72c8ef2-09d1-4703-8f8a-e1d30459f8ba",
-            "refNumber": "REF1187U",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-03-21T15:55:02.000Z",
-            "location": {
-                "city": "Kraków",
-                "region": "Lesser Poland Voivodeship",
-                "country": "pl",
-                "postalCode": "30"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "java, kotlin, scala, backend, java software engineer, java developer, spark, hadoop, spring, senior java engineer"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999685471655",
-            "creator": {
-                "name": "Jan Piętka"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999685194909",
+            "id": "743999696624971",
             "name": "Senior Mobile Software Engineer (iOS)",
-            "uuid": "e1e1699f-67cc-4a3e-9252-534aa7ac3316",
+            "uuid": "54d17bad-c08b-40ef-ad32-79abbfaa2af7",
             "refNumber": "REF1706Q",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-03-15T13:21:18.000Z",
+            "releasedDate": "2019-10-04T14:12:57.000Z",
             "location": {
                 "city": "Poznań",
                 "country": "pl"
@@ -2425,9 +2683,9 @@
                     "valueLabel": "iOS, Swift, Xcode, mobile, iOS developer, iOS engineer, iOS app engineer, Objective-C, programista iOS"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999685194909",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999696624971",
             "creator": {
-                "name": "Małgorzata Sejdak"
+                "name": "Mateusz Jabłonowski"
             },
             "language": {
                 "code": "pl",
@@ -2436,163 +2694,182 @@
             }
         },
         {
-            "id": "743999685046638",
-            "name": "Team Leader - Technology",
-            "uuid": "32b33c83-3da8-4412-b736-7105eb33c6c7",
-            "refNumber": "REF1699R",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-03-13T08:49:29.000Z",
-            "location": {
-                "city": "Kraków",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "team leader, java, kotlin, scala, backend, java software engineer, management, team management, java developer, programista"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999685046638",
-            "creator": {
-                "name": "Małgorzata Sejdak"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999683940204",
-            "name": "Senior Software Engineer",
-            "uuid": "25c69d0c-f3c6-4911-bd4a-0bac2c82520b",
-            "refNumber": "REF1679D",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2019-02-18T10:23:23.000Z",
-            "location": {
-                "city": "Kraków",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "java, kotlin, scala, backend, java software engineer, java developer, spark, hadoop, spring, senior java engineer, programista"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999683940204",
-            "creator": {
-                "name": "Małgorzata Sejdak"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999682282898",
+            "id": "743999696624652",
             "name": "Mobile Software Engineer (iOS)",
-            "uuid": "14b2cea5-814c-4388-b0de-4397ecc65ec7",
+            "uuid": "e5889ad0-7620-45f9-ac92-1bf333b5b05f",
+            "refNumber": "REF1590G",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-10-04T14:11:32.000Z",
+            "location": {
+                "city": "Warszawa",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "iOS, Swift, Xcode, mobile, iOS developer, iOS engineer, iOS app engineer, Objective-C"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999696624652",
+            "creator": {
+                "name": "Mateusz Jabłonowski"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999696624565",
+            "name": "Mobile Software Engineer (Android)",
+            "uuid": "4c61e2ac-dbb2-406b-b942-945cf766deee",
+            "refNumber": "REF1636H",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-10-04T14:11:10.000Z",
+            "location": {
+                "city": "Toruń, Poznań, Warszawa",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "58c1576ee4b0614667d59732",
+                    "fieldLabel": "Toruń",
+                    "valueId": "987e8884-bad1-4a8f-b149-99e4184cc221",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c156b9e4b01d4b19ddf792",
+                    "fieldLabel": "Poznań",
+                    "valueId": "ac20917b-cb6a-4280-aff3-4fae2532a33e",
+                    "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "58c156e6e4b01d4b19ddf793",
+                    "fieldLabel": "Warszawa",
+                    "valueId": "6a428533-1586-4372-89ec-65fb45366363",
+                    "valueLabel": "Tak"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999696624565",
+            "creator": {
+                "name": "Mateusz Jabłonowski"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999696624339",
+            "name": "Mobile Software Engineer (iOS)",
+            "uuid": "9feffef2-5fae-4fc4-9348-80501d897881",
             "refNumber": "REF1650J",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-01-17T14:22:00.000Z",
+            "releasedDate": "2019-10-04T14:10:16.000Z",
             "location": {
                 "city": "Poznań, Toruń",
                 "country": "pl"
@@ -2689,9 +2966,9 @@
                     "valueLabel": "iOS, Swift, Xcode, mobile, iOS developer, iOS engineer, iOS app engineer, Objective-C"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999682282898",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999696624339",
             "creator": {
-                "name": "Małgorzata Sejdak"
+                "name": "Mateusz Jabłonowski"
             },
             "language": {
                 "code": "pl",
@@ -2700,17 +2977,17 @@
             }
         },
         {
-            "id": "743999681973802",
-            "name": "Mobile Software Engineer (Android)",
-            "uuid": "bff6f567-51bc-40ac-b9de-c5eaf540c8a2",
-            "refNumber": "REF1636H",
+            "id": "743999696624030",
+            "name": "Software Engineer - Big Data Team",
+            "uuid": "f4c5ab10-d15e-4049-aab6-ec2f7a724f98",
+            "refNumber": "REF1795E",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2019-01-11T15:56:59.000Z",
+            "releasedDate": "2019-10-04T14:08:57.000Z",
             "location": {
-                "city": "Toruń, Poznań, Warszawa",
+                "city": "Warszawa, Kraków, Poznań",
                 "country": "pl"
             },
             "industry": {
@@ -2733,6 +3010,12 @@
                 "label": "Mid-Senior Level"
             },
             "customField": [
+                {
+                    "fieldId": "58c1575ee4b01d4b19ddf797",
+                    "fieldLabel": "Kraków",
+                    "valueId": "2cfcfcc1-da44-43f7-8eaa-3907faf2797c",
+                    "valueLabel": "Tak"
+                },
                 {
                     "fieldId": "58c15608e4b01d4b19ddf790",
                     "fieldLabel": "Proces rekrutacji",
@@ -2762,12 +3045,6 @@
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "58c1576ee4b0614667d59732",
-                    "fieldLabel": "Toruń",
-                    "valueId": "987e8884-bad1-4a8f-b149-99e4184cc221",
-                    "valueLabel": "Tak"
                 },
                 {
                     "fieldId": "58c156b9e4b01d4b19ddf792",
@@ -2780,9 +3057,83 @@
                     "fieldLabel": "Warszawa",
                     "valueId": "6a428533-1586-4372-89ec-65fb45366363",
                     "valueLabel": "Tak"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "Java, Scala, Spark, Druid, Airflow, Big Data, bigdata, Google Cloud Platform, Dataflow, BigQuery, unix, linux, developer, programista, programmer, dev, inżynier, engineer, Spark, Hadoop"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999681973802",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999696624030",
+            "creator": {
+                "name": "Mateusz Jabłonowski"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
+            "id": "743999692829188",
+            "name": "Front-end Software Engineer",
+            "uuid": "d5705dc1-3e74-438a-952b-c7eae6c58925",
+            "refNumber": "REF1709E",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2019-08-05T13:43:31.000Z",
+            "location": {
+                "city": "Toruń",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999692829188",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
@@ -2793,184 +3144,18 @@
             }
         },
         {
-            "id": "743999680885083",
-            "name": "Mobile Software Engineer (iOS)",
-            "uuid": "262a0bc4-e07f-441d-b784-4f8e55d71f6b",
-            "refNumber": "REF1590G",
+            "id": "743999689013341",
+            "name": "Mobile Software Test Engineer (iOS)",
+            "uuid": "a1e53121-daca-4250-9a19-8c025478eecc",
+            "refNumber": "REF1769R",
             "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
+                "identifier": "Allegro",
+                "name": "Allegro"
             },
-            "releasedDate": "2018-12-18T08:49:06.000Z",
+            "releasedDate": "2019-05-29T10:20:11.000Z",
             "location": {
-                "city": "Warszawa",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "iOS, Swift, Xcode, mobile, iOS developer, iOS engineer, iOS app engineer, Objective-C"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999680885083",
-            "creator": {
-                "name": "Martyna Niszczota"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999678714739",
-            "name": "Data Platform Engineer",
-            "uuid": "2271f7c9-46d6-46ae-8a8d-aff5532e8106",
-            "refNumber": "REF1351B",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2018-10-31T13:00:20.000Z",
-            "location": {
-                "city": "Warszawa, Toruń",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "3a186e8d-a82c-4955-af81-fcef9a63928a",
-                    "valueLabel": "Tak"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                },
-                {
-                    "fieldId": "58c1576ee4b0614667d59732",
-                    "fieldLabel": "Toruń",
-                    "valueId": "987e8884-bad1-4a8f-b149-99e4184cc221",
-                    "valueLabel": "Tak"
-                },
-                {
-                    "fieldId": "58c156e6e4b01d4b19ddf793",
-                    "fieldLabel": "Warszawa",
-                    "valueId": "6a428533-1586-4372-89ec-65fb45366363",
-                    "valueLabel": "Tak"
-                },
-                {
-                    "fieldId": "5cdab2c84cedfd0006e7758c",
-                    "fieldLabel": "Key words",
-                    "valueLabel": "Big Data, machine learning, bigdata, kafka, hadoop"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999678714739",
-            "creator": {
-                "name": "Martyna Niszczota"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999678046781",
-            "name": "Software Engineer",
-            "uuid": "84278b6f-a6a8-47e1-b752-bb84d078c2b4",
-            "refNumber": "REF1010S",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2018-10-17T08:27:41.000Z",
-            "location": {
-                "city": "Toruń",
-                "region": "Kuyavian-Pomeranian Voivodeship",
+                "city": "Poznań",
+                "region": "Greater Poland Voivodeship",
                 "country": "pl"
             },
             "industry": {
@@ -3020,87 +3205,18 @@
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
                     "fieldLabel": "Brands",
-                    "valueId": "default",
-                    "valueLabel": "Allegro Group"
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
                 },
                 {
                     "fieldId": "5cdab2c84cedfd0006e7758c",
                     "fieldLabel": "Key words",
-                    "valueLabel": "java, kotlin, scala, backend, java software engineer, java developer, spark, hadoop, spring, senior java engineer, programista"
+                    "valueLabel": "tester, ios, android, swift, objective-c, testowanie, quality engineer, quality"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999678046781",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999689013341",
             "creator": {
-                "name": "Jan Piętka"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999662618439",
-            "name": "Senior Software Engineer",
-            "uuid": "930d5465-f75a-4860-b487-da36ee68a3ba",
-            "refNumber": "160575",
-            "company": {
-                "identifier": "AllegroGroup",
-                "name": "Allegro Group"
-            },
-            "releasedDate": "2017-11-16T09:37:44.000Z",
-            "location": {
-                "city": "Warszawa",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "default",
-                    "valueLabel": "Allegro Group"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegrogroup/postings/743999662618439",
-            "creator": {
-                "name": "Adrian Błaszkowski"
+                "name": "Anna Śniedziewska"
             },
             "language": {
                 "code": "pl",
