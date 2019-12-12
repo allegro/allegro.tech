@@ -290,9 +290,9 @@ com.itcompany.projectkeeper
 </pre>
 
 ## Summary
-A lot things has been mentioned above so let’s make a brief summary.
+A lot of things have been mentioned above so let’s make a brief summary.
 What I would like you to remember is to:
-* divide your application into core, infrastructure, presentation and configuration part
+* divide your application into core, infrastructure, presentation and configuration parts
 * make the core completely independent from other parts
 * encapsulate packages and classes
 * name packages so that looking at their names will tell what the application is doing and how
