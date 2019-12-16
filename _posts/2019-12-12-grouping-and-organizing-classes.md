@@ -102,7 +102,7 @@ com.itcompany.projectkeeper
 ├── infrastructure
 └── presentation
 </pre>
-By doing this that way we make it easy to:
+By doing it that way we make it easy to:
 * deduce the purpose of the application
 * find classes operating on individual domain objects
 * use class visibility restrictions to encapsulate internal packages’ aspects
@@ -168,8 +168,8 @@ In the `infrastructure` package, let’s specify how to save `Project` and `Team
 We do this in the `persistence` and `commercialdb` packages, respectively.
 I recommend naming configuration `infrastructure`’s packages same as the external systems are named.
 This will allow developers to know what are those systems just by looking at the packages.
-This actually analogical to `core`’s packages naming: the business propose of the application is more or less known just by looking at the packages.
-We define the way of saving aggregates by creating an `CommercialDbProjectRepository` and an `CommercialDbTeamRepository`, which will implement the `core`’s repositories.
+This is actually analogical to `core`’s packages naming: the business propose of the application is more or less known just by looking at the packages.
+We define the way of saving aggregates by creating a `CommercialDbProjectRepository` and a `CommercialDbTeamRepository`, which will implement the `core`’s repositories.
 In case of database replacement, we will only replace these implementations and the `core` package will remain intact.
 Let’s configure the connection to database in the `CommercialDbConfiguration` class.
 The framework’s capabilities can help us encapsulate packages.
