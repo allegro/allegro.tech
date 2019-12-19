@@ -145,11 +145,12 @@ Context switches are computationally intensive for computers. We can say that fo
 they are even more problematic. So it’s probably best for us to minimise them, right?  
 Darek Jędrzejczyk and Ireneusz Gawlik had a presentation about work organisation challenges, 
 how to restore our ability of being ‘in the flow’ and whether deep working is possible at all. 
-The talk titled *‘Let me code’* was supposed to make us think if and how technology affects us 
+The talk titled *‘Let me code’* made us think if and how technology affects us 
 in our everyday job and whether we use the available tools, like instant messaging platform in a good way.
 Unfortunately, we can’t share this presentation with you because it contains confidential information 
 about our internal infrastructure. However, you can watch 
-a cover of the song [Let it go](https://www.youtube.com/watch?v=EUNyUR4fY7U) which illustrates the problem well. 
+a cover of the song [Let it go](https://www.youtube.com/watch?v=EUNyUR4fY7U) which illustrates 
+what obstacles developers might be facing. 
 Let us know what you think about this work style!
 
 <img alt="speakers" src="/img/articles/2019-12-01-allegro-tech-meeting/let_me_code_speakers.png" />
