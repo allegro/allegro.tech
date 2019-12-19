@@ -450,3 +450,14 @@ mariusz.kopylec:
     name: Mariusz Kopylec
     bio: A Java developer passionate about source code architecture. Creator of open-source libraries and those used internally at Allegro.
     github: mkopylec
+
+aleksandra.wasielewska:
+    name: Aleksandra Wasielewska
+    bio: >
+        Product Manager who is passionate about technology and people. At Allegro she takes care of checkout and payments areas
+        where she addresses the needs of several million Allegro users. Agile enthusiast in every way, she enjoys spending time
+        traveling around the world, reflecting cultural contrasts in the day-by-day life, as well as in the products.
+
+mariusz.wojakowski:
+    name: Mariusz Wojakowski
+    bio: Harnesser of JVM-ish languages in the service of business during the day, papers reader at night. Fan of distributed ‘everything’, FP novice.
