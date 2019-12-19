@@ -47,7 +47,7 @@ behaviors are worth imitating.
 What makes it even more special — nominations and the final vote were in the hands of our IT employees. 
 Congrats to all 10 Heroes who were chosen!
 
-<img alt="allegro tech heroes" src="/img/articles/2019-12-01-allegro-tech-meeting/allegro_tech_heroes.jpg" />
+<img alt="allegro tech heroes" src="/img/articles/2019-12-19-allegro-tech-meeting/allegro_tech_heroes.jpg" />
 
 
 
@@ -153,7 +153,7 @@ a cover of the song [Let it go](https://www.youtube.com/watch?v=EUNyUR4fY7U) whi
 what obstacles developers might be facing. 
 Let us know what you think about this work style!
 
-<img alt="speakers" src="/img/articles/2019-12-01-allegro-tech-meeting/let_me_code_speakers.png" />
+<img alt="speakers" src="/img/articles/2019-12-19-allegro-tech-meeting/let_me_code_speakers.png" />
 
 ## Networking
 ATM is a kind of technology celebration at Allegro. These are 2 days filled with lectures on various 
