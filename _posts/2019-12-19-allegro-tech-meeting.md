@@ -56,6 +56,8 @@ Below you will find a short description of the main part of ATM, namely, present
 It would be impossible to squeeze 2 days of presentations into one article, so we selected a few 
 that cover various cultural aspects of our organisation.
 
+*Please note that all presentations are in Polish.*
+
 ### Machine learning
 #### ML for you...
 Have you ever wondered what the creation and development process based on machine learning looks like? 
