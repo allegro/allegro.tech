@@ -432,6 +432,7 @@ michal.lewandowski:
 bartosz.balukiewicz:
     name: Bartosz Balukiewicz
     bio: Bartek is a Software Engineer focused on backend technologies, but also interested in dealing with big data. Likes to observe how teams work. At Allegro, he works on Allegro Smart! and Delivery Experience.
+    twitter: spoozb
 
 tomasz.nurkiewicz:
     name: Tomasz Nurkiewicz
@@ -447,3 +448,19 @@ mateusz.podlasin:
 karol.kuc:
     name: Karol Kuc
     bio: Karol is a software craftsman and data analysis enthusiast. His main interests lie in cloud distributed systems but he also sets his first steps in frontend development and data modelling.
+
+mariusz.kopylec:
+    name: Mariusz Kopylec
+    bio: A Java developer passionate about source code architecture. Creator of open-source libraries and those used internally at Allegro.
+    github: mkopylec
+
+aleksandra.wasielewska:
+    name: Aleksandra Wasielewska
+    bio: >
+        Product Manager who is passionate about technology and people. At Allegro she takes care of checkout and payments areas
+        where she addresses the needs of several million Allegro users. Agile enthusiast in every way, she enjoys spending time
+        traveling around the world, reflecting cultural contrasts in the day-by-day life, as well as in the products.
+
+mariusz.wojakowski:
+    name: Mariusz Wojakowski
+    bio: Harnesser of JVM-ish languages in the service of business during the day, papers reader at night. Fan of distributed ‘everything’, FP novice.
