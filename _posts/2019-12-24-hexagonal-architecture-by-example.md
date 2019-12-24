@@ -5,7 +5,7 @@ author: karol.kuc
 tags: [tech, ddd, hexagonal-architecture, java]
 ---
 
-When you go through articles related to Hexagonal Architecture, you are usually searching for practical examples of specific use cases 
+When you go through articles related to Hexagonal Architecture, you are usually searching for practical examples of specific use cases
 of this rather complex pattern. In most posts you encounter, you have to scroll through exact citations or rephrased definitions of concepts such as 
 Ports and Adapters or their conceptual diagrams, which have already been well defined and described by popular authors i.e. 
 [Alistair Cockburn](http://alistair.cockburn.us/Hexagonal+Architecture) or [Martin Fowler](https://martinfowler.com/eaaCatalog/gateway.html). 
@@ -31,13 +31,13 @@ public class Author {
 
 ```
 There are also several wrapper objects for fields such as id, title or content. This allows you encapsulate additional business logic or validation, 
-as well as avoid passing several String values as method arguments which is generally a bad practice and may lead to bugs difficult to track: 
-now if you accidentally swap values upon method call your code want compile. 
+as well as avoid passing several String values as method arguments which is generally bad practice and may lead to bugs difficult to track: 
+now if you accidentally swap values upon method call your code won't compile. 
 
 ## The left side adapter: REST API
 
 The example service, which will help us depict Hexagonal Architecture, 
-exposes a very simple REST API: as an author you can create an article 
+exposes a very simple REST API: as an author, you can create an article 
 and then retrieve its content by issuing POST and GET HTTP requests, respectively.
 
  ```
@@ -69,11 +69,9 @@ a right-side port to depict that it handles incoming traffic, while left-side ad
 external services called from the domain code.
 It is often assumed that each port needs to be an interface, 
 it doesn't make much sense for left-side ports though.
-Interfaces in general allow you to decouple implementation from the component that uses it and
-are essential to the decoupling of domain (also referred to as core) and the adapters that implement ports, which makes them
-pluggable and potentially replaceable. It is of vital importance that the domain code is adapter-agnostic and has no 
-dependency to adapter implementation code, yet not necessarily not the the other way round. Every adapter depends on the  domain code at least 
-implementing one of the ports interfaces. So unless you plan to replace your core domain with a different one
+Interfaces, in general, allow you to decouple implementation from the component that uses it. They
+are essential to the decoupling of the domain (also referred to as core) and the adapters that implement ports, which makes them
+pluggable and potentially replaceable. It is of vital importance that the domain code is adapter-agnostic and has no dependency on adapter implementation code, yet not necessarily not the other way round. Every adapter depends on the domain code at least by implementing one of the ports interfaces. So unless you plan to replace your core domain with a different one
 and don't want your REST adapter to be affected, hiding the domain services (or facades) behind interfaces
 can be seen as over-engineering and gives you nothing in return.
 
@@ -144,7 +142,7 @@ The aforementioned ports are implemented by corresponding adapters:
 * a message broker publisher adapter.
 Combined with the REST API, the domain, 
 which constitutes the core of our application (center of the hexagon) 
-is surrounded by six adapters (this number is obviously not important). 
+is surrounded by six adapters. 
 Five of them (the so-called “right-side”, “outgoing” adapters) implement domain interfaces, 
 while the API adapter (“left-side” or “incoming” adapter) calls the domain logic via a public Facade.
 
@@ -153,7 +151,7 @@ The project package structure reflects the service architecture:
 
 ## Adapter implementation
 
-Each adapter works on its own model, which can translate itself “from” or “to” the domain model, which on the other hand is adapter-model-agnostic.
+Each adapter works on its model, which can translate itself “from” or “to” the domain model, which on the other hand is adapter-model-agnostic.
 Below you'll find the REST API adapter model as an example.
 ```
 class ArticleResponse {
