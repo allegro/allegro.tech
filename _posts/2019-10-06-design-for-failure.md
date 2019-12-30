@@ -38,7 +38,7 @@ Online Layer, like message duplicates, lost events or late events, we have the o
 Offline Layer.
 
 Of course, it would be possible to tackle the problems mentioned above in the Online part of the system, but in our case it would
-have too big impact on the system performance. That is why we have decided on a real-time best-effort and
+have too much impact on the system performance. That is why we have decided on a real-time best-effort and
 reconcile-later approach. The issue of maintaining accuracy is where our Offline Layer shines.
 
 ## Offline Layer
@@ -127,7 +127,7 @@ Below you will find [Airflow DAG](https://airflow.apache.org/docs/stable/concept
 <img alt="Airflow DAG visualisation" src="/img/articles/2019-10-06-design-for-failure/airflow.png" />
 
 You can also include some anti-fraud validation logic in such a job (or any other kind of filtering logic for that matter)
-in order to recognize fraudulent clicks and treat them appropriately, e.g. not count them in statistics and refund their cost.
+in order to recognize fraudulent clicks and to treat them appropriately, e.g. not count them in statistics and to refund their cost.
 
 Also, in the case of any late events, you can run the job for the same day after a specified period of time to
 include them in the results.
