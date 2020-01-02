@@ -446,7 +446,24 @@ mateusz.podlasin:
     name: Mateusz Podlasin
     bio: Mateusz is a frontend developer, dreaming about a career in machine learning. He used to be a humanities student, dreaming about a career in frontend development.
 
+mariusz.kopylec:
+    name: Mariusz Kopylec
+    bio: A Java developer passionate about source code architecture. Creator of open-source libraries and those used internally at Allegro.
+    github: mkopylec
+
+aleksandra.wasielewska:
+    name: Aleksandra Wasielewska
+    bio: >
+        Product Manager who is passionate about technology and people. At Allegro she takes care of checkout and payments areas
+        where she addresses the needs of several million Allegro users. Agile enthusiast in every way, she enjoys spending time
+        traveling around the world, reflecting cultural contrasts in the day-by-day life, as well as in the products.
+
+mariusz.wojakowski:
+    name: Mariusz Wojakowski
+    bio: Harnesser of JVM-ish languages in the service of business during the day, papers reader at night. Fan of distributed ‘everything’, FP novice.
+
 zbigniew.kuzera:
     name: Zbigniew Kuzera
     bio: Backend software engineer, also recently not disgusted with frontend and mobile technologies. Enthusiast of inventing simple solutions.
     github: kuzera
+
