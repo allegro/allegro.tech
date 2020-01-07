@@ -4,9 +4,6 @@ title: Design for failure - multiple layers of processing to protect against fai
 author: [grzegorz.dziadosz, malgorzata.karmazyn]
 tags: [tech, architecture, big data]
 ---
-
-<style type="text/css">.post img{margin: 0 auto;display: block;}</style>
-
 When designing the architecture of a system, one always needs to think about what can go wrong and
 what kind of failures can occur in the system. This kind of problem analysis is especially hard in distributed systems.
 Failure is inevitable and the best we can do is to prepare for it.
@@ -174,3 +171,5 @@ at windmills. It can lead to a very complex system, which ironically may create 
 Having a best-effort Online Layer and an Offline Layer for reconciliation is a relatively easy step that gives us enormous
 benefits. It makes our Online Layer simpler and protects us against failures. We can reconcile, analyse and monitor.
 The Offline Layer is one of those things that lets you sleep well at night and gives you confidence in your daily work.
+
+<style type="text/css">.post img{margin: 0 auto;display: block;}</style>
