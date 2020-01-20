@@ -3,17 +3,10 @@ const axios = require('axios');
 const pretty = require('pretty');
 
 const MEETUP_SOURCE = 'https://api.meetup.com/allegrotech/events?status=past,upcoming&desc=true&photo-host=public&page=20';
-const EVENTBRITE_SOURCE = 'https://www.eventbriteapi.com/v3/organizations/7906517899/events/';
-
-if (!process.argv[2]) {
-    console.error("eventbrite api key needed!");
-    process.exit(1);
-}
 
 axios.get(MEETUP_SOURCE)
     .then(response => response.data)
     .then(events => events.filter(event => event.venue))
-    .then(events => joinWithEventbrite(events))
     .then(events => setLatestStatus(events))
     .then(events => events.map(event => ({
         template: render(event),
@@ -34,16 +27,6 @@ function addRegistrationLink(event, eventsFromEventbrite) {
     const id = eventsFromEventbrite.filter(eventFromEventbrite => eventFromEventbrite.start.local === `${event.local_date}T${event.local_time}`);
     if (id[0]) event.registration = id[0].url;
     return event;
-}
-
-function joinWithEventbrite(events) {
-    const config = { headers: { 'Authorization': `Bearer ${process.argv[2]}` } };
-    return axios.get(EVENTBRITE_SOURCE, config)
-        .then(response => response.data.events)
-        .then(eventbriteEvents => events.map(event => addRegistrationLink(event, eventbriteEvents)))
-        .catch(error => {
-            console.error(error);
-        });
 }
 
 function setLatestStatus(events) {
