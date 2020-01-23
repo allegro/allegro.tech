@@ -6,14 +6,14 @@ tags: [tech, java, cloud, gcp, spring-boot]
 ---
 
 Configuration management is one of the key challenges you have to face when you decide to build an application as a distributed system based on microservices
-deployed the Cloud. There are multiple ways of addressing different aspects of this problem, using several tools such as [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/) 
+deployed to the Cloud. There are multiple ways of addressing different aspects of this problem, using several tools such as [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/) 
 or [Hashicorp Consul](https://cloud.spring.io/spring-cloud-consul/reference/html/). However, this article will focus on the tools that Google Cloud Platform offers
 out of the box. The approaches mentioned should be seen as complementary rather than mutually exclusive.
 
 
 ## What is GCP Runtime Configurator?
 The [Runtime Configurator](https://cloud.google.com/deployment-manager/runtime-configurator/) available for services deployed to Google Cloud Platform is a handy tool designed to solve multiple problems
-related to application state management as well as application configuration management. In this article I will dig into the latter. The Runtime Configurator features include:
+related to application state management as well as application configuration management. In this article, I will dig into the latter. The Runtime Configurator features include:
 * configuring services dynamically,
 * communicating changes in application state between services,
 * notifying about changes to application data ([Watching variable state changes](https://cloud.google.com/deployment-manager/runtime-configurator/watching-a-variable) 
@@ -43,7 +43,7 @@ as a hierarchical list of configuration variables, which may separate the config
 environment-wise (prod, dev, test) and/or tier-wise (frontend, backend). 
 A configuration is local to a GCP project so there will be no interference between services managed by a GCP account (provided you deploy services as separate projects).
 Variables are simple key-value pairs that can be referenced in your Spring Boot service config files as environment variables.
-The variable key has the following format, and is local to a config ID (the config resource unique name), which as mentioned is on its own
+The variable key has the following format, and is local to a config ID (the config resource unique name), which, as mentioned, is on its own
 local to a project id:
 ```
 projects/[project_id]/configs/[CONFIG_ID]/variables/[VARIABLE_NAME]
@@ -87,7 +87,7 @@ as well as to list variables.
 gcloud beta runtime-config configs variables list --config-name cart-db_dev
 ```
 
-In the next paragraphs you can check alternative methods for the procedure described above.
+In the next paragraphs, you can check alternative methods for the procedure described above.
 
 ### Using the API
 ```
@@ -101,7 +101,7 @@ https://runtimeconfig.googleapis.com/v1beta1/projects/cart-service/configs/
 
 There is an analogous API to DELETE the config, list the variables and set or access variable values.
 You can look up the details in the [API specification](https://cloud.google.com/deployment-manager/runtime-configurator/reference/rest/).
-### Using Deployment Manager
+### Using the Deployment Manager
 You have to specify the config type as:
 ```
 runtimeconfig.v1beta1.config
@@ -121,7 +121,7 @@ This is pretty much it from the GCP perspective, as you can see the API of the r
 Let's now focus on how to set up a Spring Boot app to use the configuration we have created.
 ## Accessing GCP config from Spring Boot
 Set the active application profile in the main appengine/app.yaml file so that Spring Boot can pick up the right config for a given environment. 
-Remember it is critical that the profile name must be part of the config ID you created on GCP in the following form:
+Remember that the profile name must be part of the config ID you created on GCP in the following form:
 ```
   config-name_profile-name eg cart-db_dev
 ```
@@ -212,13 +212,24 @@ spring:
 Now the configuration provided should be picked up upon application startup. If you update the values 
 while the application is running, you must either refresh the config via [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready) or restart the service.
 ## Further readings
-For further information about Spring Cloud GCP Runtime Config consult this [article](https://spring.io/blog/2018/09/03/bootiful-gcp-runtime-configuration-with-spring-cloud-gcp-runtime-config-5-8)
+For further information about Spring Cloud GCP Runtime Config, consult this [article](https://spring.io/blog/2018/09/03/bootiful-gcp-runtime-configuration-with-spring-cloud-gcp-runtime-config-5-8)
 which is the fifth article in the 8-part series about [Spring Boot on GCP](https://spring.io/projects/spring-cloud-gcp).
 You might also enjoy this article on [GCP config best practices](https://medium.com/google-cloud/google-cloud-functions-best-practices-using-runtime-configurator-to-manage-config-variables-8b18e77bd6dc)
 which also looks into quirks and features of using Runtime Configurator with Google Cloud Functions none of which are covered in this article.
 ## Miscellaneous
 ### Limitations, quotas, access control
-For quotas and limitations please consult the [docs](https://cloud.google.com/deployment-manager/quotas#runtime_configurator). Currently it's 4MB data per project and corresponding query per minute limits for specific API queries.
+For quotas and limitations please consult the [docs](https://cloud.google.com/deployment-manager/quotas#runtime_configurator). Currently, it's 4MB data per project and corresponding query per minute limits for specific API queries.
 [Runtime Configurator Access Control](https://cloud.google.com/deployment-manager/runtime-configurator/access-control) via IAM ([Identity Access Management](https://cloud.google.com/iam/docs/overview)) roles and permissions of a Service Account are not in the scope of this article. 
 ### Important
 You must take into consideration that the beta Runtime Configuration tool is in a pre-release state and might undergo breaking API changes and/or have limited support.
+
+### Summary
+As I have already mentioned, GCP Runtime Configurator 
+should not be seen as an alternative to tools such as Spring Cloud Config Server 
+or Hashicorp Consul. You can live without one or the other
+but you can also use both of them. 
+An example of such separation of concerns might be limiting the use of GCP RC to configuration shared between different GCP areas eg. 
+Cloud Functions and App Engine. You could then let an independent config server, running in an App Engine container, manage the configuration 
+which is used exclusively by services also running on App Engine. It is also relevant that any
+piece of infrastructure that you deploy on your own as part of the system, such as a config server or a discovery server, is then yours to monitor and maintain,
+which does not apply to tools offered by Google Cloud Platform out of the box. 
