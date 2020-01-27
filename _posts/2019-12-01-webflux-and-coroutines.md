@@ -146,7 +146,10 @@ For `fuel` client we observe a quite high rate - it is since `fuel` client metho
 There are a few essential benefits of migrating from typical webflux code to webflux combined with coroutines:
 - the obvious is much more readable and maintainable code. There is no need to carefully use nestings only to show where
 we are in the sophisticated flow
-- debugging is as easy as standard procedural code.
+- debugging is as easy as standard procedural code
+- requests are quite well isolated. Note that if blocking API call is placed inside coroutine,
+then [it should be guarded by its own thread pool coroutine context](https://medium.com/@elizarov/blocking-threads-suspending-coroutines-d33e11bf4761).
+Even if such a pool is exhausted due to a heavy load, by the fact that this API call is wrapped into a suspend function, the main will never be blocked.
 
 However, coroutines are not always recommended:
 - when a project uses quite simple flow. Remember that coroutines have some overhead as the complicated mechanism behind a scenes is not for free.
