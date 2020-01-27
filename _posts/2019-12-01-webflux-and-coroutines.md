@@ -147,13 +147,15 @@ There are a few essential benefits of migrating from typical webflux code to web
 - the obvious is much more readable and maintainable code. There is no need to carefully use nestings only to show where
 we are in the sophisticated flow
 - debugging is as easy as standard procedural code
-- requests are quite well isolated. Note that if blocking API call is placed inside coroutine,
+- requests are quite well isolated. Note that if a blocking API call is placed inside a coroutine,
 then [it should be guarded by its own thread pool coroutine context](https://medium.com/@elizarov/blocking-threads-suspending-coroutines-d33e11bf4761).
-Even if such a pool is exhausted due to a heavy load, by the fact that this API call is wrapped into a suspend function, the main will never be blocked.
+Even if such a pool is exhausted due to a heavy load, by the fact that this API call is wrapped into a suspend function, the main thread will never be blocked.
 
 However, coroutines are not always recommended:
-- when a project uses quite simple flow. Remember that coroutines have some overhead as the complicated mechanism behind a scenes is not for free.
+- when a project uses quite simple flow. Remember that coroutines have some overhead as the complicated mechanism behind the scenes is not for free.
 - some claim coroutines in Kotlin are over-engineered, low-level and very hard to understand for the user.
-There is some entry threshold and developer needs to follow some rules that are not always easy to understand and to remember.
+There is a learning curve and the developer needs to follow some rules that are not always easy to understand and to remember.
 
 But nevertheless, coroutines are worth deep consideration!
+
+<style type="text/css">.post img{margin: 0 auto;display: block;}</style>
