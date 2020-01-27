@@ -4,17 +4,17 @@
     "totalFound": 43,
     "content": [
         {
-            "id": "743999704941069",
+            "id": "743999705352723",
             "name": "Junior UX Researcher",
-            "uuid": "43d563e7-a892-4f7a-8eac-6a61dc83055e",
+            "uuid": "6e30ed9e-1be6-493d-8153-b715a0c127d6",
             "refNumber": "REF1977E",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-01-22T11:22:41.000Z",
+            "releasedDate": "2020-01-27T09:47:43.000Z",
             "location": {
-                "city": "Poznań/Warszawa",
+                "city": "Poznań, Warszawa",
                 "country": "pl"
             },
             "industry": {
@@ -115,9 +115,9 @@
                     "valueLabel": "badacz, badania"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999704941069",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999705352723",
             "creator": {
-                "name": "Anna Śniedziewska"
+                "name": "Mateusz Jabłonowski"
             },
             "language": {
                 "code": "pl",
