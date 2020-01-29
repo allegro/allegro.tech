@@ -31,7 +31,7 @@ The four guiding principles of accessibility in WCAG 2 are:
 
 Those principles not only organize guidelines in groups but also they allow you to better understand them. Each policy addresses one or more types of disability. Take a look at the picture below (there is also alternative text according to guideline [1.1 Text Alternatives](https://www.w3.org/TR/WCAG21/#text-alternatives) 🙂).
 
-// TODO TUTAJ GRAFIKA
+![Alternative text here](/img/articles/2020-01-21-understand-accessibility/pour.png)
 
 ### Guidelines (1.1 to 4.1)
 
