@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Understand accessibility.
+title: Understanding accessibility
 author: [rafal.guzniczak, katarzyna.malecka]
 tags: [tech, accessibility]
 ---
@@ -31,7 +31,10 @@ The four guiding principles of accessibility in WCAG 2 are:
 
 Those principles not only organize guidelines in groups but also they allow you to better understand them. Each policy addresses one or more types of disability. Take a look at the picture below (there is also alternative text according to guideline [1.1 Text Alternatives](https://www.w3.org/TR/WCAG21/#text-alternatives) 🙂).
 
-![Alternative text here](/img/articles/2020-01-21-understand-accessibility/pour.png)
+<img alt="Illustration shows the association of four principles with types of disabilities" aria-describedby="pour-description"
+src="/img/articles/2020-01-21-understanding-accessibility/pour.png">
+<span id="pour-description" style="clip: rect(0 0 0 0); clip-path: inset(50%); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px;">Hand drawn computer illustration. At the top there are four icons symbolizing dysfunctions with captions: vision, hearing, motor and cognitation. Four principles are listed below: perceivable, operable, understable and robust. Each of them are connected to the dysfunction it addresses with arrows. Perceivable is pointing to vision and hearing. Operable is pointing to motor. Understable is pointing to cognition and robust principle is pointing to motor and cognition disfunction. The content of the illustration is on an orange background.</span>
+*Illustration by Katarzyna Małecka*
 
 ### Guidelines (1.1 to 4.1)
 
