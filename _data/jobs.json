@@ -4,6 +4,86 @@
     "totalFound": 41,
     "content": [
         {
+            "id": "743999705914791",
+            "name": "Software Engineer",
+            "uuid": "15a2a4d5-b5c8-4d6e-8ee3-7c15e1e82d2c",
+            "refNumber": "REF1900E",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2020-02-01T08:48:04.000Z",
+            "location": {
+                "city": "Warszawa",
+                "country": "pl"
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "entry_level",
+                "label": "Entry Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "java, kotlin, scala, developer, programista, inżynier"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999705914791",
+            "creator": {
+                "name": "Anna Śniedziewska"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
             "id": "743999705824516",
             "name": "Software Engineer - Big Data Team",
             "uuid": "e1ee75a7-0642-4af5-9320-13cdc0b477a1",
@@ -1766,81 +1846,6 @@
             }
         },
         {
-            "id": "743999699868130",
-            "name": "Software Engineer",
-            "uuid": "0c08ed20-f929-4c61-93a8-2406704ed9cc",
-            "refNumber": "REF1900E",
-            "company": {
-                "identifier": "Allegro",
-                "name": "Allegro"
-            },
-            "releasedDate": "2019-11-18T09:20:15.000Z",
-            "location": {
-                "city": "Warszawa",
-                "country": "pl"
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013462",
-                "label": "Technology - Product Development"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "entry_level",
-                "label": "Entry Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013462",
-                    "valueLabel": "Technology - Product Development"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699868130",
-            "creator": {
-                "name": "Małgorzata Sejdak"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
             "id": "743999699867845",
             "name": "Senior Software Engineer",
             "uuid": "b90a8f98-fb94-4e78-8a80-f4e1d5c05b21",
@@ -1897,6 +1902,11 @@
                     "fieldLabel": "Brands",
                     "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
                     "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "java, scala, kotlin, developer, programista, inżynier, architekt, architecture, architect"
                 }
             ],
             "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699867845",
