@@ -4,15 +4,15 @@
     "totalFound": 41,
     "content": [
         {
-            "id": "743999706153959",
+            "id": "743999706275438",
             "name": "Data Analyst",
-            "uuid": "d5dd2432-d32a-47a8-a03e-9e9c4b56deb0",
+            "uuid": "9ac0434e-960a-4e37-a713-5d693106f58b",
             "refNumber": "REF1588D",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-02-04T14:22:08.000Z",
+            "releasedDate": "2020-02-05T15:33:13.000Z",
             "location": {
                 "city": "Poznań",
                 "country": "pl"
@@ -73,7 +73,7 @@
                     "valueLabel": "data analyst, data analysis, analiza danych, dane, analityk, analiza, data, SQL, big data, python"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999706153959",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999706275438",
             "creator": {
                 "name": "Izabela Semrau"
             },
