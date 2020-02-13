@@ -4,15 +4,15 @@
     "totalFound": 41,
     "content": [
         {
-            "id": "743999707022653",
+            "id": "743999707036315",
             "name": "Data Platform Engineer",
-            "uuid": "a5b41998-e044-4cff-8f5f-2482aa872f0d",
+            "uuid": "a281bce1-2803-4976-bade-88bae48f9466",
             "refNumber": "REF1998K",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-02-13T10:13:46.000Z",
+            "releasedDate": "2020-02-13T12:37:37.000Z",
             "location": {
                 "city": "Toruń",
                 "country": "pl"
@@ -67,7 +67,7 @@
                     "valueLabel": "Data Platform, Hadoop, Java, Scala, Kotlin, Toruń, SQL, NoSQL, BigData, Spark, Kafka"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999707022653",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999707036315",
             "creator": {
                 "name": "Maciej Matwiejczyk"
             },
