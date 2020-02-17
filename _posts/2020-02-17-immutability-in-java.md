@@ -1,0 +1,251 @@
+---
+layout: post
+title: The problem of immutability in java
+author: [bartlomiej.mazur]
+tags: [tech, java, performance]
+---
+
+As a developer both interested in web technologies and game development I always found myself
+disagreeing with a large part of articles about using X to solve some problems.
+While such articles are often true, they often skip some important details that make given
+solution unacceptable in some other cases. And in this article I will try to look at
+immutability in a negative way from game development perspective and how it can affect web services too.
+As it is always more fun to look in a negative way at something everyone loves ;)
+
+So where are these problems:
+1. using the immutable pattern in java and other languages
+2. impact on the performance in java and how other languages deal with it
+
+While I can’t really propose any good solution for these problems I hope I will be able to show you
+that while immutability is a great tool not all languages are fully ready to utilize all
+benefits, and in some cases immutability might even cause some issues.
+My motivation for this article is huge amount of articles recommending immutability for every
+problem without analysing how it can actually affect your application in some cases.
+
+### Immutability across languages
+
+In most cases immutability is a powerful tool that allows us to keep our code clean and simple even in a multithreaded environment.
+Each language allow us to write such code in different way, most of popular languages just allow use to define all fields
+of such object as final/readonly/notmutable, like in java our immutable type definition would look like this:
+```java
+public class Enemy {
+    private final int id;
+    private final EnemyType type;
+    private final String name;
+    // +constructor
+}
+```
+And we need to manually remember and make sure that no reference inside such immutable class is actually mutable,
+if we would add field with list in it we either need to use some `ImmutableList` as field type or ensure in constructor
+that provided list is copied to some immutable collection.
+Especially common mistake here is using and trusting [lombok](https://projectlombok.org/features/Value), as adding `@Value` to our class does not magically handle
+this for us. Similar with use of kotlin — if others might be using this code from java, as even if kotlin list appears immutable
+by default, it just compiler syntax sugar, and your `List` will get compiled to normal mutable java list type,
+and depending how the list was created it might be mutable too.
+
+Some languages provide more interesting constructs like a [D language](https://dlang.org/spec/const3.html):
+```csharp
+class C {
+  /*mutable*/ C mField;
+    const     C cField;
+    immutable C iField;
+}
+// and then
+    C c = new C();
+    c.mField = c; // fine
+
+    // compile error as we try to mutate iField — note that it is mutated indirectly,
+    // and we actually try to mutate mutable field inside.
+    c.iField.mField.mField = c;
+
+    immutable C c = new C();
+    c.mField = c; // error
+
+// or decalre whole class as immutable
+immutable class X {
+    int a;
+}
+ ```
+Here we can define each field/parameter as either normal mutable variable,
+const/final one — so we can’t change the value of that reference, or to mark a field directly as immutable one.
+Then no matter what we don’t need to worry about mutating anything in that reference,
+even if it does contain mutable references inside them — we will not be able to mutate them using our immutable reference.
+
+[Rust](https://doc.rust-lang.org/1.29.0/book/first-edition/mutability.html) is another interesting example, here by default everything is immutable but at the same time there is `Cell` type that
+can be used to skip immutability, so
+```rust
+struct Point {
+    x: i32,
+    y: i32,
+}
+let mut a = Point { x: 5, y: 6 };
+a.x = 10;
+
+let b = Point { x: 5, y: 6 };
+b.x = 10; // Error: cannot assign to immutable field `b.x`.
+
+// but
+struct Point {
+    x: i32,
+    y: Cell<i32>,
+}
+let point = Point { x: 5, y: Cell::new(6) };
+
+point.y.set(7); // works
+```
+So we can’t be sure that our reference is fully immutable either, but if it is, it was fully conciseness choice of code author,
+so we probably don’t need to worry about it.
+
+My point is: Java have one of worst way of defining immutability and tools like Lombok and Kotlin often only hide this
+instead of helping, so while immutability is promising to keep developers safe from many issues it’s not that easy to keep
+immutable values safe from developers without better support from language itself.
+But why is that? Was java never designed to be used with immutable values?
+
+### Performance cost of immutability in Java
+
+We all know (I hope so) about the good sides of using immutable values, mostly related to multi-threaded code, but did
+you ever wonder where is the trade-off? In many native languages such immutable objects can often be heavily optimized and
+a lot of allocations are just skipped, but that’s not the case with Java — it still can reduce the amount of allocations but in a much more limited way.
+Many people don’t really think about it, but you can actually allocate fast enough to slow down your
+application to noticeable degree, but at the same time you really need a lot to do so, so you don’t need to
+worry about it in a typical web application.
+
+Imagine a game code where we want to invoke some function at some generated positions in world:
+```java
+
+class Example {
+    void example(Supplier<Position> positionGenerator, World world) {
+        Stream.generate(positionGenerator)
+            .limit(1000000)
+            .forEach(pos -> world.updateAt(pos));
+    }
+}
+```
+Update itself looks like that:
+```java
+class World {
+    void updateAt(Position position) {
+        position.forAllNeighborsInRange(3, newPosition -> spawnMonsterIfNotPresent(newPosition)); // cube 7x7x7
+        spawnChestIfNotPresent(position);
+    }
+}
+```
+In games such a thing would probably be part of game loop, running few (2-100?) times per second. Maybe not necessary
+spawning new monsters, but definitely there is always a lot to do.
+
+We will use [JMH](https://openjdk.java.net/projects/code-tools/jmh/) for benchmarking, full benchmark code will be linked at the end of article.
+```java
+@Benchmark
+public void tick() throws Throwable {
+    Stream.generate(positionGenerator)
+            .limit(ITERATIONS)
+            .forEach(pos -> world.updateAt(pos));
+}
+```
+
+Lets just benchmark such code and see the results
+```
+Benchmark       Score   Error  Units
+tick            68.875  0.088  ms/op
+tick:tick p0.99 71.620         ms/op
+```
+That’s already limits us to 14 updates per second, but we probably want to do more than this.
+What if we would remove all allocations here? Lets make our Position mutable and just pass the same instance,
+we only use 1 thread here so we don’t need to worry about too much as long as position is not stored somewhere:
+```
+Benchmark                     Score   Error  Units
+tickNoAlloc                   30.817  0.019  ms/op
+tickNoAlloc:tickNoAlloc p0.99 31.130         ms/op
+```
+It’s twice as fast! We don’t do much in that code, so you might think that in general such optimization would not matter,
+but remember that we are talking about something running in a game loop, 35ms less means we can spin our game loop faster
+or add more features before our game will run too slow, and that’s a lot of time!
+
+In other languages people often try to connect benefits of immutable code and less allocation by allocating such values
+on the stack, sadly java once again does not have any tool for that.
+The only alternative would be to use raw values directly, so instead of passing Position object
+we can just pass 3 double values. Sadly we have no way to return 3 values at once,
+so our generator of positions must support generation of each value separately.
+```
+Benchmark                   Score   Error  Units
+tickNoHeap                  23.562  0.012  ms/op
+tickNoHeap:tickNoHeap p0.99 23.839         ms/op
+```
+And not only it runs faster now, but also can be used again in multithreaded way without any issues.
+The only issue is that we would not be able to do this with larger objects, and it already looks much more
+complicated and less readable, and all of this because Java lacks simple structs.
+(note that using a struct would not always be better, it depends on size of our data,
+if it would be large object then it would be better to use normal object/reference as copying it would
+cost more than cost of dereferencing it later)
+
+### Stressing GC
+
+Now let’s actually run this code using more threads and see what happens:
+```java
+@Benchmark
+@Threads(-1) // use all cores
+public void tick_threaded() throws Throwable {
+    Stream.generate(positionGenerator)
+            .limit(ITERATIONS)
+            .forEach(pos -> world.updateAt(pos));
+}
+@Benchmark
+@Threads(-1)
+public void tickNoHeap_threaded() throws Throwable {
+    IntStream.rangeClosed(0, ITERATIONS)
+            .forEach(pos -> world.updateAt_NoHeap(noHeapPositionGenerator.nextX(), noHeapPositionGenerator.nextY(), noHeapPositionGenerator.nextZ()));
+}
+```
+And results:
+```
+Benchmark                                     Score   Error  Units
+tickNoHeap_threaded                            29.051 0.076  ms/op
+tickNoHeap_threaded:tickNoHeap_threaded p0.00  25.330        ms/op
+tickNoHeap_threaded:tickNoHeap_threaded p0.95  40.567        ms/op
+tickNoHeap_threaded:tickNoHeap_threaded p0.99  51.773        ms/op
+tick_threaded                                 189.682 0.849  ms/op
+tick_threaded:tick_threaded p0.00             101.712        ms/op
+tick_threaded:tick_threaded p0.95             231.224        ms/op
+tick_threaded:tick_threaded p0.99             256.379        ms/op
+```
+Now we can see this issue even more, as we are allocating a lot of objects that later need to be cleaned up.
+
+Another thing we can check is what will happen if we will want to limit memory, currently all the code
+was running on 2GB of memory, that is quite a lot for code that does nothing.
+Lets limit memory to 128MB and 20MB:
+```
+Benchmark                                             Score     Error  Units
+tickNoHeap_threaded128M                                26.313   0.104  ms/op
+tickNoHeap_threaded128M:tickNoHeap_threaded128M p0.00  24.674          ms/op
+tickNoHeap_threaded128M:tickNoHeap_threaded128M p0.99  45.200          ms/op
+tickNoHeap_threaded20M                                 26.292   0.093  ms/op
+tickNoHeap_threaded20M:tickNoHeap_threaded20M p0.00    24.707          ms/op
+tickNoHeap_threaded20M:tickNoHeap_threaded20M p0.99    41.484          ms/op
+tick_threaded128M                                     211.826   0.726  ms/op
+tick_threaded128M:tick_threaded128M p0.00             184.812          ms/op
+tick_threaded128M:tick_threaded128M p0.99             240.910          ms/op
+tick_threaded20M                                      427.533   1.430  ms/op
+tick_threaded20M:tick_threaded20M p0.00               411.042          ms/op
+tick_threaded20M:tick_threaded20M p0.99               478.224          ms/op
+```
+Now version with objects is struggling even more to maintain good performance, and this is
+actually something you might observe in your web application too, when more and more time goes
+for GC and allocation, some of these issues can be sometimes “solved” by adjusting young gen size.
+Issue will still be there, but now it will occur at other point, at the end you will finally hit
+limit of how much you can scale your application vertically.
+
+### Conclusion?
+
+The point of this article was to show that while immutability gives us a lot of safety Java does not
+give us enough tools to use immutable data in a performant way.
+While it’s still a good idea to write code using immutable values, we should sometimes also consider
+using other methods if we need much higher throughput and scaling horizontally is either impossible
+or just starting to get too expensive. (With games you are often limited by performance of single PC)
+As wannabe game developer myself — I’m especially looking at other web developers interested in
+game development, as seeing web influenced game code often hurts, not only performance of the game,
+but people that will read that code later ;)
+
+Immutability is just a tool in hand of software engineer, and every tool have own good uses,
+but there is no universal tool and a job of software engineer is to choose the right tools for given job.
+
+[Full source code for benchmark can be read on gist](https://gist.github.com/2f057616f300045c7638bd11b250c20a)

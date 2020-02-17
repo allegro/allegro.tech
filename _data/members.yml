@@ -498,3 +498,13 @@ justyna.osten-sacken:
     name: Justyna Osten-Sacken
     bio: UX researcher part of a team taking care of end-to-end customer experience - starting from search and selection till purchase. Having her team by her side, she creates knowledge and recommendations based on customers opinions. It helps teams to introduce new products or changes to existing ones. She practices calligraphy, likes Italian small towns and micro trips around Poland. Cooking relaxes her very much. Hitchhiking enthusiast.
     linkedin: justyna-osten-sacken
+
+bartlomiej.mazur:
+    name: Bartłomiej Mazur
+    bio: >
+        Backend developer and wannabe gamedev, also loves to break JVM and find every hidden detail in it.
+        In free time solving issues that no one should have with unsafe, reflections and agents on stackoverflow.
+    stackOverflow:
+        id: "4378853"
+        name: "GotoFinal"
+
