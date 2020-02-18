@@ -18,6 +18,14 @@
 <span>{{authorData.github}}</span>
 </a>
 {% endif %}
+{%if authorData.stackOverflowProfileId %}
+<a class="username" href="https://stackoverflow.com/users/{{authorData.stackOverflowProfileId}}">
+<span class="social"><img src="/img/social/stackoverflow.svg" alt="StackOverflow"></span>
+    {%if authorData.stackOverflowProfileName %}
+    <span>{{authorData.stackOverflowProfileName}}</span>
+    {% endif %}
+</a>
+{% endif %}
 {{authorData.bio | markdownify}}
 {%if include.showLinkToPost %}
     {% assign author_post_count = 0 %}
