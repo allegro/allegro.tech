@@ -4,15 +4,15 @@
     "totalFound": 42,
     "content": [
         {
-            "id": "743999707176630",
+            "id": "743999707444808",
             "name": "Quality Assurance Leader",
-            "uuid": "abc8c53d-a25c-4648-ae2d-1e3dbcb575bc",
+            "uuid": "b2ef0cee-2e04-46fe-bf31-0401bceb6ca3",
             "refNumber": "REF1953O",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-02-14T14:49:53.000Z",
+            "releasedDate": "2020-02-18T11:23:53.000Z",
             "location": {
                 "city": "Warszawa",
                 "country": "pl"
@@ -79,7 +79,7 @@
                     "valueLabel": "tester, QA, selenium, Protractor, Selenium 3, Geb, RestAssured, Gatling, C#"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999707176630",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999707444808",
             "creator": {
                 "name": "Angelika Szymkiewicz"
             },
