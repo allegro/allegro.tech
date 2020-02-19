@@ -31,6 +31,11 @@ figcaption {
             position: relative;
         }
     }
+    .post-header-podcast,
+    .section-podcast > header {
+      background: #545a61 url('../img/podcast/podcast-bg-4.png') center center;
+      background-size: auto;
+    }
 }
 
 .section-blog > header {
