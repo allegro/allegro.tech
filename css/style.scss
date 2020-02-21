@@ -86,12 +86,13 @@ h2 {
 }
 
 .anchor {
-  a {
-    opacity:0;
-    &:hover {
-      opacity:1;
+    a {
+        opacity: 0;
+
+        &:hover {
+            opacity: 1;
+        }
     }
-  }
 }
 
 @import "_podcast";
