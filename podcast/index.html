@@ -8,9 +8,11 @@ title: podcast
             <section class="posts">
                 <article class="latest">
                     <span class="post-link">Allegro Tech Podcast</span>
-                    <p>Misją Allegro Tech jest dzielenie się wiedzą oraz dobrymi praktykami. Podcasty obok tech bloga są naszym sposóbem aby opowiadać
+                    <p>Misją Allegro Tech jest dzielenie się wiedzą oraz dobrymi praktykami. Podcasty obok tech bloga są
+                        naszym sposóbem aby opowiadać
                         o tym jakie wyznajemy wartości oraz w jakim kierunku zmierzamy.
-                        Kolejne odcinki będą zbiorem angażujących historii, dobrych praktyk i inspirujących case-studies. Do usłyszenia!</p>
+                        Kolejne odcinki będą zbiorem angażujących historii, dobrych praktyk i inspirujących
+                        case-studies. Do usłyszenia!</p>
                 </article>
             </section>
         </div>
@@ -20,20 +22,24 @@ title: podcast
 {%assign podcasts = site.data.podcast.podcasts%}
 {%assign dict = site.data.podcast.dict %}
 
-
 {%for item in podcasts%}
 {%assign podcast = item[1] %}
 <div class="desk">
     <section class="content  {% if podcast.platforms %} {% else %}not-published{% endif %}">
-        <div class="m-card">
-            <time class="entry-date" datetime="{{ podcast.date}}"><span>{{ podcast.date | date: "<strong>%b %-d</strong> %Y" }}</span>
+        <div class="m-card" itemtype="http://schema.org/PodcastEpisode">
+            <time itemprop="datePublished" class="entry-date" datetime="{{ podcast.date}}">
+                <span>{{ podcast.date | date: "<strong>%b %-d</strong> %Y" }}</span>
             </time>
-            <h2 itemprop="headline"><a class="post-link" href="/podcast/{{item[0]}}">{{podcast.name}} - {{podcast.title}}</a></h2>
-
+            <h2 itemprop="headline">
+                <a itemprop="name" class="post-link" href="/podcast/{{item[0]}}">
+                    {{podcast.name}} - {{podcast.title}}
+                </a>
+            </h2>
             <div class="cover-card">
                 <div class="podcast-cover">
-                    <img src="/img/podcast/covers/cover.png" alt="podcast allegro.tech" /></div>
-                <div class="podcast-description">
+                    <img itemprop="thumbnailUrl" src="/img/podcast/covers/cover.png" alt="podcast allegro.tech"/>
+                </div>
+                <div itemprop="description" class="podcast-description">
                     {{podcast.desc}}
                     <ul class="podcast-toc">
                         {% for item in podcast.toc%}
@@ -48,13 +54,15 @@ title: podcast
                 {% for link in podcast.platforms %}
                 {%assign platform = link[0] %}
                 {% if platform == "soundcloud" %}
-                <li class="podcast-icon podcast-{{ platform }}">
+                <li class="podcast-icon podcast-{{ platform }}" itemprop="url">
                     <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-                      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ link[1] }}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ link[1] }}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 </li>
                 {%else%}
-                <li class="podcast-icon podcast-{{ platform }}">
-                    <a href="{{ link[1] }}"><img src="/img/podcast/icons/{{ platform }}.svg" /> {{dict[platform]}}</a>
+                <li class="podcast-icon podcast-{{ platform }}" itemprop="url">
+                    <a href="{{ link[1] }}"><img alt="platform" src="/img/podcast/icons/{{ platform }}.svg"/>
+                        {{dict[platform]}}
+                    </a>
                 </li>
                 {% endif %}
                 {% endfor %}

@@ -33,8 +33,8 @@ figcaption {
     }
     .post-header-podcast,
     .section-podcast > header {
-      background: #545a61 url('../img/podcast/podcast-bg-4.png') center center;
-      background-size: auto;
+        background: #545a61 url('../img/podcast/podcast-bg-4.png') center center;
+        background-size: auto;
     }
 }
 
@@ -123,6 +123,7 @@ figcaption {
     .posts {
         article {
             margin: 1em auto;
+
             &:first-child {
                 margin: 0;
             }
@@ -436,16 +437,19 @@ figcaption {
     display: inline-block;
     line-height: 1;
 
-    &:hover{
-        opacity:0.3;
+    &:hover {
+        opacity: 0.3;
     }
-        img {
+
+    img {
         vertical-align: middle;
     }
-        }
+}
+
 .social-icons {
     float: right;
-    .social{
+
+    .social {
         padding: 5px;
     }
 }
