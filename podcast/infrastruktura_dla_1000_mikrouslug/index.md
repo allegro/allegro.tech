@@ -1,4 +1,4 @@
 ---
 layout: podcast
-author: infrastruktura_dla_1000_mikrouslug
+slug: infrastruktura_dla_1000_mikrouslug
 ---

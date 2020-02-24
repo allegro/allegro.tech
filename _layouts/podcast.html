@@ -1,9 +1,14 @@
 ---
 layout: default
-title: blog authors
+title: podcast page
 ---
-{%assign podcast = site.data.podcast.podcasts[page.author]%}
+
+{%assign slug = page.slug %}
 {%assign dict = site.data.podcast.dict %}
+{%assign podcasts = site.data.podcast.podcasts | where: "slug", slug %}
+
+
+{%for podcast in  podcasts %}
 
 <header class="post-header post-header-podcast">
     <div class="content">
@@ -38,19 +43,19 @@ title: blog authors
                 {% for link in podcast.platforms %}
                 {%assign platform = link[0] %}
 
-                {% if platform == "soundcloud" %}
+                {% if platform == "buzzsprout" %}
                 <li class="podcast-icon podcast-{{ platform }}">
-                    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-                      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ link[1] }}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                  <div id="buzzsprout-player-2799460"></div>
+                    <script src="https://www.buzzsprout.com/887914/{{link[1]}}.js?container_id=buzzsprout-player-2799460&player=small" type="text/javascript" charset="utf-8"></script>
                 </li>
                 {%else%}
-                <li class="podcast-icon podcast-{{ platform }}"><a href="{{ link[1] }}"><img src="/img/podcast/icons/{{ platform }}.svg" /> {{dict[platform]}}</a> </li>
-                {% endif %}
-                {% endfor %}
+                <li class="podcast-icon podcast-{{ platform }}">
+                    <a href="{{ link[1] }}"><img src="/img/podcast/icons/{{ platform }}.svg" /> {{dict[platform]}}</a>
+                </li>
+                {% endif %} {% endfor %}
             </ul>
         </div>
-        {%endif%}
-        {% if podcast.links%}
+        {%endif%} {% if podcast.links%}
         <div class="m-card">
             <h3>Linki</h3>
             <ol>
@@ -65,9 +70,8 @@ title: blog authors
 <section id="author" class="post-author">
     {% for author in podcast.author %}
     <div class="content">
-        {%assign authorKey = author%}
-        {%assign authorData = site.data.members[author] %}
-        {% include single_author.html showLinkToPost=false %}
+        {%assign authorKey = author%} {%assign authorData = site.data.members[author] %} {% include single_author.html showLinkToPost=false %}
     </div>
     {% endfor %}
 </section>
+{%endfor%}
