@@ -25,8 +25,9 @@ title: podcast page
           {% for link in podcast.platforms %}
           {%assign platform = link[0] %}
           {% if platform == "buzzsprout" %}
-            <div id="buzzsprout-player-2799460"></div>
-              <script src="https://www.buzzsprout.com/887914/{{link[1]}}.js?container_id=buzzsprout-player-2799460&player=small" type="text/javascript" charset="utf-8"></script>
+            <div id="buzzsprout-player-2799460">
+              <iframe src="{{link[1]}}?client_source=small_player&amp;iframe=true" scrolling="no" width="100%" height="200" frameborder="0"></iframe>
+            </div>
           {% endif %}
           {% endfor %}
           <div class="cover-card">
