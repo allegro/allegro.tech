@@ -42,6 +42,7 @@
 .cover-card {
     display: flex;
     flex-wrap: wrap;
+    margin: 20px 0;
 }
 
 .cover-card img {
@@ -65,5 +66,5 @@
 
 .not-published {
     filter: grayscale(1);
-    opacity: 0.75;
+    opacity: 0.6;
 }

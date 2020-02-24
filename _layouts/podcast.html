@@ -21,41 +21,50 @@ title: podcast page
 
 <div class="desk">
     <section class="content">
-        <div class="m-card">
-            <div class="cover-card">
-                <div class="podcast-cover">
-                    <img src="/img/podcast/covers/cover.png" alt="podcast allegro.tech" /></div>
-                <div class="podcast-description">
-                    {{podcast.desc}}
-                    <ul class="podcast-toc">
-                        {% for item in podcast.toc%}
-                        <li>{{item}}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-        </div>
+      <div class="m-card" itemtype="http://schema.org/PodcastEpisode">
+          <time itemprop="datePublished" class="entry-date" datetime="{{ podcast.date}}">
+              <span>{{ podcast.date | date: "<strong>%b %-d</strong> %Y" }}</span>
+          </time>
+          <h2 itemprop="headline">
+              <a itemprop="name" class="post-link" href="/podcast/{{podcast.slug}}">
+                  {{podcast.name}} - {{podcast.title}}
+              </a>
+          </h2>
+          {% for link in podcast.platforms %}
+          {%assign platform = link[0] %}
+          {% if platform == "buzzsprout" %}
+            <div id="buzzsprout-player-2799460"></div>
+              <script src="https://www.buzzsprout.com/887914/{{link[1]}}.js?container_id=buzzsprout-player-2799460&player=small" type="text/javascript" charset="utf-8"></script>
+          {% endif %}
+          {% endfor %}
+          <div class="cover-card">
+              <div itemprop="description" class="podcast-description">
+                  {{podcast.desc}}
+                  <ul class="podcast-toc">
+                      {% for item in podcast.toc%}
+                      <li>{{item}}</li>
+                      {% endfor %}
+                  </ul>
+              </div>
+          </div>
+          {% if podcast.platforms%}
+          <ul class="podcast-icons">
+              {% for link in podcast.platforms %}
+              {%assign platform = link[0] %}
+              {% if platform == "buzzsprout" %}
+              {%else%}
+              <li class="podcast-icon podcast-{{ platform }}" itemprop="url">
+                  <a href="{{ link[1] }}"><img alt="platform" src="/img/podcast/icons/{{ platform }}.svg"/>
+                      {{dict[platform]}}
+                  </a>
+              </li>
+              {% endif %}
+              {% endfor %}
+          </ul>
+          {%endif%}
+      </div>
 
-        {% if podcast.platforms%}
-        <div class="m-card">
-            <h3>Posłuchaj</h3>
-            <ul class="podcast-icons">
-                {% for link in podcast.platforms %}
-                {%assign platform = link[0] %}
-
-                {% if platform == "buzzsprout" %}
-                <li class="podcast-icon podcast-{{ platform }}">
-                  <div id="buzzsprout-player-2799460"></div>
-                    <script src="https://www.buzzsprout.com/887914/{{link[1]}}.js?container_id=buzzsprout-player-2799460&player=small" type="text/javascript" charset="utf-8"></script>
-                </li>
-                {%else%}
-                <li class="podcast-icon podcast-{{ platform }}">
-                    <a href="{{ link[1] }}"><img src="/img/podcast/icons/{{ platform }}.svg" /> {{dict[platform]}}</a>
-                </li>
-                {% endif %} {% endfor %}
-            </ul>
-        </div>
-        {%endif%} {% if podcast.links%}
+        {% if podcast.links%}
         <div class="m-card">
             <h3>Linki</h3>
             <ol>
