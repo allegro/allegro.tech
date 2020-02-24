@@ -22,14 +22,6 @@ title: podcast page
 <div class="desk">
     <section class="content">
       <div class="m-card" itemtype="http://schema.org/PodcastEpisode">
-          <time itemprop="datePublished" class="entry-date" datetime="{{ podcast.date}}">
-              <span>{{ podcast.date | date: "<strong>%b %-d</strong> %Y" }}</span>
-          </time>
-          <h2 itemprop="headline">
-              <a itemprop="name" class="post-link" href="/podcast/{{podcast.slug}}">
-                  {{podcast.name}} - {{podcast.title}}
-              </a>
-          </h2>
           {% for link in podcast.platforms %}
           {%assign platform = link[0] %}
           {% if platform == "buzzsprout" %}
