@@ -1,45 +1,48 @@
+---
 podcasts:
-  o_zatrudnianiu_rozwoju_i_nie_tylko:
-      date: 2020-02-24
-      title: O zatrudnianiu, rozwoju inżynierów i nie tylko
-      author: piotr.orlowski
-      name: Piotr Orłowski
-      desc: |
+- date: '2020-02-24T00:00:00.000Z'
+  slug: 'o_zatrudnianiu_rozwoju_i_nie_tylko'
+  title: O zatrudnianiu, rozwoju inżynierów i nie tylko
+  author: piotr.orlowski
+  name: Piotr Orłowski
+  desc: "\n"
+  toc:
+  - W Allegro pracuje prawie 800 specjalistów IT i ponad 100 liderów.
+  - Jak zbudować taki zespół i zatrudnić do niego lepszych od siebie?
+  - Jak pomóc inżynierom się rozwijać?
+  - Co jest ważne w byciu liderem i jak nim zostać?
+  - Czym jest Opbox i jak połączył frontend w świecie mikrousług?
+  - O tym jak powstało allegro.tech i jaką drodzę przeszliśmy, aby być w tym miejscu,
+    w którym jesteśmy teraz oraz dlaczego warto uczyć dzieci programowania posłuchacie
+    w rozmowie z Piotrem Orłowskim - Software Development Managerem w Allegro.
+  links:
+    Open Source Hermes: https://hermes.allegro.tech/
+    Prezentacja Hermes gubi eventy - Łukasz Drumiński: https://prezi.com/i0tpqxeimbmz/hermes-loses-events/
+    j.Piknik 2014 - have a beer with Allegro engineers: https://allegro.tech/2014/09/j.Piknik-2014-have-a-beer-with-Allegro-engineers.html
+    Allegro Tech Talks 33 Toruń - Jakie i dlaczego książki warto czytać będąc inżynierem? - Piotr Orłowski: https://www.facebook.com/allegro.tech/videos/735697773617860/"
+  platforms:
+    # soundcloud: 629467713
+    buzzsprout: '2799460-1-o-zatrudnianiu-i-rozwoju-inzynierow-i-nie-tylko-piotr-orlowski'
+    spotify: https://open.spotify.com/show/2rlbFoVg4eEVbrurrOkPHB
+    # applepodcasts: https://apple.com/link_do_podcastu
+    # googlepodcasts: https://podcasts.google.com/link_do_podcastu
+- date: '2020-03-01T00:00:00.000Z'
+  slug: infrastruktura_dla_1000_mikrouslug
+  title: Infrastruktura dla 1000 mikrousług w Allegro
+  author: adam.dubiel
+  name: Adam Dubiel
+  desc: "\n"
+  toc:
+  - Na serwis allegro.pl składa się już prawie 1000 mikrousług. Jaka filozofia stoi
+    za budowaniem ich środowiska uruchomieniowego?
+  - Czy Allegro lubi się z Chmurą Publiczną?
+  - Jak rozumiemy powiedzenie “z wielką mocą idzie wielka odpowiedzialność” i dlaczego
+    w Allegro zespół architektów platformy liczy tylko cztery osoby?
+  - Czy możliwa jest usługa w .net w Allegro?
+  -
+  - Jak podbijać wersje Javy i utrzymać 1000 mikrousług w świeżości? Ne te pytania
+    odpowiada Adam Dubiel - Team Manager w Allegro.
 
-      toc:
-        - W Allegro pracuje prawie 800 specjalistów IT i ponad 100 liderów.
-        - Jak zbudować taki zespół i zatrudnić do niego lepszych od siebie?
-        - Jak pomóc inżynierom się rozwijać?
-        - Co jest ważne w byciu liderem i jak nim zostać?
-        - Czym jest Opbox i jak połączył frontend w świecie mikrousług?
-        - O tym jak powstało allegro.tech i jaką drodzę przeszliśmy, aby być w tym miejscu, w którym jesteśmy teraz oraz dlaczego warto uczyć dzieci programowania posłuchacie w rozmowie z Piotrem Orłowskim - Software Development Managerem w Allegro.
-
-      links:
-        Open Source Hermes: https://hermes.allegro.tech/
-        Prezentacja Hermes gubi eventy - Łukasz Drumiński: https://prezi.com/i0tpqxeimbmz/hermes-loses-events/
-        j.Piknik 2014 - have a beer with Allegro engineers: https://allegro.tech/2014/09/j.Piknik-2014-have-a-beer-with-Allegro-engineers.html
-        Allegro Tech Talks 33 Toruń - Jakie i dlaczego książki warto czytać będąc inżynierem? - Piotr Orłowski: https://www.facebook.com/allegro.tech/videos/735697773617860/"
-
-      platforms:
-        soundcloud: 629467713
-        spotify: https://spotify.com/link_do_podcastu
-        applepodcasts: https://apple.com/link_do_podcastu
-        googlepodcasts: https://podcasts.google.com/link_do_podcastu
-
-  infrastruktura_dla_1000_mikrouslug:
-      date: 2020-03-01
-      title: Infrastruktura dla 1000 mikrousług w Allegro
-      author: adam.dubiel
-      name: Adam Dubiel
-      desc: |
-
-      toc:
-        - Na serwis allegro.pl składa się już prawie 1000 mikrousług. Jaka filozofia stoi za budowaniem ich środowiska uruchomieniowego?
-        - Czy Allegro lubi się z Chmurą Publiczną?
-        - Jak rozumiemy powiedzenie “z wielką mocą idzie wielka odpowiedzialność” i dlaczego w Allegro zespół architektów platformy liczy tylko cztery osoby?
-        - Czy możliwa jest usługa w .net w Allegro?
-        -
-        - Jak podbijać wersje Javy i utrzymać 1000 mikrousług w świeżości? Ne te pytania odpowiada Adam Dubiel - Team Manager w Allegro.
 
 dict:
     spotify: Spotify

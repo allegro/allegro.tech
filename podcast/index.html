@@ -19,11 +19,14 @@ title: podcast
     </header>
 </section>
 
-{%assign podcasts = site.data.podcast.podcasts%}
+{%assign podcasts = site.data.podcast.podcasts | sort: "date"%}
+
+
+
 {%assign dict = site.data.podcast.dict %}
 
-{%for item in podcasts%}
-{%assign podcast = item[1] %}
+{%for podcast in podcasts %}
+
 <div class="desk">
     <section class="content  {% if podcast.platforms %} {% else %}not-published{% endif %}">
         <div class="m-card" itemtype="http://schema.org/PodcastEpisode">
@@ -31,7 +34,7 @@ title: podcast
                 <span>{{ podcast.date | date: "<strong>%b %-d</strong> %Y" }}</span>
             </time>
             <h2 itemprop="headline">
-                <a itemprop="name" class="post-link" href="/podcast/{{item[0]}}">
+                <a itemprop="name" class="post-link" href="/podcast/{{podcast.slug}}">
                     {{podcast.name}} - {{podcast.title}}
                 </a>
             </h2>
@@ -53,10 +56,10 @@ title: podcast
             <ul class="podcast-icons">
                 {% for link in podcast.platforms %}
                 {%assign platform = link[0] %}
-                {% if platform == "soundcloud" %}
-                <li class="podcast-icon podcast-{{ platform }}" itemprop="url">
-                    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-                            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ link[1] }}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                {% if platform == "buzzsprout" %}
+                <li class="podcast-icon podcast-{{ platform }}">
+                  <div id="buzzsprout-player-2799460"></div>
+                    <script src="https://www.buzzsprout.com/887914/{{link[1]}}.js?container_id=buzzsprout-player-2799460&player=small" type="text/javascript" charset="utf-8"></script>
                 </li>
                 {%else%}
                 <li class="podcast-icon podcast-{{ platform }}" itemprop="url">
