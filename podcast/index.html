@@ -1,0 +1,80 @@
+---
+layout: default
+title: podcast
+---
+<section id="main-content" class="section-latest section-podcast">
+    <header>
+        <div class="content">
+            <section class="posts">
+                <article class="latest">
+                    <span class="post-link">Allegro Tech Podcast</span>
+                    <p>Misją Allegro Tech jest dzielenie się wiedzą oraz dobrymi praktykami. Podcasty obok tech bloga są
+                        naszym sposobem aby opowiadać
+                        o tym jakie wyznajemy wartości oraz w jakim kierunku zmierzamy.
+                        Kolejne odcinki będą zbiorem angażujących historii, dobrych praktyk i inspirujących
+                        case-studies. Do usłyszenia!</p>
+                </article>
+            </section>
+        </div>
+    </header>
+</section>
+
+{%assign podcasts = site.data.podcast.podcasts | sort: "date"%}
+
+
+
+{%assign dict = site.data.podcast.dict %}
+
+{%for podcast in podcasts %}
+<div class="desk">
+    <section class="content  {% if podcast.platforms %} {% else %}not-published{% endif %}">
+        <div class="m-card" itemtype="http://schema.org/PodcastEpisode">
+            <time itemprop="datePublished" class="entry-date" datetime="{{ podcast.date}}">
+                <span>{{ podcast.date | date: "<strong>%b %-d</strong> %Y" }}</span>
+            </time>
+            <h2 itemprop="headline">
+              {% if podcast.platforms %}
+                <a itemprop="name" class="post-link" href="/podcast/{{podcast.slug}}">
+                    {{podcast.name}} - {{podcast.title}}
+                </a>
+              {% else %}
+                    {{podcast.name}} - {{podcast.title}}
+              {% endif %}
+            </h2>
+            {% for link in podcast.platforms %}
+            {%assign platform = link[0] %}
+            {% if platform == "buzzsprout" %}
+              <div id="buzzsprout-player-2799460">
+                <iframe src="{{link[1]}}?client_source=small_player&amp;iframe=true" scrolling="no" width="100%" height="200" frameborder="0"></iframe>
+              </div>
+            {% endif %}
+            {% endfor %}
+            <div class="cover-card">
+                <div itemprop="description" class="podcast-description">
+                    {{podcast.desc}}
+                    <ul class="podcast-toc">
+                        {% for item in podcast.toc%}
+                        <li>{{item}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% if podcast.platforms%}
+            <ul class="podcast-icons">
+                {% for link in podcast.platforms %}
+                {%assign platform = link[0] %}
+                {% if platform == "buzzsprout" %}
+                {%else%}
+                <li class="podcast-icon podcast-{{ platform }}" itemprop="url">
+                    <a href="{{ link[1] }}"><img alt="platform" src="/img/podcast/icons/{{ platform }}.svg"/>
+                        {{dict[platform]}}
+                    </a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {%endif%}
+        </div>
+    </section>
+</div>
+{% endfor %}
