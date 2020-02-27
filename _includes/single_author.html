@@ -18,12 +18,10 @@
 <span>{{authorData.github}}</span>
 </a>
 {% endif %}
-{%if authorData.stackOverflowProfileId %}
-<a class="username" href="https://stackoverflow.com/users/{{authorData.stackOverflowProfileId}}">
+{%if authorData.stackOverflow.id and authorData.stackOverflow.name %}
+<a class="username" href="https://stackoverflow.com/users/{{authorData.stackOverflow.id}}">
 <span class="social"><img src="/img/social/stackoverflow.svg" alt="StackOverflow"></span>
-    {%if authorData.stackOverflowProfileName %}
-    <span>{{authorData.stackOverflowProfileName}}</span>
-    {% endif %}
+    <span>{{authorData.stackOverflow.name}}</span>
 </a>
 {% endif %}
 {{authorData.bio | markdownify}}
