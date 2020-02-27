@@ -21,8 +21,9 @@ rafal.glowinski:
 michal.kosmulski:
     name: Michał Kosmulski
     bio: Michał is interested in all things high-performance, whether it be low-level stuff like analyzing how OS caches affect I/O operations or high-level like proper application design and functional programming. At Allegro, he works in a team which develops a Pay-per-Click (PPC) advertising system.
-    stackOverflowProfileId: 1224016
-    stackOverflowProfileName: Michał Kosmulski
+    stackOverflow:
+        id: 1224016
+        name: Michał Kosmulski
 
 bartosz.walacik:
     name: Bartosz Walacik
