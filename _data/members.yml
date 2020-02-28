@@ -502,8 +502,8 @@ justyna.osten-sacken:
 bartlomiej.mazur:
     name: Bartłomiej Mazur
     bio: >
-        Backend developer and wannabe gamedev, also loves to break JVM and find every hidden detail in it.
-        In free time solving issues that no one should have with unsafe, reflections and agents on stackoverflow.
+        Backend developer and wannabe gamedev, also loves to break the JVM and find every hidden detail in it.
+        In free time, he loves solving issues that no one should have with unsafe, reflections and agents on stackoverflow.
     stackOverflow:
         id: "4378853"
         name: "GotoFinal"
