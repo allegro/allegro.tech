@@ -47,6 +47,7 @@ podcasts:
   platforms:
     buzzsprout: 'https://www.buzzsprout.com/887914/2799484-2-infrastruktura-dla-1000-mikrouslug-w-allegro-adam-dubiel'
     spotify: https://open.spotify.com/episode/7pws1eOuCtlC8ZziCWeUJC
+    applepodcasts: https://podcasts.apple.com/pl/podcast/2-infrastruktura-dla-1000-mikrous%C5%82ug-w-allegro-adam-dubiel/id1500315781?i=1000467205501
 - date: '2020-03-09T00:00:00.000Z'
   slug: jak_zostac_i_pozostac_dobrym_programista
   title: Jak zostać i pozostać dobrym programistą?
