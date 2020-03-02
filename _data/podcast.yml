@@ -26,7 +26,7 @@ podcasts:
     spotify: https://open.spotify.com/show/2rlbFoVg4eEVbrurrOkPHB
     applepodcasts: https://podcasts.apple.com/pl/podcast/1-o-zatrudnianiu-i-rozwoju-in%C5%BCynier%C3%B3w-i-nie-tylko-piotr/id1500315781?i=1000466543310
     googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yNzk5NDYw&ved=0CAIQkfYCahcKEwi4-rTIvfvnAhUAAAAAHQAAAAAQAQ
-- date: '2020-03-01T00:00:00.000Z'
+- date: '2020-03-02T00:00:00.000Z'
   slug: infrastruktura_dla_1000_mikrouslug
   title: Infrastruktura dla 1000 mikrousług w Allegro
   author: adam.dubiel
@@ -46,20 +46,20 @@ podcasts:
     Java 11 and beyond at Allegro: https://allegro.tech/2018/12/java-11-and-beyond-at-allegro.html
   platforms:
     buzzsprout: 'https://www.buzzsprout.com/887914/2799484-2-infrastruktura-dla-1000-mikrouslug-w-allegro-adam-dubiel'
-# - date: '2020-03-08T00:00:00.000Z'
-#   slug: tomasz_nurkiewicz
-#   title: Tomasz Nurkiewicz
-#   author: tomasz.nurkiewicz
-#   name: Tomasz Nurkiewicz
-#   desc: "\n"
-#   toc:
-#   - Jak skutecznie dzielić się wiedzą w społeczności IT?
-#   - Jaka przyszłość czeka Javę? A także jak wygląda praca programisty w Allegro i jak rekrutujemy?
-#   -
-#   - Na te i więcej pytań odpowiada Tomek Nurkiewicz – Senior Software Engineer w Allegro, Java Champion.
-#   links:
-#     Charbusters - 10 mitów o Unicode, Tomasz Nurkiewicz: https://www.facebook.com/allegro.tech/videos/318000685417753/
-
+    spotify: https://open.spotify.com/episode/7pws1eOuCtlC8ZziCWeUJC
+- date: '2020-03-09T00:00:00.000Z'
+  slug: jak_zostac_i_pozostac_dobrym_programista
+  title: Jak zostać i pozostać dobrym programistą?
+  author: tomasz.nurkiewicz
+  name: Tomasz Nurkiewicz
+  desc: "\n"
+  toc:
+  - Jak skutecznie dzielić się wiedzą w społeczności IT?
+  - Jaka przyszłość czeka Javę? A także jak wygląda praca programisty w Allegro i jak rekrutujemy?
+  -
+  - Na te i więcej pytań odpowiada Tomek Nurkiewicz – Senior Software Engineer w Allegro, Java Champion.
+  links:
+    Charbusters - 10 mitów o Unicode, Tomasz Nurkiewicz: https://www.facebook.com/allegro.tech/videos/318000685417753/
 
 dict:
     spotify: Spotify
