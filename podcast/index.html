@@ -19,7 +19,7 @@ title: podcast
     </header>
 </section>
 
-{%assign podcasts = site.data.podcast.podcasts | sort: "date"%}
+{%assign podcasts = site.data.podcast.podcasts | sort: "date" | reverse%}
 
 
 
@@ -27,19 +27,17 @@ title: podcast
 
 {%for podcast in podcasts %}
 <div class="desk">
-    <section class="content  {% if podcast.platforms %} {% else %}not-published{% endif %}">
+
+  {% if podcast.platforms %}
+    <section class="content">
         <div class="m-card" itemtype="http://schema.org/PodcastEpisode">
             <time itemprop="datePublished" class="entry-date" datetime="{{ podcast.date}}">
                 <span>{{ podcast.date | date: "<strong>%b %-d</strong> %Y" }}</span>
             </time>
             <h2 itemprop="headline">
-              {% if podcast.platforms %}
                 <a itemprop="name" class="post-link" href="/podcast/{{podcast.slug}}">
                     {{podcast.name}} - {{podcast.title}}
                 </a>
-              {% else %}
-                    {{podcast.name}} - {{podcast.title}}
-              {% endif %}
             </h2>
             {% for link in podcast.platforms %}
             {%assign platform = link[0] %}
@@ -76,5 +74,18 @@ title: podcast
             {%endif%}
         </div>
     </section>
-</div>
+ {% else %}
+ <section class="content not-published">
+     <div class="m-card" itemtype="http://schema.org/PodcastEpisode">
+         <time itemprop="datePublished" class="entry-date" datetime="{{ podcast.date}}">
+             <span>{{ podcast.date | date: "<strong>%b %-d</strong> %Y" }}</span>
+         </time>
+         <h2 itemprop="headline">
+                 {{podcast.name}} - {{podcast.title}}
+
+         </h2>
+       </div>
+  </section>
+ {% endif %}
+ </div>
 {% endfor %}

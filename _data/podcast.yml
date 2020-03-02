@@ -25,7 +25,7 @@ podcasts:
     buzzsprout: 'https://www.buzzsprout.com/887914/2799460-1-o-zatrudnianiu-i-rozwoju-inzynierow-i-nie-tylko-piotr-orlowski'
     spotify: https://open.spotify.com/show/2rlbFoVg4eEVbrurrOkPHB
     applepodcasts: https://podcasts.apple.com/pl/podcast/1-o-zatrudnianiu-i-rozwoju-in%C5%BCynier%C3%B3w-i-nie-tylko-piotr/id1500315781?i=1000466543310
-    # googlepodcasts: https://podcasts.google.com/link_do_podcastu
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yNzk5NDYw&ved=0CAIQkfYCahcKEwi4-rTIvfvnAhUAAAAAHQAAAAAQAQ
 - date: '2020-03-01T00:00:00.000Z'
   slug: infrastruktura_dla_1000_mikrouslug
   title: Infrastruktura dla 1000 mikrousług w Allegro
@@ -42,6 +42,23 @@ podcasts:
   -
   - Jak podbijać wersje Javy i utrzymać 1000 mikrousług w świeżości? Ne te pytania
     odpowiada Adam Dubiel - Team Manager w Allegro.
+  links:
+    Java 11 and beyond at Allegro: https://allegro.tech/2018/12/java-11-and-beyond-at-allegro.html
+  platforms:
+    buzzsprout: 'https://www.buzzsprout.com/887914/2799484-2-infrastruktura-dla-1000-mikrouslug-w-allegro-adam-dubiel'
+# - date: '2020-03-08T00:00:00.000Z'
+#   slug: tomasz_nurkiewicz
+#   title: Tomasz Nurkiewicz
+#   author: tomasz.nurkiewicz
+#   name: Tomasz Nurkiewicz
+#   desc: "\n"
+#   toc:
+#   - Jak skutecznie dzielić się wiedzą w społeczności IT?
+#   - Jaka przyszłość czeka Javę? A także jak wygląda praca programisty w Allegro i jak rekrutujemy?
+#   -
+#   - Na te i więcej pytań odpowiada Tomek Nurkiewicz – Senior Software Engineer w Allegro, Java Champion.
+#   links:
+#     Charbusters - 10 mitów o Unicode, Tomasz Nurkiewicz: https://www.facebook.com/allegro.tech/videos/318000685417753/
 
 
 dict:
