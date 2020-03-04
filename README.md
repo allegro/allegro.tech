@@ -11,7 +11,7 @@ Launch the site using [jekyll](https://help.github.com/articles/using-jekyll-wit
 
 `bundle exec jekyll serve -i`
 
-Does your article is rendered correctly?
+Is your article rendered correctly?
 
 Create a Pull Request and get some feedback.
 
