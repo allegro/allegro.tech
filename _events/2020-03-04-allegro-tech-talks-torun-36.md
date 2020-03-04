@@ -5,7 +5,7 @@ time: 1583341200000
 venue_address_1: Kościuszko Business Point
 venue_city: Toruń
 venue_name: Allegro Toruń Office
-status: near
+status: upcoming
 id: 268878886
 registration: 
 ---
