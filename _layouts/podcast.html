@@ -21,41 +21,41 @@ title: podcast page
 
 <div class="desk">
     <section class="content">
-      <div class="m-card" itemtype="http://schema.org/PodcastEpisode">
-          {% for link in podcast.platforms %}
-          {%assign platform = link[0] %}
-          {% if platform == "buzzsprout" %}
+        <div class="m-card" itemtype="http://schema.org/PodcastEpisode">
+            {% for link in podcast.platforms %}
+            {%assign platform = link[0] %}
+            {% if platform == "buzzsprout" %}
             <div id="buzzsprout-player-2799460">
-              <iframe src="{{link[1]}}?client_source=small_player&amp;iframe=true" scrolling="no" width="100%" height="200" frameborder="0"></iframe>
+                <iframe src="{{link[1]}}?client_source=small_player&amp;iframe=true" scrolling="no" width="100%" height="200" frameborder="0"></iframe>
             </div>
-          {% endif %}
-          {% endfor %}
-          <div class="cover-card">
-              <div itemprop="description" class="podcast-description">
-                  {{podcast.desc}}
-                  <ul class="podcast-toc">
-                      {% for item in podcast.toc%}
-                      <li>{{item}}</li>
-                      {% endfor %}
-                  </ul>
-              </div>
-          </div>
-          {% if podcast.platforms%}
-          <ul class="podcast-icons">
-              {% for link in podcast.platforms %}
-              {%assign platform = link[0] %}
-              {% if platform == "buzzsprout" %}
-              {%else%}
-              <li class="podcast-icon podcast-{{ platform }}" itemprop="url">
-                  <a href="{{ link[1] }}"><img alt="platform" src="/img/podcast/icons/{{ platform }}.svg"/>
-                      {{dict[platform]}}
-                  </a>
-              </li>
-              {% endif %}
-              {% endfor %}
-          </ul>
-          {%endif%}
-      </div>
+            {% endif %}
+            {% endfor %}
+            <div class="cover-card">
+                <div itemprop="description" class="podcast-description">
+                    {{podcast.desc}}
+                    <ul class="podcast-toc">
+                        {% for item in podcast.toc%}
+                        <li>{{item}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% if podcast.platforms%}
+            <ul class="podcast-icons">
+                {% for link in podcast.platforms %}
+                {%assign platform = link[0] %}
+                {% if platform == "buzzsprout" %}
+                {%else%}
+                <li class="podcast-icon podcast-{{ platform }}" itemprop="url">
+                    <a href="{{ link[1] }}"><img alt="platform" src="/img/podcast/icons/{{ platform }}.svg" />
+                        {{dict[platform]}}
+                    </a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {%endif%}
+        </div>
 
         {% if podcast.links%}
         <div class="m-card">
@@ -73,12 +73,12 @@ title: podcast page
     {% for author in podcast.author %}
     <div class="content">
         {%assign authorKey = author%} {%assign authorData = site.data.members[author] %}
-         {% include single_author.html showLinkToPost=false %}
+        {% include single_author.html showLinkToPost=false %}
     </div>
     {% endfor %}
     <div class="content">
         {%assign authorKey = 'piotr.betkier'%} {%assign authorData = site.data.members['piotr.betkier'] %}
-         {% include single_author.html showLinkToPost=false %}
+        {% include single_author.html showLinkToPost=false %}
     </div>
 </section>
 {%endfor%}
