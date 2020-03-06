@@ -75,10 +75,10 @@ title: podcast page
         {%assign authorKey = author%} {%assign authorData = site.data.members[author] %}
          {% include single_author.html showLinkToPost=false %}
     </div>
+    {% endfor %}
     <div class="content">
         {%assign authorKey = 'piotr.betkier'%} {%assign authorData = site.data.members['piotr.betkier'] %}
          {% include single_author.html showLinkToPost=false %}
     </div>
-    {% endfor %}
 </section>
 {%endfor%}
