@@ -72,7 +72,12 @@ title: podcast page
 <section id="author" class="post-author">
     {% for author in podcast.author %}
     <div class="content">
-        {%assign authorKey = author%} {%assign authorData = site.data.members[author] %} {% include single_author.html showLinkToPost=false %}
+        {%assign authorKey = author%} {%assign authorData = site.data.members[author] %}
+         {% include single_author.html showLinkToPost=false %}
+    </div>
+    <div class="content">
+        {%assign authorKey = 'piotr.betkier'%} {%assign authorData = site.data.members['piotr.betkier'] %}
+         {% include single_author.html showLinkToPost=false %}
     </div>
     {% endfor %}
 </section>
