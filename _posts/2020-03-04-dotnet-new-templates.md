@@ -26,12 +26,13 @@ You can easily standardize a lot of boilerplate code with a custom `dotnet new` 
 WebAPI project files: `Startup.cs` and `Program.cs`. The second one usally stays untouched unless someone 
 needs to configure HostBuilder. So why don't we factor out the common code from the former: 
 * loading configuration, 
-* setting up service to service auth, 
-* serialization settings 
-* configuring logging
+* setting up service to service authorization, 
+* serialization settings,
+* logging configuration,
 * health checks, 
-* common libraries mostly used (e.g. Swagger),
-* HttpClientFactory or any factories and bootstrappers you may want.
+* most widely used libraries (e.g. Swagger),
+* HttpClientFactory,
+* any other boilerplate you may want.
 
 
 All configuration comes out of the box, so having a template makes it easy and convenient to create a service that 
