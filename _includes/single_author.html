@@ -34,7 +34,8 @@
     {% endfor %}
 
    <p><a href="/authors/{{authorKey}}">
-       {% if author_post_count == ' 1 ' %}
+       {% if  author_post_count == 0 %}
+       {% elsif author_post_count == ' 1 ' %}
           see post by {{authorData.name}}
        {% else %}
           see {{author_post_count}} posts by {{authorData.name}}
