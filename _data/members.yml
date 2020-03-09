@@ -440,6 +440,8 @@ bartosz.balukiewicz:
 tomasz.nurkiewicz:
     name: Tomasz Nurkiewicz
     bio: Java Champion. Author, trainer, conference speaker, technical reviewer, runner. Wrote a book on RxJava for O’Reilly. Claims that code not tested automatically is not a feature but just a rumour.
+    twitter: tnurkiewicz
+    github: nurkiewicz
 
 adrian.rydzynski:
     name: Adrian Rydzyński
