@@ -60,8 +60,31 @@ podcasts:
   - Jaka przyszłość czeka Javę? A także jak wygląda praca programisty w Allegro i jak rekrutujemy?
   -
   - Na te i więcej pytań odpowiada Tomek Nurkiewicz – Senior Software Engineer w Allegro, Java Champion.
+  platforms:
+    buzzsprout: 'https://www.buzzsprout.com/887914/2799559-3-jak-zostac-i-pozostac-dobrym-programista-tomasz-nurkiewicz'
+    spotify: https://open.spotify.com/episode/1hUrtS7gtqHGGlssUEfcxj
+    applepodcasts: https://podcasts.apple.com/pl/podcast/3-jak-zosta%C4%87-i-pozosta%C4%87-dobrym-programist%C4%85-tomasz-nurkiewicz/id1500315781?i=1000467870401
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yNzk5NTU5&ved=0CAIQkfYCahcKEwi40KbdkY3oAhUAAAAAHQAAAAAQAQ
   links:
     Charbusters - 10 mitów o Unicode, Tomasz Nurkiewicz: https://www.facebook.com/allegro.tech/videos/318000685417753/
+- date: '2020-03-16T00:00:00.000Z'
+  slug: it_security_w_allegro
+  title: IT security w Allegro
+  author: wojciech.lesicki
+  name: Wojciech Lesicki
+  desc: "\n"
+  toc:
+      - Na czym skupiamy się w IT security w Allegro?
+      - Jak radzimy sobie przy ilości wdrożeń, które mamy?
+      - Jakie testy robimy ciągle manualnie?
+      - Skąd czerpać informacje na temat bezpieczeństwa i czemu warto zainteresować się frameworkiem Att&ck MITRE?
+      -
+      - Na te i więcej pytań odpowiada Wojciech Lesicki – Team Leader w Allegro.
+  links:
+        Bezpieczeństwo przy tysiącach wdrożeń na konferencji CONFidence 2018 wraz z Pawłem Czubachowskim: https://www.youtube.com/watch?v=7ONV-jLmlAw
+        CSP - Nasze doświadczenia z ochroną Allegro na konferencji Pozitivetech 2019 wraz z Pawłem Czubachowskim: https://www.youtube.com/watch?v=T6HHipJRBUk
+        Polowanie na czerwony październik - na konferencji BSides Warsaw 2019, Dawid Golak, Jarosław Pukacki: https://www.youtube.com/watch?v=LGMCQx-jZBw
+        Opis framework Att&ck MITRE: https://attack.mitre.org/resources/getting-started/
 
 dict:
     spotify: Spotify
