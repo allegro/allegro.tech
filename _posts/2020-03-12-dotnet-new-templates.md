@@ -6,7 +6,7 @@ tags: [tech, dotnet, template, microservices]
 ---
 
 You may not know this, but there is a part of Allegro codebase which we started developing in C# due to some special 
-requirements. This implies new programming opportunities and challanges &mdash; one of these is creating a completely new 
+requirements. This implies new programming opportunities and challenges &mdash; one of these is creating a completely new 
 .NET Core starter project. Let's explore one potential solution: `dotnet new` templates.
 
 ## What is it and why would I want to use it?
@@ -124,7 +124,7 @@ rather than build up on ready in-house code. Apart from the template configurati
 both build and deployment scripts (and yaml files), as well as in the namespaces, projects and solution names. 
 Now we're also adding a `.editorconfig` file in order to have versioned IDE settings alongside the tempalate.
 
-![Template layout](/img/articles/2020-03-04-dotnet-new-templates/template_schema.png)
+![Template layout](/img/articles/2020-03-12-dotnet-new-templates/template_schema.png)
 
 Although they aren't a silver bullet, I find `dotnet new` custom templates very useful in day-to-day work. 
 [Read the docs](https://docs.microsoft.com/en-us/dotnet/core/tools/custom-templates) and try them yourself. It doesn't 
