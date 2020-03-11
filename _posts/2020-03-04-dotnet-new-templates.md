@@ -5,9 +5,9 @@ author: [szymon.adach]
 tags: [tech, dotnet, template, microservices]
 ---
 
-For some time now, a part of the Allegro codebase is being written in C#. This implies new opportunities and challanges 
-&mdash; one of these is creating a completely new .NET Core starter project. Let's explore one potential solution: 
-`dotnet new` templates.
+You may not know this, but there is a part of Allegro codebase which we started developing in C# due to some special 
+requirements. This implies new programming opportunities and challanges &mdash; one of these is creating a completely new 
+.NET Core starter project. Let's explore one potential solution: `dotnet new` templates.
 
 ## What is it and why would I want to use it?
 When working on a project consisting of numerous microservices, you often find that each service shares a part of 
@@ -118,7 +118,7 @@ service and assert the response code.
 After you test your project, it can be installed from a directory or a nuget via `dotnet new -i` command.
 
 ## Outro 
-So, how do *we* use them at Allegro? This is a whole other game than JVM, so we had to work things out from the ground up, 
+So, how do *we* use them at Allegro? .NET Core is a whole new ball game here, so we had to work things out from the ground up, 
 rather than build up on ready in-house code. Apart from the template configuration files listed above, we created a solution 
 (well, actually, two solutions for two service flavours: C# and F#). We used the text replacement feature in dockerfiles, 
 both build and deployment scripts (and yaml files), as well as in the namespaces, projects and solution names. 
