@@ -21,6 +21,9 @@ rafal.glowinski:
 michal.kosmulski:
     name: Michał Kosmulski
     bio: Michał is interested in all things high-performance, whether it be low-level stuff like analyzing how OS caches affect I/O operations or high-level like proper application design and functional programming. At Allegro, he works in a team which develops a Pay-per-Click (PPC) advertising system.
+    stackOverflow:
+        id: 1224016
+        name: Michał Kosmulski
 
 bartosz.walacik:
     name: Bartosz Walacik
@@ -66,7 +69,7 @@ kamil.borzym:
 
 piotr.betkier:
     name: Piotr Betkier
-    bio: Software engineer interested in building resilient distributed systems. Strong supporter of continuous integration & delivery, believes in Unix philosophy. IT communities enthusiast.
+    bio: Software Engineer who loves building useful tools and resilient systems. Works in one of the technical platform teams, where he's responsible for common libraries and service discovery (Service Mesh). Conference speaker, host of Allegro Tech Podcast.
     twitter: piotrbetkier
 
 maciej.arciuch:
@@ -437,6 +440,8 @@ bartosz.balukiewicz:
 tomasz.nurkiewicz:
     name: Tomasz Nurkiewicz
     bio: Java Champion. Author, trainer, conference speaker, technical reviewer, runner. Wrote a book on RxJava for O’Reilly. Claims that code not tested automatically is not a feature but just a rumour.
+    twitter: tnurkiewicz
+    github: nurkiewicz
 
 adrian.rydzynski:
     name: Adrian Rydzyński
@@ -445,6 +450,9 @@ adrian.rydzynski:
 mateusz.podlasin:
     name: Mateusz Podlasin
     bio: Mateusz is a frontend developer, dreaming about a career in machine learning. He used to be a humanities student, dreaming about a career in frontend development.
+karol.kuc:
+    name: Karol Kuc
+    bio: Karol is a software craftsman and data analysis enthusiast. His main interests lie in cloud distributed systems but he also sets his first steps in frontend development and data modelling.
 
 mariusz.kopylec:
     name: Mariusz Kopylec
@@ -462,6 +470,11 @@ mariusz.wojakowski:
     name: Mariusz Wojakowski
     bio: Harnesser of JVM-ish languages in the service of business during the day, papers reader at night. Fan of distributed ‘everything’, FP novice.
 
+zbigniew.kuzera:
+    name: Zbigniew Kuzera
+    bio: Backend software engineer, also recently not disgusted with frontend and mobile technologies. Enthusiast of inventing simple solutions.
+    github: kuzera
+
 malgorzata.karmazyn:
     name: Małgorzata Karmazyn
     bio: Małgorzata is a software engineer focused on backend microservices and big data. Code simplicity and unit testing enthusiast.
@@ -470,6 +483,17 @@ grzegorz.dziadosz:
     name: Grzegorz Dziadosz
     bio: A software engineer interested in building resilient and scalable distributed systems. At Allegro, he works in a team which develops a Pay-per-Click (PPC) advertising system.
 
+wojciech.lesicki:
+    name: Wojciech Lesicki
+    bio: Team Leader in the IT Security department. Once responsible for cloud solutions (OpenStack, AWS etc.) and containerization (Mesos / Marathon). Currently, he focuses on defending the entire Allegro platform, the security of the implementation process, pentests and projects related to the security of the entire company. He works with developers and business looking for what can be done to make it more secure. He loves all possibilities of improving products / solutions / technologies.  Recently, he also started promoting knowledge of IT security in native Poznań. In his free time he walks the mountains and explores the Att&ck MITER framework.
+    twitter: WLesicki
+
+szymon.adach:
+    name: Szymon Adach
+    bio: Software engineer who enjoys working with .NET and spends his free time tinkering with his hydroponic garden.
+    github: L-Dogg
+    twitter: orgiele
+
 rafal.guzniczak:
     name: Rafał Guźniczak
     bio: TBD
@@ -477,3 +501,4 @@ rafal.guzniczak:
 katarzyna.malecka:
     name: Katarzyna Małecka
     bio: Since 2008 I work as a project manager combining it with UX Design. I write articles for IT magazines and tales for children. Apart from that, I am the owner of a white British cat with an unbelievable level of fluffiness. 
+

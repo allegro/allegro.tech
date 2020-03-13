@@ -18,6 +18,12 @@
 <span>{{authorData.github}}</span>
 </a>
 {% endif %}
+{%if authorData.stackOverflow.id and authorData.stackOverflow.name %}
+<a class="username" href="https://stackoverflow.com/users/{{authorData.stackOverflow.id}}">
+<span class="social"><img src="/img/social/stackoverflow.svg" alt="StackOverflow"></span>
+    <span>{{authorData.stackOverflow.name}}</span>
+</a>
+{% endif %}
 {{authorData.bio | markdownify}}
 {%if include.showLinkToPost %}
     {% assign author_post_count = 0 %}
@@ -28,7 +34,8 @@
     {% endfor %}
 
    <p><a href="/authors/{{authorKey}}">
-       {% if author_post_count == ' 1 ' %}
+       {% if  author_post_count == 0 %}
+       {% elsif author_post_count == ' 1 ' %}
           see post by {{authorData.name}}
        {% else %}
           see {{author_post_count}} posts by {{authorData.name}}

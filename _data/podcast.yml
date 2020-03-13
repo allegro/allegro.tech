@@ -1,0 +1,93 @@
+---
+podcasts:
+- date: '2020-02-24T00:00:00.000Z'
+  slug: 'o_zatrudnianiu_rozwoju_i_nie_tylko'
+  title: O zatrudnianiu, rozwoju inżynierów i nie tylko
+  author: piotr.orlowski
+  name: Piotr Orłowski
+  desc: "\n"
+  toc:
+  - W Allegro pracuje prawie 800 specjalistów IT i ponad 100 liderów.
+  - Jak zbudować taki zespół i zatrudnić do niego lepszych od siebie?
+  - Jak pomóc inżynierom się rozwijać?
+  - Co jest ważne w byciu liderem i jak nim zostać?
+  - Czym jest Opbox i jak połączył frontend w świecie mikrousług?
+  - O tym jak powstało allegro.tech i jaką drodzę przeszliśmy, aby być w tym miejscu,
+    w którym jesteśmy teraz oraz dlaczego warto uczyć dzieci programowania posłuchacie
+    w rozmowie z Piotrem Orłowskim - Software Development Managerem w Allegro.
+  links:
+    Open Source Hermes: https://hermes.allegro.tech/
+    Prezentacja Hermes gubi eventy - Łukasz Drumiński: https://prezi.com/i0tpqxeimbmz/hermes-loses-events/
+    j.Piknik 2014 - have a beer with Allegro engineers: https://allegro.tech/2014/09/j.Piknik-2014-have-a-beer-with-Allegro-engineers.html
+    Allegro Tech Talks 33 Toruń - Jakie i dlaczego książki warto czytać będąc inżynierem? - Piotr Orłowski: https://www.facebook.com/allegro.tech/videos/735697773617860/"
+  platforms:
+    # soundcloud: 629467713
+    buzzsprout: 'https://www.buzzsprout.com/887914/2799460-1-o-zatrudnianiu-i-rozwoju-inzynierow-i-nie-tylko-piotr-orlowski'
+    spotify: https://open.spotify.com/show/2rlbFoVg4eEVbrurrOkPHB
+    applepodcasts: https://podcasts.apple.com/pl/podcast/1-o-zatrudnianiu-i-rozwoju-in%C5%BCynier%C3%B3w-i-nie-tylko-piotr/id1500315781?i=1000466543310
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yNzk5NDYw&ved=0CAIQkfYCahcKEwi4-rTIvfvnAhUAAAAAHQAAAAAQAQ
+- date: '2020-03-02T00:00:00.000Z'
+  slug: infrastruktura_dla_1000_mikrouslug
+  title: Infrastruktura dla 1000 mikrousług w Allegro
+  author: adam.dubiel
+  name: Adam Dubiel
+  desc: "\n"
+  toc:
+  - Na serwis allegro.pl składa się już prawie 1000 mikrousług. Jaka filozofia stoi
+    za budowaniem ich środowiska uruchomieniowego?
+  - Czy Allegro lubi się z Chmurą Publiczną?
+  - Jak rozumiemy powiedzenie “z wielką mocą idzie wielka odpowiedzialność” i dlaczego
+    w Allegro zespół architektów platformy liczy tylko cztery osoby?
+  - Czy możliwa jest usługa w .net w Allegro?
+  -
+  - Jak podbijać wersje Javy i utrzymać 1000 mikrousług w świeżości? Ne te pytania
+    odpowiada Adam Dubiel - Team Manager w Allegro.
+  links:
+    Java 11 and beyond at Allegro: https://allegro.tech/2018/12/java-11-and-beyond-at-allegro.html
+  platforms:
+    buzzsprout: 'https://www.buzzsprout.com/887914/2799484-2-infrastruktura-dla-1000-mikrouslug-w-allegro-adam-dubiel'
+    spotify: https://open.spotify.com/episode/7pws1eOuCtlC8ZziCWeUJC
+    applepodcasts: https://podcasts.apple.com/pl/podcast/2-infrastruktura-dla-1000-mikrous%C5%82ug-w-allegro-adam-dubiel/id1500315781?i=1000467205501
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yNzk5NDg0&ved=0CAIQkfYCahcKEwjo5a7tlv7nAhUAAAAAHQAAAAAQAQ
+- date: '2020-03-09T00:00:00.000Z'
+  slug: jak_zostac_i_pozostac_dobrym_programista
+  title: Jak zostać i pozostać dobrym programistą?
+  author: tomasz.nurkiewicz
+  name: Tomasz Nurkiewicz
+  desc: "\n"
+  toc:
+  - Jak skutecznie dzielić się wiedzą w społeczności IT?
+  - Jaka przyszłość czeka Javę? A także jak wygląda praca programisty w Allegro i jak rekrutujemy?
+  -
+  - Na te i więcej pytań odpowiada Tomek Nurkiewicz – Senior Software Engineer w Allegro, Java Champion.
+  platforms:
+    buzzsprout: 'https://www.buzzsprout.com/887914/2799559-3-jak-zostac-i-pozostac-dobrym-programista-tomasz-nurkiewicz'
+    spotify: https://open.spotify.com/episode/1hUrtS7gtqHGGlssUEfcxj
+    applepodcasts: https://podcasts.apple.com/pl/podcast/3-jak-zosta%C4%87-i-pozosta%C4%87-dobrym-programist%C4%85-tomasz-nurkiewicz/id1500315781?i=1000467870401
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yNzk5NTU5&ved=0CAIQkfYCahcKEwi40KbdkY3oAhUAAAAAHQAAAAAQAQ
+  links:
+    Charbusters - 10 mitów o Unicode, Tomasz Nurkiewicz: https://www.facebook.com/allegro.tech/videos/318000685417753/
+- date: '2020-03-16T00:00:00.000Z'
+  slug: it_security_w_allegro
+  title: IT security w Allegro
+  author: wojciech.lesicki
+  name: Wojciech Lesicki
+  desc: "\n"
+  toc:
+      - Na czym skupiamy się w IT security w Allegro?
+      - Jak radzimy sobie przy ilości wdrożeń, które mamy?
+      - Jakie testy robimy ciągle manualnie?
+      - Skąd czerpać informacje na temat bezpieczeństwa i czemu warto zainteresować się frameworkiem Att&ck MITRE?
+      -
+      - Na te i więcej pytań odpowiada Wojciech Lesicki – Team Leader w Allegro.
+  links:
+        Bezpieczeństwo przy tysiącach wdrożeń na konferencji CONFidence 2018 wraz z Pawłem Czubachowskim: https://www.youtube.com/watch?v=7ONV-jLmlAw
+        CSP - Nasze doświadczenia z ochroną Allegro na konferencji Pozitivetech 2019 wraz z Pawłem Czubachowskim: https://www.youtube.com/watch?v=T6HHipJRBUk
+        Polowanie na czerwony październik - na konferencji BSides Warsaw 2019, Dawid Golak, Jarosław Pukacki: https://www.youtube.com/watch?v=LGMCQx-jZBw
+        Opis framework Att&ck MITRE: https://attack.mitre.org/resources/getting-started/
+
+dict:
+    spotify: Spotify
+    applepodcasts: Apple Podcasts
+    googlepodcasts: Google Podcast
+    soundcloud: Soundcloud
