@@ -6,15 +6,15 @@ tags: [tech, java, performance]
 ---
 
 As a developer interested in both web technologies and game development I always found myself
-disagreeing with a large part of articles about using X to solve some problems.
+disagreeing with a large part of articles about using a particular technology to solve some problems.
 While such articles are often true, they often skip some important details that make given
 solution unacceptable in some other cases. And in this article I will try to look at
 immutability in a negative way from game development perspective and how it can affect web services too.
 It is always more fun to look in a negative way at something everyone loves ;)
 
 So what are these problems:
-1. using the immutable pattern in Java and other languages
-2. impact on the performance in Java and how other languages deal with it
+1. how hard is to use immutable pattern correctly in Java compared to other languages
+2. impact on the performance in Java, and how other languages deal with it
 
 While I can’t really propose any good solution for these problems I hope I will be able to show you
 that while immutability is a great tool, not all languages are fully ready to utilize all
@@ -35,12 +35,12 @@ public final class Enemy {
     // +constructor
 }
 ```
-We need to manually remember and make sure that every object any reference field points to inside such an immutable class is actually immutable too.
+We need to keep in mind and remember that every referenced object must be immutable too.
 If we added a field with a list in it, we would either need to use some `ImmutableList` as field type or ensure in constructor
 that provided list is copied to some immutable collection.
-An especially common mistake here is using and trusting [lombok](https://projectlombok.org/features/Value), as adding `@Value` to our class does not magically handle
-this for us. This is similar to using Kotlin — if others might be using this code from Java, as even if Kotlin list appears immutable
-by default, it just compiler syntax sugar, and your `List` will get compiled to normal mutable Java list type,
+A common mistake here is using and trusting [lombok](https://projectlombok.org/features/Value). Adding `@Value` to our class does not magically handle
+immutability of collections and other references for us. This is similar to using Kotlin, but mostly when using Kotlin code from Java.
+Because even if Kotlin list appears immutable it is just compiler syntax sugar, and your `List` will get compiled to normal mutable Java list type,
 and depending on how the list was created it might be mutable too.
 
 Some languages provide more interesting constructs, for example [D language](https://dlang.org/spec/const3.html):
@@ -96,8 +96,8 @@ point.y.set(7); // works
 So we can’t be sure that our reference is fully immutable either, but if it is, it was a fully conscious choice of the code’s author,
 so we probably don’t need to worry about it.
 
-My point is: Java has one of worst ways of defining immutability and tools like Lombok and Kotlin often only hide this
-instead of helping, so while immutability is promising to keep developers safe from many issues, it’s not that easy to keep
+My point is: Java has one of the worst ways of defining immutability and tools like Lombok and Kotlin often only hide this
+instead of helping. While immutability is promising to keep developers safe from many issues, it’s not that easy to keep
 immutable values safe from developers without better support from the language itself.
 But why is that? Was Java never designed to be used with immutable values?
 
@@ -106,11 +106,13 @@ But why is that? Was Java never designed to be used with immutable values?
 We all know (I hope so) about the good sides of using immutable values, mostly related to multi-threaded code, but did
 you ever wonder what the trade-off is? In many native languages such immutable objects usage can often be heavily optimized and
 a lot of allocations are just skipped, but that’s not the case with Java — it can still reduce the number of allocations but in a much more limited way.
-Many people don’t really think about it, but you can actually allocate fast enough to slow down your
-application to noticeable degree, but at the same time you really need a lot to do so, so you don’t need to
-worry about it in a typical web application.
+Many people don’t think about it, but you can allocate objects/memory fast enough to slow down your application to noticeable degree.
+Application then will both spend more time allocation objects and then on cleaning them up duringing GC.
+To cause such issues you need to constantly allocate a lot of objects in very short time,
+so in a typical web application it's not that easy to encounter issues with allocation rates.
+And when it happens you can tweak a few GC settings and scale your application.
 
-Imagine a piece of game code where we want to invoke some function for some generated positions in world:
+Imagine a piece of game code where we want to invoke a function for generated positions in world:
 ```java
 
 class Example {
@@ -130,7 +132,7 @@ class World {
     }
 }
 ```
-In games such a thing would probably be part of game loop, running few (2-100?) times per second. Maybe not necessarily
+In games such a thing would probably be part of game loop, running dozens of times per second. Maybe not necessarily
 spawning new monsters, but definitely there is always a lot to do.
 
 We will use [JMH](https://openjdk.java.net/projects/code-tools/jmh/) for benchmarking. Full benchmark code will be linked at the end of article.
@@ -162,25 +164,27 @@ but remember that we are talking about something running in a game loop, 35ms le
 or add more features before our game will run too slow, and that’s a lot of time!
 
 In other languages people often try to connect benefits of immutable code and less allocation by allocating such values
-on the stack. Sadly Java once again does not have any tool for that.
+on the stack. Sadly Java once again does not have any tool for that
+(Java can get rid of allocations in some cases, but these are internal JIT optimizations that we can't control or assume if/when they are used).
 The only alternative would be to use raw values directly, so instead of passing a Position object
-we can just pass 3 double values. Sadly we have no way to return 3 values at once,
-so our generator of positions must support generation of each value separately.
+we can just pass 3 double values. In java we have no way to return 3 values at once (structures would solve this too),
+so our generator of positions must support generation of each value (x/y/z) separately.
 ```
 Benchmark                   Score   Error  Units
 tickNoHeap                  23.562  0.012  ms/op
 tickNoHeap:tickNoHeap p0.99 23.839         ms/op
 ```
-And not only does it run faster now, but can also be used again in multithreaded way without any issues.
+And not only it does run faster now, but can also be used again in multithreaded way without any issues.
 The only issue is that we would not be able to do this with larger objects, and it already looks much more
-complicated and less readable, and all of this because Java lacks simple structs.
+complicated and less readable, and all of this because Java lacks simple structures that can be allocated on stack
+(but maybe someday we will see some form of structures thanks to [Valhalla](https://openjdk.java.net/projects/valhalla/) project).
 Note that using a struct would not always be better, it depends on size of our data.
-If it would be large object then it would be better to use normal object/reference as copying it would
+If we use large object then it would be better to use normal object/reference as copying it would
 cost more than cost of dereferencing it later.
 
 ### Stressing GC
 
-Now let’s actually run this code using more threads and see what happens:
+Now let’s run this code using more threads and see what happens:
 ```java
 @Benchmark
 @Threads(-1) // use all cores
@@ -228,12 +232,12 @@ tick_threaded20M                                      427.533   1.430  ms/op
 tick_threaded20M:tick_threaded20M p0.00               411.042          ms/op
 tick_threaded20M:tick_threaded20M p0.99               478.224          ms/op
 ```
-Now version with objects is struggling even more to maintain good performance, and this is
+New version with objects is struggling even more to maintain good performance, and this is
 actually something you might observe in your web application too, when more and more time goes
 for GC and allocation.
-Some of these issues can be sometimes “solved” by adjusting young gen size.
+Some of these issues can be sometimes solved (or make them less visible) by adjusting young gen size.
 Issue will still be there, but now it will occur at another point, and at the end you will finally hit
-limit of how much you can scale your application vertically.
+a limit of how much you can scale your application vertically.
 
 ### Conclusion?
 
@@ -243,10 +247,10 @@ While it’s still a good idea to write code using immutable values, we should s
 using other methods if we need much higher throughput and scaling horizontally is either impossible
 or just starting to get too expensive (with games you are often limited by performance of a single PC).
 As a wannabe game developer myself — I’m especially looking at other web developers interested in
-game development, as seeing web influenced game code often hurts, not only the performance of the game,
+game development, as reading web influenced game code often hurts, not only the performance of the game,
 but also the people who will read that code later ;)
 
-Immutability is just a tool in the software engineer’s hand, and every tool has its own good uses,
+Immutability is just a tool in a software engineer’s hand, and every tool has its own good uses,
 but there is no universal tool and the job of a software engineer is to choose the right tools for given job.
 
 [Full source code for benchmark can be read on gist](https://gist.github.com/2f057616f300045c7638bd11b250c20a)
