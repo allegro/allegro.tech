@@ -75,7 +75,7 @@ podcasts:
   desc: "\n"
   toc:
       - Na czym skupiamy się w IT security w Allegro?
-      - Jak radzimy sobie przy ilości wdrożeń, które mamy?
+      - Jak radzimy sobie z bezpieczeństwem w dynamicznym środowisku mikrousług przy setkach wdrożeń dziennie?
       - Jakie testy robimy ciągle manualnie?
       - Skąd czerpać informacje na temat bezpieczeństwa i czemu warto zainteresować się frameworkiem Att&ck MITRE?
       -
