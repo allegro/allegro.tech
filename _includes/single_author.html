@@ -24,6 +24,12 @@
     <span>{{authorData.stackOverflow.name}}</span>
 </a>
 {% endif %}
+{%if authorData.linkedin %}
+<a class="username" href="https://www.linkedin.com/in/{{authorData.linkedin}}">
+<span class="social"><img src="/img/social/linkedin.svg" alt="Linkedin"></span>
+<span>{{authorData.linkedin}}</span>
+</a>
+{% endif %}
 {{authorData.bio | markdownify}}
 {%if include.showLinkToPost %}
     {% assign author_post_count = 0 %}
