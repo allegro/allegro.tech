@@ -85,6 +85,21 @@ podcasts:
         CSP - Nasze doświadczenia z ochroną Allegro na konferencji Pozitivetech 2019 wraz z Pawłem Czubachowskim: https://www.youtube.com/watch?v=T6HHipJRBUk
         Polowanie na czerwony październik - na konferencji BSides Warsaw 2019, Dawid Golak, Jarosław Pukacki: https://www.youtube.com/watch?v=LGMCQx-jZBw
         Opis framework Att&ck MITRE: https://attack.mitre.org/resources/getting-started/
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/2903590-4-it-security-w-allegro-wojciechlesicki
+
+
+- date: '2020-03-23T00:00:00.000Z'
+  slug: badania_ux_w_allegro
+  title: Badania UX w Allegro
+  author: justyna.osten-sacken
+  name: Justyna Osten-Sacken
+  desc: "\n"
+  toc:
+      - Jak wygląda dzień pracy badacza w Allegro?
+      - Co właściwie "badamy" i dlaczego to robimy?
+      - Jak opinie klientów wpływają na nasze produkty?
+      - Jeśli temat user experience jest Ci bliski i chcesz spróbować swoich sił w tej branży - posłuchaj rozmowy z Justyną Osten-Sacken badaczką UX w Allego - a dowiesz się jak to zrobić.
 
 dict:
     spotify: Spotify
