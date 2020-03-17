@@ -30,7 +30,7 @@ public class Author {
 }
 
 ```
-There are also several wrapper objects for fields such as id, title or content. This allows you encapsulate additional business logic or validation, 
+There are also several wrapper classes for fields such as id, title or content. This allows you to encapsulate additional business logic or validation, 
 as well as avoid passing several String values as method arguments which is generally bad practice and may lead to bugs difficult to track: 
 now if you accidentally swap values upon method call your code won't compile. 
 
@@ -47,20 +47,14 @@ class ArticleController {
     
     @GetMapping("{articleId}")
     ArticleResponse get(@PathVariable("articleId") final String articleId) {
-        log.info(">>> HTTP GET Request: retrieve an article with id: \"{}\"", articleId);
-        final ArticleResponse articleResponse = service.get(articleId);
-        log.info("<<< HTTP GET Response: article: \"{}\", successfully retrieved", articleResponse.title());
-        return articleResponse;
+        return service.get(articleId);
     }
  
     @PostMapping
     ArticleIdResponse create(@RequestBody final ArticleRequest articleRequest) {
-        log.info(">>> HTTP POST Request: create an article: \"{}\"", articleRequest.title().value());
-        final ArticleIdResponse articleIdResponse = service.create(articleRequest);
-        log.info("<<< HTTP POST Response: article with id: \"{}\", successfully created", articleIdResponse.id());
-        return articleIdResponse;
+        return service.create(articleRequest);
     }
-    //boilerplate code omitted
+    //boilerplate code and logger calls omitted
 }
 ```
 
@@ -71,7 +65,10 @@ It is often assumed that each port needs to be an interface,
 it doesn't make much sense for left-side ports though.
 Interfaces, in general, allow you to decouple implementation from the component that uses it. They
 are essential to the decoupling of the domain (also referred to as core) and the adapters that implement ports, which makes them
-pluggable and potentially replaceable. It is of vital importance that the domain code is adapter-agnostic and has no dependency on adapter implementation code, yet not necessarily not the other way round. Every adapter depends on the domain code at least by implementing one of the ports interfaces. So unless you plan to replace your core domain with a different one
+pluggable and potentially replaceable. It is of vital importance that the domain code is adapter-agnostic and has no 
+dependency on adapter implementation code, yet not necessarily not the other way round. 
+Every adapter depends on the domain code at least by implementing one of the ports interfaces. 
+o unless you plan to replace your core domain with a different one
 and don't want your REST adapter to be affected, hiding the domain services (or facades) behind interfaces
 can be seen as over-engineering and gives you nothing in return.
 
@@ -151,7 +148,16 @@ The project package structure reflects the service architecture:
 
 ## Adapter implementation
 
-Each adapter works on its model, which can translate itself “from” or “to” the domain model, which on the other hand is adapter-model-agnostic.
+Each adapter works on its data model, which can translate itself “from” or “to” the domain model, 
+which on the other hand is adapter-model-agnostic.
+That's why I favour 
+```
+ArticleResponse.of(domainArticle) 
+```
+over 
+```
+domainArticle.toResponse()
+```
 Below you'll find the REST API adapter model as an example.
 ```
 class ArticleResponse {
@@ -204,6 +210,16 @@ Article "Hexagonal Architecture" fetched
 Article: "Hexagonal Architecture" retrieval event published on event bus
 <<< HTTP GET Response: article: "Hexagonal Architecture" successfully retrieved
 ```
-
+## Summary
+I hope that the above example depicts the theoretical concepts such as Hexagonal Architecture, Ports and Adapters
+in an easy and comprehensible way. I also tried to avoid oversimplifying the example implementation, especially
+for the sake of readers who encounter the HA approach and DDD for the first time. 
+It could have been difficult to grasp the difference between a traditional layered architecture and Hexagonal Architecture if the only thing 
+your domain is responsible for is storing and fetching data from a repository. The same applies to understanding
+the reason why the domain model should be independent from the adapter model. Services,
+in which the domain model consists of only one class which is mapped 1 to 1 by an adapter dto (both classes have the same fields, they have just different names), e.g. a JPA entity,
+seems to present Hexagonal Architecture as an over-engineered approach, where one copies the same field values
+from class to class just for the sake of the pattern on its own.
+## Code examples
 If you are interested in the implementation of the example service, fragments of which were included in the code snippets, take a look at the [github repository](https://github.com/dziadeusz/hexagonal-architecture-by-example)
 
