@@ -4,11 +4,14 @@
 Write your article in Markdown, save it to `_posts` folder.
 If this is your first post, prepare your Bio.
 
+Install needed gems
+`bundle install --path vendor/bundle`
+
 Launch the site using [jekyll](https://help.github.com/articles/using-jekyll-with-pages),
 
 `bundle exec jekyll serve -i`
 
-Does your article is rendered correctly?
+Is your article rendered correctly?
 
 Create a Pull Request and get some feedback.
 
