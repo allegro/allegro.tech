@@ -104,6 +104,23 @@ podcasts:
       - Jak opinie klientów wpływają na nasze produkty?
       - Jeśli temat user experience jest Ci bliski i chcesz spróbować swoich sił w tej branży - posłuchaj rozmowy z Justyną Osten-Sacken badaczką UX w Allego - a dowiesz się jak to zrobić.
   links:
+    Więcej o naszym programie stażowym: https://allegro.pl/praca/staze
+    Aplikuj na staż w naszym zespole: https://jobs.smartrecruiters.com/Allegro/743999708732057-ux-researcher-intern
+    Kurs dotyczący procesu projektowego, wprowadzenie do badań - świetny na początek (po angielsku): https://www.plusacumen.org/courses/introduction-human-centered-design
+    Allegro UX Talks | Porozmawiajmy o [dostępności]: https://www.facebook.com/848329198535765/videos/939114486480430/
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/2903638-5-badania-ux-w-allegro-justyna-osten-sacken
+    spotify: https://open.spotify.com/episode/79oX79WEs4ANoelV5qYtAF
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yOTAzNjM4&ved=0CAIQkfYCahcKEwjg9KXVhLDoAhUAAAAAHQAAAAAQAQ
+
+
+- date: '2020-03-30T00:00:00.000Z'
+  slug: wyszukiwanie_w_allegro
+  title: Wyszukiwanie w allegro - jak nie potknąć się o długi ogon?
+  author: adam.dudczak
+  name: Adam Dudczak
+
+
 dict:
     spotify: Spotify
     applepodcasts: Apple Podcasts
