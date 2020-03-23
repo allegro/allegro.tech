@@ -114,6 +114,13 @@ podcasts:
     googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yOTAzNjM4&ved=0CAIQkfYCahcKEwjg9KXVhLDoAhUAAAAAHQAAAAAQAQ
 
 
+- date: '2020-03-30T00:00:00.000Z'
+  slug: kilka_przypadkow_z_zycia_najwiekszej_wyszukiwarki_ecommerce_w_polsce
+  title: Kilka przypadków z życia największej wyszukiwarki ecommerce w Polsce
+  author: adam.dudczak
+  name: Adam Dudczak
+
+
 dict:
     spotify: Spotify
     applepodcasts: Apple Podcasts
