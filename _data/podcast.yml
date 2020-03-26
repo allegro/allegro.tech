@@ -117,9 +117,15 @@ podcasts:
 
 - date: '2020-03-30T00:00:00.000Z'
   slug: wyszukiwanie_w_allegro
-  title: Wyszukiwanie w allegro - jak nie potknąć się o długi ogon?
+  title: Wyszukiwanie w allegro - jak nie potknąć się o&nbsp;długi ogon?
   author: adam.dudczak
   name: Adam Dudczak
+  toc:
+    - Dlaczego wyszukiwanie jest takie trudne?
+    - Z jakimi danymi pracujemy tworząc wyszukiwarkę Allegro?
+    - Jakich technologii używamy by odpowiadać na zapytania użytkownika w ciągu kilku milisekund?
+    - Do czego używamy uczenia maszynowego i jak budujemy modele, które odpowiadają za sortowanie ofert w wynikach wyszukiwania?
+    - Na te i inne pytania odpowiada Adam Dudczak - Team Manager w zespole wyszukiwarki Allegro.
 
 
 dict:
