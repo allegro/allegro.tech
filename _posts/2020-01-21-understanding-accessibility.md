@@ -23,7 +23,7 @@ It is crucial to remember, though:
 - it is not a brand new, fancy guide what technology is the best and more accessible or how exactly to implement improvements. 
 It is a guide but filled with examples shown in a general way. You can use it no matter what technology you use. 
 It is an advantage, and disadvantage of this documentation, as it is not full of ready-to-use solutions;
-- iit is official documentation (and ISO norm also), so you bet it is not so easy to get through all examples and descriptions. 
+- it is official documentation (and ISO norm also), so you bet it is not so easy to get through all examples and descriptions. 
 As with all formal documentation, sometimes while reading, you could feel a huge desire to just run away from it. 
 Be brave (and read further this article, as Rafał prepared excellent instruction on how to use WCAG in your everyday work - check the text below);
 
