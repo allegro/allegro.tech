@@ -4,17 +4,17 @@
     "totalFound": 41,
     "content": [
         {
-            "id": "743999710120964",
+            "id": "743999710241860",
             "name": "IT Security Specialist - Computer Security Incident Response Team",
-            "uuid": "9c11aaec-ea25-42a1-87b0-0259eb3a2f41",
+            "uuid": "7c7b1cb9-66d1-40e4-950d-3edd972ed4d7",
             "refNumber": "REF2008Z",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-03-25T14:03:25.000Z",
+            "releasedDate": "2020-03-27T13:56:03.000Z",
             "location": {
-                "city": "Poznań, Warszawa, Toruń",
+                "city": "Poznań, Warszawa, Toruń, Kraków",
                 "country": "pl"
             },
             "industry": {
@@ -46,8 +46,8 @@
                 {
                     "fieldId": "58c1575ee4b01d4b19ddf797",
                     "fieldLabel": "Kraków",
-                    "valueId": "bcab9d4f-8624-4d85-8e3d-dbf12239b972",
-                    "valueLabel": "Nie"
+                    "valueId": "2cfcfcc1-da44-43f7-8eaa-3907faf2797c",
+                    "valueLabel": "Tak"
                 },
                 {
                     "fieldId": "58c15798e4b01d4b19ddf79b",
@@ -109,7 +109,7 @@
                     "valueLabel": "bezpieczeństwo, hack, hacker, csirt, cdot, red team, blue team"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999710120964",
+            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999710241860",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
