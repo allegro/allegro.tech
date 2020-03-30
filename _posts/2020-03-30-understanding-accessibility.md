@@ -48,7 +48,7 @@ Those principles not only organize guidelines in groups but they also allow you 
 Each policy addresses one or more types of disability. Take a look at the picture below (there is also 
 alternative text according to guideline [1.1 Text Alternatives](https://www.w3.org/TR/WCAG21/#text-alternatives) 🙂).
 
-<img alt="Illustration shows the association of four principles with types of disabilities" aria-describedby="pour-description" src="/img/articles/2020-01-21-understanding-accessibility/pour.png">
+<img alt="Illustration shows the association of four principles with types of disabilities" aria-describedby="pour-description" src="/img/articles/2020-03-30-understanding-accessibility/pour.png">
 <span id="pour-description" style="clip: rect(0 0 0 0); clip-path: inset(50%); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px;">
     Hand drawn computer illustration. At the top there are four icons symbolizing dysfunctions with captions: vision,
     hearing, motor and cognitation. Four principles are listed below: perceivable, operable, understable and robust. 
