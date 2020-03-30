@@ -117,10 +117,26 @@ podcasts:
 
 - date: '2020-03-30T00:00:00.000Z'
   slug: wyszukiwanie_w_allegro
-  title: Wyszukiwanie w allegro - jak nie potknąć się o długi ogon?
+  title: Wyszukiwanie w allegro - jak nie potknąć się o&nbsp;długi ogon?
   author: adam.dudczak
   name: Adam Dudczak
+  toc:
+    - Dlaczego wyszukiwanie jest takie trudne?
+    - Z jakimi danymi pracujemy tworząc wyszukiwarkę Allegro?
+    - Jakich technologii używamy by odpowiadać na zapytania użytkownika w ciągu kilku milisekund?
+    - Do czego używamy uczenia maszynowego i jak budujemy modele, które odpowiadają za sortowanie ofert w wynikach wyszukiwania?
+    - Na te i inne pytania odpowiada Adam Dudczak - Team Manager w zespole wyszukiwarki Allegro.
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/2903653-6-wyszukiwanie-w-allegro-jak-nie-potknac-sie-o-dlugi-ogon-adam-dudczak
+    spotify: https://open.spotify.com/episode/5oPZZTkam59QHLTENmS4s5
+    applepodcasts: https://podcasts.apple.com/pl/podcast/6-wyszukiwanie-w-allegro-jak-nie-potkn%C4%85%C4%87-si%C4%99-o-d%C5%82ugi/id1500315781?i=1000469902782
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yOTAzNjUz&ved=0CAcQ38oDahcKEwjgkoeDwsHoAhUAAAAAHQAAAAAQAQ
 
+- date: '2020-04-06T00:00:00.000Z'
+  slug: jak_testy_moga_wplynac_na_zycie
+  title: Jak testy mogą wpłynąć na życie?
+  author: pawel.zwierzchowski
+  name: Paweł Zwierzchowski
 
 dict:
     spotify: Spotify
