@@ -122,10 +122,20 @@ podcasts:
   name: Adam Dudczak
   toc:
     - Dlaczego wyszukiwanie jest takie trudne?
+    - Jak często Polacy szukają czegoś na Allegro?
     - Z jakimi danymi pracujemy tworząc wyszukiwarkę Allegro?
     - Jakich technologii używamy by odpowiadać na zapytania użytkownika w ciągu kilku milisekund?
     - Do czego używamy uczenia maszynowego i jak budujemy modele, które odpowiadają za sortowanie ofert w wynikach wyszukiwania?
     - Na te i inne pytania odpowiada Adam Dudczak - Team Manager w zespole wyszukiwarki Allegro.
+  links:
+    Apache Solr: https://lucene.apache.org/solr/
+    Jak dostosowujemy i używamy Solr-a, opowiada Andrzej Wisłowski - nagranie z konferencji Activate: https://www.youtube.com/watch?v=-pWeEvFNhV8
+    Plugin do exportowania dokumentów z Solra - utrzymywany przez Rafała Zarajczyka: https://github.com/allegro/solr-ids-export-plugin
+    Plugin do Elasticsearch wpinający Morfologika w potok analizy w ES - zainicjowane przez Pawła Bobruka: https://github.com/allegro/elasticsearch-analysis-morfologik
+    Plugin pozwalajacy łatwo odpalać ES na potrzeby testów integracyjnych - zainicjowane również przez Pawła Bobruka: https://github.com/allegro/embedded-elasticsearch
+    Biblioteka do tworzenia modeli Learning-to-rank, stworzona w Allegro w zespole Machine Learning Research: https://github.com/allegro/allRank
+    Spotkania Poznańskiej grupy użytkowników języka Java: https://www.meetup.com/pl-PL/Poznan-Java-User-Group/
+    Konferencja GeeCON: https://2020.geecon.org/
   platforms:
     buzzsprout: https://www.buzzsprout.com/887914/2903653-6-wyszukiwanie-w-allegro-jak-nie-potknac-sie-o-dlugi-ogon-adam-dudczak
     spotify: https://open.spotify.com/episode/5oPZZTkam59QHLTENmS4s5
