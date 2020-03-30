@@ -6,21 +6,23 @@ tags: [tech, machine_learning, agile, soft_skills]
 ---
 
 Another sprint, another retrospective. You use new formulas, you gather insights, you vote
-and you have action points.
+and you have action points. Sometimes you start to regret being just a human.
+What if you can process incoming requests in parallel? And provide always most accurate responses?
+You cannot be everywhere. But there is someone who can.
 
 ## “We have to communicate better”
 
-Have you heard it in your team? Like a curse, 'action point' stating that “we have to communicate better”.
+Have you heard it in your team? Like a curse, the 'action point' stating that “we have to communicate better”.
 The agile manifesto states “Individuals and interactions over processes and tools”.
 We try to be aware of <a href="/2018/03/psychological-needs-at-work.html">psychological needs at work</a>
 but sometimes wef fail to find what we do not want to do. Let’s face it, in IT we do not like communicating.
-It’s something we constantly avoid. We had invented daily standups to squash all interactions into one.
+It’s something we constantly avoid. We invented daily standups to squash all interactions into one.
 Why respond to N people when you can sacrifice two minutes to tell everything the world has to know?
 At some point, this is not enough. Then we introduce quiet time. We switch off our emails, phones,
-communicators, we do not take guests in the room. We are offline for one or two hours.
+communicators, we do not allow guests in the room. We are offline for one or two hours.
 Sometimes we even invert this idea and use “communication hours” outside which you are forbidden to
 talk to your colleagues. And If we have more than two hours of meetings during the day
-we make post-it on retro.
+we make a post-it during the next retrospective.
 
 <p align="center">
   <img width="500"
@@ -36,7 +38,7 @@ who takes care of all incoming communication. When it’s my turn I know it won�
 But at least the rest of the month is better. And then we are surprised that even in our small team
 information asymmetry starts destroying our decision-making process.
 When other teams are becoming involved situation gets even worse. Although <a href="/2019/09/team-tourism-at-allegro.html">team tourism</a> helps a little.
-We start seeking solution. And when we cannot find one what tech guys do? Transform problems.
+We start seeking solution. And when we cannot find one what do tech guys do? Transform problems.
 So we introduce microservices to get a lot of technical problems in exchange for human resources problems.
 And this works brilliantly.
 
@@ -61,8 +63,8 @@ we just stop doing it properly.
 
 ## Project “Genesis”
 
-So what if we wrote a program that just knows everything about Allegro Tech. Well you know we can’t. But it’s 21 century.
-IBM Watson wins at Jeopardy, DeepMind AlphaGo beat a world master at Go game and Boston Dynamics makes Atlas robot that
+So what if we wrote a program that just knew everything about Allegro Tech? Well you know we can’t. But we're living in the 21 century.
+IBM Watson wins at Jeopardy, DeepMind AlphaGo beats a world master at Go game and Boston Dynamics makes the Atlas robot that
 <a href="https://www.youtube.com/watch?v=LikxFZZO2sk" rel="nofollow">can do parkour</a>. Today we introduce Humanoid Allegro Learner (HAL),
 the best personal company manager, to the world. Let’s take a quick look at the architecture.
 
@@ -72,8 +74,8 @@ the best personal company manager, to the world. Let’s take a quick look at th
     src="/img/articles/2020-04-01-machine-learning-plus-agile-manifesto/graph_details.png">
 </p>
 
-There's a lot happening on this diagram so let's extract some abstractions. Basically, HAL performs man-in-the-middle
-to all of our communication tools. It interprets messages, matches it to our database and if it can it
+There's a lot happening in this diagram so let's extract some abstractions. Basically, HAL performs man-in-the-middle
+to all of our communication tools. It interprets messages, matches them to our database and if it can it
 cuts the communication by serving the response. Message is transmitted to the end-user only as a fallback when no data is found.
 Following diagram is equivalent and somehow easier to understand.
 
@@ -83,21 +85,21 @@ Following diagram is equivalent and somehow easier to understand.
     src="/img/articles/2020-04-01-machine-learning-plus-agile-manifesto/graph_simplified.png">
 </p>
 
-There are some mistakes we have made during development:
-- In the first test on real users, we found they didn’t trust HAL, treating it as dumb machine,
-  we had to hide this information from them not to irritate our precious AI;
-- It is very important in Machine Learning to choose a good performance indicator,
-  at first our accuracy on dry run seems very low about 60%. After weeks of trying to optimize the algorithm
-  we found that actually HAL responses were far more relevant. We have found out that human slack messages
-  on #help-me channels were misleading and inaccurate;
-- We had to compress our input data. It turned out that after synonyms detection denormalization eliminated 86% of data.
+There are some mistakes we made during development:
+- In the first test on real users, we found they didn’t trust HAL, treating it as dumb machine.
+  We had to hide this information from them not in order not to irritate our precious AI.
+- It is very important in Machine Learning to choose a good performance indicator.
+  At first our accuracy in dry run seemed very low, about 60%. After weeks of trying to optimize the algorithm
+  we found that actually HAL's responses were far more relevant. We found out that human slack messages
+  on #help-me channels were misleading and inaccurate.
+- We had to compress our input data. It turned out that after synonym detection, denormalization eliminated 86% of data.
 
 ## Summary
 
-First, we introduced our model in the form of a slackbot. HAL reduced communication by nearly 97% so team development boosted.
+First, we introduced our model in the form of a slackbot. HAL reduced communication by nearly 97%, boosting team performance.
 Zoom virtual assistant is currently in beta testing. We have some problems with it since it interrupts the speaker immediately,
-without giving him a chance to express full thought. Programmers can work on code, get in the flow without interruptions
-cause HAL handles the rest. HAL, I hope I will see you soon in every company.
+without giving him a chance to express full thought. Programmers can work on code and get into flow without interruptions
+since HAL handles the rest. HAL, I hope I will see you soon in every company.
 
 <p align="right">
 * Have you noticed? This article was written by our beloved HAL
