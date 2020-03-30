@@ -60,8 +60,83 @@ podcasts:
   - Jaka przyszłość czeka Javę? A także jak wygląda praca programisty w Allegro i jak rekrutujemy?
   -
   - Na te i więcej pytań odpowiada Tomek Nurkiewicz – Senior Software Engineer w Allegro, Java Champion.
+  platforms:
+    buzzsprout: 'https://www.buzzsprout.com/887914/2799559-3-jak-zostac-i-pozostac-dobrym-programista-tomasz-nurkiewicz'
+    spotify: https://open.spotify.com/episode/1hUrtS7gtqHGGlssUEfcxj
+    applepodcasts: https://podcasts.apple.com/pl/podcast/3-jak-zosta%C4%87-i-pozosta%C4%87-dobrym-programist%C4%85-tomasz-nurkiewicz/id1500315781?i=1000467870401
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yNzk5NTU5&ved=0CAIQkfYCahcKEwi40KbdkY3oAhUAAAAAHQAAAAAQAQ
   links:
     Charbusters - 10 mitów o Unicode, Tomasz Nurkiewicz: https://www.facebook.com/allegro.tech/videos/318000685417753/
+- date: '2020-03-16T00:00:00.000Z'
+  slug: it_security_w_allegro
+  title: IT security w Allegro
+  author: wojciech.lesicki
+  name: Wojciech Lesicki
+  desc: "\n"
+  toc:
+      - Na czym skupiamy się w IT security w Allegro?
+      - Jak radzimy sobie z bezpieczeństwem w dynamicznym środowisku mikrousług przy setkach wdrożeń dziennie?
+      - Jakie testy robimy ciągle manualnie?
+      - Skąd czerpać informacje na temat bezpieczeństwa i czemu warto zainteresować się frameworkiem Att&ck MITRE?
+      -
+      - Na te i więcej pytań odpowiada Wojciech Lesicki – Team Leader w Allegro.
+  links:
+        Bezpieczeństwo przy tysiącach wdrożeń na konferencji CONFidence 2018 wraz z Pawłem Czubachowskim: https://www.youtube.com/watch?v=7ONV-jLmlAw
+        CSP - Nasze doświadczenia z ochroną Allegro na konferencji Pozitivetech 2019 wraz z Pawłem Czubachowskim: https://www.youtube.com/watch?v=T6HHipJRBUk
+        Polowanie na czerwony październik - na konferencji BSides Warsaw 2019, Dawid Golak, Jarosław Pukacki: https://www.youtube.com/watch?v=LGMCQx-jZBw
+        Opis framework Att&ck MITRE: https://attack.mitre.org/resources/getting-started/
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/2903590-4-it-security-w-allegro-wojciechlesicki
+    spotify: https://open.spotify.com/episode/4raXlG4uafbpArQZGXut37
+    applepodcasts: https://podcasts.apple.com/pl/podcast/4-it-security-w-allegro-wojciech-lesicki/id1500315781?i=1000468696801
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yOTAzNTkw&ved=0CAIQkfYCahcKEwjA-OKj4J_oAhUAAAAAHQAAAAAQAQ
+
+
+- date: '2020-03-23T00:00:00.000Z'
+  slug: badania_ux_w_allegro
+  title: Badania UX w Allegro
+  author: justyna.osten-sacken
+  name: Justyna Osten-Sacken
+  desc: "\n"
+  toc:
+      - Jak wygląda dzień pracy badacza w Allegro?
+      - Co właściwie "badamy" i dlaczego to robimy?
+      - Jak opinie klientów wpływają na nasze produkty?
+      - Jeśli temat user experience jest Ci bliski i chcesz spróbować swoich sił w tej branży - posłuchaj rozmowy z Justyną Osten-Sacken badaczką UX w Allego - a dowiesz się jak to zrobić.
+  links:
+    Więcej o naszym programie stażowym: https://allegro.pl/praca/staze
+    Aplikuj na staż w naszym zespole: https://jobs.smartrecruiters.com/Allegro/743999708732057-ux-researcher-intern
+    Kurs dotyczący procesu projektowego, wprowadzenie do badań - świetny na początek (po angielsku): https://www.plusacumen.org/courses/introduction-human-centered-design
+    Allegro UX Talks | Porozmawiajmy o [dostępności]: https://www.facebook.com/848329198535765/videos/939114486480430/
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/2903638-5-badania-ux-w-allegro-justyna-osten-sacken
+    spotify: https://open.spotify.com/episode/79oX79WEs4ANoelV5qYtAF
+    applepodcasts: https://podcasts.apple.com/pl/podcast/5-badania-ux-w-allegro-justyna-osten-sacken/id1500315781?i=1000469272030
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yOTAzNjM4&ved=0CAIQkfYCahcKEwjg9KXVhLDoAhUAAAAAHQAAAAAQAQ
+
+
+- date: '2020-03-30T00:00:00.000Z'
+  slug: wyszukiwanie_w_allegro
+  title: Wyszukiwanie w allegro - jak nie potknąć się o&nbsp;długi ogon?
+  author: adam.dudczak
+  name: Adam Dudczak
+  toc:
+    - Dlaczego wyszukiwanie jest takie trudne?
+    - Z jakimi danymi pracujemy tworząc wyszukiwarkę Allegro?
+    - Jakich technologii używamy by odpowiadać na zapytania użytkownika w ciągu kilku milisekund?
+    - Do czego używamy uczenia maszynowego i jak budujemy modele, które odpowiadają za sortowanie ofert w wynikach wyszukiwania?
+    - Na te i inne pytania odpowiada Adam Dudczak - Team Manager w zespole wyszukiwarki Allegro.
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/2903653-6-wyszukiwanie-w-allegro-jak-nie-potknac-sie-o-dlugi-ogon-adam-dudczak
+    spotify: https://open.spotify.com/episode/5oPZZTkam59QHLTENmS4s5
+    applepodcasts: https://podcasts.apple.com/pl/podcast/6-wyszukiwanie-w-allegro-jak-nie-potkn%C4%85%C4%87-si%C4%99-o-d%C5%82ugi/id1500315781?i=1000469902782
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yOTAzNjUz&ved=0CAcQ38oDahcKEwjgkoeDwsHoAhUAAAAAHQAAAAAQAQ
+
+- date: '2020-04-06T00:00:00.000Z'
+  slug: jak_testy_moga_wplynac_na_zycie
+  title: Jak testy mogą wpłynąć na życie?
+  author: pawel.zwierzchowski
+  name: Paweł Zwierzchowski
 
 dict:
     spotify: Spotify

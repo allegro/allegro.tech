@@ -69,7 +69,7 @@ kamil.borzym:
 
 piotr.betkier:
     name: Piotr Betkier
-    bio: Software Engineer who loves building useful tools and resilient systems.
+    bio: Software Engineer who loves building useful tools and resilient systems. Works in one of the technical platform teams, where he's responsible for common libraries and service discovery (Service Mesh). Conference speaker, host of Allegro Tech Podcast.
     twitter: piotrbetkier
 
 maciej.arciuch:
@@ -440,6 +440,8 @@ bartosz.balukiewicz:
 tomasz.nurkiewicz:
     name: Tomasz Nurkiewicz
     bio: Java Champion. Author, trainer, conference speaker, technical reviewer, runner. Wrote a book on RxJava for O’Reilly. Claims that code not tested automatically is not a feature but just a rumour.
+    twitter: tnurkiewicz
+    github: nurkiewicz
 
 adrian.rydzynski:
     name: Adrian Rydzyński
@@ -480,3 +482,32 @@ malgorzata.karmazyn:
 grzegorz.dziadosz:
     name: Grzegorz Dziadosz
     bio: A software engineer interested in building resilient and scalable distributed systems. At Allegro, he works in a team which develops a Pay-per-Click (PPC) advertising system.
+
+wojciech.lesicki:
+    name: Wojciech Lesicki
+    bio: Team Leader in the IT Security department. Once responsible for cloud solutions (OpenStack, AWS etc.) and containerization (Mesos / Marathon). Currently, he focuses on defending the entire Allegro platform, the security of the implementation process, pentests and projects related to the security of the entire company. He works with developers and business looking for what can be done to make it more secure. He loves all possibilities of improving products / solutions / technologies.  Recently, he also started promoting knowledge of IT security in native Poznań. In his free time he walks the mountains and explores the Att&ck MITER framework.
+    twitter: WLesicki
+    linkedin: wojciechlesicki
+
+szymon.adach:
+    name: Szymon Adach
+    bio: Software engineer who enjoys working with .NET and spends his free time tinkering with his hydroponic garden.
+    github: L-Dogg
+    twitter: orgiele
+
+rafal.guzniczak:
+    name: Rafał Guźniczak
+    bio: A frontend developer. He deepens knowledge of web accessiblity since early 2019. At Allegro he mainly takes care of seller offer form and seller orders. 
+
+katarzyna.malecka:
+    name: Katarzyna Małecka
+    bio: Since 2008 I've worked as a project manager combining it with UX Design. I write articles for IT magazines and tales for children. Apart from that, I am an owner of a white British cat with an unbelievable level of fluffiness. 
+
+justyna.osten-sacken:
+    name: Justyna Osten-Sacken
+    bio: UX researcher part of a team taking care of end-to-end customer experience - starting from search and selection till purchase. Having her team by her side, she creates knowledge and recommendations based on customers opinions. It helps teams to introduce new products or changes to existing ones. She practices calligraphy, likes Italian small towns and micro trips around Poland. Cooking relaxes her very much. Hitchhiking enthusiast.
+    linkedin: justyna-osten-sacken
+adam.dudczak:
+    name: Adam Dudczak
+    bio: Team manager in allegro.pl, on a daily basis I work on improving search experience in the biggest ecommerce site in Poland. I am professionally involved with Java and related technologies since 2004, currently focused on search and information retrieval. Organizer of GeeCON conference and former leader of Poznan Java User Group.
+    twitter: maneo
