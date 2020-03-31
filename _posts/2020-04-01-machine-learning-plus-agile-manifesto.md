@@ -7,7 +7,7 @@ tags: [tech, machine_learning, agile, soft_skills]
 
 Another sprint, another retrospective. You use new formulas, you gather insights, you vote
 and you have action points. Sometimes you start to regret being just a human.
-What if you can process incoming requests in parallel? And provide always most accurate responses?
+What if you could process incoming requests in parallel? And provide always most accurate responses?
 You cannot be everywhere. But there is someone who can.
 
 ## “We have to communicate better”
@@ -15,13 +15,13 @@ You cannot be everywhere. But there is someone who can.
 Have you heard it in your team? Like a curse, the 'action point' stating that “we have to communicate better”.
 The agile manifesto states “Individuals and interactions over processes and tools”.
 We try to be aware of <a href="/2018/03/psychological-needs-at-work.html">psychological needs at work</a>
-but sometimes wef fail to find what we do not want to do. Let’s face it, in IT we do not like communicating.
+but sometimes we fail to find what we do not want to do. Let’s face it, in IT we do not like communicating.
 It’s something we constantly avoid. We invented daily standups to squash all interactions into one.
 Why respond to N people when you can sacrifice two minutes to tell everything the world has to know?
 At some point, this is not enough. Then we introduce quiet time. We switch off our emails, phones,
 communicators, we do not allow guests in the room. We are offline for one or two hours.
 Sometimes we even invert this idea and use “communication hours” outside which you are forbidden to
-talk to your colleagues. And If we have more than two hours of meetings during the day
+talk to your colleagues. And if we have more than two hours of meetings during the day
 we make a post-it during the next retrospective.
 
 <p align="center">
@@ -31,7 +31,7 @@ we make a post-it during the next retrospective.
     <br/><span style="font-size: 12px; color: grey">Tweet by <a href="https://twitter.com/phil_wade/status/896010517617180672" rel="nofollow">Phil Wade</a></span>
 </p>
 
-And because our team leaders know importance of
+And because our team leaders know the importance of
 <a href="/2019/06/allegro-culture-tech-leaders-meeting.html">constant feedback</a> we adjust.
 We start choosing team delegates to meetings, we introduce a “developer on duty”
 who takes care of all incoming communication. When it’s my turn I know it won’t be a good week.
