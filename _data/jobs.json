@@ -1846,16 +1846,16 @@
                     "valueLabel": "Poland"
                 },
                 {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
                     "fieldId": "58c13159e4b01d4b19ddf729",
                     "fieldLabel": "Department",
                     "valueId": "1013462",
                     "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
                 },
                 {
                     "fieldId": "58c13159e4b01d4b19ddf728",
