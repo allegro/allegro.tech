@@ -143,10 +143,10 @@ podcasts:
     googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yOTAzNjUz&ved=0CAcQ38oDahcKEwjgkoeDwsHoAhUAAAAAHQAAAAAQAQ
 
 - date: '2020-04-06T00:00:00.000Z'
-  slug: jak_testy_moga_wplynac_na_zycie
-  title: Jak testy mogą wpłynąć na życie?
-  author: pawel.zwierzchowski
-  name: Paweł Zwierzchowski
+  slug: wydajnosc_frontendu
+  title: Wydajność front-endu
+  author: eryk.napierala
+  name: Eryk Napierała
 
 dict:
     spotify: Spotify
