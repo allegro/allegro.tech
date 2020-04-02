@@ -5,6 +5,8 @@ author: zbigniew.barczyk
 tags: [tech, machine_learning, agile, soft_skills]
 ---
 
+> This post was published on April 1st, 2020, and should not be taken too seriously.
+
 Another sprint, another retrospective. You use new formulas, you gather insights, you vote
 and you have action points. Sometimes you start to regret being just a human.
 What if you could process incoming requests in parallel? And provide always most accurate responses?
