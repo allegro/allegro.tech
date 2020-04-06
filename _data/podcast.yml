@@ -147,6 +147,23 @@ podcasts:
   title: Wydajność front-endu
   author: eryk.napierala
   name: Eryk Napierała
+  toc:
+    - Jak mierzymy wydajność Allegro i jak dbamy, by była jak najlepsza?
+    - Jakich narzędzi używamy? Przed jakimi wyzwaniami stajemy?
+    - Czym w ogóle jest dla nas wydajność?
+    - Jak przekłada się ona na odczucia użytkownika?
+    - Co się stało, że strona koszyka dwukrotnie przyspieszyła? Eryk wszystko Wam opowie.
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/2903683-7-wydajnosc-front-endu-eryk-napierala
+    spotify: https://open.spotify.com/episode/0ZVItTb0cZmsiNWe5hT5Eo
+    applepodcasts: https://podcasts.apple.com/pl/podcast/7-wydajno%C5%9B%C4%87-front-endu-eryk-napiera%C5%82a/id1500315781?i=1000470604603
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yOTAzNjgz&ved=0CAcQ38oDahcKEwjIq6S1itPoAhUAAAAAHQAAAAAQAQ
+  links:
+    Performance of JavaScript optional chaining: https://allegro.tech/2019/11/performance-of-javascript-optional-chaining.html
+    Page visibility and performance metrics: https://allegro.tech/2019/09/page-visibility-and-performance-metrics.html
+    Allegro Tech Talks 9 Warszawa - “Web Performance w Allegro”, Eryk Napierała: https://www.facebook.com/allegro.tech/videos/948680958836629/
+    Allegro Tech Talks 9 Warszawa - “Renderowanie w Node.js”, Krzysztof Kwiatkowski: https://www.facebook.com/allegro.tech/videos/272334407038128/
+    Allegro Tech Talks 9 Warszawa - “Header Challenge - zróbmy to lepiej niż Ronaldo!”, Rafał Augustyniak: https://www.facebook.com/allegro.tech/videos/2380504828866498/
 
 dict:
     spotify: Spotify
