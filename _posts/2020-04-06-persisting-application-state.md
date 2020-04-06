@@ -27,7 +27,7 @@ To emphasize this, the state of the `Project` aggregate will be stored in the [M
 
 The criteria by which the persistence methods will be rated are:
 * **breaking aggregate encapsulation** by additional code needed only for state persisting (the fewer such cases, the higher the rating)
-* **additional code in the aggregate** needed only for state persisting, which doesn't break the aggregate encapsulation (the less code, the higher the rating)
+* **additional code in the aggregate** needed only for state persisting, which doesn’t break the aggregate encapsulation (the less code, the higher the rating)
 * **complexity of the infrastructure code** responsible for storing the state in data sources (the less complicated, the higher the rating)
 
 A 3-grade scale will be used, where 3 indicates the best rate.
@@ -207,7 +207,7 @@ It is difficult to eliminate this problem completely, but you can reduce it to a
 * rollbacking a MongoDB sub-save operation if calling the REST service fails
 * preventing the creation of an aggregate in invalid state (an error will be reported as soon as the aggregate state is retrieved, which will prevent the invalid aggregate from spreading to different parts of the application)
 
-Let's move on to the methods of persisting the `Project` aggregate.
+Let’s move on to the methods of persisting the `Project` aggregate.
 To be able to persist the aggregate state the `infrastructure.persistence` package must be able to read the state.
 We can achieve this in several ways.
 
@@ -286,7 +286,7 @@ However, most of the aggregate state must be visible to the `ProjectKeeper` prim
 Therefore, most of the getters in the `Project` aggregate will be public, regardless of the type of persistence method used.
 Breaking encapsulation by making methods that change the state of the aggregate public is much more serious than by making read-only methods public.<br>
 **Additional code in the aggregate, rating 3/3:**
-We don't need to create additional code in the aggregate.<br>
+We don’t need to create additional code in the aggregate.<br>
 **Complexity of the infrastructure code, rating 3/3:**
 The code that maps the aggregate to a MongoDB document and to an HTTP request is simple to understand and extend.
 
@@ -357,9 +357,9 @@ class ProjectPersistenceMapper {
 }
 ```
 **Breaking aggregate encapsulation, rating 3/3:**
-We don't need to create a code that breaks the encapsulation of the aggregate.<br>
+We don’t need to create a code that breaks the encapsulation of the aggregate.<br>
 **Additional code in the aggregate, rating 3/3:**
-We also don't need to create a code that doesn't break the encapsulation of the aggregate.<br>
+We also don’t need to create a code that doesn’t break the encapsulation of the aggregate.<br>
 **Complexity of the infrastructure code, rating 1/3:**
 Despite the use of the library in the mapping code, we still need to define some mappings ourselves in not type-safe way.
 These are the mappings defined in `ProjectPropertyMap` and in `FeaturePropertyMap`.
@@ -580,12 +580,12 @@ class ProjectPersistenceMapper {
 }
 ```
 **Breaking aggregate encapsulation, rating 3/3:**
-We don't need to create a code that breaks the encapsulation of the aggregate.<br>
+We don’t need to create a code that breaks the encapsulation of the aggregate.<br>
 **Additional code in the aggregate, rating 1/3:**
 The amount of additional code is large and increases proportionally to the size of the aggregate.<br>
 **Complexity of the infrastructure code, rating 1/3:**
 As in the previous “reflection” method, here eventual mapping errors can also be seen only in runtime.
-The implementation of reading aggregate state is not the easiest one, although the `getState(...)` method code once implemented doesn't have to be changed in the future.
+The implementation of reading aggregate state is not the easiest one, although the `getState(...)` method code once implemented doesn’t have to be changed in the future.
 
 ### State readers
 A “state objects” method inversion.
@@ -671,14 +671,14 @@ class ProjectPersistenceMapper {
 }
 ```
 **Breaking aggregate encapsulation, rating 3/3:**
-We don't need to create a code that breaks the encapsulation of the aggregate.<br>
+We don’t need to create a code that breaks the encapsulation of the aggregate.<br>
 **Additional code in the aggregate, rating 1/3:**
 The amount of additional code is large and increases proportionally to the size of the aggregate.<br>
 **Complexity of the infrastructure code, rating 3/3:**
 The code is generally easy, the only disadvantage can be state readers, whose number increases with the number of the aggregate components.
 
 ## Summary
-Let's summarize all methods for persisting aggregate state in the form of a table.
+Let’s summarize all methods for persisting aggregate state in the form of a table.
 
 | **Method / Criterion**             | **Breaking aggregate encapsulation** | **Additional code in the aggregate** | **Complexity of the infrastructure code** | **Overall** |
 | :---:                             | :---:                                | :---:                                | :---:                                     | :---:       |
