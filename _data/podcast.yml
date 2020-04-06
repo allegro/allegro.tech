@@ -165,6 +165,12 @@ podcasts:
     Allegro Tech Talks 9 Warszawa - “Renderowanie w Node.js”, Krzysztof Kwiatkowski: https://www.facebook.com/allegro.tech/videos/272334407038128/
     Allegro Tech Talks 9 Warszawa - “Header Challenge - zróbmy to lepiej niż Ronaldo!”, Rafał Augustyniak: https://www.facebook.com/allegro.tech/videos/2380504828866498/
 
+- date: '2020-04-20T00:00:00.000Z'
+  slug: nie-tylko-jvm-czyli-jak-rozwijamy-uslugi-dotnet-w-allegro
+  title: Nie tylko JVM, czyli jak rozwijamy usługi dotNET w Allegro
+  author: piotr.stapp
+  name: Piotr Stapp
+
 dict:
     spotify: Spotify
     applepodcasts: Apple Podcasts
