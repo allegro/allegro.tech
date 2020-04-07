@@ -204,7 +204,7 @@ class MultiSourceProjectRepository extends ProjectRepository {
 As the `Project` aggregate state is stored in more than one data source, it may occur that the saved state will be incomplete.
 It is difficult to eliminate this problem completely, but you can reduce it to a minimum by:
 * retrying each sub-save operation in case of error (the operations must be idempotent)
-* rollbacking a MongoDB sub-save operation if calling the REST service fails
+* rolling a MongoDB sub-save operation back if calling the REST service fails
 * preventing the creation of an aggregate in invalid state (an error will be reported as soon as the aggregate state is retrieved, which will prevent the invalid aggregate from spreading to different parts of the application)
 
 Let’s move on to the methods of persisting the `Project` aggregate.
@@ -691,9 +691,10 @@ Let’s summarize all methods for persisting aggregate state in the form of a ta
 As I mentioned at the beginning, the ratings were given assuming the usage of the architecture described in my [post](https://allegro.tech/2019/12/grouping-and-organizing-classes.html).
 This means that for a different approach, these assessments may look different.
 For example, we can use a denormalized domain model in our application.
-It is a model in which a single entity derived from [ubiquitous language](https://martinfowler.com/bliki/UbiquitousLanguage.html) is represented by an aggregate per application context.
+It is a model in which a single entity derived from [ubiquitous language](https://martinfowler.com/bliki/UbiquitousLanguage.html) is represented by multiple aggregates, one per application context.
 If we put a single context into a single package, then mapping aggregates to DTOs will be done inside the package.
-In this situation, aggregates, from the use case point of view, will no longer require public getters, so using them will unnecessarily break the encapsulation of the aggregate and the context package.
+In this situation, aggregates, from the use case point of view, will no longer require public getters.
+Therefore using them will unnecessarily break the encapsulation of the aggregate and the context package.
 Personally I will probably choose the “state readers” method in such a case.
 
 Persisting the application state is usually coupled with its retrieving.
