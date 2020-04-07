@@ -30,7 +30,7 @@ The criteria by which the persistence methods will be rated are:
 * **additional code in the aggregate** needed only for state persisting, which doesn’t break the aggregate encapsulation (the less code, the higher the rating)
 * **complexity of the infrastructure code** responsible for storing the state in data sources (the less complicated, the higher the rating)
 
-A 3-grade scale will be used, where 3 indicates the best rate.
+A 3-grade scale will be used, where ★★★ indicates the best rate.
 The methods will be rated in the context of the architecture presented in my [previous post](https://allegro.tech/2019/12/grouping-and-organizing-classes.html).
 
 ## Methods
@@ -280,14 +280,14 @@ class ProjectPersistenceMapper {
     }
 }
 ```
-**Breaking aggregate encapsulation, rating 2/3:**
+**Breaking aggregate encapsulation, rating ★★☆:**
 Making all information about an aggregate public breaks its encapsulation.
 However, most of the aggregate state must be visible to the `ProjectKeeper` primary port in order to map it to the DTOs and present it to the client.
 Therefore, most of the getters in the `Project` aggregate will be public, regardless of the type of persistence method used.
 Breaking encapsulation by making methods that change the state of the aggregate public is much more serious than by making read-only methods public.<br>
-**Additional code in the aggregate, rating 3/3:**
+**Additional code in the aggregate, rating ★★★:**
 We don’t need to create additional code in the aggregate.<br>
-**Complexity of the infrastructure code, rating 3/3:**
+**Complexity of the infrastructure code, rating ★★★:**
 The code that maps the aggregate to a MongoDB document and to an HTTP request is simple to understand and extend.
 
 ### Reflection
@@ -356,11 +356,11 @@ class ProjectPersistenceMapper {
     }
 }
 ```
-**Breaking aggregate encapsulation, rating 3/3:**
+**Breaking aggregate encapsulation, rating ★★★:**
 We don’t need to create a code that breaks the encapsulation of the aggregate.<br>
-**Additional code in the aggregate, rating 3/3:**
+**Additional code in the aggregate, rating ★★★:**
 We also don’t need to create a code that doesn’t break the encapsulation of the aggregate.<br>
-**Complexity of the infrastructure code, rating 1/3:**
+**Complexity of the infrastructure code, rating ★☆☆:**
 Despite the use of the library in the mapping code, we still need to define some mappings ourselves in not type-safe way.
 These are the mappings defined in `ProjectPropertyMap` and in `FeaturePropertyMap`.
 Using names in the form of strings makes changing these names in the future difficult.
@@ -471,12 +471,12 @@ class ProjectPersistenceMapper {
     }
 }
 ```
-**Breaking aggregate encapsulation, rating 2/3:**
+**Breaking aggregate encapsulation, rating ★★☆:**
 Getters returning aggregate state break its encapsulation, but as with the “public getters” persistence method, this is not a serious issue.
 In addition, here the developers can agree to use the `getState()` methods only for persisting the aggregate state.<br>
-**Additional code in the aggregate, rating 1/3:**
+**Additional code in the aggregate, rating ★☆☆:**
 The amount of additional code is large and increases proportionally to the size of the aggregate.<br>
-**Complexity of the infrastructure code, rating 3/3:**
+**Complexity of the infrastructure code, rating ★★★:**
 The code is similar to what we need in the “public getters” method.
 State objects make the code slightly more complicated.
 
@@ -579,11 +579,11 @@ class ProjectPersistenceMapper {
     }
 }
 ```
-**Breaking aggregate encapsulation, rating 3/3:**
+**Breaking aggregate encapsulation, rating ★★★:**
 We don’t need to create a code that breaks the encapsulation of the aggregate.<br>
-**Additional code in the aggregate, rating 1/3:**
+**Additional code in the aggregate, rating ★☆☆:**
 The amount of additional code is large and increases proportionally to the size of the aggregate.<br>
-**Complexity of the infrastructure code, rating 1/3:**
+**Complexity of the infrastructure code, rating ★☆☆:**
 As in the previous “reflection” method, here eventual mapping errors can also be seen only in runtime.
 The implementation of reading aggregate state is not the easiest one, although the `getState(...)` method code once implemented doesn’t have to be changed in the future.
 
@@ -670,23 +670,23 @@ class ProjectPersistenceMapper {
     }
 }
 ```
-**Breaking aggregate encapsulation, rating 3/3:**
+**Breaking aggregate encapsulation, rating ★★★:**
 We don’t need to create a code that breaks the encapsulation of the aggregate.<br>
-**Additional code in the aggregate, rating 1/3:**
+**Additional code in the aggregate, rating ★☆☆:**
 The amount of additional code is large and increases proportionally to the size of the aggregate.<br>
-**Complexity of the infrastructure code, rating 3/3:**
+**Complexity of the infrastructure code, rating ★★★:**
 The code is generally easy, the only disadvantage can be state readers, whose number increases with the number of the aggregate components.
 
 ## Summary
 Let’s summarize all methods for persisting aggregate state in the form of a table.
 
-| **Method / Criterion**             | **Breaking aggregate encapsulation** | **Additional code in the aggregate** | **Complexity of the infrastructure code** | **Overall** |
-| :---:                             | :---:                                | :---:                                | :---:                                     | :---:       |
-| **Public getters**                | 2/3                                  | 3/3                                  | 3/3                                       | 8/9         |
-| **Reflection**                    | 3/3                                  | 3/3                                  | 1/3                                       | 7/9         |
-| **State objects**                 | 2/3                                  | 1/3                                  | 3/3                                       | 6/9         |
-| **State objects with reflection** | 3/3                                  | 1/3                                  | 1/3                                       | 5/9         |
-| **State readers**                 | 3/3                                  | 1/3                                  | 3/3                                       | 7/9         |
+| **Method / Criterion**            | **Breaking aggregate encapsulation** | **Additional code in the aggregate** | **Complexity of the infrastructure code** | **Total** |
+| :---:                             | :---:                                | :---:                                | :---:                                     | :---:     |
+| **Public getters**                | ★★☆                                  | ★★★                                  | ★★★                                       | ★★★★★★★★☆ |
+| **Reflection**                    | ★★★                                  | ★★★                                  | ★☆☆                                       | ★★★★★★★☆☆ |
+| **State objects**                 | ★★☆                                  | ★☆☆                                  | ★★★                                       | ★★★★★★☆☆☆ |
+| **State objects with reflection** | ★★★                                  | ★☆☆                                  | ★☆☆                                       | ★★★★★☆☆☆☆ |
+| **State readers**                 | ★★★                                  | ★☆☆                                  | ★★★                                       | ★★★★★★★☆☆ |
 
 As I mentioned at the beginning, the ratings were given assuming the usage of the architecture described in my [post](https://allegro.tech/2019/12/grouping-and-organizing-classes.html).
 This means that for a different approach, these assessments may look different.
