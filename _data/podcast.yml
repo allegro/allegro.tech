@@ -88,6 +88,7 @@ podcasts:
   platforms:
     buzzsprout: https://www.buzzsprout.com/887914/2903590-4-it-security-w-allegro-wojciechlesicki
     spotify: https://open.spotify.com/episode/4raXlG4uafbpArQZGXut37
+    applepodcasts: https://podcasts.apple.com/pl/podcast/4-it-security-w-allegro-wojciech-lesicki/id1500315781?i=1000468696801
     googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yOTAzNTkw&ved=0CAIQkfYCahcKEwjA-OKj4J_oAhUAAAAAHQAAAAAQAQ
 
 
@@ -103,6 +104,73 @@ podcasts:
       - Jak opinie klientów wpływają na nasze produkty?
       - Jeśli temat user experience jest Ci bliski i chcesz spróbować swoich sił w tej branży - posłuchaj rozmowy z Justyną Osten-Sacken badaczką UX w Allego - a dowiesz się jak to zrobić.
   links:
+    Więcej o naszym programie stażowym: https://allegro.pl/praca/staze
+    Aplikuj na staż w naszym zespole: https://jobs.smartrecruiters.com/Allegro/743999708732057-ux-researcher-intern
+    Kurs dotyczący procesu projektowego, wprowadzenie do badań - świetny na początek (po angielsku): https://www.plusacumen.org/courses/introduction-human-centered-design
+    Allegro UX Talks | Porozmawiajmy o [dostępności]: https://www.facebook.com/848329198535765/videos/939114486480430/
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/2903638-5-badania-ux-w-allegro-justyna-osten-sacken
+    spotify: https://open.spotify.com/episode/79oX79WEs4ANoelV5qYtAF
+    applepodcasts: https://podcasts.apple.com/pl/podcast/5-badania-ux-w-allegro-justyna-osten-sacken/id1500315781?i=1000469272030
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yOTAzNjM4&ved=0CAIQkfYCahcKEwjg9KXVhLDoAhUAAAAAHQAAAAAQAQ
+
+
+- date: '2020-03-30T00:00:00.000Z'
+  slug: wyszukiwanie_w_allegro
+  title: Wyszukiwanie w allegro - jak nie potknąć się o&nbsp;długi ogon?
+  author: adam.dudczak
+  name: Adam Dudczak
+  toc:
+    - Dlaczego wyszukiwanie jest takie trudne?
+    - Jak często Polacy szukają czegoś na Allegro?
+    - Z jakimi danymi pracujemy tworząc wyszukiwarkę Allegro?
+    - Jakich technologii używamy by odpowiadać na zapytania użytkownika w ciągu kilku milisekund?
+    - Do czego używamy uczenia maszynowego i jak budujemy modele, które odpowiadają za sortowanie ofert w wynikach wyszukiwania?
+    - Na te i inne pytania odpowiada Adam Dudczak - Team Manager w zespole wyszukiwarki Allegro.
+  links:
+    Apache Solr: https://lucene.apache.org/solr/
+    Jak dostosowujemy i używamy Solr-a, opowiada Andrzej Wisłowski - nagranie z konferencji Activate: https://www.youtube.com/watch?v=-pWeEvFNhV8
+    Plugin do exportowania dokumentów z Solra - utrzymywany przez Rafała Zarajczyka: https://github.com/allegro/solr-ids-export-plugin
+    Plugin do Elasticsearch wpinający Morfologika w potok analizy w ES - zainicjowane przez Pawła Bobruka: https://github.com/allegro/elasticsearch-analysis-morfologik
+    Plugin pozwalajacy łatwo odpalać ES na potrzeby testów integracyjnych - zainicjowane również przez Pawła Bobruka: https://github.com/allegro/embedded-elasticsearch
+    Biblioteka do tworzenia modeli Learning-to-rank, stworzona w Allegro w zespole Machine Learning Research: https://github.com/allegro/allRank
+    Spotkania Poznańskiej grupy użytkowników języka Java: https://www.meetup.com/pl-PL/Poznan-Java-User-Group/
+    Konferencja GeeCON: https://2020.geecon.org/
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/2903653-6-wyszukiwanie-w-allegro-jak-nie-potknac-sie-o-dlugi-ogon-adam-dudczak
+    spotify: https://open.spotify.com/episode/5oPZZTkam59QHLTENmS4s5
+    applepodcasts: https://podcasts.apple.com/pl/podcast/6-wyszukiwanie-w-allegro-jak-nie-potkn%C4%85%C4%87-si%C4%99-o-d%C5%82ugi/id1500315781?i=1000469902782
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yOTAzNjUz&ved=0CAcQ38oDahcKEwjgkoeDwsHoAhUAAAAAHQAAAAAQAQ
+
+- date: '2020-04-06T00:00:00.000Z'
+  slug: wydajnosc_frontendu
+  title: Wydajność front-endu
+  author: eryk.napierala
+  name: Eryk Napierała
+  toc:
+    - Jak mierzymy wydajność Allegro i jak dbamy, by była jak najlepsza?
+    - Jakich narzędzi używamy? Przed jakimi wyzwaniami stajemy?
+    - Czym w ogóle jest dla nas wydajność?
+    - Jak przekłada się ona na odczucia użytkownika?
+    - Co się stało, że strona koszyka dwukrotnie przyspieszyła? Eryk wszystko Wam opowie.
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/2903683-7-wydajnosc-front-endu-eryk-napierala
+    spotify: https://open.spotify.com/episode/0ZVItTb0cZmsiNWe5hT5Eo
+    applepodcasts: https://podcasts.apple.com/pl/podcast/7-wydajno%C5%9B%C4%87-front-endu-eryk-napiera%C5%82a/id1500315781?i=1000470604603
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yOTAzNjgz&ved=0CAcQ38oDahcKEwjIq6S1itPoAhUAAAAAHQAAAAAQAQ
+  links:
+    Performance of JavaScript optional chaining: https://allegro.tech/2019/11/performance-of-javascript-optional-chaining.html
+    Page visibility and performance metrics: https://allegro.tech/2019/09/page-visibility-and-performance-metrics.html
+    Allegro Tech Talks 9 Warszawa - “Web Performance w Allegro”, Eryk Napierała: https://www.facebook.com/allegro.tech/videos/948680958836629/
+    Allegro Tech Talks 9 Warszawa - “Renderowanie w Node.js”, Krzysztof Kwiatkowski: https://www.facebook.com/allegro.tech/videos/272334407038128/
+    Allegro Tech Talks 9 Warszawa - “Header Challenge - zróbmy to lepiej niż Ronaldo!”, Rafał Augustyniak: https://www.facebook.com/allegro.tech/videos/2380504828866498/
+
+- date: '2020-04-20T00:00:00.000Z'
+  slug: nie-tylko-jvm-czyli-jak-rozwijamy-uslugi-dotnet-w-allegro
+  title: Nie tylko JVM, czyli jak rozwijamy usługi dotNET w Allegro
+  author: piotr.stapp
+  name: Piotr Stapp
+
 dict:
     spotify: Spotify
     applepodcasts: Apple Podcasts
