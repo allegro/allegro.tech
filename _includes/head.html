@@ -4,19 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-    <title itemprop='name'>{% if page.title %}{{ page.title }} &middot; {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 150 }}{% else %}{{ site.description }}{% endif %}">
-    <meta property="og:site_name" content="{{ site.name }}"/>
-    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"/>
-    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
-    <meta property="og:type" content="{% if page.title %}article{% else %}site{% endif %}"/>
-    <meta property="og:image" content="{{ site.url }}/img/allegro-tech.png"/>
-	{% if page.title %}
-    <meta name="twitter:creator" content="@allegrotech"/>
-    <meta property="og:description" content="{{ page.excerpt | strip_html}}"/>
-    <meta property="article:author" content="{{ page.author | join: ', ' }}"/>
-    <meta property="article:publisher" content="https://www.facebook.com/allegro.tech"/>
+    {%assign podcasts = site.data.podcast.podcasts | where: "slug", page.slug %}
+    {%assign podcast = podcasts[0]%}
+    {% if podcast %}
+        {% include meta-podcast.html %}
+    {% else %}
+        {% include meta-default.html %}
     {% endif %}
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Feed" href="{{ site.url }}/feed.xml"/>
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" itemprop="url">
@@ -28,4 +22,3 @@
     <link rel="stylesheet" href="{{ '/css/events.css' | prepend: site.baseurl }}">
     <link rel="stylesheet" href="{{ '/css/opensource.css' | prepend: site.baseurl }}">
 </head>
-
