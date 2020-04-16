@@ -5,7 +5,7 @@ time: 1586966400000
 venue_address_1: undefined
 venue_city: undefined
 venue_name: Online event
-status: near
+status: past
 id: 269950438
 registration: 
 ---
