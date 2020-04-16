@@ -13,7 +13,7 @@ immutability in a negative way from game development perspective and how it can 
 It is always more fun to look in a negative way at something everyone loves ;)
 
 So what are these problems:
-1. how hard is to use immutable pattern correctly in Java compared to other languages
+1. how hard it is to use immutable pattern correctly in Java compared to other languages
 2. impact on the performance in Java, and how other languages deal with it
 
 While I can’t really propose any good solution for these problems I hope I will be able to show you
