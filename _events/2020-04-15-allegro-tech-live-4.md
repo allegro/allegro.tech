@@ -2,8 +2,8 @@
 layout: event
 title: "Allegro Tech Live #4"
 time: 1586966400000
-venue_address_1: undefined
-venue_city: undefined
+venue_address_1: 
+venue_city: 
 venue_name: Online event
 status: past
 id: 269950438
