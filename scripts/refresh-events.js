@@ -53,9 +53,9 @@ function render(event) {
 layout: event
 title: "${event.name.replace(/[\""]/g, '\\"')}"
 time: ${event.time}
-venue_address_1: ${event.venue.address_1}
-venue_city: ${event.venue.city}
-venue_name: ${event.venue.name}
+venue_address_1: ${event.venue.address_1 ? event.venue.address_1 : ''}
+venue_city: ${event.venue.city ? event.venue.city : ''}
+venue_name: ${event.venue.name ? event.venue.name : ''}
 status: ${event.status}
 id: ${event.id}
 registration: ${event.registration ? event.registration : ''}
