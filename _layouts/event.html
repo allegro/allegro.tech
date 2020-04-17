@@ -20,7 +20,7 @@ layout: default
                         </a>
                     </li>
                     <li>
-                        <span>{{ page.venue_name }}, {{ page.venue_address_1 }}, {{ page.venue_city }}</span>
+                        <span>{{event.venue_name}}{% if event.venue_address_1.size > 0 %}, {{event.venue_address_1}}{% endif %}{% if event.venue_city.size > 0 %}, {{event.venue_city}}{% endif %}</span>
                     </li>
                 </ul>
             </div>
