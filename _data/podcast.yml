@@ -176,9 +176,25 @@ podcasts:
     - Czy da się programować w .NET na Mac, nie mając pod ręką Windows?
     - Czym różni się bycie Microsoft MVP od Java Champion?
     - Na te i inne pytania odpowiada Piotr Stapp -  Senior Software Engineer w Allegro
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/2903683-7-wydajnosc-front-endu-eryk-napierala
   links:
     Stapp Space: https://stapp.space
     dotNETmaniak: https://blog.dotnetomaniak.pl
+
+- date: '2020-05-04T00:00:00.000Z'
+  slug: jak_testy_moga_wplynac_na_zycie
+  title: Jak testy mogą wpłynąć na życie?
+  author: pawel.zwierzchowski
+  name: Paweł Zwierzchowski
+  toc:
+    - Jaką wagę mają testy przy wytwarzaniu oprogramowania, pamiętając, że nie wszystkie testy są takie same?
+    - Jak ułożyć proces testowy, który się sprawdza?
+    - Czy tester powinien tylko testować i jak może zdjąć ogrom pracy ze swojego zespołu przy okazji żyjąc w zgodzie z developerami?
+    - Czyli praca testera w scrumie i nie tylko. Na te i inne pytania odpowiada Paweł Zwierzchowski - Senior Software Test Engineerem w Allegro.
+  links:
+    Allegro Tech Talks 32 Toruń - Wild, Wild Test… with microservices - Paweł Zwierzchowski: https://www.facebook.com/allegro.tech/videos/536167340289191/
+
 
 dict:
     spotify: Spotify
