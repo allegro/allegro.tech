@@ -170,6 +170,15 @@ podcasts:
   title: Nie tylko JVM, czyli jak rozwijamy usługi dotNET w Allegro
   author: piotr.stapp
   name: Piotr Stapp
+  toc:
+    - Jak to się stało, że spora grupa programistów .NET znalazła się w Allegro?
+    - Czy wprowadzenie kolejnej chmury publicznej do infrastruktury jest trudne?
+    - Czy da się programować w .NET na Mac, nie mając pod ręką Windows?
+    - Czym różni się bycie Microsoft MVP od Java Champion?
+    - Na te i inne pytania odpowiada Piotr Stapp -  Senior Software Engineer w Allegro
+  links:
+    Stapp Space: https://stapp.space
+    dotNETmaniak: https://blog.dotnetomaniak.pl
 
 dict:
     spotify: Spotify
