@@ -170,6 +170,33 @@ podcasts:
   title: Nie tylko JVM, czyli jak rozwijamy usługi dotNET w Allegro
   author: piotr.stapp
   name: Piotr Stapp
+  toc:
+    - Jak to się stało, że spora grupa programistów .NET znalazła się w Allegro?
+    - Czy wprowadzenie kolejnej chmury publicznej do infrastruktury jest trudne?
+    - Czy da się programować w .NET na Mac, nie mając pod ręką Windows?
+    - Czym różni się bycie Microsoft MVP od Java Champion?
+    - Na te i inne pytania odpowiada Piotr Stapp -  Senior Software Engineer w Allegro
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/2997940-8-nie-tylko-jvm-czyli-jak-rozwijamy-uslugi-net-w-allegro-piotr-stapp
+    spotify: https://open.spotify.com/episode/205QBToGoUMWQdjgYjo8VE
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yOTk3OTQw&ved=0CAcQ38oDahcKEwjgtP_qovboAhUAAAAAHQAAAAAQAQ
+  links:
+    Stapp Space: https://stapp.space
+    dotNETomaniak tech blog: https://blog.dotnetomaniak.pl
+
+- date: '2020-05-04T00:00:00.000Z'
+  slug: jak_testy_moga_wplynac_na_zycie
+  title: Jak testy mogą wpłynąć na życie?
+  author: pawel.zwierzchowski
+  name: Paweł Zwierzchowski
+  toc:
+    - Jaką wagę mają testy przy wytwarzaniu oprogramowania, pamiętając, że nie wszystkie testy są takie same?
+    - Jak ułożyć proces testowy, który się sprawdza?
+    - Czy tester powinien tylko testować i jak może zdjąć ogrom pracy ze swojego zespołu przy okazji żyjąc w zgodzie z developerami?
+    - Czyli praca testera w scrumie i nie tylko. Na te i inne pytania odpowiada Paweł Zwierzchowski - Senior Software Test Engineer w Allegro.
+  links:
+    Allegro Tech Talks 32 Toruń - Wild, Wild Test... with microservices - Paweł Zwierzchowski: https://www.facebook.com/allegro.tech/videos/536167340289191/
+
 
 dict:
     spotify: Spotify
