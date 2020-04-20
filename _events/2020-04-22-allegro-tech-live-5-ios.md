@@ -1,0 +1,22 @@
+---
+layout: event
+title: "Allegro Tech Live #5 - iOS"
+time: 1587571200000
+venue_address_1: 
+venue_city: 
+venue_name: Online event
+status: near
+id: 270158352
+registration: 
+---
+
+<p>We invite you to Allegro Tech Live #5.<br />All presentations will be delivered in English.</p>
+<p>Allegro Tech Live is a new (100% remote) edition of our stationary Allegro Tech Talks meetups. Usually we met in our offices, but this time we'll be guests at your home<br />So sit comfortably, grab your favorite drink and meet us on live stream!</p>
+<p>Date:[masked]<br />Place: ONLINE (live stream will appear on the channel when it starts: <a href="https://www.facebook.com/allegro.tech/" class="linkified">https://www.facebook.com/allegro.tech/</a>)<br />Time: 18:00 - 20:00</p>
+<p>AGENDA<br />18:00 - 18:05 - Hello!<br />18:05 - 18:40 - Let’s decompile Swift ABI Stability - Kamil Borzym<br />18:45 - 19:15 - Code Archeology - Avoiding the Quicksands of a Legacy Codebase - Maciej Piotrowski<br />19:15 - 20:00 - Redux - iOS perspective - Paweł Kowalczuk</p>
+<p>DETAILS<br />1. Let’s decompile Swift ABI Stability - Kamil Borzym (Allegro)<br />ABI Stability? Module Stability? Library Evolution? They all seem similar and the whole “binary compatibility” seems a bit mysterious.<br />There is a great high-level Swift binary compatibility description at [swift.org](<a href="https://swift.org/blog/abi-stability-and-more/" class="linkified">https://swift.org/blog/abi-stability-and-more/</a>), but hmm… after reading it I still wasn't satisfied. Fortunately decompiler clearly shows what’s really going on. Let’s dive into assembly together!<br />This talk will really make you understand the Swift binary compatibility – by showing all the problems and how they were addressed by the Swift compiler.<br />ABI Stability is a language agnostic thing. Even if you don’t know Swift language, after watching this talk you will understand the binary compatibility in general.</p>
+<p>Kamil Borzym – Kamil is an iOS software developer. He is very curious about how things work internally, so he likes to decompile frameworks and apps.</p>
+<p>2. Code Archeology - Avoiding the Quicksands of a Legacy Codebase - Maciej Piotrowski (Allegro)<br />Engineers love to work with the newest technologies introduced at WWDC. In reality, when you start a new job and dive into an existing project, changing a single line can break things. The talk is about dealing with legacy code and not being scared by files which are 8000 lines long. When Apple announces a new framework at WWDC, it is welcomed with tremendous applause. Core ML or ARKit were and still are what many developers crave to try out in their projects. On a daily basis, we engineers may encounter slightly different problems. Many of us work with the code that somebody has written in the past. Due to our limited perception and limited ability to predict the actual execution of a program after changing a line of code, we don't know what the ripple effect of the change will be. Sometimes you need to do an archaeological dig on the codebase to understand how the code works. If you find a Chinese vase from the Ming dynasty, you don't want to break it. The same applies to the application you work on. This talk will be about the importance of writing tests. I will present a TDD approach to building new features on top of the legacy code. I will share tips and tricks related to refactoring and dealing with the problems I have experienced.</p>
+<p>Maciej is a passionate iOS developer that pays much attention to details and code quality. He likes improving things, always looking for better solutions because he's amazed that in the programming world, issues can be solved in 100s of ways. In 2016 he kicked off with his friends the swifting.io blog, where he has been posting his thoughts about various topics.</p>
+<p>3. Redux - iOS perspective - Paweł Kowalczuk (Allegro)<br />Redux is a commonly known library in the Javascript world, used in pairs with React or Angular can help to manage application state and keep things simple. Some time ago it was also introduced in iOS world with the ReSwift library. Let’s dive into the details of what Redux is, how it works and how we can start using the same idea without 3rd party libraries.<br />Paweł Kowalczuk - Passionate pragmatic programmer, constantly learning new things. Pokaż mniej</p>
+<p>Join us on Facebook:<br /><a href="https://www.facebook.com/events/710784953023932/" class="linkified">https://www.facebook.com/events/710784953023932/</a></p>
