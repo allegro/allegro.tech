@@ -30,7 +30,8 @@ Let's just simply list what we were looking for:
 An online marketplace, such as Allegro.pl, is a complex beast. There's many segments
 of the business that evolve at their own pace and utilise different technologies.
 Our services (mostly JVM-based) run mainly on Mesos/Marathon setup as the on-premise
-private cloud solution. We're just beginning with migrating services to kubernetes.
+private cloud solution. We're just beginning with migrating services to Kubernetes
+(abbreviated as k8s).
 We also utilise public cloud when it makes sense (and need to integrate it with our stack).
 Some of the services are packaged in Docker. But our architecture is not just microservices.
 We also have:
@@ -53,8 +54,9 @@ only containers on k8s provide. We needed a custom
 [control plane](https://blog.envoyproxy.io/service-mesh-data-plane-vs-control-plane-2774e720f7fc)
 to glue all things together. And we went for [Envoy](https://www.envoyproxy.io/)
 as the most stable and advanced L7 proxy that would fit our needs.
-Envoy is written in C++ and provides a predictable and stable latency due to it's memory model
-without garbage collection and many impressive architectural decisions.
+Envoy is written in C++ and provides a predictable and stable latency due to its'
+memory management without garbage collection and many impressive architectural decisions
+(e.g. the threading model).
 
 ### Control plane
 
@@ -95,10 +97,11 @@ which reads a YAML descriptor file that sits in the root of each service's repos
 The deployment metadata is made available to each service's environment,
 which then is read by another component, which we called envoy-wrapper.
 It prepares basic Envoy configuration file and launches Envoy.
-The rest is handled by the XDS protocol and communication with envoy-control.
-Among the metadata, services list their dependencies. Listing needed services limits
-the amount of data Envoy requires. Some privileged services, like Hadoop executors,
-require the data for all available services, so there's a case for that too.
+The rest is handled by the [XDS protocol](https://www.envoyproxy.io/docs/envoy/latest/api-docs/xds_protocol)
+and communication with envoy-control to stream Envoy's configuration continually.
+Among the metadata sent to envoy-control, services list their dependencies.
+Listing needed services limits the amount of data Envoy requires. Some privileged services,
+like Hadoop executors, require the data for all available services, so there's a case for that too.
 
 We also run Envoy on VMs that are configured using Puppet.
 We use the [hot restart](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/operations/hot_restart.html?highlight=hot%20restart)
@@ -144,7 +147,7 @@ Almost 500 of them communicate via Envoy for egress traffic. Last week we observ
 of > 620,000 req/s of ingress traffic and > 230,000 req/s of egress traffic inside the mesh.
 We can see a high level overview of traffic in Grafana to get a glimpse of what’s happening.
 
-![Service Mesh overview dashboard](/img/articles/2020-04-21-migrating-to-service-mesh/envoy_overview_traffic.png)
+[![Service Mesh overview dashboard](/img/articles/2020-04-21-migrating-to-service-mesh/envoy_overview_traffic.png)](/img/articles/2020-04-21-migrating-to-service-mesh/envoy_overview_traffic.png)
 
 Application developers can see their particular service traffic characteristics
 on a dedicated dashboard. When needed, we can also get as deep as per-instance investigation
