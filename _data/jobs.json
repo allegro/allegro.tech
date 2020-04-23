@@ -86,7 +86,7 @@
                     "valueLabel": "Tak"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999711258973",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999711258973",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
@@ -172,7 +172,7 @@
                     "valueLabel": "dotnet, C#, microsoft, azure, kubernetes"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999711258900",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999711258900",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
@@ -258,7 +258,7 @@
                     "valueLabel": "dotnet, C#, microsoft, azure"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999711211771",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999711211771",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
@@ -356,7 +356,7 @@
                     "valueLabel": "Java, Scala, Spark, Druid, Airflow, Big Data, bigdata, Google Cloud Platform, Dataflow, BigQuery, unix, linux, developer, programista, programmer, dev, inżynier, engineer, Spark, Hadoop"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999711201003",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999711201003",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
@@ -454,7 +454,7 @@
                     "valueLabel": "Product Manager, Search, Data"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999711142363",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999711142363",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
@@ -528,7 +528,7 @@
                     "valueLabel": "data analyst, analysis, analiza danych, dane, SQL, data, big data, analityk danych"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999711030506",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999711030506",
             "creator": {
                 "name": "Izabela Semrau"
             },
@@ -608,7 +608,7 @@
                     "valueLabel": "data analyst, data analysis, analiza danych, dane, analityk, analiza, data, SQL, big data, python"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999711024125",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999711024125",
             "creator": {
                 "name": "Izabela Semrau"
             },
@@ -688,7 +688,7 @@
                     "valueLabel": "apex, java, salesforce, crm"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999710788961",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999710788961",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
@@ -810,7 +810,7 @@
                     "valueLabel": "architect, solutions"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999710702247",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999710702247",
             "creator": {
                 "name": "Iwona Gąsior"
             },
@@ -896,7 +896,7 @@
                     "valueLabel": "frontend, front-end, front, wydajność, performance, Javascript, React, Angular, Node js., Vue, front-end, frontend, front end developer, web performance, programista"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999710689594",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999710689594",
             "creator": {
                 "name": "Mateusz Jabłonowski"
             },
@@ -976,7 +976,7 @@
                     "valueLabel": "data science, data scientist, python, pyspark, machine learning, recommendations, ML, rekomendacje"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999710647701",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999710647701",
             "creator": {
                 "name": "Maciej Matwiejczyk"
             },
@@ -1062,7 +1062,7 @@
                     "valueLabel": "business Application specialist, crm"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999710547426",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999710547426",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
@@ -1148,7 +1148,7 @@
                     "valueLabel": "crm, salesforce"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999710547360",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999710547360",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
@@ -1264,7 +1264,7 @@
                     "valueLabel": "UX, user experience, projektant, projektowanie, UI, Axure, Sketch, InVision"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999710365956",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999710365956",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
@@ -1380,7 +1380,7 @@
                     "valueLabel": "bezpieczeństwo, hack, hacker, csirt, cdot, red team, blue team"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999710241860",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999710241860",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
@@ -1449,7 +1449,7 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999710068218",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999710068218",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
@@ -1529,7 +1529,7 @@
                     "valueLabel": "frontend, javascript, react.js, angular, vue.js"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999709194799",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999709194799",
             "creator": {
                 "name": "Jagoda Rusiniak"
             },
@@ -1609,7 +1609,7 @@
                     "valueLabel": "java, scala, kotlin, developer, backend, spring, inżynier, programista, programmer, architektura, architecture, architekt"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999708285866",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999708285866",
             "creator": {
                 "name": "Maciej Matwiejczyk"
             },
@@ -1695,7 +1695,7 @@
                     "valueLabel": "python, ml, machine learning, ds, algorytm, uczenie maszynowe"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999707689418",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999707689418",
             "creator": {
                 "name": "Maciej Matwiejczyk"
             },
@@ -1769,7 +1769,7 @@
                     "valueLabel": "DAX, microsoft dynamics, microsoft AX, ERP, developer"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999707045316",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999707045316",
             "creator": {
                 "name": "Iwona Zawolik"
             },
@@ -1843,7 +1843,7 @@
                     "valueLabel": "Data Platform, Hadoop, Java, Scala, Kotlin, Toruń, SQL, NoSQL, BigData, Spark, Kafka"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999707036315",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999707036315",
             "creator": {
                 "name": "Maciej Matwiejczyk"
             },
@@ -1912,7 +1912,7 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999706915268",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999706915268",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
@@ -1992,7 +1992,7 @@
                     "valueLabel": "java, kotlin, scala, developer, programista, inżynier"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999705914791",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999705914791",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
@@ -2114,7 +2114,7 @@
                     "valueLabel": "badacz, badania"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999705352723",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999705352723",
             "creator": {
                 "name": "Mateusz Jabłonowski"
             },
@@ -2230,7 +2230,7 @@
                     "valueLabel": "badacz, analiza, analityk, badania, badania ilościowe, badania jakościowe, wywiady"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999704862824",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999704862824",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
@@ -2310,7 +2310,7 @@
                     "valueLabel": "python, java, vue, kotlin, programista, inżynier, developer"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999704386395",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999704386395",
             "creator": {
                 "name": "Maciej Matwiejczyk"
             },
@@ -2396,7 +2396,7 @@
                     "valueLabel": ".net, dotnet, C#, microsoft, azure, kubernetes"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999702651696",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999702651696",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
@@ -2472,7 +2472,7 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999701766803",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999701766803",
             "creator": {
                 "name": "Iwona Zawolik"
             },
@@ -2546,7 +2546,7 @@
                     "valueLabel": "java, scala, kotlin, developer, programista, inżynier, architekt, architecture, architect"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699867845",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999699867845",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
@@ -2627,7 +2627,7 @@
                     "valueLabel": "java, kotlin, scala, backend, java software engineer, java developer, spark, hadoop, spring, senior java engineer, programista"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699720231",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999699720231",
             "creator": {
                 "name": "Maciej Matwiejczyk"
             },
@@ -2707,7 +2707,7 @@
                     "valueLabel": "java, scala, kotlin, developer, backend, spring, inżynier, programista, programmer, architektura, architecture, architekt"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999699570684",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999699570684",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
@@ -2781,7 +2781,7 @@
                     "valueLabel": "team leader, java, kotlin, scala, backend, java software engineer, management, team management, java developer, programista"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697891137",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999697891137",
             "creator": {
                 "name": "Sara Aloe"
             },
@@ -2850,7 +2850,7 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697890396",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999697890396",
             "creator": {
                 "name": "Sara Aloe"
             },
@@ -2926,7 +2926,7 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697890238",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999697890238",
             "creator": {
                 "name": "Sara Aloe"
             },
@@ -3042,7 +3042,7 @@
                     "valueLabel": "data scientist, NLP, ML, uczenie maszynowe, sieci neuronowe, modele lasów drzew decyzyjnych, modele Bayes’owskie, information retrieval, język naturalny, szeregi czasowe, dane, python, statystyka"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697865924",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999697865924",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
@@ -3118,7 +3118,7 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999697646596",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999697646596",
             "creator": {
                 "name": "Sara Aloe"
             },
@@ -3198,7 +3198,7 @@
                     "valueLabel": "backend, go, java, full stack, javascript, react, angular, js, web developer, frontend developer"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999696895750",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999696895750",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
@@ -3272,7 +3272,7 @@
                     "valueLabel": "iOS, Swift, Xcode, mobile, iOS developer, iOS engineer, iOS app engineer, Objective-C, programista iOS"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999696624971",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999696624971",
             "creator": {
                 "name": "Mateusz Jabłonowski"
             },
@@ -3346,7 +3346,7 @@
                     "valueLabel": "iOS, Swift, Xcode, mobile, iOS developer, iOS engineer, iOS app engineer, Objective-C"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999696624652",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999696624652",
             "creator": {
                 "name": "Mateusz Jabłonowski"
             },
@@ -3462,7 +3462,7 @@
                     "valueLabel": "iOS, Swift, Xcode, mobile, iOS developer, iOS engineer, iOS app engineer, Objective-C"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999696624339",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999696624339",
             "creator": {
                 "name": "Mateusz Jabłonowski"
             },
@@ -3543,7 +3543,7 @@
                     "valueLabel": "tester, ios, android, swift, objective-c, testowanie, quality engineer, quality"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/api-v1/companies/allegro/postings/743999689013341",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999689013341",
             "creator": {
                 "name": "Anna Śniedziewska"
             },
