@@ -25,7 +25,7 @@ public class Article {
 ```
 public class Author {
     private final AuthorId id;
-    private final String name;
+    private final PersonName name;
     //boilerplate code ommited
 }
 
@@ -43,108 +43,96 @@ and then retrieve its content by issuing POST and GET HTTP requests, respectivel
  ```
 @RestController
 @RequestMapping("articles")
-class ArticleController {
-    
+class ArticleEndpoint {
+
     @GetMapping("{articleId}")
     ArticleResponse get(@PathVariable("articleId") final String articleId) {
-        return service.get(articleId);
+        final Article article = articleService.get(ArticleId.of(articleId));
+        return ArticleResponse.of(article);
     }
- 
+
     @PostMapping
     ArticleIdResponse create(@RequestBody final ArticleRequest articleRequest) {
-        return service.create(articleRequest);
+        final ArticleId articleId = articleService.create(articleRequest.authorId(), articleRequest.title(), articleRequest.content());
+        return ArticleIdResponse.of(articleId);
     }
-    //boilerplate code and logger calls omitted
-}
 ```
 
-The REST adapter implementation accesses the domain logic via a public facade which forms a port on its own. It is called
-a right-side port to depict that it handles incoming traffic, while left-side adapters handle outgoing traffic and decouple potentially
-external services called from the domain code.
-It is often assumed that each port needs to be an interface, 
-it doesn't make much sense for left-side ports though.
+The REST adapter implementation accesses the domain logic via a public domain service, which forms a port on its own. 
+It is called a left-side port to depict that it handles incoming traffic, while right-side adapters handle outgoing 
+traffic and decouple potentially external services called from the domain code.
+It is often assumed that each port needs to be an interface, it doesn't make much sense for left-side ports though.
 Interfaces, in general, allow you to decouple implementation from the component that uses it. They
-are essential to the decoupling of the domain (also referred to as core) and the adapters that implement ports, which makes them
-pluggable and potentially replaceable. It is of vital importance that the domain code is adapter-agnostic and has no 
-dependency on adapter implementation code, yet not necessarily not the other way round. 
-Every adapter depends on the domain code at least by implementing one of the ports interfaces. 
-o unless you plan to replace your core domain with a different one
+are essential to the decoupling of the domain (also referred to as core) and the adapters that implement ports, 
+which makes them pluggable and potentially replaceable. It is of vital importance that the domain code is adapter-agnostic 
+and has no dependency on adapter implementation code, yet not the other way round. 
+Every adapter depends on the domain code at least by implementing one of the ports interfaces and mapping the domain data model. 
+So unless you plan to replace your core domain with a different one (the possibility of which appears to be remote, not to say absurd)
 and don't want your REST adapter to be affected, hiding the domain services (or facades) behind interfaces
 can be seen as over-engineering and gives you nothing in return.
 
-```
-@Component
-class ArticleService {
+## Domain logic and right side adapters
 
-    private final ArticleFacade articleFacade;
-
-    ArticleService(final ArticleFacade articleFacade) {
-        this.articleFacade = articleFacade;
-    }
-
-    ArticleResponse get(final String articleId) {
-        return ArticleResponse.of(articleFacade.get(ArticleId.of(articleId)));
-    }
-
-    ArticleIdResponse create(final ArticleRequest articleRequest) {
-        final ArticleId articleId = articleFacade.create(articleRequest.authorId(), articleRequest.title(), articleRequest.content());
-        return ArticleIdResponse.of(articleId);
-    }
-}
-```
-
-## Right side adapters
-
-The domain operations, creating and retrieving an article, 
-depend on external dependencies hidden by the abstraction of ports, 
-which from the domain perspective are only declared as interfaces. 
+The domain operations implemented in ArticleService, creating and retrieving an article, 
+depend on external dependencies hidden by the abstraction of ports. 
+Ports, from the domain perspective, are only declared as interfaces. 
 These dependencies stand for the following underlying operations:
 * persisting and retrieving an article,
 * retrieving an author,
 * notifying the author about the successful publication of an article,
 * posting information about an article to social media,
-* publishing an event, triggered either by article creation or retrieval, on an event bus so that it could be potentially consumed by other services forming parts of the bigger system we are developing.
+* sending a message, triggered either by article creation or retrieval, to a message broker 
+so that it could be potentially consumed by other services forming parts of the bigger system we are developing.
+
 ```
-public class ArticleFacade {
- 
-    private final ArticleEventPublisher eventPublisher;
-    private final ArticleRepository articleRepository;
-    private final AuthorRepository authorRepository;
-    private final List<SocialMediaPublisher> socialMediaPublishers;
-    private final List<ArticleAuthorNotifier> articleAuthorNotifiers;
- 
+public class ArticleService {
+
     public ArticleId create(final AuthorId authorId, final Title title, final Content content) {
         final Author author = authorRepository.get(authorId);
         final Article article = articleRepository.save(author, title, content);
-        eventPublisher.publishArticleCreationEvent(article);
-        socialMediaPublishers.forEach(socialMediaPublisher -> socialMediaPublisher.publish(article));
-        articleAuthorNotifiers.forEach(articleAuthorNotifier -> articleAuthorNotifier.notifyAboutArticleCreation(article));
+        eventPublisher.publishCreationOf(article);
         return article.id();
     }
- 
+
     public Article get(final ArticleId id) {
         final Article article = articleRepository.get(id);
-        eventPublisher.publishArticleRetrievalEvent(article);
+        eventPublisher.publishRetrievalOf(article);
         return article;
     }
-   //boilerplate code omitted
+    //boilerplate code omitted
 }
 ```
 
+Domain logic responsible for sending data to external systems, as a side-effect of article creation and retrieval, has been encapsulated
+in ArticleEventPublisher.
+
+```
+public class ArticleEventPublisher {
+
+    void publishCreationOf(final Article article) {
+        messageSender.sendMessageForCreated(article);
+        socialMediaPublishers.forEach(socialMediaPublisher -> socialMediaPublisher.publish(article));
+        articleAuthorNotifiers.forEach(articleAuthorNotifier -> articleAuthorNotifier.notifyAboutCreationOf(article));
+    }
+
+    void publishRetrievalOf(final Article article) {
+        messageSender.sendMessageForRetrieved(article);
+    }
+}
+```
 The aforementioned ports are implemented by corresponding adapters:
 * a database adapter,
 * an external author service adapter,
 * mail and SMS  systems adapter,
 * Twitter API client adapter,
 * a message broker publisher adapter.
-Combined with the REST API, the domain, 
-which constitutes the core of our application (center of the hexagon) 
-is surrounded by six adapters. 
-Five of them (the so-called “right-side”, “outgoing” adapters) implement domain interfaces, 
-while the API adapter (“left-side” or “incoming” adapter) calls the domain logic via a public Facade.
+
+To sum up, the domain, which constitutes the core of our application (center of the hexagon) 
+is surrounded by six adapters. Five of them (the so-called “right-side”, “outgoing” adapters) implement domain interfaces, 
+while the API adapter (“left-side” or “incoming” adapter) calls the domain logic via a public domain service.
 
 The project package structure reflects the service architecture:
-<figure><figcaption><img alt="Example service package structure" src="/img/articles/2019-12-24-hexagonal-architecture-by-example/packages.png" /></figcaption></figure>
+<figure><figcaption><img alt="Example service package structure" src="/img/articles/2020-05-14-hexagonal-architecture-by-example/packages.png" /></figcaption></figure>
 
 ## Adapter implementation
 
@@ -197,17 +185,17 @@ class TwitterArticlePublisher implements SocialMediaPublisher {
 ## Application flow
 You can analyze the flow of the article creation and retrieval requests in the application logs:
 ```
->>> HTTP POST Request: create an article: "Hexagonal Architecture"
-Author: "William Shakespeare" fetched
-Article: "Hexagonal Architecture" persisted
-Article: "Hexagonal Architecture" creation event published on event bus
-Article: "Hexagonal Architecture" published on twitter
-Mail sent to author: "William Shakespeare"
-SMS sent to author: "William Shakespeare"
-<<< HTTP POST Response: article with identifier: "6dfa5e2a-e0c7-4147-8fcc-25b637178b19" successfully created
->>> HTTP GET Request: retrieve an article with identifier: "6dfa5e2a-e0c7-4147-8fcc-25b637178b19"
-Article "Hexagonal Architecture" fetched
-Article: "Hexagonal Architecture" retrieval event published on event bus
+>>> HTTP POST Request: create an article "Hexagonal Architecture"
+Fetched author: "William Shakespeare"
+Persisted article: "Hexagonal Architecture"
+Message sent to broker: "Article >>Hexagonal Architecture<< created"
+Tweet published on Twitter: "Check out the new article >>Hexagonal Architecture<< by William Shakespeare"
+Mail sent to author: "You have successfully published: >>Hexagonal Architecture<<"
+SMS sent to author: "Please check your email. We have sent you publication details of the article: >>Hexagonal Architecture<<"
+<<< HTTP POST Response: article "Hexagonal Architecture" with id "69683cd6-3e0f-49fd-a9f4-fd4cc1c9ca4b" successfully created
+>>> HTTP GET Request: retrieve an article with id: "9d188cf5-c3de-443f-bb26-5999c531c227"
+Fetched article: "Hexagonal Architecture"
+Message sent to broker: "Article >>Hexagonal Architecture<< retrieved"
 <<< HTTP GET Response: article: "Hexagonal Architecture" successfully retrieved
 ```
 ## Summary
@@ -217,7 +205,7 @@ for the sake of readers who encounter the HA approach and DDD for the first time
 It could have been difficult to grasp the difference between a traditional layered architecture and Hexagonal Architecture if the only thing 
 your domain is responsible for is storing and fetching data from a repository. The same applies to understanding
 the reason why the domain model should be independent from the adapter model. Services,
-in which the domain model consists of only one class which is mapped 1 to 1 by an adapter dto (both classes have the same fields, they have just different names), e.g. a JPA entity,
+in which the domain model consists of only one class mapped 1 to 1 by an adapter dto (both classes have the same fields, they have just different names), e.g. a JPA entity,
 seems to present Hexagonal Architecture as an over-engineered approach, where one copies the same field values
 from class to class just for the sake of the pattern on its own.
 ## Code examples
