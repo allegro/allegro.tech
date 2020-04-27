@@ -27,7 +27,7 @@ public class Article {
 public class Author {
     private final AuthorId id;
     private final PersonName name;
-    //boilerplate code ommited
+    //boilerplate code omitted
 }
 
 ```
@@ -35,7 +35,7 @@ There are also several wrapper classes for fields such as id, title or content. 
 as well as avoid passing several String values as method arguments which is generally bad practice and may lead to bugs difficult to track: 
 now if you accidentally swap values upon method call your code won't compile. 
 
-## The left side adapter: REST API
+## The left-side adapter: REST API
 
 The example service, which will help us depict Hexagonal Architecture, 
 exposes a very simple REST API: as an author, you can create an article 
