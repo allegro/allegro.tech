@@ -174,13 +174,13 @@ which may help you follow the flow of the application logic.
 ```
 @Component
 class TwitterArticlePublisher implements SocialMediaPublisher {
- 
-    @Override
+
+  @Override
     public void publish(final Article article) {
         /**
-         * social media integration implementation  using {@link TwitterModel} comes here
+         * social media integration implementation comes here
          */
-        log.info("Article: \"{}\" published on twitter", article.title().value());
+        log.info("Tweet published on Twitter: \"{}\"", ArticleTwitterModel.of(article));
     }
     //boilerplate code omitted
 }
@@ -196,7 +196,7 @@ Tweet published on Twitter: "Check out the new article >>Hexagonal Architecture<
 Mail sent to author: "You have successfully published: >>Hexagonal Architecture<<"
 SMS sent to author: "Please check your email. We have sent you publication details of the article: >>Hexagonal Architecture<<"
 <<< HTTP POST Response: article "Hexagonal Architecture" with id "69683cd6-3e0f-49fd-a9f4-fd4cc1c9ca4b" successfully created
->>> HTTP GET Request: retrieve an article with id: "9d188cf5-c3de-443f-bb26-5999c531c227"
+>>> HTTP GET Request: retrieve an article with id: "69683cd6-3e0f-49fd-a9f4-fd4cc1c9ca4b"
 Fetched article: "Hexagonal Architecture"
 Message sent to broker: "Article >>Hexagonal Architecture<< retrieved"
 <<< HTTP GET Response: article: "Hexagonal Architecture" successfully retrieved
@@ -209,7 +209,7 @@ It could have been difficult to grasp the difference between a traditional layer
 your domain is responsible for is storing and fetching data from a repository. The same applies to understanding
 the reason why the domain model should be independent from the adapter model. Services,
 in which the domain model consists of only one class mapped 1 to 1 by an adapter dto (both classes have the same fields, they have just different names), e.g. a JPA entity,
-seems to present Hexagonal Architecture as an over-engineered approach, where one copies the same field values
+seem to present Hexagonal Architecture as an over-engineered approach, where one copies the same field values
 from class to class just for the sake of the pattern on its own.
 ## Code examples
 If you are interested in the implementation of the example service, fragments of which were included in the code snippets, take a look at the [github repository](https://github.com/dziadeusz/hexagonal-architecture-by-example)
