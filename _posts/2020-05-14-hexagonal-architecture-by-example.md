@@ -12,7 +12,7 @@ Ports and Adapters or their conceptual diagrams, which have already been well de
 I assume you already have a general understanding of Domain Driven Design and that you understand terms such as Ports and Adapters.
 
 ## Introducing the domain
-In this article, we will focus on providing a quick and practical example that will be based on a very straightforward domain including only two simple domain objects:
+In this article, we will focus on providing a quick and practical example based on a very straightforward domain including only two simple domain objects:
 ```
 public class Article {
     private final ArticleId id;
