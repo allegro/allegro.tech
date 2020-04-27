@@ -37,7 +37,7 @@ now if you accidentally swap values upon method call your code won't compile.
 
 ## The left-side adapter: REST API
 
-The example service, which will help us depict Hexagonal Architecture, 
+The example microservice, which will help us depict Hexagonal Architecture, 
 exposes a very simple REST API: as an author, you can create an article 
 and then retrieve its content by issuing POST and GET HTTP requests, respectively.
 
