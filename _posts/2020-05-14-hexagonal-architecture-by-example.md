@@ -8,7 +8,7 @@ tags: [tech, ddd, hexagonal-architecture, java]
 When you go through articles related to Hexagonal Architecture, you are usually searching for practical examples of specific use cases
 of this rather complex pattern. In most posts you encounter, you have to scroll through exact citations or rephrased definitions of concepts such as 
 Ports and Adapters or their conceptual diagrams, which have already been well defined and described by popular authors i.e. 
-[Alistair Cockburn](http://alistair.cockburn.us/Hexagonal+Architecture) or [Martin Fowler](https://martinfowler.com/eaaCatalog/gateway.html). 
+[Alistair Cockburn](http://web.archive.org/web/20180121161736/http://alistair.cockburn.us/Hexagonal+Architecture) or [Martin Fowler](https://martinfowler.com/eaaCatalog/gateway.html). 
 I assume you already have a general understanding of Domain Driven Design and that you understand terms such as Ports and Adapters.
 
 ## Introducing the domain
