@@ -57,6 +57,8 @@ class ArticleEndpoint {
         final ArticleId articleId = articleService.create(articleRequest.authorId(), articleRequest.title(), articleRequest.content());
         return ArticleIdResponse.of(articleId);
     }
+    //boilerplate code omitted
+}
 ```
 
 The REST adapter implementation accesses the domain logic via a public domain service, which forms a port on its own. 
