@@ -508,6 +508,15 @@ justyna.osten-sacken:
     bio: UX researcher part of a team taking care of end-to-end customer experience - starting from search and selection till purchase. Having her team by her side, she creates knowledge and recommendations based on customers opinions. It helps teams to introduce new products or changes to existing ones. She practices calligraphy, likes Italian small towns and micro trips around Poland. Cooking relaxes her very much. Hitchhiking enthusiast.
     linkedin: justyna-osten-sacken
 
+bartlomiej.mazur:
+    name: Bartłomiej Mazur
+    bio: >
+        Backend developer and wannabe gamedev, also loves to break the JVM and find every hidden detail in it.
+        In free time, he loves solving issues that no one should have with unsafe, reflections and agents on stackoverflow.
+    stackOverflow:
+        id: "4378853"
+        name: "GotoFinal"
+
 adam.dudczak:
     name: Adam Dudczak
     bio: Team manager in allegro.pl, on a daily basis I work on improving search experience in the biggest ecommerce site in Poland. I am professionally involved with Java and related technologies since 2004, currently focused on search and information retrieval. Organizer of GeeCON conference and former leader of Poznan Java User Group.
@@ -517,3 +526,14 @@ zbigniew.barczyk:
     name: Zbigniew Barczyk
     bio: Also known as ZqBany. Code poet looking for beauty in everything he creates. Loves every problem that seems impossible to solve
     twitter: ZqBany
+
+piotr.stapp:
+    name: Piotr Stapp
+    bio: Doer. Microsoft MVP. Master of Science. Speaker and blogger. VP at devwarsztaty.pl. CxO of dotnetomaniak.pl. Don't Stapp me now, please!
+    twitter: ptrstpp950
+    linkedin: piotrstapp
+
+pawel.zwierzchowski:
+  name: Paweł Zwierzchowski
+  bio: Software test engineer with a relevant full stack experience from various companies, who helps achieve better quality results by testing software and sharing knowledge. Testing has been his life since 2011. A real team member, involved not only in all the testing, but also in the final delivery of the product to end users. Besides testing, he loves all kinds of cars and PC games. A big fan of donuts.
+  linkedin: paweł-zwierzchowski

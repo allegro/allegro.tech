@@ -20,7 +20,7 @@ layout: default
                         </a>
                     </li>
                     <li>
-                        <span>{{ page.venue_name }}, {{ page.venue_address_1 }}, {{ page.venue_city }}</span>
+                        <span>{{page.venue_name}}{% if page.venue_address_1.size > 0 %},&nbsp;{{page.venue_address_1}}{% endif %}{% if page.venue_city.size > 0 %},&nbsp;{{page.venue_city}}{% endif %}</span>
                     </li>
                 </ul>
             </div>
@@ -34,7 +34,7 @@ layout: default
                     <img style="height:13px" src="/img/octicons/location.svg" alt="where"/>
                     <a itemprop="name"
                        href="https://www.google.com/maps/place/{{ page.venue_address_1 }},{{page.venue_city}}">
-                        {{ page.venue_name }},&nbsp;{{ page.venue_address_1 }},&nbsp;{{ page.venue_city }}
+                        {{ page.venue_name }}{% if page.venue_address_1.size > 0 %},&nbsp;{{page.venue_address_1}}{% endif %}{% if page.venue_city.size > 0 %},&nbsp;{{page.venue_city}}{% endif %}
                     </a>
                 </p>
                 <p>

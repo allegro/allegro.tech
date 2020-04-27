@@ -2,10 +2,10 @@
 layout: event
 title: "Allegro Tech Live #2"
 time: 1585756800000
-venue_address_1: undefined
-venue_city: undefined
+venue_address_1: 
+venue_city: 
 venue_name: Online event
-status: near
+status: past
 id: 269765137
 registration: 
 ---
