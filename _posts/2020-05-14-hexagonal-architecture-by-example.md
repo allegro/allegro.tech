@@ -141,11 +141,11 @@ The project package structure reflects the service architecture:
 
 Each adapter works on its data model, which can translate itself “from” or “to” the domain model, 
 which on the other hand is adapter-model-agnostic.
-That's why you can use
+That's why you should always favour
 ```
 ArticleResponse.of(domainArticle) 
 ```
-but never 
+over
 ```
 domainArticle.toResponse()
 ```
