@@ -72,14 +72,14 @@ ArticleResponse.of(article);
 ```
 
 The domain service forms a port on its own. It is called a left-side port to depict that it handles incoming traffic, while right-side adapters handle outgoing 
-traffic and decouple potentially external services called from the domain code.
+traffic and decouple (potentially) external services called from the domain code.
 It is often assumed that each port needs to be an interface, it doesn't make much sense for left-side ports though.
-Interfaces, in general, allow you to decouple implementation from the component that uses it. They
+Interfaces, in general, allow you to decouple implementation from the component that uses it, following the [Dependency Inversion Principle]([dependency inversion](https://martinfowler.com/articles/dipInTheWild.html)). They
 are essential to the decoupling of the domain (also referred to as core) and the adapters that implement ports, 
 which makes them pluggable and potentially replaceable. It is of vital importance that the domain code is adapter-agnostic 
 and has no dependency on adapter implementation, yet not the other way round. 
 Every adapter depends on the domain code at least by implementing one of the port interfaces or mapping the domain data model. 
-Hiding domain services behind interfaces can be seen as over-engineering and gives you nothing in return.
+Hiding domain services behind interfaces should be seen as over-engineering and gives you nothing in return.
 
 ## Domain logic and right side adapters
 
@@ -173,25 +173,24 @@ class ArticleResponse {
     //boilerplate code omitted
 }
 ```
-
-The right-side adapters don’t include the actual implementation, 
-such as database or HTTP clients. For the sake of simplicity, they just log messages to the console, 
-which may help you follow the flow of the application logic.
-
+And an example of social media publisher implementation, which translates the domain
+article to ```ArticleTwitterModel``` and sends the result via the ```TwitterClient```.
 ```
 @Component
 class TwitterArticlePublisher implements SocialMediaPublisher {
 
-  @Override
+    @Override
     public void publish(final Article article) {
-        /**
-         * social media integration implementation comes here
-         */
-        log.info("Tweet published on Twitter: \"{}\"", ArticleTwitterModel.of(article));
+        final ArticleTwitterModel articleTweet = ArticleTwitterModel.of(article);
+        twitterClient.tweet(articleTweet);
     }
     //boilerplate code omitted
 }
 ```
+The right-side adapters don’t include the actual implementation, 
+such as database or HTTP clients. For the sake of simplicity, they just log messages to the console, 
+which may help you follow the flow of the application logic.
+
 ## Application flow
 You can analyze the flow of the article creation and retrieval requests in the application logs:
 ```
@@ -209,9 +208,20 @@ Message sent to broker: "Article >>Hexagonal Architecture<< retrieved"
 <<< HTTP GET Response: article: "Hexagonal Architecture" successfully retrieved
 ```
 ## Summary
+As much as I did my best to design the example so that it would show the benefits of using Hexagonal Architecture in a self-explanatory
+and intuitive way, to avoid theoretical elucidations, I would still like to emphasise what we have gained. 
+Designing the core of the application to be independent of external adapters we achieve e.g.: 
+* [Dependency Inversion](https://martinfowler.com/articles/dipInTheWild.html). This way, instead of high-level modules depending on low-level modules, 
+both will depend on abstractions, which makes our application follow [SOLID](https://en.wikipedia.org/wiki/SOLID) principles. 
+* Testability, as the domain logic can be unit-tested regardless of underlying frameworks and infrastructure that the adapters depend on,
+which frees those tests from e.g. transaction management or request and response parsing. All adapters can also be tested independently from each other.
+* Extendability, following the [Open-closed Principle](https://en.wikipedia.org/wiki/Open–closed_principle). It's best illustrated by the ```ArticleEventPublisher```, which depends on
+on implementations of ```SocialMediaPublisher``` and ```ArticleAuthorNotifier```, injected as lists of components by the Spring DI container: adding another implementation, such as an adapter for Facebook,
+does not require modifying the domain code.
+
 I hope that the above example depicts the theoretical concepts such as Hexagonal Architecture, Ports and Adapters
 in an easy and comprehensible way. I also tried to avoid oversimplifying the example implementation, especially
-for the sake of readers who encounter the HA approach and DDD for the first time. 
+for the sake of readers who encounter the Hexagonal Architecture approach and Domain Driven Design for the first time. 
 It could have been difficult to grasp the difference between a traditional layered architecture and Hexagonal Architecture if the only thing 
 your domain is responsible for is storing and fetching data from a repository. The same applies to understanding
 the reason why the domain model should be independent from the adapter model. Services,
