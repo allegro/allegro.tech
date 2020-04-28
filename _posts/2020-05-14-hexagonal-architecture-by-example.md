@@ -61,18 +61,25 @@ class ArticleEndpoint {
 }
 ```
 
-The REST adapter implementation accesses the domain logic via a public domain service, which forms a port on its own. 
-It is called a left-side port to depict that it handles incoming traffic, while right-side adapters handle outgoing 
+The REST adapter implementation accesses the domain logic via a public domain service. I would like to emphasise, that this is a simplification 
+as due to the overall simplicity of the example I tried to avoid over-engineering, since it would beat the purpose of the whole article.
+Nevertheless, calling domain services directly from the controller may lead to the *fat controller antipattern*, due to the fact that orchestration logic should not
+be the responsibility of the controller, this is where [***application*** services](http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/) come into play (not ***domain*** services).
+An application service, a concept which does not belong neither to the domain nor to the API adapter, could also be
+responsible for domain model translation, apart from domain logic orchestration. Though, it would not be of much use for the trivial translation which now resides in the controller: 
+```
+ArticleResponse.of(article);
+```
+
+The domain service forms a port on its own. It is called a left-side port to depict that it handles incoming traffic, while right-side adapters handle outgoing 
 traffic and decouple potentially external services called from the domain code.
 It is often assumed that each port needs to be an interface, it doesn't make much sense for left-side ports though.
 Interfaces, in general, allow you to decouple implementation from the component that uses it. They
 are essential to the decoupling of the domain (also referred to as core) and the adapters that implement ports, 
 which makes them pluggable and potentially replaceable. It is of vital importance that the domain code is adapter-agnostic 
-and has no dependency on adapter implementation code, yet not the other way round. 
-Every adapter depends on the domain code at least by implementing one of the ports interfaces and mapping the domain data model. 
-So unless you plan to replace your core domain with a different one (the possibility of which appears to be remote, not to say absurd)
-and don't want your REST adapter to be affected, hiding the domain services (or facades) behind interfaces
-can be seen as over-engineering and gives you nothing in return.
+and has no dependency on adapter implementation, yet not the other way round. 
+Every adapter depends on the domain code at least by implementing one of the port interfaces or mapping the domain data model. 
+Hiding domain services behind interfaces can be seen as over-engineering and gives you nothing in return.
 
 ## Domain logic and right side adapters
 
