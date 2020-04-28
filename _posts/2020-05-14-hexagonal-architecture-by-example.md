@@ -31,8 +31,9 @@ public class Author {
 }
 
 ```
-There are also several wrapper classes for fields such as id, title or content. This allows you to encapsulate additional business logic or validation, 
-as well as avoid passing several String values as method arguments which is generally bad practice and may lead to bugs difficult to track: 
+There are also several [value objects](https://martinfowler.com/bliki/ValueObject.html) wrapping fields such as id, title or content. 
+As these are immutable String values anyway, introducing value objects allows you to encapsulate additional business logic or validation, 
+as well as avoid passing several String values as method  or constructor arguments, which is generally a bad practice and may lead to bugs difficult to track: 
 now if you accidentally swap values upon method call your code won't compile. 
 
 ## The left-side adapter: REST API
