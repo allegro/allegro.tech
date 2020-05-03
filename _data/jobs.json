@@ -4,15 +4,15 @@
     "totalFound": 43,
     "content": [
         {
-            "id": "743999711666814",
+            "id": "743999711666846",
             "name": "UX Designer",
-            "uuid": "5befca28-a0ce-403a-8803-4f8eceb1658b",
+            "uuid": "94667e8a-5db0-4a1c-83ce-131145855f1a",
             "refNumber": "REF1352B",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-05-03T15:29:16.000Z",
+            "releasedDate": "2020-05-03T16:02:05.000Z",
             "location": {
                 "city": "Warszawa, Poznań",
                 "country": "pl"
@@ -109,7 +109,7 @@
                     "valueLabel": "UX, user experience, projektant, projektowanie, UI, Axure, Sketch, InVision"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999711666814",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999711666846",
             "creator": {
                 "name": "Angelika Szymkiewicz"
             },
