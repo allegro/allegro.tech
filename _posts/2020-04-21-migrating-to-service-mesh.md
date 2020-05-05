@@ -36,7 +36,7 @@ We also utilise the public cloud when it makes sense (and need to integrate it w
 Some of the services are packaged in Docker. But our architecture is not just microservices.
 We also have:
 
-* a few edge solutions in place,
+* a few edge solutions in place (API Gateways, Edge Proxies, Backends for Frontends, etc.),
 * external load balancers,
 * reverse proxies,
 * [a distributed message broker](https://allegro.tech/2019/05/hermes-1-0-released.html),
