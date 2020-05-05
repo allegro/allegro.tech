@@ -4,18 +4,17 @@
     "totalFound": 44,
     "content": [
         {
-            "id": "743999711741407",
+            "id": "743999711743384",
             "name": "Junior Integration Engineer",
-            "uuid": "d35f36ef-945f-4222-8c3d-cc9b2c85f2bb",
+            "uuid": "d62e7004-019f-40a8-ab4e-d18936baee24",
             "refNumber": "REF2138N",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-05-05T07:58:13.000Z",
+            "releasedDate": "2020-05-05T08:57:53.000Z",
             "location": {
-                "city": "Warsaw",
-                "region": "Masovian Voivodeship",
+                "city": "Warszawa/Poznań",
                 "country": "pl"
             },
             "industry": {
@@ -81,7 +80,7 @@
                     "valueLabel": "Tak"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999711741407",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999711743384",
             "creator": {
                 "name": "Iwona Zawolik"
             },
