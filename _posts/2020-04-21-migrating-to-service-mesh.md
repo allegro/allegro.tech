@@ -152,8 +152,8 @@ We can see a high-level overview of traffic in Grafana to get a glimpse of whatâ
 [![Service Mesh overview dashboard](/img/articles/2020-04-21-migrating-to-service-mesh/envoy_overview_traffic.png)](/img/articles/2020-04-21-migrating-to-service-mesh/envoy_overview_traffic.png)
 
 Application developers can see their particular service traffic characteristics
-on a dedicated dashboard. When needed, we can also get as deep as per-instance investigation
-for a particular host.
+on a dedicated dashboard. When needed, it's even possible to investigate a specific Envoy instance
+from the metrics perspective.
 
 In the process we've been able to keep existing routing solutions and load balancing
 across our data centers, including subset selection based on canary releases,
