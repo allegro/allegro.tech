@@ -6,35 +6,35 @@ tags: [tech, architecture, persistence, aggregate, repository, ddd, domain, hexa
 ---
 
 An application can be defined as a set of use cases.
-It often happens that an A use case requires a previously executed B use case for its execution.
-In such situation, it should be ensured that the B use case has been executed while executing the A use case.
-To achieve this, an application state, that is common to both use cases, is introduced.
-The state must be persisted to be visible for more than one use case.
+It often happens that use case A requires a previously executed use case B for its execution.
+In such situation, it should be ensured that use case B has been executed while executing use case A.
+To achieve this, application state that is common to both use cases, is introduced.
+The state must be persisted to be visible to more than one use case.
 Most often, various types of databases are used for this purpose.
-While working with the source code, I encountered various methods of persisting the application state.
+While working with source code, I have encountered various methods of persisting the application state.
 I also came up with my own variations.
-In the post I will make a subjective comparison of these methods based on the defined criteria.
+In this post I will make a subjective comparison of these methods based on specific criteria.
 
 ## Assumptions
-This post is a continuation of my [previous post](https://allegro.tech/2019/12/grouping-and-organizing-classes.html) and is based on the application project called "Project Keeper" introduced there.
-The source code of the application will be written in Java with the help of the [Spring](https://spring.io/) framework.
-Part of the "Project Keeper" application state, which is responsible for IT projects data, will be represented by the `Project` [aggregate](https://martinfowler.com/bliki/DDD_Aggregate.html).
-To save the state, a `ProjectRepository` [repository](https://www.martinfowler.com/eaaCatalog/repository.html) will be used.
-The [CQRS](https://martinfowler.com/bliki/CQRS.html) and [event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) approaches will not be analyzed.
+This post is a continuation of my [previous post](/2019/12/grouping-and-organizing-classes.html) and is based on the application project called "Project Keeper" introduced there.
+I will use Java with the help of the [Spring](https://spring.io/) framework to implement the source code of the application.
+The `Project` [aggregate](https://martinfowler.com/bliki/DDD_Aggregate.html) will represent the part of the "Project Keeper" application state, which is responsible for IT projects data.
+To save the state, I will use a `ProjectRepository` [repository](https://www.martinfowler.com/eaaCatalog/repository.html).
 According to the assumptions of "Project Keeper", the `Project` aggregate will be free from any DI and ORM framework.
 An aggregate is by definition an object that ignores how it will be persisted.
-To emphasize this, the state of the `Project` aggregate will be stored in the [MongoDB](https://www.mongodb.com/) database and also in the internal [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) service.
+To emphasize this, I will store the state of the `Project` aggregate by splitting it between two data sources.
+Those are: [MongoDB](https://www.mongodb.com/) database and the internal [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) service.
 
-The criteria by which the persistence methods will be rated are:
+The criteria by which I will rate the persistence methods are:
 * **keeping aggregate encapsulation** by not adding extra code that breaks it (the fewer violations, the higher the rating)
 * **no additional code in the aggregate** which doesn’t break the aggregate encapsulation but is still needed for state persistence (the less code, the higher the rating)
 * **simplicity of the infrastructure code** responsible for storing the state in data sources (the simpler, the higher the rating)
 
-A 3-grade scale will be used, where ★★★ indicates the best rate.
-The methods will be rated in the context of the architecture presented in my [previous post](https://allegro.tech/2019/12/grouping-and-organizing-classes.html).
+I will use a 3-grade scale, where ★★★ indicates the best rate.
+I will rate the methods in the context of the architecture presented in my [previous post](https://allegro.tech/2019/12/grouping-and-organizing-classes.html).
 
 ## Methods
-Five methods for persisting the `Project` aggregate will be compared.
+I will compare five methods for persisting the `Project` aggregate.
 The part of the application needed for analyzing the persistence methods is as follows:
 <pre>
 com.itcompany.projectkeeper
@@ -74,7 +74,7 @@ public abstract class ProjectRepository {
     protected abstract void save(Project project);
 }
 ```
-The repository is in the form of a secondary port defined by the [Hexagonal architecture](https://declara.com/content/va7eLmgJ).
+The repository is in the form of a secondary port defined by the [Hexagonal architecture](https://alistair.cockburn.us/hexagonal-architecture/).
 The "Project Keeper" application uses two data sources for persisting the aggregate: a MongoDB database and a REST service.
 In the `infrastructure.mongodb` package, access to MongoDB is configured:
 ```java
@@ -139,7 +139,7 @@ class HttpClientConfiguration {
 }
 ```
 The `infrastructure.persistence` package is responsible for storing aggregate state in the data sources.
-All project data, except functionalities, are stored in the MongoDB.
+All project data, except features, are stored in MongoDB.
 The data is represented by the `ProjectDocument`:
 ```java
 @Document("projects")
@@ -152,8 +152,8 @@ class ProjectDocument {
     // Getters and setters
 }
 ```
-The functionalities are stored in the REST service.
-A single functionality is represented by the `FeatureMessage`:
+The features are stored in the REST service.
+A single feature is represented by the `FeatureMessage`:
 ```java
 class FeatureMessage {
 
@@ -208,7 +208,7 @@ It is difficult to eliminate this problem completely, but you can reduce it to a
 * preventing the creation of an aggregate in invalid state (an error will be reported as soon as the aggregate state is retrieved, which will prevent the invalid aggregate from spreading to different parts of the application)
 
 Let’s move on to the methods of persisting the `Project` aggregate.
-To be able to persist the aggregate state the `infrastructure.persistence` package must be able to read the state.
+In order to be able to persist the aggregate state, `infrastructure.persistence` package must be able to read it.
 We can achieve this in several ways.
 
 ### Public getters
@@ -284,7 +284,7 @@ class ProjectPersistenceMapper {
 Making all information about an aggregate public breaks its encapsulation.
 However, most of the aggregate state must be visible to the `ProjectKeeper` primary port in order to map it to the DTOs and present it to the client.
 Therefore, most of the getters in the `Project` aggregate will be public, regardless of the type of persistence method used.
-Breaking encapsulation by making methods that change the state of the aggregate public is much more serious than by making read-only methods public.<br>
+Making read-only methods public is much less serious than breaking encapsulation by making methods that change the state of the aggregate public.<br>
 **No additional code in the aggregate, rating ★★★:**
 We don’t need to create additional code in the aggregate.<br>
 **Simplicity of the infrastructure code, rating ★★★:**
@@ -357,9 +357,9 @@ class ProjectPersistenceMapper {
 }
 ```
 **Keeping aggregate encapsulation, rating ★★★:**
-We don’t need to create a code that breaks the encapsulation of the aggregate.<br>
+We don’t need to create code that breaks the encapsulation of the aggregate.<br>
 **No additional code in the aggregate, rating ★★★:**
-We also don’t need to create a code that doesn’t break the encapsulation of the aggregate.<br>
+We also don’t need to create any code that breaks the encapsulation of the aggregate.<br>
 **Simplicity of the infrastructure code, rating ★☆☆:**
 Despite the use of the library in the mapping code, we still need to define some mappings ourselves in not type-safe way.
 These are the mappings defined in `ProjectPropertyMap` and in `FeaturePropertyMap`.
@@ -367,12 +367,12 @@ Using names in the form of strings makes changing these names in the future diff
 The consequence of using reflection is that we will encounter eventual mapping errors only in runtime.
 
 ### State objects
-The next method relies on extracting the aggregate state into a separate object and create a public getter for that object.
+The next method relies on extracting the aggregate state into a separate object and creating a public getter for that object.
 There are two variations of this method:
 * aggregate components directly depend on the state object (field in class)
 * aggregate components create a new state object each time the getter is invoked
 
-We will focus on only one (the first) of them because, from the rating criteria point of view, there is no difference between them.
+We will focus on only one of them (the first one) because, from the rating criteria point of view, there is no difference between them.
 Aggregate components code:
 ```java
 public class Feature {
@@ -580,7 +580,7 @@ class ProjectPersistenceMapper {
 }
 ```
 **Keeping aggregate encapsulation, rating ★★★:**
-We don’t need to create a code that breaks the encapsulation of the aggregate.<br>
+We don’t need to create code that breaks the encapsulation of the aggregate.<br>
 **No additional code in the aggregate, rating ★☆☆:**
 The amount of additional code is large and increases proportionally to the size of the aggregate.<br>
 **Simplicity of the infrastructure code, rating ★☆☆:**
@@ -671,11 +671,11 @@ class ProjectPersistenceMapper {
 }
 ```
 **Keeping aggregate encapsulation, rating ★★★:**
-We don’t need to create a code that breaks the encapsulation of the aggregate.<br>
+We don’t need to create code that breaks the encapsulation of the aggregate.<br>
 **No additional code in the aggregate, rating ★☆☆:**
 The amount of additional code is large and increases proportionally to the size of the aggregate.<br>
 **Simplicity of the infrastructure code, rating ★★★:**
-The code is generally easy, the only disadvantage can be state readers, whose number increases with the number of the aggregate components.
+The code is generally simple, the only disadvantage can be state readers, whose number increases with the number of the aggregate components.
 
 ## Summary
 Let’s summarize all methods for persisting aggregate state in the form of a table.
