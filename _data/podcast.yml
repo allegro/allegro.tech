@@ -85,6 +85,7 @@ podcasts:
         CSP - Nasze doświadczenia z ochroną Allegro na konferencji Pozitivetech 2019 wraz z Pawłem Czubachowskim: https://www.youtube.com/watch?v=T6HHipJRBUk
         Polowanie na czerwony październik - na konferencji BSides Warsaw 2019, Dawid Golak, Jarosław Pukacki: https://www.youtube.com/watch?v=LGMCQx-jZBw
         Opis framework Att&ck MITRE: https://attack.mitre.org/resources/getting-started/
+        Allegro Bug Bounty Program: https://hackerone.com/allegro
   platforms:
     buzzsprout: https://www.buzzsprout.com/887914/2903590-4-it-security-w-allegro-wojciechlesicki
     spotify: https://open.spotify.com/episode/4raXlG4uafbpArQZGXut37
@@ -198,6 +199,24 @@ podcasts:
   links:
     Allegro Tech Talks 32 Toruń - Wild, Wild Test... with microservices - Paweł Zwierzchowski: https://www.facebook.com/allegro.tech/videos/536167340289191/
 
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/2903665-9-jak-testy-moga-wplynac-na-zycie-pawel-zwierzchowski
+    spotify: https://open.spotify.com/episode/6uFNwITBKYKYRbNT22mr91
+    applepodcasts: https://podcasts.apple.com/pl/podcast/9-jak-testy-mog%C4%85-wp%C5%82yn%C4%85%C4%87-na-%C5%BCycie-pawe%C5%82-zwierzchowski/id1500315781?i=1000473469220
+    googlepodcasts: https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz&episode=QnV6enNwcm91dC0yOTAzNjY1&ved=0CAcQ38oDahcKEwjo3fqi4ZnpAhUAAAAAHQAAAAAQAQ
+
+- date: '2020-05-19T00:00:00.000Z'
+  slug: misja_zmiana_branzy_zakonczona_sukcesem
+  title: Misja zmiana branży zakończona sukcesem! Jak wygląda dzień Product Managera
+  author: martyna.niszczota
+  name: Martyna Niszczota
+  toc:
+    - Czy pracując w IT trzeba rozmawiać z ludźmi? 
+    - Budowanie relacji to mity i każdy skupia się na swoim kodzie? 
+    - Gdzie w całej tej układance jest Klient, czy jest tylko odbiorcą naszych rozwiązań? 
+    - Martyna odpowie na te pytania i przybliży nam jak wygląda jej dzień w roli Product Managera. Posiada ona background HRowy, dlatego jej spojrzenie na świat IT może różnić się od tego standardowego. 
+  links:
+    Allegro Tech Talks - Misja zmiana branży - Martyna Niszczota: https://www.facebook.com/watch/
 
 dict:
     spotify: Spotify
