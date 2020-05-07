@@ -680,13 +680,13 @@ The code is generally simple, the only disadvantage can be state readers, whose 
 ## Summary
 Let’s summarize all methods for persisting aggregate state in the form of a table.
 
-| **Method / Criterion**            | **Keeping aggregate encapsulation** | **No additional code in the aggregate** | **Simplicity of the infrastructure code** | **Total** |
-| :---:                             | :---:                               | :---:                                   | :---:                                     | :---:     |
-| **Public getters**                | ★★☆                                 | ★★★                                     | ★★★                                       | ★★★★★★★★☆ |
-| **Reflection**                    | ★★★                                 | ★★★                                     | ★☆☆                                       | ★★★★★★★☆☆ |
-| **State objects**                 | ★★☆                                 | ★☆☆                                     | ★★★                                       | ★★★★★★☆☆☆ |
-| **State objects with reflection** | ★★★                                 | ★☆☆                                     | ★☆☆                                       | ★★★★★☆☆☆☆ |
-| **State readers**                 | ★★★                                 | ★☆☆                                     | ★★★                                       | ★★★★★★★☆☆ |
+| **Method / Criterion**                                                                                                          | **Keeping aggregate encapsulation** | **No additional code in the aggregate** | **Simplicity of the infrastructure code** | **Total** |
+| :---:                                                                                                                           | :---:                               | :---:                                   | :---:                                     | :---:     |
+| <span style="background: #eee; margin: -5px -10px; padding: 5px 10px; display: block;">**Public getters**</span>                | ★★☆                                 | ★★★                                     | ★★★                                       | ★★★★★★★★☆ |
+| <span style="background: #eee; margin: -5px -10px; padding: 5px 10px; display: block;">**Reflection**</span>                    | ★★★                                 | ★★★                                     | ★☆☆                                       | ★★★★★★★☆☆ |
+| <span style="background: #eee; margin: -5px -10px; padding: 5px 10px; display: block;">**State objects**</span>                 | ★★☆                                 | ★☆☆                                     | ★★★                                       | ★★★★★★☆☆☆ |
+| <span style="background: #eee; margin: -5px -10px; padding: 5px 10px; display: block;">**State objects with reflection**</span> | ★★★                                 | ★☆☆                                     | ★☆☆                                       | ★★★★★☆☆☆☆ |
+| <span style="background: #eee; margin: -5px -10px; padding: 5px 10px; display: block;">**State readers**</span>                 | ★★★                                 | ★☆☆                                     | ★★★                                       | ★★★★★★★☆☆ |
 
 As I mentioned at the beginning, the ratings were given assuming the usage of the architecture described in my [post](https://allegro.tech/2019/12/grouping-and-organizing-classes.html).
 This means that for a different approach, these assessments may look different.
