@@ -149,7 +149,7 @@ Almost 500 of them communicate via Envoy for egress traffic. Last week we observ
 of > 620,000 req/s of ingress traffic and > 230,000 req/s of egress traffic inside the mesh.
 We can see a high-level overview of traffic in Grafana to get a glimpse of what’s happening.
 
-[![Service Mesh overview dashboard](/img/articles/2020-05-07-migrating-to-service-mesh/envoy_overview_traffic.png)]]((/img/articles/2020-05-07-migrating-to-service-mesh/envoy_overview_traffic.png)
+[![Service Mesh overview dashboard](/img/articles/2020-05-07-migrating-to-service-mesh/envoy_overview_traffic.png)]((/img/articles/2020-05-07-migrating-to-service-mesh/envoy_overview_traffic.png)
 
 Application developers can see their particular service traffic characteristics
 on a dedicated dashboard. When needed, it's even possible to investigate a specific Envoy instance
