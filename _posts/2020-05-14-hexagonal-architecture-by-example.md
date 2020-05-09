@@ -44,6 +44,15 @@ of the example project are organized, rather than a generic conceptual example.
 The project package structure also reflects the service architecture. 
 <figure><figcaption><img alt="Example service package structure" src="/img/articles/2020-05-14-hexagonal-architecture-by-example/ha_example.png"/></figcaption></figure>
 
+In the beginning I've mentioned that I assume you already know the basic concepts behind
+Hexagonal Architecture. Now, that you have seen a high-level picture of the idea,
+I think that everyone could do with a short recap before we go on:
+* in the middle, there lies the Core Domain - primary business logic of the application, 
+free of any technicalities
+* adapters are external interfaces of your application
+* ports are bridges between adapters and the core domain, 
+preventing implementation details from leaking into the domain
+
 ## The left-side adapter: REST API
 
 The example microservice, which will help us depict Hexagonal Architecture, 
