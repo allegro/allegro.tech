@@ -32,9 +32,17 @@ public class Author {
 
 ```
 There are also several [value objects](https://martinfowler.com/bliki/ValueObject.html) wrapping fields such as id, title or content. 
-As these are immutable String values anyway, introducing value objects allows you to encapsulate additional business logic or validation, 
+These fields are immutable String values anyway, though introducing value objects allows you to encapsulate additional business logic or validation, 
 as well as avoid passing several String values as method  or constructor arguments, which is generally a bad practice and may lead to bugs difficult to track: 
 now if you accidentally swap values upon method call your code won't compile. 
+
+In the next paragraphs we will go into detail about the overall service architecture, where other components are built around the 
+aforementioned domain. Before we do so, I would like to give you a heads up by presenting it on a diagram, which shows how the actual elements
+of the example project are organized, rather than a generic conceptual example.
+<figure><figcaption><img alt="Architecture diagram" src="/img/articles/2020-05-14-hexagonal-architecture-by-example/packages.png"/></figcaption></figure>
+
+The project package structure also reflects the service architecture. 
+<figure><figcaption><img alt="Example service package structure" src="/img/articles/2020-05-14-hexagonal-architecture-by-example/ha_example.png"/></figcaption></figure>
 
 ## The left-side adapter: REST API
 
@@ -48,14 +56,14 @@ and then retrieve its content by issuing POST and GET HTTP requests, respectivel
 class ArticleEndpoint {
 
     @GetMapping("{articleId}")
-    ArticleResponse get(@PathVariable("articleId") final String articleId) {
-        final Article article = articleService.get(ArticleId.of(articleId));
+    ArticleResponse get(@PathVariable("articleId") String articleId) {
+        Article article = articleService.get(ArticleId.of(articleId));
         return ArticleResponse.of(article);
     }
 
     @PostMapping
-    ArticleIdResponse create(@RequestBody final ArticleRequest articleRequest) {
-        final ArticleId articleId = articleService.create(articleRequest.authorId(), articleRequest.title(), articleRequest.content());
+    ArticleIdResponse create(@RequestBody ArticleRequest articleRequest) {
+        ArticleId articleId = articleService.create(articleRequest.authorId(), articleRequest.title(), articleRequest.content());
         return ArticleIdResponse.of(articleId);
     }
     //boilerplate code omitted
@@ -98,15 +106,15 @@ so that it could be potentially consumed by other services forming parts of the 
 ```
 public class ArticleService {
 
-    public ArticleId create(final AuthorId authorId, final Title title, final Content content) {
-        final Author author = authorRepository.get(authorId);
-        final Article article = articleRepository.save(author, title, content);
+    public ArticleId create(AuthorId authorId, Title title, Content content) {
+        Author author = authorRepository.get(authorId);
+        Article article = articleRepository.save(author, title, content);
         eventPublisher.publishCreationOf(article);
         return article.id();
     }
 
-    public Article get(final ArticleId id) {
-        final Article article = articleRepository.get(id);
+    public Article get(ArticleId id) {
+        Article article = articleRepository.get(id);
         eventPublisher.publishRetrievalOf(article);
         return article;
     }
@@ -120,13 +128,13 @@ in ArticleEventPublisher.
 ```
 public class ArticleEventPublisher {
 
-    void publishCreationOf(final Article article) {
+    void publishCreationOf(Article article) {
         messageSender.sendMessageForCreated(article);
         socialMediaPublishers.forEach(socialMediaPublisher -> socialMediaPublisher.publish(article));
         articleAuthorNotifiers.forEach(articleAuthorNotifier -> articleAuthorNotifier.notifyAboutCreationOf(article));
     }
 
-    void publishRetrievalOf(final Article article) {
+    void publishRetrievalOf(Article article) {
         messageSender.sendMessageForRetrieved(article);
     }
 }
@@ -141,9 +149,6 @@ The aforementioned ports are implemented by corresponding adapters:
 To sum up, the domain, which constitutes the core of our application (center of the hexagon) 
 is surrounded by six adapters. Five of them (the so-called “right-side”, “outgoing” adapters) implement domain interfaces, 
 while the API adapter (“left-side” or “incoming” adapter) calls the domain logic via a public domain service.
-
-The project package structure reflects the service architecture:
-<figure><figcaption><img alt="Example service package structure" src="/img/articles/2020-05-14-hexagonal-architecture-by-example/packages.png" /></figcaption></figure>
 
 ## Adapter implementation
 
@@ -165,7 +170,7 @@ class ArticleResponse {
     private final String content;
     private final String authorName;
 
-    static ArticleResponse of(final Article article) {
+    static ArticleResponse of(Article article) {
         return new ArticleResponse(article.id().value(),
                 article.title().value(),
                 article.content().value(),
@@ -181,16 +186,13 @@ article to ```ArticleTwitterModel``` and sends the result via the ```TwitterClie
 class TwitterArticlePublisher implements SocialMediaPublisher {
 
     @Override
-    public void publish(final Article article) {
-        final ArticleTwitterModel articleTweet = ArticleTwitterModel.of(article);
+    public void publish(Article article) {
+        ArticleTwitterModel articleTweet = ArticleTwitterModel.of(article);
         twitterClient.tweet(articleTweet);
     }
     //boilerplate code omitted
 }
 ```
-The right-side adapters don’t include the actual implementation, 
-such as database or HTTP clients. For the sake of simplicity, they just log messages to the console, 
-which may help you follow the flow of the application logic.
 
 ## Application flow
 You can analyze the flow of the article creation and retrieval requests in the application logs:
