@@ -57,7 +57,7 @@ The project package structure also reflects the service architecture.
 In the introduction I've mentioned that I assume you already know the basic concepts behind
 Hexagonal Architecture. Now, that you have seen a high-level picture of the idea,
 I think that everyone could do with a short recap before we go on:
-* The Domain is the core of the hexagon, containing primary 
+* the domain is the core of the hexagon, containing primary 
 business logic, free of any infrastructure and framework boilerplate;
 * adapters are either external interfaces of your application or 
 bridges to the outside world, they translate the interfaces of 
