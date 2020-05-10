@@ -172,7 +172,8 @@ and has no dependency on adapter implementation, yet not the other way round.
 Every adapter depends on the domain code at least by implementing one of the port interfaces or mapping the domain data model. 
 Hiding domain services behind interfaces should be seen as over-engineering and gives you nothing in return.
 
-The core business logic is included in the domain ```Article::validateEligibilityForPublication``` method. 
+The core business logic is included in the domain ```Article::validateEligibilityForPublication``` method,
+which validates the article and throws an exception should any problems be identified. 
 This part of domain logic does not require external dependencies, so there is no reason for it to reside
 in the enclosing ApplicationService, moreover, doing so is referred to as [Anaemic Model Antipattern](https://martinfowler.com/bliki/AnemicDomainModel.html).
 Other domain operations implemented in ```ArticleService```, creating and retrieving an article, 
@@ -209,11 +210,11 @@ public class ArticleService {
 }
 ```
 
-Domain logic responsible for sending data to external systems, as a side-effect of article creation and retrieval, has been encapsulated
-in ArticleEventPublisher.
+Domain logic responsible for sending data to external systems, as a result of article creation and retrieval, has been encapsulated
+in ```ArticlePublisher```.
 
 ```
-public class ArticleEventPublisher {
+public class ArticlePublisher {
 
     void publishCreationOf(Article article) {
         messageSender.sendMessageForCreated(article);
@@ -242,7 +243,7 @@ The outbound adapters, instead of delegating to a public domain service, impleme
 
 Below you'll find an example of social media publishing implementation, which translates the domain
 article to ```ArticleTwitterModel``` and sends the result via the ```TwitterClient```.
-The domain ```ArticleEventPublisher``` which delegates social media publication to a list of ```SocialMediaPublisher```
+The domain ```ArticlePublisher``` which delegates social media publication to a list of ```SocialMediaPublisher```
 port interfaces, has no clue about the existence of any Twitter API integration code such as HTTP clients. 
 
 ```
