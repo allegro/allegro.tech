@@ -54,14 +54,14 @@ of the example project are organized, rather than a generic conceptual example.
 The project package structure also reflects the service architecture. 
 <img alt="Overall package structure" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/packages.png"/>
 
-In the beginning I've mentioned that I assume you already know the basic concepts behind
+In the introduction I've mentioned that I assume you already know the basic concepts behind
 Hexagonal Architecture. Now, that you have seen a high-level picture of the idea,
 I think that everyone could do with a short recap before we go on:
-* in the middle, there lies the Core Domain - primary business logic of the application, 
-free of any technicalities;
+* The Domain is the core of the hexagon, containing primary 
+business logic, free of any infrastructure and framework boilerplate;
 * adapters are either external interfaces of your application or 
 bridges to the outside world, they translate the interfaces of 
-the outside world to the interfaces exposed or required by the domain;
+external systems to the interfaces exposed or required by the domain;
 * ports allow plugging the adapters into the core domain, they
 represent the requirements of the application core, 
 preventing implementation details from leaking into the domain;
@@ -297,7 +297,7 @@ Message sent to broker: "Article >>Hexagonal Architecture<< retrieved"
 <<< HTTP GET Response: article: "Hexagonal Architecture" successfully retrieved
 ```
 ## Summary
-To sum up, the domain, which constitutes the core of our application (center of the hexagon) 
+To sum up, the domain, which constitutes the core of our application (centre of the hexagon) 
 is surrounded by six adapters. Five of them (the so-called “outbound” adapters) implement domain interfaces, 
 while the API adapter (“inbound” adapter) calls the domain logic via a public domain service.
 
