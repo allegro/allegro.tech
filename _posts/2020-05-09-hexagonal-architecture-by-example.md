@@ -17,7 +17,7 @@ which includes only two simple domain objects:
 ```
 public class Article {
     
-private final ArticleId id;
+    private final ArticleId id;
     private final Title title;
     private final Content content;
     private final Author author;
@@ -62,7 +62,7 @@ free of any technicalities;
 * adapters are either external interfaces of your application or 
 bridges to the outside world, they translate the interfaces of 
 the outside world to the interfaces exposed or required by the domain;
-* ports are bridges between adapters and the core domain, they
+* ports allow plugging the adapters into the core domain, they
 represent the requirements of the application core, 
 preventing implementation details from leaking into the domain;
 
@@ -94,7 +94,7 @@ class ArticleEndpoint {
 }
 ```
 
-The REST adapter implementation accesses the domain logic via an internal facade, which then delegates to domain service and translates the domain model to API model. 
+The REST adapter implementation accesses the domain logic via an internal facade, which then delegates to a domain service and translates the domain model to the API model. 
 Calling domain services directly from the controller may lead to the *fat controller antipattern*, due to the fact that orchestration logic and domain model translation should not
 be the responsibility of the controller. An alternative would be to introduce [***application*** services](http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/) instead of the internal facade.
 An application service, a concept which does not belong neither to the domain nor to the API adapter, would take over the responsibility of model translation and orchestration,
@@ -118,7 +118,7 @@ class ArticleFacade {
 }
 ```
 
-It cannot be stressed enough, that due to the hexagonal package structure none of the adapter code needs to be public, as no other code
+I cannot stress enough that, due to the hexagonal package structure, none of the adapter code needs to be public, as no other code
 is allowed to depend on it. It is impossible to import it to the domain or other parts of the application thanks to the
 package-scope access modifier.
 
@@ -149,6 +149,14 @@ over
 domainArticle.toResponse()
 ```
 
+If you wonder why there is only one inbound adapter and several outbound adapters
+I would like to make it crystal clear that it's just because of the overall simplicity of the 
+example application.
+In a real-life scenario you would also probably have other gateways to your service,
+such as a subscription to a message topic or queue, a SOAP API or an API for file uploads.
+They could delegate their inputs to the same or other ```ArticleService``` methods, so the inbound port
+would most likely, but not necessarily, be reused.
+
 ## The domain logic
 
 <img alt="API package structure" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/domain.png"/>
@@ -166,7 +174,7 @@ Hiding domain services behind interfaces should be seen as over-engineering and 
 
 The core business logic is included in the domain ```Article::validateEligibilityForPublication``` method. 
 This part of domain logic does not require external dependencies, so there is no reason for it to reside
-in the enclosing ApplicationService. Doing so is referred to as [Anaemic Model Antipattern](https://martinfowler.com/bliki/AnemicDomainModel.html).
+in the enclosing ApplicationService, moreover, doing so is referred to as [Anaemic Model Antipattern](https://martinfowler.com/bliki/AnemicDomainModel.html).
 Other domain operations implemented in ```ArticleService```, creating and retrieving an article, 
 depend on external dependencies hidden by the abstraction of ports. 
 Ports, from the domain perspective, are only declared as interfaces. 
@@ -185,6 +193,9 @@ public class ArticleService {
     public ArticleId create(AuthorId authorId, Title title, Content content) {
         Author author = authorRepository.get(authorId);
         Article article = articleRepository.save(author, title, content);
+
+        validateEligibilityForPublication();
+
         eventPublisher.publishCreationOf(article);
         return article.id();
     }
