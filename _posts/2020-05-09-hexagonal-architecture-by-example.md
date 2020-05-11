@@ -195,7 +195,7 @@ public class ArticleService {
         Author author = authorRepository.get(authorId);
         Article article = articleRepository.save(author, title, content);
 
-        validateEligibilityForPublication();
+        article.validateEligibilityForPublication();
 
         eventPublisher.publishCreationOf(article);
         return article.id();
