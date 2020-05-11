@@ -118,7 +118,7 @@ class ArticleFacade {
 }
 ```
 
-I cannot stress enough that, due to the hexagonal package structure, none of the adapter code needs to be public, as no other code
+I can't stress it enough that, due to the hexagonal package structure, none of the adapter code needs to be public, as no other code
 is allowed to depend on it. It is impossible to import it to the domain or other parts of the application thanks to the
 package-scope access modifier.
 
