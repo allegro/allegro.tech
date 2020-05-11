@@ -309,6 +309,14 @@ both will depend on abstractions, which makes our application follow [SOLID](htt
 * Testability, as the domain logic can be unit-tested regardless of underlying frameworks and infrastructure that the adapters depend on,
 which frees those tests from e.g. transaction management or request and response parsing. All adapters can also be tested independently from each other.
 * Extendability, following the [Open-closed Principle](https://en.wikipedia.org/wiki/Open–closed_principle). It's best illustrated by the ```ArticlePublisher```, 
+```
+public class ArticlePublisher {
+    private final ArticleMessageSender messageSender;
+    private final List<SocialMediaPublisher> socialMediaPublishers;
+    private final List<AuthorNotifier> articleAuthorNotifiers;
+    // ...
+}
+```
 which depends on implementations of ```SocialMediaPublisher``` and ```ArticleAuthorNotifier```, 
 injected as lists of components by the Spring DI container: adding another implementation, such as an adapter for Facebook,
 does not require modifying the domain code.
