@@ -62,7 +62,7 @@ business logic, free of any infrastructure and framework boilerplate;
 * adapters are either external interfaces of your application or 
 bridges to the outside world, they translate the interfaces of external
 systems to the interfaces exposed or required by the domain;
-* ports allow plugging the adapters into the core domain, they
+* ports allow plugging in the adapters into the core domain, they
 represent the requirements of the application core, 
 preventing implementation details from leaking into the domain;
 
