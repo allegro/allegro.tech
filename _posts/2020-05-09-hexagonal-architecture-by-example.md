@@ -175,7 +175,7 @@ Hiding public domain services (inbound ports) behind interfaces should be seen a
 The core business logic is included in the domain ```Article::validateEligibilityForPublication``` method,
 which validates the article and throws an exception should any problems be identified. 
 This part of domain logic does not require external dependencies, so there is no reason for it to reside
-in the enclosing ApplicationService, moreover, doing so is referred to as [Anaemic Model Antipattern](https://martinfowler.com/bliki/AnemicDomainModel.html).
+in the enclosing ```ArticleService```, moreover, doing so is referred to as [Anaemic Model Antipattern](https://martinfowler.com/bliki/AnemicDomainModel.html).
 Other domain operations implemented in ```ArticleService```, creating and retrieving an article, 
 depend on external dependencies hidden by the abstraction of ports. 
 Ports, from the domain perspective, are only declared as interfaces. 
