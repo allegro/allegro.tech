@@ -166,11 +166,11 @@ traffic and decouple external dependencies called from the domain code.
 It is often assumed that each port needs to be an interface, it doesn't make much sense for inbound ports though.
 Interfaces, in general, allow you to decouple implementation from the component that uses it, 
 following the [Dependency Inversion Principle]([dependency inversion](https://martinfowler.com/articles/dipInTheWild.html)). 
-They are essential to the decoupling of the domain (also referred to as core) and the adapters that implement ports, 
+They are essential to the decoupling of the domain (also referred to as core) and the adapters that implement outbound ports, 
 which makes them pluggable and potentially replaceable. I would like to emphasise that the domain code is adapter-agnostic 
 and has no dependency on adapter implementation, yet not the other way round. 
 Every adapter depends on the domain code at least by implementing one of the port interfaces or mapping the domain data model. 
-Hiding domain services behind interfaces should be seen as over-engineering and gives you nothing in return.
+Hiding public domain services (inbound ports) behind interfaces should be seen as over-engineering and gives you nothing in return.
 
 The core business logic is included in the domain ```Article::validateEligibilityForPublication``` method,
 which validates the article and throws an exception should any problems be identified. 
