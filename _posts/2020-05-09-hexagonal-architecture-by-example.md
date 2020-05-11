@@ -162,7 +162,7 @@ would most likely, but not necessarily, be reused.
 <img alt="API package structure" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/domain.png"/>
 
 The domain service forms a port on its own. It is called a inbound port to depict that it handles incoming traffic, while outbound adapters handle outgoing 
-traffic and decouple (potentially) external services called from the domain code.
+traffic and decouple external dependencies called from the domain code.
 It is often assumed that each port needs to be an interface, it doesn't make much sense for inbound ports though.
 Interfaces, in general, allow you to decouple implementation from the component that uses it, 
 following the [Dependency Inversion Principle]([dependency inversion](https://martinfowler.com/articles/dipInTheWild.html)). 
