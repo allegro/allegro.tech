@@ -308,7 +308,7 @@ Due to designing the core of the application to be independent of external adapt
 both will depend on abstractions, which makes our application follow [SOLID](https://en.wikipedia.org/wiki/SOLID) principles. 
 * Testability, as the domain logic can be unit-tested regardless of underlying frameworks and infrastructure that the adapters depend on,
 which frees those tests from e.g. transaction management or request and response parsing. All adapters can also be tested independently from each other.
-* Extendability, following the [Open-closed Principle](https://en.wikipedia.org/wiki/Open–closed_principle). It's best illustrated by the ```ArticleEventPublisher```, 
+* Extendability, following the [Open-closed Principle](https://en.wikipedia.org/wiki/Open–closed_principle). It's best illustrated by the ```ArticlePublisher```, 
 which depends on implementations of ```SocialMediaPublisher``` and ```ArticleAuthorNotifier```, 
 injected as lists of components by the Spring DI container: adding another implementation, such as an adapter for Facebook,
 does not require modifying the domain code.
