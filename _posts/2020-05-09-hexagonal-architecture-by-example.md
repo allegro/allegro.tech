@@ -298,8 +298,8 @@ Message sent to broker: "Article >>Hexagonal Architecture<< retrieved"
 ```
 ## Summary
 To sum up, the domain, which constitutes the core of our application (centre of the hexagon) 
-is surrounded by six adapters. Five of them (the so-called “outbound” adapters) implement domain interfaces, 
-while the API adapter (“inbound” adapter) calls the domain logic via a public domain service.
+is surrounded by six adapters. Five of them (outbound adapters) implement domain interfaces, 
+while the API adapter (inbound adapter) calls the domain logic via a public domain service.
 
 As much as I did my best to design the example so that it would show the benefits of using Hexagonal Architecture in a self-explanatory
 and intuitive way, to avoid theoretical elucidations, I would still like to emphasise what we have gained. 
