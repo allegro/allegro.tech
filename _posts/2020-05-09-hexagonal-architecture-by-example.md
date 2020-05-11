@@ -230,7 +230,7 @@ public class ArticlePublisher {
 
 ## Outbound adapters
 
-The aforementioned ports are implemented by corresponding adapters:
+Ports used by the domain for outgoing traffic are implemented by corresponding adapters:
 * a database adapter,
 * an external author service adapter,
 * mail and SMS  systems adapter,
