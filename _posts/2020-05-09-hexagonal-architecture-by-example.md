@@ -11,9 +11,9 @@ Ports and Adapters or their conceptual diagrams, which have already been well de
 [Alistair Cockburn](http://web.archive.org/web/20180121161736/http://alistair.cockburn.us/Hexagonal+Architecture) or [Martin Fowler](https://martinfowler.com/eaaCatalog/gateway.html). 
 I assume you already have a general understanding of Domain Driven Design and that you understand terms such as Ports and Adapters.
 
-## Introducing the domain
-In this article, we will focus on providing a quick and practical example based on a very straightforward domain,
-which includes only two simple domain objects:
+## Hello domain!
+In this article, I'll try to provide a quite simple example based on a very straightforward domain.
+It includes only two simple domain objects:
 ```
 public class Article {
     
@@ -66,7 +66,7 @@ systems to the interfaces exposed or required by the domain;
 represent the requirements of the application core, 
 preventing implementation details from leaking into the domain;
 
-## The inbound adapter: REST API
+## The REST API adapter: the front door of your service
 
 <img alt="API package structure" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/api.png"/>
 
@@ -154,23 +154,21 @@ I would like to make it crystal clear that it's just because of the overall simp
 example application.
 In a real-life scenario you would also probably have other gateways to your service,
 such as a subscription to a message topic or queue, a SOAP API or an API for file uploads.
-They could delegate their inputs to the same or other ```ArticleService``` methods, so the inbound port
-would most likely, but not necessarily, be reused.
+They could delegate their inputs to the same or other ```ArticleService``` methods.
 
-## The domain logic
+## The domain logic: let's talk business
 
 <img alt="API package structure" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/domain.png"/>
 
-The domain service forms a port on its own. It is called a inbound port to depict that it handles incoming traffic, while outbound adapters handle outgoing 
-traffic and decouple external dependencies called from the domain code.
-It is often assumed that each port needs to be an interface, it doesn't make much sense for inbound ports though.
-Interfaces, in general, allow you to decouple implementation from the component that uses it, 
+The ```ArticleService``` forms a port on its own. It is called an inbound port meaning it handles incoming traffic (in this example, in form of HTTP requests).
+Outbound adapters handle outgoing traffic (e.g. database requests or messages sent to broker) and decouple core from implementation details (e.g. which database or message broker was used).
+
+It is often assumed that each port needs to be an interface, it doesn't make much sense for inbound ports though, 
+such as ```ArticleService```. Interfaces, in general, allow you to decouple implementation from the component that uses it, 
 following the [Dependency Inversion Principle]([dependency inversion](https://martinfowler.com/articles/dipInTheWild.html)). 
-They are essential to the decoupling of the domain (also referred to as core) and the adapters that implement outbound ports, 
-which makes them pluggable and potentially replaceable. I would like to emphasise that the domain code is adapter-agnostic 
-and has no dependency on adapter implementation, yet not the other way round. 
-Every adapter depends on the domain code at least by implementing one of the port interfaces or mapping the domain data model. 
-Hiding public domain services (inbound ports) behind interfaces should be seen as over-engineering and gives you nothing in return.
+They are essential to decouple the domain ```ArticleService``` from ```ExternalServiceClientAuthorRepository``` hidden behind the ```AuthorRepository``` port. 
+Hiding ```ArticleService``` behind an interface (especially a meaningless ```IArticleService```) 
+would most likely be seen as over-engineering and would give you nothing in return.
 
 The core business logic is included in the domain ```Article::validateEligibilityForPublication``` method,
 which validates the article and throws an exception should any problems be identified. 
@@ -180,13 +178,12 @@ Other domain operations implemented in ```ArticleService```, creating and retrie
 depend on external dependencies hidden by the abstraction of ports. 
 Just as a quick reminder, outbound ports, from the domain perspective, are only declared as interfaces. 
 
-These dependencies stand for the following underlying operations:
+External dependencies (outbound ports) of Article domain stand for:
 * persisting and retrieving an article,
 * retrieving an author,
 * notifying the author about the successful publication of an article,
 * posting information about an article to social media,
-* sending a message, triggered either by article creation or retrieval, to a message broker 
-so that it could be potentially consumed by other services forming parts of the bigger system we are developing.
+* sending a message, triggered either by article creation or retrieval, to a message broker.
 
 ```
 public class ArticleService {
@@ -197,13 +194,13 @@ public class ArticleService {
 
         article.validateEligibilityForPublication();
 
-        eventPublisher.publishCreationOf(article);
+        articlePublisher.publishCreationOf(article);
         return article.id();
     }
 
     public Article get(ArticleId id) {
         Article article = articleRepository.get(id);
-        eventPublisher.publishRetrievalOf(article);
+        articlePublisher.publishRetrievalOf(article);
         return article;
     }
     //boilerplate code omitted
@@ -228,7 +225,7 @@ public class ArticlePublisher {
 }
 ```
 
-## Outbound adapters
+## Outbound adapters: let your data go
 
 Ports used by the domain for outgoing traffic are implemented by corresponding adapters:
 * a database adapter,
@@ -237,11 +234,23 @@ Ports used by the domain for outgoing traffic are implemented by corresponding a
 * Twitter API client adapter,
 * a message broker publisher adapter.
 
-The outbound adapters, instead of delegating to a public domain service, implement the port interfaces which are part of the domain.
+The outbound adapters implement the port interfaces (e.g. ```ArticleRepository```, ```AuthorRepository```, ```SocialMediaPublisher```).
+Port interfaces are part of the domain.
+
+It makes the adapters pluggable and potentially replaceable. For example you could replace ```ExternalServiceClientAuthorRepository``` with a client to 
+a facade-service aggregating multiple user data sources e.g. LDAP, an ERP system, a legacy DB. 
+
+You might say: "Hey, when was the last time you replaced a database with a different one". Well, good point, it doesn't happen
+everyday. Still, in a microservice-oriented architecture exchanging adapters of legacy services with new ones is very common.
+If you are still not convinced, I'm pretty sure you would at least benefit from avoiding spaghetti code, where "everything depends on everything".
+Even in a "layered" architecture you wouldn't like your View to explode upon serialization of a managed JPA entity, would you?
+The [Open Session In View Anti-Pattern](https://vladmihalcea.com/the-open-session-in-view-anti-pattern/) is still quite common. It makes
+my eyes bleed just as mixing JPA annotations with Jackson and JAXB. An independent domain model makes much more sense when you've refactored
+such projects before. 
 
 <img alt="API package structure" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/twitter.png"/>
 
-Below you'll find an example of social media publishing implementation, which translates the domain
+Below you'll find an example of ```SocialMediaPublisher``` port implementation, which translates the domain
 article to ```ArticleTwitterModel``` and sends the result via the ```TwitterClient```.
 The domain ```ArticlePublisher``` which delegates social media publication to a list of ```SocialMediaPublisher```
 port interfaces, has no clue about the existence of any Twitter API integration code such as HTTP clients. 
@@ -298,8 +307,13 @@ Message sent to broker: "Article >>Hexagonal Architecture<< retrieved"
 ```
 ## Summary
 To sum up, the domain, which constitutes the core of our application (centre of the hexagon) 
-is surrounded by six adapters. Five of them (outbound adapters) implement domain interfaces, 
-while the API adapter (inbound adapter) calls the domain logic via a public domain service.
+is surrounded by six adapters. The endpoint in the REST API inbound adapter calls the domain logic via a public domain service.
+The five outbound adapters implement domain interfaces, integrating the article service with 
+* social media, 
+* mail and SMS notifications, 
+* message broker, 
+* database,
+* author service.
 
 As much as I did my best to design the example so that it would show the benefits of using Hexagonal Architecture in a self-explanatory
 and intuitive way, to avoid theoretical elucidations, I would still like to emphasise what we have gained. 
