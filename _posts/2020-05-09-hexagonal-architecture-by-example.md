@@ -5,15 +5,17 @@ author: karol.kuc
 tags: [tech, ddd, hexagonal-architecture, java]
 ---
 
-When you go through articles related to Hexagonal Architecture, you are usually searching for practical examples of specific use cases
-of this rather complex pattern. In most posts you encounter, you have to scroll through exact citations or rephrased definitions of concepts such as 
+When you go through articles related to Hexagonal Architecture you usually search for practical examples. 
+Yes, HA isn't simple, that's why most trivial examples make readers even more confused. Though, it is not as complex as many
+theoretical elucidations present it. In most posts you have to scroll through exact citations or rephrased definitions of concepts such as 
 Ports and Adapters or their conceptual diagrams, which have already been well defined and described by popular authors i.e. 
 [Alistair Cockburn](http://web.archive.org/web/20180121161736/http://alistair.cockburn.us/Hexagonal+Architecture) or [Martin Fowler](https://martinfowler.com/eaaCatalog/gateway.html). 
 I assume you already have a general understanding of Domain Driven Design and that you understand terms such as Ports and Adapters.
+I'm not a HA-expert, yet I use it everyday. The only reason I write this post is to show you that it makes sense, at least if your service is a little more than a ```JsonToDatabaseMapper```.
 
 ## Hello domain!
-In this article, I'll try to provide a quite simple example based on a very straightforward domain.
-It includes only two simple domain objects:
+I'd like to provide a quite simple example project, not to trivial but complex enough, based on a very straightforward domain. 
+The domain includes only two classes:
 ```
 public class Article {
     
@@ -41,14 +43,11 @@ public class Author {
 }
 
 ```
-There are also several [value objects](https://martinfowler.com/bliki/ValueObject.html) wrapping fields such as id, title or content. 
-These fields are immutable String values anyway, though introducing value objects allows you to encapsulate additional business logic or validation, 
-as well as avoid passing several String values as method  or constructor arguments, which is generally a bad practice and may lead to bugs difficult to track: 
-now if you accidentally swap values upon method call your code won't compile. 
+There are also several [value objects](https://martinfowler.com/bliki/ValueObject.html) for fields such as id, title or content. 
 
-In the next paragraphs we will go into detail about the overall service architecture, where other components are built around the 
-aforementioned domain. Before we do so, I would like to give you a heads up by presenting it on a diagram, which shows how the actual elements
-of the underlying project are organized, rather than a generic conceptual example.
+Later we will go into detail about the overall service architecture, where other components are built around the 
+domain. Before we do so, I'd like to give you a heads up by presenting it on a diagram, which shows how the actual elements
+of the underlying project are organized.
 <img alt="Architecture diagram" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/ha_example.png"/>
 
 The project package structure also reflects the service architecture. 
@@ -56,15 +55,16 @@ The project package structure also reflects the service architecture.
 
 In the introduction I've mentioned that I assume you already know the basic concepts behind
 Hexagonal Architecture. Now, that you have seen a high-level picture of the idea,
-I think that everyone could do with a short recap before we go on:
-* the domain is the core of the hexagon, containing primary 
+I think that everyone could do with a short recap before we go on.
+* The domain is the core of the hexagon, containing primary 
 business logic, free of any infrastructure and framework boilerplate;
-* adapters are either external interfaces of your application or 
-bridges to the outside world, they translate the interfaces of external
-systems to the interfaces exposed or required by the domain;
-* ports allow plugging in the adapters into the core domain, they
-represent the requirements of the application core, 
-preventing implementation details from leaking into the domain;
+* Adapters are either external APIs of your application or 
+clients to other systems. They translate the interfaces of external
+systems (e.g. a search index or file server API) to the interfaces required or exposed by the domain. Those interfaces are called ports.
+* Ports allow plugging in the adapters into the core domain. An example could be a repository interface with a method returning article content as  a simple ```String```. 
+By declaring a port, e.g. as an plain Java interface, the domain declares
+the contract saying: "I give an id and I expect text in return, where and how you get it from is your business". The domain here deals with articles,
+which have a text title and a text content. Not with JSON or binary files. It does not want to hear about S3, ElasticSearch or a SFTP server wherever they reside.
 
 ## The REST API adapter: the front door of your service
 
@@ -138,8 +138,8 @@ class ArticleResponse {
     //boilerplate code omitted
 }
 ```
-Each adapter works on its data model, which can translate itself “from” or “to” the domain model, 
-which on the other hand is adapter-model-agnostic.
+Each adapter works on its data model, which can translate itself “from” or “to” the domain. 
+The domain model on the other hand is adapter-model-agnostic.
 That's why you should always favour
 ```
 ArticleResponse.of(domainArticle) 
