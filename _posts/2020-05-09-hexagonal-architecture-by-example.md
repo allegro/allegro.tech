@@ -49,10 +49,13 @@ now if you accidentally swap values upon method call your code won't compile.
 In the next paragraphs we will go into detail about the overall service architecture, where other components are built around the 
 aforementioned domain. Before we do so, I would like to give you a heads up by presenting it on a diagram, which shows how the actual elements
 of the underlying project are organized, rather than a generic conceptual example.
+
 <img alt="Architecture diagram" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/ha_example.png"/>
 
 The project package structure also reflects the service architecture. 
+
 <img alt="Overall package structure" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/packages.png"/>
+
 
 In the introduction I've mentioned that I assume you already know the basic concepts behind
 Hexagonal Architecture. Now, that you have seen a high-level picture of the idea,
