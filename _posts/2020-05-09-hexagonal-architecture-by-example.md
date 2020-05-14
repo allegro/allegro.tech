@@ -6,7 +6,7 @@ tags: [tech, ddd, hexagonal-architecture, java]
 ---
 
 When you go through articles related to Hexagonal Architecture you usually search for practical examples. 
-Yes, HA isn't simple, that's why most trivial examples make readers even more confused. Though, it is not as complex as many
+HA isn't simple, that's why most trivial examples make readers even more confused. Though, it is not as complex as many
 theoretical elucidations present it. In most posts you have to scroll through exact citations or rephrased definitions of concepts such as 
 Ports and Adapters or their conceptual diagrams, which have already been well defined and described by popular authors i.e. 
 [Alistair Cockburn](http://web.archive.org/web/20180121161736/http://alistair.cockburn.us/Hexagonal+Architecture) or [Martin Fowler](https://martinfowler.com/eaaCatalog/gateway.html). 
@@ -48,9 +48,11 @@ There are also several [value objects](https://martinfowler.com/bliki/ValueObjec
 Later we will go into detail about the overall service architecture, where other components are built around the 
 domain. Before we do so, I'd like to give you a heads up by presenting it on a diagram, which shows how the actual elements
 of the underlying project are organized.
+
 <img alt="Architecture diagram" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/ha_example.png"/>
 
 The project package structure also reflects the service architecture. 
+
 <img alt="Overall package structure" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/packages.png"/>
 
 In the introduction I've mentioned that I assume you already know the basic concepts behind
@@ -79,22 +81,22 @@ and then retrieve its content by issuing POST and GET HTTP requests, respectivel
 @RequestMapping("articles")
 class ArticleEndpoint {
 
-    private final ArticleFacade articles;
+    private final ArticleApiService apiService;
 
     @GetMapping("{articleId}")
     ArticleResponse get(@PathVariable("articleId") String articleId) {
-        return articles.get(articleId);
+        return apiService.get(articleId);
     }
 
     @PostMapping
     ArticleIdResponse create(@RequestBody ArticleRequest articleRequest) {
-        return articles.create(articleRequest);
+        return apiService.create(articleRequest);
     }
     //boilerplate code omitted
 }
 ```
 
-The REST adapter implementation accesses the domain logic via an internal facade, which then delegates to a domain service and translates the domain model to the API model. 
+The REST adapter implementation accesses the domain logic via an internal ```ArticleApiService```. The API service belongs to the API adapter. ```ArticleApiService``` delegates article creation and retrieval to the domain ```ArticleService``` and translates the domain model to the API model. 
 Calling domain services directly from the controller may lead to the *fat controller antipattern*, due to the fact that orchestration logic and domain model translation should not
 be the responsibility of the controller. An alternative would be to introduce [***application*** services](http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/) instead of the internal facade.
 An application service, a concept which does not belong neither to the domain nor to the API adapter, would take over the responsibility of model translation and orchestration,
@@ -102,7 +104,7 @@ opening the possibility of including other adapters in this process.
  
 ```
 @Component
-class ArticleFacade {
+class ArticleApiService {
 
     private final ArticleService articleService;
 
