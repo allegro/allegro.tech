@@ -6,12 +6,12 @@ tags: [tech, ddd, hexagonal-architecture, java]
 ---
 
 When you go through articles related to Hexagonal Architecture you usually search for practical examples. 
-HA isn't simple, that's why most trivial examples make readers even more confused. Though it is not as complex as many
+HA isn't simple, that's why most trivial examples make readers even more confused, though it is not as complex as many
 theoretical elucidations present it. In most posts you have to scroll through exact citations or rephrased definitions of concepts such as 
 Ports and Adapters or their conceptual diagrams. They have already been well defined and described by popular authors i.e. 
 [Alistair Cockburn](http://web.archive.org/web/20180121161736/http://alistair.cockburn.us/Hexagonal+Architecture) or [Martin Fowler](https://martinfowler.com/eaaCatalog/gateway.html). 
 I assume you already have a general understanding of Domain Driven Design and that you understand terms such as Ports and Adapters.
-I'm not a HA expert, yet I use it everyday and I find it useful. The only reason I write this post is to show you that it makes sense, at least if your service is a little more than a ```JsonToDatabaseMapper```.
+I'm not a HA expert, yet I use it everyday and I find it useful. The only reason I write this post is to show you that Hexagonal Architecture makes sense, at least if your service is a little more than a ```JsonToDatabaseMapper```.
 
 ## Hello domain!
 I'd like to provide a quite simple example project, not to trivial but complex enough, based on a very straightforward domain. 
