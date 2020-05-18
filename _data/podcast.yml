@@ -220,6 +220,7 @@ podcasts:
   platforms:
     buzzsprout: https://www.buzzsprout.com/887914/2799574-9-ep09_martyna_niszczota
     spotify: https://open.spotify.com/episode/2qew8aegQoDOf9NimcAI9N
+    applepodcasts: https://podcasts.apple.com/pl/podcast/10-misja-zmiana-bran%C5%BCy-zako%C5%84czona-sukcesem-jak-wygl%C4%85d%C4%85/id1500315781?i=1000474989027
     googlepodcasts: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz/episode/QnV6enNwcm91dC0yNzk5NTc0?ved=0CAcQ38oDahcKEwjAn7Da4bzpAhUAAAAAHQAAAAAQAQ
 
 - date: '2020-06-01T00:00:00.000Z'
@@ -230,7 +231,7 @@ podcasts:
   toc:
     - Cały świat obserwuje jak telefony przejmują władzę nad Internetem. 
     - Ponad połowa ruchu na Allegro pochodzi z urządzeń mobilnych, a większość tego ruchu to aplikacje natywne. 
-    - Żarty się skończyły ;) Kamil opowie wam jak specjaliści mobilni z Allegro skalują development swojej aplikacji.
+    - Żarty się skończyły ;) Kamil opowie Wam jak specjaliści mobilni z Allegro skalują development swojej aplikacji.
   links:
     try! Swift Tokyo talk: https://www.youtube.com/watch?v=QTS2_CcnAgU
     iOS bug adventure: https://allegro.tech/2016/08/the-ios-bug-chase.html
