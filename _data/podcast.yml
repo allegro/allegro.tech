@@ -217,7 +217,24 @@ podcasts:
     - Martyna odpowie na te pytania i przybliży nam jak wygląda jej dzień w roli Product Managera. Posiada ona background HRowy, dlatego jej spojrzenie na świat IT może różnić się od tego standardowego. 
   links:
     Allegro Tech Talks - Misja zmiana branży - Martyna Niszczota: https://www.facebook.com/watch/
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/2799574-9-ep09_martyna_niszczota
+    spotify: https://open.spotify.com/episode/2qew8aegQoDOf9NimcAI9N
+    googlepodcasts: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz/episode/QnV6enNwcm91dC0yNzk5NTc0?ved=0CAcQ38oDahcKEwjAn7Da4bzpAhUAAAAAHQAAAAAQAQ
 
+- date: '2020-06-01T00:00:00.000Z'
+  slug: mobile_w_allegro
+  title: Mobile w Allegro
+  author: kamil.borzym
+  name: Kamil Borzym
+  toc:
+    - Cały świat obserwuje jak telefony przejmują władzę nad Internetem. 
+    - Ponad połowa ruchu na Allegro pochodzi z urządzeń mobilnych, a większość tego ruchu to aplikacje natywne. 
+    - Żarty się skończyły ;) Kamil opowie wam jak specjaliści mobilni z Allegro skalują development swojej aplikacji.
+  links:
+    try! Swift Tokyo talk: https://www.youtube.com/watch?v=QTS2_CcnAgU
+    iOS bug adventure: https://allegro.tech/2016/08/the-ios-bug-chase.html
+    
 dict:
     spotify: Spotify
     applepodcasts: Apple Podcasts
