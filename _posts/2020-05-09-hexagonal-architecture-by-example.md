@@ -5,7 +5,7 @@ author: karol.kuc
 tags: [tech, ddd, hexagonal-architecture, java]
 ---
 
-When you go through articles related to Hexagonal Architecture you usually search for practical examples. 
+When you go through articles related to Hexagonal Architecture (HA) you usually search for practical examples. 
 HA isn't simple, that's why most trivial examples make readers even more confused, though it is not as complex as many
 theoretical elucidations present it. In most posts you have to scroll through exact citations or rephrased definitions of concepts such as 
 Ports and Adapters or their conceptual diagrams. They have already been well defined and described by popular authors i.e. 
@@ -14,7 +14,7 @@ I assume you already have a general understanding of Domain Driven Design and th
 I'm not a HA expert, yet I use it everyday and I find it useful. The only reason I write this post is to show you that Hexagonal Architecture makes sense, at least if your service is a little more than a ```JsonToDatabaseMapper```.
 
 ## Hello domain!
-I'd like to provide a quite simple example project, not to trivial but complex enough, based on a very straightforward domain. 
+I'd like to provide a quite simple example project, not too trivial but complex enough, based on a very straightforward domain. 
 The domain includes only two classes:
 ```
 public class Article {
@@ -66,7 +66,7 @@ systems (e.g. a search index or a file server API) to the interfaces required or
 * Ports allow plugging in the adapters into the core domain. An example could be a repository interface with a method returning article content as  a simple ```String```. 
 By declaring a port, e.g. as an plain Java interface, the domain declares
 the contract saying: "I give an id and I expect text in return, where and how you get it from is your business". The domain here deals with articles,
-which have a text title and a text content. Not with JSON or binary files. It does not want to hear about S3, ElasticSearch or a SFTP server.
+which have a text title and a text content. Not with JSON or binary files. It does not want to hear about S3, ElasticSearch or an SFTP server.
 
 ## The REST API adapter: the front door of your service
 
@@ -99,7 +99,7 @@ class ArticleEndpoint {
 The REST adapter implementation accesses the domain logic via an internal ```ArticleApiService```. The API service belongs to the API adapter. ```ArticleApiService``` delegates article creation and retrieval to the domain ```ArticleService``` and translates the domain model to the API model. 
 Calling domain services directly from the controller may lead to the *fat controller antipattern*, due to the fact that orchestration logic and domain model translation should not
 be the responsibility of the controller. An alternative would be to introduce a public [***application*** service](http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/) instead of the internal adapter service.
-An application service is a concept which does not belong neither to the domain nor to the API adapter. It would take over the responsibility of model translation and orchestration,
+An application service is a concept which belongs neither to the domain nor to the API adapter. It would take over the responsibility of model translation and orchestration,
 opening the possibility of including other adapters in this process. 
  
 ```
@@ -272,7 +272,7 @@ By way of analogy, the domain ```Article``` knows nothing about translating itse
 ```
 class ArticleTwitterModel {
 
-    public static final String TWEET = "Check out the new article >>%s<< by %s";
+    private static final String TWEET = "Check out the new article >>%s<< by %s";
     private final String twitterAccountId;
     private final String tweet;
 
@@ -334,7 +334,7 @@ public class ArticlePublisher {
 }
 ```
 ```ArticlePublisher``` depends on implementations of ```SocialMediaPublisher``` and ```ArticleAuthorNotifier```, 
-injected as lists of Spring components. Adding another implementation, such as an adapter for Facebook,
+injected as lists of Spring components. It is important though the domain knows nothing about the DI framework you use. Adding another implementation, such as an adapter for Facebook,
 does not require modifying the domain code.
 
 I hope that the above example depicts the theoretical concepts such as Hexagonal Architecture, Ports and Adapters
