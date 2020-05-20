@@ -332,7 +332,7 @@ public class ArticlePublisher {
 }
 ```
 ```ArticlePublisher``` depends on implementations of ```SocialMediaPublisher``` and ```ArticleAuthorNotifier```, 
-injected as lists of Spring components. It is important though the domain knows nothing about the DI framework you use. Adding another implementation, such as an adapter for Facebook,
+injected as lists of Spring components. It is important though, that the domain knows nothing about the DI framework you use. Adding another implementation, such as an adapter for Facebook,
 does not require modifying the domain code.
 
 I hope that the above example depicts the theoretical concepts such as Hexagonal Architecture, Ports and Adapters
