@@ -277,12 +277,10 @@ class ArticleTwitterModel {
     private final String tweet;
 
     static ArticleTwitterModel of(Article article) {
-        final String title = article
-                .title()
-                .value();
-        final String twitterId = article.author().name().value();
-        return new ArticleTwitterModel(twitterId, String.format(TWEET, title, twitterId));
-    }
+            return new ArticleTwitterModel(
+                    article.author().name().value(),
+                    String.format(TWEET, article.title().value(),
+                            article.author().name().value()));
    //boilerplate code omitted
 }
 ```
