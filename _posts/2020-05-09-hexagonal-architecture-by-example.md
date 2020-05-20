@@ -336,7 +336,7 @@ injected as lists of Spring components. It is important though, that the domain 
 does not require modifying the domain code.
 
 I hope that the above example depicts the theoretical concepts such as Hexagonal Architecture, Ports and Adapters
-in an easy and comprehensible way. I also tried to avoid oversimplifying the example implementation, especially
+in an easy and comprehensible way. I tried to avoid oversimplifying the example implementation, especially
 for the sake of readers who encounter the Hexagonal Architecture approach and Domain Driven Design for the first time. 
 It could have been difficult to grasp the difference between a traditional layered architecture and Hexagonal Architecture if the only thing 
 your domain is responsible for is storing and fetching data from a repository. The same applies to understanding
