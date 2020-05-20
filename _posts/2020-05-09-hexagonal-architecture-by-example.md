@@ -343,7 +343,7 @@ your domain is responsible for is storing and fetching data from a repository. T
 the reason why the domain model should be independent from the adapter model. There are many applications,
 in which the domain model consists of only one class mapped 1 to 1 to an adapter dto. Both classes have the same fields, they have just different names, e.g. Article and ArticleEntity.
 Those applications seem to present Hexagonal Architecture as an over-engineered approach, where one copies the same field values
-from class to class just for the sake of the pattern on its own.
+from class to class just for the sake of the pattern on its own. I believe the underlying example is better suited for explaining the Hexagonal Architecture pattern.
 ## Code examples
 If you are interested in the implementation of the example service, fragments of which were included in the code snippets, take a look at the [github repository](https://github.com/dziadeusz/hexagonal-architecture-by-example)
 
