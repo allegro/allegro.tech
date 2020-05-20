@@ -65,7 +65,7 @@ clients to other systems. They translate the interfaces of external
 systems (e.g. a search index or a file server API) to the interfaces required or exposed by the domain. Those interfaces are called ports.
 * Ports allow plugging in the adapters into the core domain. An example could be a repository interface with a method returning article content as  a simple ```String```. 
 By declaring a port, e.g. as an plain Java interface, the domain declares
-the contract saying: "I give an id and I expect text in return, where and how you get it from is your business". The domain here deals with articles,
+the contract saying: ”I give an id and I expect text in return, where and how you get it from is your business”. The domain here deals with articles,
 which have a text title and a text content. Not with JSON or binary files. It does not want to hear about S3, ElasticSearch or an SFTP server.
 
 ## The REST API adapter: the front door of your service
@@ -163,7 +163,7 @@ They could delegate their inputs to the same or other ```ArticleService``` metho
 <img alt="API package structure" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/domain.png"/>
 
 The ```ArticleService``` forms a port on its own. It is called an inbound port meaning it handles incoming traffic (in this example, in form of HTTP requests).
-Outbound adapters handle outgoing traffic (e.g. database requests or messages sent to broker) and decouple core from implementation details (e.g. which database or message broker was used).
+Outbound adapters handle outgoing traffic (e.g. database requests or messages sent to a broker) and decouple core from implementation details (e.g. which database or message broker was used).
 
 It is often assumed that each port needs to be an interface, though it doesn't make much sense for inbound ports, 
 such as ```ArticleService```. Interfaces, in general, allow you to decouple implementation from the component that uses it, 
@@ -175,7 +175,7 @@ would most likely be seen as over-engineering and would give you nothing in retu
 The core business logic is included in the domain ```Article::validateEligibilityForPublication``` method,
 which validates the article and throws an exception should any problems be identified. 
 This part of domain logic does not require external dependencies, so there is no reason for it to reside
-in the enclosing ```ArticleService```. Doing so is referred to as [Anaemic Model Antipattern](https://martinfowler.com/bliki/AnemicDomainModel.html).
+in the enclosing ```ArticleService```. Doing so is referred to as [Anemic Model Antipattern](https://martinfowler.com/bliki/AnemicDomainModel.html).
 Other domain operations implemented in ```ArticleService```, creating and retrieving an article, 
 depend on external dependencies hidden behind port interfaces. 
 
@@ -241,10 +241,10 @@ Port interfaces are part of the domain.
 It makes the adapters pluggable and potentially replaceable. For example you could replace ```ExternalServiceClientAuthorRepository``` with a client to 
 a facade-service aggregating multiple user data sources e.g. LDAP, an ERP system, a legacy DB. 
 
-You might say: "Hey, when was the last time you replaced a database with a different one". Well, good point, it doesn't happen
+You might say: ”Hey, when was the last time you replaced a database with a different one”. Well, good point, it doesn't happen
 everyday. Still, in a microservice-oriented architecture exchanging adapters of legacy services with new ones is very common.
-If you are still not convinced, I'm pretty sure you would at least benefit from avoiding spaghetti code, where "everything depends on everything".
-Even in a "layered" architecture you wouldn't like your View to explode upon serialization of a managed JPA entity, would you?
+If you are still not convinced, I'm pretty sure you would at least benefit from avoiding spaghetti code, where ”everything depends on everything”.
+Even in a ”layered” architecture you wouldn't like your View to explode upon serialization of a managed JPA entity, would you?
 The [Open Session In View Anti-Pattern](https://vladmihalcea.com/the-open-session-in-view-anti-pattern/) is still quite common. It makes
 my eyes bleed just as mixing JPA annotations with Jackson and JAXB. An independent domain model makes much more sense when you've refactored
 such projects before. 
