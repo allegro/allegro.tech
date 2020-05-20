@@ -49,11 +49,11 @@ Later we will go into detail about the overall service architecture, where other
 domain. Before we do so, I'd like to give you a heads up by presenting it on a diagram, which shows how the actual elements
 of the underlying project are organized.
 
-<img alt="Architecture diagram" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/ha_example.png"/>
+<img alt="Architecture diagram" src="/img/articles/2020-05-21-hexagonal-architecture-by-example/ha_example.png"/>
 
 The project package structure also reflects the service architecture. 
 
-<img alt="Overall package structure" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/packages.png"/>
+<img alt="Overall package structure" src="/img/articles/2020-05-21-hexagonal-architecture-by-example/packages.png"/>
 
 In the introduction I've mentioned that I assume you already know the basic concepts behind
 Hexagonal Architecture. Now, that you have seen a high-level picture of the idea,
@@ -70,7 +70,7 @@ which have a text title and a text content. Not with JSON or binary files. It do
 
 ## The REST API adapter: the front door of your service
 
-<img alt="API package structure" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/api.png"/>
+<img alt="API package structure" src="/img/articles/2020-05-21-hexagonal-architecture-by-example/api.png"/>
 
 The example microservice, which will help us depict Hexagonal Architecture, 
 exposes a very simple REST API. As an author, you can create an article 
@@ -160,7 +160,7 @@ They could delegate their inputs to the same or other ```ArticleService``` metho
 
 ## The domain logic: let's talk business
 
-<img alt="API package structure" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/domain.png"/>
+<img alt="API package structure" src="/img/articles/2020-05-21-hexagonal-architecture-by-example/domain.png"/>
 
 The ```ArticleService``` forms a port on its own. It is called an inbound port meaning it handles incoming traffic (in this example, in form of HTTP requests).
 Outbound adapters handle outgoing traffic (e.g. database requests or messages sent to a broker) and decouple core from implementation details (e.g. which database or message broker was used).
@@ -249,7 +249,7 @@ The [Open Session In View Anti-Pattern](https://vladmihalcea.com/the-open-sessio
 my eyes bleed just as mixing JPA annotations with Jackson and JAXB. An independent domain model makes much more sense when you've refactored
 such projects before. 
 
-<img alt="API package structure" src="/img/articles/2020-05-09-hexagonal-architecture-by-example/twitter.png"/>
+<img alt="API package structure" src="/img/articles/2020-05-21-hexagonal-architecture-by-example/twitter.png"/>
 
 Below you'll find an example of ```SocialMediaPublisher``` port implementation. ```TwitterArticlePublisher``` translates the domain
 article to ```ArticleTwitterModel``` and sends the result via the ```TwitterClient```.
