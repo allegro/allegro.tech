@@ -5,7 +5,7 @@ time: 1589990400000
 venue_address_1: 
 venue_city: 
 venue_name: Online event
-status: near
+status: past
 id: 270741112
 registration: 
 ---
