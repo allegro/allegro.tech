@@ -167,7 +167,7 @@ Outbound adapters handle outgoing traffic (e.g. database requests or messages se
 
 It is often assumed that each port needs to be an interface, though it doesn't make much sense for inbound ports, 
 such as ```ArticleService```. Interfaces, in general, allow you to decouple implementation from the component that uses it, 
-following the [Dependency Inversion Principle]([dependency inversion](https://martinfowler.com/articles/dipInTheWild.html)). 
+following the [Dependency Inversion Principle](https://martinfowler.com/articles/dipInTheWild.html). 
 They are essential to decouple the domain ```ArticleService``` from ```ExternalServiceClientAuthorRepository``` hidden behind the ```AuthorRepository``` port. 
 Hiding ```ArticleService``` behind an interface (especially a meaningless ```IArticleService```) 
 would most likely be seen as over-engineering and would give you nothing in return.
