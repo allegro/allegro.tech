@@ -30,7 +30,7 @@ The criteria by which I will rate the persistence methods are:
 * **no additional code in the aggregate** which doesn’t break the aggregate encapsulation but is still needed for state persistence (the less code, the higher the rating)
 * **simplicity of the infrastructure code** responsible for storing the state in data sources (the simpler, the higher the rating)
 
-I will use a 3-grade scale, where ★★★ indicates the best rate.
+I will use a 3-grade scale, where ★★★ indicates the best rating.
 I will rate the methods in the context of the architecture presented in my [previous post](https://allegro.tech/2019/12/grouping-and-organizing-classes.html).
 
 ## Methods
@@ -74,7 +74,7 @@ public abstract class ProjectRepository {
     protected abstract void save(Project project);
 }
 ```
-The repository is in the form of a secondary port defined by the [Hexagonal architecture](https://alistair.cockburn.us/hexagonal-architecture/).
+The repository is in the form of a secondary port defined by the [Hexagonal Architecture](https://alistair.cockburn.us/hexagonal-architecture/).
 The "Project Keeper" application uses two data sources for persisting the aggregate: a MongoDB database and a REST service.
 In the `infrastructure.mongodb` package, access to MongoDB is configured:
 ```java
@@ -213,7 +213,7 @@ We can achieve this in several ways.
 
 ### Public getters
 The aggregate state can be read by introducing public getters for each field.
-Aggregate components code:
+Aggregate components’ code:
 ```java
 public class Feature {
 
@@ -293,7 +293,7 @@ The code that maps the aggregate to a MongoDB document and to an HTTP request is
 ### Reflection
 The method involves the Java reflection API to read the aggregate state.
 We can use [ModelMapper](http://modelmapper.org/), which is a library for mapping the state between objects.
-Aggregate components code:
+Aggregate components’ code:
 ```java
 public class Feature {
 
@@ -372,8 +372,8 @@ There are two variations of this method:
 * aggregate components directly depend on the state object (field in class)
 * aggregate components create a new state object each time the getter is invoked
 
-We will focus on only one of them (the first one) because, from the rating criteria point of view, there is no difference between them.
-Aggregate components code:
+We will focus only on the first one because, from the rating criteria point of view, there is no difference between them.
+Aggregate components’ code:
 ```java
 public class Feature {
 
@@ -482,7 +482,7 @@ State objects make the code slightly more complicated.
 
 ### State objects with reflection
 A method similar to the above one, except that the state object is read using Java reflection API.
-Aggregate components code:
+Aggregate components’ code:
 ```java
 public class Feature {
 
@@ -590,7 +590,7 @@ The implementation of reading aggregate state is not the easiest one, although t
 ### State readers
 A “state objects” method inversion.
 Here, instead of creating a state object, we create a stateless state reader.
-Aggregate components code:
+Aggregate components’ code:
 ```java
 public class Feature {
 
@@ -688,7 +688,7 @@ Let’s summarize all methods for persisting aggregate state in the form of a ta
 | <span style="background: #eee; margin: -5px -10px; padding: 5px 10px; display: block;">**State objects with reflection**</span> | ★★★                                 | ★☆☆                                     | ★☆☆                                       | ★★★★★☆☆☆☆ |
 | <span style="background: #eee; margin: -5px -10px; padding: 5px 10px; display: block;">**State readers**</span>                 | ★★★                                 | ★☆☆                                     | ★★★                                       | ★★★★★★★☆☆ |
 
-As I mentioned at the beginning, the ratings were given assuming the usage of the architecture described in my [post](https://allegro.tech/2019/12/grouping-and-organizing-classes.html).
+As I mentioned in the beginning, the ratings were given assuming the usage of the architecture described in my [post](https://allegro.tech/2019/12/grouping-and-organizing-classes.html).
 This means that for a different approach, these assessments may look different.
 For example, we can use a denormalized domain model in our application.
 It is a model in which a single entity derived from [ubiquitous language](https://martinfowler.com/bliki/UbiquitousLanguage.html) is represented by multiple aggregates, one per application context.
