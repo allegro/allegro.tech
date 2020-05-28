@@ -84,7 +84,7 @@ I start with five things and then check along the way:
 * What are the success criteria stating that we are going in the right direction (that this works for us)
 * How often do we want to do a “check point” to see if this is what we need? (in Scrum this can be done during Retrospectives)
 
-You can find a sample of such analysis in a [Scrum-ban* experiment](http://allegro.tech/2015/09/scrum-ban-applied.html) we’ve conducted. Another approach could be
+You can find a sample of such analysis in a [Scrum-ban* experiment](/2015/09/scrum-ban-applied.html) we’ve conducted. Another approach could be
 looking at what we want to accomplish? Then following up with what do we need to accomplish this? and / or how will we accomplish this?.
 
 ### Contracting (45–60 minutes)

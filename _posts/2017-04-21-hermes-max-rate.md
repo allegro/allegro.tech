@@ -496,5 +496,5 @@ For now, we have greatly improved the adaptivity of the system to lags and uneve
 Further tuning is possible, but we’ve already seen great improvement by deploying the algorithm in current form.
 
 The implementation details are available on GitHub ([hermes-611](https://github.com/allegro/hermes/pull/611)),
-as Hermes and many other tools are [Open Source](http://allegro.tech/open-source/).
+as Hermes and many other tools are [Open Source](/open-source/).
 Feel free to contribute or share your comments below.

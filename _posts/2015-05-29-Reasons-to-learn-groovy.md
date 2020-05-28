@@ -139,7 +139,7 @@ There are more arguments in favour of Spock — its homepage [sums it up nicely]
 ### Gradle
 [Gradle](http://gradle.org/) is a build tool that is gaining popularity rapidly. Google chose Gradle as build
 tool for Android — that’s enough to say about its potential. Gradle is covered in more detail in
-[this blog post](/Adopting-Gradle-at-allegro-pl-a-success-story.html). I would like to add that
+[this blog post](/2015/03/Adopting-Gradle-at-allegro-pl-a-success-story.html). I would like to add that
 you don’t need to know Groovy to use Gradle at a basic level. But knowing it gives you an actual understanding of what
 happens under the hood and can get you to the pro level.
 

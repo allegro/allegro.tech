@@ -59,7 +59,7 @@ but you can watch two interesting presentations of my colleagues from Allegro:
  presented at [Toruń JUG](http://torun.jug.pl/) meeting (2015)
 
  You can also read about other testing tools in
- [Testing RESTful services and their clients](https://allegro.tech/2014/11/testing-restful-service-and-clients.html) by Rafał Głowiński.
+ [Testing RESTful services and their clients](/2014/11/testing-restful-service-and-clients.html) by Rafał Głowiński.
 
 ```groovy
 class ExampleClientSpec extends Specification {

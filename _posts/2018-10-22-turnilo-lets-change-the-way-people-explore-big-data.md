@@ -9,7 +9,7 @@ Two years ago at [Allegro](/about-us) we used to have a very typical Big Data te
 on a [Hadoop](https://hadoop.apache.org/) cluster and we would query it with plain [Hive](https://hive.apache.org/)
 queries, [Spark](https://spark.apache.org/) jobs and [Jupyter](https://jupyter.org/) notebooks. Over those last two
 years we have transformed it into a more efficient and easy to use
-[OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing) platform. 
+[OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing) platform.
 
 ## State of the art when it comes to OLAP in Big Data
 
@@ -97,7 +97,7 @@ which has evolved over time and now consists of the following points:
 1.  Stateless over stateful server-side architecture.
 1.  Support for most recent versions of standards-compliant browsers.
 
-With the manifesto defined, we were ready to start developing Turnilo. Or so we thought... 
+With the manifesto defined, we were ready to start developing Turnilo. Or so we thought...
 
 ## Every journey starts with the first step — the most difficult one to take
 
@@ -116,7 +116,7 @@ combined with [webpack](https://webpack.js.org) for building both development an
 This not only simplified the whole build process but also changed the way we could develop new features
 with live reloading and source maps being available to the browser’s development tools.
 
-Equipped with the new build process we were ready to perform some mundane tasks needed after making the fork:  
+Equipped with the new build process we were ready to perform some mundane tasks needed after making the fork:
 
 *   Adjusting copyrights and proper licence for an open source project.
 *   Changing the project name and most references to it from Pivot or Swiv to Turnilo.
@@ -184,16 +184,16 @@ With most urgent fixes out of the way we could start developing new features. We
 that have turned integrating and using Turnilo into a more pleasant user experience.
 
 We needed to integrate Turnilo with
-[Opbox Admin](https://allegro.tech/2016/03/Managing-Frontend-in-the-microservices-architecture.html#opbox-admin)
+[Opbox Admin](/2016/03/Managing-Frontend-in-the-microservices-architecture.html#opbox-admin)
 so that users could easily navigate from the web component definition into a well-crafted component usage report.
 Turnilo already implemented */mkurl* endpoint which allowed
 [generating links](https://github.com/allegro/turnilo/blob/master/docs/generating-links.md) to a view
 based on a view definition payload encoded in JSON but it was not well documented.
 We could provide multiple different examples but then we came up with an idea that it would be more flexible
-if Turnilo could display the view definition for a currently presented visualisation. 
+if Turnilo could display the view definition for a currently presented visualisation.
 
 <figure>
-<img alt="Turnilo with a view definition payload ready to be explored or copied" 
+<img alt="Turnilo with a view definition payload ready to be explored or copied"
 src="/img/articles/2018-10-22-turnilo-lets-change-the-way-people-explore-big-data/turnilo-view-definition.png" />
 <figcaption>
 Turnilo with a view definition payload ready to be explored or copied.
@@ -210,7 +210,7 @@ a chart there that presented differences. It was anything but efficient. With Ti
 users can observe the changes at a glance in Turnilo.
 
 <figure>
-<img alt="Turnilo with time-shifted line chart view" 
+<img alt="Turnilo with time-shifted line chart view"
 src="/img/articles/2018-10-22-turnilo-lets-change-the-way-people-explore-big-data/turnilo-time-shift.png" />
 <figcaption>
 Turnilo with time-shifted line chart view.
@@ -237,7 +237,7 @@ after we released the initial version on GitHub, we already received some issues
 on how to make it even better. Then it was encouraging to find out that Turnilo
 [had already been deployed at Wikimedia Foundation](https://phabricator.wikimedia.org/T194427) even though
 we did not seek visibility during the incubation phase of the project. Altogether it was a great way
-to bump up morale within our team. 
+to bump up morale within our team.
 
 Our roadmap for the nearest future consists of the following ideas:
 
