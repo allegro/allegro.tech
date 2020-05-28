@@ -10,7 +10,7 @@ we combined the Minimum Viable Product (MVP) and Walking Skeleton concepts
 with the Story Mapping technique to quickly define the scope of the forthcoming project
 and eventually built a reliable and valuable product in a limited amount of time.
 
-In the [first part](/story-about-delivering-products-part1.html "Story about delivering valuable products quickly")
+In the [first part](/2014/10/story-about-delivering-products-part1.html "Story about delivering valuable products quickly")
 I described the concepts of MVP and Walking Skeleton and explained how they fit our product.
 
 The following part of the article describes how we used Story Mapping to define the scope of our
