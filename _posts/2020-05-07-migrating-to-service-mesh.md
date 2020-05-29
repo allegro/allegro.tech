@@ -39,7 +39,7 @@ We also have:
 * a few edge solutions in place (API Gateways, Edge Proxies, Backends for Frontends, etc.),
 * external load balancers,
 * reverse proxies,
-* [a distributed message broker](https://allegro.tech/2019/05/hermes-1-0-released.html),
+* [a distributed message broker](/2019/05/hermes-1-0-released.html),
 * several services running on VMs,
 * a Hadoop cluster with batch jobs,
 * and an infamous, taken-apart, but still running, PHP monolith.

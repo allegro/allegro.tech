@@ -7,7 +7,7 @@ tags: [tech, mongodb, performance]
 
 
 
-You might have read a recent post by our developers concerning [performance analysis tools](http://allegro.tech/High-performance-with-low-level-tools.html) and its follow up concerning [sysdig](http://allegro.tech/digging-into-the-system.html).
+You might have read a recent post by our developers concerning [performance analysis tools](/2015/02/High-performance-with-low-level-tools.html) and its follow up concerning [sysdig](/2015/02/digging-into-the-system.html).
 In the database world these tools come handy almost everyday. In this blog post
 I will show you a case where I have put tools to action diagnosing a MongoDB issue.
 

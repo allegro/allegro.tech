@@ -27,7 +27,7 @@ michal.kosmulski:
 
 bartosz.walacik:
     name: Bartosz Walacik
-    bio: Software engineer with 15+ years of professional experience. He focuses on lightweight and modern technologies around JVM. At Allegro, he works as a development team leader. [JaVers](http://javers.org) project lead. Spock advocate. Editor in chief of [allegro.tech/blog](http://allegro.tech/).
+    bio: Software engineer with 15+ years of professional experience. He focuses on lightweight and modern technologies around JVM. At Allegro, he works as a development team leader. [JaVers](http://javers.org) project lead. Spock advocate. Editor in chief of [allegro.tech/blog](/).
     twitter: BartoszWalacik
     github: bartoszwalacik
 
@@ -67,7 +67,7 @@ kamil.borzym:
     name: Kamil Borzym
     bio: Kamil is an iOS software developer. He is very curious of how things work internally, so he likes to decompile frameworks and apps.
     twitter: kam800
-    
+
 piotr.betkier:
     name: Piotr Betkier
     bio: Software Engineer who loves building useful tools and resilient systems. Works in one of the technical platform teams, where he's responsible for common libraries and service discovery (Service Mesh). Conference speaker, host of Allegro Tech Podcast.
