@@ -235,7 +235,19 @@ podcasts:
   links:
     try! Swift Tokyo talk: https://www.youtube.com/watch?v=QTS2_CcnAgU
     iOS bug adventure: https://allegro.tech/2016/08/the-ios-bug-chase.html
-    
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/3011989-11-mobile-w-allegro-kamil-borzym
+    spotify: https://open.spotify.com/episode/61P48AgpHXOTRIknHnB7uF
+    applepodcasts: https://podcasts.apple.com/pl/podcast/11-mobile-w-allegro-kamil-borzym/id1500315781?i=1000476356373
+    googlepodcasts: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz/episode/QnV6enNwcm91dC0zMDExOTg5?ved=0CAcQ38oDahcKEwigz4fX89_pAhUAAAAAHQAAAAAQAw
+
+
+- date: '2020-06-15T00:00:00.000Z'
+  slug: projektowanie_ux_w_allegro
+  title: Projektowanie UX w Allegro, czyli wszystko zależy od doświadczenia
+  author: katarzyna.wrobel
+  name: Katarzyna Wróbel
+      
 dict:
     spotify: Spotify
     applepodcasts: Apple Podcasts
