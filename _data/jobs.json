@@ -15,7 +15,8 @@
             "releasedDate": "2020-06-03T12:47:49.000Z",
             "location": {
                 "city": "Kraków",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -95,7 +96,8 @@
             "releasedDate": "2020-05-29T13:52:34.000Z",
             "location": {
                 "city": "Warszawa",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -170,7 +172,8 @@
             "location": {
                 "city": "Warszawa",
                 "region": "Masovian Voivodeship",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -292,7 +295,8 @@
             "releasedDate": "2020-05-25T11:24:07.000Z",
             "location": {
                 "city": "Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -372,7 +376,8 @@
             "releasedDate": "2020-05-25T07:23:31.000Z",
             "location": {
                 "city": "Warszawa, Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -488,7 +493,8 @@
             "releasedDate": "2020-05-21T11:00:41.000Z",
             "location": {
                 "city": "Warszawa",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -562,7 +568,8 @@
             "releasedDate": "2020-05-19T13:40:29.000Z",
             "location": {
                 "city": "Warszawa",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -660,7 +667,8 @@
             "releasedDate": "2020-05-15T14:43:46.000Z",
             "location": {
                 "city": "Warszawa",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -734,7 +742,8 @@
             "releasedDate": "2020-05-15T13:47:10.000Z",
             "location": {
                 "city": "Toruń",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -808,7 +817,8 @@
             "releasedDate": "2020-05-14T09:39:08.000Z",
             "location": {
                 "city": "Warszawa",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -882,7 +892,8 @@
             "releasedDate": "2020-05-12T08:36:55.000Z",
             "location": {
                 "city": "Warszawa, Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -969,7 +980,8 @@
             "releasedDate": "2020-05-12T07:10:28.000Z",
             "location": {
                 "city": "Warszawa",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -1049,7 +1061,8 @@
             "releasedDate": "2020-05-12T07:01:34.000Z",
             "location": {
                 "city": "Warszawa",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -1135,7 +1148,8 @@
             "releasedDate": "2020-05-11T20:03:23.000Z",
             "location": {
                 "city": "Warszawa",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -1209,7 +1223,8 @@
             "releasedDate": "2020-04-28T05:24:18.000Z",
             "location": {
                 "city": "Warszawa",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -1289,7 +1304,8 @@
             "releasedDate": "2020-04-27T23:05:52.000Z",
             "location": {
                 "city": "Warszawa",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -1375,7 +1391,8 @@
             "releasedDate": "2020-04-26T09:41:17.000Z",
             "location": {
                 "city": "Poznań, Warszawa, Toruń, Kraków",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -1491,7 +1508,8 @@
             "releasedDate": "2020-04-24T06:14:18.000Z",
             "location": {
                 "city": "Warszawa",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -1577,7 +1595,8 @@
             "releasedDate": "2020-04-23T08:06:29.000Z",
             "location": {
                 "city": "Toruń, Poznań, Warszawa",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -1670,7 +1689,8 @@
             "releasedDate": "2020-04-22T07:39:45.000Z",
             "location": {
                 "city": "Warszawa, Kraków, Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -1768,7 +1788,8 @@
             "releasedDate": "2020-04-10T15:25:43.000Z",
             "location": {
                 "city": "Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -1848,7 +1869,8 @@
             "releasedDate": "2020-04-08T15:10:30.000Z",
             "location": {
                 "city": "Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -1970,7 +1992,8 @@
             "releasedDate": "2020-04-07T11:54:46.000Z",
             "location": {
                 "city": "Warszawa",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -2050,7 +2073,8 @@
             "releasedDate": "2020-04-03T15:25:16.000Z",
             "location": {
                 "city": "Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -2136,7 +2160,8 @@
             "releasedDate": "2020-04-03T15:24:05.000Z",
             "location": {
                 "city": "Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -2222,7 +2247,8 @@
             "releasedDate": "2020-03-24T14:11:00.000Z",
             "location": {
                 "city": "Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -2291,7 +2317,8 @@
             "releasedDate": "2020-02-26T10:07:40.000Z",
             "location": {
                 "city": "Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -2371,7 +2398,8 @@
             "releasedDate": "2020-02-13T13:52:11.000Z",
             "location": {
                 "city": "Warszawa, Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -2445,7 +2473,8 @@
             "releasedDate": "2020-02-12T12:47:50.000Z",
             "location": {
                 "city": "Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -2514,7 +2543,8 @@
             "releasedDate": "2020-01-16T10:55:01.000Z",
             "location": {
                 "city": "Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -2595,7 +2625,8 @@
             "location": {
                 "city": "Poznań",
                 "region": "Greater Poland Voivodeship",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -2671,7 +2702,8 @@
             "location": {
                 "city": "Toruń",
                 "region": "Kuyavian-Pomeranian Voivodeship",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -2751,7 +2783,8 @@
             "releasedDate": "2019-11-13T21:20:55.000Z",
             "location": {
                 "city": "Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -2831,7 +2864,8 @@
             "releasedDate": "2019-10-22T18:22:54.000Z",
             "location": {
                 "city": "Kraków",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -2901,7 +2935,8 @@
             "location": {
                 "city": "Kraków",
                 "region": "Lesser Poland Voivodeship",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -2976,7 +3011,8 @@
             "releasedDate": "2019-10-22T14:19:09.000Z",
             "location": {
                 "city": "Warszawa, Kraków, Poznań, Toruń",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -3093,7 +3129,8 @@
             "location": {
                 "city": "Kraków",
                 "region": "Lesser Poland Voivodeship",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -3168,7 +3205,8 @@
             "releasedDate": "2019-10-08T19:17:40.000Z",
             "location": {
                 "city": "Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -3248,7 +3286,8 @@
             "releasedDate": "2019-10-04T14:12:57.000Z",
             "location": {
                 "city": "Poznań",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -3322,7 +3361,8 @@
             "releasedDate": "2019-10-04T14:11:32.000Z",
             "location": {
                 "city": "Warszawa",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -3396,7 +3436,8 @@
             "releasedDate": "2019-10-04T14:10:16.000Z",
             "location": {
                 "city": "Poznań, Toruń",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
@@ -3513,7 +3554,8 @@
             "location": {
                 "city": "Poznań",
                 "region": "Greater Poland Voivodeship",
-                "country": "pl"
+                "country": "pl",
+                "remote": false
             },
             "industry": {
                 "id": "internet",
