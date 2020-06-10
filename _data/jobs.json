@@ -4,15 +4,15 @@
     "totalFound": 38,
     "content": [
         {
-            "id": "743999713458394",
+            "id": "743999713463924",
             "name": "Product Manager - Merchant Experience",
-            "uuid": "a1e31d37-b0c6-4dca-9aee-f91b1dc92723",
+            "uuid": "f7ae1cf5-9310-469f-a0e7-18d327fdf7ca",
             "refNumber": "REF2140I",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-06-10T11:42:06.000Z",
+            "releasedDate": "2020-06-10T13:18:41.000Z",
             "location": {
                 "city": "Warszawa",
                 "country": "pl",
@@ -68,7 +68,7 @@
                     "valueLabel": "product, product manager"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999713458394",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999713463924",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
