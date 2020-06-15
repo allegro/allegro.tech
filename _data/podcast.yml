@@ -245,9 +245,25 @@ podcasts:
 - date: '2020-06-15T00:00:00.000Z'
   slug: projektowanie_ux_w_allegro
   title: Projektowanie UX w Allegro, czyli wszystko zależy od doświadczenia
-  author: katarzyna.wrobel
-  name: Katarzyna Wróbel
-      
+  author: kasia.wrobel
+  name: Kasia Wróbel
+  toc:
+    - Projektowanie na styku produktu, biznesu i potrzeb użytkownika. 
+    - Budzenie ciekawości, czyli czy jesteś w stanie zmienić coś, co sprawia problem tak wielu osobom na raz? 
+    - Kasia opowiada o "układaniu klocków", których użytkownik wie jak użyć.
+  platforms:
+    buzzsprout: https://www.buzzsprout.com/887914/3011998-11-projektowanie-ux-w-allegro-czyli-wszystko-zalezy-od-doswiadczenia-katarzyna-wrobel
+    spotify: https://open.spotify.com/episode/2icYp8DtsZu5fQ0NGuMw3Y
+    applepodcasts: https://podcasts.apple.com/pl/podcast/11-ep11-katrazyna-wr%C3%B3bel/id1500315781?i=1000477953978
+    googlepodcasts: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84ODc5MTQucnNz/episode/QnV6enNwcm91dC0zMDExOTk4?ved=0CAcQ38oDahcKEwjY2oK_kIPqAhUAAAAAHQAAAAAQAg
+
+- date: '2020-06-29T00:00:00.000Z'
+  slug: badania_i_rozwoj_ml_w_allegro
+  title: Badania i rozwój ML w Allegro
+  author: ireneusz.gawlik
+  name: Ireneusz Gawlik   
+
+
 dict:
     spotify: Spotify
     applepodcasts: Apple Podcasts
