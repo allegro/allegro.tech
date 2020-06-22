@@ -12,7 +12,7 @@
             {{ event.title }}
         </a>
         <p>{{ event.content | strip_html | truncatewords: 50 }}</p>
-        <div class="post-meta"><span>{{event.venue_name}}, {{event.venue_address_1}}, {{event.venue_city}}</span></div>
+        <div class="post-meta"><span>{{event.venue_name}}{% if event.venue_address_1.size > 0 %},&nbsp;{{event.venue_address_1}}{% endif %}{% if event.venue_city.size > 0 %},&nbsp;{{event.venue_city}}{% endif %}</span></div>
     </article>
     {% endif %}
     {% endfor %}

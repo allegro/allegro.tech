@@ -7,7 +7,7 @@ tags: [tech, education, coding, infrastructure, web development]
 
 Development is an immanent part of every person’s life. Evolution-wise, whoever fails to develop, dies.
 
-A while ago I wrote a few words about [Allegrotech.Youth](http://allegro.tech/Allegrotech-youth-our-educational-project.html),
+A while ago I wrote a few words about [Allegrotech.Youth](/2015/06/Allegrotech-youth-our-educational-project.html),
 a program that inspired a drive for knowledge among the next generation of ambitious students of Toruń-based technical
 high school [ZSMEiE](http://www.zsmeie.torun.pl). Now, I want to sum up the course, present developments in the last
 3 months and share the experience we have gained.
@@ -22,10 +22,10 @@ great fun for both the instructors and participants.
 Divided into teams, the students were taught various new skills that ultimately led to deploying a single app displaying
 a timetable with additional information on teacher replacements or canceled classes. The participants learned about new
 technologies that helped them to spread their wings, take off and have their first flight to the land of numerous
-possibilities. [Michał Karykowski](http://allegro.tech/authors/michal.karykowski),
-[Mirosław Gołda](http://allegro.tech/authors/miroslaw.golda) and I assisted the group of developers.
-[Patryk Krawaczyński](http://allegro.tech/authors/patryk.krawaczynski) and Łukasz Szulc talked about infrastructure,
-while [Krzysztof Muzalewski](http://allegro.tech/authors/krzysztof.muzalewski) focused on web development.
+possibilities. [Michał Karykowski](/authors/michal.karykowski),
+[Mirosław Gołda](/authors/miroslaw.golda) and I assisted the group of developers.
+[Patryk Krawaczyński](/authors/patryk.krawaczynski) and Łukasz Szulc talked about infrastructure,
+while [Krzysztof Muzalewski](/authors/krzysztof.muzalewski) focused on web development.
 
 ### Technological mixture
 Our workshops touched upon a number of issues. Some of them were more important than others. We placed the greatest
@@ -65,12 +65,12 @@ the audience, while treating a subject too superfluously may cause too many yawn
 generation is not that easy and requires verification of one’s own expertise. But it also feels great when you finally
 manage to speak the same language. For me personally, the key aspect was to persuade the students to individually
 search for solutions.”*
--- [Patryk Krawaczyński](http://allegro.tech/authors/patryk.krawaczynski)
+-- [Patryk Krawaczyński](/authors/patryk.krawaczynski)
 
 *“Our pace of work came as a surprise. It was nothing new for us, but the students saw it as extraordinary and
 unexpected. We had to learn how to communicate in the possibly simplest and comprehensible words, and to make a quick
 recap of the basics.”*
--- [Michał Karykowski](http://allegro.tech/authors/michal.karykowski)
+-- [Michał Karykowski](/authors/michal.karykowski)
 
 *“Great experience.  I had an opportunity to verify my skills as a teacher. Attendance at classes showed I was not that
 bad ;) There were usually 6-7 people. The classes helped me “polish” my patience and composure ;) as it was sometimes
@@ -81,7 +81,7 @@ to repeat something we had already done before. However, what makes me particula
 “fish out” one very talented person – Oskar. It’s clear the boy has quite a potential, and used it by participating
 in both Java and my classes. A single word was all that he needed to act and knew how to find the right answer on
 the Web when the knowledge he had was insufficient. I assess the classes as very effective! Thank you!”*
--- [Krzysztof Muzalewski](http://allegro.tech/authors/krzysztof.muzalewski)
+-- [Krzysztof Muzalewski](/authors/krzysztof.muzalewski)
 
 We all learned something new about ourselves. We gained new acquaintances and experience. Both sides benefited.
 

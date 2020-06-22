@@ -27,7 +27,7 @@ michal.kosmulski:
 
 bartosz.walacik:
     name: Bartosz Walacik
-    bio: Software engineer with 15+ years of professional experience. He focuses on lightweight and modern technologies around JVM. At Allegro, he works as a development team leader. [JaVers](http://javers.org) project lead. Spock advocate. Editor in chief of [allegro.tech/blog](http://allegro.tech/).
+    bio: Software engineer with 15+ years of professional experience. He focuses on lightweight and modern technologies around JVM. At Allegro, he works as a development team leader. [JaVers](http://javers.org) project lead. Spock advocate. Editor in chief of [allegro.tech/blog](/).
     twitter: BartoszWalacik
     github: bartoszwalacik
 
@@ -66,6 +66,7 @@ szymon.tur:
 kamil.borzym:
     name: Kamil Borzym
     bio: Kamil is an iOS software developer. He is very curious of how things work internally, so he likes to decompile frameworks and apps.
+    twitter: kam800
 
 piotr.betkier:
     name: Piotr Betkier
@@ -365,7 +366,7 @@ tomasz.bartczak:
 
 dariusz.jedrzejczyk:
     name: Dariusz Jędrzejczyk
-    bio: Likes to think of himself as a Platform Engineer. Aspires to employ engineering principles to his work. Applies Dev-Ops practice and is always eager to grasp all aspects of whatever he’s working on. Distributed systems enthusiast, clean code fan and a constant learner.
+    bio: Likes to think of himself as a Platform Engineer. Leads the team responsible for Service Mesh, Service Discovery and libraries that boost developers' productivity on the JVM.
     github: chemicL
 
 robert.mroczkowski:
@@ -508,6 +509,15 @@ justyna.osten-sacken:
     bio: UX researcher part of a team taking care of end-to-end customer experience - starting from search and selection till purchase. Having her team by her side, she creates knowledge and recommendations based on customers opinions. It helps teams to introduce new products or changes to existing ones. She practices calligraphy, likes Italian small towns and micro trips around Poland. Cooking relaxes her very much. Hitchhiking enthusiast.
     linkedin: justyna-osten-sacken
 
+bartlomiej.mazur:
+    name: Bartłomiej Mazur
+    bio: >
+        Backend developer and wannabe gamedev, also loves to break the JVM and find every hidden detail in it.
+        In free time, he loves solving issues that no one should have with unsafe, reflections and agents on stackoverflow.
+    stackOverflow:
+        id: "4378853"
+        name: "GotoFinal"
+
 adam.dudczak:
     name: Adam Dudczak
     bio: Team manager in allegro.pl, on a daily basis I work on improving search experience in the biggest ecommerce site in Poland. I am professionally involved with Java and related technologies since 2004, currently focused on search and information retrieval. Organizer of GeeCON conference and former leader of Poznan Java User Group.
@@ -517,3 +527,24 @@ zbigniew.barczyk:
     name: Zbigniew Barczyk
     bio: Also known as ZqBany. Code poet looking for beauty in everything he creates. Loves every problem that seems impossible to solve
     twitter: ZqBany
+
+piotr.stapp:
+    name: Piotr Stapp
+    bio: Doer. Microsoft MVP. Master of Science. Speaker and blogger. VP at devwarsztaty.pl. CxO of dotnetomaniak.pl. Don't Stapp me now, please!
+    twitter: ptrstpp950
+    linkedin: piotrstapp
+
+pawel.zwierzchowski:
+  name: Paweł Zwierzchowski
+  bio: Software test engineer with a relevant full stack experience from various companies, who helps achieve better quality results by testing software and sharing knowledge. Testing has been his life since 2011. A real team member, involved not only in all the testing, but also in the final delivery of the product to end users. Besides testing, he loves all kinds of cars and PC games. A big fan of donuts.
+  linkedin: paweł-zwierzchowski
+
+martyna.niszczota:
+  name: Martyna Niszczota
+  bio: Martyna works in Delivery Promise product. Her priorities are effective, client-oriented results; and maintaining positive relations within the developers team and promoting cooperation with other departments. Martyna has got an HR background and her view of the IT world is different from the standard one.
+  linkedin: martyna-niszczota
+kasia.wrobel:
+  name: Kasia Wróbel
+  bio: UX designer who let her curiosity be the driving force of her life. Introverted, but willing to discuss dogs. A lifelong bookworm with a black sense of humour included.
+  linkedin: katarzyna-wrobel-ux
+
