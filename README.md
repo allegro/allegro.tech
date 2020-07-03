@@ -45,7 +45,7 @@ using the following template:
 
 ```
 ---
-layout: author_index
+layout: author
 author: firstname.lastname
 ---
 ```
