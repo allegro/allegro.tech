@@ -9,20 +9,20 @@ Let me start with a story. Once upon a time I stumbled upon an excellent
 [article by Philip Walton](https://philipwalton.com/articles/idle-until-urgent/) where he describes how expensive 
 script evaluations could (and should!) be deferred until the browser is idle or they are actually needed. One of the 
 examples that awakened my interest was creating an instance of the `Intl.DateTimeFormat` object, as I was using this 
-really great API quite often but never thought it can cause real performance problems. Turns out it can, especially if 
-[used inside loops](https://github.com/formatjs/formatjs/issues/27#issuecomment-61148808). Apart from technique 
-described in Philip’s article another solution is to simply reuse `Intl.DateTimeFormat` instances instead of creating 
+great API quite often but never thought it can cause real performance problems. Turns out it can, especially if 
+[used inside loops](https://github.com/formatjs/formatjs/issues/27#issuecomment-61148808). Apart from the technique 
+described in Philip’s article, another solution is to simply reuse `Intl.DateTimeFormat` instances instead of creating 
 them every time.
 
-And that’s what I always did out of force of habit — if I will need something again why not keep reference to it 
-instead of adding garbage collector more work? But my curiosity told me to search through our git repository and as a 
-result I discovered multiple usages of `Intl.DateTimeFormat` without caching, some of which were inside loops, 
-possibly leading to performance problems. After I informed responsible teams and shared my discovery on our 
-company-wide frontend chat, one of my colleagues suggested that we should prevent similar issues in the future by 
-writing an ESLint rule. I never did that so I eagerly took this opportunity to learn something new.
+And that’s what I always did out of force of habit — if I need something again, why not keep a reference to it instead  
+of adding garbage collector more work? But my curiosity told me to search through our git repository and as a result I 
+discovered multiple usages of `Intl.DateTimeFormat` without caching, some of which were inside loops, possibly leading 
+to performance problems. After I informed responsible teams and shared my discovery on our company-wide frontend chat, 
+one of my colleagues suggested that we should prevent similar issues in the future by writing an ESLint rule. I never 
+did that so I eagerly took this opportunity to learn something new.
 
-For those who don’t know — ESLint is a very popular Javascript linter (tool used to enforce certain code style), with 
-various applications — mainly error prevention and consistent formatting. Although sometimes it can be annoying 
+For those who don’t know, ESLint is a very popular Javascript linter (a tool used to enforce certain code style), with 
+various applications: mainly error prevention and consistent formatting. Although sometimes it can be annoying 
 (imagine doing a quick fix and finding out that the line you have changed exceeds maximum length), it adds a great 
 value to every Javascript application. One of its key features is the possibility to write additional rules, which 
 thanks to the open source culture led to many useful projects like 
