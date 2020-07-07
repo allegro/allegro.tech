@@ -4,15 +4,15 @@
     "totalFound": 39,
     "content": [
         {
-            "id": "743999714841864",
+            "id": "743999714856086",
             "name": "Research Engineer - Machine Learning",
-            "uuid": "3be2412f-0571-4292-9773-cecc24674603",
+            "uuid": "71bb1fca-140e-4019-ad5d-61b31ddef382",
             "refNumber": "REF1694Q",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-07-07T10:14:10.000Z",
+            "releasedDate": "2020-07-07T13:16:31.000Z",
             "location": {
                 "city": "Warszawa, Kraków, Poznań, Toruń",
                 "country": "pl",
@@ -110,7 +110,7 @@
                     "valueLabel": "data scientist, NLP, ML, uczenie maszynowe, sieci neuronowe, modele lasów drzew decyzyjnych, modele Bayes’owskie, information retrieval, język naturalny, szeregi czasowe, dane, python, statystyka"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999714841864",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999714856086",
             "creator": {
                 "name": "Maciej Matwiejczyk"
             },
