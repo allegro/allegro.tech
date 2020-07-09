@@ -154,7 +154,7 @@ where the application is deployed. Our application engineers can then focus on t
 
 ## Conclusion
 
-We’ve come a long way establishing a rich ecosystem of libraries around 6 years ago and in recent years 
+We’ve come a long way establishing a rich library ecosystem around 6 years ago and in recent years 
 moving the platform logic into our runtime environment. Common libraries and frameworks based on 
 open source projects like Spring are going to stay with us nonetheless. They are still convenient and 
 provide good defaults, but now they contain less and less platform logic.
