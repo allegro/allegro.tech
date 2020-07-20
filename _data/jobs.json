@@ -4,15 +4,15 @@
     "totalFound": 39,
     "content": [
         {
-            "id": "743999715352494",
+            "id": "743999715622235",
             "name": "Data Scientist",
-            "uuid": "2aad9853-67fd-40df-9af6-4f3f8dd6e6fd",
+            "uuid": "b3e9d666-dbbb-4864-9c0c-7fd175a2c8d6",
             "refNumber": "REF1779Q",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-07-15T08:28:16.000Z",
+            "releasedDate": "2020-07-20T08:30:13.000Z",
             "location": {
                 "city": "Warszawa",
                 "country": "pl",
@@ -74,7 +74,7 @@
                     "valueLabel": "data science, data scientist, python, pyspark, machine learning, recommendations, ML, rekomendacje"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999715352494",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999715622235",
             "creator": {
                 "name": "Maciej Matwiejczyk"
             },
