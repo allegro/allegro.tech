@@ -4,17 +4,17 @@
     "totalFound": 39,
     "content": [
         {
-            "id": "743999715800800",
+            "id": "743999715819369",
             "name": "Team Leader",
-            "uuid": "6dfc3f4d-f94d-40aa-80a3-0206b163a278",
+            "uuid": "774ea744-f407-42bc-85b0-edfc84e87d9f",
             "refNumber": "REF2233G",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-07-22T09:00:11.000Z",
+            "releasedDate": "2020-07-22T13:11:01.000Z",
             "location": {
-                "city": "Warsaw",
+                "city": "Warszawa",
                 "country": "pl",
                 "remote": false
             },
@@ -63,9 +63,9 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999715800800",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999715819369",
             "creator": {
-                "name": "Paulina Partyka"
+                "name": "Mateusz Jabłonowski"
             },
             "language": {
                 "code": "pl",
