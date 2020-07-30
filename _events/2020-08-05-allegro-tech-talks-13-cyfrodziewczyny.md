@@ -12,8 +12,8 @@ registration:
 
 <p>Allegro Tech Live to nowa (w 100% zdalna) odsłona naszych stacjonarnych meetupów Allegro Tech Talks. Zazwyczaj spotykaliśmy się w naszych biurach, ale tym razem to my zagościmy u Was :)<br />A więc usiądźcie wygodnie na kanapie, zaopatrzcie się w ulubiony napój i odpalcie nasz live stream. Widzimy się na czacie!</p>
 <p>Zapraszamy na wydanie specjalne Allegro Tech Live, na które zaprosiliśmy autorkę książki “Cyfrodziewczyny, pionierki polskiej informatyki” Karolinę Wasielewską oraz Biankę Lipińską - Dyrektor Zarządzająca Fundacji Edukacyjnej Perspektywy.</p>
-<p>Data:[masked]<br />Miejsce: ZDALNIE (live stream pojawi się w chwili rozpoczęcia na kanale: <a href="https://www.facebook.com/allegro.tech/" class="linkified">https://www.facebook.com/allegro.tech/</a>)<br />Godz: 18:00 - 20:00</p>
-<p>AGENDA<br />18:00 - 18:10 - Rozpoczęcie<br />18:10 - 19:00 - Dyskusja<br />(zachęcamy do zadawania pytań na czacie!)</p>
+<p>Data:[masked]<br />Miejsce: ZDALNIE (live stream pojawi się w chwili rozpoczęcia na kanale: <a href="https://www.facebook.com/allegro.tech/" class="linkified">https://www.facebook.com/allegro.tech/</a>)<br />Godz: 18:00 - 19:30</p>
+<p>AGENDA<br />18:00 - 18:10 - Rozpoczęcie<br />18:10 - 19:30 - Dyskusja<br />(zachęcamy do zadawania pytań na czacie!)</p>
 <p>OPIS<br />Czy wiesz w którym roku powstał pierwszy polski komputer? Gdzie wykorzystywane są komputery Odra? Jak w czasach PRL zdobywano dostęp do elektroniki z zachodu mimo embarga?</p>
 <p>A czy wiesz, że pionierkami informatyki w Polsce były kobiety?</p>
 <p>Zapraszamy na spotkanie, w czasie którego porozmawiamy o Polkach, które jako pierwsze konstruowały komputery i tworzyły języki programowania. Aż do lat 80tych na równi z mężczyznami tworzyły zręby polskiego IT.</p>
