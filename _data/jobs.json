@@ -1,8 +1,79 @@
 {
     "offset": 0,
     "limit": 100,
-    "totalFound": 35,
+    "totalFound": 36,
     "content": [
+        {
+            "id": "743999717039259",
+            "name": "Mobile Software Engineer (Android)",
+            "uuid": "7b323435-a78e-457e-98cc-b156c059b163",
+            "refNumber": "REF2249J",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2020-08-10T14:17:47.000Z",
+            "location": {
+                "city": "Kraków",
+                "region": "Lesser Poland Voivodeship",
+                "country": "pl",
+                "remote": false
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013445",
+                "label": "Technology - Technical Platform"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013445",
+                    "valueLabel": "Technology - Technical Platform"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999717039259",
+            "creator": {
+                "name": "Jagoda Rusiniak"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
         {
             "id": "743999717029039",
             "name": "Mobile Test Engineer",
