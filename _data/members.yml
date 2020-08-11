@@ -535,19 +535,29 @@ piotr.stapp:
     linkedin: piotrstapp
 
 pawel.zwierzchowski:
-  name: Paweł Zwierzchowski
-  bio: Software test engineer with a relevant full stack experience from various companies, who helps achieve better quality results by testing software and sharing knowledge. Testing has been his life since 2011. A real team member, involved not only in all the testing, but also in the final delivery of the product to end users. Besides testing, he loves all kinds of cars and PC games. A big fan of donuts.
-  linkedin: paweł-zwierzchowski
+    name: Paweł Zwierzchowski
+    bio: Software test engineer with a relevant full stack experience from various companies, who helps achieve better quality results by testing software and sharing knowledge. Testing has been his life since 2011. A real team member, involved not only in all the testing, but also in the final delivery of the product to end users. Besides testing, he loves all kinds of cars and PC games. A big fan of donuts.
+    linkedin: paweł-zwierzchowski
 
 martyna.niszczota:
-  name: Martyna Niszczota
-  bio: Martyna works in Delivery Promise product. Her priorities are effective, client-oriented results; and maintaining positive relations within the developers team and promoting cooperation with other departments. Martyna has got an HR background and her view of the IT world is different from the standard one.
-  linkedin: martyna-niszczota
-kasia.wrobel:
-  name: Kasia Wróbel
-  bio: UX designer who let her curiosity be the driving force of her life. Introverted, but willing to discuss dogs. A lifelong bookworm with a black sense of humour included.
-  linkedin: katarzyna-wrobel-ux
-ireneusz.gawlik:
-  name: Ireneusz Gawlik 
-  bio: Fascinated with Machine Learning and applying it to create products at scale. When he wanted to develop and learn while working in the best commercial ML research group in the country, he created one. In his spare time he plays the drums, traveling with bandmates to unusual places.
+    name: Martyna Niszczota
+    bio: Martyna works in Delivery Promise product. Her priorities are effective, client-oriented results; and maintaining positive relations within the developers team and promoting cooperation with other departments. Martyna has got an HR background and her view of the IT world is different from the standard one.
+    linkedin: martyna-niszczota
 
+kasia.wrobel:
+    name: Kasia Wróbel
+    bio: UX designer who let her curiosity be the driving force of her life. Introverted, but willing to discuss dogs. A lifelong bookworm with a black sense of humour included.
+    linkedin: katarzyna-wrobel-ux
+
+ireneusz.gawlik:
+    name: Ireneusz Gawlik 
+    bio: Fascinated with Machine Learning and applying it to create products at scale. When he wanted to develop and learn while working in the best commercial ML research group in the country, he created one. In his spare time he plays the drums, traveling with bandmates to unusual places.
+
+pawel.wolak:
+    name: Paweł Wolak
+    bio: Front-end developer who's responsible for notifications in Allegro (sometimes also from the back-end side). Interested in topics related to web performance, usability and accessibility. After hours he likes getting lost in the woods practicing orienteering.
+    linkedin: pwolaq
+    github: pwolaq
+    stackOverflow:
+        id: "2048417"
+        name: "pwolaq"
