@@ -1,7 +1,7 @@
 {
     "offset": 0,
     "limit": 100,
-    "totalFound": 39,
+    "totalFound": 38,
     "content": [
         {
             "id": "743999717897991",
@@ -3004,83 +3004,6 @@
                 }
             ],
             "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999707045316",
-            "creator": {
-                "name": "Iwona Zawolik"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999701766803",
-            "name": "Contact Center Applications Administrator",
-            "uuid": "82eaef06-1159-4811-b7b6-e7652086edc8",
-            "refNumber": "REF1940H",
-            "company": {
-                "identifier": "Allegro",
-                "name": "Allegro"
-            },
-            "releasedDate": "2019-12-10T10:01:24.000Z",
-            "location": {
-                "city": "Poznań",
-                "region": "Greater Poland Voivodeship",
-                "country": "pl",
-                "remote": false
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013275",
-                "label": "IT Business Services"
-            },
-            "function": {
-                "id": "information_technology",
-                "label": "Information Technology"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c158e9e4b0614667d5973e",
-                    "fieldLabel": "Więcej lokalizacji",
-                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
-                    "valueLabel": "Nie"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013275",
-                    "valueLabel": "IT Business Services"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999701766803",
             "creator": {
                 "name": "Iwona Zawolik"
             },
