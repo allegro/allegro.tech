@@ -4,15 +4,15 @@
     "totalFound": 40,
     "content": [
         {
-            "id": "743999718083466",
+            "id": "743999718086776",
             "name": "Mobile Software Engineer (Android)",
-            "uuid": "ca1247e6-db83-4a76-8872-662c7894ac38",
+            "uuid": "6fc2dcc6-eb3f-4031-b54a-bf85f0df8086",
             "refNumber": "REF2268V",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-08-25T06:43:54.000Z",
+            "releasedDate": "2020-08-25T07:42:04.000Z",
             "location": {
                 "city": "Poznań, Warszawa",
                 "country": "pl",
@@ -105,7 +105,7 @@
                     "valueLabel": "Tak"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999718083466",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999718086776",
             "creator": {
                 "name": "Jagoda Rusiniak"
             },
