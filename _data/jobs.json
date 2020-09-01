@@ -4,15 +4,15 @@
     "totalFound": 38,
     "content": [
         {
-            "id": "743999718503196",
-            "name": "Product Manager - Performance Marketing",
-            "uuid": "ae507cc5-a2a5-4894-9bdf-b2db712f7961",
+            "id": "743999718587696",
+            "name": "Product Manager - Marketing",
+            "uuid": "34ecf44e-12b5-4ada-bef1-8f8918434e8b",
             "refNumber": "REF2277Z",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-08-31T13:31:30.000Z",
+            "releasedDate": "2020-09-01T10:56:40.000Z",
             "location": {
                 "city": "Kraków",
                 "country": "pl",
@@ -74,7 +74,7 @@
                     "valueLabel": "product, product management, product manager, management"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999718503196",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999718587696",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
