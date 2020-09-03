@@ -548,9 +548,8 @@ kasia.wrobel:
     name: Kasia Wróbel
     bio: UX designer who let her curiosity be the driving force of her life. Introverted, but willing to discuss dogs. A lifelong bookworm with a black sense of humour included.
     linkedin: katarzyna-wrobel-ux
-
 ireneusz.gawlik:
-    name: Ireneusz Gawlik 
+    name: Ireneusz Gawlik
     bio: Fascinated with Machine Learning and applying it to create products at scale. When he wanted to develop and learn while working in the best commercial ML research group in the country, he created one. In his spare time he plays the drums, traveling with bandmates to unusual places.
 
 pawel.wolak:
@@ -561,3 +560,9 @@ pawel.wolak:
     stackOverflow:
         id: "2048417"
         name: "pwolaq"
+
+krzysztof.wedrowicz:
+    name: Krzysztof Wędrowicz
+    bio: "Polyglot software engineer with a passion for problem solving. Loves combining soft and hard skills to improve processes, deliver quicker and better results. At Allegro responsible for API related things: performance, security, usability, integrations."
+    linkedin: wedrowicz
+
