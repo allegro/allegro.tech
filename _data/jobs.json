@@ -4,15 +4,15 @@
     "totalFound": 42,
     "content": [
         {
-            "id": "743999719423691",
+            "id": "743999719499176",
             "name": "Product Manager - Customer Service Automation",
-            "uuid": "69c30ec4-8253-40a1-a536-0d3a0a99156b",
+            "uuid": "dc2a543e-3e41-4613-b2c6-ae61147fc003",
             "refNumber": "REF2293C",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-09-11T16:43:27.000Z",
+            "releasedDate": "2020-09-14T08:53:52.000Z",
             "location": {
                 "city": "Poznań, Warszawa",
                 "country": "pl",
@@ -63,9 +63,9 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999719423691",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999719499176",
             "creator": {
-                "name": "Paulina Partyka"
+                "name": "Angelika Szymkiewicz"
             },
             "language": {
                 "code": "pl",
