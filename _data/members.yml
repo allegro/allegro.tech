@@ -550,7 +550,7 @@ kasia.wrobel:
     linkedin: katarzyna-wrobel-ux
 
 ireneusz.gawlik:
-    name: Ireneusz Gawlik 
+    name: Ireneusz Gawlik
     bio: Fascinated with Machine Learning and applying it to create products at scale. When he wanted to develop and learn while working in the best commercial ML research group in the country, he created one. In his spare time he plays the drums, traveling with bandmates to unusual places.
 
 pawel.wolak:
@@ -561,3 +561,9 @@ pawel.wolak:
     stackOverflow:
         id: "2048417"
         name: "pwolaq"
+
+marcin.moskala:
+    name: Marcin Moskała
+    bio: "The autor of Effective Kotlin and Android Development in Kotlin, the founder of the Kt. Academy and Learning Driven, programming trainer, speaker at international conferences, experienced developer."
+    twitter: marcinmoskala
+    github: MarcinMoskala
