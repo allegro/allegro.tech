@@ -1,8 +1,95 @@
 {
     "offset": 0,
     "limit": 100,
-    "totalFound": 43,
+    "totalFound": 44,
     "content": [
+        {
+            "id": "743999720122327",
+            "name": "Test Automation Engineer",
+            "uuid": "eb16f927-233b-4b18-aed5-f216fe17369f",
+            "refNumber": "REF2309G",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2020-09-22T07:59:55.000Z",
+            "location": {
+                "city": "Warszawa",
+                "country": "pl",
+                "remote": false
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013462",
+                "label": "Technology - Product Development"
+            },
+            "function": {
+                "id": "information_technology",
+                "label": "Information Technology"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013462",
+                    "valueLabel": "Technology - Product Development"
+                },
+                {
+                    "fieldId": "58c158e9e4b0614667d5973e",
+                    "fieldLabel": "Więcej lokalizacji",
+                    "valueId": "fa9e2c82-b44f-40df-a699-4dea59cb0c13",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                },
+                {
+                    "fieldId": "5dee624907e370138f7ad0bd",
+                    "fieldLabel": "Kompetencje Allegro",
+                    "valueId": "236b702e-45b9-4c4b-82d4-01c640aaf881",
+                    "valueLabel": "Nie"
+                },
+                {
+                    "fieldId": "5cdab2c84cedfd0006e7758c",
+                    "fieldLabel": "Key words",
+                    "valueLabel": "tester, QA, quality Assurance, Test Specialist, Quality specialist"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999720122327",
+            "creator": {
+                "name": "Angelika Szymkiewicz"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
         {
             "id": "743999719737999",
             "name": "Team Leader - Allegro Design System",
