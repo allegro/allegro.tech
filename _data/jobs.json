@@ -4,15 +4,15 @@
     "totalFound": 44,
     "content": [
         {
-            "id": "743999720122327",
+            "id": "743999720129745",
             "name": "Test Automation Engineer",
-            "uuid": "eb16f927-233b-4b18-aed5-f216fe17369f",
+            "uuid": "45ea954d-d73c-4f70-84a6-72249c3c735c",
             "refNumber": "REF2309G",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-09-22T07:59:55.000Z",
+            "releasedDate": "2020-09-22T10:17:49.000Z",
             "location": {
                 "city": "Warszawa",
                 "country": "pl",
@@ -80,7 +80,7 @@
                     "valueLabel": "tester, QA, quality Assurance, Test Specialist, Quality specialist"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999720122327",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999720129745",
             "creator": {
                 "name": "Angelika Szymkiewicz"
             },
