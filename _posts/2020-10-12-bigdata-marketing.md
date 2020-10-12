@@ -50,7 +50,7 @@ So basically we had to choose between collecting all data online vs offline. Bes
 
 In online it is always more difficult to join data. We would need to maintain a database with the whole state and we would be prone to all kinds of bugs related with concurrency. In case of any detected problem, we would have to recover using historical data.
 
-Offline solution would be similar to what we had in the old platform (`AggregateGeneratorJob` described before). In offline, joins are straightforward. We won’t have any problems with concurrency. Recreating data is easy, well basically it is done on every job execution. But of course we paid for that with latency. But, the question was how long will it take to create such aggregate and how much latency we will get at that stage. Because it was easy to implement we decided to measure that latency. In the end it turned out that it was not that bad: in usual cases we were able to maintain latency of about 30 minutes.
+Offline solution would be similar to what we had in the old platform (`AggregateGeneratorJob` described before). In offline, joins are straightforward. We won’t have any problems with concurrency. Recreating data is easy, well basically it is done on every job execution. But of course we pay for that with latency. But, the question was how long will it take to create such aggregate and how much latency we will get at that stage. Because it was easy to implement we decided to simply measure it. In the end it turned out that it was not that bad: in usual cases we were able to maintain latency of about 30 minutes.
 
 <img alt="Aggregate job" src="/img/articles/2020-10-12-bigdata-marketing/aggregate-job.svg"/>
 
