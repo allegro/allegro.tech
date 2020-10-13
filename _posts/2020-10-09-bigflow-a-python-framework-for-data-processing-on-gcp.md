@@ -18,7 +18,8 @@ Try BigFlow on your own, following the [documentation](https://github.com/allegr
 
 ## Features
 
-The first BigFlow feature is unification, which applies to:
+Without unification, a multi-project environment quickly becomes hard to manage. BigFlow unifies many aspects of a big
+data project:
 
 * Project structure
 * Artifacts
@@ -47,6 +48,8 @@ is much more stable execution environment than Airflow.
 
 BigFlow is a framework, not a template. There is very little code generated. You can manipulate configuration to
 build a custom project setup.
+
+
 
 ## Airflow as a deployment platform
 
