@@ -18,7 +18,8 @@ Try BigFlow on your own, following the [documentation](https://github.com/allegr
 
 ## Features
 
-The first BigFlow feature is unification, which applies to:
+Without unification, a multi-project environment quickly becomes hard to manage. BigFlow unifies many aspects of a big
+data project:
 
 * Project structure
 * Artifacts
@@ -39,8 +40,11 @@ Speaking of technologies, BigFlow supports the main data processing technologies
 The provided utils makes it easier to create processes in each technology. Of course, besides the listed technologies,
 you can use anything that you can express in Python.
 
-The second thing is flexibility. Our projects are a set of workflows. Workflows are mixture of various technologies.
-Also, we store, build and deploy both streaming processes and batch processes in a single project.
+Flexibility is important. BigFlow allows you to start small and grow big, if needed. You can:
+
+* Develop multiple workflows in a single project.
+* Mix technologies in a single workflow, so you can use the right tool for a job.
+* Keep batch and streaming in the same project.
 
 Deployed processes start from the Docker environment. Thanks to that, you can create any environment you want. Docker
 is much more stable execution environment than Airflow.
