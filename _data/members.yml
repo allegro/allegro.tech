@@ -326,11 +326,7 @@ konrad.kaminski:
 
 grzegorz.kaczmarczyk:
     name: Grzegorz Kaczmarczyk
-    bio: Software developer and leader. In recent years working mostly on BigData projects. Fan of simplicity both in life and in software.
-
-filip.blaszczyk:
-    name: Filip Błaszczyk
-    bio: Software engineer with functional programming inclinations. JVM enthusiast with special place in heart for Scala. After hours - wannabe devops and beatmaker.
+    bio: Software developer and leader. In recent years working mostly on BigData projects. Fan of simplicity both in life and in software..
 
 anna.wroblewska:
     name: Anna Wróblewska
@@ -590,4 +586,4 @@ piotr.goralczyk:
 
 filip.blaszczyk:
     name: Filip Błaszczyk
-    bio: TODO
+    bio: Software engineer with functional programming inclinations. JVM enthusiast with special place in heart for Scala. After hours - wannabe devops and beatmaker.
