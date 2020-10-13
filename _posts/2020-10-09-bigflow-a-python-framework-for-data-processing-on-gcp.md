@@ -48,12 +48,51 @@ is much more stable execution environment than Airflow.
 BigFlow is a framework, not a template. There is very little code generated. You can manipulate configuration to
 build a custom project setup.
 
-## Airflow as a deployment platform
+## Deployment
 
-* przygody z composerem
-* dockeryzacja
-* zmniejszenie progu wejścia
-* podstawy pod coś więcej (np. data engine)
+When you want to run a workflow (data processing pipeline)
+on Airflow, you need to deploy it.
+Let's start from describing the vanilla deployment process in Python.
+How it's done when you don't have any tools but a bare Composer?
+The key concept is Composer's DAGs folder.
+It's a Cloud Storage bucket mounted on Airflow.
+This is the place where you upload DAG files, and workflows' code.
+Libraries (PIP packages) required by workflows have to be installed
+manually on a Composer.
+
+This approach seems easy, but there are four big issues.
+
+**First**, installing requirements for *local* workflows directly on Composer is problematic
+(by a local workflow I mean a workflow that is processed directly by Airflow,
+for example, a workflow with a series of BigQuery SQL statemens mixed with Python).
+It's tedious, manual process. Version clashes are common.
+Installing a new library, forces a Composer instance to restart.
+You need a better tool for that job.
+
+**Second**, if you want to use external Big Data clusters like Dataproc or Dataflow &mdash;
+you need a build tool. You can't simply copy your source files to a DAGs folder.
+Both Dataproc and Dataflow have certain requirements about source code they are executing.
+For example, Dataflow wants you to provide a standard Python package.
+And it doesn't use libraries that are installed on Composer.
+
+**Third**, for regular deployments you need automation tool.
+A tool, that can checkout the code from your VSC and upload it on Composer.
+
+**Fourth**, when you develop a workflow on a local machine,
+you just want to run it and see what happened, not schedule it.
+So you don't need Airflow at all on a local machine.
+
+**BigFlows solves all these problems.**
+It is a smart build and deploy tool for Big Data processing.
+BigFlow treats Airflow as a scheduling platform and Docker (Kubernetes)
+as a deployment platform. This architecture
+and [workflow]() abstraction **decouples** your code from Airflow and
+in fact from most infrastructural APIs. BigFlow lets you to focus on your processing logic.
+
+What's important, BigFlow runs your workflows in stable environment,
+which is dockerized on Cloud and build-less on a local machine for rapid development.
+The whole development process
+Read more about [deployment] and [CLI].
 
 ## Status
 
