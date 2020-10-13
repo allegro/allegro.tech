@@ -93,6 +93,7 @@ So we had an idea that we will **send only the difference between the previous a
 
 <img alt="Streaming API architecture" src="/img/articles/2020-10-12-bigdata-marketing/streaming-api.svg"/>
 
+And how much latency this solution adds? It occured that it was only additional ~20 minutes and in our case it is totally acceptable.
 It is also worth to mention that our Kafka’s topic is scalable in case a new partnership appears. This is because the event model contains information about its destinations.
 Thanks to this approach, we reduce the amount of data sent, thus limiting the traffic of millions of sent events to tens of thousands.
 
