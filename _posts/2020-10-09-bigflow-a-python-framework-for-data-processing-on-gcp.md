@@ -7,13 +7,13 @@ tags: [tech, python, gcp, big data]
 
 [BigFlow](https://github.com/allegro/bigflow) was created to develop the Allegro A/B testing platform analytics.
 The A/B testing platform team has moved analytics to the Google Cloud Platform two years ago, as one of the first teams.
-We had zero no tools for data processing on GCP. During these two years, our analytics projects have grown and multiplied.
+We had no tools for data processing on GCP. During these two years, our projects have grown and multiplied.
 So did our tools.
 
 Allegro spoils its developers with an amazing internal app engine (to have some point of reference, you can imagine it as
-something similar to Heroku). On the other hand, GCP provides a powerful, but loosely coupled set of tools for big data processing.
-So we had to bind these tools in a reasonable way, to get closer to the Allegro app-engine experience. That's what BigFlow is
-about.
+something similar to [Heroku](https://www.heroku.com/)). On the other hand, GCP provides a powerful, but loosely
+coupled set of tools for big data processing. So we had to bind these tools in a reasonable way, to get closer to the
+Allegro app-engine experience. That's what BigFlow is about.
 
 Try BigFlow on your own, following the [documentation](https://github.com/allegro/bigflow#documentation).
 
