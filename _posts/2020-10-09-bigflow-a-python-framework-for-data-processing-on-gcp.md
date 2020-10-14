@@ -33,25 +33,24 @@ All of these are unified for the supported technologies.
 
 Speaking of technologies, BigFlow supports the main data processing technologies on GCP:
 
-* Dataproc (Apache Spark)
 * Dataflow (Apache Beam)
+* Dataproc (Apache Spark)
 * BigQuery
 
 The provided utils makes it easier to create processes in each technology. Of course, besides the listed technologies,
 you can use anything that you can express in Python.
 
-Flexibility is important. BigFlow allows you to start small and grow big, if needed. You can:
+Flexibility is important. BigFlow allows you to start small and grow big, using the right tool for a situation. You can:
 
 * Develop multiple workflows in a single project.
-* Mix technologies in a single workflow, so you can use the right tool for a job.
-* Keep batch and streaming in the same project.
-
-Deployed processes start from the Docker environment. Thanks to that, you can create any environment you want. Docker
-is much more stable execution environment than Airflow.
+* Mix technologies in a single workflow.
+* Develop batch and streaming in the same project.
 
 BigFlow is a framework, not a template. There is very little code generated. You can manipulate configuration to
 build a custom project setup.
 
+Deployed processes start from the Docker environment. Thanks to that, you can create any environment you want. Docker
+is much more stable execution environment than Airflow.
 
 ## Airflow as a deployment platform
 
