@@ -5,7 +5,7 @@ author: [bartlomiej.beczkowski,bartosz.walacik]
 tags: [tech, python, gcp, big data]
 ---
 
-BigFlow was created by the Allegro experimentation team. We have moved our analytics to the Google Cloud Platform
+[BigFlow](https://github.com/allegro/bigflow) was created by the Allegro experimentation team. We have moved our analytics to the Google Cloud Platform
 two years ago, as one of the first teams. We had zero tooling for data processing on GCP. During these
 two years, our analytics projects have grown and multiplied. So did our tools.
 
@@ -14,7 +14,7 @@ something similar to Heroku). On the other hand, GCP provides a powerful, but lo
 So we had to bind these tools in a reasonable way, to get closer to the Allegro app-engine experience. That's what BigFlow is
 about.
 
-Try BigFlow on your own, following the [documentation](https://github.com/allegro/bigflow#bigflow).
+Try BigFlow on your own, following the [documentation](https://github.com/allegro/bigflow#documentation).
 
 ## Features
 
@@ -90,17 +90,27 @@ So you don't need Airflow at all on a local machine.
 It is a smart build and deploy tool for Big Data processing.
 BigFlow treats Airflow as a scheduling platform and Docker (Kubernetes)
 as a deployment platform. This architecture
-and [workflow]() abstraction **decouples** your code from Airflow and
-in fact from most infrastructural APIs. BigFlow lets you to focus on your processing logic.
-
+and [workflow](https://github.com/allegro/bigflow/blob/master/docs/workflow-and-job.md) abstraction **decouples** your code from Airflow and
+in fact from most infrastructural APIs.
 What's important, BigFlow runs your workflows in stable environment,
 which is dockerized on Cloud and build-less on a local machine for rapid development.
-The whole development process
-Read more about [deployment] and [CLI].
+
+All project level actions like are executed via BigFlow [command line](https://github.com/allegro/bigflow/blob/master/docs/cli.md)
+(see
+[run](https://github.com/allegro/bigflow/blob/master/docs/cli.md#running-workflows),
+[build](https://github.com/allegro/bigflow/blob/master/docs/cli.md#building-airflow-dags), and
+[deploy](https://github.com/allegro/bigflow/blob/master/docs/cli.md#deploying-to-gcp)).
+Thanks to that, the whole development lifecycle can be easily automated on CI/CD servers.
+
+Shortly speaking, BigFlow takes care about
+infrastructure of your project and lets you focus on processing logic.
 
 ## Status
 
 * production ready
 * używane w produktach chi
+
+## Docs
+
 
 
