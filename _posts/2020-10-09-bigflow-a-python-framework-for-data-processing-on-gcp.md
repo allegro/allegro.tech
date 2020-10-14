@@ -5,11 +5,12 @@ author: [bartlomiej.beczkowski,bartosz.walacik]
 tags: [tech, python, gcp, big data]
 ---
 
-[BigFlow](https://github.com/allegro/bigflow) was created by the Allegro experimentation team. We have moved our analytics to the Google Cloud Platform
-two years ago, as one of the first teams. We had zero tooling for data processing on GCP. During these
-two years, our analytics projects have grown and multiplied. So did our tools.
+[BigFlow](https://github.com/allegro/bigflow) was created to develop the Allegro A/B testing platform analytics.
+The A/B testing platform team has moved analytics to the Google Cloud Platform two years ago, as one of the first teams.
+We had zero no tools for data processing on GCP. During these two years, our analytics projects have grown and multiplied.
+So did our tools.
 
-Allegro spoils their developers with an amazing internal app engine (to have some point of reference, you can image it as
+Allegro spoils its developers with an amazing internal app engine (to have some point of reference, you can imagine it as
 something similar to Heroku). On the other hand, GCP provides a powerful, but loosely coupled set of tools for big data processing.
 So we had to bind these tools in a reasonable way, to get closer to the Allegro app-engine experience. That's what BigFlow is
 about.
@@ -29,18 +30,16 @@ data project:
 * Configuration
 * Logging
 
-All of these are unified for the supported technologies.
-
-Speaking of technologies, BigFlow supports the main data processing technologies on GCP:
+All of these are unified for the supported technologies. BigFlow supports the main data processing technologies on GCP:
 
 * Dataflow (Apache Beam)
 * Dataproc (Apache Spark)
 * BigQuery
 
-The provided utils makes it easier to create processes in each technology. Of course, besides the listed technologies,
+The provided utils make it easier to create processes in each technology. Besides the listed technologies,
 you can use anything that you can express in Python.
 
-Flexibility is important. BigFlow allows you to start small and grow big, using the right tool for a situation. You can:
+Flexibility is important. BigFlow allows you to start small and grow, using the right tool for a situation. You can:
 
 * Develop multiple workflows in a single project.
 * Mix technologies in a single workflow.
@@ -50,12 +49,16 @@ BigFlow is a framework, not a template. There is very little code generated. You
 build a custom project setup.
 
 Deployed processes start from the Docker environment. Thanks to that, you can create any environment you want. Docker
-is much more stable execution environment than Airflow.
+is a much more stable execution environment than Airflow.
+
+For scheduling, BigFlow uses the Google Cloud Composer, which is basically Airflow. Airflow is not a part of local
+development though. Let us talk about that a bit more.
+
 ## Deployment
 
 When you want to run a workflow (data processing pipeline)
 on Airflow, you need to deploy it.
-Let's start from describing the vanilla deployment process in Python.
+Let's start by describing the vanilla deployment process in Python.
 How it's done when you don't have any tools but a bare Composer?
 The key concept is Composer's DAGs folder.
 It's a Cloud Storage bucket mounted on Airflow.
@@ -106,10 +109,12 @@ infrastructure of your project and lets you focus on processing logic.
 
 ## Status
 
-* production ready
-* używane w produktach chi
+BigFlow is a production-ready tool, powering few projects inside the company.
 
-## Docs
+There are some missing spots that we want to cover in the next versions. The big things are:
 
+* Metrics
+* Monitoring
+* Infrastructure management
 
-
+Right now, BigFlow works only on GCP. We might expand to Hadoop or other cloud environments if a need appears.
