@@ -5,7 +5,7 @@ author: [bartlomiej.beczkowski,bartosz.walacik]
 tags: [tech, python, gcp, big data]
 ---
 
-BigFlow was created by the Allegro experimentation team. We have moved our analytics to the Google Cloud Platform
+[BigFlow](https://github.com/allegro/bigflow) was created by the Allegro experimentation team. We have moved our analytics to the Google Cloud Platform
 two years ago, as one of the first teams. We had zero tooling for data processing on GCP. During these
 two years, our analytics projects have grown and multiplied. So did our tools.
 
@@ -14,7 +14,7 @@ something similar to Heroku). On the other hand, GCP provides a powerful, but lo
 So we had to bind these tools in a reasonable way, to get closer to the Allegro app-engine experience. That's what BigFlow is
 about.
 
-Try BigFlow on your own, following the [documentation](https://github.com/allegro/bigflow#bigflow).
+Try BigFlow on your own, following the [documentation](https://github.com/allegro/bigflow#documentation).
 
 ## Features
 
@@ -51,17 +51,65 @@ build a custom project setup.
 
 Deployed processes start from the Docker environment. Thanks to that, you can create any environment you want. Docker
 is much more stable execution environment than Airflow.
+## Deployment
 
-## Airflow as a deployment platform
+When you want to run a workflow (data processing pipeline)
+on Airflow, you need to deploy it.
+Let's start from describing the vanilla deployment process in Python.
+How it's done when you don't have any tools but a bare Composer?
+The key concept is Composer's DAGs folder.
+It's a Cloud Storage bucket mounted on Airflow.
+This is the place where you upload DAG files, and workflows' code.
+Libraries (PIP packages) required by workflows have to be installed
+manually on a Composer.
 
-* przygody z composerem
-* dockeryzacja
-* zmniejszenie progu wejścia
-* podstawy pod coś więcej (np. data engine)
+This approach seems easy, but there are four big issues.
+
+**First**, installing requirements for *local* workflows directly on Composer is problematic
+(by a local workflow I mean a workflow that is processed directly by Airflow,
+for example, a workflow with a series of BigQuery SQL statemens mixed with Python).
+It's tedious, manual process. Version clashes are common.
+Installing a new library, forces a Composer instance to restart.
+You need a better tool for that job.
+
+**Second**, if you want to use external Big Data clusters like Dataproc or Dataflow &mdash;
+you need a build tool. You can't simply copy your source files to a DAGs folder.
+Both Dataproc and Dataflow have certain requirements about source code they are executing.
+For example, Dataflow wants you to provide a standard Python package.
+And it doesn't use libraries that are installed on Composer.
+
+**Third**, for regular deployments you need automation tool.
+A tool, that can checkout the code from your VSC and upload it on Composer.
+
+**Fourth**, when you develop a workflow on a local machine,
+you just want to run it and see what happened, not schedule it.
+So you don't need Airflow at all on a local machine.
+
+**BigFlows solves all these problems.**
+It is a smart build and deploy tool for Big Data processing.
+BigFlow treats Airflow as a scheduling platform and Docker (Kubernetes)
+as a deployment platform. This architecture
+and [workflow](https://github.com/allegro/bigflow/blob/master/docs/workflow-and-job.md) abstraction **decouples** your code from Airflow and
+in fact from most infrastructural APIs.
+What's important, BigFlow runs your workflows in stable environment,
+which is dockerized on Cloud and build-less on a local machine for rapid development.
+
+All project level actions like are executed via BigFlow [command line](https://github.com/allegro/bigflow/blob/master/docs/cli.md)
+(see
+[run](https://github.com/allegro/bigflow/blob/master/docs/cli.md#running-workflows),
+[build](https://github.com/allegro/bigflow/blob/master/docs/cli.md#building-airflow-dags), and
+[deploy](https://github.com/allegro/bigflow/blob/master/docs/cli.md#deploying-to-gcp)).
+Thanks to that, the whole development lifecycle can be easily automated on CI/CD servers.
+
+Shortly speaking, BigFlow takes care about
+infrastructure of your project and lets you focus on processing logic.
 
 ## Status
 
 * production ready
 * używane w produktach chi
+
+## Docs
+
 
 
