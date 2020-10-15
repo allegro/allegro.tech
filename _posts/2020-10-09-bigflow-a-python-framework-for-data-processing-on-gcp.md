@@ -5,10 +5,9 @@ author: [bartlomiej.beczkowski,bartosz.walacik]
 tags: [tech, python, gcp, big data]
 ---
 
-[BigFlow](https://github.com/allegro/bigflow) was created to develop the Allegro A/B testing platform analytics.
-The A/B testing platform team has moved analytics to the Google Cloud Platform two years ago, as one of the first teams.
-We had no tools for data processing on GCP. During these two years, our projects have grown and multiplied.
-So did our tools.
+We have created [BigFlow](https://github.com/allegro/bigflow) as a side-project, during development of the Allegro A/B testing
+platform. We have moved data processing to the Google Cloud Platform two years ago. We had no tools
+for data processing on GCP. During these two years, our projects have grown and multiplied. So did our tools.
 
 Allegro spoils its developers with an amazing internal app engine (to have some point of reference, you can imagine it as
 something similar to [Heroku](https://www.heroku.com/)). On the other hand, GCP provides a powerful, but loosely
@@ -38,6 +37,10 @@ All of these are unified for the supported technologies. BigFlow supports the ma
 
 The provided utils make it easier to create processes in each technology. Besides the listed technologies,
 you can use anything that you can express in Python.
+
+BigQuery is not usually considered as a data processing tool but as an ad-hoc analysis and storage system. We find it to be
+fast, reliable, and very easy (you need to know SQL, that's all) to use for creating data processing pipelines. With
+the BigFlow utils supporting BigQuery, big data processing is reachable to anybody in hours, not days or weeks.
 
 Flexibility is important. BigFlow allows you to start small and grow, using the right tool for a situation. You can:
 
