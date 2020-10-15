@@ -7,7 +7,7 @@ tags: [tech, python, gcp, big data]
 
 
 We have just released [BigFlow](https://github.com/allegro/bigflow) 1.0 as open source.
-It’s a Python framework for data processing on GCP.
+It’s a Python framework for big data processing on GCP.
 We have created BigFlow as a side-project, during development of the Allegro A/B testing
 platform. We have moved data processing to the Google Cloud Platform two years ago. We had no tools
 for data processing on GCP. During these two years, our projects have grown and multiplied. So did our tools.
@@ -71,11 +71,15 @@ manually on a Composer.
 
 This approach seems easy, but there are four big issues.
 
-**First**, installing requirements for *local* workflows directly on Composer is problematic
-(by a local workflow I mean a workflow that is processed directly by Airflow,
-for example, a workflow with a series of BigQuery SQL statemens mixed with Python).
-It's tedious, manual process. Version clashes are common.
-Installing a new library, forces a Composer instance to restart.
+**First**, managing Python dependencies on Composer is problematic
+(dependencies are libraries used by that code which is processed directly by Airflow).
+Installing a new library forces a Composer instance to restart.
+It not only takes time but sometimes fails what forces you to spawn a new Composer instance.
+Version clashes are common. You can have it on two levels: between
+dependencies of two of yours workflows (DAGs) and between your
+dependencies and Composer's implicit dependencies (which changes from version to version).
+Managing Python dependencies on Composer's instance level is really tedious
+and can lead to *dependency hell*.
 You need a better tool for that job.
 
 **Second**, if you want to use external Big Data clusters like Dataproc or Dataflow &mdash;
@@ -88,17 +92,21 @@ And it doesn't use libraries that are installed on Composer.
 A tool, that can checkout the code from your VSC and upload it on Composer.
 
 **Fourth**, when you develop a workflow on a local machine,
-you just want to run it and see what happened, not schedule it.
+you just want to run it fast and see what happened, not schedule it.
 So you don't need Airflow at all on a local machine.
+On the other hand, sometimes you need to replicate production environment,
+for example to debug or E2E tests. In that case you need to replicate Airflow in that
+version which is currently used by Composer. Additional work for you.
 
 **BigFlows solves all these problems.**
 It is a smart build and deploy tool for Big Data processing.
 BigFlow treats Airflow as a scheduling platform and Docker (Kubernetes)
 as a deployment platform. This architecture
-and [workflow](https://github.com/allegro/bigflow/blob/master/docs/workflow-and-job.md) abstraction **decouples** your code from Airflow and
-in fact from most infrastructural APIs.
-What's important, BigFlow runs your workflows in stable environment,
-which is dockerized on Cloud and build-less on a local machine for rapid development.
+and [workflow](https://github.com/allegro/bigflow/blob/master/docs/workflow-and-job.md) abstraction
+**decouples** your code from Airflow and in fact from most infrastructural APIs.
+What's important, BigFlow runs your workflows in stable, dockerized environment,
+without compromising rapid development on a local machine (which is build-less by default).
+Thanks to dockerization, you can easily replicate production environment wherever you need.
 
 All project level actions like are executed via BigFlow [command line](https://github.com/allegro/bigflow/blob/master/docs/cli.md)
 (see
