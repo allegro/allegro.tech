@@ -12,7 +12,7 @@ for data processing on GCP. During these two years, our projects have grown and 
 Allegro spoils its developers with an amazing internal App Engine (to have some point of reference, you can imagine it as
 something similar to [Heroku](https://www.heroku.com/)). On the other hand, GCP provides a powerful, but loosely
 coupled set of tools for big data processing. So we had to bind these tools in a reasonable way, to get closer to the
-Allegro app-engine experience. That's what BigFlow is about.
+Allegro App Engine experience. That's what BigFlow is about.
 
 Try BigFlow on your own, following the [documentation](https://github.com/allegro/bigflow#documentation).
 
