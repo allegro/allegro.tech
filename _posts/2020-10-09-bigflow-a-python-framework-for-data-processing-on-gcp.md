@@ -16,11 +16,11 @@ Allegro App Engine experience. That's what BigFlow is about.
 
 ## Features
 
-Without unification, a multi-project environment quickly becomes hard to manage. BigFlow unifies many aspects of a big
-data project:
+When you create many big data project without applying some best practices and without using common tooling, they
+quickly become hard to manage. BigFlow unifies many aspects of a big data project:
 
 * Project structure
-* Artifacts
+* Deployment artifacts
 * CI/CD process
 * Project CLI
 * Versioning
