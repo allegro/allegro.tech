@@ -43,7 +43,8 @@ the BigFlow utils supporting BigQuery, big data processing is reachable to anybo
 
 Flexibility is important. BigFlow allows you to start small and grow, using the right tool for a situation. You can:
 
-* Develop multiple workflows in a single project.
+* Develop multiple workflows in a single project (workflow is a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
+ composed of data processing jobs).
 * Mix technologies in a single workflow.
 * Develop batch and streaming in the same project.
 
