@@ -51,9 +51,6 @@ Flexibility is important. BigFlow allows you to start small and grow, using the 
 BigFlow is a framework, not a scaffold. There is very little code generated. You can manipulate configuration to
 build a custom project setup.
 
-Deployed processes start from the Docker environment. Thanks to that, you can create any environment you want. Docker
-is a much more stable execution environment than Airflow.
-
 For scheduling, BigFlow uses the Google Cloud Composer, which is basically Airflow. Airflow is not a part of local
 development though. Let us talk about that a bit more.
 
