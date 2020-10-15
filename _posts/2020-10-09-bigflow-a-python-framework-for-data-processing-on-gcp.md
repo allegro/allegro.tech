@@ -54,7 +54,7 @@ Flexibility is important. BigFlow allows you to start small and grow, using the 
 BigFlow is a framework, not a scaffold. There is very little code generated. You can manipulate configuration to
 build a custom project setup.
 
-For scheduling, BigFlow uses the Google Cloud Composer, which is super-easy to set up Airflow. Airflow is not a part
+For scheduling, BigFlow uses the Google Cloud Composer, which is super easy to set up, hosted Airflow. Airflow is not a part
 of local development though. Let us talk about that a bit more.
 
 ## Deployment
@@ -120,7 +120,8 @@ infrastructure of your project and lets you focus on processing logic.
 
 ## Status
 
-BigFlow is production-ready, it already powers a few projects inside the company.
+BigFlow is production-ready, open-source project. It already powers a few big data projects inside the company. Try it on your
+own, following our in-depth [documentation](https://github.com/allegro/bigflow#documentation).
 
 There are some missing spots that we want to cover in the next versions. The big things are:
 
@@ -129,5 +130,3 @@ There are some missing spots that we want to cover in the next versions. The big
 * Infrastructure management.
 
 Right now, BigFlow works only on GCP. We might expand to Hadoop or other cloud environments if a need appears.
-
-Try BigFlow on your own, following the [documentation](https://github.com/allegro/bigflow#documentation).
