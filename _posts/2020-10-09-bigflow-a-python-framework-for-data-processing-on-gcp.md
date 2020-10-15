@@ -35,7 +35,7 @@ data processing technologies on GCP:
 * BigQuery
 
 The provided utils make it easier to create processes in each technology. Besides the listed technologies,
-you can use anything that you can express in Python.
+you can use anything that you can express in Python (for example fastai, PyTorch, Pandas, etc.).
 
 BigQuery is not usually considered as a data processing tool but as an ad-hoc analysis and storage system. We find it to be
 fast, reliable, and very easy (you need to know SQL, that's all) to use for creating data processing pipelines. With
