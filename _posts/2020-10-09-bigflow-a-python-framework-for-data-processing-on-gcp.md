@@ -113,9 +113,9 @@ BigFlow is production-ready, it already powers a few projects inside the company
 
 There are some missing spots that we want to cover in the next versions. The big things are:
 
-* Metrics
-* Monitoring
-* Infrastructure management
+* Metrics.
+* Monitoring.
+* Infrastructure management.
 
 Right now, BigFlow works only on GCP. We might expand to Hadoop or other cloud environments if a need appears.
 
