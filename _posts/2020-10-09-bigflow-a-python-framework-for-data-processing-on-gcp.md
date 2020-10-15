@@ -48,7 +48,7 @@ Flexibility is important. BigFlow allows you to start small and grow, using the 
 * Mix technologies in a single workflow.
 * Develop batch and streaming in the same project.
 
-BigFlow is a framework, not a template. There is very little code generated. You can manipulate configuration to
+BigFlow is a framework, not a scaffold. There is very little code generated. You can manipulate configuration to
 build a custom project setup.
 
 Deployed processes start from the Docker environment. Thanks to that, you can create any environment you want. Docker
