@@ -23,7 +23,7 @@ quickly become hard to manage. BigFlow unifies many aspects of a big data projec
 * Deployment artifacts
 * CI/CD process
 * Project CLI
-* Versioning
+* Release versioning
 * Configuration
 * Logging
 
