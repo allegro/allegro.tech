@@ -112,8 +112,8 @@ infrastructure of your project and lets you focus on processing logic.
 
 ## Status
 
-BigFlow is production-ready, it already powers a few projects inside the company. Try it on your own, following
-our in-depth [documentation](https://github.com/allegro/bigflow#documentation).
+BigFlow is production-ready, open-source project. It already powers a few projects inside the company. Try it on your
+own, following our in-depth [documentation](https://github.com/allegro/bigflow#documentation).
 
 There are some missing spots that we want to cover in the next versions. The big things are:
 
