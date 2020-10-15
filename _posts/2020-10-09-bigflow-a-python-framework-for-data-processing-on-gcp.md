@@ -14,8 +14,6 @@ something similar to [Heroku](https://www.heroku.com/)). On the other hand, GCP 
 coupled set of tools for big data processing. So we had to bind these tools in a reasonable way, to get closer to the
 Allegro App Engine experience. That's what BigFlow is about.
 
-Try BigFlow on your own, following the [documentation](https://github.com/allegro/bigflow#documentation).
-
 ## Features
 
 Without unification, a multi-project environment quickly becomes hard to manage. BigFlow unifies many aspects of a big
@@ -121,3 +119,5 @@ There are some missing spots that we want to cover in the next versions. The big
 * Infrastructure management
 
 Right now, BigFlow works only on GCP. We might expand to Hadoop or other cloud environments if a need appears.
+
+Try BigFlow on your own, following the [documentation](https://github.com/allegro/bigflow#documentation).
