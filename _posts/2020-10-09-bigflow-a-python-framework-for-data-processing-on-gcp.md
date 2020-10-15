@@ -109,7 +109,7 @@ infrastructure of your project and lets you focus on processing logic.
 
 ## Status
 
-BigFlow is a production-ready tool, powering few projects inside the company.
+BigFlow is production-ready, it already powers a few projects inside the company.
 
 There are some missing spots that we want to cover in the next versions. The big things are:
 
