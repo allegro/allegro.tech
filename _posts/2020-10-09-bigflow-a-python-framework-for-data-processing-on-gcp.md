@@ -49,7 +49,7 @@ Flexibility is important. BigFlow allows you to start small and grow, using the 
 * Develop multiple workflows in a single project (workflow is a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
  composed of data processing jobs).
 * Mix technologies in a single workflow.
-* Develop batch and streaming processes in the same project.
+* Develop batch and stream processes in the same project.
 
 BigFlow is a framework, not a scaffold. There is very little code generated. You can manipulate configuration to
 build a custom project setup.
