@@ -108,7 +108,7 @@ What's important, BigFlow runs your workflows in stable, dockerized environment,
 without compromising rapid development on a local machine (which is build-less by default).
 Thanks to dockerization, you can easily replicate a production environment wherever you need.
 
-All project-level actions like are executed via the BigFlow [command line](https://github.com/allegro/bigflow/blob/master/docs/cli.md)
+All project-level actions are executed via the BigFlow [command line](https://github.com/allegro/bigflow/blob/master/docs/cli.md)
 (see
 [run](https://github.com/allegro/bigflow/blob/master/docs/cli.md#running-workflows),
 [build](https://github.com/allegro/bigflow/blob/master/docs/cli.md#building-airflow-dags), and
