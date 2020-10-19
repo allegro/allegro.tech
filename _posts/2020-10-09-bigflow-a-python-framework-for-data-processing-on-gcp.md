@@ -44,8 +44,22 @@ BigQuery is not usually considered as a data processing tool but as an ad-hoc an
 fast, reliable, and very easy (you need to know SQL, that's all) to use for creating data processing pipelines. With
 the BigFlow utils supporting BigQuery, big data processing is reachable to anybody in hours, not days or weeks.
 
-Flexibility is important. BigFlow allows you to start small and grow, using the right tool for a situation. You can:
+There are many aspects of a project, which determine how a solution should look like, for example:
 
+* Characteristics of a business case (complexity, importance, etc.)
+* Skills of a team
+* Time available
+* Toolset
+
+So if you create a proof-of-concept project, with a minor business impact if things go wrong, you probably want to do
+things fast and scrappy. On the other hand, if you create a high-impact financial system, you need to take things more
+seriously.
+
+BigFlow allows you to adapt to a situation, you can:
+
+* Pick the right tool for a situation
+* Pick the parts of the framework that you need in a situation.
+* Start small and grow if needed.
 * Develop multiple workflows in a single project (workflow is a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
  composed of data processing jobs).
 * Mix technologies in a single workflow.
