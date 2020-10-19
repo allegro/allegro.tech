@@ -58,7 +58,7 @@ seriously.
 
 BigFlow allows you to adapt to a situation, you can:
 
-* Pick the right tool for a situation
+* Pick the right tool for a situation.
 * Pick the parts of the framework that you need in a situation.
 * Start small and grow if needed.
 * Develop multiple workflows in a single project (workflow is a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
@@ -141,8 +141,8 @@ own, following our in-depth [documentation](https://github.com/allegro/bigflow#d
 
 There are some missing spots that we want to cover in the next versions. The big things are:
 
-* Metrics.
-* Monitoring.
-* Infrastructure management.
+* Metrics
+* Monitoring
+* Infrastructure management
 
 Right now, BigFlow works only on GCP. We might expand to Hadoop or other cloud environments if a need appears.
