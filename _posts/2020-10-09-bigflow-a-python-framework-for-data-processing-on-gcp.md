@@ -9,7 +9,7 @@ tags: [tech, python, gcp, big data]
 We are excited to announce that we have just released [BigFlow](https://github.com/allegro/bigflow) 1.0 as open source.
 It’s a Python framework for big data processing on GCP.
 We have created BigFlow as a side-project, during development of the Allegro A/B testing
-platform. We have moved data processing to the Google Cloud Platform two years ago. We had no tools
+platform. We have moved data processing to the Google Cloud Platform two years ago and we had no tools
 for data processing on GCP. During these two years, our projects have grown and multiplied. So did our tools.
 
 Allegro spoils its developers with an amazing internal App Engine (to have some point of reference, you can imagine it as
