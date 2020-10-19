@@ -30,7 +30,7 @@ quickly become hard to manage. BigFlow unifies many aspects of a big data projec
 * Configuration
 * Logging
 
-All of these aspects are managed by BigFlow in the unified way for the supported technologies. BigFlow supports the main
+All of these aspects are managed by BigFlow in the unified way for supported technologies. BigFlow supports the main
 data processing technologies on GCP:
 
 * Dataflow (Apache Beam)
