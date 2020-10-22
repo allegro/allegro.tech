@@ -83,12 +83,12 @@ The key concept is Composer's DAGs folder.
 It's a Cloud Storage bucket mounted on Airflow.
 This is the place where you upload DAG files and workflows' code.
 Libraries (PIP packages) required by workflows have to be installed
-manually on a Composer.
+manually on a Composer instance.
 
 This approach seems easy, but there are four big issues.
 
 **First**, managing Python dependencies on Composer is problematic
-(dependencies are libraries used by that code which is processed directly by Airflow).
+(dependencies are libraries used by the code which is processed directly by Airflow).
 Installing a new library forces a Composer instance to restart.
 It not only takes time but sometimes fails what forces you to spawn a new Composer instance.
 Version clashes are common. You can have it on two levels: between
@@ -101,25 +101,25 @@ You need a better tool for that job.
 **Second**, if you want to use external Big Data clusters like Dataproc or Dataflow &mdash;
 you need a build tool. You can't simply copy your source files to a DAGs folder.
 Both Dataproc and Dataflow have certain requirements about source code they are executing.
-For example, Dataflow wants you to provide a standard Python package.
-And it doesn't use libraries that are installed on Composer.
+For example, Dataflow wants you to provide a standard Python package
+and it doesn't use libraries that are installed on Composer.
 
 **Third**, for regular deployments, you need an automation tool.
-A tool, that can check out the code from your VSC and upload it on Composer.
+A tool, that can check out the code from your version control system and upload it to Composer.
 
 **Fourth**, when you develop a workflow on a local machine,
 you just want to run it fast and see what happened, not schedule it.
-So you don't need Airflow at all on a local machine.
+So you don't need Airflow at all on your local machine.
 On the other hand, sometimes you need to replicate a production environment,
 for example, to debug or E2E tests. In that case, you need to replicate Airflow in that
-version which is currently used by Composer. Additional work for you.
+version which is currently used by Composer. It's additional work for you.
 
 **BigFlows solves all these problems.**
 It is a smart build and deploy tool for big data processing.
 BigFlow treats Airflow as a scheduling platform and Docker (Kubernetes)
 as a deployment platform. This architecture
 and [workflow](https://github.com/allegro/bigflow/blob/master/docs/workflow-and-job.md) abstraction
-**decouples** your code from Airflow and in fact from most infrastructural APIs.
+**decouples** your code from Airflow and from most infrastructural APIs.
 What's important, BigFlow runs your workflows in stable, dockerized environment,
 without compromising rapid development on a local machine (which is build-less by default).
 Thanks to dockerization, you can easily replicate a production environment wherever you need.
@@ -141,8 +141,8 @@ own, following our in-depth [documentation](https://github.com/allegro/bigflow#d
 
 There are some missing spots that we want to cover in the next versions. The big things are:
 
-* Metrics
-* Monitoring
-* Infrastructure management
+* metrics,
+* monitoring,
+* infrastructure management.
 
 Right now, BigFlow works only on GCP. We might expand to Hadoop or other cloud environments if a need appears.
