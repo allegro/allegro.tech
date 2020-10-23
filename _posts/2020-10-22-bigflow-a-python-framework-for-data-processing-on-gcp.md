@@ -37,9 +37,9 @@ quickly become hard to manage. BigFlow unifies many aspects of a big data projec
 All of these aspects are managed by BigFlow in the unified way for supported technologies. BigFlow supports the main
 data processing technologies on GCP:
 
-* Dataflow (Apache Beam)
-* Dataproc (Apache Spark)
-* BigQuery
+* Dataflow (Apache Beam),
+* Dataproc (Apache Spark),
+* BigQuery.
 
 The provided utils make it easier to create processes in each technology. Besides the listed technologies,
 you can use anything that you can express in Python (for example [fast.ai](https://www.fast.ai/),
@@ -50,10 +50,10 @@ the BigFlow utils supporting BigQuery, big data processing is reachable to anybo
 
 There are many aspects of a project, which determine how a solution should look like, for example:
 
-* Characteristics of a business case (complexity, importance, etc.)
-* Skills of a team
-* Time available
-* Toolset
+* characteristics of a business case (complexity, importance, etc.),
+* skills of a team,
+* time available,
+* toolset.
 
 So if you create a proof-of-concept project, with a minor business impact if things go wrong, you probably want to do
 things fast and scrappy. On the other hand, if you create a high-impact financial system, you need to take things more
