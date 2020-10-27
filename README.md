@@ -13,6 +13,12 @@ Launch the site using [jekyll](https://help.github.com/articles/using-jekyll-wit
 
 Is your article rendered correctly?
 
+Check if there are any obvious errors by running linter.
+
+```bash
+./linter/run.sh
+```
+
 Create a Pull Request and get some feedback.
 
 ### Filename convention
