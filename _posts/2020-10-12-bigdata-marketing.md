@@ -41,8 +41,7 @@ Parquet-based file called simply “aggregate” (we will use this name later on
 Second job, `FeedGeneratorJob` generates a single feed (XML file) and uploads
 it to S3. They were run in parallel.
 
-<img alt="Old architecture diagram"
-src="/img/articles/2020-10-12-bigdata-marketing/old_arch.svg"/>
+![Old architecture diagram](/img/articles/2020-10-12-bigdata-marketing/old_arch.svg)
 
 But soon, against initial assumptions a number of feeds exploded. Finally we
 came to a situation where there were… 1300 feeds! Updating all of them (we need
@@ -98,8 +97,7 @@ the data. In Allegro most of the services use
 data that is sent by Hermes is dumped to HDFS in near real time manner.  To
 make this more clear, let me show you that on diagram:
 
-<img alt="Event flow in Allegro"
-src="/img/articles/2020-10-12-bigdata-marketing/hermes.svg"/>
+![Event flow in Allegro](/img/articles/2020-10-12-bigdata-marketing/hermes.svg)
 
 At that moment, we were thinking which approach would suit our requirements
 best. We saw three options here:
@@ -128,8 +126,7 @@ easy to implement we decided to simply measure it. In the end it turned out
 that it was not that bad: in usual cases we were able to maintain latency of
 about 30 minutes.
 
-<img alt="Aggregate job"
-src="/img/articles/2020-10-12-bigdata-marketing/aggregate-job.svg"/>
+![Aggregate job](/img/articles/2020-10-12-bigdata-marketing/aggregate-job.svg)
 
 That was acceptable for a start. We took into account that at least, if that
 won’t be enough we can always transform it later into delta architecture and
@@ -176,8 +173,7 @@ feeds in little more than 1h (comparing to 13h previously). But that's not all.
 We not only sped it up 13 times, we also reduced memory usage two times! And
 well, in the end we used the same tools, but in a better way.
 
-<img alt="How engine works"
-src="/img/articles/2020-10-12-bigdata-marketing/engine.svg"/>
+![How engine works](/img/articles/2020-10-12-bigdata-marketing/engine.svg)
 
 ## Streaming API
 
@@ -224,8 +220,7 @@ feed state**. How? Here’s a simplified version of algorithm for this approach:
   service (connector) responsible for sending offers to a marketing partner,
 - save snapshot X on HDFS (in the next run it will act as a snapshot Y)
 
-<img alt="Streaming API architecture"
-src="/img/articles/2020-10-12-bigdata-marketing/streaming-api.svg"/>
+![Streaming API architecture](/img/articles/2020-10-12-bigdata-marketing/streaming-api.svg)
 
 And how much latency this solution adds? It occured that it was only additional
 ~20 minutes and in our case it is totally acceptable.  It is also worth to
