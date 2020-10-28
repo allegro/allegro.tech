@@ -243,7 +243,7 @@ system which is convenient to maintain even taking into account the scale we
 are facing everyday.  While we were designing the architecture we were focused
 mainly on two things: availability and control.
 
-### Availability 
+### Availability
 
 The first step that should be considered is: **how to properly
 define the responsibilities of individual system components?**
