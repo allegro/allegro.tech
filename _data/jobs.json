@@ -4,15 +4,15 @@
     "totalFound": 45,
     "content": [
         {
-            "id": "743999723016031",
-            "name": "Product Manager - Cloud Services",
-            "uuid": "ee96d5d7-c679-4246-96d1-bfc642284e3a",
+            "id": "743999723016280",
+            "name": "Product Manager (Cloud Services)",
+            "uuid": "f563ec3e-4ee3-4bdb-adfb-916929c6ca1f",
             "refNumber": "REF2382W",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-10-28T11:58:33.000Z",
+            "releasedDate": "2020-10-28T12:02:27.000Z",
             "location": {
                 "city": "Poznań",
                 "country": "pl",
@@ -74,7 +74,7 @@
                     "valueLabel": "product, product manager, product management"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999723016031",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999723016280",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
