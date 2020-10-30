@@ -12,27 +12,28 @@ purposes.
 
 ## Background
 
-Allegro is the biggest e-commerce platform in Poland, and is on the top 10 of
-biggest e-commerce platforms in the world. Our offers’ catalog counts almost
-200M offers at this moment (september 2020), but the number is still growing.
-The marketing team uses tools such as Google Merchant Center and Facebook Ads
-in order to advertise Allegro offers and get more traffic to the platform. In
-order to integrate with them we need to prepare an XML file containing
-information about our offers. Such XML file is called _"feed"_ . We will use
-this name later on.
+Allegro is the biggest e-commerce platform in Poland and is in the top 10 of
+biggest e-commerce platforms in the world. Our catalog numbers almost
+200 million offers at this moment (september 2020), and the number is still growing.
+The marketing team uses tools such as 
+[Google Merchant Center](https://www.google.com/retail/solutions/merchant-center/) 
+and [Facebook Ads](https://www.facebook.com/business/ads) in order to advertise 
+Allegro offers and get more traffic to the platform. To integrate with
+them we need to prepare an XML file containing information about our offers.
+Such XML files are called _"feed"_ . We will use this name later on.
 
 Process of finding offers may suggest using a search engine. Unfortunately,
 Allegro's search engine is not suited for this task. Feed could contain
 millions of offers, which would result in deep pagination issues. A decision
-was made to simply generate static files using batch jobs run in our Hadoop
+was made to simply generate static files using batch jobs run in our [Hadoop](https://hadoop.apache.org/)
 ecosystem. The ability to handle large volumes of data, powerful query
 capabilities as well as access to various datasets across the platform were
-major advantages. Apache Spark, an already tried and tested tool, was an
+major advantages. [Apache Spark](https://spark.apache.org/), an already tried and tested tool, was an
 obvious choice.
 
 Since it was not expected that the number of feeds exceeds a few dozen, every
 feed was calculated in a separate (but executed in parallel) Spark job. Every
-feed was described by business user by providing predicates that offer must
+feed was described by business users by providing predicates that offers must
 satisfy to be included in feed, as well as expected XML format and recipient.
 You can see that architecture in the diagram below. `AggregateGeneratorJob` and
 `FeedGeneratorJob` are batch jobs written in Apache Spark. First one gathers
@@ -43,16 +44,16 @@ it to S3. They were run in parallel.
 
 ![Old architecture diagram](/img/articles/2020-10-12-bigdata-marketing/old_arch.svg)
 
-But soon, against initial assumptions a number of feeds exploded. Finally we
+But soon, against initial assumptions a number of feeds exploded. Finally, we
 came to a situation where there were… 1300 feeds! Updating all of them (we need
-to do that to have up-to-date data in advertisements) took more than 24 hours.
+to do that to have current data in advertisements) took more than 24 hours.
 We managed to improve the situation a little bit by vertical scaling and
 removing some of unused/poor performing feeds. But that was just temporary
 improvement. We still needed 13 hours to refresh all the feeds.
 
-Unfortunately poor performance was just a tip of the iceberg. Much bigger
+Unfortunately, poor performance was just a tip of the iceberg. Much bigger
 problem was the architecture that no longer suited our needs and made
-implementing new features problematic. Codebase used a famous at that time
+implementing new features time-consuming. Codebase used a famous at that time
 [cake
 (anti)pattern](https://medium.com/rahasak/scala-cake-pattern-e0cd894dae4e)
 which worked really bad in connection with Spark (painful serialization
@@ -111,7 +112,7 @@ suitable source.  So basically we had to choose between collecting all data
 online vs offline. Beside the most obvious difference: latency, what else
 differentiates those solutions?
 
-In online it is always more difficult to join data. We would need to maintain a
+It is always more difficult to join data online. We would need to maintain a
 database with the whole state and we would be prone to all kinds of bugs
 related with concurrency. In case of any detected problem, we would have to
 recover using historical data.
