@@ -4,15 +4,15 @@
     "totalFound": 41,
     "content": [
         {
-            "id": "743999723411565",
+            "id": "743999723440537",
             "name": "UX Researcher (mid/senior)",
-            "uuid": "2658d569-cd76-43e0-b9fe-78c0f7eed58c",
+            "uuid": "4cd4ced4-1b0c-4911-aa0b-aac9258b575d",
             "refNumber": "REF2286W",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-11-02T11:21:35.000Z",
+            "releasedDate": "2020-11-02T16:17:16.000Z",
             "location": {
                 "city": "Warszawa, Poznań",
                 "country": "pl",
@@ -69,7 +69,7 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999723411565",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999723440537",
             "creator": {
                 "name": "Angelika Szymkiewicz"
             },
