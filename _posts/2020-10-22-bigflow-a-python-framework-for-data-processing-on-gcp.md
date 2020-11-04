@@ -44,6 +44,7 @@ data processing technologies on GCP:
 The provided utilities make it easier to create processes in each technology. Besides the listed technologies,
 you can use anything that you can write in Python (for example [fast.ai](https://www.fast.ai/),
 [PyTorch](https://pytorch.org/), [Pandas](https://pandas.pydata.org/), or any other Python tool).
+
 BigQuery is not usually considered a data processing tool but an ad-hoc analysis and storage system. We find it to be fast,
 reliable and very easy to use for creating data processing pipelines – all you need to know is some SQL. With
 the BigFlow utils supporting BigQuery, big data processing is reachable to anybody in hours, not days or weeks.
