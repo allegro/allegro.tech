@@ -114,10 +114,10 @@ A tool, that can check out the code from your version control system and upload 
 you just want to run it fast and see what happened, not schedule it.
 So you don't need Airflow at all on your local machine.
 On the other hand, sometimes you need to replicate a production environment,
-for example, to debug or run E2E tests. In that case, you need to replicate Airflow in that
-version which is currently used by Composer. It's additional work for you.
+for example, to debug or run E2E tests. In that case, you need to replicate Airflow in version currently used by Composer.
+It's additional work for you.
 
-**BigFlows solves all these problems.**
+**BigFlow solves all these problems.**
 It is a smart build and deploy tool for big data processing.
 BigFlow treats Airflow as a scheduling platform and Docker (Kubernetes)
 as a deployment platform. This architecture
@@ -134,8 +134,8 @@ All project-level actions are executed via the BigFlow [command line](https://gi
 [deploy](https://github.com/allegro/bigflow/blob/master/docs/cli.md#deploying-to-gcp)).
 Thanks to that, the whole development lifecycle can be easily automated on CI/CD servers.
 
-Shortly speaking, BigFlow handles the infrastructure of your projects
-and lets you focus on your core job, which is data processing logic.
+Shortly speaking, BigFlow hides the infrastructure of your projects
+under a interface, and lets you focus on your core job, which is data processing logic.
 
 ## Status
 
