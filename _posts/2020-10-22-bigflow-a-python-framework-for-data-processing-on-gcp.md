@@ -107,7 +107,7 @@ Both Dataproc and Dataflow have certain requirements about source code they are 
 For example, Dataflow wants you to provide a standard Python package
 and it doesn't use libraries that are installed on Composer.
 
-**Third**, for regular deployments, you need an automation tool.
+**Third**, for frequent deployments, you need an automation tool.
 A tool, that can check out the code from your version control system and upload it to Composer.
 
 **Fourth**, when you develop a workflow on a local machine,
