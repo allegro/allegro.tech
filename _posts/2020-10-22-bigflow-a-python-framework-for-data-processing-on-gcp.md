@@ -92,7 +92,7 @@ This approach seems easy, but there are four big issues.
 
 **First**, managing Python dependencies on Composer is problematic
 (dependencies are libraries used by the code which is processed directly by Airflow).
-Installing a new library forces a Composer instance to restart.
+Installing a new library requires Composer instance to be restarted.
 It not only takes time but sometimes fails, forcing you to spawn a new Composer instance.
 Version clashes are common. They can occur on two levels: between
 dependencies of two of your workflows (DAGs) and between your
