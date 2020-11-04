@@ -34,7 +34,7 @@ quickly become hard to manage. BigFlow unifies many aspects of a big data projec
 * Logging
 * Scaffolding
 
-All of these aspects are managed by BigFlow in a unified way for supported technologies. BigFlow supports the main
+For supported technologies all of the above are managed in a unified way. BigFlow supports the main
 data processing technologies on GCP:
 
 * [Dataflow](https://cloud.google.com/dataflow) ([Apache Beam](https://beam.apache.org/)),
@@ -44,25 +44,25 @@ data processing technologies on GCP:
 The provided utilities make it easier to create processes in each technology. Besides the listed technologies,
 you can use anything that you can write in Python (for example [fast.ai](https://www.fast.ai/),
 [PyTorch](https://pytorch.org/), [Pandas](https://pandas.pydata.org/), or any other Python tool).
-BigQuery is not usually considered a data processing tool but an ad-hoc analysis and storage system. We find it to be
-fast, reliable, and very easy (you need to know SQL, that's all) to use for creating data processing pipelines. With
+BigQuery is not usually considered a data processing tool but an ad-hoc analysis and storage system. We find it to be fast,
+reliable and very easy to use for creating data processing pipelines – all you need to know is some SQL. With
 the BigFlow utils supporting BigQuery, big data processing is reachable to anybody in hours, not days or weeks.
 
-There are many aspects of a project, which determine what a solution should look like, for example:
+There are many aspects of a project that determine what a solution should look like, for example:
 
 * characteristics of a business case (complexity, importance, etc.),
-* skills of a team,
+* skills of the team,
 * time available,
 * toolset.
 
 So if you create a proof-of-concept project, with a minor business impact if things go wrong, you probably want to do
-things quick and dirty. On the other hand, if you create a high-impact financial system, you need to take things more
+things quick and dirty. On the other hand, if you create a high-impact financial system you need to take things more
 seriously.
 
 BigFlow allows you to adapt to a situation, you can:
 
-* Pick the right tool for a situation.
-* Pick the parts of the framework that you need in a situation.
+* Pick the right tool.
+* Pick the parts of the framework that you need.
 * Start small and grow if needed.
 * Develop multiple workflows in a single project (workflow is a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
  composed of data processing jobs).
@@ -72,15 +72,15 @@ BigFlow allows you to adapt to a situation, you can:
 BigFlow is a framework, not a scaffold. There is very little code generated. You can manipulate configuration to
 build a custom project setup.
 
-For scheduling, BigFlow uses Google Cloud Composer, which is a super easy to set up version
-of [Airflow](https://airflow.apache.org/), hosted on GCP. Airflow is not a part of local development though.
+For scheduling BigFlow uses Google Cloud Composer, which is a super easy to set up version
+of [Airflow](https://airflow.apache.org/) hosted on GCP. Airflow is not a part of local development though.
 
 ## Deployment
 
 When you want to run a workflow (data processing pipeline)
 on Airflow, you need to deploy it.
 Let's start by describing the vanilla deployment process in Python.
-How it's done when you don't have any tools but a bare Composer?
+How is it done when you don't have any tools but a bare Composer?
 The key concept is Composer's DAGs folder.
 It's a Cloud Storage bucket mounted on Airflow.
 This is the place where you upload DAG files and workflows' code.
@@ -89,32 +89,32 @@ manually on a Composer instance.
 
 This approach seems easy, but there are four big issues.
 
-**First**, managing Python dependencies on Composer is problematic
-(dependencies are libraries used by the code which is processed directly by Airflow).
+**First**, managing Python dependencies in Composer is problematic
+(dependencies are libraries used by the code processed directly by Airflow).
 Installing a new library requires Composer instance to be restarted.
-It not only takes time but sometimes fails, forcing you to spawn a new Composer instance.
+Not only does it take time, but also sometimes fails, forcing you to spawn a new Composer instance.
 Version clashes are common. They can occur on two levels: between
-dependencies of two of your workflows (DAGs) and between your
-dependencies and Composer's implicit dependencies (which change from version to version).
-Managing Python dependencies on Composer's instance level is really tedious
+dependencies of two of your workflows (DAGs) or between your
+dependencies and Composer's implicit dependencies (which change between versions).
+Managing Python dependencies in Composer's instance level is really tedious
 and can lead to *dependency hell*.
 You need a better tool for that job.
 
-**Second**, if you want to use external Big Data clusters like Dataproc or Dataflow &mdash;
+**Second**, if you want to use external Big Data clusters like Dataproc or Dataflow,
 you need a build tool. You can't simply copy your source files to a DAGs folder.
-Both Dataproc and Dataflow have certain requirements about source code they are executing.
+Both Dataproc and Dataflow have certain requirements for source code they execute.
 For example, Dataflow wants you to provide a standard Python package
-and it doesn't use libraries that are installed on Composer.
+and it doesn't use libraries that are installed in Composer.
 
 **Third**, for frequent deployments, you need an automation tool.
-A tool, that can check out the code from your version control system and upload it to Composer.
+A tool that is able to check out the code from your version control system and upload it to Composer.
 
 **Fourth**, when you develop a workflow on a local machine,
 you just want to run it fast and see what happened, not schedule it.
 So you don't need Airflow at all on your local machine.
 On the other hand, sometimes you need to replicate a production environment,
-for example, to debug or run E2E tests. In that case, you need to replicate Airflow in version currently used by Composer.
-It's additional work for you.
+for example to debug or run E2E tests. In that case you need to replicate Airflow in version currently used by Composer.
+It's an additional work for you.
 
 **BigFlow solves all these problems.**
 It is a smart build and deploy tool for big data processing.
@@ -124,7 +124,7 @@ and [workflow](https://github.com/allegro/bigflow/blob/master/docs/workflow-and-
 **decouples** your code from Airflow and from most infrastructural APIs.
 What's important, BigFlow runs your workflows in a stable, dockerized environment,
 without compromising rapid development on a local machine (which is build-less by default).
-Thanks to dockerization, you can easily replicate a production environment wherever you need.
+Thanks to dockerization you can easily replicate your production environment wherever you need.
 
 All project-level actions are executed via the BigFlow [command line](https://github.com/allegro/bigflow/blob/master/docs/cli.md)
 (see
@@ -133,18 +133,21 @@ All project-level actions are executed via the BigFlow [command line](https://gi
 [deploy](https://github.com/allegro/bigflow/blob/master/docs/cli.md#deploying-to-gcp)).
 Thanks to that, the whole development lifecycle can be easily automated on CI/CD servers.
 
-Shortly speaking, BigFlow hides the infrastructure of your projects
-under a interface, and lets you focus on your core job, which is data processing logic.
+In a nutshell, BigFlow hides the infrastructure of your projects
+under a interface, and lets you focus on your core job, that is data processing logic.
 
 ## Status
 
-BigFlow is a production-ready, open-source project. It already powers a few big data projects inside the company. Try it on your
+BigFlow is a production-ready, open-source project. It already powers few big data projects inside the company. Try it on your
 own, following our in-depth [documentation](https://github.com/allegro/bigflow#documentation).
 
-There are some missing spots that we want to cover in the next versions. The big things are:
+There are some missing spots that we are about to cover in the next versions. The big things are:
 
 * metrics,
 * monitoring,
 * infrastructure management.
 
-Right now, BigFlow works only on GCP. We might expand to Hadoop or other cloud environments if a need appears.
+So far BigFlow works only on GCP. We might expand to Hadoop or other cloud environments once there is a demand for it.
+
+Despite it's early stage, BigFlow is a fully functional project and we are sure engineers will appreciate how
+it makes things so much easier. Feel free to try it out for yourself and don't forget to share your feedback with us.
