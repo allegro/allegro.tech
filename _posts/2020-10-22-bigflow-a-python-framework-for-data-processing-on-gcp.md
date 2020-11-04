@@ -135,7 +135,7 @@ All project-level actions are executed via the BigFlow [command line](https://gi
 Thanks to that, the whole development lifecycle can be easily automated on CI/CD servers.
 
 In a nutshell, BigFlow hides the infrastructure of your projects
-under a interface, and lets you focus on your core job, that is data processing logic.
+under an interface, and lets you focus on your core job, that is data processing logic.
 
 ## Status
 
