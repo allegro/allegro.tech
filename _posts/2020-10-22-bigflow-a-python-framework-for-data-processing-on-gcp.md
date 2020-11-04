@@ -17,7 +17,7 @@ Finally, we decided to release our toolkit as BigFlow.
 Allegro spoils its developers with an amazing internal App Engine (to have some point of reference, you can imagine it as
 something similar to [Heroku](https://www.heroku.com/)). On the other hand, GCP provides a powerful but loosely
 coupled set of tools for big data processing. In order to get closer to the Allegro App Engine experience we had to bind
-these tools reasonably.. That's what BigFlow is about.
+these tools reasonably. That's what BigFlow is about.
 We created BigFlow as a side-project, but now it's a stable and mature framework.
 
 ## Features
