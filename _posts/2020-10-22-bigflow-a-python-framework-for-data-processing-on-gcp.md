@@ -74,7 +74,6 @@ build a custom project setup.
 
 For scheduling, BigFlow uses Google Cloud Composer, which is a super easy to set up version
 of [Airflow](https://airflow.apache.org/), hosted on GCP. Airflow is not a part of local development though.
-Let us talk about that a bit more.
 
 ## Deployment
 
