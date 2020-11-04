@@ -37,9 +37,9 @@ quickly become hard to manage. BigFlow unifies many aspects of a big data projec
 All of these aspects are managed by BigFlow in a unified way for supported technologies. BigFlow supports the main
 data processing technologies on GCP:
 
-* Dataflow (Apache Beam),
-* Dataproc (Apache Spark),
-* BigQuery.
+* [Dataflow](https://cloud.google.com/dataflow) ([Apache Beam](https://beam.apache.org/)),
+* [Dataproc](https://cloud.google.com/dataproc) ([Apache Spark](https://spark.apache.org/)),
+* [BigQuery](https://cloud.google.com/bigquery).
 
 The provided utils make it easier to create processes in each technology. Besides the listed technologies,
 you can use anything that you can write in Python (for example [fast.ai](https://www.fast.ai/),
