@@ -9,16 +9,16 @@ tags: [tech, python, gcp, big data]
 We are excited to announce that we have just released [BigFlow](https://github.com/allegro/bigflow) 1.0 as open source.
 It’s a Python framework for big data processing on the Google Cloud Platform.
 
-Two years ago, when we had started to move data processing pipelines
-of our A/B testing platform to GCP, we had no build tools nor utils.
+Two years ago, when we started to move data processing pipelines
+of our A/B testing platform to GCP, we had neither build tools nor utils.
 During these two years, our projects have grown and multiplied. So did our tools.
-Finally, we have decided to release our toolkit as BigFlow.
+Finally, we decided to release our toolkit as BigFlow.
 
 Allegro spoils its developers with an amazing internal App Engine (to have some point of reference, you can imagine it as
 something similar to [Heroku](https://www.heroku.com/)). On the other hand, GCP provides a powerful, but loosely
 coupled set of tools for big data processing. So we had to bind these tools reasonably, to get closer to the
 Allegro App Engine experience. That's what BigFlow is about.
-We have created BigFlow as a side-project, but now it's a stable and mature framework.
+We created BigFlow as a side-project, but now it's a stable and mature framework.
 
 ## Features
 
@@ -34,7 +34,7 @@ quickly become hard to manage. BigFlow unifies many aspects of a big data projec
 * Logging
 * Scaffolding
 
-All of these aspects are managed by BigFlow in the unified way for supported technologies. BigFlow supports the main
+All of these aspects are managed by BigFlow in a unified way for supported technologies. BigFlow supports the main
 data processing technologies on GCP:
 
 * Dataflow (Apache Beam),
@@ -44,11 +44,11 @@ data processing technologies on GCP:
 The provided utils make it easier to create processes in each technology. Besides the listed technologies,
 you can use anything that you can express in Python (for example [fast.ai](https://www.fast.ai/),
 [PyTorch](https://pytorch.org/), [Pandas](https://pandas.pydata.org/), or any other Python tool).
-BigQuery is not usually considered as a data processing tool but as an ad-hoc analysis and storage system. We find it to be
+BigQuery is not usually considered a data processing tool but an ad-hoc analysis and storage system. We find it to be
 fast, reliable, and very easy (you need to know SQL, that's all) to use for creating data processing pipelines. With
 the BigFlow utils supporting BigQuery, big data processing is reachable to anybody in hours, not days or weeks.
 
-There are many aspects of a project, which determine how a solution should look like, for example:
+There are many aspects of a project, which determine what a solution should look like, for example:
 
 * characteristics of a business case (complexity, importance, etc.),
 * skills of a team,
@@ -56,7 +56,7 @@ There are many aspects of a project, which determine how a solution should look 
 * toolset.
 
 So if you create a proof-of-concept project, with a minor business impact if things go wrong, you probably want to do
-things fast and scrappy. On the other hand, if you create a high-impact financial system, you need to take things more
+things quick and dirty. On the other hand, if you create a high-impact financial system, you need to take things more
 seriously.
 
 BigFlow allows you to adapt to a situation, you can:
