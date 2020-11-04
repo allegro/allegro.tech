@@ -61,7 +61,7 @@ seriously.
 
 BigFlow allows you to adapt to a situation, you can:
 
-* Pick the right tool.
+* Pick the right technology.
 * Pick the parts of the framework that you need.
 * Start small and grow if needed.
 * Develop multiple workflows in a single project (workflow is a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
