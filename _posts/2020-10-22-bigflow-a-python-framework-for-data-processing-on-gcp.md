@@ -15,14 +15,14 @@ During these two years, our projects have grown and multiplied. So did our tools
 Finally, we decided to release our toolkit as BigFlow.
 
 Allegro spoils its developers with an amazing internal App Engine (to have some point of reference, you can imagine it as
-something similar to [Heroku](https://www.heroku.com/)). On the other hand, GCP provides a powerful, but loosely
-coupled set of tools for big data processing. So we had to bind these tools reasonably, to get closer to the
-Allegro App Engine experience. That's what BigFlow is about.
+something similar to [Heroku](https://www.heroku.com/)). On the other hand, GCP provides a powerful but loosely
+coupled set of tools for big data processing. In order to get closer to the Allegro App Engine experience we had to bind
+these tools reasonably.. That's what BigFlow is about.
 We created BigFlow as a side-project, but now it's a stable and mature framework.
 
 ## Features
 
-When you create many big data projects without applying some best practices and without using common tooling, they
+When creating multiple big data projects without applying some best practices nor using common tooling, they
 quickly become hard to manage. BigFlow unifies many aspects of a big data project:
 
 * Project structure
@@ -41,7 +41,7 @@ data processing technologies on GCP:
 * [Dataproc](https://cloud.google.com/dataproc) ([Apache Spark](https://spark.apache.org/)),
 * [BigQuery](https://cloud.google.com/bigquery).
 
-The provided utils make it easier to create processes in each technology. Besides the listed technologies,
+The provided utilities make it easier to create processes in each technology. Besides the listed technologies,
 you can use anything that you can write in Python (for example [fast.ai](https://www.fast.ai/),
 [PyTorch](https://pytorch.org/), [Pandas](https://pandas.pydata.org/), or any other Python tool).
 BigQuery is not usually considered a data processing tool but an ad-hoc analysis and storage system. We find it to be
