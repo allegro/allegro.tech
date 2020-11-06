@@ -4,6 +4,76 @@
     "totalFound": 40,
     "content": [
         {
+            "id": "743999723937140",
+            "name": "Product Manager - Customer Service Automation",
+            "uuid": "8e18a3fc-2599-4b1b-9319-b44096c492f3",
+            "refNumber": "REF2293C",
+            "company": {
+                "identifier": "Allegro",
+                "name": "Allegro"
+            },
+            "releasedDate": "2020-11-06T11:21:55.000Z",
+            "location": {
+                "city": "Poznań, Warszawa",
+                "country": "pl",
+                "remote": false
+            },
+            "industry": {
+                "id": "internet",
+                "label": "Internet"
+            },
+            "department": {
+                "id": "1013275",
+                "label": "IT Business Services"
+            },
+            "function": {
+                "id": "product_management",
+                "label": "Product Management"
+            },
+            "typeOfEmployment": {
+                "label": "Full-time"
+            },
+            "experienceLevel": {
+                "id": "mid_senior_level",
+                "label": "Mid-Senior Level"
+            },
+            "customField": [
+                {
+                    "fieldId": "58c15608e4b01d4b19ddf790",
+                    "fieldLabel": "Proces rekrutacji",
+                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
+                    "valueLabel": "IT Allegro"
+                },
+                {
+                    "fieldId": "COUNTRY",
+                    "fieldLabel": "Country",
+                    "valueId": "pl",
+                    "valueLabel": "Poland"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf729",
+                    "fieldLabel": "Department",
+                    "valueId": "1013275",
+                    "valueLabel": "IT Business Services"
+                },
+                {
+                    "fieldId": "58c13159e4b01d4b19ddf728",
+                    "fieldLabel": "Brands",
+                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
+                    "valueLabel": "Allegro"
+                }
+            ],
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999723937140",
+            "creator": {
+                "name": "Paulina Partyka"
+            },
+            "language": {
+                "code": "pl",
+                "label": "Polish",
+                "labelNative": "polski"
+            }
+        },
+        {
             "id": "743999723925392",
             "name": "Product Manager  (Consumer Experience)",
             "uuid": "d6133cac-8906-4472-ba93-45d3470c4393",
@@ -2212,76 +2282,6 @@
             "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999719517788",
             "creator": {
                 "name": "Maciej Matwiejczyk"
-            },
-            "language": {
-                "code": "pl",
-                "label": "Polish",
-                "labelNative": "polski"
-            }
-        },
-        {
-            "id": "743999719499176",
-            "name": "Product Manager - Customer Service Automation",
-            "uuid": "dc2a543e-3e41-4613-b2c6-ae61147fc003",
-            "refNumber": "REF2293C",
-            "company": {
-                "identifier": "Allegro",
-                "name": "Allegro"
-            },
-            "releasedDate": "2020-09-14T08:53:52.000Z",
-            "location": {
-                "city": "Poznań, Warszawa",
-                "country": "pl",
-                "remote": false
-            },
-            "industry": {
-                "id": "internet",
-                "label": "Internet"
-            },
-            "department": {
-                "id": "1013275",
-                "label": "IT Business Services"
-            },
-            "function": {
-                "id": "product_management",
-                "label": "Product Management"
-            },
-            "typeOfEmployment": {
-                "label": "Full-time"
-            },
-            "experienceLevel": {
-                "id": "mid_senior_level",
-                "label": "Mid-Senior Level"
-            },
-            "customField": [
-                {
-                    "fieldId": "58c15608e4b01d4b19ddf790",
-                    "fieldLabel": "Proces rekrutacji",
-                    "valueId": "c807eec2-8a53-4b55-b7c5-c03180f2059b",
-                    "valueLabel": "IT Allegro"
-                },
-                {
-                    "fieldId": "COUNTRY",
-                    "fieldLabel": "Country",
-                    "valueId": "pl",
-                    "valueLabel": "Poland"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf729",
-                    "fieldLabel": "Department",
-                    "valueId": "1013275",
-                    "valueLabel": "IT Business Services"
-                },
-                {
-                    "fieldId": "58c13159e4b01d4b19ddf728",
-                    "fieldLabel": "Brands",
-                    "valueId": "4ccb4fab-6c3f-4ed0-9140-8533fe17447f",
-                    "valueLabel": "Allegro"
-                }
-            ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999719499176",
-            "creator": {
-                "name": "Angelika Szymkiewicz"
             },
             "language": {
                 "code": "pl",
