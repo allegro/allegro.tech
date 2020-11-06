@@ -229,7 +229,7 @@
         {
             "name": "json-avro-converter",
             "url": "https://github.com/allegro/json-avro-converter",
-            "stars": 178,
+            "stars": 179,
             "description": "JSON to Avro conversion tool designed to make migration to Avro easier.",
             "featured": {
                 "primary": false,
