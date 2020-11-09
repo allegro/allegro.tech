@@ -64,7 +64,7 @@
         {
             "name": "ralph",
             "url": "https://github.com/allegro/ralph",
-            "stars": 1452,
+            "stars": 1453,
             "description": "Ralph is the CMDB / Asset Management system for data center and back office hardware.",
             "featured": {
                 "primary": true,
@@ -409,7 +409,7 @@
         {
             "name": "bigflow",
             "url": "https://github.com/allegro/bigflow",
-            "stars": 46,
+            "stars": 47,
             "description": "A Python framework for data processing on GCP.",
             "featured": {
                 "primary": false,
