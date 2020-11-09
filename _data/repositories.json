@@ -79,7 +79,7 @@
         {
             "name": "tipboard",
             "url": "https://github.com/allegro/tipboard",
-            "stars": 1028,
+            "stars": 1027,
             "description": "Tipboard - in-house, tasty, local dashboarding system ",
             "featured": {
                 "primary": false,
@@ -409,7 +409,7 @@
         {
             "name": "bigflow",
             "url": "https://github.com/allegro/bigflow",
-            "stars": 45,
+            "stars": 46,
             "description": "A Python framework for data processing on GCP.",
             "featured": {
                 "primary": false,
