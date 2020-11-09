@@ -199,7 +199,7 @@
         {
             "name": "allRank",
             "url": "https://github.com/allegro/allRank",
-            "stars": 216,
+            "stars": 215,
             "description": "allRank is a framework for training learning-to-rank neural models based on PyTorch.",
             "featured": {
                 "primary": false,
