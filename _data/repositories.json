@@ -26,8 +26,8 @@
         "mesos-executor",
         "bigflow",
         "kafka-offset-monitor-graphite",
-        "elasticsearch-reindex-tool",
         "selena",
+        "elasticsearch-reindex-tool",
         "cassandra-modeling-kata",
         "django-powerdns-dnssec",
         "slinger",
@@ -49,7 +49,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 4404,
+            "stars": 4407,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -79,7 +79,7 @@
         {
             "name": "tipboard",
             "url": "https://github.com/allegro/tipboard",
-            "stars": 1027,
+            "stars": 1028,
             "description": "Tipboard - in-house, tasty, local dashboarding system ",
             "featured": {
                 "primary": false,
@@ -109,7 +109,7 @@
         {
             "name": "hermes",
             "url": "https://github.com/allegro/hermes",
-            "stars": 651,
+            "stars": 652,
             "description": "Fast and reliable message broker built on top of Kafka.",
             "featured": {
                 "primary": true,
@@ -124,7 +124,7 @@
         {
             "name": "node-worker-nodes",
             "url": "https://github.com/allegro/node-worker-nodes",
-            "stars": 452,
+            "stars": 453,
             "description": "A node.js library to run cpu-intensive tasks in a separate processes and not block the event loop.",
             "featured": {
                 "primary": false,
@@ -139,7 +139,7 @@
         {
             "name": "turnilo",
             "url": "https://github.com/allegro/turnilo",
-            "stars": 378,
+            "stars": 379,
             "description": "Business intelligence, data exploration and visualization web application for Druid, formerly known as Swiv and Pivot",
             "featured": {
                 "primary": false,
@@ -437,10 +437,10 @@
             }
         },
         {
-            "name": "elasticsearch-reindex-tool",
-            "url": "https://github.com/allegro/elasticsearch-reindex-tool",
-            "stars": 41,
-            "description": "Elasticsearch reindexing tool.",
+            "name": "selena",
+            "url": "https://github.com/allegro/selena",
+            "stars": 42,
+            "description": "SELENA is a tool used to test website performance by measuring response times or verifying the content of replies.",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -452,10 +452,10 @@
             }
         },
         {
-            "name": "selena",
-            "url": "https://github.com/allegro/selena",
+            "name": "elasticsearch-reindex-tool",
+            "url": "https://github.com/allegro/elasticsearch-reindex-tool",
             "stars": 41,
-            "description": "SELENA is a tool used to test website performance by measuring response times or verifying the content of replies.",
+            "description": "Elasticsearch reindexing tool.",
             "featured": {
                 "primary": false,
                 "secondary": false
