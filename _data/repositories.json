@@ -21,8 +21,8 @@
         "akubra",
         "fogger",
         "envoy-control",
-        "opel",
         "elasticsearch-analysis-morfologik",
+        "opel",
         "mesos-executor",
         "bigflow",
         "kafka-offset-monitor-graphite",
@@ -32,16 +32,16 @@
         "django-powerdns-dnssec",
         "slinger",
         "ralph-cli",
-        "HerBERT",
         "swift-junit",
+        "HerBERT",
         "marathon-appcop",
         "grunt-maven-npm",
         "allegro.github.io",
         "pyhermes",
         "swiftbox",
+        "redux-storage-decorator-engines",
         "consul-registration-hook",
         "newrelic-gradle-plugin",
-        "redux-storage-decorator-engines",
         "quanta",
         "camus-compressor"
     ],
@@ -49,7 +49,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 4408,
+            "stars": 4409,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -362,10 +362,10 @@
             }
         },
         {
-            "name": "opel",
-            "url": "https://github.com/allegro/opel",
+            "name": "elasticsearch-analysis-morfologik",
+            "url": "https://github.com/allegro/elasticsearch-analysis-morfologik",
             "stars": 53,
-            "description": "OPEL - asynchronous expression language",
+            "description": "Morfologik Polish Lemmatizer plugin for Elasticsearch",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -377,10 +377,10 @@
             }
         },
         {
-            "name": "elasticsearch-analysis-morfologik",
-            "url": "https://github.com/allegro/elasticsearch-analysis-morfologik",
+            "name": "opel",
+            "url": "https://github.com/allegro/opel",
             "stars": 53,
-            "description": "Morfologik Polish Lemmatizer plugin for Elasticsearch",
+            "description": "OPEL - asynchronous expression language",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -527,10 +527,10 @@
             }
         },
         {
-            "name": "HerBERT",
-            "url": "https://github.com/allegro/HerBERT",
+            "name": "swift-junit",
+            "url": "https://github.com/allegro/swift-junit",
             "stars": 20,
-            "description": "HerBERT is a BERT-based Language Model trained on Polish Corpora using only MLM objective with dynamic masking of whole words.",
+            "description": "A Swift library for creating JUnit XML test results that can be interpreted by tools such as Bamboo or Jenkins. Macos and Linux ready.",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -542,10 +542,10 @@
             }
         },
         {
-            "name": "swift-junit",
-            "url": "https://github.com/allegro/swift-junit",
-            "stars": 19,
-            "description": "A Swift library for creating JUnit XML test results that can be interpreted by tools such as Bamboo or Jenkins. Macos and Linux ready.",
+            "name": "HerBERT",
+            "url": "https://github.com/allegro/HerBERT",
+            "stars": 20,
+            "description": "HerBERT is a BERT-based Language Model trained on Polish Corpora using only MLM objective with dynamic masking of whole words.",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -632,6 +632,21 @@
             }
         },
         {
+            "name": "redux-storage-decorator-engines",
+            "url": "https://github.com/allegro/redux-storage-decorator-engines",
+            "stars": 14,
+            "description": "Composing decorator for redux-storage to use different storage types",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
             "name": "consul-registration-hook",
             "url": "https://github.com/allegro/consul-registration-hook",
             "stars": 14,
@@ -651,21 +666,6 @@
             "url": "https://github.com/allegro/newrelic-gradle-plugin",
             "stars": 14,
             "description": "Newrelic Gradle plugin.",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "redux-storage-decorator-engines",
-            "url": "https://github.com/allegro/redux-storage-decorator-engines",
-            "stars": 14,
-            "description": "Composing decorator for redux-storage to use different storage types",
             "featured": {
                 "primary": false,
                 "secondary": false
