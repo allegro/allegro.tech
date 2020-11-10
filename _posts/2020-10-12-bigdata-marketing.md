@@ -15,9 +15,9 @@ purposes.
 Allegro is the biggest e-commerce platform in Poland and is in the top 10 of
 biggest e-commerce platforms in the world. Our catalog numbers almost
 200 million offers at this moment (september 2020), and the number is still growing.
-The marketing team uses tools such as 
-[Google Merchant Center](https://www.google.com/retail/solutions/merchant-center/) 
-and [Facebook Ads](https://www.facebook.com/business/ads) in order to advertise 
+The marketing team uses tools such as
+[Google Merchant Center](https://www.google.com/retail/solutions/merchant-center/)
+and [Facebook Ads](https://www.facebook.com/business/ads) in order to advertise
 Allegro offers and get more traffic to the platform. To integrate with
 them we need to prepare an XML file containing information about our offers.
 Such XML files are called _"feed"_ . We will use this name later on.
