@@ -23,8 +23,8 @@
         "envoy-control",
         "elasticsearch-analysis-morfologik",
         "opel",
-        "mesos-executor",
         "bigflow",
+        "mesos-executor",
         "kafka-offset-monitor-graphite",
         "selena",
         "elasticsearch-reindex-tool",
@@ -392,10 +392,10 @@
             }
         },
         {
-            "name": "mesos-executor",
-            "url": "https://github.com/allegro/mesos-executor",
+            "name": "bigflow",
+            "url": "https://github.com/allegro/bigflow",
             "stars": 49,
-            "description": "Customizable Apache Mesos task executor",
+            "description": "A Python framework for data processing on GCP.",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -407,10 +407,10 @@
             }
         },
         {
-            "name": "bigflow",
-            "url": "https://github.com/allegro/bigflow",
-            "stars": 48,
-            "description": "A Python framework for data processing on GCP.",
+            "name": "mesos-executor",
+            "url": "https://github.com/allegro/mesos-executor",
+            "stars": 49,
+            "description": "Customizable Apache Mesos task executor",
             "featured": {
                 "primary": false,
                 "secondary": false
