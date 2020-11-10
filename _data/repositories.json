@@ -199,7 +199,7 @@
         {
             "name": "allRank",
             "url": "https://github.com/allegro/allRank",
-            "stars": 215,
+            "stars": 216,
             "description": "allRank is a framework for training learning-to-rank neural models based on PyTorch.",
             "featured": {
                 "primary": false,
@@ -469,7 +469,7 @@
         {
             "name": "cassandra-modeling-kata",
             "url": "https://github.com/allegro/cassandra-modeling-kata",
-            "stars": 33,
+            "stars": 34,
             "description": "Cassandra Modeling Kata",
             "featured": {
                 "primary": false,
