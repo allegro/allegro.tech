@@ -124,7 +124,7 @@
         {
             "name": "node-worker-nodes",
             "url": "https://github.com/allegro/node-worker-nodes",
-            "stars": 453,
+            "stars": 454,
             "description": "A node.js library to run cpu-intensive tasks in a separate processes and not block the event loop.",
             "featured": {
                 "primary": false,
@@ -139,7 +139,7 @@
         {
             "name": "turnilo",
             "url": "https://github.com/allegro/turnilo",
-            "stars": 381,
+            "stars": 382,
             "description": "Business intelligence, data exploration and visualization web application for Druid, formerly known as Swiv and Pivot",
             "featured": {
                 "primary": false,
