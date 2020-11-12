@@ -9,8 +9,8 @@
         "turnilo",
         "axion-release-plugin",
         "embedded-elasticsearch",
-        "grunt-maven-plugin",
         "allRank",
+        "grunt-maven-plugin",
         "vaas",
         "json-avro-converter",
         "marathon-consul",
@@ -182,10 +182,10 @@
             }
         },
         {
-            "name": "grunt-maven-plugin",
-            "url": "https://github.com/allegro/grunt-maven-plugin",
-            "stars": 217,
-            "description": "Grunt + Maven integration done right",
+            "name": "allRank",
+            "url": "https://github.com/allegro/allRank",
+            "stars": 218,
+            "description": "allRank is a framework for training learning-to-rank neural models based on PyTorch.",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -197,10 +197,10 @@
             }
         },
         {
-            "name": "allRank",
-            "url": "https://github.com/allegro/allRank",
+            "name": "grunt-maven-plugin",
+            "url": "https://github.com/allegro/grunt-maven-plugin",
             "stars": 217,
-            "description": "allRank is a framework for training learning-to-rank neural models based on PyTorch.",
+            "description": "Grunt + Maven integration done right",
             "featured": {
                 "primary": false,
                 "secondary": false
