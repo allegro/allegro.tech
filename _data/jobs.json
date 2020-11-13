@@ -4,15 +4,15 @@
     "totalFound": 43,
     "content": [
         {
-            "id": "743999724476195",
+            "id": "743999724558074",
             "name": "Business Applications Administrator",
-            "uuid": "d9db3a36-a39d-4b5b-9758-162954fe6dc5",
+            "uuid": "ac3de4b2-4ac9-47a9-9916-5479f99921dc",
             "refNumber": "REF2407T",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-11-12T15:34:44.000Z",
+            "releasedDate": "2020-11-13T08:46:13.000Z",
             "location": {
                 "city": "Poznań",
                 "country": "pl",
@@ -63,7 +63,7 @@
                     "valueLabel": "Allegro"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999724476195",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999724558074",
             "creator": {
                 "name": "Paulina Partyka"
             },
