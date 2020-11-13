@@ -394,7 +394,7 @@
         {
             "name": "bigflow",
             "url": "https://github.com/allegro/bigflow",
-            "stars": 49,
+            "stars": 50,
             "description": "A Python framework for data processing on GCP.",
             "featured": {
                 "primary": false,
