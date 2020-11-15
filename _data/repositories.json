@@ -94,7 +94,7 @@
         {
             "name": "php-protobuf",
             "url": "https://github.com/allegro/php-protobuf",
-            "stars": 884,
+            "stars": 885,
             "description": "PHP Protobuf - Google's Protocol Buffers for PHP",
             "featured": {
                 "primary": false,
