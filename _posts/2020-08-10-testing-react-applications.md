@@ -6,12 +6,12 @@ tags: [javascript, frontend, react, jest, enzyme, redux, typescript]
 ---
 
 JavaScript Frameworks play an important role in creating modern web applications.
-They provide developers with a variety of proven and well-tested solutions for develop efficient and scalable applications.
+They provide developers with a variety of proven and well-tested solutions for creating efficient and scalable applications.
 Nowadays, it's hard to find a company that builds its frontend products without using any framework,
 so knowing at least one of them is a necessary skill for every frontend developer.
 To truly know a framework, we need to understand not only how to create applications using it, but also how to test them.
 
-## JavaScript Frameworks
+## JavaScript frameworks
 
 There are lots of JS frameworks for creating web applications,
 and every year there are more and more candidates to take the leading position.
@@ -28,9 +28,11 @@ which never ends well.
 
 In my opinion, testing is so important because:
 
-* for well-tested applications, the chances are great, that the developer will fix any bugs before users encounter them,
-* having many tests makes it easier to change the code. When the developer changes existing code,
-he immediately knows if the application is still working properly.
+* for well-tested applications, the chances are great, that the developer will fix any bugs before pushing to the repository,
+* having many well-written tests makes it easier for the developer to change the code,
+because he immediately knows if the application is still working properly,
+* we can say that tests are also documentation - and what is even better, such a documentation is always up to date,
+because when code is changed and test fails we have to update this test.
 
 While testing React components may seem complicated at first,
 the sooner we start learning the easier it will be to do it well over time and with little effort.
@@ -42,12 +44,12 @@ The set of frameworks and tools for testing React applications is very big,
 so at the beginning of the testing adventure the question is: what to choose?
 Instead of listing all the most popular tools, I would like to present those that I use every day, Jest + Enzyme.
 
-[**Jest**](https://jestjs.io/) - One of the most popular (7M downloads each week) and very efficient JS testing framework.
+[**Jest**](https://jestjs.io/) - One of the most popular (7M downloads each week) and very efficient JS testing framework,
+recommended by React creators.
 
-**Enzyme** - React component testing tools. By adding an abstraction layer to the rendered component,
+[**Enzyme**](https://enzymejs.github.io/enzyme/) - React component testing tools. By adding an abstraction layer to the rendered component,
 Enzyme allows you to manipulate the component and search for other components and HTML elements within it.
-Another advantage is also [well-written documentation](https://enzymejs.github.io/enzyme/)
-that makes it easier to start working with this tool.
+Another advantage is also well-written documentation that makes it easier to start working with this tool.
 
 This combination of the test framework (Jest), and the component manipulation tool (Enzyme)
 enables the creation of efficient unit and integration tests for React components.
@@ -69,7 +71,7 @@ export const UserInfoBasic = ({ user }) => {
   const [showDetails, setShowDetails] = useState(false);
 
   const renderUserDetails = () => (
-    <div id="userDetails" className={styles.details}>
+    <div className={styles.details}>
       <Typography variant="h5">Details</Typography>
       <p>Login: {user.login}</p>
       <p>Email: {user.email}</p>
@@ -97,6 +99,11 @@ Component receives a _user_ object in props and displays user info in two sectio
 The first section contains the first and last name and is visible all the time.
 The second section provides details and is hidden after the first render, but can be viewed by clicking a button.
 
+You can see what is rendered by this component initially and after button click on these screenshots.
+
+![Basic component - initial state](/img/articles/2020-08-10-testing-react-applications/basic_hidden.png)
+![Basic component - after click](/img/articles/2020-08-10-testing-react-applications/basic_displayed.png)
+
 This component does not use any advanced React mechanisms or external libraries.
 Tests of such a component written with Jest + Enzyme are very simple and intuitive.
 
@@ -120,7 +127,7 @@ describe('UserInfoBasic', () => {
     });
 
     test('should not render details', () => {
-      expect(wrapper.find('#userDetails').length).toEqual(0);
+      expect(wrapper.findWhere((n) => n.text() === 'Login: dariuszwojtowicz').length).toEqual(0);
     });
 
     test('should render "show user details" button', () => {
@@ -135,7 +142,7 @@ describe('UserInfoBasic', () => {
     wrapper.find(Button).simulate('click');
 
     test('should render details', () => {
-      expect(wrapper.find('#userDetails').length).toEqual(1);
+      expect(wrapper.findWhere((n) => n.text() === 'Login: dariuszwojtowicz').length).toEqual(1);
     });
 
     test('should render "Hide user details" button', () => {
@@ -145,7 +152,7 @@ describe('UserInfoBasic', () => {
 });
 ```
 
-First we define the mock _user_ object, which we pass in the props of the tested component in all tests.
+First we define the _user_ object, which we pass in the props of the tested component in all tests.
 Then we use the _describe_ methods of the Jest framework to divide the tests into logical sets.
 In this case, two sets have been defined.
 
@@ -178,11 +185,11 @@ More tests can be added, but for the purpose of showing the use of Jest + Enzyme
 ### Component with Redux
 
 Complex projects written in React are very common. When an application consists not of several,
-but of several dozen or even several hundred components, there is almost always a problem with managing the state.
-One solution is to use [Redux](https://redux.js.org/), a state management library for JavaScript applications.
+but of dozens or even hundreds components, there is almost always a problem with managing the state.
+One solution is to use [Redux](https://redux.js.org/), a predictable state container for JavaScript applications.
+In other words, Redux is an application data-flow architecture, because it maintains the state of an application in a single
+immutable tree object. This object can’t be changed directly, only using actions and reducers which create a new object.
 
-For those unfamiliar with Redux, let's say that it is a kind of box with the state of our application.
-Each component can retrieve any value from this box and change any value in this box when it is needed.
 Below you can see the implementation of the previous component adapted to work with Redux.
 
 ```jsx
@@ -211,16 +218,16 @@ export const UserInfoRedux = connect(mapStateToProps, mapDispatchToProps)(UserIn
 ```
 
 Only a few things have changed in comparision to the basic version of this component.
-New function _mapStateToProps_ is responsible for mapping the Redux state (the content of our box) to props of our component.
+New function _mapStateToProps_ is responsible for mapping the Redux state to props of our component.
 The second function _mapDispatchToProps_ is responsible for assigning Redux actions to component properties.
 With these actions the component is able to change the state managed by Redux
 (in this case the component can change the user's _email_ using the _updateEmail_ action).
 
 Instead of read-only text containing the user's _email_ address, an editable _Textfield_ has appeared.
-Now, when _email_ is changed, the _updateEmail_ action is triggered and _email_ is changed in Redux box.
+Now, when _email_ is changed, the _updateEmail_ action is dispatched and _email_ is changed in Redux store.
 
 The last change in the component implementation is the use of the _connect_ function from Redux,
-thanks to which our component is connected to our box.
+thanks to which our component is connected to global application state.
 
 However, for the component to be able to work with Redux, we need to provide a Redux store in our application.
 And this is done as follows:
@@ -284,7 +291,7 @@ The last step is to render the _UserInfoRedux_ component inside the Redux Provid
 
 Thanks to these changes, the tests pass again.
 
-There is also one new test that simulates changing an email address and checks if the changes were performed on the Redux box.
+There is also one new test that simulates changing an email address and checks if the changes were performed on the Redux state.
 This way, we can test whether user interactions are reflected in the application state stored in Redux.
 
 ## Component with Router
@@ -293,7 +300,7 @@ Another solution often found in larger projects that really simplifies building 
 [React Router](https://reactrouter.com/) is responsible for routing in React applications. Thanks to it, we can, for example, use the same component
 at different addresses, in a slightly different way. As an example, I used the same component that displays user data.
 At the _/profile_ address it displays the data of a currently logged user and allows to modify the email address.
-On the other hand, at the _/users/{id}_ address the same component displays user data with the given identifier, and it is read-only.
+On the other hand, at the _/users/{id}_ address the same component displays the user with given identifier, and it is read-only.
 Here are the changes in the component implementation that I made to achieve this result:
 
 ```jsx
@@ -320,7 +327,7 @@ const UserInfoReduxRouterComponent = ({ currentUser, users, updateEmail, locatio
         disabled={location.pathname !== '/profile'}
       />
     </div>
-  )
+  );
 
   const getUserFullName = () => `${userData.name} ${userData.lastName}`;
   const toggleDetails = () => setShowDetails(!showDetails);
@@ -328,17 +335,20 @@ const UserInfoReduxRouterComponent = ({ currentUser, users, updateEmail, locatio
     if (location.pathname === '/profile') {
       updateEmail(event.target.value);
     }
-  }
-
-  let userData = null;
-  if (location.pathname === '/profile') {
-    userData = currentUser;
-  } else {
-    const foundUser = users.find((user) => user.id == match.params.id);
-    if (foundUser) {
-      userData = foundUser;
+  };
+  const getUserData = () => {
+    if (location.pathname === '/profile') {
+      return currentUser;
+    } else {
+      const foundUser = users.find((user) => user.id == match.params.id);
+      if (foundUser) {
+        return foundUser;
+      }
     }
-  }
+    return null;
+  };
+
+  const userData = getUserData();
 
   const renderUserInfo = () => (
     <>
@@ -418,9 +428,10 @@ const wrapper = mount(
 );
 ```
 
-First, we define the address at which we want to test our component
+First, we define the address at which we want to test our component.
 Next, we create a mock for the _match_ object and pass the address to it (the _path_ variable).
-Using the _createLocation_ function that comes from the _history_ package, we create a mock for the _location_ object.
+Using the _createLocation_ function that comes from the
+[_history_ package](https://github.com/ReactTraining/history#readme), we create a mock for the _location_ object.
 Finally, we pass the created mocks of _match_ and _location_ objects to the component props.
 Thanks to these changes, we provided the routing context and the component can work properly.
 Tests pass again.
@@ -436,6 +447,14 @@ That is why TypeScript was created, it is a language that is a superset of JavaS
 Looking at the implementation of the component above, we can see what props the component takes.
 This is, for example, _currentUser_, but we do not know what properties should such object provide.
 Is email required? Can we skip age? TypeScript solves this kind of issues.
+
+Typescript also makes writing tests easier, because:
+
+* we don't have to look at the component implementation every few seconds just to verify it's API thanks to static types,
+* when some public interface is changed and it was previously used in some test, we don't need to run the tests
+to know which of them fails - they just won’t compile,
+* we do not need to write test cases where we are passing wrong types to tested function or component - Typescript
+makes sure that there are no such situations in code.
 
 Now let's see how our component looks like, written in TypeScript.
 
@@ -491,7 +510,7 @@ const UserInfoReduxRouterTsComponent: React.FC<UserInfoReduxRouterTsProps> = (
         disabled={location.pathname !== '/profile'}
       />
     </div>
-  )
+  );
 
   const getUserFullName = (): JSX.Element => `${userData.name} ${userData.lastName}`;
   const toggleDetails = (): void => setShowDetails(!showDetails);
@@ -501,6 +520,19 @@ const UserInfoReduxRouterTsComponent: React.FC<UserInfoReduxRouterTsProps> = (
     }
   }
   const getUserId = (): number => parseInt(location.pathname.split('users/')[1], 10);
+  const getUserData = (): User => {
+    if (location.pathname === '/profile') {
+      return currentUser;
+    } else {
+      const foundUser = users.find((user: User) => user.id == getUserId());
+      if (foundUser) {
+        return foundUser;
+      }
+    }
+    return null;
+  };
+
+  const userData: User = getUserData();
 
   // No more changes, rest is the same.
 };
