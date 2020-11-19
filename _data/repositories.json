@@ -49,7 +49,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 4431,
+            "stars": 4432,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -64,7 +64,7 @@
         {
             "name": "ralph",
             "url": "https://github.com/allegro/ralph",
-            "stars": 1464,
+            "stars": 1465,
             "description": "Ralph is the CMDB / Asset Management system for data center and back office hardware.",
             "featured": {
                 "primary": true,
@@ -79,7 +79,7 @@
         {
             "name": "tipboard",
             "url": "https://github.com/allegro/tipboard",
-            "stars": 1029,
+            "stars": 1030,
             "description": "Tipboard - in-house, tasty, local dashboarding system ",
             "featured": {
                 "primary": false,
@@ -139,7 +139,7 @@
         {
             "name": "turnilo",
             "url": "https://github.com/allegro/turnilo",
-            "stars": 382,
+            "stars": 383,
             "description": "Business intelligence, data exploration and visualization web application for Druid, formerly known as Swiv and Pivot",
             "featured": {
                 "primary": false,
@@ -184,7 +184,7 @@
         {
             "name": "allRank",
             "url": "https://github.com/allegro/allRank",
-            "stars": 219,
+            "stars": 220,
             "description": "allRank is a framework for training learning-to-rank neural models based on PyTorch.",
             "featured": {
                 "primary": false,
@@ -364,7 +364,7 @@
         {
             "name": "elasticsearch-analysis-morfologik",
             "url": "https://github.com/allegro/elasticsearch-analysis-morfologik",
-            "stars": 54,
+            "stars": 55,
             "description": "Morfologik Polish Lemmatizer plugin for Elasticsearch",
             "featured": {
                 "primary": false,
