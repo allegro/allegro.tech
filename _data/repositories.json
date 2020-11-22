@@ -364,7 +364,7 @@
         {
             "name": "elasticsearch-analysis-morfologik",
             "url": "https://github.com/allegro/elasticsearch-analysis-morfologik",
-            "stars": 55,
+            "stars": 56,
             "description": "Morfologik Polish Lemmatizer plugin for Elasticsearch",
             "featured": {
                 "primary": false,
