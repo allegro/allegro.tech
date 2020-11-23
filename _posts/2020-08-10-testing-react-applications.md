@@ -2,7 +2,7 @@
 layout: post
 title: "Testing React applications with Jest and Enzyme"
 author: dariusz.wojtowicz
-tags: [javascript, frontend, react, jest, enzyme, redux, typescript]
+tags: [tech, javascript, frontend, react, jest, enzyme, redux, typescript]
 ---
 
 JavaScript Frameworks play an important role in creating modern web applications.
@@ -200,11 +200,11 @@ const UserInfoReduxComponent = ({ currentUser, updateEmail }) => {
   const [showDetails, setShowDetails] = useState(false);
 
   const renderUserDetails = () => (
-    <div id="userDetails" className={styles.details}>
+    <div className={styles.details}>
       <Typography variant="h5">Details</Typography>
       <p>Login: {currentUser.login}</p>
       <p>Age: {currentUser.age}</p>
-      <TextField id="email" type="text" label="Email" value={currentUser.email} onChange={changeEmail} />
+      <TextField type="text" label="Email" value={currentUser.email} onChange={changeEmail} />
     </div>
   )
 
@@ -271,7 +271,7 @@ describe('UserInfoRedux', () => {
 
     test('should update user email in store after input value change', () => {
       // when
-      wrapper.find('input#email').simulate('change', { target: { value: 'new@email.com' }});
+      wrapper.find('input').simulate('change', { target: { value: 'new@email.com' }});
 
       // then
       expect(store.dispatch).toHaveBeenCalledWith( {
@@ -314,12 +314,11 @@ const UserInfoReduxRouterComponent = ({ currentUser, users, updateEmail, locatio
   const [showDetails, setShowDetails] = useState(false);
 
   const renderUserDetails = () => (
-    <div id="userDetails" className={styles.details}>
+    <div className={styles.details}>
       <Typography variant="h5">Details</Typography>
       <p>Login: {userData.login}</p>
       <p>Age: {userData.age}</p>
       <TextField
-        id="email"
         type="text"
         label="Email"
         value={userData.email}
@@ -352,7 +351,7 @@ const UserInfoReduxRouterComponent = ({ currentUser, users, updateEmail, locatio
 
   const renderUserInfo = () => (
     <>
-      <Typography id="header" variant="h4">Info about user: {getUserFullName()} (id: {userData.id})</Typography>
+      <Typography variant="h4">Info about user: {getUserFullName()} (id: {userData.id})</Typography>
       <p>First name: {userData.name}</p>
       <p>Last name: {userData.lastName}</p>
       <Button style={{'border': '1px solid grey'}} onClick={toggleDetails}>{showDetails ? 'Hide' : 'Show'} user details</Button>
@@ -448,9 +447,9 @@ Looking at the implementation of the component above, we can see what props the 
 This is, for example, _currentUser_, but we do not know what properties should such object provide.
 Is email required? Can we skip age? TypeScript solves this kind of issues.
 
-Typescript also makes writing tests easier, because:
+Typescript also makes writing and maintaining tests easier, because:
 
-* we don't have to look at the component implementation every few seconds just to verify it's API thanks to static types,
+* we don't have to look at the component implementation every few seconds just to verify its API thanks to static types,
 * when some public interface is changed and it was previously used in some test, we don't need to run the tests
 to know which of them fails - they just won’t compile,
 * we do not need to write test cases where we are passing wrong types to tested function or component - Typescript
@@ -496,13 +495,12 @@ const UserInfoReduxRouterTsComponent: React.FC<UserInfoReduxRouterTsProps> = (
   const [showDetails, setShowDetails] = useState(false);
 
   const renderUserDetails = (): JSX.Element => (
-    <div id="userDetails" className={styles.details}>
+    <div className={styles.details}>
       <Typography variant="h5">Details</Typography>
       <p>Login: {userData.login}</p>
       <p>Age: {userData.age}</p>
       <TextField
         fullWidth
-        id="email"
         type="text"
         label="Email"
         value={userData.email}
