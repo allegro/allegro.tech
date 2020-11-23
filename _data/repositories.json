@@ -169,7 +169,7 @@
         {
             "name": "embedded-elasticsearch",
             "url": "https://github.com/allegro/embedded-elasticsearch",
-            "stars": 255,
+            "stars": 256,
             "description": "Tool that ease up creation of integration tests with Elasticsearch",
             "featured": {
                 "primary": false,
