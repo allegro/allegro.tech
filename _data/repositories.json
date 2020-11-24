@@ -22,8 +22,8 @@
         "fogger",
         "envoy-control",
         "elasticsearch-analysis-morfologik",
-        "bigflow",
         "opel",
+        "bigflow",
         "mesos-executor",
         "kafka-offset-monitor-graphite",
         "selena",
@@ -377,10 +377,10 @@
             }
         },
         {
-            "name": "bigflow",
-            "url": "https://github.com/allegro/bigflow",
-            "stars": 53,
-            "description": "A Python framework for data processing on GCP.",
+            "name": "opel",
+            "url": "https://github.com/allegro/opel",
+            "stars": 54,
+            "description": "OPEL - asynchronous expression language",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -392,10 +392,10 @@
             }
         },
         {
-            "name": "opel",
-            "url": "https://github.com/allegro/opel",
+            "name": "bigflow",
+            "url": "https://github.com/allegro/bigflow",
             "stars": 53,
-            "description": "OPEL - asynchronous expression language",
+            "description": "A Python framework for data processing on GCP.",
             "featured": {
                 "primary": false,
                 "secondary": false
