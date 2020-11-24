@@ -49,7 +49,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 4439,
+            "stars": 4440,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -64,7 +64,7 @@
         {
             "name": "ralph",
             "url": "https://github.com/allegro/ralph",
-            "stars": 1470,
+            "stars": 1472,
             "description": "Ralph is the CMDB / Asset Management system for data center and back office hardware.",
             "featured": {
                 "primary": true,
@@ -169,7 +169,7 @@
         {
             "name": "embedded-elasticsearch",
             "url": "https://github.com/allegro/embedded-elasticsearch",
-            "stars": 256,
+            "stars": 257,
             "description": "Tool that ease up creation of integration tests with Elasticsearch",
             "featured": {
                 "primary": false,
@@ -529,7 +529,7 @@
         {
             "name": "HerBERT",
             "url": "https://github.com/allegro/HerBERT",
-            "stars": 21,
+            "stars": 22,
             "description": "HerBERT is a BERT-based Language Model trained on Polish Corpora using only MLM objective with dynamic masking of whole words.",
             "featured": {
                 "primary": false,
