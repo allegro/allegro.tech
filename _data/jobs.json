@@ -4,15 +4,15 @@
     "totalFound": 44,
     "content": [
         {
-            "id": "743999725433914",
+            "id": "743999725439789",
             "name": "Product Manager (Allegro Lokalnie)",
-            "uuid": "bbef9d9f-ffcf-4f09-8b02-4eb946f016e9",
+            "uuid": "eb536e60-e35c-4e23-a47b-3e7ca5eada35",
             "refNumber": "REF2428W",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-11-24T09:23:39.000Z",
+            "releasedDate": "2020-11-24T10:49:32.000Z",
             "location": {
                 "city": "Poznań, Warszawa, Kraków, Toruń",
                 "country": "pl",
@@ -93,7 +93,7 @@
                     "valueLabel": "Tak"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999725433914",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999725439789",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
