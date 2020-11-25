@@ -168,11 +168,11 @@ Chart below it's only small portion of our dependency tree (generated in Bazel).
 
 After the migration to Bazel we can query our dependency graph to get a list of targets that a given file affects
 and runs unit tests for that target. That improved our experience since we used to manually maintain which was error
-prone and time consuming. 
+prone and time consuming.
 
 ![Sample query](/img/articles/2020-11-25-speeding-up-ios-builds-with-bazel/query.png)
 
-Build results can be cached the same way as build artifacts. 
+Build results can be cached the same way as build artifacts.
 That has dramatically reduced tests times of our master branch test plan, we can run `bazel test //...` and only test
 targets that have not been run previously are running. We can see how much this reduced test time on chart below:
 
