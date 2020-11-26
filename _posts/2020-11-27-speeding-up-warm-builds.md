@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Speeding up incremental builds in Xcode
+title: Speeding up warm builds in Xcode
 author: maciej.piotrowski
 tags: [tech, ios, xcode, swift, objectivec]
 ---
 
 ## Slow builds
 
-Programmers who have ever developed in the early days of **Swift** language might remember ridiculous times it took to compile the whole project. For large and complicated codebase times used to range between 10 to even 40 minutes. Over the years our toolset has improved alongside with compilation times, but slow build times of source code can still be a nightmare. 
+Programmers who have ever developed software for Apple platforms in the early days of **Swift** language might remember ridiculous times it took to compile the whole project. For large and complicated codebase times used to range between 10 to even 40 minutes. Over the years our toolset has improved alongside with compilation times, but slow build times of source code can still be a nightmare. 
 
 When we wait a few minutes for a build we navigate ourselves towards different activities and start e.g. watching funny animal pictures or YouTube videos, easily **loosing context** of the task at hand. What becomes annoying for us is **slow feedback** of code correctness.
 
@@ -104,7 +104,7 @@ Thanks to performing the **warm build** it can be easily noticed that there's a 
 
 First thing we did with for our iOS application target was selecting scripts which can be run only for Release builds. There's an easy way in Xcode to mark them as runnable for such builds only - just select `For install builds only` checkbox.
 
-<img alt="Run script: For install builds only - checkbox in Xcode" src="/img/articles/2021-XX-YY-xcode-warm-build/xcode-run-for-release.png"/>
+<img alt="Run script: For install builds only - checkbox in Xcode" src="/img/articles/2020-11-27-speeding-up-warm-builds/xcode-run-for-release.png"/>
 
 What jobs are great for running only for Release builds? We selected a few:
 
@@ -114,9 +114,9 @@ What jobs are great for running only for Release builds? We selected a few:
 
 Not all tasks can be selected as Release - only. Some of them need to be run for Debug and Release builds, but they don't have to be run for every build. Xcode 12 introduced a neat feature - running the script based on dependency analysis.
 
-<img alt="Run script: Based on dependency analysis - checkbox in Xcode" src="/img/articles/2021-XX-YY-xcode-warm-build/xcode-dependency-analysis.png"/>
+<img alt="Run script: Based on dependency analysis - checkbox in Xcode" src="/img/articles/2020-11-27-speeding-up-warm-builds/xcode-dependency-analysis.png"/>
 
-Selecting the checkbox isn't enough to benefit from dependency analysis. Xcode analyses dependencies of a script, i.e. it verifies if the inputs of the script has changed since the last run and if the outputs of the script exist. The potential problem occurred for scripts in our project - they didn't have explicit inputs and outputs defined so we couldn't tap into the brand new feature of Xcode 😢.
+Selecting the checkbox isn't enough to benefit from dependency analysis. Xcode analyses dependencies of a script, i.e. it verifies if the inputs of the script has changed since the last run and if the outputs of the script exist. The potential problem occurred for scripts in our project - they didn't have explicit inputs and outputs defined so we couldn't tap into the brand new feature of Xcode.
 
 ## Defining inputs and outputs for scripts
 
@@ -179,7 +179,7 @@ ValidateEmbeddedBinary (2 tasks) | 2.314 seconds
 ** BUILD SUCCEEDED ** [7.500 sec]
 ```
 
-At the time of writing the **warm build time** on our CI machines takes **4 seconds**. The overall goal of speeding up builds is so that the **clean build** was equal to **warm build**.
+At the time of writing the **warm build time** on our CI machines takes **4 seconds**. The overall goal of speeding up builds is so that the **clean build** time becomes equal to **warm build**.
 
 ## Links
 
