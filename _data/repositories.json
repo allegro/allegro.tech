@@ -319,7 +319,7 @@
         {
             "name": "akubra",
             "url": "https://github.com/allegro/akubra",
-            "stars": 77,
+            "stars": 76,
             "description": "Simple solution to keep a independent S3 storages in sync",
             "featured": {
                 "primary": false,
