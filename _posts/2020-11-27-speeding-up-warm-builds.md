@@ -124,7 +124,7 @@ One of the scripts in our project which is time-consuming copies bundles with re
 
 The list with `.bundle` files to be copied became an input to our script. We also created a list with paths to which bundles are copied. Xcode uses a `.xcfilelist` format for such lists, but it's just a file with newline-separated values. The `copy-bundles-input.xcfilelist` input to our script looks as such:
 
-```
+```sh
 $(BUILT_PRODUCTS_DIR)/ModuleX.framework/ModuleX.bundle
 $(BUILT_PRODUCTS_DIR)/ModuleY.framework/ModuleY.bundle
 $(BUILT_PRODUCTS_DIR)/ModuleZ.framework/ModuleZ.bundle
@@ -132,7 +132,7 @@ $(BUILT_PRODUCTS_DIR)/ModuleZ.framework/ModuleZ.bundle
 
 and the `copy-bundles-output.xcfilelist` output:
 
-```
+```sh
 $(TARGET_BUILD_DIR)/$(EXECUTABLE_FOLDER_PATH)/ModuleX.bundle
 $(TARGET_BUILD_DIR)/$(EXECUTABLE_FOLDER_PATH)/ModuleY.bundle
 $(TARGET_BUILD_DIR)/$(EXECUTABLE_FOLDER_PATH)/ModuleZ.bundle
@@ -157,7 +157,7 @@ There is also a possibility to use input and output files instead of a list (not
 
 We based our script copying resource bundles only on file lists and it's actually quite simple - it just copies files from the input file list to the destination which is the path to the executable.
 
-```
+```sh
 destination="${TARGET_BUILD_DIR}/${EXECUTABLE_FOLDER_PATH}"
 grep -v '^ *#' < "${SCRIPT_INPUT_FILE_LIST_0}" | while IFS= read -r bundle_path
 do
