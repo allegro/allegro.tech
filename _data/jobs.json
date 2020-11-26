@@ -4,15 +4,15 @@
     "totalFound": 43,
     "content": [
         {
-            "id": "743999725644946",
-            "name": "Product Manager  (Transactions)",
-            "uuid": "917a4d26-3c14-4174-9a2d-96f50d6ec0b2",
+            "id": "743999725649393",
+            "name": "Product Manager  (Consumer Experience - Transactions)",
+            "uuid": "095603b4-2601-4bc7-8666-0b423d1dd4f8",
             "refNumber": "REF2171K",
             "company": {
                 "identifier": "Allegro",
                 "name": "Allegro"
             },
-            "releasedDate": "2020-11-26T10:26:59.000Z",
+            "releasedDate": "2020-11-26T11:48:55.000Z",
             "location": {
                 "city": "Warszawa, Poznań, Kraków",
                 "country": "pl",
@@ -92,7 +92,7 @@
                     "valueLabel": "Product Manager, Product Management"
                 }
             ],
-            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999725644946",
+            "ref": "https://api.smartrecruiters.com/v1/companies/allegro/postings/743999725649393",
             "creator": {
                 "name": "Małgorzata Sejdak"
             },
