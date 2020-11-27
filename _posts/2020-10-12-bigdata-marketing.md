@@ -1,6 +1,6 @@
 --- 
 layout: post 
-title: Big data marketing. The story of how technology behind Allegro marketing works.  
+title: Big data marketing. The story of how technology behind Allegro marketing works. 
 author: [filip.blaszczyk, piotr.goralczyk, grzegorz.kaczmarczyk] 
 tags: [tech, architecture, bigdata, spark] 
 ---
@@ -68,19 +68,19 @@ Ok, so that was the moment when we knew that we needed a new solution. What
 requirements we had:
 
 - Execution time cut off to 1h (2h at most) while keeping same amount of
-  resources
+ resources
 - Possibility to query over any offer property (in old solution we had only
-  some predefined predicates)
+ some predefined predicates)
 - Possibility of choosing offer by some key (or in programmers language: group
-  by + aggregate)
+ by + aggregate)
 - Easy extensibility of new data sources (let’s say some new feature shows up
-  in Allegro, we should be able to introduce new data related with that
+ in Allegro, we should be able to introduce new data related with that
 feature ASAP)
 - Possibility to create feed with arbitrary size: from just a few offers to
-  whole catalog
+ whole catalog
 - Possibility to scale horizontally
 - Last but not least: possibility of integration with our partners not only by
-  files, but also using an event-based approach (streaming API)
+ files, but also using an event-based approach (streaming API)
 
 Those requirements would be easy to comply with in case of a “normal” shop with
 a few thousands of products. But what scale do we have in Allegro?
@@ -95,7 +95,7 @@ about offers, but also about sellers, campaigns, ratings, products and few
 others. So the first item on our TODO list was to find a solution for gathering
 the data. In Allegro most of the services use
 [Hermes](http://hermes.allegro.tech/) as a message broker. Also, all of the
-data that is sent by Hermes is dumped to HDFS in near real time manner.  To
+data that is sent by Hermes is dumped to HDFS in near real time manner. To
 make this more clear, let me show you that on diagram:
 
 ![Event flow in Allegro](/img/articles/2020-10-12-bigdata-marketing/hermes.svg)
@@ -108,7 +108,7 @@ best. We saw three options here:
 - Gather data from HDFS (offline)
 
 First option would be nice, but there was one problem… we haven’t found any
-suitable source.  So basically we had to choose between collecting all data
+suitable source. So basically we had to choose between collecting all data
 online vs offline. Beside the most obvious difference: latency, what else
 differentiates those solutions?
 
@@ -191,40 +191,40 @@ to handle such traffic.
 
 Moreover, being a constant listener to all events emitted in our platform and
 sending them instantly to a various partners’ APIs brings no benefits in terms
-of data freshness.  This is due to the fact that updates are not applied
+of data freshness. This is due to the fact that updates are not applied
 immediately by partners’ sides - even though the latency is lower than in the
 XML solution, it still occurs and can take up to a couple of hours.
 
 We decided that we can start with taking data from offer’s aggregate built for
-file based feeds.  We didn’t want to send all offers that should be integrated
+file based feeds. We didn’t want to send all offers that should be integrated
 with a partner at every job’s run because in most cases we would generate
 redundant events. Some offers didn’t change between two successive runs at all,
 some of them were newly added to the feed or removed from the feed but in most
-cases they had only partial updates like i.e. price change.  So we had an idea
+cases they had only partial updates like i.e. price change. So we had an idea
 that we will **send only the difference between the previous and current event
 feed state**. How? Here’s a simplified version of algorithm for this approach:
 
 - load latest state of all Allegro’s offers from HDFS - we call it aggregate,
 - extract from aggregate and save on HDFS only this offers that should be
-  included in event feed - we will call it snapshot X,
+ included in event feed - we will call it snapshot X,
 - load the previous state of the event feed (from the previous run) - snapshot
-  Y,
+ Y,
 - make a full join on X and Y using offer’s unique key - dataset Z of type
-  `Tuple(OfferStateX, OfferStateY)`,
+ `Tuple(OfferStateX, OfferStateY)`,
 - based on dataset Z content, we decide to generate appropriate events:
 - if both values are non-empty, we generate an event with the calculated
-  difference between state X and Y
+ difference between state X and Y
 - if the value of X is empty, we generate an event about removal from the feed
 - if the Y value is empty, we generate an event about adding a new offer to the
-  event feed
+ event feed
 - generated events are sent to Kafka’s topic that is constantly consumed by the
-  service (connector) responsible for sending offers to a marketing partner,
+ service (connector) responsible for sending offers to a marketing partner,
 - save snapshot X on HDFS (in the next run it will act as a snapshot Y)
 
 ![Streaming API architecture](/img/articles/2020-10-12-bigdata-marketing/streaming-api.svg)
 
 And how much latency this solution adds? It occured that it was only additional
-~20 minutes and in our case it is totally acceptable.  It is also worth to
+~20 minutes and in our case it is totally acceptable. It is also worth to
 mention that our Kafka’s topic is scalable in case a new partnership appears.
 This is because the event model contains information about its destinations.
 Thanks to this approach, we reduce the amount of data sent, thus limiting the
@@ -236,7 +236,7 @@ Every complex system is prone to inconsistencies. Especially when this
 complexity increases and it is hard to stop that - as it was before our big
 refactor. New architecture lets us create a self-healing and fully controllable
 system which is convenient to maintain even taking into account the scale we
-are facing everyday.  While we were designing the architecture we were focused
+are facing everyday. While we were designing the architecture we were focused
 mainly on two things: availability and control.
 
 ### Availability
@@ -245,7 +245,7 @@ The first step that should be considered is: **how to properly
 define the responsibilities of individual system components?**
 
 System works as a whole of cooperating elements. But it is easier to maintain
-these elements when they have very specific tasks to handle.  There are three
+these elements when they have very specific tasks to handle. There are three
 main components in our system (introduced earlier):
 
 1. Aggregator - knows everything about every offer’s current state. It gathers
@@ -256,18 +256,18 @@ for delivery to a partner,
 partner, acts as a data mapper and sender.
 
 *Aggregator* and *Generator* are **based on a complementary set of information
-about the whole system and offers’ state at a certain point in time**.  So in
+about the whole system and offers’ state at a certain point in time**. So in
 case if the aggregate contained damaged offers and the generator already took
 it to prepare for sent, in the next cycle it will be overwritten by fixed ones
-because each cycle run’s result overwrites the previous one.  Additionally,
+because each cycle run’s result overwrites the previous one. Additionally,
 both Aggregate and Generator stage results are persisted on HDFS. Thanks to
 this, we can run the whole computation for any period of time and go back to
-any system state.  Also, the Generator stage can be based on data generated at
+any system state. Also, the Generator stage can be based on data generated at
 any time. In case Aggregate is failing while generating new data, Generator
-works properly using earlier data.  Then, we have a Connector. It consumes
+works properly using earlier data. Then, we have a Connector. It consumes
 events from Kafka and pushes them, in appropriate form, on partner’s API. It
 has no responsibility for checking data or state correctness. It simply gets
-what the Generator prepared and tries to deliver it to a partner.  Thanks to
+what the Generator prepared and tries to deliver it to a partner. Thanks to
 this separation of responsibility, Connector is not dependent on Generator -
 even if Generator has a breakdown, the Connector at most may have nothing to
 do.
@@ -275,21 +275,21 @@ do.
 ### Control
 
 In the previous paragraph we mentioned a few processing issues we are
-struggling with.  But also we proved that despite this our system can still
+struggling with. But also we proved that despite this our system can still
 work in such conditions - maybe not as effectively as in standard scenarios but
-always it is something.  To react faster, we’ve managed to make quite “garbage
+always it is something. To react faster, we’ve managed to make quite “garbage
 data”-resistant notifications-based alerting system that will alarm about
-anomalies that have occurred during computation.  In short, if the difference
+anomalies that have occurred during computation. In short, if the difference
 between states of previous and current Generator run is significant (experience
 based numbers), the system will stop and inform us about it so that we can
-decide if this change is acceptable or not.  (By difference between states I
+decide if this change is acceptable or not. (By difference between states I
 mean difference between parameters such as feed’ offers count, amount of
 offers’ parameters changes etc.) If change is approved, the system normally
 returns to its work, otherwise, data are not propagated from Generator to
-Kafka, resulting in lack of data to consume by Connector.  Even if we will pass
+Kafka, resulting in lack of data to consume by Connector. Even if we will pass
 some incorrect data to a partner and it will be too late to retreat, we have a
 special mechanism that refreshes any offer that was updated more than 28 days
-ago.  So if an offer wasn’t updated for such a long time, it doesn’t matter if
+ago. So if an offer wasn’t updated for such a long time, it doesn’t matter if
 it is damaged or not, it will be refreshed eventually.
 
 ## Summary
@@ -297,13 +297,13 @@ it is damaged or not, it will be refreshed eventually.
 Key takeaway points:
 
 - Just because something does not work well it doesn’t mean that tool is bad,
-  maybe there is something wrong in the way you are using it?
+ maybe there is something wrong in the way you are using it?
 - Ideas can be complex, but it doesn’t mean that they have to be complicated!
 - Research is a key. Even when your business tells you that there is no time
-  for it, fight for it. Without it you will end up spending even more time on
+ for it, fight for it. Without it you will end up spending even more time on
 fixes.
 - Apache Spark is a beast. It can simplify your computation dramatically and
-  you can achieve amazing results with it, but at the same time you need to
+ you can achieve amazing results with it, but at the same time you need to
 think more about how your data will be calculated. One small problem may result
 in slow computation. Unfortunately lots of them are hard to notice.
 - [Join us](allegro.pl/praca) if you like such challenges :-)
