@@ -649,7 +649,7 @@
         {
             "name": "redux-storage-decorator-engines",
             "url": "https://github.com/allegro/redux-storage-decorator-engines",
-            "stars": 15,
+            "stars": 14,
             "description": "Composing decorator for redux-storage to use different storage types",
             "featured": {
                 "primary": false,
