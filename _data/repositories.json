@@ -79,7 +79,7 @@
         {
             "name": "tipboard",
             "url": "https://github.com/allegro/tipboard",
-            "stars": 1032,
+            "stars": 1033,
             "description": "Tipboard - in-house, tasty, local dashboarding system ",
             "featured": {
                 "primary": false,
@@ -229,7 +229,7 @@
         {
             "name": "json-avro-converter",
             "url": "https://github.com/allegro/json-avro-converter",
-            "stars": 183,
+            "stars": 184,
             "description": "JSON to Avro conversion tool designed to make migration to Avro easier.",
             "featured": {
                 "primary": false,
@@ -259,7 +259,7 @@
         {
             "name": "tradukisto",
             "url": "https://github.com/allegro/tradukisto",
-            "stars": 126,
+            "stars": 127,
             "description": "A Java library created to convert numbers to their word representations",
             "featured": {
                 "primary": false,
@@ -379,7 +379,7 @@
         {
             "name": "bigflow",
             "url": "https://github.com/allegro/bigflow",
-            "stars": 54,
+            "stars": 55,
             "description": "A Python framework for data processing on GCP.",
             "featured": {
                 "primary": false,
