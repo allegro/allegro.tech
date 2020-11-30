@@ -14,7 +14,7 @@ Over the years our toolset has improved alongside with compilation times, but sl
 When we wait a few minutes for a build we navigate ourselves towards different activities and start e.g. watching funny animal pictures or
 YouTube videos, easily **loosing context** of the task at hand. What becomes annoying for us is **slow feedback** of code correctness.
 
-In the [past issue](https://allegro.tech/blog/) my colleague has written about a solution to slow **clean** builds. 
+In the [past issue](https://allegro.tech/blog/) my colleague has written about a solution to slow **clean** builds.
 In this post I will focus on **warm** builds improvement.
 
 ## Clean and incremental builds
@@ -191,7 +191,7 @@ There is also a possibility to use input and output files instead of a list (not
 - `SCRIPT_OUTPUT_FILE_1024`
 - and additionally the `SCRIPT_INPUT_FILE_COUNT` and `SCRIPT_OUTPUT_FILE_COUNT` can be used
 
-We based our script copying resource bundles only on file lists and it's actually quite simple - it just copies files from the 
+We based our script copying resource bundles only on file lists and it's actually quite simple - it just copies files from the
 input file list to the destination which is the path to the executable.
 
 ```sh
