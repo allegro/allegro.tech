@@ -14,7 +14,7 @@ Over the years our toolset has improved alongside with compilation times, but sl
 When we wait a few minutes for a build we navigate ourselves towards different activities and start e.g. watching funny animal pictures or
 YouTube videos, easily **loosing context** of the task at hand. What becomes annoying for us is **slow feedback** of code correctness.
 
-In the [past issue]() my colleague has written about a solution to slow **clean** builds. In this post I will focus on **warm** builds
+In the [past issue](https://allegro.tech/blog/) my colleague has written about a solution to slow **clean** builds. In this post I will focus on **warm** builds
 improvement.
 
 ## Clean and incremental builds
@@ -38,7 +38,7 @@ Continuous Integration (CI) servers (Mac Mini, 6-Core 3.2 GHz CPU, 32 GB Ram).
 
 Is 18 seconds too much? When you put it into a perspective of 1 year:
 
-> 18 seconds * 6 builds per hour * 8 hours per day * 20 days per month * 12 months per year = 207360 seconds = 3456 minutes = 57
+> 18 seconds × 6 builds per hour × 8 hours per day × 20 days per month × 12 months per year = 207360 seconds = 3456 minutes = 57
 > hours 36 minutes
 
 It means that on average a programmer spends around 57 hours 36 minutes yearly to wait for a feedback if their code is correct. Is it
@@ -191,8 +191,8 @@ There is also a possibility to use input and output files instead of a list (not
 - `SCRIPT_OUTPUT_FILE_1024`
 - and additionally the `SCRIPT_INPUT_FILE_COUNT` and `SCRIPT_OUTPUT_FILE_COUNT` can be used
 
-We based our script copying resource bundles only on file lists and it's actually quite simple - it just copies files from the input file list to
-the destination which is the path to the executable.
+We based our script copying resource bundles only on file lists and it's actually quite simple - it just copies files from the 
+input file list to the destination which is the path to the executable.
 
 ```sh
 destination="${TARGET_BUILD_DIR}/${EXECUTABLE_FOLDER_PATH}"
