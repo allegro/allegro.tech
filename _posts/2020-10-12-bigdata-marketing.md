@@ -191,7 +191,7 @@ file based feeds. We didn’t want to send all offers that should be integrated
 with a partner at every job’s run because in most cases we would generate
 redundant events. Some offers didn’t change between two successive runs at all,
 some of them were newly added or removed from the feed but in most
-cases they had only partial updates e.g. price change. So we had an idea of **sending
+cases they had only partial updates e.g. price change. So we had the idea of **sending
 just the difference between the previous and current event
 feed state**. How? Here’s a simplified version of algorithm for this approach:
 
