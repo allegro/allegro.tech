@@ -40,9 +40,9 @@
         "pyhermes",
         "swiftbox",
         "consul-registration-hook",
+        "quanta",
         "redux-storage-decorator-engines",
         "newrelic-gradle-plugin",
-        "quanta",
         "camus-compressor"
     ],
     "repos": [
@@ -139,7 +139,7 @@
         {
             "name": "turnilo",
             "url": "https://github.com/allegro/turnilo",
-            "stars": 387,
+            "stars": 389,
             "description": "Business intelligence, data exploration and visualization web application for Druid, formerly known as Swiv and Pivot",
             "featured": {
                 "primary": false,
@@ -647,6 +647,21 @@
             }
         },
         {
+            "name": "quanta",
+            "url": "https://github.com/allegro/quanta",
+            "stars": 15,
+            "description": "Fast image optimization as a service, based on mozjpeg, written in Swift",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
             "name": "redux-storage-decorator-engines",
             "url": "https://github.com/allegro/redux-storage-decorator-engines",
             "stars": 14,
@@ -666,21 +681,6 @@
             "url": "https://github.com/allegro/newrelic-gradle-plugin",
             "stars": 14,
             "description": "Newrelic Gradle plugin.",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "quanta",
-            "url": "https://github.com/allegro/quanta",
-            "stars": 14,
-            "description": "Fast image optimization as a service, based on mozjpeg, written in Swift",
             "featured": {
                 "primary": false,
                 "secondary": false
