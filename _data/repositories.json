@@ -139,7 +139,7 @@
         {
             "name": "turnilo",
             "url": "https://github.com/allegro/turnilo",
-            "stars": 389,
+            "stars": 390,
             "description": "Business intelligence, data exploration and visualization web application for Druid, formerly known as Swiv and Pivot",
             "featured": {
                 "primary": false,
