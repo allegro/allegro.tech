@@ -29,8 +29,8 @@
         "selena",
         "elasticsearch-reindex-tool",
         "cassandra-modeling-kata",
-        "django-powerdns-dnssec",
         "slinger",
+        "django-powerdns-dnssec",
         "ralph-cli",
         "HerBERT",
         "swift-junit",
@@ -482,10 +482,10 @@
             }
         },
         {
-            "name": "django-powerdns-dnssec",
-            "url": "https://github.com/allegro/django-powerdns-dnssec",
+            "name": "slinger",
+            "url": "https://github.com/allegro/slinger",
             "stars": 27,
-            "description": "Django application managing PowerDNS database",
+            "description": "Slinger - deep linking library for Android",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -497,10 +497,10 @@
             }
         },
         {
-            "name": "slinger",
-            "url": "https://github.com/allegro/slinger",
-            "stars": 26,
-            "description": "Slinger - deep linking library for Android",
+            "name": "django-powerdns-dnssec",
+            "url": "https://github.com/allegro/django-powerdns-dnssec",
+            "stars": 27,
+            "description": "Django application managing PowerDNS database",
             "featured": {
                 "primary": false,
                 "secondary": false
