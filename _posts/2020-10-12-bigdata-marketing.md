@@ -13,7 +13,7 @@ purposes.
 ## Background
 
 Allegro is the biggest e-commerce platform in Poland and one of top 10 largest e-commerce platforms worldwide.
-Our catalog holds almost 200 million offers at this moment (december 2020), and the number is still growing.
+Our catalog holds almost 200 million offers at this moment (December 2020), and the number is still growing.
 The marketing team uses tools such as
 [Google Merchant Center](https://www.google.com/retail/solutions/merchant-center/)
 and [Facebook Ads](https://www.facebook.com/business/ads) in order to advertise
@@ -43,51 +43,51 @@ to S3. All jobs were run in parallel.
 
 ![Old architecture diagram](/img/articles/2020-10-12-bigdata-marketing/old_arch.svg)
 
-But soon, against initial assumptions a number of feeds exploded. Finally, we
-came to a situation where there were… 1300 feeds! Updating all of them, to
+But soon, against initial assumptions, a number of feeds exploded. Eventually,
+we encountered as much as... 1300 feeds! Updating all of them, to
 present current data in advertisements, took more than 24 hours.
 We managed to improve this situation a little by vertical scaling and
 removing some of unused/poor performing feeds. However, it was just a temporary
 improvement, since it still took as much as 13 hours to refresh all the feeds.
 
-We're yet to find out that poor performance was just the tip of the iceberg. Much bigger
+We were yet to find out that poor performance was just the tip of the iceberg. Much bigger
 problem was the architecture that no longer suited our needs and made
 implementing new features time-consuming. Codebase used a then acclaimed
 [cake (anti)pattern](https://medium.com/rahasak/scala-cake-pattern-e0cd894dae4e)
 that turned out to work poorly in connection with Spark. It caused serious serialization issues.
-Add to that leaky monitoring and handwritten scheduler and you will
+Add to that leaky monitoring and handwritten scheduler, and you will
 get a full picture of our despair. Besides, the tool itself became very
 important. It handled more and more integrations and was crucial for the
 company.
 
 ## Brave new ~~world~~ solution
 
-That was the moment when we knew that we needed a new solution.
+At that moment we knew that we needed a new solution.
 We decided that our target solution should let us:
 
 - Reduce the execution time to 1h (2h at most) while keeping same amount of resources
 - Query over any offer property (in old solution we had only some predefined predicates)
-- Choose offer by some key (or in programmers language: group by + aggregate)
+- Choose offer by a key (or in programmers language: group by + aggregate)
 - Introduce new data sources quickly
 - Create feed with arbitrary size: from just a few offers to whole catalog
 - Scale horizontally
 - Last but not least: integrate with our partners not only by files
 but also using an event-based approach (streaming API)
 
-Those requirements would be easy to comply with in case of a “normal” shop with
-a few thousands of products. However, Allegro operates on a much larger scale of:
+These requirements would be easy to comply with in case of a “normal” shop with
+a few thousands products. However, Allegro operates on a much larger scale of:
 
 - almost 200M offers (and still growing)
 - ~25-40M changes in offers per day
 
 Also, Allegro is based on microservices architecture and we don’t have a single
 DB with full information about the system. This leaves us with yet another
-problem: how to gather all needed data. We have to use not only information
-on offers, sellers, campaigns, ratings, products and fewothers.
+problem: how to gather all needed data. We have to use information
+on offers, sellers, campaigns, ratings, products and few others.
 So the first item on our TODO list was to find a solution for collecting
 the data. In Allegro most of the services use
 [Hermes](http://hermes.allegro.tech/) as a message broker. Also, all of the
-data that is sent by Hermes is dumped to HDFS in near real time manner. To
+data that is sent by Hermes is dumped to HDFS in near real-time manner. To
 make this clearer, let me show you that on diagram:
 
 ![Event flow in Allegro](/img/articles/2020-10-12-bigdata-marketing/hermes.svg)
@@ -106,11 +106,11 @@ differentiates these solutions?
 
 It is always more difficult to join data online. We would need to maintain a
 database with the whole state and we would be prone to all kinds of
-concurrency-related bugs. In case of any detected problem, we would have to
+concurrency-related bugs. In case of any detected problem we would have to
 recover using historical data.
 
 Offline solution would be similar to what we had in the old platform
-(`AggregateGeneratorJob` described before). Joins between various datasources
+(`AggregateGeneratorJob` described before). Joins between various data sources
 would be straightforward. We wouldn't have any problems with concurrency.
 Recreating data is easy, since basically it is done on every job execution,
 although we pay for that with latency. The question though was how long would it take
@@ -132,7 +132,7 @@ problem was in our solution, not in Spark itself. That’s why we decided to
 spend a few weeks on research. We made a few prototypes based on Spark
 Streaming, Kafka Streams and on databases. We even had an idea of writing our
 own engine for computation. During that research we came up with the idea of generating
-how to generate feeds in an efficient way and… we realized that it will be
+feeds in an efficient way and… we realized that it will be
 pretty easy to implement in Spark! **We also made an important decision: we
 will focus on generating files, and get back to streaming API later**.
 
@@ -162,8 +162,8 @@ assemble parts and serve them as a single piece.
 
 Ok, so how much speedup we gained thanks to that approach? After rewriting we
 were able to recalculate all feeds in a little over 1h (comparing to 13h previously).
-It wasn't all, though. Not only have we sped the process 13 times, we also
-reduced memory usage two times! And well, in the end we used the same tools, but in a better way.
+It wasn't all, though. Not only have we sped the proces up 13 times, we also
+reduced memory usage twofold! And well, in the end we used the same tools, but in a better way.
 
 ![How engine works](/img/articles/2020-10-12-bigdata-marketing/engine.svg)
 
@@ -181,16 +181,16 @@ produced would be very difficult due to the scale and resources required
 to handle such traffic.
 
 Moreover, being a constant listener to all events emitted in our platform and
-sending them instantly to a various partners’ APIs brings no benefits in terms
+sending them instantly to various partners’ APIs brings no benefits in terms
 of data freshness. This is due to the fact that updates are not applied
 immediately by partners’ sides - even though the latency is lower than in the
 XML solution, it still occurs and can take up to a couple of hours.
 
 We decided that we can start with taking data from offers' aggregate built for
-file based feeds. We didn’t want to send all offers that should be integrated
+file-based feeds. We didn’t want to send all offers that should be integrated
 with a partner at every job’s run because in most cases we would generate
 redundant events. Some offers didn’t change between two successive runs at all,
-some of them were newly added or removed from the feed but in most
+some of them were newly added or removed from the feed, but in most
 cases they had only partial updates e.g. price change. So we had the idea of **sending
 just the difference between the previous and current event
 feed state**. How? Here’s a simplified version of algorithm for this approach:
@@ -203,20 +203,19 @@ feed state**. How? Here’s a simplified version of algorithm for this approach:
 - make a full join on X and Y using offer’s unique key - dataset Z of type
  `Tuple(OfferStateX, OfferStateY)`,
 - based on dataset Z content we decide to generate appropriate events:
-- if both values are non-empty, we generate an event with the calculated
- difference between state X and Y
-- if the value of X is empty, we generate an event on removal from the feed
-- if the Y value is empty, we generate an event on addition of a new offer to the
- event feed
+    - if both values are non-empty, we generate an event with the calculated difference
+    between state X and Y
+    - if the value of X is empty, we generate an event on removal from the feed
+    - if the Y value is empty, we generate an event on addition of a new offer to the event feed
 - generated events are sent to Kafka’s topic that is constantly consumed by the
  service (connector) responsible for sending offers to a marketing partner,
-- save snapshot X on HDFS (in the next run it will act as a snapshot Y)
+-- save snapshot X on HDFS (in the next run it will act as a snapshot Y)
 
 ![Streaming API architecture](/img/articles/2020-10-12-bigdata-marketing/streaming-api.svg)
 
 I'm sure you're wondering how much latency this solution adds.
 Well, it turned out to be only 20 minutes and in our case it is totally acceptable.
-It is also worth to mention that our Kafka’s topic is scalable in case a new partnership appears.
+It is also worth mentioning that our Kafka topic is scalable in case a new partnership appears.
 This is because the event model contains information about its destinations.
 Thanks to this approach, we reduce the amount of data sent, thus limiting the
 traffic of millions of sent events to just tens of thousands.
@@ -262,14 +261,14 @@ in appropriate form, on partner’s API. It has no responsibility for checking
 data or state correctness. It simply gets what the Generator prepared and
 tries to deliver it to a partner. Thanks to this separation of responsibility,
 Connector is not dependent on Generator - even if Generator has a breakdown,
-the Connector at most may have nothing to do.
+the Connector at worst may have nothing to do.
 
 ### Control
 
 In the previous paragraph we mentioned a few processing issues we are
 struggling with. However, we also proved that despite this our system can still
 work in such conditions - maybe not as effectively as in standard scenarios,
-but it's still something. To react faster, we’ve managed to make quite “garbage
+but it still does. To react faster, we’ve managed to make quite “garbage
 data”-resistant, notifications-based alerting system that will alarm about
 anomalies occuring during computation. In short, if the difference
 between states of previous and current Generator run is significant (experience
@@ -280,7 +279,7 @@ offers’ parameters changes etc.) Once the change is approved, the system retur
 to its work. Otherwise, data is not propagated from Generator to Kafka, resulting
 in lack of data to be consumed by Connector. Even if we pass some incorrect
 data to a partner and it will be too late to retreat, we have a
-special mechanism that refreshes any offer that was updated more than 28 days
+special mechanism refreshing any offer that was updated more than 28 days
 ago. So if an offer wasn’t updated for such a long time, it doesn’t matter if
 it is damaged or not – it will be refreshed eventually.
 
@@ -291,11 +290,10 @@ Key takeaway points:
 - Just because something does not work well it doesn’t mean the tool is bad.
 Maybe there is something wrong with the way you are using it?
 - Ideas can be complex but it doesn’t mean that they have to be complicated!
-- Research is key. Even if your business tells you there is no time
- for it, fight for it. Without it you will end up spending even more time on
-fixes.
+- Research is key. Even if your business tells you there is no time for it, insist on it.
+Otherwise you will end up spending even more time on fixes.
 - Apache Spark is a beast. It can simplify your computation dramatically and
- you can achieve amazing results with it, but at the same time you need to
+give amazing results results with it, but at the same time you need to
 think more about how your data will be calculated. One small problem may result
 in slow computation. Unfortunately lots of them are hard to notice.
 - [Join us](allegro.pl/praca) if you like such challenges :-)
