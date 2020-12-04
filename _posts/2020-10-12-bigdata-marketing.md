@@ -162,7 +162,7 @@ assemble parts and serve them as a single piece.
 
 Ok, so how much speedup we gained thanks to that approach? After rewriting we
 were able to recalculate all feeds in a little over 1h (comparing to 13h previously).
-It wasn't all, though. Not only have we sped the proces up 13 times, we also
+It wasn't all, though. Not only have we sped the process up 13 times, we also
 reduced memory usage twofold! And well, in the end we used the same tools, but in a better way.
 
 ![How engine works](/img/articles/2020-10-12-bigdata-marketing/engine.svg)
