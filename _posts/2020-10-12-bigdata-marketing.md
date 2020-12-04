@@ -202,7 +202,7 @@ feed state**. How? Here’s a simplified version of algorithm for this approach:
  Y,
 - make a full join on X and Y using offer’s unique key - dataset Z of type
  `Tuple(OfferStateX, OfferStateY)`,
-- decide to generate appropriate events based on dataset Z content:
+- decide to generate appropriate events based on dataset Z:
     - if both values are non-empty, we generate an event with the calculated difference
     between state X and Y
     - if the value of X is empty, we generate an event on removal from the feed
