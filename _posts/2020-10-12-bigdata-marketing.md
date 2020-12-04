@@ -203,10 +203,10 @@ feed state**. How? Here’s a simplified version of algorithm for this approach:
 - make a full join on X and Y using offer’s unique key - dataset Z of type
  `Tuple(OfferStateX, OfferStateY)`,
 - decide to generate appropriate events based on dataset Z:
-    - if both values are non-empty, we generate an event with the calculated difference
+    - if both values are non-empty, generate an event with the calculated difference
     between state X and Y
-    - if the value of X is empty, we generate an event on removal from the feed
-    - if the Y value is empty, we generate an event on addition of a new offer to the event feed
+    - if the value of X is empty, generate an event on removal from the feed
+    - if the Y value is empty, generate an event on addition of a new offer to the event feed
 - send generated events to Kafka topic that is constantly consumed by the
  service (connector) responsible for sending offers to a marketing partner,
 - save snapshot X on HDFS (in the next run it will act as a snapshot Y)
