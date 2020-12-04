@@ -209,7 +209,7 @@ feed state**. How? Here’s a simplified version of algorithm for this approach:
     - if the Y value is empty, we generate an event on addition of a new offer to the event feed
 - generated events are sent to Kafka’s topic that is constantly consumed by the
  service (connector) responsible for sending offers to a marketing partner,
--- save snapshot X on HDFS (in the next run it will act as a snapshot Y)
+- save snapshot X on HDFS (in the next run it will act as a snapshot Y)
 
 ![Streaming API architecture](/img/articles/2020-10-12-bigdata-marketing/streaming-api.svg)
 
