@@ -64,7 +64,7 @@
         {
             "name": "ralph",
             "url": "https://github.com/allegro/ralph",
-            "stars": 1477,
+            "stars": 1478,
             "description": "Ralph is the CMDB / Asset Management system for data center and back office hardware.",
             "featured": {
                 "primary": true,
@@ -109,7 +109,7 @@
         {
             "name": "hermes",
             "url": "https://github.com/allegro/hermes",
-            "stars": 655,
+            "stars": 656,
             "description": "Fast and reliable message broker built on top of Kafka.",
             "featured": {
                 "primary": true,
