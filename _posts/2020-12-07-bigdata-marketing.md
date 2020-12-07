@@ -295,4 +295,4 @@ Otherwise you will end up spending even more time on fixes.
 give amazing results with it, but at the same time you need to
 think more about how your data will be calculated. One small problem may result
 in slow computation. Unfortunately lots of them are hard to notice.
-- [Join us](allegro.pl/praca) if you like such challenges :-)
+- [Join us](https://allegro.pl/praca) if you like such challenges :-)
