@@ -49,7 +49,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 4469,
+            "stars": 4470,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -199,7 +199,7 @@
         {
             "name": "grunt-maven-plugin",
             "url": "https://github.com/allegro/grunt-maven-plugin",
-            "stars": 217,
+            "stars": 216,
             "description": "Grunt + Maven integration done right",
             "featured": {
                 "primary": false,
@@ -589,7 +589,7 @@
         {
             "name": "grunt-maven-npm",
             "url": "https://github.com/allegro/grunt-maven-npm",
-            "stars": 18,
+            "stars": 17,
             "description": "npm tasks for grunt-maven-plugin 1.2+",
             "featured": {
                 "primary": false,
