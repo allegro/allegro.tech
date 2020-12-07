@@ -37,10 +37,10 @@
         "allegro.github.io",
         "marathon-appcop",
         "grunt-maven-npm",
+        "quanta",
         "pyhermes",
         "swiftbox",
         "consul-registration-hook",
-        "quanta",
         "redux-storage-decorator-engines",
         "newrelic-gradle-plugin",
         "camus-compressor"
@@ -49,7 +49,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 4468,
+            "stars": 4469,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -274,7 +274,7 @@
         {
             "name": "allegro-api",
             "url": "https://github.com/allegro/allegro-api",
-            "stars": 122,
+            "stars": 123,
             "description": "Issue tracker and wiki for Allegro REST API ",
             "featured": {
                 "primary": false,
@@ -602,6 +602,21 @@
             }
         },
         {
+            "name": "quanta",
+            "url": "https://github.com/allegro/quanta",
+            "stars": 16,
+            "description": "Fast image optimization as a service, based on mozjpeg, written in Swift",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
             "name": "pyhermes",
             "url": "https://github.com/allegro/pyhermes",
             "stars": 16,
@@ -636,21 +651,6 @@
             "url": "https://github.com/allegro/consul-registration-hook",
             "stars": 15,
             "description": "Hook that can be used for synchronous registration and deregistration in Consul discovery service on Kubernetes or Mesos cluster with Allegro executor",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "quanta",
-            "url": "https://github.com/allegro/quanta",
-            "stars": 15,
-            "description": "Fast image optimization as a service, based on mozjpeg, written in Swift",
             "featured": {
                 "primary": false,
                 "secondary": false
