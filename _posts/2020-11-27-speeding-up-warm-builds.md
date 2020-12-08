@@ -103,7 +103,7 @@ Libtool (1 task) | 0.241 seconds
 LinkStoryboards (2 tasks) | 0.108 seconds
 ```
 
-There's a lot of tasks. When it comes to source code compilation process we can lower down build times by splitting the source code
+There's a lot of tasks. When it comes to source code compilation process, we can lower down build times by splitting the source code
 into modular frameworks, using binary caching techniques and adding explicit types for expressions in Swift.
 
 In the case of a **warm build** the only phases listed are:
