@@ -143,7 +143,7 @@ run for every build. Xcode 12 introduced a neat feature - running the script bas
 src="/img/articles/2020-11-27-speeding-up-warm-builds/xcode-dependency-analysis.png"/>
 
 Selecting the checkbox isn't enough to benefit from dependency analysis. Xcode analyses dependencies of a script, i.e. it verifies if the
-inputs of the script has changed since the last run and if the outputs of the script exist. The potential problem occurred for scripts in our
+inputs of the script have changed since the last run and if the outputs of the script exist. The potential problem occurred for scripts in our
 project - they didn't have explicit inputs and outputs defined so we couldn't tap into the brand new feature of Xcode.
 
 ## Defining inputs and outputs for scripts
