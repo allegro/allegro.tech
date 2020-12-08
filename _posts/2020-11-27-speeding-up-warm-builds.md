@@ -8,7 +8,7 @@ tags: [tech, ios, xcode, swift, objectivec]
 ## Slow builds
 
 Programmers who have ever developed software for Apple platforms in the early days of **Swift** language might remember ridiculous
-times it took to compile the whole project. For large and complicated codebase times used to range between 10 to even 40 minutes.
+times it took to compile the whole project. For large and complicated codebase times used to range from 10 up to 40 minutes.
 Over the years our toolset has improved alongside with compilation times, but slow build times of source code can still be a nightmare.
 
 When we wait a few minutes for a build we navigate ourselves towards different activities and start e.g. watching funny animal pictures or
