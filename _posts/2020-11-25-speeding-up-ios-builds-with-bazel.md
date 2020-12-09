@@ -139,7 +139,7 @@ Once we point to a remote cache with --remote_http_cache we can share this artef
 It’s amazing how easy it is to set up a remote cache.
 
 How can we use Bazel from Xcode, though? Unfortunately, Xcode is not known for great support of external build systems
-and there is no way of doing it ourselves since it’s closed source. The only way of extending it are plugins whose 
+and there is no way of doing it ourselves since it’s closed source. The only way of extending it are plugins whose
 capabilities are very limited. Fortunately, there is a way: we can use Build Phases that are run each time a project is
 built. It's a simple Run Script phase that invokes Bazel and copies created frameworks to BUILT_PRODUCTS_DIR.
 When developers are not working on a given module, we use our special tool that will generate a workspace without it
