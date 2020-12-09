@@ -259,7 +259,7 @@
         {
             "name": "tradukisto",
             "url": "https://github.com/allegro/tradukisto",
-            "stars": 127,
+            "stars": 128,
             "description": "A Java library created to convert numbers to their word representations",
             "featured": {
                 "primary": false,
