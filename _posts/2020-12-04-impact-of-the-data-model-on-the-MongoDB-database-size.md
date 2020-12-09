@@ -7,13 +7,13 @@ tags: [tech, mongodb]
 
 ### Introduction
 
-Some time ago I was tuning one of our services. The main purpose was to speed up some MongoDB queries but by the way my
-attention caught the size of one of our collections. It contains archived objects, so by the nature of things it is
+Incidentally I was tuning one of our services. The main purpose was to speed up some MongoDB queries but by the way
+the size of one of our collections caught my attention. It contains archived objects, so by the nature of things it is
 rarely used. Unfortunately I couldn't cut down on the size of the documents stored in it, but I started to wonder if it
-is possible to store the same data in a more compact way?
-In Mongo we store `json`, these can have different structures, so there seems to be room for improvements.
+was possible to store the same data in a more compact way?
+In Mongo we store `JSON`, which allows many different ways of expressing similar data, so there seems to be room for improvements.
 
-It is worth asking, why to make such an effort in the era of Big Data and unlimited resources? There are several reasons.
+It is worth asking, why make such an effort in the era of Big Data and unlimited resources? There are several reasons.
 
 First of all, the resources are not unlimited and at the end we have physical drives that cost money to buy, replace,
 maintain and supply the power.
@@ -23,9 +23,9 @@ cache, so the next data access will be an order of magnitude faster.
 
 I decided to do some experiments and check how the model design affects the size of database files.
 
-I used local MongoDB Community Edition 4.4 installation and I was initially testing collections containing 1
+I used a local MongoDB Community Edition 4.4 installation and I initially tested collections containing 1
 million and 10 million documents. One of the variants contained up to 100 million, but the results were proportional
-(nearly linear), so in the end I decided to stop at 1M collections, loading the data was simply much faster.
+(nearly linear), so in the end I decided to stop at 1M collections, because loading the data was simply much faster.
 
 Having access to local database files, I could easily check the size of the files of individual collections. However, it
 turned out that it was not necessary, because the same data could be obtained with the command:
@@ -45,23 +45,23 @@ The following fields are expressed in bytes:
 * `freeStorageSize`: size of unused space allocated for the data. Mongo does not increase the file size byte-by-byte,
 but allocates a percentage of the current file size and this value indicates how much data will still fit into the file.
 
-I used (storageSize - freeStorageSize) value to present results, which indicates the actual place occupied by the data.
+I used (storageSize - freeStorageSize) value to present results, which indicates the actual space occupied by the data.
 
 My local MongoDB instance had compression enabled. Not every storage engine has this option enabled by default, so when
-you start your own analysis it is worth to determine how it is in your particular case.
+you start your own analysis it is worth checking how it is in your particular case.
 
 ### Id field type
 
-At the beginning I decided to check `Id` fields. I'm not talking about the collection primary key, which is the
+In the beginning I decided to check `ID` fields. I'm not talking about the collection primary key, which is the
 `ObjectId` type by default and excluding exceptional situations, it should not be changed. I decided to focus on user
 and offers identifiers, which, although numerical, are often saved as String in Mongo. I think it comes partly from the
-contract of our services - in the `json` identifiers most often come as Strings and in this form they are later stored
+contract of our services - in `JSON` identifiers most often come as Strings and in this form they are later stored
 in our databases.
 
 Let’s start with some theory: the number of `int32` type in Mongo has a fixed size and it takes 4 bytes. The same number
-written as a `String` of characters has a size depending on the number of digits, additionally it contains the length of
+written as a `String` of characters has a size dependent on the number of digits, additionally it contains the length of
 the text (4 bytes) and a terminator character. For example, the text "0" is 12 bytes long and "1234567890" is 25 bytes
-long. So in theory we should get interesting results, but how does it look like in reality?
+long. So in theory we should get interesting results, but what does it look like in reality?
 
 I prepared 2 collections, one million documents each, containing the following documents:
 
@@ -79,13 +79,13 @@ The values of identifiers were consecutive natural numbers. Here is the comparis
 
 ![String vs int32 size](/img/articles/2020-12-04-impact-of-the-data-model-on-the-MongoDB-database-size/chart-id.png)
 
-As you can see the difference is significant, the size on the disk has decreased by half. Additionally, it is worth
+As you can see the difference is significant, the size on disk has decreased by half. Additionally, it is worth
 noting here that my data is synthetic and the identifiers start from 1. The advantage of a numerical identifier over a
-`String` is the greater the more digits has a saved number, so benefits should be even better on the real life data.
+`String` is the greater the more digits a number has, so benefits should be even better for the real life data.
 
-Encouraged by the success I decided to check if a field type had any influence on a size of an index created on it. In
-this case, unfortunately, I encountered disappointment, the sizes were similar. This is due to the fact that MongoDB
-uses the hash function when creating indexes, so physically both indexes are composed of numerical values.
+Encouraged by the success I decided to check if field type had any influence on the size of an index created on it. In
+this case, unfortunately, I was disappointed: the sizes were similar. This is due to the fact that MongoDB
+uses a hash function when creating indexes, so physically both indexes are composed of numerical values.
 However, if we are dealing with hashing, maybe at least searching by index in a numerical field is faster?
 
 I made a comparison of searching for a million and 10 million documents by indexed key in a random, but the same order
@@ -138,7 +138,7 @@ and
 
 The watchful eye will notice that I used longer field names in the document after flattening. So instead of `user.name`
 and `user.surname` I made `userName` and `userSurname`. I did it automatically, a bit unconsciously, to make the
-resulting `json` more readable.  However, if changing only the schema of the document from compound to flat we managed
+resulting `JSON` more readable.  However, if changing only the schema of the document from compound to flat we managed
 to reduce the size of the data, maybe it is worth to go a step further and shorten the field names?
 
 I decided to add a third document for comparison, flattened and with shorter field names:
@@ -176,7 +176,7 @@ which contains fields with names:
 ### Empty fields
 
 Since we are at the document's schema, it is still worth looking at the problem of blank fields. In the case of the
-`json`, the lack of value in a certain field can be written in two ways, either directly - by writing null in its value
+`JSON`, the lack of value in a certain field can be written in two ways, either directly - by writing null in its value
 or by not serializing the field at all. I prepared a comparison of documents with the following structure:
 
 ```json
