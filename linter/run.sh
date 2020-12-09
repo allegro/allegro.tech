@@ -1,3 +1,4 @@
+#!/bin/bash
 path=$(dirname "$0")
 files_to_check=$(git diff --name-only --diff-filter=AMC master..HEAD | grep _posts | sed "s~^~$path/../~")
 
