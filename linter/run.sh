@@ -18,9 +18,9 @@ else
     fi
 
     authors=$(echo "$files_to_check" | xargs cat | grep "author:" | grep "[[:alpha:]]*\.[[:alpha:]]*" -o)
-    authors_imags=$(echo "$authors" | sed "s~^~$path/../img/authors/~" | sed "s/$/.jpg/")
+    authors_images=$(echo "$authors" | sed "s~^~$path/../img/authors/~" | sed "s/$/.jpg/")
 
-    for image in $authors_imags; do
+    for image in $authors_images; do
         if test ! -f "$image"
         then
             all_errors+=( "$image No authors image" ) 
