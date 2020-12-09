@@ -6,46 +6,50 @@
         "php-protobuf",
         "hermes",
         "node-worker-nodes",
+        "turnilo",
         "axion-release-plugin",
         "embedded-elasticsearch",
-        "turnilo",
+        "allRank",
         "grunt-maven-plugin",
         "vaas",
-        "marathon-consul",
         "json-avro-converter",
+        "marathon-consul",
         "tradukisto",
-        "handlebars-spring-boot-starter",
-        "restapi-guideline",
         "allegro-api",
+        "restapi-guideline",
+        "handlebars-spring-boot-starter",
         "akubra",
         "fogger",
+        "envoy-control",
+        "elasticsearch-analysis-morfologik",
+        "bigflow",
         "opel",
         "mesos-executor",
         "kafka-offset-monitor-graphite",
-        "elasticsearch-reindex-tool",
         "selena",
-        "elasticsearch-analysis-morfologik",
+        "elasticsearch-reindex-tool",
         "cassandra-modeling-kata",
-        "django-powerdns-dnssec",
         "slinger",
+        "django-powerdns-dnssec",
         "ralph-cli",
+        "HerBERT",
+        "swift-junit",
+        "allegro.github.io",
         "marathon-appcop",
         "grunt-maven-npm",
+        "quanta",
         "pyhermes",
-        "swift-junit",
+        "swiftbox",
+        "consul-registration-hook",
         "redux-storage-decorator-engines",
         "newrelic-gradle-plugin",
-        "allegro.github.io",
-        "swiftbox",
-        "envoy-control",
-        "camus-compressor",
-        "ralph_assets"
+        "camus-compressor"
     ],
     "repos": [
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 2598,
+            "stars": 4469,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -60,7 +64,7 @@
         {
             "name": "ralph",
             "url": "https://github.com/allegro/ralph",
-            "stars": 1182,
+            "stars": 1478,
             "description": "Ralph is the CMDB / Asset Management system for data center and back office hardware.",
             "featured": {
                 "primary": true,
@@ -75,7 +79,7 @@
         {
             "name": "tipboard",
             "url": "https://github.com/allegro/tipboard",
-            "stars": 911,
+            "stars": 1040,
             "description": "Tipboard - in-house, tasty, local dashboarding system ",
             "featured": {
                 "primary": false,
@@ -90,7 +94,7 @@
         {
             "name": "php-protobuf",
             "url": "https://github.com/allegro/php-protobuf",
-            "stars": 811,
+            "stars": 889,
             "description": "PHP Protobuf - Google's Protocol Buffers for PHP",
             "featured": {
                 "primary": false,
@@ -105,7 +109,7 @@
         {
             "name": "hermes",
             "url": "https://github.com/allegro/hermes",
-            "stars": 575,
+            "stars": 656,
             "description": "Fast and reliable message broker built on top of Kafka.",
             "featured": {
                 "primary": true,
@@ -120,8 +124,23 @@
         {
             "name": "node-worker-nodes",
             "url": "https://github.com/allegro/node-worker-nodes",
-            "stars": 434,
+            "stars": 458,
             "description": "A node.js library to run cpu-intensive tasks in a separate processes and not block the event loop.",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "turnilo",
+            "url": "https://github.com/allegro/turnilo",
+            "stars": 391,
+            "description": "Business intelligence, data exploration and visualization web application for Druid, formerly known as Swiv and Pivot",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -135,7 +154,7 @@
         {
             "name": "axion-release-plugin",
             "url": "https://github.com/allegro/axion-release-plugin",
-            "stars": 307,
+            "stars": 361,
             "description": "Gradle release & version management plugin.",
             "featured": {
                 "primary": false,
@@ -150,7 +169,7 @@
         {
             "name": "embedded-elasticsearch",
             "url": "https://github.com/allegro/embedded-elasticsearch",
-            "stars": 238,
+            "stars": 257,
             "description": "Tool that ease up creation of integration tests with Elasticsearch",
             "featured": {
                 "primary": false,
@@ -163,10 +182,10 @@
             }
         },
         {
-            "name": "turnilo",
-            "url": "https://github.com/allegro/turnilo",
-            "stars": 221,
-            "description": "Business intelligence, data exploration and visualization web application for Druid, formerly know as Swiv and Pivot",
+            "name": "allRank",
+            "url": "https://github.com/allegro/allRank",
+            "stars": 225,
+            "description": "allRank is a framework for training learning-to-rank neural models based on PyTorch.",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -180,7 +199,7 @@
         {
             "name": "grunt-maven-plugin",
             "url": "https://github.com/allegro/grunt-maven-plugin",
-            "stars": 218,
+            "stars": 217,
             "description": "Grunt + Maven integration done right",
             "featured": {
                 "primary": false,
@@ -195,7 +214,7 @@
         {
             "name": "vaas",
             "url": "https://github.com/allegro/vaas",
-            "stars": 187,
+            "stars": 212,
             "description": "VaaS - Varnish as a Service",
             "featured": {
                 "primary": true,
@@ -208,24 +227,9 @@
             }
         },
         {
-            "name": "marathon-consul",
-            "url": "https://github.com/allegro/marathon-consul",
-            "stars": 163,
-            "description": "Integrates Marathon apps with Consul service discovery.",
-            "featured": {
-                "primary": false,
-                "secondary": true
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
             "name": "json-avro-converter",
             "url": "https://github.com/allegro/json-avro-converter",
-            "stars": 123,
+            "stars": 184,
             "description": "JSON to Avro conversion tool designed to make migration to Avro easier.",
             "featured": {
                 "primary": false,
@@ -238,40 +242,25 @@
             }
         },
         {
+            "name": "marathon-consul",
+            "url": "https://github.com/allegro/marathon-consul",
+            "stars": 172,
+            "description": "Integrates Marathon apps with Consul service discovery.",
+            "featured": {
+                "primary": false,
+                "secondary": true
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
             "name": "tradukisto",
             "url": "https://github.com/allegro/tradukisto",
-            "stars": 101,
+            "stars": 127,
             "description": "A Java library created to convert numbers to their word representations",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "handlebars-spring-boot-starter",
-            "url": "https://github.com/allegro/handlebars-spring-boot-starter",
-            "stars": 95,
-            "description": "Spring Boot auto-configuration for Handlebars",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "restapi-guideline",
-            "url": "https://github.com/allegro/restapi-guideline",
-            "stars": 86,
-            "description": "Allegro REST API Guideline.",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -285,8 +274,38 @@
         {
             "name": "allegro-api",
             "url": "https://github.com/allegro/allegro-api",
-            "stars": 83,
-            "description": "Issue tracker and wiki for Allegro WebAPI and REST API ",
+            "stars": 123,
+            "description": "Issue tracker and wiki for Allegro REST API ",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "restapi-guideline",
+            "url": "https://github.com/allegro/restapi-guideline",
+            "stars": 109,
+            "description": "Allegro REST API Guideline.",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "handlebars-spring-boot-starter",
+            "url": "https://github.com/allegro/handlebars-spring-boot-starter",
+            "stars": 101,
+            "description": "Spring Boot auto-configuration for Handlebars",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -300,7 +319,7 @@
         {
             "name": "akubra",
             "url": "https://github.com/allegro/akubra",
-            "stars": 72,
+            "stars": 77,
             "description": "Simple solution to keep a independent S3 storages in sync",
             "featured": {
                 "primary": false,
@@ -328,9 +347,54 @@
             }
         },
         {
+            "name": "envoy-control",
+            "url": "https://github.com/allegro/envoy-control",
+            "stars": 58,
+            "description": "Envoy Control is a platform-agnostic, production-ready Control Plane for Service Mesh based on Envoy Proxy.",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "elasticsearch-analysis-morfologik",
+            "url": "https://github.com/allegro/elasticsearch-analysis-morfologik",
+            "stars": 56,
+            "description": "Morfologik Polish Lemmatizer plugin for Elasticsearch",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "bigflow",
+            "url": "https://github.com/allegro/bigflow",
+            "stars": 55,
+            "description": "A Python framework for data processing on GCP.",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
             "name": "opel",
             "url": "https://github.com/allegro/opel",
-            "stars": 49,
+            "stars": 54,
             "description": "OPEL - asynchronous expression language",
             "featured": {
                 "primary": false,
@@ -345,7 +409,7 @@
         {
             "name": "mesos-executor",
             "url": "https://github.com/allegro/mesos-executor",
-            "stars": 46,
+            "stars": 49,
             "description": "Customizable Apache Mesos task executor",
             "featured": {
                 "primary": false,
@@ -373,6 +437,21 @@
             }
         },
         {
+            "name": "selena",
+            "url": "https://github.com/allegro/selena",
+            "stars": 42,
+            "description": "SELENA is a tool used to test website performance by measuring response times or verifying the content of replies.",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
             "name": "elasticsearch-reindex-tool",
             "url": "https://github.com/allegro/elasticsearch-reindex-tool",
             "stars": 41,
@@ -388,40 +467,25 @@
             }
         },
         {
-            "name": "selena",
-            "url": "https://github.com/allegro/selena",
-            "stars": 40,
-            "description": "SELENA is a tool used to test website performance by measuring response times or verifying the content of replies.",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "elasticsearch-analysis-morfologik",
-            "url": "https://github.com/allegro/elasticsearch-analysis-morfologik",
-            "stars": 34,
-            "description": "Morfologik Polish Lemmatizer plugin for Elasticsearch",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
             "name": "cassandra-modeling-kata",
             "url": "https://github.com/allegro/cassandra-modeling-kata",
-            "stars": 31,
+            "stars": 34,
             "description": "Cassandra Modeling Kata",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "slinger",
+            "url": "https://github.com/allegro/slinger",
+            "stars": 27,
+            "description": "Slinger - deep linking library for Android",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -448,10 +512,10 @@
             }
         },
         {
-            "name": "slinger",
-            "url": "https://github.com/allegro/slinger",
-            "stars": 26,
-            "description": "Slinger - deep linking library for Android",
+            "name": "ralph-cli",
+            "url": "https://github.com/allegro/ralph-cli",
+            "stars": 25,
+            "description": "Command-line interface for the Ralph system.",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -463,10 +527,40 @@
             }
         },
         {
-            "name": "ralph-cli",
-            "url": "https://github.com/allegro/ralph-cli",
-            "stars": 24,
-            "description": "Command-line interface for the Ralph system.",
+            "name": "HerBERT",
+            "url": "https://github.com/allegro/HerBERT",
+            "stars": 23,
+            "description": "HerBERT is a BERT-based Language Model trained on Polish Corpora using only MLM objective with dynamic masking of whole words.",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "swift-junit",
+            "url": "https://github.com/allegro/swift-junit",
+            "stars": 20,
+            "description": "A Swift library for creating JUnit XML test results that can be interpreted by tools such as Bamboo or Jenkins. Macos and Linux ready.",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "allegro.github.io",
+            "url": "https://github.com/allegro/allegro.github.io",
+            "stars": 19,
+            "description": "Blog sources",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -508,9 +602,24 @@
             }
         },
         {
+            "name": "quanta",
+            "url": "https://github.com/allegro/quanta",
+            "stars": 16,
+            "description": "Fast image optimization as a service, based on mozjpeg, written in Swift",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
             "name": "pyhermes",
             "url": "https://github.com/allegro/pyhermes",
-            "stars": 15,
+            "stars": 16,
             "description": "The Python interface to the Hermes message broker.",
             "featured": {
                 "primary": false,
@@ -523,10 +632,25 @@
             }
         },
         {
-            "name": "swift-junit",
-            "url": "https://github.com/allegro/swift-junit",
+            "name": "swiftbox",
+            "url": "https://github.com/allegro/swiftbox",
+            "stars": 16,
+            "description": "SwiftBox is a package that helps building Swift/Vapor microservices.",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "consul-registration-hook",
+            "url": "https://github.com/allegro/consul-registration-hook",
             "stars": 15,
-            "description": "A Swift library for creating JUnit XML test results that can be interpreted by tools such as Bamboo or Jenkins. Macos and Linux ready.",
+            "description": "Hook that can be used for synchronous registration and deregistration in Consul discovery service on Kubernetes or Mesos cluster with Allegro executor",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -568,70 +692,10 @@
             }
         },
         {
-            "name": "allegro.github.io",
-            "url": "https://github.com/allegro/allegro.github.io",
-            "stars": 14,
-            "description": "Blog sources",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "swiftbox",
-            "url": "https://github.com/allegro/swiftbox",
-            "stars": 13,
-            "description": "SwiftBox is a package that helps building Swift/Vapor microservices.",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "envoy-control",
-            "url": "https://github.com/allegro/envoy-control",
-            "stars": 13,
-            "description": "Envoy Control is a platform-agnostic, production-ready Control Plane for Service Mesh based on Envoy Proxy.",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
             "name": "camus-compressor",
             "url": "https://github.com/allegro/camus-compressor",
-            "stars": 11,
+            "stars": 12,
             "description": "Camus Compressor merges files created by Camus and saves them in a compressed format.",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "ralph_assets",
-            "url": "https://github.com/allegro/ralph_assets",
-            "stars": 11,
-            "description": "Assets Management module for Ralph",
             "featured": {
                 "primary": false,
                 "secondary": false

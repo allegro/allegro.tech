@@ -325,7 +325,7 @@ konrad.kaminski:
 
 grzegorz.kaczmarczyk:
     name: Grzegorz Kaczmarczyk
-    bio: Software developer with 4+ years of professional experience. Fan of simplicity and [YAGNI](http://martinfowler.com/bliki/Yagni.html) principle.
+    bio: Software developer and leader. In recent years working mostly on BigData projects. Fan of simplicity both in life and in software.
 
 anna.wroblewska:
     name: Anna Wróblewska
@@ -578,6 +578,14 @@ marcin.moskala:
     bio: "The autor of Effective Kotlin and Android Development in Kotlin, the founder of the Kt. Academy and Learning Driven, programming trainer, speaker at international conferences, experienced developer."
     twitter: marcinmoskala
     github: MarcinMoskala
+
+piotr.goralczyk:
+    name: Piotr Góralczyk
+    bio: Software engineer who loves building reliable, scalable and maintainable applications. Would-be surfer.
+
+filip.blaszczyk:
+    name: Filip Błaszczyk
+    bio: Software engineer with functional programming inclinations. JVM enthusiast with special place in heart for Scala. After hours - wannabe devops and beatmaker.
 
 kamil.pyc:
     name: Kamil Pyć
