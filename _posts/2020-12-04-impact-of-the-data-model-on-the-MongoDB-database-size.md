@@ -27,8 +27,8 @@ I used a local MongoDB Community Edition 4.4 installation and I initially tested
 million and 10 million documents. One of the variants contained up to 100 million, but the results were proportional
 (nearly linear). Therefore, in the end I decided to stop at 1M collections, because loading the data was simply much faster.
 
-Having access to local database files, I could easily check the size of the files of individual collections. However, it
-turned out to be unnecessary, because the same data can be obtained with the command:
+Having access to local database files, I could easily check the size of the files storing individual collections.
+However, it turned out to be unnecessary, because the same data can be obtained with the command:
 
 ```sql
 db.getCollection('COLLECTION_NAME').stats()
