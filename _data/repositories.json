@@ -289,7 +289,7 @@
         {
             "name": "restapi-guideline",
             "url": "https://github.com/allegro/restapi-guideline",
-            "stars": 110,
+            "stars": 111,
             "description": "Allegro REST API Guideline.",
             "featured": {
                 "primary": false,
