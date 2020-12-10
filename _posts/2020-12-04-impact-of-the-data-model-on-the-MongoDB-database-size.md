@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Impact of the data model on the MongoDB database size
+title: Impact of data model on MongoDB database size
 author: [michal.knasiecki]
 tags: [tech, mongodb]
 ---
