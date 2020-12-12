@@ -40,16 +40,16 @@
         "quanta",
         "pyhermes",
         "swiftbox",
-        "consul-registration-hook",
         "redux-storage-decorator-engines",
         "newrelic-gradle-plugin",
+        "consul-registration-hook",
         "camus-compressor"
     ],
     "repos": [
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 4477,
+            "stars": 4478,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -64,7 +64,7 @@
         {
             "name": "ralph",
             "url": "https://github.com/allegro/ralph",
-            "stars": 1480,
+            "stars": 1481,
             "description": "Ralph is the CMDB / Asset Management system for data center and back office hardware.",
             "featured": {
                 "primary": true,
@@ -139,7 +139,7 @@
         {
             "name": "turnilo",
             "url": "https://github.com/allegro/turnilo",
-            "stars": 392,
+            "stars": 393,
             "description": "Business intelligence, data exploration and visualization web application for Druid, formerly known as Swiv and Pivot",
             "featured": {
                 "primary": false,
@@ -229,7 +229,7 @@
         {
             "name": "json-avro-converter",
             "url": "https://github.com/allegro/json-avro-converter",
-            "stars": 184,
+            "stars": 183,
             "description": "JSON to Avro conversion tool designed to make migration to Avro easier.",
             "featured": {
                 "primary": false,
@@ -647,21 +647,6 @@
             }
         },
         {
-            "name": "consul-registration-hook",
-            "url": "https://github.com/allegro/consul-registration-hook",
-            "stars": 15,
-            "description": "Hook that can be used for synchronous registration and deregistration in Consul discovery service on Kubernetes or Mesos cluster with Allegro executor",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
             "name": "redux-storage-decorator-engines",
             "url": "https://github.com/allegro/redux-storage-decorator-engines",
             "stars": 14,
@@ -681,6 +666,21 @@
             "url": "https://github.com/allegro/newrelic-gradle-plugin",
             "stars": 14,
             "description": "Newrelic Gradle plugin.",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
+            "name": "consul-registration-hook",
+            "url": "https://github.com/allegro/consul-registration-hook",
+            "stars": 14,
+            "description": "Hook that can be used for synchronous registration and deregistration in Consul discovery service on Kubernetes or Mesos cluster with Allegro executor",
             "featured": {
                 "primary": false,
                 "secondary": false
