@@ -544,7 +544,7 @@
         {
             "name": "swift-junit",
             "url": "https://github.com/allegro/swift-junit",
-            "stars": 20,
+            "stars": 19,
             "description": "A Swift library for creating JUnit XML test results that can be interpreted by tools such as Bamboo or Jenkins. Macos and Linux ready.",
             "featured": {
                 "primary": false,
