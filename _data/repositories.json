@@ -64,7 +64,7 @@
         {
             "name": "ralph",
             "url": "https://github.com/allegro/ralph",
-            "stars": 1483,
+            "stars": 1484,
             "description": "Ralph is the CMDB / Asset Management system for data center and back office hardware.",
             "featured": {
                 "primary": true,
@@ -214,7 +214,7 @@
         {
             "name": "vaas",
             "url": "https://github.com/allegro/vaas",
-            "stars": 211,
+            "stars": 212,
             "description": "VaaS - Varnish as a Service",
             "featured": {
                 "primary": true,
