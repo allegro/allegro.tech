@@ -214,7 +214,7 @@
         {
             "name": "vaas",
             "url": "https://github.com/allegro/vaas",
-            "stars": 211,
+            "stars": 210,
             "description": "VaaS - Varnish as a Service",
             "featured": {
                 "primary": true,
