@@ -128,7 +128,7 @@ First thing we did with for our iOS application target was selecting scripts whi
 in Xcode to mark them as runnable for such builds only - just select `For install builds only` checkbox.
 
 <img alt="Run script: For install builds only - checkbox in Xcode"
-src="/img/articles/2020-11-27-speeding-up-warm-builds/xcode-run-for-release.png"/>
+![/img/articles/2020-11-27-speeding-up-warm-builds/xcode-run-for-release.png](Run script: For install builds only - checkbox in Xcode)
 
 What jobs are great for running only for Release builds? We selected a few:
 
