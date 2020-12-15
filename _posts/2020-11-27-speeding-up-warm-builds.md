@@ -127,7 +127,7 @@ do in order to speed up the build time by playing with what and how scripts get 
 First thing we did with for our iOS application target was selecting scripts which can be run only for Release builds. There's an easy way
 in Xcode to mark them as runnable for such builds only - just select `For install builds only` checkbox.
 
-![/img/articles/2020-11-27-speeding-up-warm-builds/xcode-run-for-release.png](Run script: For install builds only - checkbox in Xcode)
+![Run script: For install builds only - checkbox in Xcode](../img/articles/2020-11-27-speeding-up-warm-builds/xcode-run-for-release.png)
 
 What jobs are great for running only for Release builds? We selected a few:
 
@@ -138,7 +138,7 @@ What jobs are great for running only for Release builds? We selected a few:
 Not all tasks can be selected as Release - only. Some of them need to be run for Debug and Release builds, but they don't have to be
 run for every build. Xcode 12 introduced a neat feature - running the script based on dependency analysis.
 
-![Run script: Based on dependency analysis - checkbox in Xcode](/img/articles/2020-11-27-speeding-up-warm-builds/xcode-dependency-analysis.png)
+![Run script: Based on dependency analysis - checkbox in Xcode](../img/articles/2020-11-27-speeding-up-warm-builds/xcode-dependency-analysis.png)
 
 Selecting the checkbox isn't enough to benefit from dependency analysis. Xcode analyses dependencies of a script, i.e. it verifies if the
 inputs of the script have changed since the last run and if the outputs of the script exist. The potential problem occurred for scripts in our
@@ -214,7 +214,7 @@ ValidateEmbeddedBinary (2 tasks) | 2.314 seconds
 ** BUILD SUCCEEDED ** [7.500 sec]
 ```
 
-![Allegro iOS - graph depicting Warm Build Time change over months](/img/articles/2020-11-27-speeding-up-warm-builds/warm-build-graph.png)
+![Allegro iOS - graph depicting Warm Build Time change over months](../img/articles/2020-11-27-speeding-up-warm-builds/warm-build-graph.png)
 
 At the time of writing the **warm build time** on our CI machines takes **4 seconds**. The overall goal of speeding up builds is so that
 the **clean build** time becomes equal to **warm build**.
