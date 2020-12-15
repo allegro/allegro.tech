@@ -217,7 +217,7 @@ ValidateEmbeddedBinary (2 tasks) | 2.314 seconds
 ```
 
 <img alt="Allegro iOS - graph depicting Warm Build Time change over months"
-src="/img/articles/2020-11-27-speeding-up-warm-builds/warm-build-graph.png"/>
+![Allegro iOS - graph depicting Warm Build Time change over months](/img/articles/2020-11-27-speeding-up-warm-builds/warm-build-graph.png)
 
 At the time of writing the **warm build time** on our CI machines takes **4 seconds**. The overall goal of speeding up builds is so that
 the **clean build** time becomes equal to **warm build**.
