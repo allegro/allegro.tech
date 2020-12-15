@@ -140,7 +140,7 @@ Not all tasks can be selected as Release - only. Some of them need to be run for
 run for every build. Xcode 12 introduced a neat feature - running the script based on dependency analysis.
 
 <img alt="Run script: Based on dependency analysis - checkbox in Xcode"
-src="/img/articles/2020-11-27-speeding-up-warm-builds/xcode-dependency-analysis.png"/>
+![Run script: Based on dependency analysis - checkbox in Xcode](/img/articles/2020-11-27-speeding-up-warm-builds/xcode-dependency-analysis.png)
 
 Selecting the checkbox isn't enough to benefit from dependency analysis. Xcode analyses dependencies of a script, i.e. it verifies if the
 inputs of the script have changed since the last run and if the outputs of the script exist. The potential problem occurred for scripts in our
