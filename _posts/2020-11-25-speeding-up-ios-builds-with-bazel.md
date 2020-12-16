@@ -147,7 +147,7 @@ and this target will be built with Bazel in this Build Phase. Thanks to shared r
 of compiling it we would just download precompiled frameworks.
 
 After migrating all of our modules to Bazel we were able to significantly reduce our clean build time. It dropped over
-threefold, going from 260s to just 85s. Developers experience improved as well, because Xcode is a lot more responsive
+threefold, going from 260s to just 85s. Developers' experience improved as well, because Xcode is a lot more responsive
 than before because of reducing the number of projects included in the workspace.
 
 It’s worth noting that if any of our scripts or build artefacts contain e.g. local paths they will cause misses in
