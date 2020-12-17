@@ -14,8 +14,8 @@ Over the years our toolset has improved alongside with compilation times, but sl
 When we wait a few minutes for a build, we navigate ourselves towards different activities and start e.g. watching funny animal pictures or
 YouTube videos, easily **loosing context** of the task at hand. What becomes annoying for us is **slow feedback** of code correctness.
 
-In the [past issue](https://allegro.tech/2020/12/speeding-up-ios-builds-with-bazel.html) my colleague has written about a solution to slow **clean** builds.
-In this post I will focus on **warm** builds improvement.
+In the [past issue](https://allegro.tech/2020/12/speeding-up-ios-builds-with-bazel.html) my colleague has written about a solution 
+to slow **clean** builds. In this post I will focus on **warm** builds improvement.
 
 ## Clean and incremental builds
 
