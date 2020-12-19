@@ -94,7 +94,7 @@
         {
             "name": "php-protobuf",
             "url": "https://github.com/allegro/php-protobuf",
-            "stars": 894,
+            "stars": 895,
             "description": "PHP Protobuf - Google's Protocol Buffers for PHP",
             "featured": {
                 "primary": false,
@@ -529,7 +529,7 @@
         {
             "name": "HerBERT",
             "url": "https://github.com/allegro/HerBERT",
-            "stars": 23,
+            "stars": 24,
             "description": "HerBERT is a BERT-based Language Model trained on Polish Corpora using only MLM objective with dynamic masking of whole words.",
             "featured": {
                 "primary": false,
