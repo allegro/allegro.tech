@@ -124,7 +124,7 @@
         {
             "name": "node-worker-nodes",
             "url": "https://github.com/allegro/node-worker-nodes",
-            "stars": 459,
+            "stars": 460,
             "description": "A node.js library to run cpu-intensive tasks in a separate processes and not block the event loop.",
             "featured": {
                 "primary": false,
