@@ -154,7 +154,7 @@
         {
             "name": "axion-release-plugin",
             "url": "https://github.com/allegro/axion-release-plugin",
-            "stars": 361,
+            "stars": 362,
             "description": "Gradle release & version management plugin.",
             "featured": {
                 "primary": false,
