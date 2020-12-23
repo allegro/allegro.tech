@@ -278,7 +278,7 @@ It allows you to find indexes that are not used so you can safely delete them.
 
 And finally, one more thing. Indexes can be removed quickly, but they take much longer to rebuild. This means that the
 consequences of removal of an index by mistake can be severe. Therefore it is better to make sure that the index to be
-deleted is definitely not used by any query. The latest MongoDB 4.4 provides a command the helps to avoid errors:
+deleted is definitely not used by any query. The latest MongoDB 4.4 provides a command that helps to avoid errors:
 
 ```sql
 db.COLLECTION_NAME.hideIndex(<index>)
