@@ -19,8 +19,8 @@
         "restapi-guideline",
         "handlebars-spring-boot-starter",
         "akubra",
-        "fogger",
         "envoy-control",
+        "fogger",
         "bigflow",
         "elasticsearch-analysis-morfologik",
         "opel",
@@ -49,7 +49,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 4504,
+            "stars": 4505,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -139,7 +139,7 @@
         {
             "name": "turnilo",
             "url": "https://github.com/allegro/turnilo",
-            "stars": 396,
+            "stars": 397,
             "description": "Business intelligence, data exploration and visualization web application for Druid, formerly known as Swiv and Pivot",
             "featured": {
                 "primary": false,
@@ -184,7 +184,7 @@
         {
             "name": "allRank",
             "url": "https://github.com/allegro/allRank",
-            "stars": 232,
+            "stars": 233,
             "description": "allRank is a framework for training learning-to-rank neural models based on PyTorch.",
             "featured": {
                 "primary": false,
@@ -259,7 +259,7 @@
         {
             "name": "tradukisto",
             "url": "https://github.com/allegro/tradukisto",
-            "stars": 129,
+            "stars": 128,
             "description": "A Java library created to convert numbers to their word representations",
             "featured": {
                 "primary": false,
@@ -332,10 +332,10 @@
             }
         },
         {
-            "name": "fogger",
-            "url": "https://github.com/allegro/fogger",
-            "stars": 59,
-            "description": "Fogger - a library to create blurred background under Android's UI elements",
+            "name": "envoy-control",
+            "url": "https://github.com/allegro/envoy-control",
+            "stars": 60,
+            "description": "Envoy Control is a platform-agnostic, production-ready Control Plane for Service Mesh based on Envoy Proxy.",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -347,10 +347,10 @@
             }
         },
         {
-            "name": "envoy-control",
-            "url": "https://github.com/allegro/envoy-control",
-            "stars": 58,
-            "description": "Envoy Control is a platform-agnostic, production-ready Control Plane for Service Mesh based on Envoy Proxy.",
+            "name": "fogger",
+            "url": "https://github.com/allegro/fogger",
+            "stars": 59,
+            "description": "Fogger - a library to create blurred background under Android's UI elements",
             "featured": {
                 "primary": false,
                 "secondary": false
