@@ -17,7 +17,7 @@ else
         all_errors+=( "$linter_errors" )
     fi
 
-    authors=$(echo "$files_to_check" | xargs cat | grep "author:" | grep "[[:alpha:]]*\.[[:alpha:]]*" -o)
+    authors=$(echo "$files_to_check" | xargs cat | grep "author:" | grep -E "[[:alnum:]]+\.[[:alnum:]]+(\.[[:alnum:]]+)?" -o)
     authors_images=$(echo "$authors" | sed "s~^~$path/../img/authors/~" | sed "s/$/.jpg/")
 
     for image in $authors_images; do
