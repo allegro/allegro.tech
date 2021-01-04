@@ -259,7 +259,7 @@
         {
             "name": "tradukisto",
             "url": "https://github.com/allegro/tradukisto",
-            "stars": 128,
+            "stars": 129,
             "description": "A Java library created to convert numbers to their word representations",
             "featured": {
                 "primary": false,
@@ -364,7 +364,7 @@
         {
             "name": "elasticsearch-analysis-morfologik",
             "url": "https://github.com/allegro/elasticsearch-analysis-morfologik",
-            "stars": 57,
+            "stars": 58,
             "description": "Morfologik Polish Lemmatizer plugin for Elasticsearch",
             "featured": {
                 "primary": false,
