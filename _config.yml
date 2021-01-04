@@ -1,6 +1,7 @@
 plugins:
     - jekyll-redirect-from
     - jekyll-sitemap
+    - jekyll-relative-links
 
 # Site settings
 title: allegro.tech
@@ -11,7 +12,7 @@ name: allegro.tech
 baseurl: ""
 url: "https://allegro.tech"
 twitter_username: allegrotech
-github_username:  allegro
+github_username: allegro
 facebook_username: allegro.tech
 google_plus_id: +AllegroTechBlog
 meetup_username: allegrotech
@@ -29,6 +30,10 @@ sass:
 permalink: /:year/:month/:title.html
 
 collections:
-  events:
-    output: true
-    permalink: /events/:name
+    events:
+        output: true
+        permalink: /events/:name
+
+relative_links:
+    enabled: true
+    collections: true

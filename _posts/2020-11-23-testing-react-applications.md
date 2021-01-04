@@ -304,7 +304,7 @@ On the other hand, at the _/users/{id}_ address the same component displays the 
 Here are the changes in the component implementation that I made to achieve this result:
 
 ```jsx
-const mapStateToProps = state => ({
+{% raw %}const mapStateToProps = state => ({
   currentUser: state.currentUser,
   users: state.users
 });
@@ -365,7 +365,7 @@ const UserInfoReduxRouterComponent = ({ currentUser, users, updateEmail, locatio
     </Paper>
   );
 };
-export const UserInfoReduxRouter = connect(mapStateToProps, mapDispatchToProps)(UserInfoReduxRouterComponent);
+export const UserInfoReduxRouter = connect(mapStateToProps, mapDispatchToProps)(UserInfoReduxRouterComponent);{% endraw %}
 ```
 
 So what has changed?
