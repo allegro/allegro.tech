@@ -5,7 +5,7 @@ author: [zbigniew.kuzera]
 tags: [tech, kotlin, coroutines]
 ---
 
-Recently, our crucial microservice delivering listing data [switched](/2019/07/migrating-microservice-to-spring-webflux.html) to
+Recently, our crucial microservice delivering listing data [switched]({% post_url 2019-07-15-migrating-microservice-to-spring-webflux %}) to
 [Spring WebFlux](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html).
 A non-blocking approach gave us the possibility to reduce the number of server worker threads compared to [Spring WebMvc](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html).
 The reactive approach helped us to effectively build a scalable solution.
@@ -17,7 +17,7 @@ Also, we entered the world of functional programming where code becomes declarat
 
 Assume the business requirement is to bake gingerbread optimally. The following diagram should help to understand the recipe steps:
 
-![gingerbread diagram](/img/articles/2020-02-10-webflux-and-coroutines/gingerbreadDiagram.jpg)
+![gingerbread diagram]({% link /img/articles/2020-02-10-webflux-and-coroutines/gingerbreadDiagram.jpg %})
 
 In the beginning, when not very complicated logic was translated into webflux, we felt comfortable with the chaining of two or three lines of code.
 However, the more you get into it, the more complicated it becomes. Some new additions made the code unreadable.
@@ -123,14 +123,14 @@ huge traffic against the gingerbread server. I am aware that the test was not ru
 general possibilities of selected client techniques.
 
 #### Tests results (with 64 server workers)
-![vegeta tests 64 workers](/img/articles/2020-02-10-webflux-and-coroutines/vegetaTests64workers.png)
+![vegeta tests 64 workers]({% link /img/articles/2020-02-10-webflux-and-coroutines/vegetaTests64workers.png %})
 
 It is worth to notice that netty worker count was set to 64 in order to provide thread resources for restTemplate blocking
 flow (alternatively a dedicated thread pool may be used instead). Normally it is set to the number of CPU cores (but at least 2),
 which is optimized for reactive techniques. Without this custom netty configuration, restTemplate performance is much lower
 compared to webflux; it is shown in the table below:
 
-![vegeta tests default config](/img/articles/2020-02-10-webflux-and-coroutines/vegetaTestsDefaultConfig.png)
+![vegeta tests default config]({% link /img/articles/2020-02-10-webflux-and-coroutines/vegetaTestsDefaultConfig.png %})
 
 Note that blocking flow performs significantly worse even at a lower rate.
 Of course, more server threads mean more memory and CPU context switching. And in the long run, it is not a scalable solution.

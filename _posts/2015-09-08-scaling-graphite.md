@@ -33,7 +33,7 @@ We first deployed Graphite for microservices a year ago, in August 2014. It has 
 half a year (from February 2015 till August 2015) we tripled the amount of gathered metrics: from 1,000,000 metrics/minute
 to 3,000,000 metrics/minute and the demand is still growing.
 
-![Traffic in last 6 months](/img/articles/2015-09-01-scaling-graphite/graphite-traffic.png)
+![Traffic in last 6 months]({% link /img/articles/2015-09-01-scaling-graphite/graphite-traffic.png %})
 
 This volume of data came as a surprise at first . In comparison, metrics gathered from our old monolithic application
 deployed on hundreds of servers reaches 200,000 metrics/minute at most.
@@ -61,7 +61,7 @@ Graphite "getting started" architecture is pretty solid for a single team/projec
 of microservices pushing 500k metrics/minute. It assumes whole Graphite setup is working on a single machine – relay,
 cache and the database itself.
 
-![Getting started architecture](/img/articles/2015-09-01-scaling-graphite/graphite-architecture-1.png)
+![Getting started architecture]({% link /img/articles/2015-09-01-scaling-graphite/graphite-architecture-1.png %})
 
 
 Of course, we kept fault tolerance as a priority from the very beginning, thus all the data was written to two hosts.
@@ -70,7 +70,7 @@ mirroring the traffic).
 
 The first signs of problems appeared when clients started reporting spotty graphs for otherwise continuous data.
 
-![Example of spotty graph](/img/articles/2015-09-01-scaling-graphite/graphite-spotty-graphs.png)
+![Example of spotty graph]({% link /img/articles/2015-09-01-scaling-graphite/graphite-spotty-graphs.png %})
 
 Quite soon afterwards came the problem with stability – Carbon cache process would crash every few hour's sending up to
 an hour worth of data to /dev/null. Why was this happening?
@@ -84,7 +84,7 @@ leaving cache size unbounded.
 What happens after mixing not-fast-enough HDD disks potentially shared with other applications with unbounded in-memory
 buffer and page cache at the top of it? Take a look at the image below:
 
-![Memory usage on cache host](/img/articles/2015-09-01-scaling-graphite/graphite-memory.png)
+![Memory usage on cache host]({% link /img/articles/2015-09-01-scaling-graphite/graphite-memory.png %})
 
 Each drop in memory usage means Carbon process was killed by the
 [Out Of Memory Killer](http://www.oracle.com/technetwork/articles/servers-storage-dev/oom-killer-1911807.html).
@@ -102,7 +102,7 @@ by estimating the traffic that each branch of metrics receives. Since Graphite d
 metrics, we used two simple tools: `du` and `ncdu` to estimate disk usage and how it changes over the time to select
 the biggest clients that should eventually be migrated to their own Carbon shards.
 
-![Sharded architecture](/img/articles/2015-09-01-scaling-graphite/graphite-architecture-2.png)
+![Sharded architecture]({% link /img/articles/2015-09-01-scaling-graphite/graphite-architecture-2.png %})
 
 #### Relay
 

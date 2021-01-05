@@ -10,7 +10,7 @@ elements on the screen. Metrics such as First Contentful Paint, First Meaningful
 reflect what the user sees and when. But what if the page is invisible, when it loads in the background, for example in
 a different tab? Should we consider such views interesting for us? Don’t the collected metrics distort the results?
 
-[![performance metrics](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image2.png)](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image2.png)
+[![performance metrics]({% link /img/articles/2019-09-02-page-visibility-and-performance-metrics/image2.png %})]({% link /img/articles/2019-09-02-page-visibility-and-performance-metrics/image2.png %})
 
 ## Methodology
 
@@ -36,8 +36,8 @@ collected for them. We did this for three Allegro pages: home page, offers listi
 background the most was the offer page, then homepage and last — listing page. This seems to correspond to the scenarios of using these
 pages — e.g. when browsing search results, users open multiple offers in the background to compare them with each other.
 
-[![Counts — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image5.png "Counts — desktop")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image5.png)
-[![Counts — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image3.png "Counts — smartphone")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image3.png)
+[![Counts — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image5.png "Counts — desktop")]({% link /img/articles/2019-09-02-page-visibility-and-performance-metrics/image5.png %})
+[![Counts — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image3.png "Counts — smartphone")]({% link /img/articles/2019-09-02-page-visibility-and-performance-metrics/image3.png %})
 
 Many more views took place in the background for desktops than for smartphones. This data is not surprising, either, since on the phone it is much
 less convenient to use websites in many tabs.
@@ -45,8 +45,8 @@ less convenient to use websites in many tabs.
 For smartphones, First Contentful Paint time turned out to be several hundred seconds (!) higher for pages loading in the background than
 for visible pages. For desktops, it was much less, but still over 100 seconds.
 
-[![First Contentful Paint — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image1.png "FCP — smartphone")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image1.png)
-[![First Contentful Paint — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image9.png "FCP — desktop")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image9.png)
+[![First Contentful Paint — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image1.png "FCP — smartphone")]({% link /img/articles/2019-09-02-page-visibility-and-performance-metrics/image1.png %})
+[![First Contentful Paint — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image9.png "FCP — desktop")]({% link /img/articles/2019-09-02-page-visibility-and-performance-metrics/image9.png %})
 
 When we excluded an error in the aggregation algorithm, we looked at how we collect metrics. For better approximation of the moment when content
 appears on the screen, we used to use the ```requestAnimationFrame``` API, which has been available for a long time in all major browsers. This
@@ -73,8 +73,8 @@ activated. The reporting function starts almost at the same time as sending info
 experimentally proved this hypothesis, and it also found confirmation in the collected data. [First Paint](https://w3c.github.io/paint-timing/#first-paint) — a metric reported by the browser
 itself — is also very high for hidden tabs. This means the first frame render occurs when a tab becomes active.
 
-[![First Paint — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image12.png "FP — smartphone")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image12.png)
-[![First Paint — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image4.png "FP — desktop")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image4.png)
+[![First Paint — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image12.png "FP — smartphone")]({% link /img/articles/2019-09-02-page-visibility-and-performance-metrics/image12.png %})
+[![First Paint — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image4.png "FP — desktop")]({% link /img/articles/2019-09-02-page-visibility-and-performance-metrics/image4.png %})
 
 In order not to bias the results, we decided to conditionally — for invisible pages — collect metrics related to drawing at the time of
 parsing the HTML code of elements. We are aware that this is a distortion in the opposite direction (measured time is smaller than it should be), but
@@ -86,7 +86,7 @@ the expected difference is much smaller than when using ```requestAnimationFrame
 function sendMark() {
   window.performance.mark('FirstMeaningfulPaint');
 }
-  
+
 if (document.visibilityState != 'visible') sendMark();
 else requestAnimationFrame(sendMark);
 </script>
@@ -95,20 +95,20 @@ else requestAnimationFrame(sendMark);
 After implementing the patch and re-checking the data, the picture changed significantly, but the trend remained — invisible pages
 load noticeably slower and their higher times affect the overall result.
 
-[![First Contentful Paint — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image14.png "FCP — smartphone")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image14.png)
-[![First Contentful Paint — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image11.png "FCP — desktop")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image11.png)
+[![First Contentful Paint — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image14.png "FCP — smartphone")]({% link /img/articles/2019-09-02-page-visibility-and-performance-metrics/image14.png %})
+[![First Contentful Paint — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image11.png "FCP — desktop")]({% link /img/articles/2019-09-02-page-visibility-and-performance-metrics/image11.png %})
 
 At first glance, this might seem illogical — since the browser does not render the content of invisible tabs, i.e. it does less work for
 them, loading should end faster. Again, it is about optimizing utilization of resources and giving higher priority to the active tab. For
 pages loading in the background, the browser limits not only access to the CPU but also to network resources. This way resources downloaded in inactive tabs have lower priority, which results in increased loading times.
 
-[![First Meaningful Paint — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image7.png "FMP — smartphone")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image7.png)
+[![First Meaningful Paint — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image7.png "FMP — smartphone")]({% link /img/articles/2019-09-02-page-visibility-and-performance-metrics/image7.png %})
 
-[![First Meaningful Paint — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image15.png "FMP — desktop")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image15.png)
+[![First Meaningful Paint — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image15.png "FMP — desktop")]({% link /img/articles/2019-09-02-page-visibility-and-performance-metrics/image15.png %})
 
-[![Visually Complete — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image8.png "VC — smartphone")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image8.png)
+[![Visually Complete — smartphone](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image8.png "VC — smartphone")]({% link /img/articles/2019-09-02-page-visibility-and-performance-metrics/image8.png %})
 
-[![Visually Complete — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image6.png "VC — desktop")](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image6.png)
+[![Visually Complete — desktop](/img/articles/2019-09-02-page-visibility-and-performance-metrics/image6.png "VC — desktop")]({% link /img/articles/2019-09-02-page-visibility-and-performance-metrics/image6.png %})
 
 ## Summary
 

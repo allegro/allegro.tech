@@ -23,7 +23,7 @@ just lose context of where you were just before.
 Let's say a user is browsing through offers on a real estate page. She notices a banner at the top which advertises her to install a mobile application.
 
 
-![banner advertising possibility to install a mobile application ](/img/articles/2014-11-19.install_banner.png)
+![banner advertising possibility to install a mobile application ]({% link /img/articles/2014-11-19.install_banner.png %})
 
 
 She clicks it, opens [Google Play Store](https://play.google.com/store/apps/details?id=pl.otodom), installs an application and totally loses content she saw at the beginning of the whole process.

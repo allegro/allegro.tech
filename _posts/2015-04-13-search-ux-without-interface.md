@@ -14,7 +14,7 @@ discuss whether it is worth our time to measure the effect of changes through an
 the impact on metrics. When it came to search engine — a back office product with almost no interface — we had our
 doubts. We are the search team behind the Allegro search engine. This is the complete interface of our product:
 
-![allegro search](/img/articles/2015-04-13-allegro-search.png)
+![allegro search]({% link /img/articles/2015-04-13-allegro-search.png %})
 
 And this is it. Not much visible for users but there are huge challenges hidden behind it.
 
