@@ -15,7 +15,7 @@ access.
 Most have a number of advanced features which are not covered here.
 
 Interpreting the numbers these tools display is often a complex task and will not be explained here. Note that if you deploy your software
-to virtual machines in the cloud, as we usually do at [Allegro](/about-us/), interpretation of results becomes even harder than
+to virtual machines in the cloud, as we usually do at [Allegro]({% link about-us/index.html %}), interpretation of results becomes even harder than
 with physical machines since there is always an additional level of indirection above the machine you can directly observe. Performance
 tuning is quite complex, so explaining it is not the point of this post — I assume you already know the basics. The point is rather to
 draw your attention to the fact that the tools described here exist at all. I would especially like to highlight [`strace`](http://linux.die.net/man/1/strace) which

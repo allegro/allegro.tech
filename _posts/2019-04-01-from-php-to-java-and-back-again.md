@@ -7,7 +7,7 @@ tags: [tech, php, java, monolith, microservices]
 
 > This post was published on April 1st, 2019, and should not be taken too seriously.
 
-Five years ago we started a major technological transformation of the [Allegro](/about-us/) platform.
+Five years ago we started a major technological transformation of the [Allegro]({% link about-us/index.html %}) platform.
 Since then, we’ve been moving from a monolithic, 10 mln lines of code PHP application into a system of
 800+ JVM‑based microservices. This new architecture however turned out to be a dead‑end,
 that we can no longer afford to follow. Today, April 1 2019, we announce going back to

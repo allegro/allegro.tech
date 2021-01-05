@@ -13,7 +13,7 @@ caching. In this article we focus on determining optimal cache size based on big
 
 ### Some numbers to understand the problem
 
-[Allegro](/about-us/) is the largest e-commerce site in Central Europe. Every day you can browse and
+[Allegro]({% link about-us/index.html %}) is the largest e-commerce site in Central Europe. Every day you can browse and
 purchase one of 50 millions offers available on the site. To show so-called Allegro
 [“listing”](http://allegro.pl/laptopy-491) page, [Solr](http://lucene.apache.org/solr/) is requested with user
 query for items' identifiers, then items' data are retrieved from [Cassandra](http://cassandra.apache.org/),

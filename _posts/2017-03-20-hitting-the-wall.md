@@ -15,7 +15,7 @@ preparing for a long distance run, you’ll often hear about
 This effect is described mostly in running and cycling but affects all
 endurance sports. It happens when your body does not have enough glycogen to
 produce power and this results in a sudden “power loss” so you can’t run
-anymore. At [Allegro](/about-us/)
+anymore. At [Allegro]({% link about-us/index.html %})
 we have experienced a similar thing with Mesosphere Marathon. This
 is our story on using Marathon in a growing microservice ecosystem, from tens of
 tasks and a couple applications, to thousands of tasks and over a hundred applications.
