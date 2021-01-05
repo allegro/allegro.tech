@@ -5,7 +5,7 @@ author: dariusz.jedrzejczyk
 tags: [microservices, service mesh, architecture, open source]
 ---
 
-This year [Allegro.pl](/about-us/) turns 21. The company, while serving millions of Poles in their
+This year [Allegro.pl]({% link about-us/index.html %}) turns 21. The company, while serving millions of Poles in their
 online shopping, has taken part in many technological advances. Breaking the monolith,
 utilising public cloud offerings, machine learning, you name it. Even though many technologies
 we use might seem as just following the hype, their adoption is backed by solid reasoning.

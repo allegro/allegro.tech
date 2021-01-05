@@ -8,7 +8,7 @@ When designing the architecture of a system, one always needs to think about wha
 what kind of failures can occur in the system. This kind of problem analysis is especially hard in distributed systems.
 Failure is inevitable and the best we can do is to prepare for it.
 
-Our team deals with collecting and serving statistics for the [PPC](https://en.wikipedia.org/wiki/Pay-per-click) advertising platform in [Allegro](/about-us/).
+Our team deals with collecting and serving statistics for the [PPC](https://en.wikipedia.org/wiki/Pay-per-click) advertising platform in [Allegro]({% link about-us/index.html %}).
 We've decided to base our design on the [Lambda Architecture](http://lambda-architecture.net/), which gives us a huge
 benefit when it comes to fault-tolerance.
 
