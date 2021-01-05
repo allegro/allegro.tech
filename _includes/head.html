@@ -5,13 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    {%assign podcasts = site.data.podcast.podcasts | where: "slug", page.slug %}
-    {%assign podcast = podcasts[0]%}
-    {% if podcast and page.slug %}
-        {% include meta-podcast.html %}
-    {% else %}
-        {% include meta-default.html %}
-    {% endif %}
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Feed" href="{{ site.url }}/feed.xml"/>
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" itemprop="url">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Roboto:400,300,100,700&amp;subset=latin-ext" rel="stylesheet">
