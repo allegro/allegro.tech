@@ -1,7 +1,6 @@
 plugins:
     - jekyll-redirect-from
     - jekyll-sitemap
-    - jekyll-relative-links
 
 # Site settings
 title: allegro.tech
