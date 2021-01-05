@@ -48,7 +48,7 @@ else
         fi
     done
 
-    errors_content="$( printf "\n%s" "${all_errors[@]}" | tail -n +2) "
+    errors_content="$( printf "\n%s" "${all_errors[@]}" | tail -n +2)"
 fi
 
 if test -z "$errors_content" 
