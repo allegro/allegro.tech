@@ -19,13 +19,13 @@ I’m going to show some common pitfalls as well as how performance metrics in p
 
 Before exploring the migration strategy in detail, let’s discuss the motivation for the change first.
 One of the microservices, which is developed and maintained by my team, was involved in the significant Allegro outage
-on 18th of July 2018 (see more details in [postmortem](/2018/08/postmortem-why-allegro-went-down.html)).
+on 18th of July 2018 (see more details in [postmortem]({% post_url 2018-08-31-postmortem-why-allegro-went-down %})).
 Although our microservice was not the root cause of problems, some of the instances also crashed because of thread pools saturation.
 Ad hoc fix was to increase thread pool sizes and to decrease timeouts in external service calls; however, this was not sufficient.
 The temporary solution only slightly increased throughput and resilience for external services latencies.
 We decided to switch to a non-blocking approach to completely get rid of thread pools as the foundation for concurrency.
 The other motivation to use WebFlux was the new project which complicated the external service calls flow
-in our microservice. 
+in our microservice.
 We faced the challenge to keep the codebase maintainable and readable regardless of increasing complexity.
 We saw WebFlux more friendly than our previous solution based on Java 8 `CompletableFuture` to model complex flow.
 
@@ -87,8 +87,8 @@ the non-blocking way. However, the higher the latency per call or the interdepen
 the benefits. Reactiveness shines here — waiting for other service response doesn’t block the thread.
 Thus fewer threads are necessary to obtain the same throughput, and fewer threads mean less memory used.
 
-It’s always recommended to check independent sources to avoid framework authors’ bias. 
-An excellent source of opinion when it comes to choosing a new technology is 
+It’s always recommended to check independent sources to avoid framework authors’ bias.
+An excellent source of opinion when it comes to choosing a new technology is
 [Technology Radar](https://www.thoughtworks.com/radar/languages-and-frameworks/webflux) by ThoughtWorks.
 They report system throughput and an improvement in code readability after migration to WebFlux.
 On the other hand, they point out that a significant shift in thinking is necessary to adopt WebFlux successfully.
@@ -137,7 +137,7 @@ Mono<Pizza> getPizzaReactive(int id) {
 }
 ```
 Now it’s time to wire our new method with the rest of the application. The non-blocking method returns `Mono`,
-but we need a plain type instead. We can use the `.block()` method to retrieve the value from `Mono`. 
+but we need a plain type instead. We can use the `.block()` method to retrieve the value from `Mono`.
 ```java
 Pizza getPizzaBlocking(int id) {
     return getPizzaReactive(id).block();
@@ -243,7 +243,7 @@ usually returning `Mono.just(foo)`.
 The theory seems simple, but our tests started to hang. Fortunately, in a reproducible way. What was the problem?
 In classic, blocking approach, when we forget (or intentionally omit) to configure some method call in stub or mock,
 it just returns `null`. In many cases, it doesn’t affect the test. However, when our stubbed method returns a reactive type,
-misconfiguration may cause it to hang, because expected `Mono` or `Flux` never resolves. 
+misconfiguration may cause it to hang, because expected `Mono` or `Flux` never resolves.
 
 __The lesson learned__:
 *stubs or mocks of methods returning reactive type, called during test execution, which previously implicitly returned
@@ -309,9 +309,9 @@ we can see similar behavior. “Hello, world!” is returned after 1 s delay. Ho
 misleading. Our service response changes drastically under higher traffic. Let’s use [JMeter](https://jmeter.apache.org/)
 to obtain some performance characteristics.
 
-![Performance of service with reactive delay](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/jmeter-reactive.png)
+![Performance of service with reactive delay]({% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/jmeter-reactive.png %})
 
-![Performance of service with blocking delay](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/jmeter-blocking.png)
+![Performance of service with blocking delay]({% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/jmeter-blocking.png %})
 
 Both versions were queried using 100 threads.
 As we can see, the version with reactive delay (upper) works well under heavy load, providing constant delay and high throughput.
@@ -332,7 +332,7 @@ Documentation of WebClient `.exchange()` method clearly states:
 [Chapter 2.3 of official WebFlux documentation](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-client-exchange)
 gives us similar information.
 This requirement is easy to miss, mainly when we use `.retrieve()` method, which is a shortcut to `.exchange()`.
-We stumbled upon such an issue. We correctly mapped the valid response to an object and wholly ignored the response in case of an error. 
+We stumbled upon such an issue. We correctly mapped the valid response to an object and wholly ignored the response in case of an error.
 ```java
 Mono<Pizza> getPizzaReactive(int id) {
     return webClient
@@ -364,19 +364,19 @@ Consider the following code:
 String valueFromCache = "some non-empty value";
 return Mono.justOrEmpty(valueFromCache)
     .switchIfEmpty(Mono.just(getValueFromService()));
-   
+
 ```
 We used similar code to check the cache for a particular value and then call the external service if
 the value was missing. The intention of the author seems to be clear: execute `getValueFromService()`
 only in the case of lacking cache value. However, this code runs every time, even for cache hits.
 The argument given to `.switchIfEmpty()` is not a lambda here — and `Mono.just()` causes direct execution of code
 passed as an argument.
-The obvious solution is to use `Mono.fromSupplier()` and pass conditional code as a lambda, as in the example below: 
+The obvious solution is to use `Mono.fromSupplier()` and pass conditional code as a lambda, as in the example below:
 ```java
 String valueFromCache = "some non-empty value";
 return Mono.justOrEmpty(valueFromCache)
     .switchIfEmpty(Mono.fromSupplier(() -> getValueFromService()));
-```   
+```
 
 __The lesson learned__:
 *Reactor API has many different methods. Always consider whether the argument should be passed as is or wrapped with lambda.*
@@ -392,9 +392,9 @@ How were low-level metrics affected?
 We observed fewer garbage collections, and also they took less time.
 The upper part of each chart shows the blocking version, while the lower part shows the reactive version.
 
-![GC count comparison — reactive vs blocking](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-count.png)
+![GC count comparison — reactive vs blocking]({% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-count.png %})
 
-![GC time comparison — reactive vs blocking](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-time.png)
+![GC time comparison — reactive vs blocking]({% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-time.png %})
 
 Also, the response time slightly decreased, although we did not expect such an effect.
 Other metrics, like CPU load, file descriptors usage and total memory consumed, did not change.

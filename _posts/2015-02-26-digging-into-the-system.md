@@ -14,7 +14,7 @@ When it comes to understanding performance characteristics of applications I use
 introduced to me by Kirk Pepperdine during [Java Performance Workshop](http://www.kodewerk.com/workshop.html). Box itself is an abstraction of the complete system
 and a systematic method which can be used to find performance bottlenecks:
 
-![The box](/img/articles/2015-02-26-digging-into-the-system/the_box.png)
+![The box]({% link /img/articles/2015-02-26-digging-into-the-system/the_box.png %})
 
 Kirk states:
 
@@ -32,7 +32,7 @@ If you are familiar with [Brendan Gregg’s](http://www.brendangregg.com) [Linux
 Tools](http://www.brendangregg.com/Perf/linux_observability_tools.png) diagram (presented below), you can clearly see
 that tool selection under Linux operating system is overwhelming.
 
-![Linux Observability Tools](/img/articles/2015-02-26-digging-into-the-system/linux_observability_tools.png)
+![Linux Observability Tools]({% link /img/articles/2015-02-26-digging-into-the-system/linux_observability_tools.png %})
 
 Most of them require extensive knowledge on system internals, how to use them and how to read the results. These
 are exactly the reasons why I think sysdig is a great tool for everyone involved in performance troubleshooting: it’s
@@ -100,7 +100,7 @@ tool](http://www.brendangregg.com/perf.html) and get every possible piece of inf
 
 ## Sysdig architecture
 
-![Sysdig architecture](/img/articles/2015-02-26-digging-into-the-system/sysdig_arch.png).
+![Sysdig architecture]({% link /img/articles/2015-02-26-digging-into-the-system/sysdig_arch.png %}).
 
 Sysdig consists of three main parts:
 

@@ -172,7 +172,7 @@ we started searching for a better solution.
 
 JSON over HTTP is definitely not the best choice if you need speed. Unfortunately, all our services talk to each other in JSON,
 so incorporating a new protocol was out of scope for this task (but we are considering using [avro](https://avro.apache.org/),
-as we did for [Kafka](/2015/08/spark-kafka-integration.html)). We decided to stick with JSON.
+as we did for [Kafka]({% post_url 2015-08-06-spark-kafka-integration %})). We decided to stick with JSON.
 A quick search provided us with a solution called [ffjson](https://github.com/pquerna/ffjson).
 
 ffjson documentation claims it is 2-3 times faster than standard `json.Unmarshal`, and also uses less memory to do it.

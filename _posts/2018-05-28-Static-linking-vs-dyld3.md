@@ -81,7 +81,7 @@ before Xcode&nbsp;9 was released. Although Xcode&nbsp;8 had no support for
 static Swift linking, there is a&nbsp;way to perform static linking using
 [`libtool`](https://www.manpagez.com/man/1/libtool/). In those dark times, we
 were just adding custom build phases with
-[buildstatic](https://github.com/aliceatlas/buildstatic) script for selected 
+[buildstatic](https://github.com/aliceatlas/buildstatic) script for selected
 libraries. This may seem like a&nbsp;hack, but it is really just a&nbsp;hefty
 usage of well-documented toolset... and it worked flawlessly.
 
@@ -96,7 +96,7 @@ Aside from dynamic libraries, a&nbsp;framework can also contain resources
 etc.). We got rid of dynamic libraries, but we couldn't leave
 resource-only-frameworks. Resource bundle is a&nbsp;standard way of wrapping
 resources in Apple ecosystem, so we created
-[`framework_to_bundle.sh`](https://gist.github.com/kam800/7e9b0fd55a3fbcd455695aab3ffa08ac) 
+[`framework_to_bundle.sh`](https://gist.github.com/kam800/7e9b0fd55a3fbcd455695aab3ffa08ac)
 script, which takes `*.framework` and outputs `*.bundle` with all the resources.
 
 The resource-handling code was redesigned to automatically use the right
@@ -137,7 +137,7 @@ this was a&nbsp;significant gain. The app launch time improved even more on
 freshly turned on iPad 2 – the difference was about 4.5 seconds, which was about
 38% of the launch time with all libraries being dynamically linked.
 
-![speedup.png](/img/articles/2018-05-28-Static-linking-vs-dyld3/speedup.png)
+![speedup.png]({% link /img/articles/2018-05-28-Static-linking-vs-dyld3/speedup.png %})
 
 ### Static linking pitfall
 

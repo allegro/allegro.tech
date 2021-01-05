@@ -16,7 +16,7 @@ I also came up with my own variations.
 In this post I will make a subjective comparison of these methods based on specific criteria.
 
 ## Assumptions
-This post is a continuation of my [previous post](/2019/12/grouping-and-organizing-classes.html) and is based on the application project called "Project Keeper" introduced there.
+This post is a continuation of my [previous post]({% post_url 2019-12-12-grouping-and-organizing-classes %}) and is based on the application project called "Project Keeper" introduced there.
 I will use Java with the help of the [Spring](https://spring.io/) framework to implement the source code of the application.
 The `Project` [aggregate](https://martinfowler.com/bliki/DDD_Aggregate.html) will represent the part of the "Project Keeper" application state, which is responsible for IT projects data.
 To save the state, I will use a `ProjectRepository` [repository](https://www.martinfowler.com/eaaCatalog/repository.html).
@@ -200,7 +200,7 @@ class MultiSourceProjectRepository extends ProjectRepository {
         }
     }
 }
-``` 
+```
 As the `Project` aggregate state is stored in more than one data source, it may occur that the saved state will be incomplete.
 It is difficult to eliminate this problem completely, but you can reduce it to a minimum by:
 * retrying each sub-save operation in case of error (the operations must be idempotent)
@@ -648,7 +648,7 @@ public class Project {
 Mapping code:
 ```java
 class ProjectPersistenceMapper {
-    
+
     private Identifier.StateReader identifierStateReader = new Identifier.StateReader();
     private Feature.StateReader featureStateReader = new Feature.StateReader();
     private Project.StateReader projectStateReader = new Project.StateReader();

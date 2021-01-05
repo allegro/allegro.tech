@@ -109,7 +109,7 @@ When significant parts of infrastructure were ready, other teams joined in one b
 
 * clear line between new and old code – it was impossible to use an old function in the new code. Therefore,
 the old code could not affect the new one. The only way to use an old function was through an
-[Anti-Corruptions Layer](/2015/01/working-with-legacy-architecture.html),
+[Anti-Corruptions Layer]({% post_url 2015-01-21-working-with-legacy-architecture %}),
 an abstract layer on the top of the old function that “processes” queries submitted to other services.
 * new data structures – our services own their data, so they did not have to ensure backward compatibility and
 could create new, better structures.
@@ -172,7 +172,7 @@ if there is no reason to use another language.
 * this approach is adopted by all our teams; additionally we have technical teams that deal with issues such as event
 bus, discovery service, common libraries, etc.
 * if we are not able to rewrite the whole functionality at once, we create
-[Anti-Corruptions Layers](/2015/01/working-with-legacy-architecture.html) to make sure that
+[Anti-Corruptions Layers]({% post_url 2015-01-21-working-with-legacy-architecture %}) to make sure that
 the old code structure will not affect the new one.
 
 Such a big transformation would not be possible without understanding and support from business side. Architects

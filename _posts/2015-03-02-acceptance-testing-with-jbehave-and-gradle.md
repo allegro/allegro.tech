@@ -282,11 +282,11 @@ wrapped by JBehave extensions, so they are run always when we run `./gradlew tes
 
 Now we can see pretty HTML output from the tests in `build/jbehave/view/reports.html`.
 
-![](/img/articles/2015-03-02-acceptance-testing-with-jbehave-and-gradle/jbehave-reports.png)
+![]({% link /img/articles/2015-03-02-acceptance-testing-with-jbehave-and-gradle/jbehave-reports.png %})
 
 We can click on the test name to see its details.
 
-![](/img/articles/2015-03-02-acceptance-testing-with-jbehave-and-gradle/jbehave-root-category.png)
+![]({% link /img/articles/2015-03-02-acceptance-testing-with-jbehave-and-gradle/jbehave-root-category.png %})
 
 ### Custom input parameters
 

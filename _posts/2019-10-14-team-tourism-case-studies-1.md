@@ -4,19 +4,19 @@ title: Team tourism at Allegro — part 2 — case studies
 author: [tomasz.nurkiewicz, michal.lewandowski, bartosz.galek, bartosz.balukiewicz]
 tags: [tech]
 ---
-Following up on our previous post about [team tourism](/2019/09/team-tourism-at-allegro.html) at Allegro,
+Following up on our previous post about [team tourism]({% post_url 2019-09-16-team-tourism-at-allegro %}) at Allegro,
 as promised we present you with three case studies describing experiences of our engineers during their visits in other teams.
 The teams visited worked on content automation, machine learning and search engine optimisation.
 
 > This post is a part of a series of three posts about team tourism at [Allegro](/about-us/).
-> You can navigate directly to each part here: [Part 1](/2019/09/team-tourism-at-allegro.html) | **Part 2** | [Part 3](/2019/11/team-tourism-case-studies-2.html)
+> You can navigate directly to each part here: [Part 1]({% post_url 2019-09-16-team-tourism-at-allegro %}) | **Part 2** | [Part 3]({% post_url 2019-11-19-team-tourism-case-studies-2 %})
 
 ## Case study 1
 ### Content Automation (Google Cloud Dataflow) - Tomasz Nurkiewicz
 On a daily basis I work for a team responsible for calculating commissions. It's an insanely important, but also rather mundane
 part of a marketplace business. We work in two environments: real-time and batch. We charge and refund commissions in
 near real-time, typically a few seconds after each transaction. This is done through a bunch of microservices, accessed
-via RESTful interfaces or [Hermes events](/2019/05/hermes-1-0-released.html). On the other hand, there are a
+via RESTful interfaces or [Hermes events]({% post_url 2019-05-16-hermes-1-0-released %}). On the other hand, there are a
 bunch of Spark jobs calculating daily and monthly reports, discovering inconsistencies and frauds.
 
 <img alt="content automation" src="/img/articles/2019-10-14-team-tourism-case-studies-1/content-automation.jpg" />
@@ -29,7 +29,7 @@ a few office rooms away. After a casual talk over coffee and finding some time i
 for a month, to the new project.
 
 Marcin and his team’s task was to calculate ["click-through rates"](https://en.wikipedia.org/wiki/Click-through_rate)
-of pages and individual [boxes](/2016/03/Managing-Frontend-in-the-microservices-architecture.html).
+of pages and individual [boxes]({% post_url 2016-03-12-Managing-Frontend-in-the-microservices-architecture %}).
 It basically means how many people clicked on a page or a box upon seeing it. They prepared a proof of concept
 and took advantage of [Google Cloud Dataflow](https://cloud.google.com/dataflow/). At Allegro scale it amounts to ten thousand
 and more events per second. The classic approach would probably involve a heavy, monolithic batch job using Spark
@@ -88,7 +88,7 @@ have to agree that you won't be able to keep up with all the stuff that is going
 
 ## Case study 3
 ### SEO - Bartosz Gałek
-In my everyday work I’m involved in developing [Opbox Project](/2016/03/Managing-Frontend-in-the-microservices-architecture.html).
+In my everyday work I’m involved in developing [Opbox Project]({% post_url 2016-03-12-Managing-Frontend-in-the-microservices-architecture %}).
 For a software engineer like myself this project comes with a lot of challenges regarding high performance and traffic.
 Since my team rarely interact with the main product area (we are a platform for them) - I’ve decided to try and learn
 something totally different - [Search Engine Optimisation](https://en.wikipedia.org/wiki/Search_engine_optimization)!
@@ -116,6 +116,6 @@ Engine Result Pages.
 As you can see, one can never be bored at Allegro. Purely technical and more business oriented team tourism is
 a great example of branching out, which should be a powerful tool of self-development for every engineer.
 
-In the next part we will talk about tourism in teams working on [Hermes](/2019/05/hermes-1-0-released.html)
+In the next part we will talk about tourism in teams working on [Hermes]({% post_url 2019-05-16-hermes-1-0-released %})
 and web performance.
 <style type="text/css">.post img{margin: 0 auto;display: block;}</style>
