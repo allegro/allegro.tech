@@ -34,7 +34,7 @@
         "ralph-cli",
         "HerBERT",
         "swift-junit",
-        "allegro.github.io",
+        "allegro.tech",
         "marathon-appcop",
         "grunt-maven-npm",
         "quanta",
@@ -259,7 +259,7 @@
         {
             "name": "tradukisto",
             "url": "https://github.com/allegro/tradukisto",
-            "stars": 129,
+            "stars": 130,
             "description": "A Java library created to convert numbers to their word representations",
             "featured": {
                 "primary": false,
@@ -557,8 +557,8 @@
             }
         },
         {
-            "name": "allegro.github.io",
-            "url": "https://github.com/allegro/allegro.github.io",
+            "name": "allegro.tech",
+            "url": "https://github.com/allegro/allegro.tech",
             "stars": 19,
             "description": "Blog sources",
             "featured": {
