@@ -33,8 +33,8 @@
         "django-powerdns-dnssec",
         "ralph-cli",
         "HerBERT",
-        "swift-junit",
         "allegro.tech",
+        "swift-junit",
         "marathon-appcop",
         "grunt-maven-npm",
         "quanta",
@@ -542,10 +542,10 @@
             }
         },
         {
-            "name": "swift-junit",
-            "url": "https://github.com/allegro/swift-junit",
-            "stars": 19,
-            "description": "A Swift library for creating JUnit XML test results that can be interpreted by tools such as Bamboo or Jenkins. Macos and Linux ready.",
+            "name": "allegro.tech",
+            "url": "https://github.com/allegro/allegro.tech",
+            "stars": 20,
+            "description": "Blog sources",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -557,10 +557,10 @@
             }
         },
         {
-            "name": "allegro.tech",
-            "url": "https://github.com/allegro/allegro.tech",
+            "name": "swift-junit",
+            "url": "https://github.com/allegro/swift-junit",
             "stars": 19,
-            "description": "Blog sources",
+            "description": "A Swift library for creating JUnit XML test results that can be interpreted by tools such as Bamboo or Jenkins. Macos and Linux ready.",
             "featured": {
                 "primary": false,
                 "secondary": false
