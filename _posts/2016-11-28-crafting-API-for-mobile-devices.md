@@ -8,7 +8,7 @@ tags: [tech, api, rest api, mobile]
 Are you developing a service and planning to make it publicly available? Do you want developers of mobile applications to get integrated
 with your API fast and painless? Do you care how stable and predictable mobile applications using your service are?
 
-Below you can read about a bunch of decisions concerning API architecture because of which new features in [Allegro](/about-us/) mobile apps were not delivered as fast as we expected and which caused problems with stability.
+Below you can read about a bunch of decisions concerning API architecture because of which new features in [Allegro](https://allegro.tech/about-us/) mobile apps were not delivered as fast as we expected and which caused problems with stability.
 
 ## Many requests to build one view
 In our backend we have a microservices architecture. Each service supports a narrow area of business logic. Let’s look at an example of

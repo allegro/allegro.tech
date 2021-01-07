@@ -5,7 +5,7 @@ author: tetiana.khotiaintseva
 tags: [tech, 'data visualization']
 ---
 
-At [Allegro](/about-us/), feature velocity is a top priority. We believe that one of our critical competitive advantages
+At [Allegro](https://allegro.tech/about-us/), feature velocity is a top priority. We believe that one of our critical competitive advantages
 is the rate at which we introduce new features. In order to achieve a high feature velocity, one of the architectural
 choices that Allegro made a while back was to move to microservice architecture. So when somebody uses Allegro, a
 request comes in (and we just have a hypothetical example here) to service D — and we can imagine a service D being a

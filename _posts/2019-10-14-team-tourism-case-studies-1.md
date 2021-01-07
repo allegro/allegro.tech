@@ -8,7 +8,7 @@ Following up on our previous post about [team tourism](/2019/09/team-tourism-at-
 as promised we present you with three case studies describing experiences of our engineers during their visits in other teams.
 The teams visited worked on content automation, machine learning and search engine optimisation.
 
-> This post is a part of a series of three posts about team tourism at [Allegro](/about-us/).
+> This post is a part of a series of three posts about team tourism at [Allegro](https://allegro.tech/about-us/).
 > You can navigate directly to each part here: [Part 1](/2019/09/team-tourism-at-allegro.html) | **Part 2** | [Part 3](/2019/11/team-tourism-case-studies-2.html)
 
 ## Case study 1

@@ -5,11 +5,11 @@ author: [bartosz.balukiewicz, adrian.rydzynski]
 tags: [tech]
 ---
 
-In this last instalment of our series about [team tourism](/2019/09/team-tourism-at-allegro.html) at [Allegro](/about-us/),
+In this last instalment of our series about [team tourism](/2019/09/team-tourism-at-allegro.html) at [Allegro](https://allegro.tech/about-us/),
 our two engineers describe their eventful visits in two rather technical teams, one dealing with our message broker -
 [Hermes](https://hermes.allegro.tech/), the other with web performance.
 
-> This post is a part of a series of three posts about team tourism at [Allegro](/about-us/).
+> This post is a part of a series of three posts about team tourism at [Allegro](https://allegro.tech/about-us/).
 > You can navigate directly to each part here: [Part 1](/2019/09/team-tourism-at-allegro.html) | [Part 2](/2019/10/team-tourism-case-studies-1.html) | **Part 3**
 
 ## Case study 1

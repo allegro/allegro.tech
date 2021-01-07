@@ -9,7 +9,7 @@ We often hear about the importance of exchanging knowledge and practices between
 often do we hear concrete suggestions for how to do it. In this article, we discuss one of our practices to address the
 problem.
 
-> This post is a part of a series of three posts about team tourism at [Allegro](/about-us/).
+> This post is a part of a series of three posts about team tourism at [Allegro](https://allegro.tech/about-us/).
 > You can navigate directly to each part here: **Part 1** | [Part 2](/2019/10/team-tourism-case-studies-1.html) | [Part 3](/2019/11/team-tourism-case-studies-2.html)
 
 <img alt="Team tourism" src="/img/articles/2019-09-16-team-tourism-at-allegro/team-tourism.jpg" />

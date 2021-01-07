@@ -4,7 +4,7 @@ title: Deep learning for frame detection in product images
 author: tomasz.bartczak
 tags: [tech, ML, Machine Learning, Deep Learning]
 ---
-At [Allegro](/about-us/) we are faced with a technical challenge: how to recognize whether a given image
+At [Allegro](https://allegro.tech/about-us/) we are faced with a technical challenge: how to recognize whether a given image
 (a product thumbnail) shows just a product itself. One of the things that we would like to detect is when the product
 is surrounded by a frame. In this post we would like to present our approach for detecting a frame in the image.
 
@@ -72,7 +72,7 @@ Here you can find a [detailed explanation of convolution in CNN](https://adeshpa
 
 Artificial neuron is a processing unit that has n inputs, each associated with a weight. When doing forward-pass the
 data comes through the input, each input is multiplied by its weight, then weighted inputs are summed.
-Sum is passed to an [activation function](https://en.wikipedia.org/wiki/Activation_function) that makes the neuron non-linear. 
+Sum is passed to an [activation function](https://en.wikipedia.org/wiki/Activation_function) that makes the neuron non-linear.
 In CNN the best results are usually achieved
 when using [ReLu](https://en.wikipedia.org/wiki/Rectifier_%28neural_networks%29) activation as ReLu is fast for back-propagation
 and do not have the [vanishing gradient](https://en.wikipedia.org/wiki/Vanishing_gradient_problem) problem.
@@ -186,14 +186,14 @@ although given a pixel-annotation dataset &mdash; deep learning can solve the pr
 
 ### More on deep learning:
 
-* Deep Learning is nowadays used to solve many great challenges not only in image processing but also in sound processing or 
+* Deep Learning is nowadays used to solve many great challenges not only in image processing but also in sound processing or
 [Natural Language Processing](https://en.wikipedia.org/wiki/Natural_language_processing).
    * [DeepMask](https://github.com/facebookresearch/deepmask) can segment each independent object in a picture.
-    
+
    * [NeuralTalkv2](https://github.com/karpathy/neuraltalk2) creates textual descriptions of what is seen on an image.
 
-   * [Google deep dream](https://github.com/google/deepdream) is able to create new art-pieces of a given style.    
-    
+   * [Google deep dream](https://github.com/google/deepdream) is able to create new art-pieces of a given style.
+
     <figure class="image"><img src="/img/articles/2016-12-19-deep-learning-for-frame-detection/DeepDreamingProcess.jpg" alt="dd"><figcaption>(CC BY-SA 4.0 https://commons.wikimedia.org/wiki/File:DeepDreamingProcess.jpg)</figcaption></figure>
 
 

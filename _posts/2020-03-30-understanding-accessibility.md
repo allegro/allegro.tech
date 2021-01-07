@@ -139,4 +139,4 @@ on the topic of accessibility of the software together with the Allegro team.
 
 #### About Allegro
 Allegro is the #1 online shopping destination in Poland and the #6 eTail business in Europe. Started in 1999, today it is one of the most recognised brands in Poland.
-You can read more about our tech stack on our [About Us page](/about-us/).
+You can read more about our tech stack on our [About Us page](https://allegro.tech/about-us/).
