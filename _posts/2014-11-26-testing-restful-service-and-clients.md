@@ -48,7 +48,7 @@ public abstract class StubServerDependent {
 
 Then make sure your test class extends ```StubServerDependent``` and use ```com.xebialabs.restito.support.junit.NeedsServer``` annotation on each
 test method that needs a stub HTTP server. You will also need to initialize the client since stub server starts on "localhost" and a random port
-that can be read from the protected field ```server``` (of type ```StubServer ```) that is available to all extending classes. The complete example
+that can be read from the protected field ```server``` (of type ```StubServer```) that is available to all extending classes. The complete example
 is presented below (remember that we are using Jersey Client in our code).
 
 We are going to use [http://www.openweathermap.com/](http://www.openweathermap.com/) and its public, free REST API. The most

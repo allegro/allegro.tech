@@ -148,7 +148,6 @@ To output a given "stamp" from MDC to our logfile, you just have to tell Logback
 
 MDC exists in Log4j2 as well, but under a different name: [Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html).
 
-
 ## Know your tools
 
 Everyone knows how to log messages, period. But do they really? All too often, when I browse Java code I see very simple
@@ -173,7 +172,6 @@ public class UserDao {
 
 A simple log message one could say. Yes — it is simple, but it is also written in a very cumbersome way that does not
 use SLF4J API’s at all. A correct way to log such a message is:
-
 
 ```
 public class UserDao {
@@ -258,7 +256,6 @@ When you log a message using a proper call to `Logger.trace(format, argument1, a
 created (from format and provided arguments) unless TRACE level is enabled on this particular logger. It is a neat thing
 and definitely worth remembering.
 
-
 ### MDC vs Thread Boundaries
 
 A bit earlier I mentioned Mapped Diagnostic Context as a very nice way to "stamp" your logs. There is a catch, though.
@@ -271,6 +268,7 @@ stamps. Let’s read the JavaDoc for this class:
 is created, the child receives initial values for all inheritable thread-local variables for which the parent has values.
 Normally the child’s values will be identical to the parent’s; however, the child’s value can be made an arbitrary function
 of the parent’s by overriding the childValue method in this class.
+
 
 > Inheritable thread-local variables are used in preference to ordinary thread-local variables when the per-thread-attribute
 being maintained in the variable (e.g., User ID, Transaction ID) must be automatically transmitted to any child threads that
@@ -554,7 +552,6 @@ Getting method name and arguments’ values is very simple. Aspects can be used 
 think twice before putting any business related logic in aspects. They are very good for infrastructure concerns that cut
 through big parts of an application but usually don’t go too well together with business functionalities. Business code
 belongs in business components. Most developers will not look for business code in aspects.
-
 
 ## Summary
 

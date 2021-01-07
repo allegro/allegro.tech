@@ -224,7 +224,7 @@ Content-Type: application/json
 ]
 ```
 
-##### Handling empty result sets
+#### Handling empty result sets
 In case of an empty result set we still should return 200 OK, but with an empty array in the body. 404 Not Found
 is tempting, but inappropriate - the 4xx codes family indicates client side errors, and in this case none occured.
 

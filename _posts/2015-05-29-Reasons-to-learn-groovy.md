@@ -169,5 +169,3 @@ its financial support in March this year. This will slow down the development of
 In the paragraphs above I tried to show some interesting features, applications and frameworks of Groovy and the cost
 at which we get these. The true power of Groovy lies in tests and scripting, when speed of coding, ease and readability
 are the most important matters. In my opinion, despite its faults, Groovy is a good tool every engineer should know.
-
-

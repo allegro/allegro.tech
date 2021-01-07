@@ -291,7 +291,7 @@ But do not expect a fast answer.
 >
 > Just a quick two cents.
 >
-> — [Comment on Hacker News: “The Basics: Kubernetes, Mesosphere, and Docker Swarm (hpe.com)”, February 16, 2017 ](https://news.ycombinator.com/item?id=13657530)
+> — [Comment on Hacker News: “The Basics: Kubernetes, Mesosphere, and Docker Swarm (hpe.com)”, February 16, 2017](https://news.ycombinator.com/item?id=13657530)
 
 Marathon team is small and needs to work on Mesosphere’s paying clients.
 This means less important features or community requests will not have much attention.
@@ -299,7 +299,7 @@ This means less important features or community requests will not have much atte
 > Could you please update the docs so we (paying enterprise customers)
 > don’t have to discover it the hard way?
 >
-> — [Comment on MARATHON-1643 (formerly dcos/metronome-#100), January 25, 2017 ](https://jira.mesosphere.com/browse/MARATHON-1643?focusedCommentId=77506&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-77506)
+> — [Comment on MARATHON-1643 (formerly dcos/metronome-#100), January 25, 2017](https://jira.mesosphere.com/browse/MARATHON-1643?focusedCommentId=77506&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-77506)
 
 Being a business client does not necessarily mean you will have proper support or
 documentation.

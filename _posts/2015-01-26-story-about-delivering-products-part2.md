@@ -191,7 +191,6 @@ They struggle to find a new perspective.
 A gallery is a mind exercise – taking a look at your project from a different,
 wider perspective and analyzing the situation while being emotionally neutral.
 
-
 Working with an ERP system provider who has strict release deadlines and works according to typical waterfall model seemed impossible.
 But it turned out there are intelligent people on the other side, able to understand the principles and advantages of our work model.
 Do not try to prove that your model is better – focus on benefits that the two parties can gain.
