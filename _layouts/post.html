@@ -11,17 +11,17 @@ layout: default
             <div class="post-meta">
                 <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a href="{{ site.url }}" itemprop="item"><span itemprop="name">allegro.tech blog</span></a>
+                        <a href="{{ site.url }}{{site.baseurl}}" itemprop="item"><span itemprop="name">allegro.tech blog</span></a>
                     </li>
                     <li class="authors" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                         {% for author in page.author %}
-                        <a href="{{ site.url }}/authors/{{author}}"
+                        <a href="{{ site.url }}{{site.baseurl}}/authors/{{author}}"
                            itemprop="item">{{site.data.members[author].name}}</a>
                         <meta itemprop="name" content="{{site.data.members[author].name}}"/>
                         {% endfor %}
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <link href="{{site.url}}{{ page.url }}" itemprop="item">
+                        <link href="{{site.url}}{{site.baseurl}}/{{ page.url }}" itemprop="item">
                         <span itemprop="name">{{ page.title }}</span>
                     </li>
                 </ul>
@@ -30,7 +30,7 @@ layout: default
     </header>
     <meta itemprop="keywords" content="{{ page.tags | join: ', ' }}">
     <meta itemprop="datePublished" content="{{ page.date }}">
-    <meta itemprop="image" content="{{ site.url }}/img/logo-allegro-tech.png">
+    <meta itemprop="image" content="{{site.baseurl}}{{ site.url }}/img/logo-allegro-tech.png">
 
     <article class="post-content" itemprop="articleBody">
         <div class="content"> {{ content }}</div>
@@ -51,17 +51,17 @@ layout: default
         <div class="site-navlist social-icons">
             <ul>
                 <li><strong>Share this post</strong></li>
-                <li><a class="share-button social icon-link" href="https://plus.google.com/share?url={{site.url}}{{page.url}}">
-                    <img src="/img/social/google.svg" alt="Google+">
+                <li><a class="share-button social icon-link" href="https://plus.google.com/share?url={{site.url}}{{site.baseurl}}/{{page.url}}">
+                    <img src="{{site.baseurl}}/img/social/google.svg" alt="Google+">
                    </a>
                 </li>
                 <li><a class="share-button social icon-link"
-                    href="https://twitter.com/intent/tweet?url={{site.url}}{{page.url}}&amp;text={{page.title}} by @allegrotech">
-                    <img src="/img/social/twitter.svg" alt="Twitter"></a>
+                    href="https://twitter.com/intent/tweet?url={{site.url}}{{site.baseurl}}/{{page.url}}&amp;text={{page.title}} by @allegrotech">
+                    <img src="{{site.baseurl}}/img/social/twitter.svg" alt="Twitter"></a>
                 </li>
                 <li><a class="share-button social icon-link"
-                       href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{page.url}}">
-                   <img src="/img/social/facebook.svg" alt="Facebook"></a>
+                       href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{site.baseurl}}/{{page.url}}">
+                   <img src="{{site.baseurl}}/img/social/facebook.svg" alt="Facebook"></a>
                 </li>
             </ul>
         </div>
