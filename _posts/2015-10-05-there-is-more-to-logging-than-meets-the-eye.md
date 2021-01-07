@@ -269,6 +269,7 @@ is created, the child receives initial values for all inheritable thread-local v
 Normally the child’s values will be identical to the parent’s; however, the child’s value can be made an arbitrary function
 of the parent’s by overriding the childValue method in this class.
 
+&nbsp;
 
 > Inheritable thread-local variables are used in preference to ordinary thread-local variables when the per-thread-attribute
 being maintained in the variable (e.g., User ID, Transaction ID) must be automatically transmitted to any child threads that
@@ -348,7 +349,6 @@ usually starts with one (or both) of two mistakes.
 String concatenation instead of proper calls to API’s methods (I talked about them in "Message formatting" section) will
 concatenate log messages that may not be logged anywhere because configured logging levels will not allow it. In such a
 situation lots of CPU cycles will be wasted.
-
 
 #### Improper use of logging levels
 

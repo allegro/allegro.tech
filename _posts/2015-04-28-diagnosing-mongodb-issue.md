@@ -143,7 +143,6 @@ This is how [chained replication](http://docs.mongodb.org/manual/tutorial/manage
 
 To permanently address the issue I followed documentation and disabled chained replication.
 
-
 ```bash
 c = rs.config()
 c.settings = {} # see docs note
