@@ -14,7 +14,7 @@ When it comes to understanding performance characteristics of applications I use
 introduced to me by Kirk Pepperdine during [Java Performance Workshop](http://www.kodewerk.com/workshop.html). Box itself is an abstraction of the complete system
 and a systematic method which can be used to find performance bottlenecks:
 
-![The box](/img/articles/2015-02-26-digging-into-the-system/the_box.png)
+![The box]({% link /img/articles/2015-02-26-digging-into-the-system/the_box.png %})
 
 Kirk states:
 
@@ -32,7 +32,7 @@ If you are familiar with [Brendan Gregg’s](http://www.brendangregg.com) [Linux
 Tools](http://www.brendangregg.com/Perf/linux_observability_tools.png) diagram (presented below), you can clearly see
 that tool selection under Linux operating system is overwhelming.
 
-![Linux Observability Tools](/img/articles/2015-02-26-digging-into-the-system/linux_observability_tools.png)
+![Linux Observability Tools]({% link /img/articles/2015-02-26-digging-into-the-system/linux_observability_tools.png %})
 
 Most of them require extensive knowledge on system internals, how to use them and how to read the results. These
 are exactly the reasons why I think sysdig is a great tool for everyone involved in performance troubleshooting: it’s
@@ -100,7 +100,7 @@ tool](http://www.brendangregg.com/perf.html) and get every possible piece of inf
 
 ## Sysdig architecture
 
-![Sysdig architecture](/img/articles/2015-02-26-digging-into-the-system/sysdig_arch.png).
+![Sysdig architecture]({% link /img/articles/2015-02-26-digging-into-the-system/sysdig_arch.png %}).
 
 Sysdig consists of three main parts:
 
@@ -134,6 +134,7 @@ sysdig_probe          284918  0
 [32171182.999978] sysdig_probe: initializing ring buffer for CPU 0
 [32171183.001607] sysdig_probe: CPU buffer initialized, size=1048576
 ```
+
 Now we are ready to run sysdig command (example #1):
 
 ```
@@ -167,6 +168,7 @@ Now let’s decipher meaning of each column in a line (example #2):
 3 22:33:58.835496768 0 sshd (978) < accept fd=5(<4t>89.70.xx.xxx:52590->172.31.xx.xxx:22)
 tuple=89.70.xx.xxx:52590->172.31.xx.xxx:22 queuepct=0
 ```
+
 Fields have following meaning:
 
 1. Next event number (sequential)
@@ -381,7 +383,6 @@ Lua syntax is powerful and easy to understand and [chisel
 API](https://github.com/draios/sysdig/wiki/Sysdig-Chisel-API-Reference-Manual) consists of only handful of functions so
 writing chisels is quite pleasant task.
 
-
 As a best recommendation I can share with you that it took me about an hour to write simple [socket inactivity
 detector](https://gist.github.com/wendigo/b5f0bfa6c271c8cd27a2) without prior knowledge and experience in writing
 chisels or Lua programming language. Cool, isn’t it?
@@ -394,4 +395,3 @@ documentation](https://github.com/draios/sysdig/wiki) and [growing community](ht
 of writing ***chisels*** allows both automation of commons tasks and performing complex, stateful analyses.
 
 I would recommend using sysdig as a first choice while battling with application performance diagnosis.
-

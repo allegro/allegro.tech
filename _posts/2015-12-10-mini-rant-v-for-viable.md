@@ -32,7 +32,7 @@ into play, preventing the business from killing the product even if MVP is not s
 product which was never meant to run in a full-scale production environment.
 
 This is not to discourage you from using the Minimum Viable Product approach. At Allegro we use it quite successfully (see
-[this story](/2014/10/story-about-delivering-products-part1.html) as well as [this one](/2015/01/story-about-delivering-products-part2.html)), but there are
+[this story]({% post_url 2014-10-22-story-about-delivering-products-part1 %}) as well as [this one]({% post_url 2015-01-26-story-about-delivering-products-part2 %})), but there are
 a few pitfalls to look out for:
 
 * First of all, know what you want to learn from the experiment. MVP is about validating hypotheses, so you need to know in advance what

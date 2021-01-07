@@ -4,10 +4,7 @@ title: Diagnosing a MongoDB issue
 author: rafal.staniszewski
 tags: [tech, mongodb, performance]
 ---
-
-
-
-You might have read a recent post by our developers concerning [performance analysis tools](/2015/02/High-performance-with-low-level-tools.html) and its follow up concerning [sysdig](/2015/02/digging-into-the-system.html).
+You might have read a recent post by our developers concerning [performance analysis tools]({% post_url 2015-02-06-High-performance-with-low-level-tools %}) and its follow up concerning [sysdig]({% post_url 2015-02-26-digging-into-the-system %}).
 In the database world these tools come handy almost everyday. In this blog post
 I will show you a case where I have put tools to action diagnosing a MongoDB issue.
 
@@ -16,9 +13,7 @@ I will show you a case where I have put tools to action diagnosing a MongoDB iss
 Some time ago we were alarmed by one of our scrum teams that MongoDB
 response time had jumped sky high. The [New Relic](http://newrelic.com) screens were undeniable.
 
-
-![Issue](/img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_before.png)
-
+![Issue]({% link /img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_before.png %})
 
 ### Environment
 
@@ -82,9 +77,7 @@ To make sure the issue was connected with replication itself a code fix changing
 write concern configuration from *replica acknowledged* to *acknowledged* was applied.
 The results were obvious.
 
-
-![Issue](/img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_after.png)
-
+![Issue]({% link /img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_after.png %})
 
 So the replication was to blame. Great, but **where was the root cause**?
 
@@ -149,7 +142,6 @@ syncing to a lagging `cloud-node.dc4`
 This is how [chained replication](http://docs.mongodb.org/manual/tutorial/manage-chained-replication), a feature designed to offload the primary triggered a problem in our environment.
 
 To permanently address the issue I followed documentation and disabled chained replication.
-
 
 ```bash
 c = rs.config()

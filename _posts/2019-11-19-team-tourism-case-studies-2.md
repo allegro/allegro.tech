@@ -5,18 +5,18 @@ author: [bartosz.balukiewicz, adrian.rydzynski]
 tags: [tech]
 ---
 
-In this last instalment of our series about [team tourism](/2019/09/team-tourism-at-allegro.html) at [Allegro](/about-us/),
+In this last instalment of our series about [team tourism]({% post_url 2019-09-16-team-tourism-at-allegro %}) at [Allegro]({% link about-us/index.html %}),
 our two engineers describe their eventful visits in two rather technical teams, one dealing with our message broker -
 [Hermes](https://hermes.allegro.tech/), the other with web performance.
 
-> This post is a part of a series of three posts about team tourism at [Allegro](/about-us/).
-> You can navigate directly to each part here: [Part 1](/2019/09/team-tourism-at-allegro.html) | [Part 2](/2019/10/team-tourism-case-studies-1.html) | **Part 3**
+> This post is a part of a series of three posts about team tourism at [Allegro]({% link about-us/index.html %}).
+> You can navigate directly to each part here: [Part 1]({% post_url 2019-09-16-team-tourism-at-allegro %}) | [Part 2]({% post_url 2019-10-14-team-tourism-case-studies-1 %}) | **Part 3**
 
 ## Case study 1
-####  Hermes - Bartosz Balukiewicz
+### Hermes - Bartosz Balukiewicz
 On a daily basis, I am a software engineer in the team developing a product which predicts delivery times of orders.
 We are diving deep into bid data and machine learning world, but we rely on event-based micro-service architecture.
-That is why we use Hermes ([version 1.0 was released](/2019/05/hermes-1-0-released.html)) extensively -
+That is why we use Hermes ([version 1.0 was released]({% post_url 2019-05-16-hermes-1-0-released %})) extensively -
 a message broker based on Kafka, which supports about 400 micro-services at Allegro. Hermes offers many functionalities,
 and it is easy to use, but often there is not enough time to understand exactly how it works under the hood. In case of any problems,
 such knowledge allows a faster and more effective response to failures and not being only a passive customer of the service.
@@ -107,6 +107,6 @@ Despite its organisational costs, the benefits are undisputed. We hope that our 
 you that it is worth to implement it at your companies.
 
 Previous posts in the series:
-* [Team tourism at Allegro](/2019/09/team-tourism-at-allegro.html)
-* [Team tourism at Allegro — part 2 — case studies](/2019/10/team-tourism-case-studies-1.html)
+* [Team tourism at Allegro]({% post_url 2019-09-16-team-tourism-at-allegro %})
+* [Team tourism at Allegro — part 2 — case studies]({% post_url 2019-10-14-team-tourism-case-studies-1 %})
 <style type="text/css">.post img{margin: 0 auto;display: block;}</style>

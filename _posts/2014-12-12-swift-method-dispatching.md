@@ -14,7 +14,7 @@ When announcing [Swift](https://developer.apple.com/swift/), Apple described it 
 On the web, there is a number of [comparsions](http://www.jessesquires.com/apples-to-apples-part-two/) juxtaposing speed
 of both languages. In my opinion, the way Swift dispatches method invocations has the biggest impact on its performance.
 
-![WWDC 2014](/img/articles/wwdc.jpg)
+![WWDC 2014]({% link /img/articles/wwdc.jpg %})
 
 Leaving the assessment of method dispatch performance aside, let’s focus on understanding how it works in Swift.
 
@@ -127,7 +127,7 @@ compiler translates a code into a binary executable.
 
 Swift compilation consists of several phases.
 
-![Swift Compilation Phases](/img/articles/swiftc.png)
+![Swift Compilation Phases]({% link /img/articles/swiftc.png %})
 
 At first, a Swift Front End translates a Swift code into a high-level, platform agnostic _SIL_ (Swift Intermediate
 Language). Everyone can examine _SIL_ using the `swiftc --emit-sil` command. Secondly, a SIL Optimizer takes _SIL_,
@@ -285,7 +285,7 @@ pointer to the `Agent` compatible instance. A Swift instance is a structure and 
 metadata, so the assembly code can obtain a pointer to the class metadata basically by dereferencing the instance
 pointer.
 
-![Swift instance structure](/img/articles/instance_layout.png)
+![Swift instance structure]({% link /img/articles/instance_layout.png %})
 
 In the test function assembly, there are also three function calls to some computed addresses and one function call to a
 well-known address. Remember that the `block` method has been marked final, so there is no need to use vtable — a direct

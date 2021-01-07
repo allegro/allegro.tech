@@ -13,9 +13,8 @@ each new release and more and more companies decide to give them a try... But ho
 
 In the first part of this article I show how to test REST service clients using [Restito](https://github.com/mkotsur/restito)
 library. Second part contains a bit more complex example of testing REST service with [REST-assured](https://code.google.com/p/rest-assured/).
-Both of these libraries can be used with JUnit, so if you read my previous article: [Java Testing Toolbox](/2014/10/java-testing-toolbox.html),
+Both of these libraries can be used with JUnit, so if you read my previous article: [Java Testing Toolbox]({% post_url 2014-10-01-java-testing-toolbox %}),
 then you should be already well accustomed to testing with JUnit and given-when-then style of writing tests.
-
 
 ### Client testing with Restito ([https://github.com/mkotsur/restito](https://github.com/mkotsur/restito))
 Restito is a tool that can be used to mock a REST server. It allows you to stub HTTP calls and verify interactions between the client and the
@@ -49,7 +48,7 @@ public abstract class StubServerDependent {
 
 Then make sure your test class extends ```StubServerDependent``` and use ```com.xebialabs.restito.support.junit.NeedsServer``` annotation on each
 test method that needs a stub HTTP server. You will also need to initialize the client since stub server starts on "localhost" and a random port
-that can be read from the protected field ```server``` (of type ```StubServer ```) that is available to all extending classes. The complete example
+that can be read from the protected field ```server``` (of type ```StubServer```) that is available to all extending classes. The complete example
 is presented below (remember that we are using Jersey Client in our code).
 
 We are going to use [http://www.openweathermap.com/](http://www.openweathermap.com/) and its public, free REST API. The most
@@ -310,9 +309,9 @@ What happens in this example?
 
 * We perform an HTTP GET operation as we did before (obviously using a different query this time)
 * The tricky part happens in ```getLatitudeByCityName``` / ```getLongituteByCityName``` methods which create JsonPath queries
-    * First, we query the ```list``` field for an entry that has a field ```name``` with value specified as the method argument (in this example it
+  * First, we query the ```list``` field for an entry that has a field ```name``` with value specified as the method argument (in this example it
   is Warsaw)
-    * Then, we assume there is only one such entry and for it we extract ```coord``` field and its underlying ```lat``` / ```lon``` fields
+  * Then, we assume there is only one such entry and for it we extract ```coord``` field and its underlying ```lat``` / ```lon``` fields
 * Once the value of ```list[n].coord.lon``` / ```list[n].coord.lat``` is extracted, we can use standard matchers to validate the value. Why not
 use the form ```list[n].coord.lon```? Because in this scenario we cannot be sure of the order of entries in the ```list``` collection. If we were,
 then it would be the cleanest way to do so.

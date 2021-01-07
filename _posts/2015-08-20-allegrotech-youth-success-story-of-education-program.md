@@ -7,7 +7,7 @@ tags: [tech, education, coding, infrastructure, web development]
 
 Development is an immanent part of every person’s life. Evolution-wise, whoever fails to develop, dies.
 
-A while ago I wrote a few words about [Allegrotech.Youth](/2015/06/Allegrotech-youth-our-educational-project.html),
+A while ago I wrote a few words about [Allegrotech.Youth]({% post_url 2015-06-17-Allegrotech-youth-our-educational-project %}),
 a program that inspired a drive for knowledge among the next generation of ambitious students of Toruń-based technical
 high school [ZSMEiE](http://www.zsmeie.torun.pl). Now, I want to sum up the course, present developments in the last
 3 months and share the experience we have gained.

@@ -21,7 +21,6 @@ hyperlinks ([HATEOAS (Hypermedia as the Engine of Application State)](http://spr
 
 To learn more about REST and HTTP visit:
 
-
 * [Roy Fielding's doctoral dissertation (original idea for REST)](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)
 * [HTTP RFC](https://www.ietf.org/rfc/rfc2616.txt)
 * [PATCH RFC](http://tools.ietf.org/html/rfc5789)
@@ -31,8 +30,8 @@ Things not covered by this article (but worth further reading):
 
 * [Richardson Maturity Model](http://martinfowler.com/articles/richardsonMaturityModel.html)
 * [API Versioning and custom media types](http://pivotallabs.com/api-versioning/)
-* [Asynchronous operations](/2014/10/async-rest.html)
-* [Testing RESTful services](/2014/11/testing-restful-service-and-clients.html)
+* [Asynchronous operations]({% post_url 2014-10-29-async-rest %})
+* [Testing RESTful services]({% post_url 2014-11-26-testing-restful-service-and-clients %})
 
 ### Naming conventions
 
@@ -40,12 +39,12 @@ What distinguishes RESTful API's from others at first sight is the naming conven
 nouns - there is no place for verbs in path params. It is reasonable that choosen nouns come from the service's domain.
 Mandatory parameters of a request should be a part of path params and optional need to be passed as query params.
 
-
 For instance an API for getting storm forecast for Warsaw should not be constructed this way:
 
 ```
 GET /getStormForecastForWarsaw
 ```
+
 But rather this way:
 
 ```
@@ -57,7 +56,6 @@ And when we want to narrow the results to the last few days, we should pass them
 ```
 GET /weather-forecast/warsaw/storms?from=2014-11-01&to=2014-11-12
 ```
-
 
 ### HTTP methods overview
 
@@ -88,12 +86,13 @@ so the POST method is a proper choice. We'll use JSON content type.
 POST /accounts HTTP/1.1
 Content-Type: application/json
 ```
+
 ```json
 {
-	"firstName": "John",
-	"lastName": "Doe",
-	"currency": "PLN",
-	"limit": "1000"
+    "firstName": "John",
+    "lastName": "Doe",
+    "currency": "PLN",
+    "limit": "1000"
 }
 ```
 
@@ -120,32 +119,33 @@ The application should return HTTP response with Status Code = 200.
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
+
 ```json
 {
-	"id": "97695c60-4675-11e4-916c-0800200c9a66",
-	"firstName": "John",
-	"lastName": "Doe",
-	"currency": "PLN",
-	"state": "ACTIVE",
-	"limit": "1000",
-	"balance": "100",
-	"_links": [
-			{
-    			"href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66",
-    			"rel": "self",
-    			"method": "GET"
-  			},
-  			{
-    			"href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66/transactions",
-    			"rel": "transactions",
-    			"method": "GET"
-  			},
-  			{
-    			"href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66/cards",
-    			"rel": "cards",
-    			"method": "GET"
-  			}
-  	]
+    "id": "97695c60-4675-11e4-916c-0800200c9a66",
+    "firstName": "John",
+    "lastName": "Doe",
+    "currency": "PLN",
+    "state": "ACTIVE",
+    "limit": "1000",
+    "balance": "100",
+    "_links": [
+            {
+                "href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66",
+                "rel": "self",
+                "method": "GET"
+              },
+              {
+                "href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66/transactions",
+                "rel": "transactions",
+                "method": "GET"
+              },
+              {
+                "href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66/cards",
+                "rel": "cards",
+                "method": "GET"
+              }
+      ]
 }
 ```
 
@@ -186,44 +186,45 @@ GET /accounts HTTP/1.1
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
+
 ```json
 [
-	{
-		"id": "97695c60-4675-11e4-916c-0800200c9a67",
-		"firstName": "John",
-		"lastName": "Doe",
-		"currency": "PLN",
-		"limit": "1000",
-		"_links": [
-			{
-    			"href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66",
-    			"rel": "self",
-    			"method": "GET"
-  			}
-  		]
-	},
+    {
+        "id": "97695c60-4675-11e4-916c-0800200c9a67",
+        "firstName": "John",
+        "lastName": "Doe",
+        "currency": "PLN",
+        "limit": "1000",
+        "_links": [
+            {
+                "href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66",
+                "rel": "self",
+                "method": "GET"
+              }
+          ]
+    },
 
-	...
+    ...
 
-	{
-		"id": "97695c60-4675-11e4-916c-0800200c9a75",
-		"firstName": "Jane",
-		"lastName": "Smith",
-		"currency": "PLN",
-		"limit": "1000",
-		"balance": "-200",
-		"_links": [
-			{
-    			"href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a67",
-    			"rel": "self",
-    			"method": "GET"
-  			}
-  		]
-	}
+    {
+        "id": "97695c60-4675-11e4-916c-0800200c9a75",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "currency": "PLN",
+        "limit": "1000",
+        "balance": "-200",
+        "_links": [
+            {
+                "href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a67",
+                "rel": "self",
+                "method": "GET"
+              }
+          ]
+    }
 ]
 ```
 
-##### Handling empty result sets
+#### Handling empty result sets
 In case of an empty result set we still should return 200 OK, but with an empty array in the body. 404 Not Found
 is tempting, but inappropriate - the 4xx codes family indicates client side errors, and in this case none occured.
 
@@ -251,43 +252,43 @@ Content-Type: application/json
 
 ```json
 {
-	"content": [
-		{
-			"firstName": "John",
-			"lastName": "Doe",
-			"balance": "350"
-		},
+    "content": [
+        {
+            "firstName": "John",
+            "lastName": "Doe",
+            "balance": "350"
+        },
 
-	...
+    ...
 
-		{
-			"firstName": "John",
-			"lastName": "Smith",
-			"balance": "-200"
-		}
-	],
-	"_links": [
-		{
-			"href": "http://localhost/accounts?offset=0&limit=10",
-    		"rel": "self",
-    		"method": "GET"
-		},
-		{
-			"href": "http://localhost/accounts?offset=10&limit=10",
-    		"rel": "next",
-    		"method": "GET"
-		},
-		{
-			"href": "http://localhost/accounts?offset=0&limit=10",
-    		"rel": "first",
-    		"method": "GET"
-		},
-		{
-			"href": "http://localhost/accounts?offset=250&limit=10",
-    		"rel": "last",
-    		"method": "GET"
-		}
-	]
+        {
+            "firstName": "John",
+            "lastName": "Smith",
+            "balance": "-200"
+        }
+    ],
+    "_links": [
+        {
+            "href": "http://localhost/accounts?offset=0&limit=10",
+            "rel": "self",
+            "method": "GET"
+        },
+        {
+            "href": "http://localhost/accounts?offset=10&limit=10",
+            "rel": "next",
+            "method": "GET"
+        },
+        {
+            "href": "http://localhost/accounts?offset=0&limit=10",
+            "rel": "first",
+            "method": "GET"
+        },
+        {
+            "href": "http://localhost/accounts?offset=250&limit=10",
+            "rel": "last",
+            "method": "GET"
+        }
+    ]
 }
 ```
 
@@ -301,7 +302,7 @@ PATCH /accounts/97695c60-4675-11e4-916c-0800200c9a66 HTTP/1.1
 
 ```json
 {
-	"state": "BLOCKED"
+    "state": "BLOCKED"
 }
 ```
 

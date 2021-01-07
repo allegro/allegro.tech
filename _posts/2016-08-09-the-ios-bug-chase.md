@@ -7,7 +7,7 @@ tags: [tech, ios, debugging, decompiling, MapKit, hopper, mitmproxy]
 
 This article tells a story of chasing an iOS bug – a bug hidden so deep that it
 required many different skills and debugging on different levels to identify it.
-I think every native mobile app developer (not only an iOS developer) will find 
+I think every native mobile app developer (not only an iOS developer) will find
 this text interesting. Non-mobile developers may find it an intriguing read as
 well.
 
@@ -27,9 +27,9 @@ In a novel by Arthur C. Clarke, a potential AB-35 unit crash could be detected
 before it even occurred. In the real world, we diagnose bug symptoms using
 various tools:
 
-- crash loggers — crashes and non-fatal errors,
-- tracking tools — detecting user flow anomalies,
-- remote configuration — possibility of disabling problematic features.
+* crash loggers — crashes and non-fatal errors,
+* tracking tools — detecting user flow anomalies,
+* remote configuration — possibility of disabling problematic features.
 
 Often, these tools are sufficient to analyze an issue. But occasionally, they
 can hardly detect if anything is wrong or, in the case of a very complex
@@ -55,7 +55,7 @@ The
 controller had trouble displaying a map. Internet connection was working fine
 on the device. Restarting or reinstalling the app did not fix the problem.
 
-![The Bug](/img/articles/2016-08-01-the-ios-bug-chase/the_bug.png)
+![The Bug]({% link /img/articles/2016-08-01-the-ios-bug-chase/the_bug.png %})
 
 After playing with the bug for some time, the issue suddenly disappeared. The
 situation was terrifying. Our iOS app has tens of thousands of daily active
@@ -93,7 +93,7 @@ so I implemented it with some `NSLog` logging inside.
 I also added a breakpoint there, so I could debug and inspect the `error` in
 depth using Xcode Variables View. The breakpoint was reached almost immediately.
 
-![breakpoint](/img/articles/2016-08-01-the-ios-bug-chase/breakpoint.png)
+![breakpoint]({% link /img/articles/2016-08-01-the-ios-bug-chase/breakpoint.png %})
 
 The delegate method invocation was caused by a `GEOErrorDomain` domain error.
 Its `userInfo` was a singleton dictionary, a single array of underlying errors
@@ -114,12 +114,12 @@ requests, but mitmproxy has many more features (e.g. scripting).
 I started to intercept network traffic and displayed the map to trigger its
 network activity. Mitmproxy showed a lot of map tile requests.
 
-![mitmproxy](/img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_410.png)
+![mitmproxy]({% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_410.png %})
 
 There were a lot of requests finished with `410` response code, indeed. But
 wait... what? `410`?
 
-![cat](/img/articles/2016-08-01-the-ios-bug-chase/cat.jpg)
+![cat]({% link /img/articles/2016-08-01-the-ios-bug-chase/cat.jpg %})
 
 >410 Gone
 >Indicates that the resource requested is no longer available and will not be
@@ -132,7 +132,7 @@ And guess what... Just as I finished debugging, the bug suddenly disappeared!
 The map worked great again and all map tile requests finished successfully with
 `200` response code.
 
-![mitmproxy](/img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_200.png)
+![mitmproxy]({% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_200.png %})
 
 I lost the bug, but at least I had a network communication dump in mitmproxy.
 The only thing I could do at that point was to take a closer look at it.
@@ -149,7 +149,7 @@ same `x`, `y` and `z` coordinates, but the former finished with the `410` code
 and the latter with the `200` code. Filtering the mitmproxy flow list with the
 `style=1.*&z=14&x=8962&y=5377` limit filter gave rewarding results.
 
-![mitmproxy](/img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_filter.png)
+![mitmproxy]({% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_filter.png %})
 
 Only one map tile request parameter looked suspicious – that was the `v`
 parameter. I was 99% certain that the `v` stood for some kind of version
@@ -164,7 +164,7 @@ serious glitches. Map glitches are the last thing the car driver wants.
 The question was: what caused `v` to increment? A couple of requests happened
 in between the `410` and `200` responses, just while the `v` was being changed.
 
-![mitmproxy](/img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_geomanifest.png)
+![mitmproxy]({% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_geomanifest.png %})
 
 One request looked particularly suspicious and that was the request for
 `/geo_manifest/dynamic/config`. It was also the only request that retrieved some
@@ -184,10 +184,9 @@ things that helped overcome that obstacle.
 Firstly, all iOS framework dylibs can be easily accessed from either:
 
 * iOS Simulator files — x86 and i386 dylibs: `/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks`
-
 * iOS Device Symbols — ARM dylibs: `~/Library/Developer/Xcode/iOS\ DeviceSupport/*/Symbols/System/Library/Frameworks`
 
-![Frameworks](/img/articles/2016-08-01-the-ios-bug-chase/frameworks.png)
+![Frameworks]({% link /img/articles/2016-08-01-the-ios-bug-chase/frameworks.png %})
 
 Secondly, [Hopper](https://www.hopperapp.com/) makes decompilation nothing but
 pure pleasure. Hopper is such a powerful, yet simple and intuitive tool that
@@ -203,7 +202,7 @@ What method to look for in order to find a `geo_manifest` trace? The obvious
 choice was to filter symbols using the `geomanifest` filter at first, and that
 was it!
 
-![symbols](/img/articles/2016-08-01-the-ios-bug-chase/symbols.png)
+![symbols]({% link /img/articles/2016-08-01-the-ios-bug-chase/symbols.png %})
 
 `GEOResourceManifestManager` caught my eye. Unfortunately, no method for that
 class was visible, only an external symbol reference
@@ -214,7 +213,7 @@ another framework underneath. I listed shared libraries of MapKit dylib using
 ```bash
 $ otool -L /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/MapKit.framework/MapKit
 ...
-	/System/Library/PrivateFrameworks/GeoServices.framework/GeoServices (compatibility version 1.0.0, current version 1151.49.0)
+    /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices (compatibility version 1.0.0, current version 1151.49.0)
 ...
 ```
 
@@ -230,7 +229,7 @@ the method:
 -[GEOResourceManifestManager forceUpdate]
 ```
 
-![force_update](/img/articles/2016-08-01-the-ios-bug-chase/force_update.png)
+![force_update]({% link /img/articles/2016-08-01-the-ios-bug-chase/force_update.png %})
 
 Once again, I was very lucky.
 
@@ -335,7 +334,7 @@ def response(context, flow):
 Then, by adding the script to mitmproxy, I could test the map behavior in iOS
 10 beta 2 (latest beta at that time).
 
-![mitmproxy_fixed](/img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_fixed.png)
+![mitmproxy_fixed]({% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_fixed.png %})
 
 Mitmproxy changed the status code of each tile request to `410`. Once the first
 tile request finished with `410` status code, `geod` daemon immediately updated
@@ -348,20 +347,20 @@ A bug chase is often a long and hard process. In the one I have described, luck
 was a big contributor to success, because – as usual – many things could have
 gone wrong:
 
-- the issue could just not have occurred on our test devices at all,
-- maps API could have been secured with SSL-pinning,
-- Apple could have ignored the report for such an ephemeral bug,
-- the investigation could have gone in a wrong direction,
-- the investigation could have required jumping through a decompiled framework call hierarchy — it is often very easy to get lost there.
+* the issue could just not have occurred on our test devices at all,
+* maps API could have been secured with SSL-pinning,
+* Apple could have ignored the report for such an ephemeral bug,
+* the investigation could have gone in a wrong direction,
+* the investigation could have required jumping through a decompiled framework call hierarchy — it is often very easy to get lost there.
 
 ## Summary
 
 A good conclusion could be these four simple pieces of advice:
 
 1. Install [mitmproxy](https://mitmproxy.org/) now.
-2. Download [Hopper](https://www.hopperapp.com/), play with the trial version and add Hopper Personal License to your wish list.
-3. File Apple bug reports — the Bug Reporter is not `/dev/null`, the whole Apple staff are just waiting for your reports.
-4. “Stay Hungry. Stay Foolish.” + Learn internals... internals of everything — this will make the Force strong with you.
+1. Download [Hopper](https://www.hopperapp.com/), play with the trial version and add Hopper Personal License to your wish list.
+1. File Apple bug reports — the Bug Reporter is not `/dev/null`, the whole Apple staff are just waiting for your reports.
+1. “Stay Hungry. Stay Foolish.” + Learn internals... internals of everything — this will make the Force strong with you.
 
 This was a happy-ending story — the bug has been resolved the right way, Apple
 Maps will once again work seamlessly and the Allegro iOS app will provide the

@@ -29,12 +29,12 @@ According to the requirements, our service should:
 * handle 10k rps (5k for writes, 5k for reads)
 * cache entries for at least 10 minutes
 * have responses time (measured without time spent on the network) lower than
-    * 5ms -- mean
-    * 10ms for 99.9th percentile
-    * 400ms for 99.999th percentile
+  * 5ms -- mean
+  * 10ms for 99.9th percentile
+  * 400ms for 99.999th percentile
 * handle POST requests containing JSON messages, where each message:
-    * contains an entry and its ID
-    * is not larger than 500 bytes
+  * contains an entry and its ID
+  * is not larger than 500 bytes
 * retrieve an entry and return int via a GET request immediately after the
 entry was added via a POST request (consistency)
 
@@ -172,7 +172,7 @@ we started searching for a better solution.
 
 JSON over HTTP is definitely not the best choice if you need speed. Unfortunately, all our services talk to each other in JSON,
 so incorporating a new protocol was out of scope for this task (but we are considering using [avro](https://avro.apache.org/),
-as we did for [Kafka](/2015/08/spark-kafka-integration.html)). We decided to stick with JSON.
+as we did for [Kafka]({% post_url 2015-08-06-spark-kafka-integration %})). We decided to stick with JSON.
 A quick search provided us with a solution called [ffjson](https://github.com/pquerna/ffjson).
 
 ffjson documentation claims it is 2-3 times faster than standard `json.Unmarshal`, and also uses less memory to do it.
