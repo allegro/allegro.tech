@@ -51,7 +51,7 @@ krzysztof.kocel:
 
 mateusz.gajewski:
     name: Mateusz ‘Serafin’ Gajewski
-    bio: 'Mateusz is a solutions architect responsible for financial and payments systems. His main areas of research interest are: scalable, distributed computing in cloud environments, reactive programming and failure resilience.'
+    bio: "Mateusz is a solutions architect responsible for financial and payments systems. His main areas of research interest are: scalable, distributed computing in cloud environments, reactive programming and failure resilience."
     twitter: wendigo
 
 ryszard.targonski:
@@ -146,7 +146,7 @@ andrzej.wislowski:
 
 marcin.konkel:
     name: Marcin Konkel
-    bio:  Marcin is an Agile Coach at Allegro Group, passionate about agile, coaching and travelling. He helps teams to be more agile by coaching and learning with them, removing impediments and cooperating with the organisation to foster change and improve working environment. He has experience working with mature and ‘new to agile’ teams. Formerly acting as a Project Manager and coordinating globally dispersed (USA, Europe, India, China) as well as local project teams in financial / IT environment. Personally an avid photographer travelling to distant and less distant places to capture moments that stole his attention — sharing his stories at [marcinkonkel.com](http://marcinkonkel.com/). Additionally, he’s writing and sharing his professional experience at [medium.com/@m_konkel](http://medium.com/@m_konkel).
+    bio: Marcin is an Agile Coach at Allegro Group, passionate about agile, coaching and travelling. He helps teams to be more agile by coaching and learning with them, removing impediments and cooperating with the organisation to foster change and improve working environment. He has experience working with mature and ‘new to agile’ teams. Formerly acting as a Project Manager and coordinating globally dispersed (USA, Europe, India, China) as well as local project teams in financial / IT environment. Personally an avid photographer travelling to distant and less distant places to capture moments that stole his attention — sharing his stories at [marcinkonkel.com](http://marcinkonkel.com/). Additionally, he’s writing and sharing his professional experience at [medium.com/@m_konkel](http://medium.com/@m_konkel).
 
 pawel.czubachowski:
     name: Paweł Czubachowski
@@ -213,7 +213,6 @@ karol.grabowski:
 pawel.leszczynski:
     name: Paweł Leszczyński
     bio: Paweł is interested in distributed databases stuff with a special focus on making Big Data easy. He is Product Owner in a Big Data Solutions Team at the Infrastructure department. The team develops and maintains a petabyte Hadoop cluster with endpoints like Apache Kafka messaging.
-
 
 pawel.zawistowski:
     name: Paweł Zawistowski
@@ -448,7 +447,7 @@ tomasz.nurkiewicz:
 
 adrian.rydzynski:
     name: Adrian Rydzyński
-    bio:  Front-end Software Engineer who is interested in the JavaScript technologies - frontend, backend and mobile. Big fan of Angular, TypeScript and RxJS.
+    bio: Front-end Software Engineer who is interested in the JavaScript technologies - frontend, backend and mobile. Big fan of Angular, TypeScript and RxJS.
 
 mateusz.podlasin:
     name: Mateusz Podlasin
@@ -592,3 +591,15 @@ michal.knasiecki:
     name: Michał Knasiecki
     bio: "Java/Kotlin/Scala software developer working at Allegro in automatic frauds prevention team."
     linkedin: michal-knasiecki
+
+kamil.pyc:
+    name: Kamil Pyć
+    bio: Developing iOS apps for over a decade. At Allegro, he works in a core team which focus on making other engineers work easier.
+    twitter: kamilpyc
+    github: PycKamil
+
+maciej.piotrowski:
+    name: Maciej Piotrowski
+    bio: Maciej is a passionate iOS developer that pays much attention to details and code quality. He likes improving things, always looking for better solutions because he’s amazed that in programming world issues can be solved in 100s of ways.
+    twitter: paciej00
+    github: paciej00
