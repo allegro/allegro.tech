@@ -652,8 +652,8 @@ following stack trace:
 
 ```
 Exception in thread "main" java.lang.IllegalStateException: System.getProperty("key") must not be null
-	at pl.kk.test.kotlin.PlatformTypesKt.funnyCase(PlatformTypes.kt:54)
-	at pl.kk.test.kotlin.FunnyCaseCall.main(PlatformTypes.kt:60)
+    at pl.kk.test.kotlin.PlatformTypesKt.funnyCase(PlatformTypes.kt:54)
+    at pl.kk.test.kotlin.FunnyCaseCall.main(PlatformTypes.kt:60)
 ```
 
 ### Summary

@@ -10,12 +10,14 @@ In my [previous post]({% post_url 2020-06-22-persisting-application-state %}) I 
 In this post I will compare the methods for retrieving this state.
 
 ## Assumptions
-This post, similarly to my [post]({% post_url 2020-06-22-persisting-application-state %}) about persisting application state, will be based on the “Project Keeper” application project introduced [here]({% post_url 2019-12-12-grouping-and-organizing-classes %}).
+This post, similarly to my [post]({% post_url 2020-06-22-persisting-application-state %}) about persisting application state, will be based on the
+“Project Keeper” application project introduced [here]({% post_url 2019-12-12-grouping-and-organizing-classes %}).
 I strongly recommend that you read both, especially the first one, because the assumptions and part of the source code presented there also apply to this post.
 
 The evaluation criteria for the state retrieving methods will be the same as for the state persisting methods:
 * **keeping aggregate encapsulation** by not adding extra code that breaks it (the fewer violations, the higher the rating)
-* **no additional code in the aggregate** which doesn’t break the aggregate encapsulation but is still needed for constructing the aggregate from its persisted state (the less code, the higher the rating)
+* **no additional code in the aggregate** which doesn’t break the aggregate encapsulation but is still needed for constructing the aggregate from its persisted
+  state (the less code, the higher the rating)
 * **simplicity of the infrastructure code** responsible for retrieving the state from data sources (the simpler, the higher the rating)
 
 ## Methods
@@ -43,7 +45,8 @@ com.itcompany.projectkeeper
         ├── ProjectPersistenceMapper.java
         └── ProjectResponse.java
 </pre>
-The source code of the `infrastructure.httpclient` and `infrastructure.mongodb` packages was shown in the [previous post]({% post_url 2020-06-22-persisting-application-state %}).
+The source code of the `infrastructure.httpclient` and `infrastructure.mongodb` packages was shown in the
+[previous post]({% post_url 2020-06-22-persisting-application-state %}).
 We will be retrieving the `Project` aggregate by its identifier using the `ProjectRepository`:
 
 ```java
@@ -180,7 +183,8 @@ This is not a serious issue as long as we ensure that the `Project` is always in
 Thus, it can be confusing for developers as they can start thinking what `Feature`s should be passed.
 A much more serious violation of the `Project` encapsulation is making the additional factory methods public.
 This makes it possible to create the `Project` anywhere in the `core` package.
-Only the `core.project` package should have control over the `Project` aggregate’s state (more on this can be found in the “Project Keeper” application architecture [post]({% post_url 2019-12-12-grouping-and-organizing-classes %})).
+Only the `core.project` package should have control over the `Project` aggregate’s state (more on this can be found in the “Project Keeper” application
+architecture [post]({% post_url 2019-12-12-grouping-and-organizing-classes %})).
 We can make it a bit clearer to other developers why these factory methods were created by naming them `fromPersistenceState`.<br>
 **No additional code in the aggregate, rating ★★★:**
 The amount of additional code is small, it’s just one additional method per aggregate’s component.<br>
@@ -189,7 +193,8 @@ The code that maps the MongoDB document and the HTTP response to an aggregate is
 
 ### Public factory methods with reflection
 A method similar to the above one, except that the aggregate is constructed using Java reflection API.
-We can use Spring’s [BeanUtils](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/BeanUtils.html) to invoke the factory methods.
+We can use Spring’s [BeanUtils](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/BeanUtils.html) to invoke the
+factory methods.
 Aggregate components’ code:
 
 ```java
@@ -280,15 +285,18 @@ We don’t need to create code that breaks the encapsulation of the aggregate.<b
 **No additional code in the aggregate, rating ★★★:**
 The amount of additional code is small, it’s just a one additional method per aggregate’s component.<br>
 **Simplicity of the infrastructure code, rating ★☆☆:**
-Despite the use of the [BeanUtils](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/BeanUtils.html) in the mapping code, we still need to create some code ourselves in not type-safe way.
+Despite the use of the [BeanUtils](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/BeanUtils.html) in the mapping
+code, we still need to create some code ourselves in not type-safe way.
 It is the code that resides in `ProjectPersistenceMapper.create` method which is responsible for creating aggregate components.
 Using a factory method’s name in the form of string makes changing this name in the future difficult.
 The consequence of using reflection is that we will encounter eventual mapping errors only in runtime.
 That’s why it will be hard to maintain the correct number and types of the factory methods arguments in the `ProjectPersistenceMapper`.
 
 ### State objects
-The next method relies on extracting the aggregate state into a separate object and creating a public factory method that constructs the aggregate from that object.
-This method is highly bound to the similar method for persisting aggregates, which I have described in my [previous post]({% post_url 2020-06-22-persisting-application-state %}), and should be used together with it.
+The next method relies on extracting the aggregate state into a separate object and creating a public factory method that constructs the aggregate from
+that object.
+This method is highly bound to the similar method for persisting aggregates, which I have described in my
+[previous post]({% post_url 2020-06-22-persisting-application-state %}), and should be used together with it.
 Used alone, it’s just a variation of “public factory methods” that adds an extra state object.
 Aggregate components’ code:
 
@@ -401,7 +409,8 @@ State objects make the code slightly more complicated.
 
 ### State objects with reflection
 A method similar to the above one, except that the aggregate is constructed using Java reflection API.
-This method is also highly bound to the similar method for persisting aggregates, which I have described in my [previous post]({% post_url 2020-06-22-persisting-application-state %}), and should be used together with it.
+This method is also highly bound to the similar method for persisting aggregates, which I have described in my
+[previous post]({% post_url 2020-06-22-persisting-application-state %}), and should be used together with it.
 Aggregate components’ code:
 
 ```java
@@ -520,12 +529,14 @@ We don’t need to create code that breaks the encapsulation of the aggregate.<b
 The amount of additional code increases proportionally to the size of the aggregate but is not very large.<br>
 **Simplicity of the infrastructure code, rating ★☆☆:**
 As in the “public factory methods with reflection” method, here potential mapping errors can also be seen only in runtime.
-The implementation of creating aggregate from its state is not the easiest one, although the `ProjectPersistenceMapper.create` method code once implemented doesn’t have to be changed in the future.
+The implementation of creating aggregate from its state is not the easiest one, although the `ProjectPersistenceMapper.create` method code once implemented
+doesn’t have to be changed in the future.
 
 ### State creators
 A “state objects” method inversion.
 Here, instead of creating a state object, we create a stateless state creator which creates the aggregate.
-This method combined with “state readers” method from my [previous post]({% post_url 2020-06-22-persisting-application-state %}) lets us create one additional object instead of two (state reader and state creator can be joined into one state manager).
+This method combined with “state readers” method from my [previous post]({% post_url 2020-06-22-persisting-application-state %}) lets us create one additional
+object instead of two (state reader and state creator can be joined into one state manager).
 Aggregate components’ code:
 
 ```java

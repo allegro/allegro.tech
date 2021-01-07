@@ -74,9 +74,11 @@ public abstract class ProjectRepository {
     protected abstract void save(Project project);
 }
 ```
+
 The repository is in the form of a secondary port defined by the [Hexagonal Architecture](https://alistair.cockburn.us/hexagonal-architecture/).
 The "Project Keeper" application uses two data sources for persisting the aggregate: a MongoDB database and a REST service.
 In the `infrastructure.mongodb` package, access to MongoDB is configured:
+
 ```java
 @ConfigurationProperties("project-keeper.mongodb")
 class MongoDbProperties {
@@ -93,6 +95,7 @@ class MongoDbProperties {
     // Getters
 }
 ```
+
 ```java
 @Configuration
 @EnableConfigurationProperties(MongoDbProperties.class)
@@ -107,7 +110,9 @@ class MongoDbConfiguration {
     }
 }
 ```
+
 In the `infrastructure.httpclient` package, the REST service HTTP client is configured:
+
 ```java
 @ConfigurationProperties("project-keeper.http-client")
 class HttpClientProperties {
@@ -124,6 +129,7 @@ class HttpClientProperties {
     // Getters
 }
 ```
+
 ```java
 @Configuration
 @EnableConfigurationProperties(HttpClientProperties.class)
@@ -138,9 +144,11 @@ class HttpClientConfiguration {
     }
 }
 ```
+
 The `infrastructure.persistence` package is responsible for storing aggregate state in the data sources.
 All project data, except features, are stored in MongoDB.
 The data is represented by the `ProjectDocument`:
+
 ```java
 @Document("projects")
 class ProjectDocument {
@@ -152,8 +160,10 @@ class ProjectDocument {
     // Getters and setters
 }
 ```
+
 The features are stored in the REST service.
 A single feature is represented by the `FeatureMessage`:
+
 ```java
 class FeatureMessage {
 
@@ -163,7 +173,9 @@ class FeatureMessage {
     // Getters and setters
 }
 ```
+
 The HTTP request itself looks like this:
+
 ```java
 class ProjectRequest {
 
@@ -172,9 +184,11 @@ class ProjectRequest {
     // Getter and setter
 }
 ```
+
 The `ProjectPersistenceMapper` contains the mapping logic between the `Project` aggregate and its infrastructure representations: the `ProjectDocument` and the `ProjectRequest`.
 The logic will depend on the persistence method type.
 The adapter for `ProjectRepository` has the following form:
+
 ```java
 @Repository
 class MultiSourceProjectRepository extends ProjectRepository {
@@ -201,6 +215,7 @@ class MultiSourceProjectRepository extends ProjectRepository {
     }
 }
 ```
+
 As the `Project` aggregate state is stored in more than one data source, it may occur that the saved state will be incomplete.
 It is difficult to eliminate this problem completely, but you can reduce it to a minimum by:
 * retrying each sub-save operation in case of error (the operations must be idempotent)
@@ -214,6 +229,7 @@ We can achieve this in several ways.
 ### Public getters
 The aggregate state can be read by introducing public getters for each field.
 Aggregate components’ code:
+
 ```java
 public class Feature {
 
@@ -229,6 +245,7 @@ public class Feature {
     }
 }
 ```
+
 ```java
 public class Identifier {
 
@@ -239,6 +256,7 @@ public class Identifier {
     }
 }
 ```
+
 ```java
 public class Project {
 
@@ -259,7 +277,9 @@ public class Project {
     }
 }
 ```
+
 Mapping code:
+
 ```java
 class ProjectPersistenceMapper {
 
@@ -280,6 +300,7 @@ class ProjectPersistenceMapper {
     }
 }
 ```
+
 **Keeping aggregate encapsulation, rating ★★☆:**
 Making all information about an aggregate public breaks its encapsulation.
 However, most of the aggregate state must be visible to the `ProjectKeeper` primary port in order to map it to the DTOs and present it to the client.
@@ -294,6 +315,7 @@ The code that maps the aggregate to a MongoDB document and to an HTTP request is
 The method involves the Java reflection API to read the aggregate state.
 We can use [ModelMapper](http://modelmapper.org/), which is a library for mapping the state between objects.
 Aggregate components’ code:
+
 ```java
 public class Feature {
 
@@ -301,12 +323,14 @@ public class Feature {
     private String description;
 }
 ```
+
 ```java
 public class Identifier {
 
     private String value;
 }
 ```
+
 ```java
 public class Project {
 
@@ -315,7 +339,9 @@ public class Project {
     private List<Feature> features;
 }
 ```
+
 Mapping code:
+
 ```java
 class ProjectPersistenceMapper {
 
@@ -356,6 +382,7 @@ class ProjectPersistenceMapper {
     }
 }
 ```
+
 **Keeping aggregate encapsulation, rating ★★★:**
 We don’t need to create code that breaks the encapsulation of the aggregate.<br>
 **No additional code in the aggregate, rating ★★★:**
@@ -374,6 +401,7 @@ There are two variations of this method:
 
 We will focus only on the first one because, from the rating criteria point of view, there is no difference between them.
 Aggregate components’ code:
+
 ```java
 public class Feature {
 
@@ -398,6 +426,7 @@ public class Feature {
     }
 }
 ```
+
 ```java
 public class Identifier {
 
@@ -417,6 +446,7 @@ public class Identifier {
     }
 }
 ```
+
 ```java
 public class Project {
 
@@ -446,7 +476,9 @@ public class Project {
     }
 }
 ```
+
 Mapping code:
+
 ```java
 class ProjectPersistenceMapper {
 
@@ -471,6 +503,7 @@ class ProjectPersistenceMapper {
     }
 }
 ```
+
 **Keeping aggregate encapsulation, rating ★★☆:**
 Getters returning aggregate state break its encapsulation, but as with the “public getters” persistence method, this is not a serious issue.
 In addition, here the developers can agree to use the `getState()` methods only for persisting the aggregate state.<br>
@@ -483,6 +516,7 @@ State objects make the code slightly more complicated.
 ### State objects with reflection
 A method similar to the above one, except that the state object is read using Java reflection API.
 Aggregate components’ code:
+
 ```java
 public class Feature {
 
@@ -503,6 +537,7 @@ public class Feature {
     }
 }
 ```
+
 ```java
 public class Identifier {
 
@@ -518,6 +553,7 @@ public class Identifier {
     }
 }
 ```
+
 ```java
 public class Project {
 
@@ -543,7 +579,9 @@ public class Project {
     }
 }
 ```
+
 Mapping code:
+
 ```java
 class ProjectPersistenceMapper {
 
@@ -579,6 +617,7 @@ class ProjectPersistenceMapper {
     }
 }
 ```
+
 **Keeping aggregate encapsulation, rating ★★★:**
 We don’t need to create code that breaks the encapsulation of the aggregate.<br>
 **No additional code in the aggregate, rating ★☆☆:**
@@ -591,6 +630,7 @@ The implementation of reading aggregate state is not the easiest one, although t
 A “state objects” method inversion.
 Here, instead of creating a state object, we create a stateless state reader.
 Aggregate components’ code:
+
 ```java
 public class Feature {
 
@@ -609,6 +649,7 @@ public class Feature {
     }
 }
 ```
+
 ```java
 public class Identifier {
 
@@ -622,6 +663,7 @@ public class Identifier {
     }
 }
 ```
+
 ```java
 public class Project {
 
@@ -645,7 +687,9 @@ public class Project {
     }
 }
 ```
+
 Mapping code:
+
 ```java
 class ProjectPersistenceMapper {
 
@@ -670,6 +714,7 @@ class ProjectPersistenceMapper {
     }
 }
 ```
+
 **Keeping aggregate encapsulation, rating ★★★:**
 We don’t need to create code that breaks the encapsulation of the aggregate.<br>
 **No additional code in the aggregate, rating ★☆☆:**

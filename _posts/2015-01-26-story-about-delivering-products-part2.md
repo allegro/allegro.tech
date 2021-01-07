@@ -239,10 +239,10 @@ It is crucial to visualize the story mapping to make the progress noticeable to 
 We had some problems caused by imperfectly monitored stories and even had to
 stop the work for a while and prepare some stories instead. Beware of that!
 4. MVP exists on various layers. It may operate:
-	+ on core options (perhaps we do not need the whole set?),
-	+ in single stories (maybe this one is unnecessary?),
-	+ within a story (does our search engine have to make the search by 123 fields?),
-	+ or a technical level (do we really need Hadoop to generate a PDF file?).
+    + on core options (perhaps we do not need the whole set?),
+    + in single stories (maybe this one is unnecessary?),
+    + within a story (does our search engine have to make the search by 123 fields?),
+    + or a technical level (do we really need Hadoop to generate a PDF file?).
 
 5. Focusing on the impact of stories on the product value can help. Pareto Principle states: *20% of effort gives 80% of profit*.
 Is 80% enough?
@@ -255,9 +255,9 @@ Without testing, we would have been afraid of any changes, whereas change is one
 7. Often, minimum is not the goal in and of itself.
 Our objective was to maximize the value, doing minimal scope can sometimes lead to even larger costs.
 
-	For example: to minimize the scope we wanted to use CSV files in an admin panel instead of a web interface.
-	We thought it would be easier. It turned out that file processing caused a lot of problems, stress and took 3 weeks to be implemented.
-	Later, we changed that mechanism into a web interface, which took us about a week, i.e. 3 times quicker.
+    For example: to minimize the scope we wanted to use CSV files in an admin panel instead of a web interface.
+    We thought it would be easier. It turned out that file processing caused a lot of problems, stress and took 3 weeks to be implemented.
+    Later, we changed that mechanism into a web interface, which took us about a week, i.e. 3 times quicker.
 
 8. Things marked as *to be done later* can cause a lot of trouble. MVP often generates many elements
 that are to be done later – this may cause some tension if the elements’ priorities are not highlighted  properly.

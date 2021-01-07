@@ -214,7 +214,7 @@ another framework underneath. I listed shared libraries of MapKit dylib using
 ```bash
 $ otool -L /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/MapKit.framework/MapKit
 ...
-	/System/Library/PrivateFrameworks/GeoServices.framework/GeoServices (compatibility version 1.0.0, current version 1151.49.0)
+    /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices (compatibility version 1.0.0, current version 1151.49.0)
 ...
 ```
 
