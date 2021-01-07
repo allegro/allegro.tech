@@ -27,7 +27,6 @@ presentation.
 <iframe  height="315"  width="420"  src="https://www.youtube.com/embed/2dlCObSvgBc"  frameborder="0"  allowfullscreen></iframe>
 </div></div>
 
-
 ## History
 A couple of years ago we decided to completely change the architecture of our system.
 We used to have a monolithic application written in PHP with a bunch of maintenance
@@ -47,7 +46,6 @@ Marathon as our main framework. Below is the story of our scaling issues with
 Marathon as our main (and so far only) framework on top of Apache Mesos.
 Below image is a snapshot of a traffic visualization for our services.
 It is generated with [vizceral](https://github.com/Netflix/vizceral).
-
 
 ![Microservices visualization]({% link /img/articles/2017-03-20-hitting-the-wall/vizceral.jpg %})
 
@@ -133,7 +131,6 @@ Below you can see a [flame graph](http://www.brendangregg.com/flamegraphs.html)
 presenting how much CPU time every method takes.
 You can compare how much CPU time gathering metrics takes with interval set to
 10 seconds (left) and 55 seconds (right).
-
 
 ![Flame graph with default metrics setting]({% link /img/articles/2017-03-20-hitting-the-wall/flame_before_after.png %})
 
@@ -326,7 +323,7 @@ If you
 have more than a few thousand applications and more then 10k tasks you will hit the
 wall.
 
-#### How to avoid the wall:
+### How to avoid the wall:
 
 <div class="i-wrapper"><div>
 <iframe height="315"  width="420" src="https://www.youtube.com/embed/9lzOCVpvcpg" frameborder="0" allowfullscreen></iframe>

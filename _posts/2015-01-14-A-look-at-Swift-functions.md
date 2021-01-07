@@ -40,7 +40,6 @@ One important thing which should be mentioned here is the difference between fun
 functions are blocks of code that performs specific tasks. Methods are basically functions encapsulated in classes, structs, or enums.
 They’re similar but in some situations they behave differently.
 
-
 ### Parameters
 
 Take a look at the function call from the first listing.

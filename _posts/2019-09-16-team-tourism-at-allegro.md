@@ -57,7 +57,6 @@ exchange may go there in order to help the team achieve its goals. To illustrate
 obsolete library from the project or reduce technical debt. Or quite the contrary, to introduce a new library or
 redesign an existing piece of software.
 
-
 ## How to organise it?
 
 Truth be told, we don’t have strict rules or procedures how to carry out exchanges. Whereas other companies embrace explicit

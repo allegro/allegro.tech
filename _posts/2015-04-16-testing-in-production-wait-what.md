@@ -177,4 +177,3 @@ every sort option should give us some dose of certainty. After the test we want 
 problem. We do not care about a single case or particular item. We must be able to tell our Product Owner: „yes, our
 data is totally correct”, or „no, 187 of 519,000 items present incorrect data”. Right now, we just get information that
 items are broken, which may suggest that something bigger is broken. Anyway, it is still useful information, is it not?
-

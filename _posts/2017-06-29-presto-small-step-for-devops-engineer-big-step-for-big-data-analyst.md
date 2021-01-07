@@ -39,7 +39,6 @@ differently. The goal was clear: **speeding up in-cluster analytics by an order 
 provide users of relational databases, who were to start their adventure with Hadoop, with the most user-friendly
 solution possible to ensure maximum convenience during the switch.
 
-
 ### First stage
 
 With a task in hand, we drafted a list of necessary and “nice to have” requirements to find a solution that would be
@@ -219,7 +218,6 @@ Parquet plugin. Unfortunately, the support for maps and tables implemented in th
 nested structures. Nevertheless, we decided to stick to the newest version after installing a minor fix we created to
 block New Parquet Reader when reading Tables and Maps. Moreover, we reported the problem on [github][2].
 
-
 ### Summary
 
 The project was successfully delivered. Presto was deployed into production and we were able to revolutionize
@@ -227,7 +225,6 @@ processing in Hadoop. Although it is quick, response time is not all that matter
 technology and for that reason we focused more on workshops helping us find answers to real-world challenges in
 analytics. There were some bumps on the way, but we managed to deal with them, which also may give you some idea
 about the quality of Presto.
-
 
 When you think about it, the project Presto — Fast SQL is far more than a merely technological change. We have three
 key aspects here:
@@ -237,7 +234,6 @@ key aspects here:
 * Ask Fast — Fail Fast: With Presto we can execute queries fast and prototype them quickly by using limits in
   subqueries. Forget about waiting for several minutes before creating a new version of a query.
 * Flexibility: we have an adjustable tool that is easy to launch and configure.
-
 
 [1]: /2015/06/fast-data-hackathon.html
 [2]: https://github.com/prestodb/presto/issues/8133

@@ -115,4 +115,3 @@ someone is looking at and ignore those loaded in the background. We will treat t
 another dimension on our dashboards and we will focus mostly on the measures collected from active tabs. We believe that data from inactive
 tabs should be considered unnecessary and distorting the picture.
 <style type="text/css">.post a img{margin: 0 auto;display: block;}</style>
-

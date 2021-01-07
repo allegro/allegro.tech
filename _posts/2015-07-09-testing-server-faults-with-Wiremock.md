@@ -53,12 +53,12 @@ The client has an integration test written in [Groovy](http://www.groovy-lang.or
 Describing integration tests in general or libraries used in code samples is out of the scope of this article,
 but you can watch two interesting presentations of my colleagues from Allegro:
 
- * (in English) [Drop the clutter: lightweight tests with Spock](https://vimeo.com/120673753) by Piotr Betkier, presented at
+* (in English) [Drop the clutter: lightweight tests with Spock](https://vimeo.com/120673753) by Piotr Betkier, presented at
  [Geecon TDD](http://2015.tdd.geecon.org/) in Poznan (2015)
- * (in Polish) [Wykorzystanie języka Groovy w testach](https://www.youtube.com/watch?v=EGKOSUBGy8M) by Mirosław Gołda,
+* (in Polish) [Wykorzystanie języka Groovy w testach](https://www.youtube.com/watch?v=EGKOSUBGy8M) by Mirosław Gołda,
  presented at [Toruń JUG](http://torun.jug.pl/) meeting (2015)
 
- You can also read about other testing tools in
+You can also read about other testing tools in
  [Testing RESTful services and their clients]({% post_url 2014-11-26-testing-restful-service-and-clients %}) by Rafał Głowiński.
 
 ```groovy
@@ -166,16 +166,16 @@ In microservices architecture, services should be fast. But sometimes they aren'
 collection pause or unusual network latency. Service response time becomes seconds, not milliseconds. There is one
 fundamental question in such a case: is a response from the service critical? You can think about two options:
 
- * response is critical — for example you cannot render a page for the end user without having microservice's response.
+* response is critical — for example you cannot render a page for the end user without having microservice's response.
 In this case it is probably better not to set timeout or set it at a high value —
 user may prefer to have page rendered in a few seconds more than usual instead of seeing an error page;
- * response is not critical — as a real example there is a seo-service in Allegro Group, which serves metadata
- such as page title and description for [allegro.pl listing](http://allegro.pl/search?nl=1&string=java).
- This is important due to SEO positioning, but the lack
- of response is invisible to the user (default metadata can be used as a fallback) and if the seo-service failure is short-term
- (for example several minutes or even few hours) it has no negative impact on SEO positioning.
- In this case setting timeout is crucial — it's much worse for the user to have page rendering delayed a few seconds than
- having page loaded fast but without some invisible metadata.
+* response is not critical — as a real example there is a seo-service in Allegro Group, which serves metadata
+such as page title and description for [allegro.pl listing](http://allegro.pl/search?nl=1&string=java).
+This is important due to SEO positioning, but the lack
+of response is invisible to the user (default metadata can be used as a fallback) and if the seo-service failure is short-term
+(for example several minutes or even few hours) it has no negative impact on SEO positioning.
+In this case setting timeout is crucial — it's much worse for the user to have page rendering delayed a few seconds than
+having page loaded fast but without some invisible metadata.
 
 You can easily test the second scenario with Wiremock using `withFixedDelay` method:
 
@@ -204,6 +204,7 @@ properties to `Client` object passed to `ExampleClient` constructor:
 client.property(ClientProperties.CONNECT_TIMEOUT, 500);
 client.property(ClientProperties.READ_TIMEOUT, 1000);
 ```
+
 Thanks to dependency injection, our `ExampleClientSpec` could still be fast. Just set different timeouts for integration tests:
 
 ```groovy
@@ -307,9 +308,9 @@ if the response status code is 200 OK.
 When testing and writing the code of service clients, we should not only remember to check the response status code,
 but think about:
 
- * what should happen if the service is inaccessible?
- * what should happen if response from the service is delayed — should we wait a longer time or quickly use the fallback?
- * how to deal with an unexpected response?
- * not trusting an object returned from the client or better — take more control over mapping HTTP response to the business object.
+* what should happen if the service is inaccessible?
+* what should happen if response from the service is delayed — should we wait a longer time or quickly use the fallback?
+* how to deal with an unexpected response?
+* not trusting an object returned from the client or better — take more control over mapping HTTP response to the business object.
 
 These basic steps are essential to improve the stability and fault-tolerance of your SOA environment.

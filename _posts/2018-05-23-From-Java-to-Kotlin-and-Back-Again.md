@@ -43,7 +43,6 @@ Here are the reasons why.
 * [Open classes](#open-classes)
 * [Steep learning curve](#steep-learning-curve)
 
-
 ## Name shadowing
 
 Shadowing was my biggest surprise in **Kotlin**. Consider this function:
@@ -452,7 +451,6 @@ val map = mapOf("firstName" to "John", "lastName" to "Doe")
 
 In maps, keys and values are paired with the `to` operator, which is good, but why not use
 well-known `:` for that? Disappointing.
-
 
 ## Maybe? Nope
 

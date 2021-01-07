@@ -27,9 +27,9 @@ In a novel by Arthur C. Clarke, a potential AB-35 unit crash could be detected
 before it even occurred. In the real world, we diagnose bug symptoms using
 various tools:
 
-- crash loggers — crashes and non-fatal errors,
-- tracking tools — detecting user flow anomalies,
-- remote configuration — possibility of disabling problematic features.
+* crash loggers — crashes and non-fatal errors,
+* tracking tools — detecting user flow anomalies,
+* remote configuration — possibility of disabling problematic features.
 
 Often, these tools are sufficient to analyze an issue. But occasionally, they
 can hardly detect if anything is wrong or, in the case of a very complex
@@ -184,7 +184,6 @@ things that helped overcome that obstacle.
 Firstly, all iOS framework dylibs can be easily accessed from either:
 
 * iOS Simulator files — x86 and i386 dylibs: `/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks`
-
 * iOS Device Symbols — ARM dylibs: `~/Library/Developer/Xcode/iOS\ DeviceSupport/*/Symbols/System/Library/Frameworks`
 
 ![Frameworks]({% link /img/articles/2016-08-01-the-ios-bug-chase/frameworks.png %})

@@ -14,9 +14,9 @@ logging is a cost paid in your application’s responsiveness.
 Logging seems to be dead simple — you just spit out text messages that should be helpful when diagnosing application
 problems. This approach is wrong for at least two reasons:
 
- - One should think carefully what to log, when to log and what logging level to use for different messages so that logs
+- One should think carefully what to log, when to log and what logging level to use for different messages so that logs
 don’t resemble a huge useless wall of text. Any anomalies or fatal errors should be easily visible.
- - Even if one has spent enough time on the complete logging approach, there are some technical bits you should know and
+- Even if one has spent enough time on the complete logging approach, there are some technical bits you should know and
 keep in mind.
 
 I will start off with a list of most popular logging frameworks and explain why it is important to use logging levels,
@@ -35,11 +35,11 @@ abstraction layer. All the remaining abstraction frameworks fit into the remaini
 
 There are more logging frameworks than abstraction layers and they can be used directly. These are the most popular ones:
 
- - [Log4j](http://logging.apache.org/log4j/1.2/): a bit old but mature and still very popular
- - [Log4j2](http://logging.apache.org/log4j/2.x/): new, and much better, version of Log4j
- - [Logback](http://logback.qos.ch/): written by one of the authors of Log4j ("Logback is intended as a successor to the
+- [Log4j](http://logging.apache.org/log4j/1.2/): a bit old but mature and still very popular
+- [Log4j2](http://logging.apache.org/log4j/2.x/): new, and much better, version of Log4j
+- [Logback](http://logback.qos.ch/): written by one of the authors of Log4j ("Logback is intended as a successor to the
 popular log4j project, picking up where log4j leaves off." - Ceki Gülcü)
- - [java.util.logging (JULI)](http://docs.oracle.com/javase/8/docs/technotes/guides/logging/overview.html): provided by
+- [java.util.logging (JULI)](http://docs.oracle.com/javase/8/docs/technotes/guides/logging/overview.html): provided by
 JDK since version 1.4
 
 Unless stated otherwise, in this article I will refer to Logback + SLF4J configuration because this setup is widely
@@ -115,9 +115,9 @@ public class AnotherService {
 
 This code obviously has some issues (but it was meant to be very simple):
 
- - such logging should not be mixed with regular business logic: use [AOP (Aspect Oriented Programming)](https://en.wikipedia.org/wiki/Aspect-oriented_programming)
+- such logging should not be mixed with regular business logic: use [AOP (Aspect Oriented Programming)](https://en.wikipedia.org/wiki/Aspect-oriented_programming)
 for that — it will be discussed later
- - it uses `System.currentTimeMillis()` instead of `System.nanoTime()`: this was done deliberately to simplify the code.
+- it uses `System.currentTimeMillis()` instead of `System.nanoTime()`: this was done deliberately to simplify the code.
 
 Otherwise it would have to use `TimeUnit.NANOSECONDS.toMillis(...)` which would clutter it a little bit. The context is
 clearly visible: named loggers are a good and very easy way to group logs from different parts of the application. By grouping

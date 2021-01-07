@@ -48,7 +48,6 @@ daemon that does database connection pooling to Oracle for our PHP application w
 almost decade now. We could have shared it with open source community. Unfortunately there was always something else
 to do.
 
-
 ### Switching from structural code to something quite similar
 
 There were almost no PHP frameworks in 1999. For example [Zend Framework](http://framework.zend.com/) was released in
@@ -121,7 +120,6 @@ and which was just legacy code no longer in use. This allowed us to simplify the
 which were no longer needed, reducing the number of complex if-expressions.
 * ease of using new technologies – we were not limited by old technologies and we could easily use whatever we wanted.
  At least in the beginning.
-
 
 **Cons:**
 
@@ -198,7 +196,6 @@ developer can work on an existing service. Such a service is easy to maintain, c
 and rewrite. Its borders are clear.
 * independent releases – because services have separated frontends, there is no need to synchronize the release.
 * all SOA advantages – I should copy-paste here some articles about SOA, because we simply reap all the benefits.
-
 
 **Cons:**
 

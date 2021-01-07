@@ -121,4 +121,3 @@ Ania Wróblewska<br>
 ![Leaning tower of Pisa]({% link /img/articles/2016-10-17-advances-in-information-retrieval/HpUnVLI.jpg %})
 ![Pisa cathedral]({% link /img/articles/2016-10-17-advances-in-information-retrieval/HaDnNcT.jpg %})
 ![Łukasz in front of the conference venue]({% link /img/articles/2016-10-17-advances-in-information-retrieval/Dw56VLs.jpg %})
-
