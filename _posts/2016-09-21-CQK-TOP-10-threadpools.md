@@ -118,4 +118,3 @@ timeout and allow for some progress despite system overload.
 
 Setting up thread pools correctly is not a trivial task and understanding the setup is essential for investigating production problems.
 Hopefully, with these tips, you’ll be able to successfully run and manage your application in production.
-

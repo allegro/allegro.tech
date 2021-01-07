@@ -8,7 +8,7 @@ tags: [agile, team building, scrum master, agile coach]
 Whether you are forming a new agile team or mixing people in an already existing team you start somewhat afresh. In an existing team the balance and group
 dynamics changes, in a new team people are experiencing each other for the first time and checking what the boundaries are. I don’t want to get into details
 of what can possibly happen — it’s best if you dig into works of Bruce Tuckman and his [four-stage model](https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development) or Gustave Le Bon’s “[The Crowd]
-(https://en.wikipedia.org/wiki/The_Crowd:_A_Study_of_the_Popular_Mind)”. The former indicated that the team goes through the stages of Forming - Storming -
+(https://en.wikipedia.org/wiki/The_Crowd%3A_A_Study_of_the_Popular_Mind)”. The former indicated that the team goes through the stages of Forming - Storming -
 Norming - Performing. I would like to concentrate on the very initial stage of “Forming” the team in the first weeks of it’s existence.
 
 There are few things I learned when entering a team. One of them is that it’s better for people to start sitting together. Let them do it at the very beginning.
@@ -48,8 +48,8 @@ this stage. It’s probably going to be high level and not very detailed. Just g
 ## Getting to know each other (30–60 minutes)
 When getting to know each other it’s worth to answer few simple questions that break the ice and shed some light on our expectations as well as talents.
 
-* **What are the skills that we have?** What are we good at and how can we help others thrive? Using [Team Competency Matrix]
-(https://management30.com/leadership-resource-hub/team-competency-matrix/) can speed up the work and create a draft of
+* **What are the skills that we have?** What are we good at and how can we help others thrive? Using
+[Team Competency Matrix](https://management30.com/leadership-resource-hub/team-competency-matrix/) can speed up the work and create a draft of
 the development plan for the team members. If you want to work in agile you should have a team that is multifunctional so you are not dependent on others. And
 this is where skills come in handy.
 

@@ -26,7 +26,6 @@ There are other storage implementations that can be used instead of Whisper, but
 Allegro this was the most stable implementation. We are already experimenting with different stores, but that is outside
 the scope of this blogpost.
 
-
 ### Our scale
 
 We first deployed Graphite for microservices a year ago, in August 2014. It has been growing rapidly since: during last
@@ -62,7 +61,6 @@ of microservices pushing 500k metrics/minute. It assumes whole Graphite setup is
 cache and the database itself.
 
 ![Getting started architecture]({% link /img/articles/2015-09-01-scaling-graphite/graphite-architecture-1.png %})
-
 
 Of course, we kept fault tolerance as a priority from the very beginning, thus all the data was written to two hosts.
 Those two hosts needed to know about each other in order to achieve data duplication (load balancer was just forwarding, not

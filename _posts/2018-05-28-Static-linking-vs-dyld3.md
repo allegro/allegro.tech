@@ -215,13 +215,13 @@ What did I&nbsp;end up with? Hidden dyld3 can be activated on macOS High Sierra
 using one of the following two approaches:
 
 1. setting ``dyld`sEnableClosures``:
-  - ``dyld`sEnableClosures`` needs to be set by e.g. using lldb `memory write`
+   - ``dyld`sEnableClosures`` needs to be set by e.g. using lldb `memory write`
     (unfortunately undocumented `DYLD_USE_CLOSURES=1` variable only works on
     Apple internal systems),
-  - `/usr/libexec/closured` needs be compiled from [dyld
+   - `/usr/libexec/closured` needs be compiled from [dyld
     sources](https://opensource.apple.com/source/dyld/) (it needs a&nbsp;few
     modifications to compile),
-  - `read` invocation in `callClosureDaemon` needs to be fixed (I filed
+   - `read` invocation in `callClosureDaemon` needs to be fixed (I filed
     a&nbsp;[bug report](https://openradar.appspot.com/40522089) for this
     issue); for the sake of tests I&nbsp;fixed it with lldb `breakpoint
     command` and a&nbsp;custom

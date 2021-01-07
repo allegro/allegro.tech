@@ -106,15 +106,14 @@ working solution. As you can see, sometimes despite all the efforts, the outcome
 
 Let’s sum up:
 
- * We knew the project scale so we used solutions appropriate for the problem – minor workarounds solved the problem only temporarily and
+* We knew the project scale so we used solutions appropriate for the problem – minor workarounds solved the problem only temporarily and
 generated additional cost.
- * Thanks to complex programming knowledge we were able to polish every aspect of the code.
- * To keep everything under control, we wanted to build the product piece by piece. To do so, we needed development and release process.
- * To make sure no lines of code were wasted, we analyzed and measured users' behavior to pick only the most promising features.
- * To make sure the solution was reliable, we adjusted the infrastructure and monitoring to our product.
- * If you want to release anything while sitting in a bistro and be 100% confident, you have to take care of all the software development
+* Thanks to complex programming knowledge we were able to polish every aspect of the code.
+* To keep everything under control, we wanted to build the product piece by piece. To do so, we needed development and release process.
+* To make sure no lines of code were wasted, we analyzed and measured users' behavior to pick only the most promising features.
+* To make sure the solution was reliable, we adjusted the infrastructure and monitoring to our product.
+* If you want to release anything while sitting in a bistro and be 100% confident, you have to take care of all the software development
 aspects.
-
 
 _Dear developer! You will face deadlines. You will seek compromises. You will work under pressure. But the truth is that only you can
 guarantee that the product will work and be reliable. Any far-fetched compromise you accept is a serious threat.

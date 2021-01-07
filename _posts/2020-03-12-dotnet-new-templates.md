@@ -34,7 +34,6 @@ needs to configure HostBuilder. So why don't we factor out the common code from 
 * HttpClientFactory,
 * any other boilerplate you may want.
 
-
 All configuration comes out of the box, so having a template makes it easy and convenient to create a service that
 complies to all standards and policies the project may have. The template can also be used to suggest good practices to
 developers. Comments in this code can help the new dev onboard easier and explain something he might otherwise ask or not,

@@ -21,7 +21,6 @@ hyperlinks ([HATEOAS (Hypermedia as the Engine of Application State)](http://spr
 
 To learn more about REST and HTTP visit:
 
-
 * [Roy Fielding's doctoral dissertation (original idea for REST)](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)
 * [HTTP RFC](https://www.ietf.org/rfc/rfc2616.txt)
 * [PATCH RFC](http://tools.ietf.org/html/rfc5789)
@@ -40,12 +39,12 @@ What distinguishes RESTful API's from others at first sight is the naming conven
 nouns - there is no place for verbs in path params. It is reasonable that choosen nouns come from the service's domain.
 Mandatory parameters of a request should be a part of path params and optional need to be passed as query params.
 
-
 For instance an API for getting storm forecast for Warsaw should not be constructed this way:
 
 ```
 GET /getStormForecastForWarsaw
 ```
+
 But rather this way:
 
 ```
@@ -57,7 +56,6 @@ And when we want to narrow the results to the last few days, we should pass them
 ```
 GET /weather-forecast/warsaw/storms?from=2014-11-01&to=2014-11-12
 ```
-
 
 ### HTTP methods overview
 

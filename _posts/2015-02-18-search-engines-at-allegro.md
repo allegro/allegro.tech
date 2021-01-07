@@ -30,7 +30,7 @@ incoming data (both incoming documents and queries) into a form which allows fas
 course, handling the search itself. The output searchable data we call index and the process of transformation is called
 an analysis.
 
-# Index
+## Index
 Main problem here is: how do we provide fast matching of the query to the document set? Lucene’s anwser to this problem
 is the index. Lucene’s index isn’t a classical [b-tree](http://en.wikipedia.org/wiki/B-tree) index where keys point to
 some data, but a flat [inverted index](http://en.wikipedia.org/wiki/Inverted_index) where the data can be used to find
@@ -40,7 +40,7 @@ analysis.
 
 ![Index]({% link /img/articles/2015-02-18-index.png %})
 
-# Analysis
+## Analysis
 Long story short, analysis is a process of turning text into data that can be indexed. But what does it mean?
 The original text is divided into words, whereas words are converted into more useful forms – the letter case is unified,
 diacritical marks such as those used in Polish are replaced with their non-diacritical counterparts, and sometimes
@@ -55,16 +55,16 @@ Usually, individual documents are not indexed on a disk right away. They are sto
 to disk once in a while as a new segment. Nevertheless, owing to policies that can be configured, it is possible to join
 the segments later. We will delve deeper into the process in our next blog post related to search engines.
 
-### Query
+## Query
 Each query is analysed the same way as documents, although you can apply different analysis settings to each field you
 query. Next, the terms created after the query analysis are used to locate identical terms in each segment.
 
-### Search engines
+## Search engines
 Lucene is a library. As a result, it is easy to add a searcher to any application, but it requires manual processing of
 various input formats, index optimisation or search distribution. Luckily, you do not have to deal with all those
 issues, as special Lucene-based services were created. We are going to focus on two of them that are used at Allegro.
 
-## Apache Solr — older and more mature solution
+### Apache Solr — older and more mature solution
 [Solr](http://lucene.apache.org/solr/ "Apache Solr") was created in 2004 by Yonick Seeley, who is still one of Solr’s
 committers. In 2010, Solr and Lucene projects were merged and now they are released together.
 Currently, the service is based on collections that reflect the Lucene index, but they also offer replication and
@@ -75,7 +75,7 @@ analyzers. It supports replication and sharding. It also offers scaling, but Clo
 quite late to a rather mature service, forcing some modifications to the logic. At Allegro, we use Solr to store our
 largest and oldest indexes.
 
-## Elasticsearch — young, but active
+### Elasticsearch — young, but active
 It is a successor of the Compass library. Both products are created by Shay Banon and support Lucene library.
 [Elasticsearch](http://elasticsearch.org "Elasticsearch") was created in 2010 to ensure the most flexible search (in
 fact, the name tells it all). Elasticsearch is incredibly easy to use, but at the same time it offers the same configuration

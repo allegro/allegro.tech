@@ -58,17 +58,21 @@ Let’s consider a simple case — request for recommendations from a new anonym
 history. The most basic recommendation that we can show to him is just some bestselling item in the category which he’s
 browsing right now. We could implement it in the following way:
 
-    Scenario: recommendations for an anonymous user in a category listing.
-    Given an Item 1 in Category A and an Item 2 in Category B
-    When anonymous user visits Category A
-    Then he sees Item 1 as recommended item
+```
+Scenario: recommendations for an anonymous user in a category listing.
+Given an Item 1 in Category A and an Item 2 in Category B
+When anonymous user visits Category A
+Then he sees Item 1 as recommended item
+```
 
 Here’s the same example, but using characters and items from our domain:
 
-    Scenario: recommendations for an anonymous user in a category listing.
-    Given a Gold Ring and a Wooden Staff
-    When anonymous user visits a Magic Rings category
-    Then he sees a Gold Ring as recommended item
+```
+Scenario: recommendations for an anonymous user in a category listing.
+Given a Gold Ring and a Wooden Staff
+When anonymous user visits a Magic Rings category
+Then he sees a Gold Ring as recommended item
+```
 
 In our opinion the second scenario is more readable, as it’s obvious that Wooden Staff doesn’t match Magic Rings
 category.

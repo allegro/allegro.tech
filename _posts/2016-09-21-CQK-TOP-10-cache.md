@@ -158,5 +158,3 @@ stability risks and requirements:
   with the previous item model or the cache must be purged before application deployment.
 * In fact, a distributed cache is another service dependency. You are supposed
   to develop some fallback for the case of its outage.
-
-

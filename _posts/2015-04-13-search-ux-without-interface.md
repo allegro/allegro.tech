@@ -117,4 +117,3 @@ in progress.
 In this article we misspelled the name of one of the tools we use. If you know the
 correct name, send it to us [through this form](http://goo.gl/forms/12OQLeKJwR); first three people will have the chance to name one of our servers and
 become its godfather / godmother! Send your suggested name with your answer. The form will be active throughout April 2015.
-

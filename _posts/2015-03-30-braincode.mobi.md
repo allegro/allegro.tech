@@ -17,16 +17,13 @@ Although the professional aspect of the event is important, we wanted to make th
 After 24 hours of intense coding, the jury from each city selected the best team in two categories, i.e. Allegro API and Open. One of the eight teams was granted a special award.
 Here is the list of awarded projects:
 
-
 ## The best use of Allegro API:
-
 
 ### Poznań - **alleGift**
 
 ![allegift]({% link /img/articles/braincode/allegift.jpg %})
 
 AlleGift supports Android devices and hints gifts for various occasions suitable for family and friends. Naturally, the hints are not random, because they are based on a person’s hobby retrieved from Facebook. Moreover, a user can add suitable categories that describe the occasion. Presented gifts are retrieved from Allegro, thus the user can quickly and conveniently make the purchase or show the recommended item to his or her friends by sharing its auction link via selected app.
-
 
 ### Toruń - **Snap Buyer**
 
@@ -46,7 +43,6 @@ Allecena! is for estimating a listing price that will maximise the chance for se
 ![Allegrator]({% link /img/articles/braincode/allegrator.jpg %})
 
 Allegrator supports Android devices and selects gadgets (available on Allegro) that a user may find interesting. The choice is based on a user’s hobby scanned by connecting with accounts created on other sites such as Spotify, Last.fm, Steam, GoodReads or TottenTomatoes. By examining user activity, it creates a list of hobbies. Next, each hobby is linked with suitable gadgets, e.g. in case of music bands, the app will suggest T-shirts, badges and posters, whereas in case of games – collector’s editions. Gadgets are selected from on-going Allegro auctions. If the user finds the presented product interesting, he or she can display it via the Allegro app with one tap only.
-
 
 ## Open category:
 
@@ -79,4 +75,3 @@ It took us weeks of preparation, hours of talks, a few quarrels and some sleeple
 See you next time!:)
 
 [BrainCode Mobi Team](http://braincode.mobi)
-

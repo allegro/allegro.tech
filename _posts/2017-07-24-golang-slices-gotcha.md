@@ -116,16 +116,21 @@ func main() {
     b()
 }
 ```
+
 First guess could be
+
 ```
 [0, 1, 2] [0, 1, 3]
 [0, 1, 2, 3] [0, 1, 2, 4]
 ```
+
 but in fact it results in
+
 ```
 [0, 1, 2] [0, 1, 3]
 [0, 1, 2, 4] [0, 1, 2, 4]
 ```
+
 Function `a()` works as expected but behavior of `b()` is not what we were
 expecting.
 
@@ -194,12 +199,14 @@ x := []int{}
 x = append(x, 0)
 x = append(x, 1)
 ```
+
 Create a slice with 2 elements.
 ![1.svg]({% link /img/articles/2017-07-20-golang-slices-gotcha/1.svg %}){: .center-image }
 
 ```go
 x = append(x, 2)
 ```
+
 Append one element. `x` is too small so it needs to grow.
 It doubles its capacity.
 ![2.svg]({% link /img/articles/2017-07-20-golang-slices-gotcha/2.svg %}){: .center-image }
@@ -207,12 +214,15 @@ It doubles its capacity.
 ```go
 y := append(x, 3)
 ```
+
 Append one element. Slice has free space at the end so
 `3` is stored there.
 ![3.svg]({% link /img/articles/2017-07-20-golang-slices-gotcha/3.svg %}){: .center-image }
+
 ```go
 z := append(x, 4)
 ```
+
 Append one element. Slice has free space at the end so
 `4` is stored there and overwrites `3` stored before.
 ![4.svg]({% link /img/articles/2017-07-20-golang-slices-gotcha/4.svg %}){: .center-image }

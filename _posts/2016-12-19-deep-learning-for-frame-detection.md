@@ -62,7 +62,6 @@ np.convolve(signal,convolution_filter,mode='valid')
 >> [-2, -9, 0, -8, -6, -14, 7, -14, -3]
 ```
 
-
 So it is sliding the convolution filter over a signal and calculating a dot product between part of the signal and convolution
 filter. The same happens for an image which we treat here as a 3D signal (width,&nbsp;height,&nbsp;color).
 
@@ -172,7 +171,7 @@ We decided to export the model to a file and read it on a server having Keras an
 
 ## Conclusions
 
- - Observe your experiments as they do not always tend to converge.
+- Observe your experiments as they do not always tend to converge.
 Below you can see a chart of accuracy vs number of epochs of two experiments.
 The blue one didn&rsquo;t go very well comparing to the green one.
 The reason for that is probably too high learning rate decay.
@@ -180,7 +179,6 @@ The reason for that is probably too high learning rate decay.
 ![too_big_decay]({% link /img/articles/2016-12-19-deep-learning-for-frame-detection/training_too_big_decay.png %})
 
 - Data gathering is hard &mdash; errors sneak in all the time, so we were fixing the dataset through all of the experiment timespan.
-
 - Baseline solution made it possible to remove the frame altogether. This solution cannot do that so far,
 although given a pixel-annotation dataset &mdash; deep learning can solve the problem of object segmentation as well.
 
@@ -188,14 +186,11 @@ although given a pixel-annotation dataset &mdash; deep learning can solve the pr
 
 * Deep Learning is nowadays used to solve many great challenges not only in image processing but also in sound processing or
 [Natural Language Processing](https://en.wikipedia.org/wiki/Natural_language_processing).
-   * [DeepMask](https://github.com/facebookresearch/deepmask) can segment each independent object in a picture.
-
-   * [NeuralTalkv2](https://github.com/karpathy/neuraltalk2) creates textual descriptions of what is seen on an image.
-
-   * [Google deep dream](https://github.com/google/deepdream) is able to create new art-pieces of a given style.
+  * [DeepMask](https://github.com/facebookresearch/deepmask) can segment each independent object in a picture.
+  * [NeuralTalkv2](https://github.com/karpathy/neuraltalk2) creates textual descriptions of what is seen on an image.
+  * [Google deep dream](https://github.com/google/deepdream) is able to create new art-pieces of a given style.
 
     <figure class="image"><img src="/img/articles/2016-12-19-deep-learning-for-frame-detection/DeepDreamingProcess.jpg" alt="dd"><figcaption>(CC BY-SA 4.0 https://commons.wikimedia.org/wiki/File:DeepDreamingProcess.jpg)</figcaption></figure>
-
 
 ### Resources
 
