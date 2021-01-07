@@ -52,6 +52,7 @@ public abstract class ProjectRepository {
     protected abstract Project findByIdentifier(String identifier);
 }
 ```
+
 We won’t need `ProjectRequest` to retrieve the aggregate.
 This time the `ProjectResponse` will represent the state of the `Project` stored in the REST service:
 
@@ -64,6 +65,7 @@ class ProjectResponse {
     // Getters and setters
 }
 ```
+
 The source code of the `ProjectPersistenceMapper` will depend on the retrieving method type.
 The [previous post]({% post_url 2020-06-22-persisting-application-state %}) introduced the assumption that the `Project` is persisted in two data sources.
 Those are [MongoDB](https://www.mongodb.com/) database and the internal [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) service.
@@ -90,6 +92,7 @@ class MultiSourceProjectRepository extends ProjectRepository {
     }
 }
 ```
+
 Let’s move on to the methods of retrieving the `Project` aggregate.
 In order to be able to retrieve the aggregate, `infrastructure.persistence` package must be able to construct it from its persisted state.
 We can achieve this in several ways.
@@ -97,6 +100,7 @@ We can achieve this in several ways.
 ### Public factory methods
 The aggregate can be constructed from its state by using public factory methods added to each aggregate component.
 Aggregate components’ code:
+
 ```java
 public class Feature {
 
@@ -113,6 +117,7 @@ public class Feature {
     }
 }
 ```
+
 ```java
 public class Identifier {
 
@@ -127,6 +132,7 @@ public class Identifier {
     }
 }
 ```
+
 ```java
 public class Project {
 
@@ -145,7 +151,9 @@ public class Project {
     }
 }
 ```
+
 Mapping code:
+
 ```java
 class ProjectPersistenceMapper {
 
@@ -164,6 +172,7 @@ class ProjectPersistenceMapper {
     }
 }
 ```
+
 **Keeping aggregate encapsulation, rating ★☆☆:**
 Let’s suppose that the `Project` aggregate is meant to be constructed without `Feature`s from the business logic perspective.
 Adding all-args factory methods allows constructing the `Project` aggregate in undesired way.
@@ -182,6 +191,7 @@ The code that maps the MongoDB document and the HTTP response to an aggregate is
 A method similar to the above one, except that the aggregate is constructed using Java reflection API.
 We can use Spring’s [BeanUtils](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/BeanUtils.html) to invoke the factory methods.
 Aggregate components’ code:
+
 ```java
 public class Feature {
 
@@ -198,6 +208,7 @@ public class Feature {
     }
 }
 ```
+
 ```java
 public class Identifier {
 
@@ -212,6 +223,7 @@ public class Identifier {
     }
 }
 ```
+
 ```java
 public class Project {
 
@@ -230,7 +242,9 @@ public class Project {
     }
 }
 ```
+
 Mapping code:
+
 ```java
 class ProjectPersistenceMapper {
 
@@ -260,6 +274,7 @@ class ProjectPersistenceMapper {
     }
 }
 ```
+
 **Keeping aggregate encapsulation, rating ★★★:**
 We don’t need to create code that breaks the encapsulation of the aggregate.<br>
 **No additional code in the aggregate, rating ★★★:**
@@ -276,6 +291,7 @@ The next method relies on extracting the aggregate state into a separate object 
 This method is highly bound to the similar method for persisting aggregates, which I have described in my [previous post]({% post_url 2020-06-22-persisting-application-state %}), and should be used together with it.
 Used alone, it’s just a variation of “public factory methods” that adds an extra state object.
 Aggregate components’ code:
+
 ```java
 public class Feature {
 
@@ -301,6 +317,7 @@ public class Feature {
     }
 }
 ```
+
 ```java
 public class Identifier {
 
@@ -324,6 +341,7 @@ public class Identifier {
     }
 }
 ```
+
 ```java
 public class Project {
 
@@ -351,7 +369,9 @@ public class Project {
     }
 }
 ```
+
 Mapping code:
+
 ```java
 class ProjectPersistenceMapper {
 
@@ -370,6 +390,7 @@ class ProjectPersistenceMapper {
     }
 }
 ```
+
 **Keeping aggregate encapsulation, rating ★☆☆:**
 Similarly to “public factory methods”, this method breaks the aggregate’s encapsulation because it introduces public and all-args factory methods.<br>
 **No additional code in the aggregate, rating ★★☆:**
@@ -382,6 +403,7 @@ State objects make the code slightly more complicated.
 A method similar to the above one, except that the aggregate is constructed using Java reflection API.
 This method is also highly bound to the similar method for persisting aggregates, which I have described in my [previous post]({% post_url 2020-06-22-persisting-application-state %}), and should be used together with it.
 Aggregate components’ code:
+
 ```java
 public class Feature {
 
@@ -407,6 +429,7 @@ public class Feature {
     }
 }
 ```
+
 ```java
 public class Identifier {
 
@@ -430,6 +453,7 @@ public class Identifier {
     }
 }
 ```
+
 ```java
 public class Project {
 
@@ -457,7 +481,9 @@ public class Project {
     }
 }
 ```
+
 Mapping code:
+
 ```java
 class ProjectPersistenceMapper {
 
@@ -487,6 +513,7 @@ class ProjectPersistenceMapper {
     }
 }
 ```
+
 **Keeping aggregate encapsulation, rating ★★★:**
 We don’t need to create code that breaks the encapsulation of the aggregate.<br>
 **No additional code in the aggregate, rating ★★☆:**
@@ -500,6 +527,7 @@ A “state objects” method inversion.
 Here, instead of creating a state object, we create a stateless state creator which creates the aggregate.
 This method combined with “state readers” method from my [previous post]({% post_url 2020-06-22-persisting-application-state %}) lets us create one additional object instead of two (state reader and state creator can be joined into one state manager).
 Aggregate components’ code:
+
 ```java
 public class Feature {
 
@@ -519,6 +547,7 @@ public class Feature {
     }
 }
 ```
+
 ```java
 public class Identifier {
 
@@ -536,6 +565,7 @@ public class Identifier {
     }
 }
 ```
+
 ```java
 public class Project {
 
@@ -557,7 +587,9 @@ public class Project {
     }
 }
 ```
+
 Mapping code:
+
 ```java
 class ProjectPersistenceMapper {
 
@@ -580,6 +612,7 @@ class ProjectPersistenceMapper {
     }
 }
 ```
+
 **Keeping aggregate encapsulation, rating ★★★:**
 We don’t need to create code that breaks the encapsulation of the aggregate.<br>
 **No additional code in the aggregate, rating ★★☆:**
