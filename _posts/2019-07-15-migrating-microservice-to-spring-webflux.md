@@ -116,6 +116,7 @@ Going reactive is not an exception. The idea of this stage is to find only one n
 encapsulated in one blocking method call, and to rewrite it to non-blocking style.
 Let’s try to do this on an example of the blocking method which uses `RestTemplate` to retrieve the result from an external
 service.
+
 ```java
 Pizza getPizzaBlocking(int id) {
     try {
@@ -125,7 +126,9 @@ Pizza getPizzaBlocking(int id) {
     }
 }
 ```
+
 We pick only one thing from the rich set of WebFlux features — reactive WebClient — and use it to rewrite this method in a non-blocking way.
+
 ```java
 Mono<Pizza> getPizzaReactive(int id) {
     return webClient
@@ -136,13 +139,16 @@ Mono<Pizza> getPizzaReactive(int id) {
         .onErrorMap(PizzaException::new);
 }
 ```
+
 Now it’s time to wire our new method with the rest of the application. The non-blocking method returns `Mono`,
 but we need a plain type instead. We can use the `.block()` method to retrieve the value from `Mono`.
+
 ```java
 Pizza getPizzaBlocking(int id) {
     return getPizzaReactive(id).block();
 }
 ```
+
 Eventually, our method is still blocking. However, it utilizes a non-blocking library inside.
 The main goal of this stage is to get familiar with the non-blocking API.
 This change should be transparent to the rest of the application, easily testable and deployable into the production environment.
@@ -179,15 +185,18 @@ Mono<Food> orderFoodReactive(int id) {
         .onErrorMap(FoodException::new);
 }
 ```
+
 Blocking parts of the system can be easily merged with
 non-blocking code using `.subscribeOn()` method. We can use one of the default Reactor
 schedulers as well as thread pools created on our own and provided by `ExecutorService`.
+
 ```java
 Mono<Pizza> getPizzaReactive(int id) {
     return Mono.fromSupplier(() -> getPizzaBlocking(id))
         .subscribeOn(Schedulers.fromExecutorService(executorService));
 }
 ```
+
 Additionally, only a small change in controllers is enough — change the return type from `Foo` to `Mono<Foo>` or `Flux<Foo>`.
 It works even in Spring Web MVC - you don't need to change the whole application's stack to reactive.
 Successful implementation of Stage 2 gives us all the main benefits of the non-blocking approach.
@@ -253,6 +262,7 @@ __The lesson learned__:
 
 WebFlux beginners sometimes forget that reactive streams tend to be as lazy as possible.
 Due to a lacking subscription, the following function never prints anything to console:
+
 ```java
 Food orderFood(int id) {
     FoodBuilder builder = new FoodBuilder().withPizza(new Pizza("margherita"));
@@ -263,21 +273,26 @@ Food orderFood(int id) {
     return builder.build();
 }
 ```
+
 __The lesson learned__:
 *every `Mono` and `Flux` should be subscribed. Returning reactive type in a controller is such a kind of implicit subscription.*
 
 ### Issue 4 - `.block()` in Reactor thread
 
 As I showed before (in Stage 1), `.block()` is sometimes used to join a reactive function to blocking code.
+
 ```java
 Food getFoodBlocking(int id) {
     return foodService.orderFoodReactive(id).block();
 }
 ```
+
 Calling this function isn’t possible within Reactor thread. Such an attempt causes the following error:
+
 ```java
 block()/blockFirst()/blockLast() are blocking, which is not supported in thread reactor-http-nio-2
 ```
+
 Explicit `.block()` usages are only allowed within other threads (see `.subscribeOn()`).
 It’s helpful that the Reactor throws an exception and informs us about the problem. Unfortunately,
 many other scenarios allow inserting blocking code into Reactor thread, which is not automatically detected.
@@ -290,13 +305,16 @@ Even better is to avoid using `.block()` at all.*
 Nothing prevents us from adding blocking code to a reactive flow.
 Moreover, we don’t need to use `.block()` - we can unconsciously introduce blocking by using a library which
 can block the current thread. Consider the following samples of code. The first one resembles proper, “reactive” delay.
+
 ```java
 Mono<Food> getFood(int id) {
     return foodService.orderFood(id)
         .delayElement(Duration.ofMillis(1000));
 }
 ```
+
 The other sample simulates a dangerous delay, which blocks the subscriber thread.
+
 ```java
 Mono<Food> getFood(int id) throws InterruptedException {
     return foodService
@@ -304,6 +322,7 @@ Mono<Food> getFood(int id) throws InterruptedException {
       .doOnNext(food -> Thread.sleep(1000));
 }
 ```
+
 At a glance, both versions seem to work. When we run this application on localhost and try to request a service,
 we can see similar behavior. “Hello, world!” is returned after 1 s delay. However, this observation is hugely
 misleading. Our service response changes drastically under higher traffic. Let’s use [JMeter](https://jmeter.apache.org/)
@@ -333,6 +352,7 @@ Documentation of WebClient `.exchange()` method clearly states:
 gives us similar information.
 This requirement is easy to miss, mainly when we use `.retrieve()` method, which is a shortcut to `.exchange()`.
 We stumbled upon such an issue. We correctly mapped the valid response to an object and wholly ignored the response in case of an error.
+
 ```java
 Mono<Pizza> getPizzaReactive(int id) {
     return webClient
@@ -344,11 +364,14 @@ Mono<Pizza> getPizzaReactive(int id) {
         .onErrorMap(PizzaException::new);
 }
 ```
+
 The code above works very well as long as the external service returns valid responses.
 Shortly after the first few error responses, we can see a worrying message in logs:
+
 ```java
 ERROR 3042 --- [ctor-http-nio-5] io.netty.util.ResourceLeakDetector       : LEAK: ByteBuf.release() was not called before it's garbage-collected. See http://netty.io/wiki/reference-counted-objects.html for more information.
 ```
+
 Resource leak means that our service is going to crash. In minutes, hours or maybe days — it depends on other service errors count.
 The solution to this problem is straightforward: use the error response to generate an error message. Now it’s properly consumed.
 
@@ -360,18 +383,21 @@ __The lesson learned__:
 Reactor has a bunch of useful methods, helping writing expressive and declarative code.
 However, some of them may be a little bit tricky.
 Consider the following code:
+
 ```java
 String valueFromCache = "some non-empty value";
 return Mono.justOrEmpty(valueFromCache)
     .switchIfEmpty(Mono.just(getValueFromService()));
 
 ```
+
 We used similar code to check the cache for a particular value and then call the external service if
 the value was missing. The intention of the author seems to be clear: execute `getValueFromService()`
 only in the case of lacking cache value. However, this code runs every time, even for cache hits.
 The argument given to `.switchIfEmpty()` is not a lambda here — and `Mono.just()` causes direct execution of code
 passed as an argument.
 The obvious solution is to use `Mono.fromSupplier()` and pass conditional code as a lambda, as in the example below:
+
 ```java
 String valueFromCache = "some non-empty value";
 return Mono.justOrEmpty(valueFromCache)
@@ -414,6 +440,5 @@ Decide consciously without blind faith in technology hype.
 Always test your application. Integration and performance test covering external call latencies and errors
 are crucial in the migration process. Remember that reactive thinking is different from the well-known blocking,
 imperative approach.
-
 
 Have fun and build resilient microservices!

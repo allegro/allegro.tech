@@ -14,22 +14,20 @@ a different tab? Should we consider such views interesting for us? Don’t the c
 
 ## Methodology
 
-
 To answer these questions, we first need information about whether the page was visible when it was loading. For this purpose, we decided to send
 new pieces of information from the browsers, collected by the Page Visibility API:
 
-*   Initial page visibility state
-*   Change of page visibility
+* Initial page visibility state
+* Change of page visibility
 
 Each time the tab is switched, hidden or the browser window is displayed (including switching the desktop in the operating system), it is recorded.
 
 By comparing time of visual metrics with time of visibility changes, we can split page views into two buckets:
 
-*   Visible all the time until Visually Complete
-*   Invisible or partially invisible while loading
+* Visible all the time until Visually Complete
+* Invisible or partially invisible while loading
 
 ## Results
-
 
 After splitting metrics in the way described above, we can compare the number of page views of each type and the values of the main metrics
 collected for them. We did this for three Allegro pages: home page, offers listing and the offer page. The one loaded in the

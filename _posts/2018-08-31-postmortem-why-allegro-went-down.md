@@ -20,7 +20,6 @@ We prepare internal postmortems after any serious issue in order to analyze the 
 This text is based on such an internal postmortem, prepared by multiple people from the teams
 that took part in dealing with the outage.
 
-
 ## Architecture overview
 
 First of all, let’s start with an overview of our architecture. As you probably already know from [our blog](/blog/),
