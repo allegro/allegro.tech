@@ -61,7 +61,7 @@ rely on fast and convenient automated testing? The answer is not that obvious. T
 happens to be difficult to implement or time-consuming even though it looks very promising at first sight. Let’s take a
 look at some common opinions on manual and automated tests.
 
-#### Automated tests
+### Automated tests
 
 1. Faster and more effective
 
@@ -92,9 +92,7 @@ look at some common opinions on manual and automated tests.
    tests do not “see” UI changes or strings displayed outside the defined fields. They only check if all features are working
    properly (although it depends on applied frameworks).
 
-
-#### Manual testing
-
+### Manual testing
 
 1. It simulates what the end user does
 

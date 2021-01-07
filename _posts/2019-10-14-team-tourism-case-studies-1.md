@@ -23,7 +23,7 @@ bunch of Spark jobs calculating daily and monthly reports, discovering inconsist
 
 I enjoy this domain but for a while I've also been interested in streaming architectures. Processing large amounts of
 data, especially detecting trends and correlations over time, sounds really exciting to me, especially after reading
-[“_Designing Data-Intensive Applications_”](https://allegro.pl listing?string=designing%20data%20intensive%20applications).
+[“_Designing Data-Intensive Applications_”](https://allegro.pl/listing?string=designing%20data%20intensive%20applications).
 Long story short, it turned out that [Marcin Kuthan's](/authors/marcin.kuthan/) team does exactly that,
 a few office rooms away. After a casual talk over coffee and finding some time in my permanent team, I moved temporarily,
 for a month, to the new project.
@@ -36,8 +36,8 @@ and more events per second. The classic approach would probably involve a heavy,
 that calculates these metrics daily. Streaming architecture, on the other hand, yields results every minute for the last
 ten minutes or so. We need this data in (almost) real time in order to measure the effectiveness of presented content.
 
-The overall architecture pushes raw events from our internal Kafka to [Google Cloud
-Pub/Sub](https://cloud.google.com/pubsub/docs/) through Kafka Connect. When anonymised raw data is available in the
+The overall architecture pushes raw events from our internal Kafka to [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/) through Kafka Connect.
+When anonymised raw data is available in the
 cloud, we declaratively build data flows using [Apache BEAM](https://beam.apache.org/) abstraction over many streaming
 engines. Additionally we used [scio](https://github.com/spotify/scio) from Spotify that provides a more idiomatic Scala
 experience to BEAM. We even [contributed](https://github.com/spotify/scio/commits?author=piter75) some bug fixes to
@@ -65,7 +65,7 @@ none job perspectives. A few months ago I decided to join the “Machine Learnin
 work with them, to see how they prepare models and how these models are used in a microservice ecosystem as big as Allegro
 has.
 
-<img alt="machine learning" src="/img/articles/2019-10-14-team-tourism-case-studies-1/machine-learning.jpg" />
+![machine learning]({% link /img/articles/2019-10-14-team-tourism-case-studies-1/machine-learning.jpg %})
 
 The knowledge I had from the university was priceless. Although the amount of data, training methods and models have
 developed over time, the core concept is still the same. With the help of team members, I was able to quickly understand
@@ -94,7 +94,7 @@ Since my team rarely interact with the main product area (we are a platform for 
 something totally different - [Search Engine Optimisation](https://en.wikipedia.org/wiki/Search_engine_optimization)!
 I’ve done tourism few times so far, but this was my first time away from the pure development sector.
 
-<img alt="seo" src="/img/articles/2019-10-14-team-tourism-case-studies-1/seo.jpg" />
+![seo]({% link /img/articles/2019-10-14-team-tourism-case-studies-1/seo.jpg %}
 
 At the beginning, we agreed that the main goal was to exchange our experiences. While working with web development,
 SEO was always one of the main concerns, but I’ve never experienced working with this topic like I did during my tourism.

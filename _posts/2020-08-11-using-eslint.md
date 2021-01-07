@@ -34,7 +34,7 @@ At Allegro we have our own sets of rules, one of which is enabled by default in 
 mostly performance-oriented suggestions like:
 * avoid bloated libraries (eg. [lodash](https://lodash.com/), [moment](https://momentjs.com/)) and use lighter
 alternatives (eg. [nanoutils](https://nanoutils.github.io/), [date-fns](https://date-fns.org/)),
- * when using optional chaining consider its
+* when using optional chaining consider its
 [impact on bundle size]({% post_url 2019-11-08-performance-of-javascript-optional-chaining %}).
 
 My task was to extend this set of rules to prevent calling `format(...)` method on `Intl.DateTimeFormat` instance
@@ -175,4 +175,3 @@ module.exports = {
 
 Finally, we should add some tests to verify that we didn’t miss any cases. Then we can include the rule in our eslint
 config and we are ready to go! I hope this post will encourage you to play a little bit with ESLint/Babel and AST.
-

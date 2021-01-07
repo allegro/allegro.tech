@@ -13,7 +13,7 @@ our two engineers describe their eventful visits in two rather technical teams, 
 > You can navigate directly to each part here: [Part 1]({% post_url 2019-09-16-team-tourism-at-allegro %}) | [Part 2]({% post_url 2019-10-14-team-tourism-case-studies-1 %}) | **Part 3**
 
 ## Case study 1
-####  Hermes - Bartosz Balukiewicz
+### Hermes - Bartosz Balukiewicz
 On a daily basis, I am a software engineer in the team developing a product which predicts delivery times of orders.
 We are diving deep into bid data and machine learning world, but we rely on event-based micro-service architecture.
 That is why we use Hermes ([version 1.0 was released]({% post_url 2019-05-16-hermes-1-0-released %})) extensively -

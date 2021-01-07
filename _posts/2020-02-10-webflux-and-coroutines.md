@@ -40,7 +40,6 @@ fun prepareGingerbread(existingIngredients: Set<Ingredient>): Mono<Gingerbread>?
 
 You may think now: who invented such a flow? But in the real world things are even much more complicated.
 
-
 When the project was evolving, one of the challenges was to add a feature by calling `heatOven()` method (placed in comment).
 Of course, one could say: "yes, you may introduce a new data structure and save transitional state in it".
 And yes, it's true for not sophisticated microservices. But not easy for a critical service dependent on a dozen other services,
@@ -80,9 +79,8 @@ Note that the last statement in a block is being returned as a value. This kind 
 (_cold_ - produces a new copy of data for each subscriber, _hot mono/flux_ - publishes data regardless of subscribers' presence).
 - make sure the code compiles and tests pass
 
-
-
 ### The result after migration to Kotlin with coroutines
+
 ```kotlin
 fun prepareGingerbread(existingIngredients: Set<Ingredient>): Mono<Gingerbread> {
    return mono {

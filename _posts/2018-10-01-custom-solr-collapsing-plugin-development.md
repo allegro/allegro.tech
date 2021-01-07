@@ -114,6 +114,7 @@ we change the number of returned results in the
 Here is how it looks in our code:
 
 In the finish method of our filter we put the number of document groups into the request context variable:
+
 ```
 public void finish() throws IOException {
 …
@@ -121,7 +122,9 @@ public void finish() throws IOException {
 …
 }
 ```
+
 We add our own search component:
+
 ```
 public class CollapsingSearchComponent extends SearchComponent {
 
@@ -146,11 +149,13 @@ public void process(ResponseBuilder rb) {
 ```
 
 We have to instantiate this component in configuration:
+
 ```
 <searchComponent name="collapseHits" class="org.apache.solr.search.CollapsingSearchComponent"/>
 ```
 
 And finally in our search handler we turn it on:
+
 ```
 <requestHandler name="/select" class="solr.SearchHandler">
     <arr name="components">
@@ -166,4 +171,3 @@ Solr is a very flexible tool, it offers a lot of different ways to boost perform
 fit a particular use case. With the development of large solutions, we are able to modify our search engine to meet the
 challenges that our business brings to us. Maintaining custom changes in the search code is possible to be handled at
 the plugins level, which allows us to easily upgrade to newer versions of Solr.
-

@@ -13,7 +13,6 @@ This is the knowledge I’ve gained at the World Conference of Transactional Ana
 Transactional Analysis (TA) is a theory of interpersonal relationships developed by Eric Berne which has a
 practical application in various fields, including organizations.
 
-
 ***
 Do you sometimes lack motivation even after getting positive feedback from your boss or colleagues? Or perhaps
 you feel that you don’t get acknowledged? Your friends would do anything to have a stable job like yours, while
@@ -31,7 +30,6 @@ basic psychological needs which can be fulfilled or unfulfilled, both at persona
 
 ![the 3 hungers model]({% link /img/articles/2018-03-12-psychological-needs-at-work/konikSM.png %}){: .center-image }
 
-
 Anke started her story with a metaphor. In the picture above, the cart represents the body (hardware), and the
 horse represents the mind (software). The horse may be running in circles if it doesn’t know where to go. It can
 be running and straining the body without giving it any rest. The driver manages the whole system. He pays
@@ -41,12 +39,10 @@ are stable and in harmony.
 
 What the mind needs. Transactional Analysis (TA) talks out about 3 basic needs referred to as hungers:
 
-
 **1. Hunger of structure**
 When your hunger of structure is satisfied, it gives you a **feeling of clarity (“I understand”)**. For each
 person, it can be based on different things. For example, you may need clear business goals, information, clear
 responsibilities and processes, or a predictable people environment.
-
 
 **2. Hunger of stimuli**
 When your hunger of stimuli is satisfied, it gives you a **feeling of control (“I will cope”)**. I have a feeling
@@ -54,7 +50,6 @@ of control if there is a good amount of challenges or stimuli for me so that I f
 cope
 with it". The feeling of control is based on experience, education, coping with challenges, control of feelings
 and emotions.
-
 
 **3. Hunger of strokes**
 Strokes are the signs that we get from the people we work with which make us feel that what we do has value. As
@@ -64,7 +59,6 @@ appreciation (“It’s worthwhile”)**. Sometimes, when we’re not getting en
 subconsciously prompt negative strokes.
 
 ![Hunger of strokes]({% link /img/articles/2018-03-12-psychological-needs-at-work/pyramid_home.png %}){: .center-image }
-
 
 By satisfying these hungers, we get the answer to the question of WHAT to do, HOW to do it using our knowledge
 and experience, and WHY to do it, what we want to achieve by doing this, and what is it that we personally
@@ -76,7 +70,6 @@ team to see what the team needs to feel good and have the right conditions to wo
 
 ![Chart 1]({% link /img/articles/2018-03-12-psychological-needs-at-work/chart1-eng.png %}){: .center-image }
 
-
 ## Example of self-assessment performed by an individual
 The person on the diagram below is a highly motivated developer. He uses a stretch goal that was set for his team
 as his main source of energy. He has Clarity as to what is to be done and why, and has experience in the language
@@ -86,7 +79,6 @@ At this point, this doesn’t affect his satisfaction with work but if his frust
 for stimuli or structure gets worse, it’ll be enough to affect his overall satisfaction.
 
 ![Chart 2]({% link /img/articles/2018-03-12-psychological-needs-at-work/chart2-eng.png %}){: .center-image }
-
 
 **Example of self-assessment performed by a team:**
 Below is a diagram of a team that has been struggling in the last few months with a large number of service
@@ -102,31 +94,22 @@ high scores on each axis.
 
 ![Chart 3]({% link /img/articles/2018-03-12-psychological-needs-at-work/chart3-eng.png %}){: .center-image }
 
-
-
 **The following questions can help you analyse intuitive scores:**
-
 
 **WHAT?**
 Do I know my responsibilities in the team? What is the business goal? Why are we developing this product?
-
 
 **HOW?**
 Do I still find my job interesting or perhaps I feel overwhelmed by the level of complexity? Do I have sufficient
 resources to cope with?
 
-
 **WHY?**
 How do I know that what I’m doing makes sense? How often do I get acknowledged? What signs of acknowledgement do
 I need from my co-workers/boss?
 
-
-
-
 What I find interesting is the definition of these terms: what do clarity, control and appreciation mean to me
 as opposed to our team? Do we understand these terms the same way? What has been provided to us and what is it
 that we’re missing?
-
 
 I encourage you to do some self-reflection on your role and the workplace. In her story, Anke often referred to a
 leader as a person that can manage a project or a team but can leaders successfully manage themselves? As you

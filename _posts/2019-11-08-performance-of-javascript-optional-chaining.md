@@ -75,7 +75,6 @@ Let's take a step back. Optional chaining isn't a new idea at all. Solutions for
 ampersands && chains` problem have already existed in the so-called userspace for quite some time. Jason Miller's
 [`dlv`](https://github.com/developit/dlv) is only one among many.
 
-
 ```js
 dlv(foo, 'bar.baz.qux');
 ```
@@ -83,7 +82,6 @@ dlv(foo, 'bar.baz.qux');
 Besides this approach isn't as good as the new syntax, because it's not type-safe, it requires slightly more code on the
 call site - 25 characters. Plus, you must import the function from the library. But, how does the code look in the final
 bundle?
-
 
 ```js
 d(u,'bar.baz.qux');
@@ -94,13 +92,11 @@ What a surprise! 19 characters, that's as concise as optional chaining syntax it
 If you feel uncomfortable with strings, you can pass an array of strings to the function. Although, there's more characters
 in both source and the final code, it may be worth doing. You will see later why.
 
-
 ```js
 dlv(foo, ['bar', 'baz', 'qux']);
 ```
 
 Implementation of the function itself takes only 101 characters after minification.
-
 
 ```js
 function d(n,t,o,i,l){for(t=t.split?t.split("."):t,i=0;i<t.length;i++)n=n?n[t[i]]:l;return n===l?o:n}

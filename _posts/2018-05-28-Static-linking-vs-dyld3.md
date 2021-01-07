@@ -227,7 +227,7 @@ using one of the following two approaches:
     command` and a&nbsp;custom
     [lldb script](https://gist.github.com/kam800/e1f1fa143257c733a20aea2974929ab8)
     that invoked `read` in a&nbsp;loop until it returned 0, or
-2. dyld closure needs to be generated and saved to the dyld cache... but...
+1. dyld closure needs to be generated and saved to the dyld cache... but...
    what is a&nbsp;dyld closure?
 
 ### Dyld closure
@@ -257,6 +257,7 @@ $ dyld_closure_util -create_closure ~/tmp/TestMacApp.app/Contents/MacOS/TestMacA
 ```
 
 The basic JSON representation of a&nbsp;dyld closure looks as follows:
+
 ```json
 {
   "dyld-cache-uuid": "9B095CC4-22F1-3F88-8821-8DFD979AB7AD",

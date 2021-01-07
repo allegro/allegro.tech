@@ -73,6 +73,7 @@ In simple words, batch job loads all clicks and emissions from the previous day,
 those saved by Online Layer. In our case, this happens once a day.
 
 Your recalculation job could look like this:
+
 ```scala
 case class Click(offerId: String, emissionId: String)
 
@@ -112,6 +113,7 @@ class RecalculateStatisticsJob(sparkSession: SparkSession) {
   }
 }
 ```
+
 It’s important to make the job idempotent, retryable and transactional (hence the _safeWrite_ method).
 That way, even if it fails during saving the results it will leave the data in a consistent state.
 If anything fails or requires recomputing, you can just re-run the job.
