@@ -39,6 +39,7 @@ alternatives (eg. [nanoutils](https://nanoutils.github.io/), [date-fns](https://
 
 My task was to extend this set of rules to prevent calling `format(...)` method on `Intl.DateTimeFormat` instance
 immediately after creating it:
+
 ```javascript
 // good
 const formatter = new Intl.DateTimeFormat('en-US');
@@ -47,12 +48,14 @@ formatter.format(new Date());
 // bad
 new Intl.DateTimeFormat('en-US').format(new Date());
 ```
+
 In short, ESlint works by traversing an AST (abstract syntax tree) representation of the code and applying given rules
 whenever it matches their pattern (and by the way
 [this is also how Babel works](https://www.youtube.com/watch?v=fntd0sPMOtQ)). In order to create a rule we need to
 take a look at
 [bad code’s AST](https://astexplorer.net/#/gist/743d094bf4fb23aed76b86e9e5864bd4/07819291b22601e99c31420a5df4858873faaf9b)
 and try to make a pattern out of it:
+
 ```json
 {
   "type": "Program",
@@ -131,6 +134,7 @@ and try to make a pattern out of it:
   "sourceType": "module"
 }
 ```
+
 After looking at more examples of usage, we can deduct that we are looking for a node:
 * of type `MemberExpression` (because we want to prevent directly accessing members of a new instance),
 * with `object.type` equal `NewExpression` and `object.callee.object.name` equal `Intl` (because we want to apply our
@@ -141,6 +145,7 @@ We could be more specific about the second point but we want to also cover other
 
 Using [pathEq](https://nanoutils.github.io/docs/methods.html#patheq) from nanoutils for null-safety the complete code
 looks like this:
+
 ```javascript
 const { pathEq } = require('nanoutils');
 
@@ -167,6 +172,7 @@ module.exports = {
   },
 };
 ```
+
 Finally, we should add some tests to verify that we didn’t miss any cases. Then we can include the rule in our eslint
 config and we are ready to go! I hope this post will encourage you to play a little bit with ESLint/Babel and AST.
 
