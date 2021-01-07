@@ -42,8 +42,8 @@ CNNs are currently used in all state-of-the-art solutions to problems of image c
 If you are interested in this topic we will briefly explain the structure of the CNN and provide description of
 building blocks applied to construct it, namely:
 
-- convolutional and [pooling](https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer) layers, responsible for feature extraction.
-- fully connected layers (along with dropout layer), which perform classification tasks.
+* convolutional and [pooling](https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer) layers, responsible for feature extraction.
+* fully connected layers (along with dropout layer), which perform classification tasks.
 
 ## How does it work?
 
@@ -100,7 +100,7 @@ Initially we used a Google Chrome plugin to download images tagged by humans but
 So we decided to use a semi-automated way of gathering a test set which was:
 
 1. classify a sample of images using existing frame detector which is known to have ~92% accuracy.
-2. manually go through each class moving erroneous 8% of images to a proper class.
+1. manually go through each class moving erroneous 8% of images to a proper class.
 
 This way we gathered around 5K images in a few hours.
 
@@ -123,7 +123,7 @@ various pooling operations, removing/minimizing fully-connected layer.
 We wanted to make the model good enough but not become very big because of two reasons:
 
 1. Runtime performance depends on the size of the network.
-2. Such networks already have 50K-100K of parameters that need to be trained on only 5K images, so there is a
+1. Such networks already have 50K-100K of parameters that need to be trained on only 5K images, so there is a
 chance of overfitting (this is a situation when a model learns particular dataset properties and not a general problem).
 
 To tackle overfitting we used a validation set and train data augmentation, e.g. flipping images vertically or
@@ -171,15 +171,15 @@ We decided to export the model to a file and read it on a server having Keras an
 
 ## Conclusions
 
-- Observe your experiments as they do not always tend to converge.
+* Observe your experiments as they do not always tend to converge.
 Below you can see a chart of accuracy vs number of epochs of two experiments.
 The blue one didn&rsquo;t go very well comparing to the green one.
 The reason for that is probably too high learning rate decay.
 
 ![too_big_decay]({% link /img/articles/2016-12-19-deep-learning-for-frame-detection/training_too_big_decay.png %})
 
-- Data gathering is hard &mdash; errors sneak in all the time, so we were fixing the dataset through all of the experiment timespan.
-- Baseline solution made it possible to remove the frame altogether. This solution cannot do that so far,
+* Data gathering is hard &mdash; errors sneak in all the time, so we were fixing the dataset through all of the experiment timespan.
+* Baseline solution made it possible to remove the frame altogether. This solution cannot do that so far,
 although given a pixel-annotation dataset &mdash; deep learning can solve the problem of object segmentation as well.
 
 ### More on deep learning:

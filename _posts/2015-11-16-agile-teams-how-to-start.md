@@ -7,8 +7,8 @@ tags: [agile, team building, scrum master, agile coach]
 
 Whether you are forming a new agile team or mixing people in an already existing team you start somewhat afresh. In an existing team the balance and group
 dynamics changes, in a new team people are experiencing each other for the first time and checking what the boundaries are. I don’t want to get into details
-of what can possibly happen — it’s best if you dig into works of Bruce Tuckman and his [four-stage model](https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development) or Gustave Le Bon’s “[The Crowd]
-(https://en.wikipedia.org/wiki/The_Crowd%3A_A_Study_of_the_Popular_Mind)”. The former indicated that the team goes through the stages of Forming - Storming -
+of what can possibly happen — it’s best if you dig into works of Bruce Tuckman and his [four-stage model](https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development) or Gustave Le Bon’s
+“[The Crowd](https://en.wikipedia.org/wiki/The_Crowd:_A_Study_of_the_Popular_Mind)”. The former indicated that the team goes through the stages of Forming - Storming -
 Norming - Performing. I would like to concentrate on the very initial stage of “Forming” the team in the first weeks of it’s existence.
 
 There are few things I learned when entering a team. One of them is that it’s better for people to start sitting together. Let them do it at the very beginning.
@@ -99,7 +99,6 @@ Whether it’s Scrum or something else, all of us work in roles. Some of them ha
 relate to the rules in terms of our understanding and expectations. A good thing to do it is to use a simple matrix.
 
 ![Contracting roles](/img/articles/2015-10-20-agile-teams-how-to-start/contracting_roles.jpeg "Contracting roles")
-
 
 It can be done in a way that each member writes his expectations on sticky notes and places them on the matrix. 10 minutes should be sufficient time to clear
 one’s mind and write a sufficient number of things down. When all participants have done it, it’s time for reading aloud and clarifying / responding. In my role as

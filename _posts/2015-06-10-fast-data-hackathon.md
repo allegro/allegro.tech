@@ -46,12 +46,10 @@ to build a solution on top of existing infrastructure without additional resourc
 Due to data locality this also has an impact on performance, but
 this will be evaluated in Benchmark section.
 
-
 Another important criteria is query fault tolerance &mdash; we run plenty of long running
 queries on our existing cluster and want to know what happens if something goes wrong during query execution.
 All the evaluated engines handle failures on their own.
 Some are able to recompute only parts that got broken, some need to recompute the whole query from scratch.
-
 
 | [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 ----------------------- | ----- | ----- | ------------- | ----------------- | -----------------
@@ -150,7 +148,6 @@ Another important aspect was dynamics of the Open Source Community
 that maintains and develops the products as all evaluated projects are open-source ones.
 To gain some insight into that matter we checked [GitHub](https://github.com) stats, such as: numbers of commits,
 branches, releases and contributors
-
 
 | [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 ----------------|-------|-------|-------|-------|-------

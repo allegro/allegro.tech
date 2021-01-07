@@ -347,20 +347,20 @@ A bug chase is often a long and hard process. In the one I have described, luck
 was a big contributor to success, because – as usual – many things could have
 gone wrong:
 
-- the issue could just not have occurred on our test devices at all,
-- maps API could have been secured with SSL-pinning,
-- Apple could have ignored the report for such an ephemeral bug,
-- the investigation could have gone in a wrong direction,
-- the investigation could have required jumping through a decompiled framework call hierarchy — it is often very easy to get lost there.
+* the issue could just not have occurred on our test devices at all,
+* maps API could have been secured with SSL-pinning,
+* Apple could have ignored the report for such an ephemeral bug,
+* the investigation could have gone in a wrong direction,
+* the investigation could have required jumping through a decompiled framework call hierarchy — it is often very easy to get lost there.
 
 ## Summary
 
 A good conclusion could be these four simple pieces of advice:
 
 1. Install [mitmproxy](https://mitmproxy.org/) now.
-2. Download [Hopper](https://www.hopperapp.com/), play with the trial version and add Hopper Personal License to your wish list.
-3. File Apple bug reports — the Bug Reporter is not `/dev/null`, the whole Apple staff are just waiting for your reports.
-4. “Stay Hungry. Stay Foolish.” + Learn internals... internals of everything — this will make the Force strong with you.
+1. Download [Hopper](https://www.hopperapp.com/), play with the trial version and add Hopper Personal License to your wish list.
+1. File Apple bug reports — the Bug Reporter is not `/dev/null`, the whole Apple staff are just waiting for your reports.
+1. “Stay Hungry. Stay Foolish.” + Learn internals... internals of everything — this will make the Force strong with you.
 
 This was a happy-ending story — the bug has been resolved the right way, Apple
 Maps will once again work seamlessly and the Allegro iOS app will provide the

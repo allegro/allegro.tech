@@ -239,4 +239,3 @@ have noticed, refactoring a huge application such as the Allegro platform is not
 You need to think not only about code, but about people and their habits as well. You need to create an environment,
 which will naturally support developers in providing good software. Sometimes, you need to modify the way your teams or
 even the whole organization work.
-
