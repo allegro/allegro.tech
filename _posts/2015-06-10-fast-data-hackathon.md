@@ -55,10 +55,10 @@ Some are able to recompute only parts that got broken, some need to recompute th
 
 | [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 ----------------------- | ----- | ----- | ------------- | ----------------- | -----------------
-Evaluated version 		| 0.5.3 | 0.98 	| 2.1.1-cdh5 	| 0.9.0- SNAPSHOT 	| 1.4.0-SNAPSHOT
-Kerberos Support 		| Yes 	| No 	| Yes 			| No 				| Yes
-Yarn deployment			| Yes	| No	| Yes			| No				| Yes
-Query fault tolerance	| Yes 	| No 	| No 			| No 				| Yes
+Evaluated version         | 0.5.3 | 0.98     | 2.1.1-cdh5     | 0.9.0- SNAPSHOT     | 1.4.0-SNAPSHOT
+Kerberos Support         | Yes     | No     | Yes             | No                 | Yes
+Yarn deployment            | Yes    | No    | Yes            | No                | Yes
+Query fault tolerance    | Yes     | No     | No             | No                 | Yes
 
 ### User interfaces and APIs"s
 
@@ -71,8 +71,8 @@ This happened due to hackathon time box. Not everything can be verified empirica
 
 | [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 ----------------|---------------|-------------------------------------------|-------------------|---------------|----------
-User Interface 	| [Hue Tez UI](http://gethue.com/) 	| [Shib](https://github.com/tagomoris/shib) | [Hue](http://gethue.com/), impala-shell | admin panel 	| Spark UI
-JDBC Connector 	| Yes 			| Yes 										| Yes 				| Yes 			| Yes
+User Interface     | [Hue Tez UI](http://gethue.com/)     | [Shib](https://github.com/tagomoris/shib) | [Hue](http://gethue.com/), impala-shell | admin panel     | Spark UI
+JDBC Connector     | Yes             | Yes                                         | Yes                 | Yes             | Yes
 
 ### Query Language
 
@@ -118,11 +118,11 @@ execute after modifications to fit engine syntax.
 
 | [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 ------------------------|-------|-----------------------------------|-----------|-------------------------------|--------
-Query Language 			| HiveQL| ~SQL 								| ~HiveQL 	|ANSI SQL? 						| ~HiveQL
-Can modify metastore? 	| Yes 	| Yes 								| Yes 		| No 							| Yes
-Can utilise views? 		| Yes 	| Views available only in Presto 	| Yes 		| Views available only in Drill | Yes
-UDF Support 			| Yes 	| Yes 								| Yes 		| Yes 							| Yes
-Allegro use cases 		| 11/11 | 11/11 							| 10/11 	| 8/11 							| 9/11
+Query Language             | HiveQL| ~SQL                                 | ~HiveQL     |ANSI SQL?                         | ~HiveQL
+Can modify metastore?     | Yes     | Yes                                 | Yes         | No                             | Yes
+Can utilise views?         | Yes     | Views available only in Presto     | Yes         | Views available only in Drill | Yes
+UDF Support             | Yes     | Yes                                 | Yes         | Yes                             | Yes
+Allegro use cases         | 11/11 | 11/11                             | 10/11     | 8/11                             | 9/11
 
 ### Supported data types and formats
 
@@ -139,10 +139,10 @@ which are important for Allegro users to query existing datasets.
 
 | [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 --------|-----|-----|--------|----------|----
-CSV 	| Yes | Yes | Hmm... | Yes 		| Yes
-JSON 	| Yes | Yes | Hmm... | Yes 		| Yes
-AVRO 	| Yes | Yes | Hmm... | Yes 		| Yes
-Parquet | Yes | Yes | Hmm... | Hmm... 	| Yes
+CSV     | Yes | Yes | Hmm... | Yes         | Yes
+JSON     | Yes | Yes | Hmm... | Yes         | Yes
+AVRO     | Yes | Yes | Hmm... | Yes         | Yes
+Parquet | Yes | Yes | Hmm... | Hmm...     | Yes
 
 ### Open Source Community
 
@@ -154,10 +154,10 @@ branches, releases and contributors
 
 | [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 ----------------|-------|-------|-------|-------|-------
-commits 		|  1458 |  4673 |  3427 |  1480 |  10264
-branches 		|  18 	|  2 	|  27	|  11 	|  13
-releases 		|  22 	|  104 	|  33 	|  5 	|  33
-contributors 	|  12 	|  59 	|  32 	|  42 	|  477
+commits         |  1458 |  4673 |  3427 |  1480 |  10264
+branches         |  18     |  2     |  27    |  11     |  13
+releases         |  22     |  104     |  33     |  5     |  33
+contributors     |  12     |  59     |  32     |  42     |  477
 
 ## Benchmark
 

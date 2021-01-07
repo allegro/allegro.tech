@@ -59,13 +59,13 @@ for _, d := range definitions {
 }
 
 func labelsToTags(labels map[string]string) []string {
-	tags := []string{}
-	for key, value := range labels {
-		if value == "tag" {
-			tags = append(tags, key)
-		}
-	}
-	return tags
+    tags := []string{}
+    for key, value := range labels {
+        if value == "tag" {
+            tags = append(tags, key)
+        }
+    }
+    return tags
 }
 ```
 
@@ -89,31 +89,31 @@ What’s the output of the following code?
 package main
 
 import (
-	"fmt"
+    "fmt"
 )
 
 func a() {
-	x := []int{}
-	x = append(x, 0)
-	x = append(x, 1)  // commonTags := labelsToTags(app.Labels)
-	y := append(x, 2) // Tags: append(commonTags, labelsToTags(d.Labels)...)
-	z := append(x, 3) // Tags: append(commonTags, labelsToTags(d.Labels)...)
-	fmt.Println(y, z)
+    x := []int{}
+    x = append(x, 0)
+    x = append(x, 1)  // commonTags := labelsToTags(app.Labels)
+    y := append(x, 2) // Tags: append(commonTags, labelsToTags(d.Labels)...)
+    z := append(x, 3) // Tags: append(commonTags, labelsToTags(d.Labels)...)
+    fmt.Println(y, z)
 }
 
 func b() {
-	x := []int{}
-	x = append(x, 0)
-	x = append(x, 1)
-	x = append(x, 2)  // commonTags := labelsToTags(app.Labels)
-	y := append(x, 3) // Tags: append(commonTags, labelsToTags(d.Labels)...)
-	z := append(x, 4) // Tags: append(commonTags, labelsToTags(d.Labels)...)
-	fmt.Println(y, z)
+    x := []int{}
+    x = append(x, 0)
+    x = append(x, 1)
+    x = append(x, 2)  // commonTags := labelsToTags(app.Labels)
+    y := append(x, 3) // Tags: append(commonTags, labelsToTags(d.Labels)...)
+    z := append(x, 4) // Tags: append(commonTags, labelsToTags(d.Labels)...)
+    fmt.Println(y, z)
 }
 
 func main() {
-	a()
-	b()
+    a()
+    b()
 }
 ```
 First guess could be

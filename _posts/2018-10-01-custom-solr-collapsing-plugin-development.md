@@ -153,10 +153,10 @@ We have to instantiate this component in configuration:
 And finally in our search handler we turn it on:
 ```
 <requestHandler name="/select" class="solr.SearchHandler">
-	<arr name="components">
-		<str>query</str>
-		<str>collapseHits</str>
-	</arr>
+    <arr name="components">
+        <str>query</str>
+        <str>collapseHits</str>
+    </arr>
 </requestHandler>
 ```
 

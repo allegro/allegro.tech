@@ -15,7 +15,7 @@ If you have ever seen some Objective-C (ancestor of Swift) code you probably rem
 ```objective-c
 // Method definition
 - (NSString *)personWithName:(NSString *)name lastName:(NSString *)lastName age:(NSInteger)age {
-	// Method body
+    // Method body
 }
 
 // Method call
@@ -27,7 +27,7 @@ Function declaration starts with `func` keyword followed by a list of parameters
 
 ```swift
 func person(name: String, lastName: String, age: Int) -> String {
-	return "\(name) \(lastName), \(age)."
+    return "\(name) \(lastName), \(age)."
 }
 
 var myDescription: String = person("Szymon", "Tur", 27)
@@ -79,7 +79,7 @@ Function parameters can have default values defined in their declarations.
 
 ```swift
 func hello(name: String = "stranger") {
-	println("Hello, \(name)")
+    println("Hello, \(name)")
 }
 
 hello(name: "world") // Hello, world
@@ -164,7 +164,7 @@ exceptions isn’t very popular — **NSErrors** are used instead. In the next e
 
 ```swift
 func processData(data: NSData) -> (processedData: NSData?, error: NSError?) {
-	// Function body
+    // Function body
 }
 
 var result = processData(NSData());

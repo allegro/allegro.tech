@@ -92,11 +92,11 @@ public class SomeService {
    private static final Logger metricsLogger = LoggerFactory.getLogger("METRICS");
 
    public void writeStuffToDatabase(...) {
-   		long start = System.currentTimeMillis();
+           long start = System.currentTimeMillis();
 
-   		// perform the DB Save
+           // perform the DB Save
 
-   		metricsLogger.trace("Save to DB took {} ms", (System.currentTimeMillis() - start));
+           metricsLogger.trace("Save to DB took {} ms", (System.currentTimeMillis() - start));
    }
 }
 
@@ -104,11 +104,11 @@ public class AnotherService {
    private static final Logger metricsLogger = LoggerFactory.getLogger("METRICS");
 
    public void sendDataToExternalMicroservice(...) {
-   		long start = System.currentTimeMillis();
+           long start = System.currentTimeMillis();
 
-   		// perform the call to external REST endpoint
+           // perform the call to external REST endpoint
 
-   		metricsLogger.trace("Data sending took {} ms", (System.currentTimeMillis() - start));
+           metricsLogger.trace("Data sending took {} ms", (System.currentTimeMillis() - start));
    }
 }
 ```
@@ -161,13 +161,13 @@ JavaDocs in their IDEs. In case of SLF4J + Logback combo, it can result in code 
 
 ```
 public class UserDao {
-	private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
 
-	public void updateUserEmail(long userId, String email) {
-		logger.trace("’updateUserEmail’ called with args: userId= "+ userId +", email= "+ email);
+    public void updateUserEmail(long userId, String email) {
+        logger.trace("’updateUserEmail’ called with args: userId= "+ userId +", email= "+ email);
 
-		// normal DB related logic
-	}
+        // normal DB related logic
+    }
 }
 ```
 
@@ -177,13 +177,13 @@ use SLF4J API’s at all. A correct way to log such a message is:
 
 ```
 public class UserDao {
-	private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
 
-	public void updateUserEmail(long userId, String email) {
-		logger.trace("’updateUserEmail’ called with args: userId= {}, email= {}", userId, email);
+    public void updateUserEmail(long userId, String email) {
+        logger.trace("’updateUserEmail’ called with args: userId= {}, email= {}", userId, email);
 
-		// normal DB related logic
-	}
+        // normal DB related logic
+    }
 }
 ```
 
@@ -199,16 +199,16 @@ only way to log an exception and so they write code similar to this:
 
 ```
 public class UserDao {
-	private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
 
-	public void updateUserEmail(long userId, String email) {
-		try {
-			// normal DB related logic
-		} catch (Exception e) {
-			// don’t mind that we catch raw Exception ;)
-			logger.error("Exception while updating user’s (id="+ userId +") email to: "+ email, e);
-		}
-	}
+    public void updateUserEmail(long userId, String email) {
+        try {
+            // normal DB related logic
+        } catch (Exception e) {
+            // don’t mind that we catch raw Exception ;)
+            logger.error("Exception while updating user’s (id="+ userId +") email to: "+ email, e);
+        }
+    }
 }
 ```
 
@@ -219,16 +219,16 @@ this, the code can be rewritten once more:
 
 ```
 public class UserDao {
-	private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
 
-	public void updateUserEmail(long userId, String email) {
-		try {
-			// normal DB related logic
-		} catch (Exception e) {
-			// don’t mind that we catch raw Exception ;)
-			logger.error("Exception while updating user’s (id={}) email to: {}", userId, email, e);
-		}
-	}
+    public void updateUserEmail(long userId, String email) {
+        try {
+            // normal DB related logic
+        } catch (Exception e) {
+            // don’t mind that we catch raw Exception ;)
+            logger.error("Exception while updating user’s (id={}) email to: {}", userId, email, e);
+        }
+    }
 }
 ```
 
@@ -238,15 +238,15 @@ Take a look at the following (improved) snippet:
 
 ```
 public class UserDao {
-	private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
 
-	public void updateUserEmail(long userId, String email) {
-		if (logger.isTraceEnabled()) {
-			logger.trace("’updateUserEmail’ called with args: userId= {}, email= {}", userId, email);
-		}
+    public void updateUserEmail(long userId, String email) {
+        if (logger.isTraceEnabled()) {
+            logger.trace("’updateUserEmail’ called with args: userId= {}, email= {}", userId, email);
+        }
 
-		// normal DB related logic
-	}
+        // normal DB related logic
+    }
 }
 ```
 
@@ -299,7 +299,7 @@ public static class MdcCopyingCallableWrapper<T> implements Callable<T> {
 
     @Override
     public T call() throws Exception {
-    	 // MDC.getCopyOfContextMap() can return null, so be careful!
+         // MDC.getCopyOfContextMap() can return null, so be careful!
         Map<String, String> previous = MDC.getCopyOfContextMap();
         setMdcContext(context);
 
@@ -370,19 +370,19 @@ extremely simple code to illustrate such a situation:
 
 ```
 public class UserDao {
-	private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
 
-	public long saveUser(User user) {
-		if (logger.isTraceEnabled()) {
-			//
-			// perform some very costly pre-processing on User object before logging
-			//
-			String preProcessedUserData = preProcess(user);
-			logger.trace("Method ’saveUser’ called with arguments: user = {}", preProcessedUserData);
-		}
+    public long saveUser(User user) {
+        if (logger.isTraceEnabled()) {
+            //
+            // perform some very costly pre-processing on User object before logging
+            //
+            String preProcessedUserData = preProcess(user);
+            logger.trace("Method ’saveUser’ called with arguments: user = {}", preProcessedUserData);
+        }
 
-		// normal DB related logic
-	}
+        // normal DB related logic
+    }
 }
 ```
 

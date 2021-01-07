@@ -88,12 +88,13 @@ so the POST method is a proper choice. We'll use JSON content type.
 POST /accounts HTTP/1.1
 Content-Type: application/json
 ```
+
 ```json
 {
-	"firstName": "John",
-	"lastName": "Doe",
-	"currency": "PLN",
-	"limit": "1000"
+    "firstName": "John",
+    "lastName": "Doe",
+    "currency": "PLN",
+    "limit": "1000"
 }
 ```
 
@@ -120,32 +121,33 @@ The application should return HTTP response with Status Code = 200.
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
+
 ```json
 {
-	"id": "97695c60-4675-11e4-916c-0800200c9a66",
-	"firstName": "John",
-	"lastName": "Doe",
-	"currency": "PLN",
-	"state": "ACTIVE",
-	"limit": "1000",
-	"balance": "100",
-	"_links": [
-			{
-    			"href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66",
-    			"rel": "self",
-    			"method": "GET"
-  			},
-  			{
-    			"href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66/transactions",
-    			"rel": "transactions",
-    			"method": "GET"
-  			},
-  			{
-    			"href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66/cards",
-    			"rel": "cards",
-    			"method": "GET"
-  			}
-  	]
+    "id": "97695c60-4675-11e4-916c-0800200c9a66",
+    "firstName": "John",
+    "lastName": "Doe",
+    "currency": "PLN",
+    "state": "ACTIVE",
+    "limit": "1000",
+    "balance": "100",
+    "_links": [
+            {
+                "href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66",
+                "rel": "self",
+                "method": "GET"
+              },
+              {
+                "href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66/transactions",
+                "rel": "transactions",
+                "method": "GET"
+              },
+              {
+                "href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66/cards",
+                "rel": "cards",
+                "method": "GET"
+              }
+      ]
 }
 ```
 
@@ -186,40 +188,41 @@ GET /accounts HTTP/1.1
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
+
 ```json
 [
-	{
-		"id": "97695c60-4675-11e4-916c-0800200c9a67",
-		"firstName": "John",
-		"lastName": "Doe",
-		"currency": "PLN",
-		"limit": "1000",
-		"_links": [
-			{
-    			"href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66",
-    			"rel": "self",
-    			"method": "GET"
-  			}
-  		]
-	},
+    {
+        "id": "97695c60-4675-11e4-916c-0800200c9a67",
+        "firstName": "John",
+        "lastName": "Doe",
+        "currency": "PLN",
+        "limit": "1000",
+        "_links": [
+            {
+                "href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a66",
+                "rel": "self",
+                "method": "GET"
+              }
+          ]
+    },
 
-	...
+    ...
 
-	{
-		"id": "97695c60-4675-11e4-916c-0800200c9a75",
-		"firstName": "Jane",
-		"lastName": "Smith",
-		"currency": "PLN",
-		"limit": "1000",
-		"balance": "-200",
-		"_links": [
-			{
-    			"href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a67",
-    			"rel": "self",
-    			"method": "GET"
-  			}
-  		]
-	}
+    {
+        "id": "97695c60-4675-11e4-916c-0800200c9a75",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "currency": "PLN",
+        "limit": "1000",
+        "balance": "-200",
+        "_links": [
+            {
+                "href": "http://localhost/accounts/97695c60-4675-11e4-916c-0800200c9a67",
+                "rel": "self",
+                "method": "GET"
+              }
+          ]
+    }
 ]
 ```
 
@@ -251,43 +254,43 @@ Content-Type: application/json
 
 ```json
 {
-	"content": [
-		{
-			"firstName": "John",
-			"lastName": "Doe",
-			"balance": "350"
-		},
+    "content": [
+        {
+            "firstName": "John",
+            "lastName": "Doe",
+            "balance": "350"
+        },
 
-	...
+    ...
 
-		{
-			"firstName": "John",
-			"lastName": "Smith",
-			"balance": "-200"
-		}
-	],
-	"_links": [
-		{
-			"href": "http://localhost/accounts?offset=0&limit=10",
-    		"rel": "self",
-    		"method": "GET"
-		},
-		{
-			"href": "http://localhost/accounts?offset=10&limit=10",
-    		"rel": "next",
-    		"method": "GET"
-		},
-		{
-			"href": "http://localhost/accounts?offset=0&limit=10",
-    		"rel": "first",
-    		"method": "GET"
-		},
-		{
-			"href": "http://localhost/accounts?offset=250&limit=10",
-    		"rel": "last",
-    		"method": "GET"
-		}
-	]
+        {
+            "firstName": "John",
+            "lastName": "Smith",
+            "balance": "-200"
+        }
+    ],
+    "_links": [
+        {
+            "href": "http://localhost/accounts?offset=0&limit=10",
+            "rel": "self",
+            "method": "GET"
+        },
+        {
+            "href": "http://localhost/accounts?offset=10&limit=10",
+            "rel": "next",
+            "method": "GET"
+        },
+        {
+            "href": "http://localhost/accounts?offset=0&limit=10",
+            "rel": "first",
+            "method": "GET"
+        },
+        {
+            "href": "http://localhost/accounts?offset=250&limit=10",
+            "rel": "last",
+            "method": "GET"
+        }
+    ]
 }
 ```
 
@@ -301,7 +304,7 @@ PATCH /accounts/97695c60-4675-11e4-916c-0800200c9a66 HTTP/1.1
 
 ```json
 {
-	"state": "BLOCKED"
+    "state": "BLOCKED"
 }
 ```
 
