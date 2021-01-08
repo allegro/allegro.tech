@@ -1,3 +1,4 @@
 module.exports = {
-    basePath: '/allero.tech'
+    basePath: '/allero.tech',
+    assetPrefix: '/allero.tech'
 }
