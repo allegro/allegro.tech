@@ -2,18 +2,19 @@ import React from "react";
 import styles from "./Post.module.css";
 import {Card} from "react-bootstrap";
 
-interface PostProps {
+export interface IPost {
     title: string;
     categories: string[];
-    guid: string;
+    link: string;
     isoDate: string;
-    contentSnippet: string;
+    excerpt: string;
 }
+
+type PostProps = IPost
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Nov', 'Oct', 'Dec'];
 
-const Post: React.FunctionComponent<PostProps> = ({ title, guid, categories, isoDate, contentSnippet }) => {
-    const excerpt = contentSnippet.split(' ').slice(0, 15).join(' ') + '...';
+const Post: React.FunctionComponent<PostProps> = ({ title, categories, isoDate, excerpt }) => {
     const date = new Date(isoDate);
     const year = date.getFullYear();
     const month = months[date.getMonth()];
