@@ -64,7 +64,7 @@ title: podcast
                 {% if platform == "buzzsprout" %}
                 {%else%}
                 <li class="podcast-icon podcast-{{ platform }}" itemprop="url">
-                    <a href="{{ link[1] }}"><img alt="platform" src="/img/podcast/icons/{{ platform }}.svg"/>
+                    <a href="{{ link[1] }}"><img alt="platform" src="{{site.baseurl}}/img/podcast/icons/{{ platform }}.svg"/>
                         {{dict[platform]}}
                     </a>
                 </li>

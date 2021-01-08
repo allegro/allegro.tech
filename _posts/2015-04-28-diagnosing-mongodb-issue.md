@@ -4,7 +4,7 @@ title: Diagnosing a MongoDB issue
 author: rafal.staniszewski
 tags: [tech, mongodb, performance]
 ---
-You might have read a recent post by our developers concerning [performance analysis tools]({% post_url 2015-02-06-High-performance-with-low-level-tools %}) and its follow up concerning [sysdig]({% post_url 2015-02-26-digging-into-the-system %}).
+You might have read a recent post by our developers concerning [performance analysis tools]({{site.baseurl}}{% post_url 2015-02-06-High-performance-with-low-level-tools %}) and its follow up concerning [sysdig]({{site.baseurl}}{% post_url 2015-02-26-digging-into-the-system %}).
 In the database world these tools come handy almost everyday. In this blog post
 I will show you a case where I have put tools to action diagnosing a MongoDB issue.
 
@@ -13,7 +13,7 @@ I will show you a case where I have put tools to action diagnosing a MongoDB iss
 Some time ago we were alarmed by one of our scrum teams that MongoDB
 response time had jumped sky high. The [New Relic](http://newrelic.com) screens were undeniable.
 
-![Issue]({% link /img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_before.png %})
+![Issue]({{site.baseurl}}{% link /img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_before.png %})
 
 ### Environment
 
@@ -77,7 +77,7 @@ To make sure the issue was connected with replication itself a code fix changing
 write concern configuration from *replica acknowledged* to *acknowledged* was applied.
 The results were obvious.
 
-![Issue]({% link /img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_after.png %})
+![Issue]({{site.baseurl}}{% link /img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_after.png %})
 
 So the replication was to blame. Great, but **where was the root cause**?
 

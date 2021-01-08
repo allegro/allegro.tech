@@ -30,7 +30,7 @@ end up with some magic code which only one person can understand. It’s more ab
 ## What?
 
 <figure>
-<img alt="Sonar highlighting an issue" src="/img/articles/2016-08-01-are-code-reviews-worth-your-time/sonar-highlighted-issue.png" />
+<img alt="Sonar highlighting an issue" src="{{site.baseurl}}/img/articles/2016-08-01-are-code-reviews-worth-your-time/sonar-highlighted-issue.png" />
 <figcaption>Automated tools such as Sonar can find many simple issues, so it’s better to concentrate your code reviews on more complex problems</figcaption>
 </figure>
 
@@ -66,10 +66,10 @@ the tip of the iceberg. Test coverage tools may be helpful but coverage is just 
 have high test coverage and yet the tests to be of little value. Such tools are also often slow and since they do not really understand
 what a test is supposed to do (and what the tested software is supposed to do), their application is limited. When reviewing tests, pay
 attention to what the tests actually check, whether their names are true to their actual content, and whether they won’t make your
-development harder in the future, for example due to [overmocking]({% post_url 2015-05-26-is-overmocking-bad %}).
+development harder in the future, for example due to [overmocking]({{site.baseurl}}{% post_url 2015-05-26-is-overmocking-bad %}).
 
 <figure>
-<img alt="Functionality added through annotations tends to be not be tested so well as normal code" src="/img/articles/2016-08-01-are-code-reviews-worth-your-time/annotations.png" />
+<img alt="Functionality added through annotations tends to be not be tested so well as normal code" src="{{site.baseurl}}/img/articles/2016-08-01-are-code-reviews-worth-your-time/annotations.png" />
 <figcaption>Check if functionality added using annotations, such as logging and validation, is not broken and if it is covered by
 tests</figcaption>
 </figure>
@@ -122,7 +122,7 @@ people who have not worked on it before it can be merged and the code passed on 
 
 <figure>
 <img alt="Some conventions, like the required number of approvers, can be configured in Bitbucket"
-src="/img/articles/2016-08-01-are-code-reviews-worth-your-time/pull-request-settings.png" />
+src="{{site.baseurl}}/img/articles/2016-08-01-are-code-reviews-worth-your-time/pull-request-settings.png" />
 <figcaption>Some conventions, like the required number of approvers, can be configured in your review tool</figcaption>
 </figure>
 
@@ -175,7 +175,7 @@ on. Comment and make your suggestions known but don’t get into long and exhaus
 ### Do not be overly formal
 
 <figure>
-<img alt="Long review discussion" src="/img/articles/2016-08-01-are-code-reviews-worth-your-time/long-review-discussion.png" />
+<img alt="Long review discussion" src="{{site.baseurl}}/img/articles/2016-08-01-are-code-reviews-worth-your-time/long-review-discussion.png" />
 <figcaption>Even without reading, you can easily see that this discussion would better be conducted face-to-face</figcaption>
 </figure>
 

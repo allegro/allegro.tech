@@ -143,7 +143,7 @@ So Box is the main concept in our solution. What is Box after all?
 * Page is assembled from Boxes.
 
 <p style="text-align: center; background-color:#E3E3E3">
-    <img alt="OpBox goals" style="width:75%; padding-top:10px;" src="/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-goals.png" />
+    <img alt="OpBox goals" style="width:75%; padding-top:10px;" src="{{site.baseurl}}/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-goals.png" />
 </p>
 
 ### OpBox principles
@@ -252,7 +252,7 @@ OpBox system is implemented in microservice architecture.
 As you can see below, it consists of four sub-systems: Core, Web, Admin and Mobile.
 
 <p style="text-align: center; background-color:#E3E3E3">
-    <img alt="OpBox architecture" style="width:75%; padding-top:10px;" src="/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-architecture.gif" />
+    <img alt="OpBox architecture" style="width:75%; padding-top:10px;" src="{{site.baseurl}}/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-architecture.gif" />
 </p>
 
 #### OpBox Core

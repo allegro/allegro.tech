@@ -31,21 +31,21 @@ layout: default
         <div class="content event-metadata">
             <div itemprop="location" itemscope itemtype="http://schema.org/Place">
                 <p>
-                    <img style="height:13px" src="/img/octicons/location.svg" alt="where"/>
+                    <img style="height:13px" src="{{site.baseurl}}/img/octicons/location.svg" alt="where"/>
                     <a itemprop="name"
                        href="https://www.google.com/maps/place/{{ page.venue_address_1 }},{{page.venue_city}}">
                         {{ page.venue_name }}{% if page.venue_address_1.size > 0 %},&nbsp;{{page.venue_address_1}}{% endif %}{% if page.venue_city.size > 0 %},&nbsp;{{page.venue_city}}{% endif %}
                     </a>
                 </p>
                 <p>
-                    <img style="height:13px" src="/img/octicons/calendar.svg" alt="date"/>
+                    <img style="height:13px" src="{{site.baseurl}}/img/octicons/calendar.svg" alt="date"/>
                     <span>&nbsp;{{ page.time | slice: 0, 10| date: "%A, <strong>%b %-d</strong> %Y" }}</span>
                     {% if page.status == 'past' %}
                     <span>&nbsp;(past)</span>
                     {% endif %}
                 </p>
                 <p>
-                    <img style="height:13px" src="/img/octicons/clock.svg" alt="time"/>
+                    <img style="height:13px" src="{{site.baseurl}}/img/octicons/clock.svg" alt="time"/>
                     <span>&nbsp;{{ page.time | slice: 0, 10| date: "%I:%M %p" }}</span>
                 </p>
             </div>

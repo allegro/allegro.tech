@@ -121,8 +121,8 @@ measure the whole launch time. We used a&nbsp;stopwatch and slow motion camera,
 to measure the time between an app icon tap and the app home screen being fully
 visible.
 
-<video src="/img/articles/2018-05-28-Static-linking-vs-dyld3/measurement_start.mp4" autoPlay loop></video>
-<video src="/img/articles/2018-05-28-Static-linking-vs-dyld3/measurement_stop.mp4" autoPlay loop></video>
+<video src="{{site.baseurl}}/img/articles/2018-05-28-Static-linking-vs-dyld3/measurement_start.mp4" autoPlay loop></video>
+<video src="{{site.baseurl}}/img/articles/2018-05-28-Static-linking-vs-dyld3/measurement_stop.mp4" autoPlay loop></video>
 
 Each measurement in the following table is an average of 6&nbsp;samples.
 
@@ -137,7 +137,7 @@ this was a&nbsp;significant gain. The app launch time improved even more on
 freshly turned on iPad 2 – the difference was about 4.5 seconds, which was about
 38% of the launch time with all libraries being dynamically linked.
 
-![speedup.png]({% link /img/articles/2018-05-28-Static-linking-vs-dyld3/speedup.png %})
+![speedup.png]({{site.baseurl}}{% link /img/articles/2018-05-28-Static-linking-vs-dyld3/speedup.png %})
 
 ### Static linking pitfall
 

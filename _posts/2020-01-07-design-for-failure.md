@@ -17,7 +17,7 @@ For simplicity, we’re focusing only on components required for collecting stat
 An emission is the act of returning a set of ads from the system in order to display them to the user.
 However, since it's a Pay-per-click system, only clicks incur fees to the advertiser.
 
-<img alt="platform architecture" src="/img/articles/2020-01-07-design-for-failure/architecture.png" />
+<img alt="platform architecture" src="{{site.baseurl}}/img/articles/2020-01-07-design-for-failure/architecture.png" />
 
 The system is divided into 3 parts:
 * _Speed (Online) Layer_ is responsible for enriching clicks (frontend events) with data from emissions
@@ -123,7 +123,7 @@ monitoring for the job’s SLA. We use [Airflow](https://airflow.apache.org/) as
 all of that and more.
 
 Below you will find [Airflow DAG](https://airflow.apache.org/docs/stable/concepts.html#dags) visualisation for the recalculation job.
-<img alt="Airflow DAG visualisation" src="/img/articles/2020-01-07-design-for-failure/airflow.png" />
+<img alt="Airflow DAG visualisation" src="{{site.baseurl}}/img/articles/2020-01-07-design-for-failure/airflow.png" />
 
 You can also include some anti-fraud validation logic in such a job (or any other kind of filtering logic for that matter)
 in order to recognize fraudulent clicks and to treat them appropriately, e.g. not count them in statistics and to refund their cost.

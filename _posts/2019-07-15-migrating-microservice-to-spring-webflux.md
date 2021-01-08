@@ -19,7 +19,7 @@ I’m going to show some common pitfalls as well as how performance metrics in p
 
 Before exploring the migration strategy in detail, let’s discuss the motivation for the change first.
 One of the microservices, which is developed and maintained by my team, was involved in the significant Allegro outage
-on 18th of July 2018 (see more details in [postmortem]({% post_url 2018-08-31-postmortem-why-allegro-went-down %})).
+on 18th of July 2018 (see more details in [postmortem]({{site.baseurl}}{% post_url 2018-08-31-postmortem-why-allegro-went-down %})).
 Although our microservice was not the root cause of problems, some of the instances also crashed because of thread pools saturation.
 Ad hoc fix was to increase thread pool sizes and to decrease timeouts in external service calls; however, this was not sufficient.
 The temporary solution only slightly increased throughput and resilience for external services latencies.
@@ -45,7 +45,7 @@ In fact, Pivotal worked on making coexistence as painless as possible.
 
 <figure>
 <img alt="Comparison of Spring Web MVC and Spring WebFlux capabilities"
-src="/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/spring-mvc-and-webflux-venn.png" />
+src="{{site.baseurl}}/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/spring-mvc-and-webflux-venn.png" />
 <figcaption>
 Comparison of Spring Web MVC and Spring WebFlux capabilities
 (diagram from <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-framework-choice">WebFlux documentation</a>).
@@ -328,9 +328,9 @@ we can see similar behavior. “Hello, world!” is returned after 1 s delay. Ho
 misleading. Our service response changes drastically under higher traffic. Let’s use [JMeter](https://jmeter.apache.org/)
 to obtain some performance characteristics.
 
-![Performance of service with reactive delay]({% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/jmeter-reactive.png %})
+![Performance of service with reactive delay]({{site.baseurl}}{% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/jmeter-reactive.png %})
 
-![Performance of service with blocking delay]({% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/jmeter-blocking.png %})
+![Performance of service with blocking delay]({{site.baseurl}}{% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/jmeter-blocking.png %})
 
 Both versions were queried using 100 threads.
 As we can see, the version with reactive delay (upper) works well under heavy load, providing constant delay and high throughput.
@@ -418,9 +418,9 @@ How were low-level metrics affected?
 We observed fewer garbage collections, and also they took less time.
 The upper part of each chart shows the blocking version, while the lower part shows the reactive version.
 
-![GC count comparison — reactive vs blocking]({% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-count.png %})
+![GC count comparison — reactive vs blocking]({{site.baseurl}}{% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-count.png %})
 
-![GC time comparison — reactive vs blocking]({% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-time.png %})
+![GC time comparison — reactive vs blocking]({{site.baseurl}}{% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-time.png %})
 
 Also, the response time slightly decreased, although we did not expect such an effect.
 Other metrics, like CPU load, file descriptors usage and total memory consumed, did not change.

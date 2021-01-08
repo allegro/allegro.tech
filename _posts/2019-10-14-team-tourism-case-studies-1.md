@@ -4,32 +4,32 @@ title: Team tourism at Allegro — part 2 — case studies
 author: [tomasz.nurkiewicz, michal.lewandowski, bartosz.galek, bartosz.balukiewicz]
 tags: [tech]
 ---
-Following up on our previous post about [team tourism]({% post_url 2019-09-16-team-tourism-at-allegro %}) at Allegro,
+Following up on our previous post about [team tourism]({{site.baseurl}}{% post_url 2019-09-16-team-tourism-at-allegro %}) at Allegro,
 as promised we present you with three case studies describing experiences of our engineers during their visits in other teams.
 The teams visited worked on content automation, machine learning and search engine optimisation.
 
 > This post is a part of a series of three posts about team tourism at [Allegro]({% link about-us/index.html %}).
-> You can navigate directly to each part here: [Part 1]({% post_url 2019-09-16-team-tourism-at-allegro %}) | **Part 2** | [Part 3]({% post_url 2019-11-19-team-tourism-case-studies-2 %})
+> You can navigate directly to each part here: [Part 1]({{site.baseurl}}{% post_url 2019-09-16-team-tourism-at-allegro %}) | **Part 2** | [Part 3]({{site.baseurl}}{% post_url 2019-11-19-team-tourism-case-studies-2 %})
 
 ## Case study 1
 ### Content Automation (Google Cloud Dataflow) - Tomasz Nurkiewicz
 On a daily basis I work for a team responsible for calculating commissions. It's an insanely important, but also rather mundane
 part of a marketplace business. We work in two environments: real-time and batch. We charge and refund commissions in
 near real-time, typically a few seconds after each transaction. This is done through a bunch of microservices, accessed
-via RESTful interfaces or [Hermes events]({% post_url 2019-05-16-hermes-1-0-released %}). On the other hand, there are a
+via RESTful interfaces or [Hermes events]({{site.baseurl}}{% post_url 2019-05-16-hermes-1-0-released %}). On the other hand, there are a
 bunch of Spark jobs calculating daily and monthly reports, discovering inconsistencies and frauds.
 
-<img alt="content automation" src="/img/articles/2019-10-14-team-tourism-case-studies-1/content-automation.jpg" />
+<img alt="content automation" src="{{site.baseurl}}/img/articles/2019-10-14-team-tourism-case-studies-1/content-automation.jpg" />
 
 I enjoy this domain but for a while I've also been interested in streaming architectures. Processing large amounts of
 data, especially detecting trends and correlations over time, sounds really exciting to me, especially after reading
 [“_Designing Data-Intensive Applications_”](https://allegro.pl/listing?string=designing%20data%20intensive%20applications).
-Long story short, it turned out that [Marcin Kuthan's](/authors/marcin.kuthan/) team does exactly that,
+Long story short, it turned out that [Marcin Kuthan's]({{site.baseurl}}/authors/marcin.kuthan/) team does exactly that,
 a few office rooms away. After a casual talk over coffee and finding some time in my permanent team, I moved temporarily,
 for a month, to the new project.
 
 Marcin and his team’s task was to calculate ["click-through rates"](https://en.wikipedia.org/wiki/Click-through_rate)
-of pages and individual [boxes]({% post_url 2016-03-12-Managing-Frontend-in-the-microservices-architecture %}).
+of pages and individual [boxes]({{site.baseurl}}{% post_url 2016-03-12-Managing-Frontend-in-the-microservices-architecture %}).
 It basically means how many people clicked on a page or a box upon seeing it. They prepared a proof of concept
 and took advantage of [Google Cloud Dataflow](https://cloud.google.com/dataflow/). At Allegro scale it amounts to ten thousand
 and more events per second. The classic approach would probably involve a heavy, monolithic batch job using Spark
@@ -65,7 +65,7 @@ none job perspectives. A few months ago I decided to join the “Machine Learnin
 work with them, to see how they prepare models and how these models are used in a microservice ecosystem as big as Allegro
 has.
 
-![machine learning]({% link /img/articles/2019-10-14-team-tourism-case-studies-1/machine-learning.jpg %})
+![machine learning]({{site.baseurl}}{% link /img/articles/2019-10-14-team-tourism-case-studies-1/machine-learning.jpg %})
 
 The knowledge I had from the university was priceless. Although the amount of data, training methods and models have
 developed over time, the core concept is still the same. With the help of team members, I was able to quickly understand
@@ -88,13 +88,13 @@ have to agree that you won't be able to keep up with all the stuff that is going
 
 ## Case study 3
 ### SEO - Bartosz Gałek
-In my everyday work I’m involved in developing [Opbox Project]({% post_url 2016-03-12-Managing-Frontend-in-the-microservices-architecture %}).
+In my everyday work I’m involved in developing [Opbox Project]({{site.baseurl}}{% post_url 2016-03-12-Managing-Frontend-in-the-microservices-architecture %}).
 For a software engineer like myself this project comes with a lot of challenges regarding high performance and traffic.
 Since my team rarely interact with the main product area (we are a platform for them) - I’ve decided to try and learn
 something totally different - [Search Engine Optimisation](https://en.wikipedia.org/wiki/Search_engine_optimization)!
 I’ve done tourism few times so far, but this was my first time away from the pure development sector.
 
-![seo]({% link /img/articles/2019-10-14-team-tourism-case-studies-1/seo.jpg %}
+![seo]({{site.baseurl}}{% link /img/articles/2019-10-14-team-tourism-case-studies-1/seo.jpg %}
 
 At the beginning, we agreed that the main goal was to exchange our experiences. While working with web development,
 SEO was always one of the main concerns, but I’ve never experienced working with this topic like I did during my tourism.
@@ -116,6 +116,6 @@ Engine Result Pages.
 As you can see, one can never be bored at Allegro. Purely technical and more business oriented team tourism is
 a great example of branching out, which should be a powerful tool of self-development for every engineer.
 
-In the next part we will talk about tourism in teams working on [Hermes]({% post_url 2019-05-16-hermes-1-0-released %})
+In the next part we will talk about tourism in teams working on [Hermes]({{site.baseurl}}{% post_url 2019-05-16-hermes-1-0-released %})
 and web performance.
 <style type="text/css">.post img{margin: 0 auto;display: block;}</style>

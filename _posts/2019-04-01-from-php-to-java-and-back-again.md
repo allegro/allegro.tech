@@ -23,7 +23,7 @@ our system has become.
 
 <p align="center">
   <img alt="Complexity of our system over time"
-    src="/img/articles/2019-04-01-from-php-to-java-and-back-again/complexity.png">
+    src="{{site.baseurl}}/img/articles/2019-04-01-from-php-to-java-and-back-again/complexity.png">
 </p>
 
 We need something radically simpler in order to stay at the top of our highly competitive
@@ -39,7 +39,7 @@ is essential in e‑commerce, we began to value the expressiveness of PHP.
 
 <p align="center">
   <img alt="Time it takes to develop a feature"
-    src="/img/articles/2019-04-01-from-php-to-java-and-back-again/time.png">
+    src="{{site.baseurl}}/img/articles/2019-04-01-from-php-to-java-and-back-again/time.png">
 </p>
 
 Also, the PHP community is less obsessed with automatic testing. As a result, engineers
@@ -75,7 +75,7 @@ have the support they need.
 
 <p align="center">
   <img alt="Average anxiety levels in engineers about committing untested code"
-    src="/img/articles/2019-04-01-from-php-to-java-and-back-again/anxiety.png">
+    src="{{site.baseurl}}/img/articles/2019-04-01-from-php-to-java-and-back-again/anxiety.png">
 </p>
 
 We also help in transitioning from microservices to monolithic architecture by organizing group
@@ -104,7 +104,7 @@ less cognitive load and a sense of security. We hope to release in even longer i
 
 <p align="center">
   <img alt="User happiness against release frequency"
-    src="/img/articles/2019-04-01-from-php-to-java-and-back-again/happiness.png">
+    src="{{site.baseurl}}/img/articles/2019-04-01-from-php-to-java-and-back-again/happiness.png">
 </p>
 
 Lastly, by adopting PHP that is so widespread in startups, we hope to prove that when

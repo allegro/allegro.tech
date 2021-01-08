@@ -596,4 +596,4 @@ In Poland, Kotlin is one of the best selling brands of ketchup.
 This name clash is nobody’s fault, but it’s funny.
 Kotlin sounds to our ears like Heinz.
 
-![Kotlin ketckup]({% link /img/articles/2018-03-From-Java-to-Kotlin-and-Back-Again/Kotlin.jpg %}){: .center-image }
+![Kotlin ketckup]({{site.baseurl}}{% link /img/articles/2018-03-From-Java-to-Kotlin-and-Back-Again/Kotlin.jpg %}){: .center-image }

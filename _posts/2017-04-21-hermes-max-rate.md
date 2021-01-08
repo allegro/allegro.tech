@@ -36,7 +36,7 @@ an interesting spark for discussion.
 Before we move to the depths of the problem, let’s explain what Hermes actually does from an architectural point of
 view when delivering messages.
 
-![Hermes architecture]({% link /img/articles/2017-04-21-hermes-max-rate/architecture.png %})
+![Hermes architecture]({{site.baseurl}}{% link /img/articles/2017-04-21-hermes-max-rate/architecture.png %})
 
 In more detail:
 
@@ -411,7 +411,7 @@ Some consumers start faster than others and consuming partitions of a particular
 Around 10:08 a deploy of all instances was issued. From the output rate distribution
 across data centers, we can tell how they managed.
 
-![Output rate]({% link /img/articles/2017-04-21-hermes-max-rate/restart_output.png %})
+![Output rate]({{site.baseurl}}{% link /img/articles/2017-04-21-hermes-max-rate/restart_output.png %})
 
 Dropping to zero means all instances in that DC were starting.
 Yellow line is the DC in which we first issued deployment.
@@ -419,9 +419,9 @@ Yellow line is the DC in which we first issued deployment.
 Let’s have a look at how the consumption went on and how max-rate was distributed.
 The subscription has a limit of 1000 requests per second.
 
-![Consumption rate]({% link /img/articles/2017-04-21-hermes-max-rate/restart_consumption.png %})
+![Consumption rate]({{site.baseurl}}{% link /img/articles/2017-04-21-hermes-max-rate/restart_consumption.png %})
 
-![Max rate]({% link /img/articles/2017-04-21-hermes-max-rate/restart_max.png %})
+![Max rate]({{site.baseurl}}{% link /img/articles/2017-04-21-hermes-max-rate/restart_max.png %})
 
 As we can see, for the short period of time when a consumer starts, a higher max-rate was granted.
 Then, when the next one kicks in, the previous one is actually done and can give away it’s share.
@@ -445,7 +445,7 @@ Luckily, the services were scaled enough to handle the load.
 Nevertheless, once we deployed a fix for that, we noticed that the subscription limits were not properly defined
 in some cases. One subscription’s rate limit was lower than the traffic on the topic.
 
-![Delivery rate]({% link /img/articles/2017-04-21-hermes-max-rate/dc_delivery.png %})
+![Delivery rate]({{site.baseurl}}{% link /img/articles/2017-04-21-hermes-max-rate/dc_delivery.png %})
 
 Until 13:45, before we deployed the fixed version, the traffic was around 1.2K reqs/s.
 
@@ -455,7 +455,7 @@ That, as can be observed, has impacted the delivery.
 The messages in the queue piled up and the lag was growing. Around 17:15 we deployed the version with
 the new algorithm and around 17:45 bumped the rate limit to 5000 reqs/s to consume the lag.
 
-![Output rate]({% link /img/articles/2017-04-21-hermes-max-rate/dc_output.png %})
+![Output rate]({{site.baseurl}}{% link /img/articles/2017-04-21-hermes-max-rate/dc_output.png %})
 
 That’s how the output rate per DC looked like after the old version with the fix was deployed.
 
@@ -464,18 +464,18 @@ but still needed more.
 
 As we granted it more, the algorithm reacted as expected.
 
-![Max rate]({% link /img/articles/2017-04-21-hermes-max-rate/dc_max.png %})
+![Max rate]({{site.baseurl}}{% link /img/articles/2017-04-21-hermes-max-rate/dc_max.png %})
 
 When we deployed the new algorithm around 17:15, max-rate metrics were generated and we can see what
 the distribution per consumer looked like.
 
-![Consumption rate]({% link /img/articles/2017-04-21-hermes-max-rate/dc_consumption.png %})
+![Consumption rate]({{site.baseurl}}{% link /img/articles/2017-04-21-hermes-max-rate/dc_consumption.png %})
 
 The above graph shows the actual consumption rate by each consumer, on which max-rate calculation is based.
 
 Again, data points start appearing after the new version got deployed (~17:15).
 
-![Lag]({% link /img/articles/2017-04-21-hermes-max-rate/dc_lag.png %})
+![Lag]({{site.baseurl}}{% link /img/articles/2017-04-21-hermes-max-rate/dc_lag.png %})
 
 We can see clearly how the lag was growing and started to fall nicely after we increased
 the subscription rate limit to 5K reqs/s.

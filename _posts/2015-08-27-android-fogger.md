@@ -21,7 +21,7 @@ The library allows to blur background under drawer, dialogs or context menu. Mec
 blurred background to app’s UI components looks almost the same in all three cases. Differences are connected only
 with various life cycles of UI components and the fact that even in clean Android opening a drawer and a dialog looks
 quite different.
-![schema]({% link /img/articles/2015-07-30-android-fogger/schema.png %})
+![schema]({{site.baseurl}}{% link /img/articles/2015-07-30-android-fogger/schema.png %})
 
 There is no way to blur some part of the screen. So at first the library creates a screenshot of the
 screen and blurs it. When the blurred image is ready, it is attached as a part of the screen, just under the element which will

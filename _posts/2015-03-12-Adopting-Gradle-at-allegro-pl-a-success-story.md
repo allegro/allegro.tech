@@ -113,9 +113,9 @@ It means that you can do most of the build tasks without configuring plugin depe
 
 Of course, there is a [community plugins repository](http://plugins.gradle.org/)
 hosted by Gradle.
-A plugin created by our colleague, [Adam Dubiel](/authors/adam.dubiel/),
+A plugin created by our colleague, [Adam Dubiel]({{site.baseurl}}/authors/adam.dubiel/),
 is also [there](http://plugins.gradle.org/plugin/pl.allegro.tech.build.axion-release)
-(read more about `axion-release-plugin` in [this blog post]({% post_url 2014-09-24-axion-release-plugin %})).
+(read more about `axion-release-plugin` in [this blog post]({{site.baseurl}}{% post_url 2014-09-24-axion-release-plugin %})).
 
 ### Multi-module projects
 In our opinion it’s one of Gradle’s killer features: Gradle truly supports multi-module projects, or multi-project builds as they call them.
@@ -141,7 +141,7 @@ allprojects {
 ```
 
 We encourage you to use `axion-release-plugin`
-(see [this blog post]({% post_url 2014-09-24-axion-release-plugin %})).
+(see [this blog post]({{site.baseurl}}{% post_url 2014-09-24-axion-release-plugin %})).
 With this plugin you can discover project version from Git tags and forget about anemic *release commits*.
 
 Defining internal dependencies between two subprojects is surprisingly concise.
@@ -323,4 +323,4 @@ One by one, our teams started dropping Maven and eventually Gradle became the st
 Although we faced some minor problems and fell into some traps during the process, it all went smoothly overall.
 What matters is that adopting Gradle turned out to be a perfect decision for us and we cannot imagine going back to the Maven world.
 
-![confitura]({% link /img/qrcode_confi.png %})
+![confitura]({{site.baseurl}}{% link /img/qrcode_confi.png %})

@@ -39,7 +39,7 @@ We also have:
 * a few edge solutions in place (API Gateways, Edge Proxies, Backends for Frontends, etc.),
 * external load balancers,
 * reverse proxies,
-* [a distributed message broker]({% post_url 2019-05-16-hermes-1-0-released %}),
+* [a distributed message broker]({{site.baseurl}}{% post_url 2019-05-16-hermes-1-0-released %}),
 * several services running on VMs,
 * a Hadoop cluster with batch jobs,
 * and an infamous, taken-apart, but still running, PHP monolith.
@@ -149,7 +149,7 @@ Almost 500 of them communicate via Envoy for egress traffic. Last week we observ
 of > 620,000 req/s of ingress traffic and > 230,000 req/s of egress traffic inside the mesh.
 We can see a high-level overview of traffic in Grafana to get a glimpse of what’s happening.
 
-[![Service Mesh overview dashboard]({% link /img/articles/2020-05-07-migrating-to-service-mesh/envoy_overview_traffic.png %})]({% link /img/articles/2020-05-07-migrating-to-service-mesh/envoy_overview_traffic.png %})
+[![Service Mesh overview dashboard]({{site.baseurl}}{% link /img/articles/2020-05-07-migrating-to-service-mesh/envoy_overview_traffic.png %})]({{site.baseurl}}{% link /img/articles/2020-05-07-migrating-to-service-mesh/envoy_overview_traffic.png %})
 
 Application developers can see their particular service traffic characteristics
 on a dedicated dashboard. When needed, it's even possible to investigate a specific Envoy instance

@@ -38,7 +38,7 @@ matching identifiers. This index isn't uniform — it’s divided into segments 
 to be merged later. The process which is being used both during the creation of the index and quering is called an
 analysis.
 
-![Index]({% link /img/articles/2015-02-18-index.png %})
+![Index]({{site.baseurl}}{% link /img/articles/2015-02-18-index.png %})
 
 ## Analysis
 Long story short, analysis is a process of turning text into data that can be indexed. But what does it mean?
@@ -49,7 +49,7 @@ The next article will describe some of them we use. The analysis is crucial when
 process does not have to be identical. Output consists of terms – usually single words if we deal with text – and the
 numbers of occurrences and the positions in the original text (unless the field configuration includes omitNorms=true).
 
-![Analysis]({% link /img/articles/2015-02-18-analysis.png %})
+![Analysis]({{site.baseurl}}{% link /img/articles/2015-02-18-analysis.png %})
 
 Usually, individual documents are not indexed on a disk right away. They are stored within an in-memory index and saved
 to disk once in a while as a new segment. Nevertheless, owing to policies that can be configured, it is possible to join

@@ -29,7 +29,7 @@ we make a post-it during the next retrospective.
 <p align="center">
   <img width="500"
     alt="Calendar with 45 minutes before meeting stating: Don't want to get into anything because meeting is coming and: Ramping back up after being distracted by meeting"
-    src="/img/articles/2020-04-01-machine-learning-plus-agile-manifesto/developer_calendar.png">
+    src="{{site.baseurl}}/img/articles/2020-04-01-machine-learning-plus-agile-manifesto/developer_calendar.png">
     <br/><span style="font-size: 12px; color: grey">Tweet by <a href="https://twitter.com/phil_wade/status/896010517617180672" rel="nofollow">Phil Wade</a></span>
 </p>
 
@@ -59,7 +59,7 @@ we just stop doing it properly.
 <p align="center">
   <img width="500"
     alt="Story point function suddenly increasing heavily with pair of humans, one of them saying: ...and we decided that each meeting is worth one point"
-    src="/img/articles/2020-04-01-machine-learning-plus-agile-manifesto/meetings_worth_points.jpg">
+    src="{{site.baseurl}}/img/articles/2020-04-01-machine-learning-plus-agile-manifesto/meetings_worth_points.jpg">
     <br/><span style="font-size: 12px; color: grey">Image by <a href="http://geek-and-poke.com/geekandpoke/2017/2/14/meetings-points" rel="nofollow">Geek & Poke</a></span>
 </p>
 
@@ -73,7 +73,7 @@ the best personal company manager, to the world. Let’s take a quick look at th
 <p align="center">
   <img width="800"
     alt="Overcomplicated graph where everything is detailed but the most important element has title: Magic"
-    src="/img/articles/2020-04-01-machine-learning-plus-agile-manifesto/graph_details.png">
+    src="{{site.baseurl}}/img/articles/2020-04-01-machine-learning-plus-agile-manifesto/graph_details.png">
 </p>
 
 There's a lot happening in this diagram so let's extract some abstractions. Basically, HAL performs man-in-the-middle
@@ -84,7 +84,7 @@ Following diagram is equivalent and somehow easier to understand.
 <p align="center">
   <img width="800"
     alt="Graph showing that all input channels like slack, e-mails, code ar treated as data, processed by machine learning and returns results on Slackbot, e-mail, virtual meetings"
-    src="/img/articles/2020-04-01-machine-learning-plus-agile-manifesto/graph_simplified.png">
+    src="{{site.baseurl}}/img/articles/2020-04-01-machine-learning-plus-agile-manifesto/graph_simplified.png">
 </p>
 
 There are some mistakes we made during development:

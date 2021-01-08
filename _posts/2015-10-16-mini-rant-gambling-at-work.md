@@ -24,7 +24,7 @@ project to create [System/360](http://www.computerhistory.org/revolution/mainfra
 _five-billion-dollar gamble_. Had it not succeeded, it would have ruined the company. Yet, management was willing to make the bet and the
 project secured IBM’s position as a software and hardware giant for many years.
 
-At Allegro, on a much smaller scale, our own [Rubikon project]({% post_url 2015-02-11-Evolution-of-our-platform-architecture %}) is a similar kind of
+At Allegro, on a much smaller scale, our own [Rubikon project]({{site.baseurl}}{% post_url 2015-02-11-Evolution-of-our-platform-architecture %}) is a similar kind of
 gamble, reflected even in its name. We are rewriting and redesigning a huge and profitable system to a different architecture and a
 completely different software stack. We believe that the cost of this huge technological change is justified in the long term. Time will
 show whether we were right.

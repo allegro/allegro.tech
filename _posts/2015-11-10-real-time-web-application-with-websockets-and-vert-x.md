@@ -328,7 +328,7 @@ and they are evaluated in the order you added them. The first matching one will 
 If no routes match the request, a `404` status will be returned.
 This functionality is particularly useful when developing REST-style web applications.
 If you would like to read something more about designing RESTful APIs see the article
-[Designing RESTful API]({% post_url 2014-12-19-Designing-RESTful-API %}).
+[Designing RESTful API]({{site.baseurl}}{% post_url 2014-12-19-Designing-RESTful-API %}).
 
 To extract parameters from the path, you can use the colon character to denote the name of a parameter.
 Regular expressions can also be used to extract more complex matches.

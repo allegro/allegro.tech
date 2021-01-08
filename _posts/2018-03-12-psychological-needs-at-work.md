@@ -28,7 +28,7 @@ During her workshop “Psychological Needs – base to develop identity, energiz
 boundaries”, [Anke von Platen](https://www.ankevonplaten.de/) vividly presented "the 3S model" (strokes, stimuli and structure). These are our 3
 basic psychological needs which can be fulfilled or unfulfilled, both at personal and professional level.
 
-![the 3 hungers model]({% link /img/articles/2018-03-12-psychological-needs-at-work/konikSM.png %}){: .center-image }
+![the 3 hungers model]({{site.baseurl}}{% link /img/articles/2018-03-12-psychological-needs-at-work/konikSM.png %}){: .center-image }
 
 Anke started her story with a metaphor. In the picture above, the cart represents the body (hardware), and the
 horse represents the mind (software). The horse may be running in circles if it doesn’t know where to go. It can
@@ -58,7 +58,7 @@ celebrating success, or development. When your hunger of strokes is satisfied, i
 appreciation (“It’s worthwhile”)**. Sometimes, when we’re not getting enough recognition and appreciation, we
 subconsciously prompt negative strokes.
 
-![Hunger of strokes]({% link /img/articles/2018-03-12-psychological-needs-at-work/pyramid_home.png %}){: .center-image }
+![Hunger of strokes]({{site.baseurl}}{% link /img/articles/2018-03-12-psychological-needs-at-work/pyramid_home.png %}){: .center-image }
 
 By satisfying these hungers, we get the answer to the question of WHAT to do, HOW to do it using our knowledge
 and experience, and WHY to do it, what we want to achieve by doing this, and what is it that we personally
@@ -68,7 +68,7 @@ motivation or feeling of satisfaction at work.
 Each team member can perform self-assessment using these axes. The results can be then compiled for the whole
 team to see what the team needs to feel good and have the right conditions to work.
 
-![Chart 1]({% link /img/articles/2018-03-12-psychological-needs-at-work/chart1-eng.png %}){: .center-image }
+![Chart 1]({{site.baseurl}}{% link /img/articles/2018-03-12-psychological-needs-at-work/chart1-eng.png %}){: .center-image }
 
 ## Example of self-assessment performed by an individual
 The person on the diagram below is a highly motivated developer. He uses a stretch goal that was set for his team
@@ -78,7 +78,7 @@ and architecture that the team wants to use to build the solution (Control). He 
 At this point, this doesn’t affect his satisfaction with work but if his frustration with the unfulfilled need
 for stimuli or structure gets worse, it’ll be enough to affect his overall satisfaction.
 
-![Chart 2]({% link /img/articles/2018-03-12-psychological-needs-at-work/chart2-eng.png %}){: .center-image }
+![Chart 2]({{site.baseurl}}{% link /img/articles/2018-03-12-psychological-needs-at-work/chart2-eng.png %}){: .center-image }
 
 **Example of self-assessment performed by a team:**
 Below is a diagram of a team that has been struggling in the last few months with a large number of service
@@ -92,7 +92,7 @@ take. The other two developers are coping with the lack of challenges. They are 
 work out a previously unfamiliar service which has earned them Appreciation from other teams. This explains the
 high scores on each axis.
 
-![Chart 3]({% link /img/articles/2018-03-12-psychological-needs-at-work/chart3-eng.png %}){: .center-image }
+![Chart 3]({{site.baseurl}}{% link /img/articles/2018-03-12-psychological-needs-at-work/chart3-eng.png %}){: .center-image }
 
 **The following questions can help you analyse intuitive scores:**
 

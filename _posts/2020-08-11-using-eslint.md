@@ -30,12 +30,12 @@ to the open source culture led to many useful projects like
 [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint).
 
 At Allegro we have our own sets of rules, one of which is enabled by default in every
-[Opbox component]({% post_url 2016-03-12-Managing-Frontend-in-the-microservices-architecture %}). It contains
+[Opbox component]({{site.baseurl}}{% post_url 2016-03-12-Managing-Frontend-in-the-microservices-architecture %}). It contains
 mostly performance-oriented suggestions like:
 * avoid bloated libraries (eg. [lodash](https://lodash.com/), [moment](https://momentjs.com/)) and use lighter
 alternatives (eg. [nanoutils](https://nanoutils.github.io/), [date-fns](https://date-fns.org/)),
 * when using optional chaining consider its
-[impact on bundle size]({% post_url 2019-11-08-performance-of-javascript-optional-chaining %}).
+[impact on bundle size]({{site.baseurl}}{% post_url 2019-11-08-performance-of-javascript-optional-chaining %}).
 
 My task was to extend this set of rules to prevent calling `format(...)` method on `Intl.DateTimeFormat` instance
 immediately after creating it:

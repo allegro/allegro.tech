@@ -13,7 +13,7 @@ each new release and more and more companies decide to give them a try... But ho
 
 In the first part of this article I show how to test REST service clients using [Restito](https://github.com/mkotsur/restito)
 library. Second part contains a bit more complex example of testing REST service with [REST-assured](https://code.google.com/p/rest-assured/).
-Both of these libraries can be used with JUnit, so if you read my previous article: [Java Testing Toolbox]({% post_url 2014-10-01-java-testing-toolbox %}),
+Both of these libraries can be used with JUnit, so if you read my previous article: [Java Testing Toolbox]({{site.baseurl}}{% post_url 2014-10-01-java-testing-toolbox %}),
 then you should be already well accustomed to testing with JUnit and given-when-then style of writing tests.
 
 ### Client testing with Restito ([https://github.com/mkotsur/restito](https://github.com/mkotsur/restito))

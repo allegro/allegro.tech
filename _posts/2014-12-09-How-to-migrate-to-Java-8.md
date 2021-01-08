@@ -75,8 +75,8 @@ is pretty critical to our e-commerce site [allegro.pl](http://www.allegro.pl/) a
 The technology stack included Java, Spring, Cassandra and MongoDB as NoSQL data storage, some AOP code, Jersey and a ton of minor technologies
 for performing specific tasks.
 
-There are also a lot of [unit]({% post_url 2014-10-01-java-testing-toolbox %}) and
-[integration tests]({% post_url 2014-11-26-testing-restful-service-and-clients %}) and test coverage is pleasantly high,
+There are also a lot of [unit]({{site.baseurl}}{% post_url 2014-10-01-java-testing-toolbox %}) and
+[integration tests]({{site.baseurl}}{% post_url 2014-11-26-testing-restful-service-and-clients %}) and test coverage is pleasantly high,
 which soon proved to be crucial for a successful migration to Java 8.
 
 ## Java 8: first blood
@@ -131,7 +131,7 @@ was absent before. However, it did not affect GC pauses in any considerable way.
 tenuring went away, with heap size remaining stable afterwards. CMS is known to be very unlikely to automatically resize the heap,
 so I would say that G1 did a better job at automatically tuning its parameters than CMS. Other things being equal, we stayed with G1.
 
-Java 8 may have introduced changes to the way [objects are represented internally]({% post_url 2014-10-08-The-memory-game %}),
+Java 8 may have introduced changes to the way [objects are represented internally]({{site.baseurl}}{% post_url 2014-10-08-The-memory-game %}),
 which could influence memory consumption and GC behavior. We knew, for example, that the implementation of <tt>HashMap</tt>
 [had been changed in JDK 8](https://docs.oracle.com/javase/8/docs/technotes/guides/collections/changes8.html) but we didn't analyze it in
 more detail.

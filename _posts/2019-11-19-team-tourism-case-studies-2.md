@@ -5,18 +5,18 @@ author: [bartosz.balukiewicz, adrian.rydzynski]
 tags: [tech]
 ---
 
-In this last instalment of our series about [team tourism]({% post_url 2019-09-16-team-tourism-at-allegro %}) at [Allegro]({% link about-us/index.html %}),
+In this last instalment of our series about [team tourism]({{site.baseurl}}{% post_url 2019-09-16-team-tourism-at-allegro %}) at [Allegro]({% link about-us/index.html %}),
 our two engineers describe their eventful visits in two rather technical teams, one dealing with our message broker -
 [Hermes](https://hermes.allegro.tech/), the other with web performance.
 
 > This post is a part of a series of three posts about team tourism at [Allegro]({% link about-us/index.html %}).
-> You can navigate directly to each part here: [Part 1]({% post_url 2019-09-16-team-tourism-at-allegro %}) | [Part 2]({% post_url 2019-10-14-team-tourism-case-studies-1 %}) | **Part 3**
+> You can navigate directly to each part here: [Part 1]({{site.baseurl}}{% post_url 2019-09-16-team-tourism-at-allegro %}) | [Part 2]({{site.baseurl}}{% post_url 2019-10-14-team-tourism-case-studies-1 %}) | **Part 3**
 
 ## Case study 1
 ### Hermes - Bartosz Balukiewicz
 On a daily basis, I am a software engineer in the team developing a product which predicts delivery times of orders.
 We are diving deep into bid data and machine learning world, but we rely on event-based micro-service architecture.
-That is why we use Hermes ([version 1.0 was released]({% post_url 2019-05-16-hermes-1-0-released %})) extensively -
+That is why we use Hermes ([version 1.0 was released]({{site.baseurl}}{% post_url 2019-05-16-hermes-1-0-released %})) extensively -
 a message broker based on Kafka, which supports about 400 micro-services at Allegro. Hermes offers many functionalities,
 and it is easy to use, but often there is not enough time to understand exactly how it works under the hood. In case of any problems,
 such knowledge allows a faster and more effective response to failures and not being only a passive customer of the service.
@@ -24,7 +24,7 @@ For these reasons, I decided to have my team tourism at the team which develops 
 My team’s stakeholders are mostly business people, so it was not only a great opportunity to change surroundings
 but also a chance to work for other engineers as well.
 
-<img alt="hermes" src="/img/articles/2019-11-19-team-tourism-case-studies-2/hermes-logo.png" />
+<img alt="hermes" src="{{site.baseurl}}/img/articles/2019-11-19-team-tourism-case-studies-2/hermes-logo.png" />
 
 We decided not to set any single purpose for my tourism - I wanted to enter the team’s everyday work, learn about its work
 culture, and really feel as a part of the team.  During the intense month, I managed to touch the core components of Hermes,
@@ -61,7 +61,7 @@ and a view of a single offer. Their goal was to gain knowledge about listings, a
 Both sides had their goals, but it was clear that we were going in the same direction. We didn’t specify precisely
 how many story points I had to make or how many new features I had to transfer to my team. We wanted to do as much as possible.
 
-<img alt="webperf" src="/img/articles/2019-11-19-team-tourism-case-studies-2/webperf.jpg" />
+<img alt="webperf" src="{{site.baseurl}}/img/articles/2019-11-19-team-tourism-case-studies-2/webperf.jpg" />
 
 My friends from the web performance team introduced me to their core project: a single page application called
 "mobile-web SPA". It is worth mentioning that in my daily job, we have a component structure. That means listings are
@@ -107,6 +107,6 @@ Despite its organisational costs, the benefits are undisputed. We hope that our 
 you that it is worth to implement it at your companies.
 
 Previous posts in the series:
-* [Team tourism at Allegro]({% post_url 2019-09-16-team-tourism-at-allegro %})
-* [Team tourism at Allegro — part 2 — case studies]({% post_url 2019-10-14-team-tourism-case-studies-1 %})
+* [Team tourism at Allegro]({{site.baseurl}}{% post_url 2019-09-16-team-tourism-at-allegro %})
+* [Team tourism at Allegro — part 2 — case studies]({{site.baseurl}}{% post_url 2019-10-14-team-tourism-case-studies-1 %})
 <style type="text/css">.post img{margin: 0 auto;display: block;}</style>

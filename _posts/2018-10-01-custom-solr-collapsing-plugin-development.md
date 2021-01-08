@@ -93,7 +93,7 @@ It is a queue sorted by the given list of fields. We have to return a list of th
 
 Below is the scheme of our filter implementation.
 
-![Scheme of our filter implementation]({% link /img/articles/2018-10-01-custom-solr-collapsing-plugin-development/algorithm.png %})
+![Scheme of our filter implementation]({{site.baseurl}}{% link /img/articles/2018-10-01-custom-solr-collapsing-plugin-development/algorithm.png %})
 
 Finally, in the collector in the **finish** method, we return documents collected in the priority queue.
 
