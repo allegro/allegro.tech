@@ -103,7 +103,7 @@ Zoom virtual assistant is currently in beta testing. We have some problems with 
 without giving him a chance to express full thought. Programmers can work on code and get into flow without interruptions
 since HAL handles the rest. HAL, I hope I will see you soon in every company.
 
-We are hiring remotely and HAL is not prepared yet for recruitment so you will have to talk with our programmers. But you will work with motivated people that know how to code and avoid unnecessary meetings. Join us <a href="/jobs/" title="join us">here</a>!
+We are hiring remotely and HAL is not prepared yet for recruitment so you will have to talk with our programmers. But you will work with motivated people that know how to code and avoid unnecessary meetings. Join us <a href="https://allegro.tech/jobs/" title="join us">here</a>!
 
 <p align="right">
 * Have you noticed? This article was written by our beloved HAL

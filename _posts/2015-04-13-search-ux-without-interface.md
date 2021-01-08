@@ -5,7 +5,7 @@ author: [alicja.antkowiak, edyta.kopczynska, krystian.szczucki, piotr.plys]
 tags: [tech, ux]
 ---
 
-[Allegro]({% link about-us/index.html %}) is a leading Central European e-commerce platform, offering a vast diversity of new
+[Allegro]({{site.baseurl}}{% link /about-us/ %} ) is a leading Central European e-commerce platform, offering a vast diversity of new
 and pre-owned products. Search engine is the main entry point to allegro.pl product stock.
 Designing a bunch of UX metrics for a [SaaS](http://pl.wikipedia.org/wiki/Software_as_a_Service) solution or
 a social networking site is a must. Typically no one would dare

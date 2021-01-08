@@ -6,7 +6,7 @@ tags: [tech,java, search, lucene, solr, elasticsearch]
 ---
 
 There’s no denying that the most important way
-to reach an offer on [Allegro]({% link about-us/index.html %}) is a search bar. How it works from the user’s point of view everybody knows. You input a
+to reach an offer on [Allegro]({{site.baseurl}}{% link /about-us/ %} ) is a search bar. How it works from the user’s point of view everybody knows. You input a
 search phrase, select some filters when needed, click "search" and you get some results, usually quite fast. What looks
 like a simple and straightforward process on the surface, inside actually engages really
 complicated algorithms. In this first post of the series we will try to make you a little bit familiar with the tools we

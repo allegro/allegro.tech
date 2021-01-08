@@ -5,7 +5,7 @@ author: [michal.kosmulski,bartosz.galek]
 tags: [tech, agile, culture, teamwork]
 ---
 
-How many team leaders do you think there are at [Allegro]({% link about-us/index.html %})? Earlier this year, about a hundred of us
+How many team leaders do you think there are at [Allegro]({{site.baseurl}}{% link /about-us/ %} )? Earlier this year, about a hundred of us
 had the chance to meet in person for two days. We tackled company-wide technical challenges, exchanged experiences
 and discussed the way we and our teams work. We encourage you to read our story since it offers a glimpse
 at the inner workings of our company and its culture.
