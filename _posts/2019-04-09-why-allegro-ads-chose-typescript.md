@@ -12,7 +12,7 @@ We decided to start a revolution. We considered [Flow](https://flow.org/), but e
 for Allegro Ads.
 
 ## The Beginning
-The Allegro Ads project goal is to enable sellers at [Allegro]({% link about-us/index.html %}) to advertise their offers. 2017 was a breakthrough year for it.
+The Allegro Ads project goal is to enable sellers at [Allegro]({{site.baseurl}}{% link /about-us/ %} ) to advertise their offers. 2017 was a breakthrough year for it.
 The key change was to be the new web page, denoted “version 2.0”.
 It was to deliver a new quality to users, quick implementation to business,
 and the prospect of boredom to testers. Has this happened?

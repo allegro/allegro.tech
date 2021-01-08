@@ -18,7 +18,7 @@ using Java 8 will become more of a necessity. It is better to be ahead of the cr
 We also expected gains in productivity from new features such as lambda expressions, so reaping these benefits reasonably early seemed
 like a good idea.
 
-You may wonder why we wanted to spend time on Java 8 with Scala being around. At [Allegro]({% link about-us/index.html %}), development teams
+You may wonder why we wanted to spend time on Java 8 with Scala being around. At [Allegro]({{site.baseurl}}{% link /about-us/ %} ), development teams
 have a lot of freedom in choosing the technology stack they want to use, as long as they take full responsibility for the products they
 develop. This allows for testing out new ideas without putting the delivery of business value at risk. We do write some code in Scala
 (some teams even use Scala as their major language), there are guys using some Clojure here and there, and there are dozens of technologies

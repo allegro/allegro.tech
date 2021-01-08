@@ -1,24 +1,15 @@
 ---
 layout: default
+title: blog
 ---
 
-<section id="main-content" class="section-latest">
-    <header>
-        <div class="content">
-            {% include posts.html limit="1" %}
-        </div>
-    </header>
+<section class="section-posts desk">
+    <div id="main-content" class="content">
+        <h1 class="title">Posts:</h1>
+        {% include posts.html offset="0" limit="6"%}
+        {% include posts.html offset="6" short="true" %}
+    </div>
 </section>
 
-<div class="desk">
-    <section class="content">
-        {% include events.html limit="1" status="upcoming" %}
-    </section>
-    <section class="content">
-        {% include jobs/engineers.html %}
-    </section>
-</div>
-
-<script type="text/javascript" src="/js/slides.min.js" defer></script>
-
 {% include manifesto.html %}
+
