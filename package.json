@@ -1,0 +1,35 @@
+{
+  "name": "allegro.tech",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bgalek/allegro.tech.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bgalek/allegro.tech/issues"
+  },
+  "homepage": "https://github.com/bgalek/allegro.tech#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "next": "^10.0.5",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.3",
+    "react-dom": "^17.0.1",
+    "rss-parser": "^3.10.0",
+    "sass": "^1.32.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.20",
+    "@types/react": "^17.0.0",
+    "typescript": "^4.1.3"
+  }
+}

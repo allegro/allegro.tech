@@ -1,0 +1,10 @@
+.header {
+    background: url('../public/images/splash.png') no-repeat center bottom;
+}
+
+.image {
+    display: flex;
+    height: 500px;
+    flex-direction: column;
+    justify-content: flex-end;
+}

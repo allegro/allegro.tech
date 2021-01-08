@@ -1,0 +1,24 @@
+$body-bg: #eceff1;
+$body-color: #222222;
+
+$grid-gutter-width: 18px;
+$card-border-width: 0;
+$card-border-radius: 0;
+
+$primary: #3bbdc4;
+
+$jumbotron-bg: $body-bg;
+$jumbotron-padding: $grid-gutter-width;
+$border-radius-lg: 0;
+
+$headings-font-weight: 300;
+
+$font-family-sans-serif: 'Open Sans';
+
+$navbar-padding-y: 1.25rem;
+$navbar-padding-x: 0;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Open+Sans:300,400,600,700&subset=latin,latin-ext');
+
+// Bootstrap and its default variables
+@import "node_modules/bootstrap/scss/bootstrap";
