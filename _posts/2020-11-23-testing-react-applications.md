@@ -101,8 +101,8 @@ The second section provides details and is hidden after the first render, but ca
 
 You can see what is rendered by this component initially and after button click on these screenshots.
 
-![Basic component - initial state](/img/articles/2020-11-23-testing-react-applications/basic_hidden.png)
-![Basic component - after click](/img/articles/2020-11-23-testing-react-applications/basic_displayed.png)
+![Basic component - initial state]({% link /img/articles/2020-11-23-testing-react-applications/basic_hidden.png %})
+![Basic component - after click]({% link /img/articles/2020-11-23-testing-react-applications/basic_displayed.png %})
 
 This component does not use any advanced React mechanisms or external libraries.
 Tests of such a component written with Jest + Enzyme are very simple and intuitive.
@@ -304,7 +304,7 @@ On the other hand, at the _/users/{id}_ address the same component displays the 
 Here are the changes in the component implementation that I made to achieve this result:
 
 ```jsx
-const mapStateToProps = state => ({
+{% raw %}const mapStateToProps = state => ({
   currentUser: state.currentUser,
   users: state.users
 });
@@ -365,7 +365,7 @@ const UserInfoReduxRouterComponent = ({ currentUser, users, updateEmail, locatio
     </Paper>
   );
 };
-export const UserInfoReduxRouter = connect(mapStateToProps, mapDispatchToProps)(UserInfoReduxRouterComponent);
+export const UserInfoReduxRouter = connect(mapStateToProps, mapDispatchToProps)(UserInfoReduxRouterComponent);{% endraw %}
 ```
 
 So what has changed?

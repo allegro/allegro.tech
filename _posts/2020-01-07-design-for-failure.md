@@ -8,7 +8,7 @@ When designing the architecture of a system, one always needs to think about wha
 what kind of failures can occur in the system. This kind of problem analysis is especially hard in distributed systems.
 Failure is inevitable and the best we can do is to prepare for it.
 
-Our team deals with collecting and serving statistics for the [PPC](https://en.wikipedia.org/wiki/Pay-per-click) advertising platform in [Allegro](/about-us/).
+Our team deals with collecting and serving statistics for the [PPC](https://en.wikipedia.org/wiki/Pay-per-click) advertising platform in [Allegro]({% link about-us/index.html %}).
 We've decided to base our design on the [Lambda Architecture](http://lambda-architecture.net/), which gives us a huge
 benefit when it comes to fault-tolerance.
 
@@ -73,6 +73,7 @@ In simple words, batch job loads all clicks and emissions from the previous day,
 those saved by Online Layer. In our case, this happens once a day.
 
 Your recalculation job could look like this:
+
 ```scala
 case class Click(offerId: String, emissionId: String)
 
@@ -112,6 +113,7 @@ class RecalculateStatisticsJob(sparkSession: SparkSession) {
   }
 }
 ```
+
 It’s important to make the job idempotent, retryable and transactional (hence the _safeWrite_ method).
 That way, even if it fails during saving the results it will leave the data in a consistent state.
 If anything fails or requires recomputing, you can just re-run the job.

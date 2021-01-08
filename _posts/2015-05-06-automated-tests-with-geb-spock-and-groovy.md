@@ -28,7 +28,7 @@ automated tests is very old, but what I’d like to present here is some new ins
 You might have worked with automated tests using [Selenium](http://www.seleniumhq.org/projects/webdriver/) and Java. This works just fine, but in my opinion Java is not a proper tool for
 this type of tasks. Its overall simplicity and lack of flexibility may be a perfect solution in the application itself, but in testing I find
 it too limiting. I feel like using Java here degrades the readability of the tests. You also might have worked with JBehave, which was greatly
-described by Grzegorz Witkowski in his blog posts about [Acceptance testing with JBehave and Gradle](/2015/03/acceptance-testing-with-jbehave-and-gradle.html).
+described by Grzegorz Witkowski in his blog posts about [Acceptance testing with JBehave and Gradle]({% post_url 2015-03-02-acceptance-testing-with-jbehave-and-gradle %}).
 It provides some kind of a high level abstraction, which some people do like while others do not.
 
 For me tests should be short, simple and readable. It is a place where [DSLs](http://en.wikipedia.org/wiki/Domain-specific_language) shine.

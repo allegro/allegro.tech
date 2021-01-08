@@ -7,8 +7,8 @@ tags: [agile, team building, scrum master, agile coach]
 
 Whether you are forming a new agile team or mixing people in an already existing team you start somewhat afresh. In an existing team the balance and group
 dynamics changes, in a new team people are experiencing each other for the first time and checking what the boundaries are. I don’t want to get into details
-of what can possibly happen — it’s best if you dig into works of Bruce Tuckman and his [four-stage model](https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development) or Gustave Le Bon’s “[The Crowd]
-(https://en.wikipedia.org/wiki/The_Crowd:_A_Study_of_the_Popular_Mind)”. The former indicated that the team goes through the stages of Forming - Storming -
+of what can possibly happen — it’s best if you dig into works of Bruce Tuckman and his [four-stage model](https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development) or Gustave Le Bon’s
+“[The Crowd](https://en.wikipedia.org/wiki/The_Crowd:_A_Study_of_the_Popular_Mind)”. The former indicated that the team goes through the stages of Forming - Storming -
 Norming - Performing. I would like to concentrate on the very initial stage of “Forming” the team in the first weeks of it’s existence.
 
 There are few things I learned when entering a team. One of them is that it’s better for people to start sitting together. Let them do it at the very beginning.
@@ -48,8 +48,8 @@ this stage. It’s probably going to be high level and not very detailed. Just g
 ## Getting to know each other (30–60 minutes)
 When getting to know each other it’s worth to answer few simple questions that break the ice and shed some light on our expectations as well as talents.
 
-* **What are the skills that we have?** What are we good at and how can we help others thrive? Using [Team Competency Matrix]
-(https://management30.com/leadership-resource-hub/team-competency-matrix/) can speed up the work and create a draft of
+* **What are the skills that we have?** What are we good at and how can we help others thrive? Using
+[Team Competency Matrix](https://management30.com/leadership-resource-hub/team-competency-matrix/) can speed up the work and create a draft of
 the development plan for the team members. If you want to work in agile you should have a team that is multifunctional so you are not dependent on others. And
 this is where skills come in handy.
 
@@ -84,7 +84,7 @@ I start with five things and then check along the way:
 * What are the success criteria stating that we are going in the right direction (that this works for us)
 * How often do we want to do a “check point” to see if this is what we need? (in Scrum this can be done during Retrospectives)
 
-You can find a sample of such analysis in a [Scrum-ban* experiment](/2015/09/scrum-ban-applied.html) we’ve conducted. Another approach could be
+You can find a sample of such analysis in a [Scrum-ban* experiment]({% post_url 2015-09-16-scrum-ban-applied %}) we’ve conducted. Another approach could be
 looking at what we want to accomplish? Then following up with what do we need to accomplish this? and / or how will we accomplish this?.
 
 ### Contracting (45–60 minutes)
@@ -99,7 +99,6 @@ Whether it’s Scrum or something else, all of us work in roles. Some of them ha
 relate to the rules in terms of our understanding and expectations. A good thing to do it is to use a simple matrix.
 
 ![Contracting roles](/img/articles/2015-10-20-agile-teams-how-to-start/contracting_roles.jpeg "Contracting roles")
-
 
 It can be done in a way that each member writes his expectations on sticky notes and places them on the matrix. 10 minutes should be sufficient time to clear
 one’s mind and write a sufficient number of things down. When all participants have done it, it’s time for reading aloud and clarifying / responding. In my role as

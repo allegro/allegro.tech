@@ -30,7 +30,7 @@ No matter how pretty an app you have, users will be irritated if it is slow, eve
 Naturally, usability or performance is only one aspect. The other two, equally important that should be also taken
 into consideration, are applies to security and compliance. Data leaks or other security issues may not only affect
 a company’s image, but also cause financial consequences. The same for compliance issues understood as lack of
-consistency with specific policies applied to e.g. aviation industry, medical devices or banking applications.  
+consistency with specific policies applied to e.g. aviation industry, medical devices or banking applications.
 
 ## Waterfall or Agile. Always use as designed?
 
@@ -53,7 +53,7 @@ and very low internal to external defects found ratio. Obviously, the above requ
 working in an agile way, with frequent releases and not enough time for bug fixing. Eventually, a team would have to
 come to terms with bugs found in a production environment.
 
-![Waterfall or Agile](/img/articles/2018-02-15-how-to-approach-testing-in-development-process/wva.svg)
+![Waterfall or Agile]({% link /img/articles/2018-02-15-how-to-approach-testing-in-development-process/wva.svg %})
 
 ## Automated vs manual testing – only one or both?
 Application testing is the most discussed topic. Should you execute only manual, repeatable, and thus boring tests or
@@ -61,7 +61,7 @@ rely on fast and convenient automated testing? The answer is not that obvious. T
 happens to be difficult to implement or time-consuming even though it looks very promising at first sight. Let’s take a
 look at some common opinions on manual and automated tests.
 
-#### Automated tests
+### Automated tests
 
 1. Faster and more effective
 
@@ -92,9 +92,7 @@ look at some common opinions on manual and automated tests.
    tests do not “see” UI changes or strings displayed outside the defined fields. They only check if all features are working
    properly (although it depends on applied frameworks).
 
-
-#### Manual testing
-
+### Manual testing
 
 1. It simulates what the end user does
 
@@ -122,7 +120,7 @@ After reading the previous paragraphs, finding the best solution should be easie
 consider their choice well and consider all the factors mentioned above. Eventually, the best choice depends on
 knowledge and experience of QA engineers.
 
-![Waterfall or Agile](/img/articles/2018-02-15-how-to-approach-testing-in-development-process/manualvsautomation.svg)
+![Waterfall or Agile]({% link /img/articles/2018-02-15-how-to-approach-testing-in-development-process/manualvsautomation.svg %})
 
 ## Testing tools – do you need them? Which should you choose?
 
@@ -135,7 +133,7 @@ migration of test cases between different tools following a change of decision m
 difficult to execute. The same rule applies to defect tracking tools, with [JIRA](https://www.atlassian.com/software/jira)
 developed by Atlassian being probably the most popular one. Its main advantage is a JIRA Agile add-on (recently
 incorporated into a standard JIRA version) that allows users to manage user stories and linked test cases.
-Therefore, it can be used in an agile project as the only test management tool. All in all, Excel spreadsheets are insufficient to do the job.  
+Therefore, it can be used in an agile project as the only test management tool. All in all, Excel spreadsheets are insufficient to do the job.
 Next thing is choosing a tool for designing and executing of automated tests, which depends on the type of developed
 application/system (e.g. web or mobile app) and applied technology. If you are dealing with websites, try [Selenium](http://www.seleniumhq.org/).
 In the case of native Android apps, try [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/),
@@ -181,7 +179,7 @@ solution, were supposed to be changed in the nearest future. In other words, we 
 environment setup and test design to create tests to be executed only a few times, so the ROI would be very low.
 Therefore, it was better to focus more on manual testing.
 
-![Waterfall or Agile](/img/articles/2018-02-15-how-to-approach-testing-in-development-process/tlcdip.svg)
+![Waterfall or Agile]({% link /img/articles/2018-02-15-how-to-approach-testing-in-development-process/tlcdip.svg %})
 
 ## Summary
 As there is no perfect model that would fit every project, QA engineers should decide about the testing process by

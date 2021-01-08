@@ -19,13 +19,13 @@ I’m going to show some common pitfalls as well as how performance metrics in p
 
 Before exploring the migration strategy in detail, let’s discuss the motivation for the change first.
 One of the microservices, which is developed and maintained by my team, was involved in the significant Allegro outage
-on 18th of July 2018 (see more details in [postmortem](/2018/08/postmortem-why-allegro-went-down.html)).
+on 18th of July 2018 (see more details in [postmortem]({% post_url 2018-08-31-postmortem-why-allegro-went-down %})).
 Although our microservice was not the root cause of problems, some of the instances also crashed because of thread pools saturation.
 Ad hoc fix was to increase thread pool sizes and to decrease timeouts in external service calls; however, this was not sufficient.
 The temporary solution only slightly increased throughput and resilience for external services latencies.
 We decided to switch to a non-blocking approach to completely get rid of thread pools as the foundation for concurrency.
 The other motivation to use WebFlux was the new project which complicated the external service calls flow
-in our microservice. 
+in our microservice.
 We faced the challenge to keep the codebase maintainable and readable regardless of increasing complexity.
 We saw WebFlux more friendly than our previous solution based on Java 8 `CompletableFuture` to model complex flow.
 
@@ -87,8 +87,8 @@ the non-blocking way. However, the higher the latency per call or the interdepen
 the benefits. Reactiveness shines here — waiting for other service response doesn’t block the thread.
 Thus fewer threads are necessary to obtain the same throughput, and fewer threads mean less memory used.
 
-It’s always recommended to check independent sources to avoid framework authors’ bias. 
-An excellent source of opinion when it comes to choosing a new technology is 
+It’s always recommended to check independent sources to avoid framework authors’ bias.
+An excellent source of opinion when it comes to choosing a new technology is
 [Technology Radar](https://www.thoughtworks.com/radar/languages-and-frameworks/webflux) by ThoughtWorks.
 They report system throughput and an improvement in code readability after migration to WebFlux.
 On the other hand, they point out that a significant shift in thinking is necessary to adopt WebFlux successfully.
@@ -116,6 +116,7 @@ Going reactive is not an exception. The idea of this stage is to find only one n
 encapsulated in one blocking method call, and to rewrite it to non-blocking style.
 Let’s try to do this on an example of the blocking method which uses `RestTemplate` to retrieve the result from an external
 service.
+
 ```java
 Pizza getPizzaBlocking(int id) {
     try {
@@ -125,7 +126,9 @@ Pizza getPizzaBlocking(int id) {
     }
 }
 ```
+
 We pick only one thing from the rich set of WebFlux features — reactive WebClient — and use it to rewrite this method in a non-blocking way.
+
 ```java
 Mono<Pizza> getPizzaReactive(int id) {
     return webClient
@@ -136,13 +139,16 @@ Mono<Pizza> getPizzaReactive(int id) {
         .onErrorMap(PizzaException::new);
 }
 ```
+
 Now it’s time to wire our new method with the rest of the application. The non-blocking method returns `Mono`,
-but we need a plain type instead. We can use the `.block()` method to retrieve the value from `Mono`. 
+but we need a plain type instead. We can use the `.block()` method to retrieve the value from `Mono`.
+
 ```java
 Pizza getPizzaBlocking(int id) {
     return getPizzaReactive(id).block();
 }
 ```
+
 Eventually, our method is still blocking. However, it utilizes a non-blocking library inside.
 The main goal of this stage is to get familiar with the non-blocking API.
 This change should be transparent to the rest of the application, easily testable and deployable into the production environment.
@@ -179,15 +185,18 @@ Mono<Food> orderFoodReactive(int id) {
         .onErrorMap(FoodException::new);
 }
 ```
+
 Blocking parts of the system can be easily merged with
 non-blocking code using `.subscribeOn()` method. We can use one of the default Reactor
 schedulers as well as thread pools created on our own and provided by `ExecutorService`.
+
 ```java
 Mono<Pizza> getPizzaReactive(int id) {
     return Mono.fromSupplier(() -> getPizzaBlocking(id))
         .subscribeOn(Schedulers.fromExecutorService(executorService));
 }
 ```
+
 Additionally, only a small change in controllers is enough — change the return type from `Foo` to `Mono<Foo>` or `Flux<Foo>`.
 It works even in Spring Web MVC - you don't need to change the whole application's stack to reactive.
 Successful implementation of Stage 2 gives us all the main benefits of the non-blocking approach.
@@ -243,7 +252,7 @@ usually returning `Mono.just(foo)`.
 The theory seems simple, but our tests started to hang. Fortunately, in a reproducible way. What was the problem?
 In classic, blocking approach, when we forget (or intentionally omit) to configure some method call in stub or mock,
 it just returns `null`. In many cases, it doesn’t affect the test. However, when our stubbed method returns a reactive type,
-misconfiguration may cause it to hang, because expected `Mono` or `Flux` never resolves. 
+misconfiguration may cause it to hang, because expected `Mono` or `Flux` never resolves.
 
 __The lesson learned__:
 *stubs or mocks of methods returning reactive type, called during test execution, which previously implicitly returned
@@ -253,6 +262,7 @@ __The lesson learned__:
 
 WebFlux beginners sometimes forget that reactive streams tend to be as lazy as possible.
 Due to a lacking subscription, the following function never prints anything to console:
+
 ```java
 Food orderFood(int id) {
     FoodBuilder builder = new FoodBuilder().withPizza(new Pizza("margherita"));
@@ -263,21 +273,26 @@ Food orderFood(int id) {
     return builder.build();
 }
 ```
+
 __The lesson learned__:
 *every `Mono` and `Flux` should be subscribed. Returning reactive type in a controller is such a kind of implicit subscription.*
 
 ### Issue 4 - `.block()` in Reactor thread
 
 As I showed before (in Stage 1), `.block()` is sometimes used to join a reactive function to blocking code.
+
 ```java
 Food getFoodBlocking(int id) {
     return foodService.orderFoodReactive(id).block();
 }
 ```
+
 Calling this function isn’t possible within Reactor thread. Such an attempt causes the following error:
+
 ```java
 block()/blockFirst()/blockLast() are blocking, which is not supported in thread reactor-http-nio-2
 ```
+
 Explicit `.block()` usages are only allowed within other threads (see `.subscribeOn()`).
 It’s helpful that the Reactor throws an exception and informs us about the problem. Unfortunately,
 many other scenarios allow inserting blocking code into Reactor thread, which is not automatically detected.
@@ -290,13 +305,16 @@ Even better is to avoid using `.block()` at all.*
 Nothing prevents us from adding blocking code to a reactive flow.
 Moreover, we don’t need to use `.block()` - we can unconsciously introduce blocking by using a library which
 can block the current thread. Consider the following samples of code. The first one resembles proper, “reactive” delay.
+
 ```java
 Mono<Food> getFood(int id) {
     return foodService.orderFood(id)
         .delayElement(Duration.ofMillis(1000));
 }
 ```
+
 The other sample simulates a dangerous delay, which blocks the subscriber thread.
+
 ```java
 Mono<Food> getFood(int id) throws InterruptedException {
     return foodService
@@ -304,14 +322,15 @@ Mono<Food> getFood(int id) throws InterruptedException {
       .doOnNext(food -> Thread.sleep(1000));
 }
 ```
+
 At a glance, both versions seem to work. When we run this application on localhost and try to request a service,
 we can see similar behavior. “Hello, world!” is returned after 1 s delay. However, this observation is hugely
 misleading. Our service response changes drastically under higher traffic. Let’s use [JMeter](https://jmeter.apache.org/)
 to obtain some performance characteristics.
 
-![Performance of service with reactive delay](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/jmeter-reactive.png)
+![Performance of service with reactive delay]({% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/jmeter-reactive.png %})
 
-![Performance of service with blocking delay](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/jmeter-blocking.png)
+![Performance of service with blocking delay]({% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/jmeter-blocking.png %})
 
 Both versions were queried using 100 threads.
 As we can see, the version with reactive delay (upper) works well under heavy load, providing constant delay and high throughput.
@@ -332,7 +351,8 @@ Documentation of WebClient `.exchange()` method clearly states:
 [Chapter 2.3 of official WebFlux documentation](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-client-exchange)
 gives us similar information.
 This requirement is easy to miss, mainly when we use `.retrieve()` method, which is a shortcut to `.exchange()`.
-We stumbled upon such an issue. We correctly mapped the valid response to an object and wholly ignored the response in case of an error. 
+We stumbled upon such an issue. We correctly mapped the valid response to an object and wholly ignored the response in case of an error.
+
 ```java
 Mono<Pizza> getPizzaReactive(int id) {
     return webClient
@@ -344,11 +364,14 @@ Mono<Pizza> getPizzaReactive(int id) {
         .onErrorMap(PizzaException::new);
 }
 ```
+
 The code above works very well as long as the external service returns valid responses.
 Shortly after the first few error responses, we can see a worrying message in logs:
+
 ```java
 ERROR 3042 --- [ctor-http-nio-5] io.netty.util.ResourceLeakDetector       : LEAK: ByteBuf.release() was not called before it's garbage-collected. See http://netty.io/wiki/reference-counted-objects.html for more information.
 ```
+
 Resource leak means that our service is going to crash. In minutes, hours or maybe days — it depends on other service errors count.
 The solution to this problem is straightforward: use the error response to generate an error message. Now it’s properly consumed.
 
@@ -360,23 +383,26 @@ __The lesson learned__:
 Reactor has a bunch of useful methods, helping writing expressive and declarative code.
 However, some of them may be a little bit tricky.
 Consider the following code:
+
 ```java
 String valueFromCache = "some non-empty value";
 return Mono.justOrEmpty(valueFromCache)
     .switchIfEmpty(Mono.just(getValueFromService()));
-   
+
 ```
+
 We used similar code to check the cache for a particular value and then call the external service if
 the value was missing. The intention of the author seems to be clear: execute `getValueFromService()`
 only in the case of lacking cache value. However, this code runs every time, even for cache hits.
 The argument given to `.switchIfEmpty()` is not a lambda here — and `Mono.just()` causes direct execution of code
 passed as an argument.
-The obvious solution is to use `Mono.fromSupplier()` and pass conditional code as a lambda, as in the example below: 
+The obvious solution is to use `Mono.fromSupplier()` and pass conditional code as a lambda, as in the example below:
+
 ```java
 String valueFromCache = "some non-empty value";
 return Mono.justOrEmpty(valueFromCache)
     .switchIfEmpty(Mono.fromSupplier(() -> getValueFromService()));
-```   
+```
 
 __The lesson learned__:
 *Reactor API has many different methods. Always consider whether the argument should be passed as is or wrapped with lambda.*
@@ -392,9 +418,9 @@ How were low-level metrics affected?
 We observed fewer garbage collections, and also they took less time.
 The upper part of each chart shows the blocking version, while the lower part shows the reactive version.
 
-![GC count comparison — reactive vs blocking](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-count.png)
+![GC count comparison — reactive vs blocking]({% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-count.png %})
 
-![GC time comparison — reactive vs blocking](/img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-time.png)
+![GC time comparison — reactive vs blocking]({% link /img/articles/2019-07-15-migrating-microservices-to-spring-webflux/gc-time.png %})
 
 Also, the response time slightly decreased, although we did not expect such an effect.
 Other metrics, like CPU load, file descriptors usage and total memory consumed, did not change.
@@ -414,6 +440,5 @@ Decide consciously without blind faith in technology hype.
 Always test your application. Integration and performance test covering external call latencies and errors
 are crucial in the migration process. Remember that reactive thinking is different from the well-known blocking,
 imperative approach.
-
 
 Have fun and build resilient microservices!

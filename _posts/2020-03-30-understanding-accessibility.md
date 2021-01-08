@@ -60,6 +60,7 @@ alternative text according to guideline [1.1 Text Alternatives](https://www.w3.o
 
 Take a look how this picture looks in code. I used `aria-describedby` to associate the image with its description and also provided alternative text in the `alt` attribute to shortly describe what the picture shows. Last but not least, styles. They are responsible for hiding this element visually but still it remains visible to screen readers.
 You can read more about hiding content on [Scott's blog](https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html).
+
 ```html
 <img alt="Illustration shows the association of four principles with types of disabilities" aria-describedby="pour-description" src="pour.png">
 <span id="pour-description" style="clip: rect(0 0 0 0); clip-path: inset(50%); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px;">
@@ -139,4 +140,4 @@ on the topic of accessibility of the software together with the Allegro team.
 
 #### About Allegro
 Allegro is the #1 online shopping destination in Poland and the #6 eTail business in Europe. Started in 1999, today it is one of the most recognised brands in Poland.
-You can read more about our tech stack on our [About Us page](/about-us/).
+You can read more about our tech stack on our [About Us page]({% link about-us/index.html %}).

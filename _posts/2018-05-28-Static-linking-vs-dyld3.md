@@ -81,7 +81,7 @@ before Xcode&nbsp;9 was released. Although Xcode&nbsp;8 had no support for
 static Swift linking, there is a&nbsp;way to perform static linking using
 [`libtool`](https://www.manpagez.com/man/1/libtool/). In those dark times, we
 were just adding custom build phases with
-[buildstatic](https://github.com/aliceatlas/buildstatic) script for selected 
+[buildstatic](https://github.com/aliceatlas/buildstatic) script for selected
 libraries. This may seem like a&nbsp;hack, but it is really just a&nbsp;hefty
 usage of well-documented toolset... and it worked flawlessly.
 
@@ -96,7 +96,7 @@ Aside from dynamic libraries, a&nbsp;framework can also contain resources
 etc.). We got rid of dynamic libraries, but we couldn't leave
 resource-only-frameworks. Resource bundle is a&nbsp;standard way of wrapping
 resources in Apple ecosystem, so we created
-[`framework_to_bundle.sh`](https://gist.github.com/kam800/7e9b0fd55a3fbcd455695aab3ffa08ac) 
+[`framework_to_bundle.sh`](https://gist.github.com/kam800/7e9b0fd55a3fbcd455695aab3ffa08ac)
 script, which takes `*.framework` and outputs `*.bundle` with all the resources.
 
 The resource-handling code was redesigned to automatically use the right
@@ -137,7 +137,7 @@ this was a&nbsp;significant gain. The app launch time improved even more on
 freshly turned on iPad 2 – the difference was about 4.5 seconds, which was about
 38% of the launch time with all libraries being dynamically linked.
 
-![speedup.png](/img/articles/2018-05-28-Static-linking-vs-dyld3/speedup.png)
+![speedup.png]({% link /img/articles/2018-05-28-Static-linking-vs-dyld3/speedup.png %})
 
 ### Static linking pitfall
 
@@ -215,19 +215,19 @@ What did I&nbsp;end up with? Hidden dyld3 can be activated on macOS High Sierra
 using one of the following two approaches:
 
 1. setting ``dyld`sEnableClosures``:
-  - ``dyld`sEnableClosures`` needs to be set by e.g. using lldb `memory write`
+   - ``dyld`sEnableClosures`` needs to be set by e.g. using lldb `memory write`
     (unfortunately undocumented `DYLD_USE_CLOSURES=1` variable only works on
     Apple internal systems),
-  - `/usr/libexec/closured` needs be compiled from [dyld
+   - `/usr/libexec/closured` needs be compiled from [dyld
     sources](https://opensource.apple.com/source/dyld/) (it needs a&nbsp;few
     modifications to compile),
-  - `read` invocation in `callClosureDaemon` needs to be fixed (I filed
+   - `read` invocation in `callClosureDaemon` needs to be fixed (I filed
     a&nbsp;[bug report](https://openradar.appspot.com/40522089) for this
     issue); for the sake of tests I&nbsp;fixed it with lldb `breakpoint
     command` and a&nbsp;custom
     [lldb script](https://gist.github.com/kam800/e1f1fa143257c733a20aea2974929ab8)
     that invoked `read` in a&nbsp;loop until it returned 0, or
-2. dyld closure needs to be generated and saved to the dyld cache... but...
+1. dyld closure needs to be generated and saved to the dyld cache... but...
    what is a&nbsp;dyld closure?
 
 ### Dyld closure
@@ -257,6 +257,7 @@ $ dyld_closure_util -create_closure ~/tmp/TestMacApp.app/Contents/MacOS/TestMacA
 ```
 
 The basic JSON representation of a&nbsp;dyld closure looks as follows:
+
 ```json
 {
   "dyld-cache-uuid": "9B095CC4-22F1-3F88-8821-8DFD979AB7AD",

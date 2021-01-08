@@ -87,7 +87,7 @@ emphasis on informing each other about wrong estimates or delays (doh!) when wor
 
 We met on our retrospective meeting, after a month-long experiment, summing up the work and for inspect & adapt.
 
-![burndown](/img/articles/2015-08-scrum-ban-applied/scrum-ban-applied-burndown.png)
+![burndown]({% link /img/articles/2015-08-scrum-ban-applied/scrum-ban-applied-burndown.png %})
 
 The above burn-down chart symbolises Team’s performance from the beginning of the experiment. First two weeks were not great.
 There was a lot of context switching, people going on holidays and one large story (13sp) that we were doing for almost the
@@ -104,7 +104,7 @@ make some conclusions.
 Up till our final day of experiment we burned 72 story points — most of them in the second, two-week iteration. This gives an
 average of 18 storypoints (sp) per week or 36 sp per two weeks. Below you can see our previous Scrum-only sprints.
 
-![story points](/img/articles/2015-08-scrum-ban-applied/scrum-ban-applied-storypoints.png)
+![story points]({% link /img/articles/2015-08-scrum-ban-applied/scrum-ban-applied-storypoints.png %})
 
 As can be seen above, stories were burned quite irregularly. Average from last three sprints was 18.67 sp and 22 from
 last six sprints that happened over 3 months prior to the experiment.

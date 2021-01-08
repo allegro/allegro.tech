@@ -16,13 +16,12 @@ even if your product is already on the market. Here is some showcase:
 If you want to try it yourself, check out the
 [example app](https://play.google.com/store/apps/details?id=pl.allegro.foggerexample) on Google Play.
 
-
 ### How it works?
 The library allows to blur background under drawer, dialogs or context menu. Mechanism of blurring and attaching
 blurred background to app’s UI components looks almost the same in all three cases. Differences are connected only
 with various life cycles of UI components and the fact that even in clean Android opening a drawer and a dialog looks
 quite different.
-![schema](/img/articles/2015-07-30-android-fogger/schema.png)
+![schema]({% link /img/articles/2015-07-30-android-fogger/schema.png %})
 
 There is no way to blur some part of the screen. So at first the library creates a screenshot of the
 screen and blurs it. When the blurred image is ready, it is attached as a part of the screen, just under the element which will
@@ -55,8 +54,5 @@ Additionally, the screenshot will be blurred anyway, so there is no reason to ca
 trial and error I have found the best scale factor, which allows for taking the screenshot faster without noticeable
 quality loss.
 
-
 ### Epilogue
 The Fogger works pretty hard under the hood and it still looks smooth and is easy to use so If you think that a nice blur effect can enhance the user experience of your application, you can try the Fogger library. If you find it useful, you can join the team and contribute to it by making pull requests.
-
-
