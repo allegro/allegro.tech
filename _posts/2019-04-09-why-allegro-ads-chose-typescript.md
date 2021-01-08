@@ -12,7 +12,7 @@ We decided to start a revolution. We considered [Flow](https://flow.org/), but e
 for Allegro Ads.
 
 ## The Beginning
-The Allegro Ads project goal is to enable sellers at [Allegro](/about-us/) to advertise their offers. 2017 was a breakthrough year for it.
+The Allegro Ads project goal is to enable sellers at [Allegro]({% link about-us/index.html %}) to advertise their offers. 2017 was a breakthrough year for it.
 The key change was to be the new web page, denoted “version 2.0”.
 It was to deliver a new quality to users, quick implementation to business,
 and the prospect of boredom to testers. Has this happened?
@@ -31,7 +31,7 @@ All too often, problems occurred during integration with data from the test envi
 Usually, the reason was incorrectly formatted or missing data.
 
 The straw that broke the camel’s back was a production error, caused by a programmer incorrectly assuming that a string was a number.
-This was due to the fact that all data returned by the backend is of a string type and is only converted to a number or a date 
+This was due to the fact that all data returned by the backend is of a string type and is only converted to a number or a date
 in our system depending on each field’s meaning, then converted back to a string for display.
 During these type conversions, we could not be sure that the type was right at every stage.
 An error appearing in production was such a bad thing that we decided to take a look at static typing.
@@ -138,10 +138,10 @@ export class KeywordPhrasesModel extends Model<KeywordPhrasesModel> {
     public constructor(
        readonly additionalKeywords: List<string> = List(),
        readonly requiredPhrases: List<string> = List(),
-       readonly forbiddenPhrases: List<string> = List() 
+       readonly forbiddenPhrases: List<string> = List()
     ) {
         super();
-    } 
+    }
 }
 ```
 

@@ -14,9 +14,9 @@ logging is a cost paid in your application’s responsiveness.
 Logging seems to be dead simple — you just spit out text messages that should be helpful when diagnosing application
 problems. This approach is wrong for at least two reasons:
 
- - One should think carefully what to log, when to log and what logging level to use for different messages so that logs
+- One should think carefully what to log, when to log and what logging level to use for different messages so that logs
 don’t resemble a huge useless wall of text. Any anomalies or fatal errors should be easily visible.
- - Even if one has spent enough time on the complete logging approach, there are some technical bits you should know and
+- Even if one has spent enough time on the complete logging approach, there are some technical bits you should know and
 keep in mind.
 
 I will start off with a list of most popular logging frameworks and explain why it is important to use logging levels,
@@ -35,11 +35,11 @@ abstraction layer. All the remaining abstraction frameworks fit into the remaini
 
 There are more logging frameworks than abstraction layers and they can be used directly. These are the most popular ones:
 
- - [Log4j](http://logging.apache.org/log4j/1.2/): a bit old but mature and still very popular
- - [Log4j2](http://logging.apache.org/log4j/2.x/): new, and much better, version of Log4j
- - [Logback](http://logback.qos.ch/): written by one of the authors of Log4j ("Logback is intended as a successor to the
+- [Log4j](http://logging.apache.org/log4j/1.2/): a bit old but mature and still very popular
+- [Log4j2](http://logging.apache.org/log4j/2.x/): new, and much better, version of Log4j
+- [Logback](http://logback.qos.ch/): written by one of the authors of Log4j ("Logback is intended as a successor to the
 popular log4j project, picking up where log4j leaves off." - Ceki Gülcü)
- - [java.util.logging (JULI)](http://docs.oracle.com/javase/8/docs/technotes/guides/logging/overview.html): provided by
+- [java.util.logging (JULI)](http://docs.oracle.com/javase/8/docs/technotes/guides/logging/overview.html): provided by
 JDK since version 1.4
 
 Unless stated otherwise, in this article I will refer to Logback + SLF4J configuration because this setup is widely
@@ -92,11 +92,11 @@ public class SomeService {
    private static final Logger metricsLogger = LoggerFactory.getLogger("METRICS");
 
    public void writeStuffToDatabase(...) {
-   		long start = System.currentTimeMillis();
+           long start = System.currentTimeMillis();
 
-   		// perform the DB Save
+           // perform the DB Save
 
-   		metricsLogger.trace("Save to DB took {} ms", (System.currentTimeMillis() - start));
+           metricsLogger.trace("Save to DB took {} ms", (System.currentTimeMillis() - start));
    }
 }
 
@@ -104,20 +104,20 @@ public class AnotherService {
    private static final Logger metricsLogger = LoggerFactory.getLogger("METRICS");
 
    public void sendDataToExternalMicroservice(...) {
-   		long start = System.currentTimeMillis();
+           long start = System.currentTimeMillis();
 
-   		// perform the call to external REST endpoint
+           // perform the call to external REST endpoint
 
-   		metricsLogger.trace("Data sending took {} ms", (System.currentTimeMillis() - start));
+           metricsLogger.trace("Data sending took {} ms", (System.currentTimeMillis() - start));
    }
 }
 ```
 
 This code obviously has some issues (but it was meant to be very simple):
 
- - such logging should not be mixed with regular business logic: use [AOP (Aspect Oriented Programming)](https://en.wikipedia.org/wiki/Aspect-oriented_programming)
+- such logging should not be mixed with regular business logic: use [AOP (Aspect Oriented Programming)](https://en.wikipedia.org/wiki/Aspect-oriented_programming)
 for that — it will be discussed later
- - it uses `System.currentTimeMillis()` instead of `System.nanoTime()`: this was done deliberately to simplify the code.
+- it uses `System.currentTimeMillis()` instead of `System.nanoTime()`: this was done deliberately to simplify the code.
 
 Otherwise it would have to use `TimeUnit.NANOSECONDS.toMillis(...)` which would clutter it a little bit. The context is
 clearly visible: named loggers are a good and very easy way to group logs from different parts of the application. By grouping
@@ -148,7 +148,6 @@ To output a given "stamp" from MDC to our logfile, you just have to tell Logback
 
 MDC exists in Log4j2 as well, but under a different name: [Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html).
 
-
 ## Know your tools
 
 Everyone knows how to log messages, period. But do they really? All too often, when I browse Java code I see very simple
@@ -161,29 +160,28 @@ JavaDocs in their IDEs. In case of SLF4J + Logback combo, it can result in code 
 
 ```
 public class UserDao {
-	private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
 
-	public void updateUserEmail(long userId, String email) {
-		logger.trace("’updateUserEmail’ called with args: userId= "+ userId +", email= "+ email);
+    public void updateUserEmail(long userId, String email) {
+        logger.trace("’updateUserEmail’ called with args: userId= "+ userId +", email= "+ email);
 
-		// normal DB related logic
-	}
+        // normal DB related logic
+    }
 }
 ```
 
 A simple log message one could say. Yes — it is simple, but it is also written in a very cumbersome way that does not
 use SLF4J API’s at all. A correct way to log such a message is:
 
-
 ```
 public class UserDao {
-	private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
 
-	public void updateUserEmail(long userId, String email) {
-		logger.trace("’updateUserEmail’ called with args: userId= {}, email= {}", userId, email);
+    public void updateUserEmail(long userId, String email) {
+        logger.trace("’updateUserEmail’ called with args: userId= {}, email= {}", userId, email);
 
-		// normal DB related logic
-	}
+        // normal DB related logic
+    }
 }
 ```
 
@@ -199,16 +197,16 @@ only way to log an exception and so they write code similar to this:
 
 ```
 public class UserDao {
-	private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
 
-	public void updateUserEmail(long userId, String email) {
-		try {
-			// normal DB related logic
-		} catch (Exception e) {
-			// don’t mind that we catch raw Exception ;)
-			logger.error("Exception while updating user’s (id="+ userId +") email to: "+ email, e);
-		}
-	}
+    public void updateUserEmail(long userId, String email) {
+        try {
+            // normal DB related logic
+        } catch (Exception e) {
+            // don’t mind that we catch raw Exception ;)
+            logger.error("Exception while updating user’s (id="+ userId +") email to: "+ email, e);
+        }
+    }
 }
 ```
 
@@ -219,16 +217,16 @@ this, the code can be rewritten once more:
 
 ```
 public class UserDao {
-	private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
 
-	public void updateUserEmail(long userId, String email) {
-		try {
-			// normal DB related logic
-		} catch (Exception e) {
-			// don’t mind that we catch raw Exception ;)
-			logger.error("Exception while updating user’s (id={}) email to: {}", userId, email, e);
-		}
-	}
+    public void updateUserEmail(long userId, String email) {
+        try {
+            // normal DB related logic
+        } catch (Exception e) {
+            // don’t mind that we catch raw Exception ;)
+            logger.error("Exception while updating user’s (id={}) email to: {}", userId, email, e);
+        }
+    }
 }
 ```
 
@@ -238,15 +236,15 @@ Take a look at the following (improved) snippet:
 
 ```
 public class UserDao {
-	private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
 
-	public void updateUserEmail(long userId, String email) {
-		if (logger.isTraceEnabled()) {
-			logger.trace("’updateUserEmail’ called with args: userId= {}, email= {}", userId, email);
-		}
+    public void updateUserEmail(long userId, String email) {
+        if (logger.isTraceEnabled()) {
+            logger.trace("’updateUserEmail’ called with args: userId= {}, email= {}", userId, email);
+        }
 
-		// normal DB related logic
-	}
+        // normal DB related logic
+    }
 }
 ```
 
@@ -257,7 +255,6 @@ a good idea to save some CPU cycles, but in this case completely unnecessary as 
 When you log a message using a proper call to `Logger.trace(format, argument1, argument2, ...)` no final log message gets
 created (from format and provided arguments) unless TRACE level is enabled on this particular logger. It is a neat thing
 and definitely worth remembering.
-
 
 ### MDC vs Thread Boundaries
 
@@ -271,6 +268,8 @@ stamps. Let’s read the JavaDoc for this class:
 is created, the child receives initial values for all inheritable thread-local variables for which the parent has values.
 Normally the child’s values will be identical to the parent’s; however, the child’s value can be made an arbitrary function
 of the parent’s by overriding the childValue method in this class.
+
+&nbsp;
 
 > Inheritable thread-local variables are used in preference to ordinary thread-local variables when the per-thread-attribute
 being maintained in the variable (e.g., User ID, Transaction ID) must be automatically transmitted to any child threads that
@@ -299,7 +298,7 @@ public static class MdcCopyingCallableWrapper<T> implements Callable<T> {
 
     @Override
     public T call() throws Exception {
-    	 // MDC.getCopyOfContextMap() can return null, so be careful!
+         // MDC.getCopyOfContextMap() can return null, so be careful!
         Map<String, String> previous = MDC.getCopyOfContextMap();
         setMdcContext(context);
 
@@ -351,7 +350,6 @@ String concatenation instead of proper calls to API’s methods (I talked about 
 concatenate log messages that may not be logged anywhere because configured logging levels will not allow it. In such a
 situation lots of CPU cycles will be wasted.
 
-
 #### Improper use of logging levels
 
 Logging too much and/or too detailed information on wrong levels (I talked about it in "Logging levels" section) will
@@ -370,19 +368,19 @@ extremely simple code to illustrate such a situation:
 
 ```
 public class UserDao {
-	private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
 
-	public long saveUser(User user) {
-		if (logger.isTraceEnabled()) {
-			//
-			// perform some very costly pre-processing on User object before logging
-			//
-			String preProcessedUserData = preProcess(user);
-			logger.trace("Method ’saveUser’ called with arguments: user = {}", preProcessedUserData);
-		}
+    public long saveUser(User user) {
+        if (logger.isTraceEnabled()) {
+            //
+            // perform some very costly pre-processing on User object before logging
+            //
+            String preProcessedUserData = preProcess(user);
+            logger.trace("Method ’saveUser’ called with arguments: user = {}", preProcessedUserData);
+        }
 
-		// normal DB related logic
-	}
+        // normal DB related logic
+    }
 }
 ```
 
@@ -554,7 +552,6 @@ Getting method name and arguments’ values is very simple. Aspects can be used 
 think twice before putting any business related logic in aspects. They are very good for infrastructure concerns that cut
 through big parts of an application but usually don’t go too well together with business functionalities. Business code
 belongs in business components. Most developers will not look for business code in aspects.
-
 
 ## Summary
 

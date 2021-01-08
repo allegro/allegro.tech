@@ -37,7 +37,7 @@ a tremendous job of documenting and explaining all of the quirks.
 ### Test target setup
 First of all we need a test target. We’ll add a new UI Testing bundle to our project:
 
-![UI Testing bundle](/img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/test_target.png)
+![UI Testing bundle]({% link /img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/test_target.png %})
 
 We want to run UI tests as part of CI and also allow developers to immediately see if their code changes are passing
 UI tests when they run tests manually.
@@ -46,9 +46,9 @@ our default scheme.
 
 To do this we have to set up our project as on the screens below:
 
-![Build phase](/img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/uitests_build.png)
+![Build phase]({% link /img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/uitests_build.png %})
 
-![Test phase](/img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/uitests_test.png)
+![Test phase]({% link /img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/uitests_test.png %})
 
 ### Disabling animations
 
@@ -195,7 +195,7 @@ It doesn’t need comments anymore, does it?
 
 But if we run the test, we’ll discover a nasty side-effect of our helper methods:
 
-![Error in helper](/img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/helper.png)
+![Error in helper]({% link /img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/helper.png %})
 
 Error marker is placed within the helper method when the test fails.
 This is not a big problem when the helper is used only once, but we’ll be using it multiple times in test methods.
@@ -218,7 +218,7 @@ func checkProductPrice(_ price: String, file: StaticString = #file, line: UInt =
 We can see that the marker is correctly placed when we run the test again. We didn’t even have to change anything in our
 test method!
 
-![Error in test method](/img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/helper_correct.png)
+![Error in test method]({% link /img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/helper_correct.png %})
 
 ## Network data stubbing
 
@@ -320,9 +320,9 @@ We can achieve this by adding pre- and post-actions for Test action that will ru
 Assuming that `wiremock.sh` is made executable and placed in `WireMock` directory under `applicationUITests` our actions
 would look like this:
 
-![Pre-action](/img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/pre_action.png)
+![Pre-action]({% link /img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/pre_action.png %})
 
-![Post-action](/img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/post_action.png)
+![Post-action]({% link /img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/post_action.png %})
 
 So now we start WireMock before every test session, but... our application is not using it. We have to configure the
 project and make a small change in application code so that it connects to localhost when needed.
@@ -336,17 +336,17 @@ build flag at compilation time.
 To achieve this we have to clone the Debug configuration (as this is the configuration used by Test) on project Info
 screen and give the new configuration a meaningful name (e.g. Localhost).
 
-![Configuration clone](/img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/configuration_clone.png)
+![Configuration clone]({% link /img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/configuration_clone.png %})
 
 Build configurations should look like this afterwards:
 
-![Build configurations](/img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/configuration_localhost.png)
+![Build configurations]({% link /img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/configuration_localhost.png %})
 
 Now we have to add a new custom flag (-DLOCALHOST) for
 [Swift](https://developer.apple.com/swift/)
 compiler on Build Settings screen like this:
 
-![Custom flag](/img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/custom_flag.png)
+![Custom flag]({% link /img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/custom_flag.png %})
 
 It’s time to make sure localhost is used instead of real API URL in Localhost configuration.
 We have to add conditional code in the place where API URL is defined:
@@ -385,7 +385,7 @@ fi
 
 Build phases should be ordered like this:
 
-![Build phases](/img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/build_phases.png)
+![Build phases]({% link /img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/build_phases.png %})
 
 ## Using data from mocks in tests
 
@@ -397,11 +397,11 @@ We can do this by creating a simple mock data parser for tests.
 But first things first — let’s bundle mocks with the test bundle so we have files to read from.
 The easiest way to do it is to reference  `__files` directory in the UI test target like this:
 
-![Adding files](/img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/add_files.png)
+![Adding files]({% link /img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/add_files.png %})
 
 Afterwards we’ll have a reference to the `__files` directory in our project structure:
 
-![Directory reference](/img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/directory_reference.png)
+![Directory reference]({% link /img/articles/2016-10-24-self-contained-ui-tests-for-ios-applications/directory_reference.png %})
 
 This way we can easily access mock files in Xcode and they will be automatically bundled with test bundle.
 

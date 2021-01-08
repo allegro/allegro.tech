@@ -16,7 +16,7 @@ available tools, frameworks and even languages is enormous, just to mention a fe
 [Selenium](http://www.seleniumhq.org/).
 Dozens of other tools can help you verify whether your code is working properly. Besides, I assume you are familiar with
 TDD and BDD methodologies which are rather standard nowadays. Nevertheless, all of these tools have common
-limitations – they check your test environment only. Let me show you how one of [Allegro](/about-us/) teams responsible for the
+limitations – they check your test environment only. Let me show you how one of [Allegro]({% link about-us/index.html %}) teams responsible for the
 [Offer Listing](http://allegro.pl/dodatki-do-plyt-cd-dvd-etui-albumy-4735) tests the production environment.
 
 ### Does it work?
@@ -177,4 +177,3 @@ every sort option should give us some dose of certainty. After the test we want 
 problem. We do not care about a single case or particular item. We must be able to tell our Product Owner: „yes, our
 data is totally correct”, or „no, 187 of 519,000 items present incorrect data”. Right now, we just get information that
 items are broken, which may suggest that something bigger is broken. Anyway, it is still useful information, is it not?
-

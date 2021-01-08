@@ -19,7 +19,7 @@ framework in our team, so this article contains a few technical details specific
 presented in this article are applicable to any framework. They work very well with
 [Behavior—driven development](https://en.wikipedia.org/wiki/Behavior-driven_development) (BDD) frameworks, like JBehave,
 about which Grzegorz Witkowski recently
-[blogged](/2015/03/acceptance-testing-with-jbehave-and-gradle.html).
+[blogged]({% post_url 2015-03-02-acceptance-testing-with-jbehave-and-gradle %}).
 
 ### Ubiquitous language in tests
 
@@ -58,17 +58,21 @@ Let’s consider a simple case — request for recommendations from a new anonym
 history. The most basic recommendation that we can show to him is just some bestselling item in the category which he’s
 browsing right now. We could implement it in the following way:
 
-    Scenario: recommendations for an anonymous user in a category listing.
-    Given an Item 1 in Category A and an Item 2 in Category B
-    When anonymous user visits Category A
-    Then he sees Item 1 as recommended item
+```
+Scenario: recommendations for an anonymous user in a category listing.
+Given an Item 1 in Category A and an Item 2 in Category B
+When anonymous user visits Category A
+Then he sees Item 1 as recommended item
+```
 
 Here’s the same example, but using characters and items from our domain:
 
-    Scenario: recommendations for an anonymous user in a category listing.
-    Given a Gold Ring and a Wooden Staff
-    When anonymous user visits a Magic Rings category
-    Then he sees a Gold Ring as recommended item
+```
+Scenario: recommendations for an anonymous user in a category listing.
+Given a Gold Ring and a Wooden Staff
+When anonymous user visits a Magic Rings category
+Then he sees a Gold Ring as recommended item
+```
 
 In our opinion the second scenario is more readable, as it’s obvious that Wooden Staff doesn’t match Magic Rings
 category.
@@ -112,14 +116,16 @@ implicit methods etc. but it adds complexity. This is a trade-off which you have
 
 Dan North in his [Introducing BDD](http://dannorth.net/introducing-bdd/) article gives an ATM cash withdrawal example:
 
-    +Scenario 1: Account is in credit+
-    Given the account is in credit
-    And the card is valid
-    And the dispenser contains cash
-    When the customer requests cash
-    Then ensure the account is debited
-    And ensure cash is dispensed
-    And ensure the card is returned
+```
++Scenario 1: Account is in credit+
+Given the account is in credit
+And the card is valid
+And the dispenser contains cash
+When the customer requests cash
+Then ensure the account is debited
+And ensure cash is dispensed
+And ensure the card is returned
+```
 
 If we were working in a banking domain, we would probably choose James Bond movies domain. We could reflect these steps
 by using manipulators and our own specs2 matchers to implement this scenario as follows:

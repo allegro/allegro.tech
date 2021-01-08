@@ -48,7 +48,6 @@ daemon that does database connection pooling to Oracle for our PHP application w
 almost decade now. We could have shared it with open source community. Unfortunately there was always something else
 to do.
 
-
 ### Switching from structural code to something quite similar
 
 There were almost no PHP frameworks in 1999. For example [Zend Framework](http://framework.zend.com/) was released in
@@ -109,7 +108,7 @@ When significant parts of infrastructure were ready, other teams joined in one b
 
 * clear line between new and old code – it was impossible to use an old function in the new code. Therefore,
 the old code could not affect the new one. The only way to use an old function was through an
-[Anti-Corruptions Layer](/2015/01/working-with-legacy-architecture.html),
+[Anti-Corruptions Layer]({% post_url 2015-01-21-working-with-legacy-architecture %}),
 an abstract layer on the top of the old function that “processes” queries submitted to other services.
 * new data structures – our services own their data, so they did not have to ensure backward compatibility and
 could create new, better structures.
@@ -121,7 +120,6 @@ and which was just legacy code no longer in use. This allowed us to simplify the
 which were no longer needed, reducing the number of complex if-expressions.
 * ease of using new technologies – we were not limited by old technologies and we could easily use whatever we wanted.
  At least in the beginning.
-
 
 **Cons:**
 
@@ -172,7 +170,7 @@ if there is no reason to use another language.
 * this approach is adopted by all our teams; additionally we have technical teams that deal with issues such as event
 bus, discovery service, common libraries, etc.
 * if we are not able to rewrite the whole functionality at once, we create
-[Anti-Corruptions Layers](/2015/01/working-with-legacy-architecture.html) to make sure that
+[Anti-Corruptions Layers]({% post_url 2015-01-21-working-with-legacy-architecture %}) to make sure that
 the old code structure will not affect the new one.
 
 Such a big transformation would not be possible without understanding and support from business side. Architects
@@ -198,7 +196,6 @@ developer can work on an existing service. Such a service is easy to maintain, c
 and rewrite. Its borders are clear.
 * independent releases – because services have separated frontends, there is no need to synchronize the release.
 * all SOA advantages – I should copy-paste here some articles about SOA, because we simply reap all the benefits.
-
 
 **Cons:**
 
@@ -242,4 +239,3 @@ have noticed, refactoring a huge application such as the Allegro platform is not
 You need to think not only about code, but about people and their habits as well. You need to create an environment,
 which will naturally support developers in providing good software. Sometimes, you need to modify the way your teams or
 even the whole organization work.
-

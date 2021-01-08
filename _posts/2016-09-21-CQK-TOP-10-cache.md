@@ -5,7 +5,7 @@ author: bartosz.walacik
 tags: [tech, cqk-top-10, cache]
 ---
 
-> This article is a part of [CQK Top 10](/2016/09/CQK-TOP-10.html) series.
+> This article is a part of [CQK Top 10]({% post_url 2016-09-23-CQK-TOP-10 %}) series.
 
 Many developers add cache to their application without measuring its performance impact.
 We are advising here that each application cache should have a very good reason to exists.
@@ -158,5 +158,3 @@ stability risks and requirements:
   with the previous item model or the cache must be purged before application deployment.
 * In fact, a distributed cache is another service dependency. You are supposed
   to develop some fallback for the case of its outage.
-
-

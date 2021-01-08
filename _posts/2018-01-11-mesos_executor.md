@@ -22,9 +22,7 @@ write custom integrations with your ecosystem.
 
 ## Apache Mesos
 
-
 > [“Sixty-four cores or 128 cores on a single chip look a lot like 64 machines or 128 machines in a data center.” – Ben Hindman](https://www.wired.com/2013/03/google-borg-twitter-mesos/)
-
 
 Apache Mesos is a tool to abstract your data center resources. In contrast to
 many container orchestrators such as
@@ -35,7 +33,6 @@ use of two-level scheduling. This means Mesos is responsible only for offering
 resources to higher level applications called frameworks or schedulers. It’s
 up to a framework if it accepts an offer or declines it.
 
-
 Mesos development originates from Berkeley University. The idea was not totally
 new. Google already had a similar system called [Borg](https://research.google.com/pubs/pub43438.html) for some time. Rapid
 development of Mesos started when one of its creators – Ben Hindman gave a
@@ -43,7 +40,6 @@ talk at Twitter presenting Mesos – then development got a boost. Twitter
 employed Ben and decided to use Mesos as a resource management system and to
 build a dedicated framework – [Aurora](http://aurora.apache.org/). Both projects were donated to Apache
 foundation and became top-level projects.
-
 
 Currently Mesos is used [by many companies](http://mesos.apache.org/documentation/latest/powered-by-mesos/)
 including Allegro, Apple, Twitter, Alibaba and others.
@@ -57,8 +53,7 @@ At that time there were no mature and battle-proven competitive solutions.
 
 A Mesos Cluster is built out of three main elements: Masters, Agents and Frameworks.
 
-![Mesos Architecture](/img/articles/2018-01-11-mesos_executor/mesos_architecture.png){: .center-image }
-
+![Mesos Architecture]({% link /img/articles/2018-01-11-mesos_executor/mesos_architecture.png %}){: .center-image }
 
 ### Masters
 A Mesos Master is the brain of the whole datacenter. It controls the state of a
@@ -87,7 +82,6 @@ For example: batch jobs (e.g. Hadoop, Spark), stateless services, continuous
 integration (e.g., Jenkins), databases and caches (e.g., Arango, Cassandra,
 Redis).
 
-
 Beside those big elements, there are also smaller parts of the whole
 architecture. One of them are executors.
 
@@ -102,7 +96,6 @@ Then, in turn, the Agent notifies the framework about the task state change.
 The Executor can perform health checks and any other operations required by a
 framework to run a task.
 
-
 There are four types of executors:
 
 * Command Executor – Speaks [V0 API](http://mesos.apache.org/api/latest/c++/namespacemesos.html)
@@ -116,7 +109,6 @@ and is capable of running pods (aka task groups).
 is written by a user to handle custom workloads. It can use V0 or V1 API and
 can run single or multiple tasks depending on implementation. In this article
 we are focusing on our custom implementation and what we achieved with it.
-
 
 <div class="i-wrapper"><div>
 <iframe height="315"  width="420" src="https://www.youtube.com/embed/tzaYXgnYKyQ" frameborder="0" allowfullscreen></iframe>
@@ -164,7 +156,7 @@ We replaced this logic with our executor that, by using the certificate to
 authenticate, is able to download the decrypted configuration and pass it in
 environment variables to the task that is launched.
 
-![Config](/img/articles/2018-01-11-mesos_executor/config.svg){: .center-image }
+![Config]({% link /img/articles/2018-01-11-mesos_executor/config.svg %}){: .center-image }
 
 ### IX. Disposability – Maximize robustness with fast startup and graceful shutdown
 
@@ -175,8 +167,7 @@ Although the Mesos Command Executor supports graceful shutdown in configuration
 it does not work properly with shell commands (see
 [MESOS-6933](https://issues.apache.org/jira/browse/MESOS-6933)).
 
-
-![Lifecycle](/img/articles/2018-01-11-mesos_executor/lifecycle.svg){: .center-image }
+![Lifecycle]({% link /img/articles/2018-01-11-mesos_executor/lifecycle.svg %}){: .center-image }
 
 Above diagram presents the life cycle of a typical task. At the beginning
 its binaries are fetched and the executor is started (1). After starting, the
@@ -198,8 +189,7 @@ the default command executor and restarted it a couple of times (more errors).
 There are errors due to missing cache warmup at start, but we see a huge
 reduction of errors during deployments.
 
-
-![Opbox](/img/articles/2018-01-11-mesos_executor/opbox.png){: .center-image }
+![Opbox]({% link /img/articles/2018-01-11-mesos_executor/opbox.png %}){: .center-image }
 
 What’s more, with this approach we can notify the user that an external
 service errored using [Task State Reason](http://mesos.apache.org/documentation/latest/task-state-reasons/),
@@ -214,9 +204,7 @@ which register or deregister the instance from Consul. This caused a delay, inst
 was deregistered when it was already gone. With Executor we can guarantee
 that application will not get any traffic before we shut it down.
 
-
 ### XI. Logs – Treat logs as event streams
-
 
 > [A twelve-factor app never concerns itself with routing or storage of its
 output stream. It should not attempt to write to or manage logfiles. Instead,
@@ -249,10 +237,7 @@ by Mesos), would be appreciated. Finally upgrading Mesos often required us to
 recompile all modules, thus maintaining different binaries for different Mesos
 versions
 
-![.so](/img/articles/2018-01-11-mesos_executor/shared.jpg){: .center-image }
-
-
-
+![.so]({% link /img/articles/2018-01-11-mesos_executor/shared.jpg %}){: .center-image }
 
 A lot of solutions for Mesos maintain their own executors because other
 integration methods are not as flexible, for example:
@@ -269,15 +254,13 @@ Task Sandbox Cleanup,Graceful Task Killing, Environment Setup, Runner Script](ht
 
   > [Container Apache Mesos executor written in Go. It actually can launch Docker containers but is designed to accept others container engines as soon as they implement the containerizer interface. The particuliarity of this executor is the fact that it can use hooks to do actions at some container life steps.](https://github.com/Devatoria/go-mesos-executor)
 
-
 We also made a mistake by putting our service integration logic directly into
 the executor binary. As a result, the integration code became tightly coupled
 with Mesos specific code, making it significantly more difficult to use it in
 other places – e.g. Kubernetes. We are in the process of separating this code
 into stand-alone binaries.
 
-![.so](/img/articles/2018-01-11-mesos_executor/glue.jpg){: .center-image }
-
+![.so]({% link /img/articles/2018-01-11-mesos_executor/glue.jpg %}){: .center-image }
 
 ## Comparison with other solutions (read [K8s](https://kubernetes.io/))
 
