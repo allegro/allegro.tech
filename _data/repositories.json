@@ -49,7 +49,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 4541,
+            "stars": 4544,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -64,7 +64,7 @@
         {
             "name": "ralph",
             "url": "https://github.com/allegro/ralph",
-            "stars": 1495,
+            "stars": 1496,
             "description": "Ralph is the CMDB / Asset Management system for data center and back office hardware.",
             "featured": {
                 "primary": true,
@@ -94,7 +94,7 @@
         {
             "name": "php-protobuf",
             "url": "https://github.com/allegro/php-protobuf",
-            "stars": 897,
+            "stars": 896,
             "description": "PHP Protobuf - Google's Protocol Buffers for PHP",
             "featured": {
                 "primary": false,
