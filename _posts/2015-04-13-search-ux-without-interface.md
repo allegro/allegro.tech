@@ -5,7 +5,7 @@ author: [alicja.antkowiak, edyta.kopczynska, krystian.szczucki, piotr.plys]
 tags: [tech, ux]
 ---
 
-[Allegro]({{site.baseurl}}{% link /about-us/ %} ) is a leading Central European e-commerce platform, offering a vast diversity of new
+[Allegro]({{ '/about-us' | prepend: site.url }}) is a leading Central European e-commerce platform, offering a vast diversity of new
 and pre-owned products. Search engine is the main entry point to allegro.pl product stock.
 Designing a bunch of UX metrics for a [SaaS](http://pl.wikipedia.org/wiki/Software_as_a_Service) solution or
 a social networking site is a must. Typically no one would dare
@@ -14,7 +14,7 @@ discuss whether it is worth our time to measure the effect of changes through an
 the impact on metrics. When it came to search engine — a back office product with almost no interface — we had our
 doubts. We are the search team behind the Allegro search engine. This is the complete interface of our product:
 
-![allegro search]({% link /img/articles/2015-04-13-allegro-search.png %})
+![allegro search]({{site.baseurl}}/{% link /img/articles/2015-04-13-allegro-search.png %})
 
 And this is it. Not much visible for users but there are huge challenges hidden behind it.
 

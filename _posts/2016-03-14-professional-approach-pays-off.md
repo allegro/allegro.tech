@@ -43,7 +43,7 @@ undergoing release process. According to numerous research results, users don’
 unavailable when undergoing changes, it becomes even less attractive. That is why we had to find out how to release small chunks of
 software in a secure way.
 
-![bamboo](/img/articles/2016-03-14-professional-approach-pays-off/from-idea-to-development.png "Bamboo")
+![bamboo]({{site.baseurl}}/{% link /img/articles/2016-03-14-professional-approach-pays-off/from-idea-to-development.png %} "Bamboo")
 
 ## Large scale A/B testing
 
@@ -93,7 +93,7 @@ obstacles. We knew our product was good and knew we did a good job when developi
 during a dinner. At the same time we followed all the procedures and best practices. And last but not least – we understood how important
 it was to act professionally. That is why we were so confident during the release. _Don’t you find working from a bistro inspiring?_
 
-![bistro](/img/articles/2016-03-14-professional-approach-pays-off/outcome.jpg "Release from bistro")
+![bistro]({{site.baseurl}}/{% link /img/articles/2016-03-14-professional-approach-pays-off/outcome.jpg %} "Release from bistro")
 
 ## Lessons learned
 

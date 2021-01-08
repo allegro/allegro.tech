@@ -156,7 +156,7 @@ It doesn’t support routing or HTTP/2 and claim that could not support all HTTP
 It’s good for small projects with simple API, so
 we would stick to default HTTP for normal (non hyper performance) projects.
 
-![fasthttp vs nethttp](/img/articles/2016-03-30-fast-cache-service-in-go-lang/fasthttp-vs-nethttp.png "fasthttp vs nethttp")
+![fasthttp vs nethttp]({{site.baseurl}}/{% link /img/articles/2016-03-30-fast-cache-service-in-go-lang/fasthttp-vs-nethttp.png %} "fasthttp vs nethttp")
 
 ## JSON deserialization
 
@@ -207,11 +207,11 @@ The chart below presents a comparison of response times before and after optimiz
 During the test we were sending 10k rps, from which 5k were writes and another 5k were reads.
 Eviction time was set to 10 minutes. The test was 35 minutes long.
 
-![response times before and after optimizations](/img/articles/2016-03-30-fast-cache-service-in-go-lang/results-before-and-after-optimizations.png "results before and after optimizations")
+![response times before and after optimizations]({{site.baseurl}}/{% link /img/articles/2016-03-30-fast-cache-service-in-go-lang/results-before-and-after-optimizations.png %} "results before and after optimizations")
 
 Final results in isolation, with the same setup as described above.
 
-![final results](/img/articles/2016-03-30-fast-cache-service-in-go-lang/results-after-optimizations.png "final results")
+![final results]({{site.baseurl}}/{% link /img/articles/2016-03-30-fast-cache-service-in-go-lang/results-after-optimizations.png %} "final results")
 
 ## Summary
 

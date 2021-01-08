@@ -4,7 +4,7 @@
 <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"/>
 <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
 <meta property="og:type" content="{% if page.title %}article{% else %}site{% endif %}"/>
-<meta property="og:image" content="{{ site.url }}/img/allegro-tech.png"/>
+<meta property="og:image" content="{{ site.url }}{{site.baseurl}}/img/allegro-tech.png"/>
  {% if page.title %}
   <meta name="twitter:creator" content="@allegrotech"/>
   <meta property="og:description" content="{{ page.excerpt | strip_html}}"/>

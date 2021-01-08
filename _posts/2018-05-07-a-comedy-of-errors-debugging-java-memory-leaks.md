@@ -53,7 +53,7 @@ These pauses also explained why the whole application kept dying rather than jus
 Our apps run inside [Marathon](https://mesosphere.github.io/marathon/), which regularly polls a healthcheck endpoint
 of each instance and if the endpoint isn’t responding within reasonable time, Marathon restarts that instance.
 
-![20-second GC pauses — certainly not your average GC log]({% link /img/articles/2018-02-09-a-comedy-of-errors-debugging-java-memory-leaks/adventory-gc-pause-20-s.png %}){: .center-image }
+![20-second GC pauses — certainly not your average GC log]({{site.baseurl}}/{% link /img/articles/2018-02-09-a-comedy-of-errors-debugging-java-memory-leaks/adventory-gc-pause-20-s.png %}){: .center-image }
 
 Knowing the cause of a problem is half the battle, so I was very confident that the issue would be solved in no time. In order to explain
 my further reasoning, I have to say a bit more about how Adventory works, for it is not your standard microservice.
@@ -91,7 +91,7 @@ counts and sizes of objects in the heap. A quick look revealed that the number o
 and kept growing all the time during indexing, up to a number which bore a striking resemblance to the number of ads we were processing.
 But… this couldn’t be. After all, we were streaming the records using RX exactly for this reason: in order to avoid loading all of the data into memory.
 
-![Memory Sampler showed many more Ad objects than we expected]({% link /img/articles/2018-02-09-a-comedy-of-errors-debugging-java-memory-leaks/memory-sampler-many-ad-objects.png %}){: .center-image }
+![Memory Sampler showed many more Ad objects than we expected]({{site.baseurl}}/{% link /img/articles/2018-02-09-a-comedy-of-errors-debugging-java-memory-leaks/memory-sampler-many-ad-objects.png %}){: .center-image }
 
 With growing suspicion, I inspected the code, which had been written about two years before and never seriously revisited since.
 Lo and behold, we were actually loading all data into memory. It was, of course not intended. Not knowing RxJava well enough at that
@@ -147,7 +147,7 @@ However, the story was not over yet. Looking at GC logs, we still noticed lots o
 performance was already acceptable, we tried to get rid of this effect, hoping to perhaps also prevent the full garbage collection
 at the same time.
 
-![Lots of premature tenuring]({% link /img/articles/2018-02-09-a-comedy-of-errors-debugging-java-memory-leaks/premature-tenuring-with-backpressure-added.png %}){: .center-image }
+![Lots of premature tenuring]({{site.baseurl}}/{% link /img/articles/2018-02-09-a-comedy-of-errors-debugging-java-memory-leaks/premature-tenuring-with-backpressure-added.png %}){: .center-image }
 
 Premature tenuring (also known as premature promotion) happens when an object is short-lived but gets promoted to the old (tenured)
 generation anyway. Such objects may affect GC performance since they stuff up the old generation which is usually much larger and uses
@@ -177,7 +177,7 @@ What we ended up doing was just increasing the app’s heap size a bit (from 3 t
 of premature tenuring but since performance is OK now, we don’t care so much any more. One option we could try would be switching to CMS
 (Concurrent Mark Sweep) GC, but since it is deprecated by now, we’d rather avoid using it if possible.
 
-![Problem fixed — GC pauses after all changes and 4 GB heap]({% link /img/articles/2018-02-09-a-comedy-of-errors-debugging-java-memory-leaks/adventory-gc-pause-fixed-4-gb.png %}){: .center-image }
+![Problem fixed — GC pauses after all changes and 4 GB heap]({{site.baseurl}}/{% link /img/articles/2018-02-09-a-comedy-of-errors-debugging-java-memory-leaks/adventory-gc-pause-fixed-4-gb.png %}){: .center-image }
 
 So what is the moral of the story? First, performance issues can easily lead you astray. What at first seemed to be a ZooKeeper or network
 issue, turned out to be an error in our own code. Even after realizing this, the first steps I undertook were not well thought out.

@@ -18,7 +18,7 @@ using Java 8 will become more of a necessity. It is better to be ahead of the cr
 We also expected gains in productivity from new features such as lambda expressions, so reaping these benefits reasonably early seemed
 like a good idea.
 
-You may wonder why we wanted to spend time on Java 8 with Scala being around. At [Allegro]({{site.baseurl}}{% link /about-us/ %} ), development teams
+You may wonder why we wanted to spend time on Java 8 with Scala being around. At [Allegro]({{ '/about-us' | prepend: site.url }}), development teams
 have a lot of freedom in choosing the technology stack they want to use, as long as they take full responsibility for the products they
 develop. This allows for testing out new ideas without putting the delivery of business value at risk. We do write some code in Scala
 (some teams even use Scala as their major language), there are guys using some Clojure here and there, and there are dozens of technologies
@@ -66,7 +66,7 @@ Our Solutions Architects were central to making this happen and were able to sol
 one of these guys at a time when FindBugs was not yet compatible with Java 8. He had already understood the cause and even had a patch,
 he just didn't want to deploy it company-wide until it was merged upstream.
 
-![Example checklist in our Wiki, showing elements needed for Java 8 readiness](/img/articles/2014-12-10-java-8-wiki-checklist.png "Example checklist in our Wiki, showing elements needed for Java 8 readiness")
+![Example checklist in our Wiki, showing elements needed for Java 8 readiness]({{site.baseurl}}/{% link /img/articles/2014-12-10-java-8-wiki-checklist.png %} "Example checklist in our Wiki, showing elements needed for Java 8 readiness")
 
 ## The test subject
 The application we chose as our test subject was a RESTful service called Flexible Pricing which is used for calculating the fees users
@@ -85,7 +85,7 @@ was just installing the new JDK and checking if our application would compile an
 
 It wouldn't even compile.
 
-![With Java 8, the application wouldn't even compile](/img/articles/2014-12-10-compilation-fail-java-8-first-attempt.png "With Java 8, the application wouldn't even compile")
+![With Java 8, the application wouldn't even compile]({{site.baseurl}}/{% link /img/articles/2014-12-10-compilation-fail-java-8-first-attempt.png %} "With Java 8, the application wouldn't even compile")
 
 This was a surprise. After all, Java tends to be backwards-compatible with previous releases, sometimes even at the cost of preserving some
 really old and weird features. Fortunately, errors were limited to test code. We soon found out that they were
@@ -107,7 +107,7 @@ much easier. Just imagine running an application with multiple changes only to f
 the cause. Therefore, we wanted to deploy the service on Java 8 and to monitor it for some time before we started refactoring code
 in order to take advantage of Java Eight's new features.
 
-![Setting up new machines in the cloud is a joy (as long as you deploy microservices only)](/img/articles/2014-12-10-cloud-machine-setup.png "Setting up new machines in the cloud is a joy (as long as you deploy microservices only)")
+![Setting up new machines in the cloud is a joy (as long as you deploy microservices only)]({{site.baseurl}}/{% link /img/articles/2014-12-10-cloud-machine-setup.png %} "Setting up new machines in the cloud is a joy (as long as you deploy microservices only)")
 
 Fortunately, our migration checklist in the Wiki contained an item related to preparing the cloud environment where our apps are deployed.
 Infrastructure team had already prepared system images with Java 8 on board, so we just had to modify our
@@ -124,7 +124,7 @@ JDK 8 release it should have been ready for prime time. After changing the Concu
 notice any change in performance or stability. However, we did notice that the initial working set size of the application dropped by about 10%
 whereas the amplitude of its changes decreased, suggesting more frequent, and smaller collections.
 
-![Change in memory usage just after changing from CMS to G1 Garbage Collector (only initial phase)](/img/articles/2014-12-10-memory-usage-after-cms-to-g1-change.png "Change in memory usage just after changing from CMS to G1 Garbage Collector (only initial phase)")
+![Change in memory usage just after changing from CMS to G1 Garbage Collector (only initial phase)]({{site.baseurl}}/{% link /img/articles/2014-12-10-memory-usage-after-cms-to-g1-change.png %} "Change in memory usage just after changing from CMS to G1 Garbage Collector (only initial phase)")
 
 At the same time, we noticed a little [premature tenuring](http://www.memorymanagement.org/glossary/p.html#term-premature-tenuring) which
 was absent before. However, it did not affect GC pauses in any considerable way. After about a day, G1 increased the heap size and premature

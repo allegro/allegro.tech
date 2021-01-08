@@ -1,32 +1,32 @@
 {%if include.showLinkToPost %}
-<a href="/authors/{{authorKey}}" aria-hidden="true" tabindex="-1"><img src="/img/authors/{{authorKey}}.jpg" alt="" class="avatar" /></a>
-<h3 lang="pl-PL"><a href="/authors/{{authorKey}}">{{authorData.name}}</a></h3>
+<a href="{{site.baseurl}}/authors/{{authorKey}}" aria-hidden="true" tabindex="-1"><img src="{{site.baseurl}}/img/authors/{{authorKey}}.jpg" alt="" class="avatar" /></a>
+<h3 lang="pl-PL"><a href="{{site.baseurl}}/authors/{{authorKey}}">{{authorData.name}}</a></h3>
 {% else %}
-<img src="/img/authors/{{authorKey}}.jpg" alt="" class="avatar" />
+<img src="{{site.baseurl}}/img/authors/{{authorKey}}.jpg" alt="" class="avatar" />
 <h3 lang="pl-PL">{{authorData.name}}</h3>
 {% endif %}
 
 {%if authorData.twitter %}
 <a class="username" href="https://twitter.com/{{authorData.twitter}}">
-<span class="social"><img src="/img/social/twitter.svg" alt="Twitter"></span>
+<span class="social"><img src="{{site.baseurl}}/img/social/twitter.svg" alt="Twitter"></span>
 <span>{{authorData.twitter}}</span>
 </a>
 {% endif %}
 {%if authorData.github %}
 <a class="username" href="https://github.com/{{authorData.github}}">
-<span class="social"><img src="/img/social/github.svg" alt="Github"></span>
+<span class="social"><img src="{{site.baseurl}}/img/social/github.svg" alt="Github"></span>
 <span>{{authorData.github}}</span>
 </a>
 {% endif %}
 {%if authorData.stackOverflow.id and authorData.stackOverflow.name %}
 <a class="username" href="https://stackoverflow.com/users/{{authorData.stackOverflow.id}}">
-<span class="social"><img src="/img/social/stackoverflow.svg" alt="StackOverflow"></span>
+<span class="social"><img src="{{site.baseurl}}/img/social/stackoverflow.svg" alt="StackOverflow"></span>
     <span>{{authorData.stackOverflow.name}}</span>
 </a>
 {% endif %}
 {%if authorData.linkedin %}
 <a class="username" href="https://www.linkedin.com/in/{{authorData.linkedin}}">
-<span class="social"><img src="/img/social/linkedin.svg" alt="Linkedin"></span>
+<span class="social"><img src="{{site.baseurl}}/img/social/linkedin.svg" alt="Linkedin"></span>
 <span>{{authorData.linkedin}}</span>
 </a>
 {% endif %}
@@ -39,7 +39,7 @@
     {% endif %}
     {% endfor %}
 
-   <p><a href="/authors/{{authorKey}}">
+   <p><a href="{{site.baseurl}}/authors/{{authorKey}}">
        {% if  author_post_count == 0 %}
        {% elsif author_post_count == ' 1 ' %}
           see post by {{authorData.name}}

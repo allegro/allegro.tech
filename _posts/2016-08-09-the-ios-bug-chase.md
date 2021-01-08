@@ -55,7 +55,7 @@ The
 controller had trouble displaying a map. Internet connection was working fine
 on the device. Restarting or reinstalling the app did not fix the problem.
 
-![The Bug]({% link /img/articles/2016-08-01-the-ios-bug-chase/the_bug.png %})
+![The Bug]({{site.baseurl}}/{% link /img/articles/2016-08-01-the-ios-bug-chase/the_bug.png %})
 
 After playing with the bug for some time, the issue suddenly disappeared. The
 situation was terrifying. Our iOS app has tens of thousands of daily active
@@ -73,7 +73,7 @@ ignore it anyway.
 Each time you start ignoring a bug, you end up looking just like this
 [owl](http://devopsreactions.tumblr.com/post/143885280016/when-you-get-accustomed-to-some-bugs).
 
-<video src="/img/articles/2016-08-01-the-ios-bug-chase/owl.mp4" autoplay loop></video>
+<video src="{{site.baseurl}}/{% link /img/articles/2016-08-01-the-ios-bug-chase/owl.mp4 %}"" autoplay loop></video>
 
 Now seriously... Although we could not fix the bug directly in iOS, we could at
 least try to bypass it, so that it would no longer occur in our app. The
@@ -93,7 +93,7 @@ so I implemented it with some `NSLog` logging inside.
 I also added a breakpoint there, so I could debug and inspect the `error` in
 depth using Xcode Variables View. The breakpoint was reached almost immediately.
 
-![breakpoint]({% link /img/articles/2016-08-01-the-ios-bug-chase/breakpoint.png %})
+![breakpoint]({{site.baseurl}}/{% link /img/articles/2016-08-01-the-ios-bug-chase/breakpoint.png %})
 
 The delegate method invocation was caused by a `GEOErrorDomain` domain error.
 Its `userInfo` was a singleton dictionary, a single array of underlying errors
@@ -114,12 +114,12 @@ requests, but mitmproxy has many more features (e.g. scripting).
 I started to intercept network traffic and displayed the map to trigger its
 network activity. Mitmproxy showed a lot of map tile requests.
 
-![mitmproxy]({% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_410.png %})
+![mitmproxy]({{site.baseurl}}/{% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_410.png %})
 
 There were a lot of requests finished with `410` response code, indeed. But
 wait... what? `410`?
 
-![cat]({% link /img/articles/2016-08-01-the-ios-bug-chase/cat.jpg %})
+![cat]({{site.baseurl}}/{% link /img/articles/2016-08-01-the-ios-bug-chase/cat.jpg %})
 
 >410 Gone
 >Indicates that the resource requested is no longer available and will not be
@@ -132,7 +132,7 @@ And guess what... Just as I finished debugging, the bug suddenly disappeared!
 The map worked great again and all map tile requests finished successfully with
 `200` response code.
 
-![mitmproxy]({% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_200.png %})
+![mitmproxy]({{site.baseurl}}/{% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_200.png %})
 
 I lost the bug, but at least I had a network communication dump in mitmproxy.
 The only thing I could do at that point was to take a closer look at it.
@@ -149,7 +149,7 @@ same `x`, `y` and `z` coordinates, but the former finished with the `410` code
 and the latter with the `200` code. Filtering the mitmproxy flow list with the
 `style=1.*&z=14&x=8962&y=5377` limit filter gave rewarding results.
 
-![mitmproxy]({% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_filter.png %})
+![mitmproxy]({{site.baseurl}}/{% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_filter.png %})
 
 Only one map tile request parameter looked suspicious – that was the `v`
 parameter. I was 99% certain that the `v` stood for some kind of version
@@ -164,7 +164,7 @@ serious glitches. Map glitches are the last thing the car driver wants.
 The question was: what caused `v` to increment? A couple of requests happened
 in between the `410` and `200` responses, just while the `v` was being changed.
 
-![mitmproxy]({% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_geomanifest.png %})
+![mitmproxy]({{site.baseurl}}/{% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_geomanifest.png %})
 
 One request looked particularly suspicious and that was the request for
 `/geo_manifest/dynamic/config`. It was also the only request that retrieved some
@@ -186,7 +186,7 @@ Firstly, all iOS framework dylibs can be easily accessed from either:
 * iOS Simulator files — x86 and i386 dylibs: `/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks`
 * iOS Device Symbols — ARM dylibs: `~/Library/Developer/Xcode/iOS\ DeviceSupport/*/Symbols/System/Library/Frameworks`
 
-![Frameworks]({% link /img/articles/2016-08-01-the-ios-bug-chase/frameworks.png %})
+![Frameworks]({{site.baseurl}}/{% link /img/articles/2016-08-01-the-ios-bug-chase/frameworks.png %})
 
 Secondly, [Hopper](https://www.hopperapp.com/) makes decompilation nothing but
 pure pleasure. Hopper is such a powerful, yet simple and intuitive tool that
@@ -202,7 +202,7 @@ What method to look for in order to find a `geo_manifest` trace? The obvious
 choice was to filter symbols using the `geomanifest` filter at first, and that
 was it!
 
-![symbols]({% link /img/articles/2016-08-01-the-ios-bug-chase/symbols.png %})
+![symbols]({{site.baseurl}}/{% link /img/articles/2016-08-01-the-ios-bug-chase/symbols.png %})
 
 `GEOResourceManifestManager` caught my eye. Unfortunately, no method for that
 class was visible, only an external symbol reference
@@ -229,7 +229,7 @@ the method:
 -[GEOResourceManifestManager forceUpdate]
 ```
 
-![force_update]({% link /img/articles/2016-08-01-the-ios-bug-chase/force_update.png %})
+![force_update]({{site.baseurl}}/{% link /img/articles/2016-08-01-the-ios-bug-chase/force_update.png %})
 
 Once again, I was very lucky.
 
@@ -334,7 +334,7 @@ def response(context, flow):
 Then, by adding the script to mitmproxy, I could test the map behavior in iOS
 10 beta 2 (latest beta at that time).
 
-![mitmproxy_fixed]({% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_fixed.png %})
+![mitmproxy_fixed]({{site.baseurl}}/{% link /img/articles/2016-08-01-the-ios-bug-chase/mitmproxy_fixed.png %})
 
 Mitmproxy changed the status code of each tile request to `410`. Once the first
 tile request finished with `410` status code, `geod` daemon immediately updated

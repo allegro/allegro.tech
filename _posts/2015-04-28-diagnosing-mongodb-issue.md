@@ -13,7 +13,7 @@ I will show you a case where I have put tools to action diagnosing a MongoDB iss
 Some time ago we were alarmed by one of our scrum teams that MongoDB
 response time had jumped sky high. The [New Relic](http://newrelic.com) screens were undeniable.
 
-![Issue]({% link /img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_before.png %})
+![Issue]({{site.baseurl}}/{% link /img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_before.png %})
 
 ### Environment
 
@@ -77,7 +77,7 @@ To make sure the issue was connected with replication itself a code fix changing
 write concern configuration from *replica acknowledged* to *acknowledged* was applied.
 The results were obvious.
 
-![Issue]({% link /img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_after.png %})
+![Issue]({{site.baseurl}}/{% link /img/articles/2015-04-28-diagnosing-mongodb-issue/mongo_after.png %})
 
 So the replication was to blame. Great, but **where was the root cause**?
 

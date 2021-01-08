@@ -53,7 +53,7 @@ At that time there were no mature and battle-proven competitive solutions.
 
 A Mesos Cluster is built out of three main elements: Masters, Agents and Frameworks.
 
-![Mesos Architecture]({% link /img/articles/2018-01-11-mesos_executor/mesos_architecture.png %}){: .center-image }
+![Mesos Architecture]({{site.baseurl}}/{% link /img/articles/2018-01-11-mesos_executor/mesos_architecture.png %}){: .center-image }
 
 ### Masters
 A Mesos Master is the brain of the whole datacenter. It controls the state of a
@@ -156,7 +156,7 @@ We replaced this logic with our executor that, by using the certificate to
 authenticate, is able to download the decrypted configuration and pass it in
 environment variables to the task that is launched.
 
-![Config]({% link /img/articles/2018-01-11-mesos_executor/config.svg %}){: .center-image }
+![Config]({{site.baseurl}}/{% link /img/articles/2018-01-11-mesos_executor/config.svg %}){: .center-image }
 
 ### IX. Disposability – Maximize robustness with fast startup and graceful shutdown
 
@@ -167,7 +167,7 @@ Although the Mesos Command Executor supports graceful shutdown in configuration
 it does not work properly with shell commands (see
 [MESOS-6933](https://issues.apache.org/jira/browse/MESOS-6933)).
 
-![Lifecycle]({% link /img/articles/2018-01-11-mesos_executor/lifecycle.svg %}){: .center-image }
+![Lifecycle]({{site.baseurl}}/{% link /img/articles/2018-01-11-mesos_executor/lifecycle.svg %}){: .center-image }
 
 Above diagram presents the life cycle of a typical task. At the beginning
 its binaries are fetched and the executor is started (1). After starting, the
@@ -189,7 +189,7 @@ the default command executor and restarted it a couple of times (more errors).
 There are errors due to missing cache warmup at start, but we see a huge
 reduction of errors during deployments.
 
-![Opbox]({% link /img/articles/2018-01-11-mesos_executor/opbox.png %}){: .center-image }
+![Opbox]({{site.baseurl}}/{% link /img/articles/2018-01-11-mesos_executor/opbox.png %}){: .center-image }
 
 What’s more, with this approach we can notify the user that an external
 service errored using [Task State Reason](http://mesos.apache.org/documentation/latest/task-state-reasons/),
@@ -237,7 +237,7 @@ by Mesos), would be appreciated. Finally upgrading Mesos often required us to
 recompile all modules, thus maintaining different binaries for different Mesos
 versions
 
-![.so]({% link /img/articles/2018-01-11-mesos_executor/shared.jpg %}){: .center-image }
+![.so]({{site.baseurl}}/{% link /img/articles/2018-01-11-mesos_executor/shared.jpg %}){: .center-image }
 
 A lot of solutions for Mesos maintain their own executors because other
 integration methods are not as flexible, for example:
@@ -260,7 +260,7 @@ with Mesos specific code, making it significantly more difficult to use it in
 other places – e.g. Kubernetes. We are in the process of separating this code
 into stand-alone binaries.
 
-![.so]({% link /img/articles/2018-01-11-mesos_executor/glue.jpg %}){: .center-image }
+![.so]({{site.baseurl}}/{% link /img/articles/2018-01-11-mesos_executor/glue.jpg %}){: .center-image }
 
 ## Comparison with other solutions (read [K8s](https://kubernetes.io/))
 

@@ -45,7 +45,7 @@ We had the following steps planned:
 
     Now we are close to the perfectly tailored frontend framework that suits our needs.
 
-![Allegro Frontend Bootstrap tabs example](/img/articles/2015-02-19-frontend-made-simple/tabs.png "Allegro Frontend Bootstrap tabs example")
+![Allegro Frontend Bootstrap tabs example]({{site.baseurl}}/{% link /img/articles/2015-02-19-frontend-made-simple/tabs.png %} "Allegro Frontend Bootstrap tabs example")
 
 Today we are happy to say, that we have a very advanced yet simple to use frontend library that we are proud of.
 We also had rewritten the documentation; a lot of "out–of–the–box" code snippets and usage examples help us in everyday work.
@@ -64,7 +64,7 @@ We also had rewritten the documentation; a lot of "out–of–the–box" code sn
 *   **[Bower](http://bower.io/ "A package manager for the web")/[NPM](https://www.npmjs.com/ "npm is the package manager for node") ready**
     We made our frontend bootstrap available in npm via git repository and configured it as a bower package. It’s easy to get it working fast!
 
-![Allegro Frontend Bootstrap buttons example](/img/articles/2015-02-19-frontend-made-simple/buttons.png "Allegro Frontend Bootstrap buttons example")
+![Allegro Frontend Bootstrap buttons example]({{site.baseurl}}/{% link /img/articles/2015-02-19-frontend-made-simple/buttons.png %} "Allegro Frontend Bootstrap buttons example")
 
 ### Where we are today
 

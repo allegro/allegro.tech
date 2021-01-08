@@ -43,7 +43,7 @@ others. You can easily find some articles comparing them. In this article we wil
 
 ### Example project
 As a reference for this tutorial we will use a simple implementation of Pricing Service which will tell us how much we
-must pay when we list an offer in [allegro.pl]({{site.baseurl}}{% link /about-us/ %} ). Complete source code is available on
+must pay when we list an offer in [allegro.pl]({{ '/about-us' | prepend: site.url }}). Complete source code is available on
 [GitHub](https://github.com/allegro/SimplePricingService). Total price depends on selected promo options such as bold
 text in offer title. Prices also differ in different categories like computers, fashion, sport, etc. In the background,
 Pricing Service maintains several price lists. One of them is default and contains price for all promo options. There
@@ -282,11 +282,11 @@ wrapped by JBehave extensions, so they are run always when we run `./gradlew tes
 
 Now we can see pretty HTML output from the tests in `build/jbehave/view/reports.html`.
 
-![]({% link /img/articles/2015-03-02-acceptance-testing-with-jbehave-and-gradle/jbehave-reports.png %})
+![]({{site.baseurl}}/{% link /img/articles/2015-03-02-acceptance-testing-with-jbehave-and-gradle/jbehave-reports.png %})
 
 We can click on the test name to see its details.
 
-![]({% link /img/articles/2015-03-02-acceptance-testing-with-jbehave-and-gradle/jbehave-root-category.png %})
+![]({{site.baseurl}}/{% link /img/articles/2015-03-02-acceptance-testing-with-jbehave-and-gradle/jbehave-root-category.png %})
 
 ### Custom input parameters
 

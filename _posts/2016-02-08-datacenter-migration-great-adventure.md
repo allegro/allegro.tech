@@ -9,12 +9,12 @@ Moving Allegro's services and infrastructure from its main [Data Center](https:/
 a huge endeavour fraught with high risk from the very start. This particular Data Center, known as DC2, was situated in Poznań, Poland.
 It was our first genuine Data Center and back in 2007, when we moved in there, it was the state—of—the—art DC in Poland.
 For a couple of years our infrastructure was growing along with the company and the number of devices grew up to 2,000 filling 90
-rack cabinets in 2014. DC was used by [Allegro]({{site.baseurl}}{% link /about-us/ %} ) core sites such as [allegro.pl](http://allegro.pl/), [aukro.ua](http://aukro.ua/)
+rack cabinets in 2014. DC was used by [Allegro]({{ '/about-us' | prepend: site.url }}) core sites such as [allegro.pl](http://allegro.pl/), [aukro.ua](http://aukro.ua/)
 and [aukro.cz](http://aukro.cz/) as well as other Naspers-owned Polish operations like: [payu.pl](http://www.payu.pl/),
 [olx.pl](http://olx.pl/), [ceneo.pl](http://www.ceneo.pl/), [otomoto.pl](http://otomoto.pl/), [otodom.pl](http://otodom.pl/).
 To make the story simpler, Allegro synonym is used to name them all.
 
-![dc2_dc5](/img/articles/2015-12-04-dc5-great-adventure/dc2_dc5.png "Migration from DC2 to DC5")
+![dc2_dc5]({{site.baseurl}}/{% link /img/articles/2015-12-04-dc5-great-adventure/dc2_dc5.png %} "Migration from DC2 to DC5")
 
 Since 2007, the market has changed. New Data Centers were built and their technical parameters along with [colocation](https://en.wikipedia.org/wiki/Colocation_centre) and power supply prices were much more attractive. In 2013, we started to search for new possibilities. First, we set up basic technical and business requirements for
 the new DC. We analysed the Polish market and invited ten companies to participate in a tender process. Besides, we were negotiating with

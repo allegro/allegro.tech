@@ -5,20 +5,20 @@ author: karol.kuc
 tags: [tech, ddd, hexagonal-architecture, java]
 ---
 
-When you go through articles related to Hexagonal Architecture (HA) you usually search for practical examples. 
+When you go through articles related to Hexagonal Architecture (HA) you usually search for practical examples.
 HA isn't simple, that's why most trivial examples make readers even more confused, though it is not as complex as many
-theoretical elucidations present it. In most posts you have to scroll through exact citations or rephrased definitions of concepts such as 
-Ports and Adapters or their conceptual diagrams. They have already been well defined and described by popular authors i.e. 
-[Alistair Cockburn](http://web.archive.org/web/20180121161736/http://alistair.cockburn.us/Hexagonal+Architecture) or [Martin Fowler](https://martinfowler.com/eaaCatalog/gateway.html). 
+theoretical elucidations present it. In most posts you have to scroll through exact citations or rephrased definitions of concepts such as
+Ports and Adapters or their conceptual diagrams. They have already been well defined and described by popular authors i.e.
+[Alistair Cockburn](http://web.archive.org/web/20180121161736/http://alistair.cockburn.us/Hexagonal+Architecture) or [Martin Fowler](https://martinfowler.com/eaaCatalog/gateway.html).
 I assume you already have a general understanding of Domain Driven Design and that you understand terms such as Ports and Adapters.
 I'm not a HA expert, yet I use it everyday and I find it useful. The only reason I write this post is to show you that Hexagonal Architecture makes sense, at least if your service is a little more than a ```JsonToDatabaseMapper```.
 
 ## Hello domain!
-I'd like to provide a quite simple example project, not too trivial but complex enough, based on a very straightforward domain. 
+I'd like to provide a quite simple example project, not too trivial but complex enough, based on a very straightforward domain.
 The domain includes only two classes:
 ```
 public class Article {
-    
+
     private final ArticleId id;
     private final Title title;
     private final Content content;
@@ -43,37 +43,37 @@ public class Author {
 }
 
 ```
-There are also several [value objects](https://martinfowler.com/bliki/ValueObject.html) for fields such as id, title or content. 
+There are also several [value objects](https://martinfowler.com/bliki/ValueObject.html) for fields such as id, title or content.
 
-Later we will go into detail about the overall service architecture, where other components are built around the 
+Later we will go into detail about the overall service architecture, where other components are built around the
 domain. Before we do so, I'd like to give you a heads up by presenting it on a diagram, which shows how the actual elements
 of the underlying project are organized.
 
-<img alt="Architecture diagram" src="/img/articles/2020-05-21-hexagonal-architecture-by-example/ha_example.png"/>
+<img alt="Architecture diagram" src="{{site.baseurl}}/{% link /img/articles/2020-05-21-hexagonal-architecture-by-example/ha_example.png %}""/>
 
-The project package structure also reflects the service architecture. 
+The project package structure also reflects the service architecture.
 
-<img alt="Overall package structure" src="/img/articles/2020-05-21-hexagonal-architecture-by-example/packages.png"/>
+<img alt="Overall package structure" src="{{site.baseurl}}/{% link /img/articles/2020-05-21-hexagonal-architecture-by-example/packages.png %}""/>
 
 In the introduction I've mentioned that I assume you already know the basic concepts behind
 Hexagonal Architecture. Now, that you have seen a high-level picture of the idea,
 I think that everyone could do with a short recap before we go on.
-* The domain is the core of the hexagon, containing primary 
+* The domain is the core of the hexagon, containing primary
 business logic, free of any infrastructure and framework boilerplate.
-* Adapters are either external APIs of your application or 
+* Adapters are either external APIs of your application or
 clients to other systems. They translate the interfaces of external
 systems (e.g. a search index or a file server API) to the interfaces required or exposed by the domain. Those interfaces are called ports.
-* Ports allow plugging in the adapters into the core domain. An example could be a repository interface with a method returning article content as  a simple ```String```. 
+* Ports allow plugging in the adapters into the core domain. An example could be a repository interface with a method returning article content as  a simple ```String```.
 By declaring a port, e.g. as an plain Java interface, the domain declares
 the contract saying: ”I give an id and I expect text in return, where and how you get it from is your business”. The domain here deals with articles,
 which have a text title and a text content. Not with JSON or binary files. It does not want to hear about S3, ElasticSearch or an SFTP server.
 
 ## The REST API adapter: the front door of your service
 
-<img alt="API package structure" src="/img/articles/2020-05-21-hexagonal-architecture-by-example/api.png"/>
+<img alt="API package structure" src="{{site.baseurl}}/{% link /img/articles/2020-05-21-hexagonal-architecture-by-example/api.png %}""/>
 
-The example microservice, which will help us depict Hexagonal Architecture, 
-exposes a very simple REST API. As an author, you can create an article 
+The example microservice, which will help us depict Hexagonal Architecture,
+exposes a very simple REST API. As an author, you can create an article
 and then retrieve its content by issuing POST and GET HTTP requests, respectively.
 
  ```
@@ -96,12 +96,12 @@ class ArticleEndpoint {
 }
 ```
 
-The REST adapter implementation accesses the domain logic via an internal ```ArticleApiService```. The API service belongs to the API adapter. ```ArticleApiService``` delegates article creation and retrieval to the domain ```ArticleService``` and translates the domain model to the API model. 
+The REST adapter implementation accesses the domain logic via an internal ```ArticleApiService```. The API service belongs to the API adapter. ```ArticleApiService``` delegates article creation and retrieval to the domain ```ArticleService``` and translates the domain model to the API model.
 Calling domain services directly from the controller may lead to the *fat controller antipattern*, due to the fact that orchestration logic and domain model translation should not
 be the responsibility of the controller. An alternative would be to introduce a public [***application*** service](http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/) instead of the internal adapter service.
 An application service is a concept which belongs neither to the domain nor to the API adapter. It would take over the responsibility of model translation and orchestration,
-opening the possibility of including other adapters in this process. 
- 
+opening the possibility of including other adapters in this process.
+
 ```
 @Component
 class ArticleApiService {
@@ -140,11 +140,11 @@ class ArticleResponse {
     //boilerplate code omitted
 }
 ```
-Each adapter works on its data model, which can translate itself “from” or “to” the domain. 
+Each adapter works on its data model, which can translate itself “from” or “to” the domain.
 The domain model on the other hand is adapter-model-agnostic.
 That's why you should always favour
 ```
-ArticleResponse.of(domainArticle) 
+ArticleResponse.of(domainArticle)
 ```
 over
 ```
@@ -152,7 +152,7 @@ domainArticle.toResponse()
 ```
 
 You may wonder why there is only one inbound adapter and several outbound adapters.
-I would like to make it crystal clear that it's just because of the overall simplicity of the 
+I would like to make it crystal clear that it's just because of the overall simplicity of the
 example application.
 In a real-life scenario you would also probably have other gateways to your service.
 It could be a subscription to a message topic or queue, a SOAP API or an API for file uploads.
@@ -160,24 +160,24 @@ They could delegate their inputs to the same or other ```ArticleService``` metho
 
 ## The domain logic: let's talk business
 
-<img alt="API package structure" src="/img/articles/2020-05-21-hexagonal-architecture-by-example/domain.png"/>
+<img alt="API package structure" src="{{site.baseurl}}/{% link /img/articles/2020-05-21-hexagonal-architecture-by-example/domain.png %}""/>
 
 The ```ArticleService``` forms a port on its own. It is called an inbound port meaning it handles incoming traffic (in this example, in form of HTTP requests).
 Outbound adapters handle outgoing traffic (e.g. database requests or messages sent to a broker) and decouple core from implementation details (e.g. which database or message broker was used).
 
-It is often assumed that each port needs to be an interface, though it doesn't make much sense for inbound ports, 
-such as ```ArticleService```. Interfaces, in general, allow you to decouple implementation from the component that uses it, 
-following the [Dependency Inversion Principle](https://martinfowler.com/articles/dipInTheWild.html). 
-They are essential to decouple the domain ```ArticleService``` from ```ExternalServiceClientAuthorRepository``` hidden behind the ```AuthorRepository``` port. 
-Hiding ```ArticleService``` behind an interface (especially a meaningless ```IArticleService```) 
+It is often assumed that each port needs to be an interface, though it doesn't make much sense for inbound ports,
+such as ```ArticleService```. Interfaces, in general, allow you to decouple implementation from the component that uses it,
+following the [Dependency Inversion Principle](https://martinfowler.com/articles/dipInTheWild.html).
+They are essential to decouple the domain ```ArticleService``` from ```ExternalServiceClientAuthorRepository``` hidden behind the ```AuthorRepository``` port.
+Hiding ```ArticleService``` behind an interface (especially a meaningless ```IArticleService```)
 would most likely be seen as over-engineering and would give you nothing in return.
 
 The core business logic is included in the domain ```Article::validateEligibilityForPublication``` method,
-which validates the article and throws an exception should any problems be identified. 
+which validates the article and throws an exception should any problems be identified.
 This part of domain logic does not require external dependencies, so there is no reason for it to reside
 in the enclosing ```ArticleService```. Doing so is referred to as [Anemic Model Antipattern](https://martinfowler.com/bliki/AnemicDomainModel.html).
-Other domain operations implemented in ```ArticleService```, creating and retrieving an article, 
-depend on external dependencies hidden behind port interfaces. 
+Other domain operations implemented in ```ArticleService```, creating and retrieving an article,
+depend on external dependencies hidden behind port interfaces.
 
 External dependencies (outbound ports) of Article domain stand for:
 * persisting and retrieving an article via ```ArticleRepository``` port,
@@ -238,8 +238,8 @@ Ports used by the domain for outgoing traffic are implemented by corresponding a
 The outbound adapters implement the port interfaces (e.g. ```ArticleRepository```, ```AuthorRepository```, ```SocialMediaPublisher```).
 Port interfaces are part of the domain.
 
-It makes the adapters pluggable and potentially replaceable. For example you could replace ```ExternalServiceClientAuthorRepository``` with a client to 
-a facade-service aggregating multiple user data sources e.g. LDAP, an ERP system, a legacy DB. 
+It makes the adapters pluggable and potentially replaceable. For example you could replace ```ExternalServiceClientAuthorRepository``` with a client to
+a facade-service aggregating multiple user data sources e.g. LDAP, an ERP system, a legacy DB.
 
 You might say: ”Hey, when was the last time you replaced a database with a different one”. Well, good point, it doesn't happen
 everyday. Still, in a microservice-oriented architecture exchanging adapters of legacy services with new ones is very common.
@@ -247,14 +247,14 @@ If you are still not convinced, I'm pretty sure you would at least benefit from 
 Even in a ”layered” architecture you wouldn't like your View to explode upon serialization of a managed JPA entity, would you?
 The [Open Session In View Anti-Pattern](https://vladmihalcea.com/the-open-session-in-view-anti-pattern/) is still quite common. It makes
 my eyes bleed just as mixing JPA annotations with Jackson and JAXB. An independent domain model makes much more sense when you've refactored
-such projects before. 
+such projects before.
 
-<img alt="API package structure" src="/img/articles/2020-05-21-hexagonal-architecture-by-example/twitter.png"/>
+<img alt="API package structure" src="{{site.baseurl}}/{% link /img/articles/2020-05-21-hexagonal-architecture-by-example/twitter.png %}""/>
 
 Below you'll find an example of ```SocialMediaPublisher``` port implementation. ```TwitterArticlePublisher``` translates the domain
 article to ```ArticleTwitterModel``` and sends the result via the ```TwitterClient```.
 The domain ```ArticlePublisher``` delegates social media publication to a list of ```SocialMediaPublisher```
-port interfaces. It has no clue about the existence of any Twitter API integration code such as HTTP clients and JSON mapping. 
+port interfaces. It has no clue about the existence of any Twitter API integration code such as HTTP clients and JSON mapping.
 
 ```
 @Component
@@ -305,24 +305,24 @@ Message sent to broker: "Article >>Hexagonal Architecture<< retrieved"
 <<< HTTP GET Response: article: "Hexagonal Architecture" successfully retrieved
 ```
 ## Summary
-We've gone through the whole example so I guess we would do with a quick summary. 
+We've gone through the whole example so I guess we would do with a quick summary.
 The domain constitutes the core of our application (centre of the hexagon).
 It is surrounded by six adapters. The endpoint in the REST API inbound adapter calls the domain logic via a public domain service.
-The five outbound adapters implement domain interfaces, integrating the article service with 
-* social media, 
-* mail and SMS notifications, 
-* message broker, 
+The five outbound adapters implement domain interfaces, integrating the article service with
+* social media,
+* mail and SMS notifications,
+* message broker,
 * database,
 * author service.
 
 As much as I did my best to design the example so that it would show the benefits of using Hexagonal Architecture in a self-explanatory
-and intuitive way, to avoid theoretical elucidations, I would still like to emphasise what we have gained. 
-Due to designing the core of the application to be independent of external adapters we achieve e.g.: 
-* [Dependency Inversion](https://martinfowler.com/articles/dipInTheWild.html). This way, instead of high-level modules (domain) depending on low-level modules (adapters), 
-both will depend on abstractions. 
+and intuitive way, to avoid theoretical elucidations, I would still like to emphasise what we have gained.
+Due to designing the core of the application to be independent of external adapters we achieve e.g.:
+* [Dependency Inversion](https://martinfowler.com/articles/dipInTheWild.html). This way, instead of high-level modules (domain) depending on low-level modules (adapters),
+both will depend on abstractions.
 * Testability. The domain logic can be unit-tested regardless of underlying frameworks and infrastructure that the adapters depend on.
 It frees domain tests from e.g. transaction management or request and response parsing. All adapters can also be tested independently from each other.
-* Extendability, following the [Open-closed Principle](https://en.wikipedia.org/wiki/Open–closed_principle). It's best illustrated by the ```ArticlePublisher```, 
+* Extendability, following the [Open-closed Principle](https://en.wikipedia.org/wiki/Open–closed_principle). It's best illustrated by the ```ArticlePublisher```,
 ```
 public class ArticlePublisher {
     private final ArticleMessageSender messageSender;
@@ -331,14 +331,14 @@ public class ArticlePublisher {
     // ...
 }
 ```
-```ArticlePublisher``` depends on implementations of ```SocialMediaPublisher``` and ```ArticleAuthorNotifier```, 
+```ArticlePublisher``` depends on implementations of ```SocialMediaPublisher``` and ```ArticleAuthorNotifier```,
 injected as lists of Spring components. It is important though, that the domain knows nothing about the DI framework you use. Adding another implementation, such as an adapter for Facebook,
 does not require modifying the domain code.
 
 I hope that the above example depicts the theoretical concepts such as Hexagonal Architecture, Ports and Adapters
 in an easy and comprehensible way. I tried to avoid oversimplifying the example implementation, especially
-for the sake of readers who encounter the Hexagonal Architecture approach and Domain Driven Design for the first time. 
-It could have been difficult to grasp the difference between a traditional layered architecture and Hexagonal Architecture if the only thing 
+for the sake of readers who encounter the Hexagonal Architecture approach and Domain Driven Design for the first time.
+It could have been difficult to grasp the difference between a traditional layered architecture and Hexagonal Architecture if the only thing
 your domain is responsible for is storing and fetching data from a repository. The same applies to understanding
 the reason why the domain model should be independent from the adapter model. There are many applications,
 in which the domain model consists of only one class mapped 1 to 1 to an adapter dto. Both classes have the same fields, they have just different names, e.g. Article and ArticleEntity.

@@ -31,7 +31,7 @@ using the same underlying TCP/IP connection. At this point, each side can start 
 
 WebSockets are supported by most web browsers ([source](http://caniuse.com/#feat=websockets)):
 
-![WebSockets support in browsers](/img/articles/2015-11-06-real-time-web-application-with-websockets-and-vert.x/websocket_browser_support.png "WebSockets support in browsers")
+![WebSockets support in browsers]({{site.baseurl}}/{% link /img/articles/2015-11-06-real-time-web-application-with-websockets-and-vert.x/websocket_browser_support.png %} "WebSockets support in browsers")
 
 Some examples of good use cases for WebSockets include:
 
@@ -106,7 +106,7 @@ directly from an event loop.
 
 Typical application will consist of multiple verticles running on Vert.x instance:
 
-![Vert.x architecture](/img/articles/2015-11-06-real-time-web-application-with-websockets-and-vert.x/vertx_architecture.png "Vert.x architecture")
+![Vert.x architecture]({{site.baseurl}}/{% link /img/articles/2015-11-06-real-time-web-application-with-websockets-and-vert.x/vertx_architecture.png %} "Vert.x architecture")
 
 There can be many Vert.x instances running on the same host or on different hosts on the network.
 Instances can be configured to cluster with each other forming a distributed event bus over which
@@ -415,7 +415,7 @@ Clone the repository and run `./gradlew run`.
 
 Open one or more browsers and point them to `http://localhost:8080`. Now you can bid in auction:
 
-![Real time bidding in application](/img/articles/2015-11-06-real-time-web-application-with-websockets-and-vert.x/bidding_in_application.png "Real time bidding in application")
+![Real time bidding in application]({{site.baseurl}}/{% link /img/articles/2015-11-06-real-time-web-application-with-websockets-and-vert.x/bidding_in_application.png %} "Real time bidding in application")
 
 ## Summary
 

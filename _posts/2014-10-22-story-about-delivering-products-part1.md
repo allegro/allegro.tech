@@ -92,7 +92,7 @@ Or should we focus on the most complex options and cut them until reaching viabl
 We decided to take the process approach, with a little help from Allistair Cockburn,
 the author of [Walking Skeleton](http://alistair.cockburn.us/Walking+skeleton) concept.
 
-![Walking Skeleton](/img/articles/2014-10-22.skeleton.gif "Waling Skeleton scheme")
+![Walking Skeleton]({{site.baseurl}}/{% link /img/articles/2014-10-22.skeleton.gif "Waling Skeleton scheme")
 
 (Image source: http://blog.codeclimate.com/blog/2014/03/20/kickstart-your-next-project-with-a-walking-skeleton)
 

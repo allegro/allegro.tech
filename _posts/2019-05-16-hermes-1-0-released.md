@@ -15,7 +15,7 @@ It’s a cut-off from stable and mature code.
 Hermes is a message broker with REST API and push model. It’s built on top of [Apache Kafka](https://kafka.apache.org/) 2.0.
 
 
-<img alt="Hermes pubsub" src="/img/articles/2019-05-16-hermes-1-0-released/hermes-pubsub.png" />
+<img alt="Hermes pubsub" src="{{site.baseurl}}/{% link /img/articles/2019-05-16-hermes-1-0-released/hermes-pubsub.png %}"" />
 
 Hermes mediates in communication between services. It’s a [pub-sub](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
 which means that publishing services (publishers) don’t know anything about subscribing services (subscribers).
@@ -39,17 +39,17 @@ messages and whether it’s available or returns errors.
     * Hermes can be used by any technology supporting HTTP, for example: modern programming languages, shell scripts and
       old PHP in monolithic system
 * **Reliability**. Number one priority for Hermes is not to lose any message even if in the cloud everything goes south.
-* **Saving time**. Developers can focus on building business services. They don’t have to know Hermes or Kafka 
+* **Saving time**. Developers can focus on building business services. They don’t have to know Hermes or Kafka
 internals to use them successfully. When you use Hermes in business services, you don’t have to worry about client’s
 dependency update or migration to a newer version.
 * **Metrics**. Hermes measures everything that is important, for example for publishing and consuming messages measures
 their rate, latency, throughput, successes, failures.
 * **Multi-DC support**. Hermes can be spread across multiple data centers. When one DC goes down,
-its traffic can be redirected to others. 
+its traffic can be redirected to others.
 * **Tracking mechanism**. Based on *hermes-message-id*, we can track how and when our message was processed by Hermes.
 * **AVRO support**. You can publish and consume messages in JSON or [AVRO](https://avro.apache.org/) format.
 Furthermore, you can have a topic of AVRO type and still publish and consume JSON as Hermes converts messages on the fly.
-Thanks to this, publishers and subscribers don’t have to use AVRO on their side but still can benefit from it on Hermes.  
+Thanks to this, publishers and subscribers don’t have to use AVRO on their side but still can benefit from it on Hermes.
 Each AVRO topic has a schema attached to it. So, message structure is documented and it’s easier to verify what kind
 of messages are on a given topic in order to be compatible with them. Moreover, AVRO lowers the volume of data being
 sent and persisted in Kafka. It also simplifies data analysis when data is sent from Kafka to other Big Data
@@ -71,14 +71,14 @@ only messages it’s interested in, not the whole topic.
       <img
         alt="Hermes console topic view"
         style="max-width:700px;width:90%"
-        src="/img/articles/2019-05-16-hermes-1-0-released/hermes-console-topic-view.png">
+        src="{{site.baseurl}}/{% link /img/articles/2019-05-16-hermes-1-0-released/hermes-console-topic-view.png %}"">
     </p>
     <br/>
     <p align="center">
           <img
             alt="Hermes console subscription view"
             style="max-width:700px;width:90%"
-            src="/img/articles/2019-05-16-hermes-1-0-released/hermes-console-subscription-view.png">
+            src="{{site.baseurl}}/{% link /img/articles/2019-05-16-hermes-1-0-released/hermes-console-subscription-view.png %}"">
     </p>
 
 ## How important is Hermes for Allegro?
@@ -122,11 +122,11 @@ developed by many teams.
 
 Additionally, when you have a monolithic system and would like to connect it with a new architecture then you should also
 consider Hermes as a bridge between these two worlds. At Allegro we have a PHP monolith which shrinks every month
-thanks to our efforts moving towards microservice architecture. Hermes makes this process easier. 
+thanks to our efforts moving towards microservice architecture. Hermes makes this process easier.
 
 ## The right message broker
 
-Hermes was open sourced in 2015. Key goals which we have been following during its development are still valid: 
+Hermes was open sourced in 2015. Key goals which we have been following during its development are still valid:
 
 * Integration as simple as possible
     * We already had services communicating with each other over HTTP. We had in mind that the easiest way to switch
@@ -174,7 +174,7 @@ In the near future, Hermes team will be working on:
 * Zookeeper multi-DC support. Currently Hermes uses a single Zookeeper cluster.
   We want to have Zookeeper clusters independently per datacenter. Thanks to this, one DC-off will not affect in
   any way any other DC. Right now, when Zookeeper is down, you can still publish and consume from Hermes but topic and
-  subscription management will not work properly. 
+  subscription management will not work properly.
 * Securing the connection between Hermes and Kafka.
 
 If you have any requirements related to Hermes, please [let us know](https://github.com/allegro/hermes/issues).

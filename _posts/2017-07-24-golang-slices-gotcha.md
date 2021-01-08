@@ -14,7 +14,7 @@ you run [the latest version](https://github.com/allegro/marathon-consul/releases
 
 ### The missing service
 
-![Dude, where is my service]({% link /img/articles/2017-07-20-golang-slices-gotcha/dude.jpg %}){: .center-image }
+![Dude, where is my service]({{site.baseurl}}/{% link /img/articles/2017-07-20-golang-slices-gotcha/dude.jpg %}){: .center-image }
 
 At Allegro we build our infrastructure on the top of
 [Mesos](http://mesos.apache.org/) and
@@ -136,7 +136,7 @@ expecting.
 
 ### Slices
 
-![Slices]({% link /img/articles/2017-07-20-golang-slices-gotcha/slices.jpg %}){: .center-image }
+![Slices]({{site.baseurl}}/{% link /img/articles/2017-07-20-golang-slices-gotcha/slices.jpg %}){: .center-image }
 
 To understand this not obvious behavior we need some background on [how slices
 works](https://blog.golang.org/go-slices-usage-and-internals) and what happens
@@ -146,7 +146,7 @@ Slice is a triple of pointer to first element, length and capacity (length ≤
 capacity). Memory is a continuous block of data but slice uses only length of
 capacity.
 
-![slice_1.svg]({% link /img/articles/2017-07-20-golang-slices-gotcha/slice_1.svg %}){: .center-image }
+![slice_1.svg]({{site.baseurl}}/{% link /img/articles/2017-07-20-golang-slices-gotcha/slice_1.svg %}){: .center-image }
 
 According to documentation of `append`:
 
@@ -163,7 +163,7 @@ slice could have the same address and capacity and differs only on the length.
 
 ### How slices grow?
 
-![One does not simply append to a slice]({% link /img/articles/2017-07-20-golang-slices-gotcha/boromir.jpg %}){: .center-image }
+![One does not simply append to a slice]({{site.baseurl}}/{% link /img/articles/2017-07-20-golang-slices-gotcha/boromir.jpg %}){: .center-image }
 
 Above paragraph doesn’t answer why code works like this. To understand it, we
 need to go deeper in Go code. Let’s take a look at
@@ -201,7 +201,7 @@ x = append(x, 1)
 ```
 
 Create a slice with 2 elements.
-![1.svg]({% link /img/articles/2017-07-20-golang-slices-gotcha/1.svg %}){: .center-image }
+![1.svg]({{site.baseurl}}/{% link /img/articles/2017-07-20-golang-slices-gotcha/1.svg %}){: .center-image }
 
 ```go
 x = append(x, 2)
@@ -209,7 +209,7 @@ x = append(x, 2)
 
 Append one element. `x` is too small so it needs to grow.
 It doubles its capacity.
-![2.svg]({% link /img/articles/2017-07-20-golang-slices-gotcha/2.svg %}){: .center-image }
+![2.svg]({{site.baseurl}}/{% link /img/articles/2017-07-20-golang-slices-gotcha/2.svg %}){: .center-image }
 
 ```go
 y := append(x, 3)
@@ -217,7 +217,7 @@ y := append(x, 3)
 
 Append one element. Slice has free space at the end so
 `3` is stored there.
-![3.svg]({% link /img/articles/2017-07-20-golang-slices-gotcha/3.svg %}){: .center-image }
+![3.svg]({{site.baseurl}}/{% link /img/articles/2017-07-20-golang-slices-gotcha/3.svg %}){: .center-image }
 
 ```go
 z := append(x, 4)
@@ -225,7 +225,7 @@ z := append(x, 4)
 
 Append one element. Slice has free space at the end so
 `4` is stored there and overwrites `3` stored before.
-![4.svg]({% link /img/articles/2017-07-20-golang-slices-gotcha/4.svg %}){: .center-image }
+![4.svg]({{site.baseurl}}/{% link /img/articles/2017-07-20-golang-slices-gotcha/4.svg %}){: .center-image }
 
 All 3 slices: `x`, `y` and `z` point to the same memory block.
 
@@ -233,7 +233,7 @@ Why it’s working in `a()`? The Answer is really simple. There is a slice of ca
 two and when we append one element it’s copied to a new space. That’s why we end up
 with `x`, `y` and `z` pointing to different memory blocks.
 
-![5.svg]({% link /img/articles/2017-07-20-golang-slices-gotcha/5.svg %}){: .center-image }
+![5.svg]({{site.baseurl}}/{% link /img/articles/2017-07-20-golang-slices-gotcha/5.svg %}){: .center-image }
 
 ### TL;DR
 
@@ -243,4 +243,4 @@ If you want to work on a copy of a slice data,
 you must explicitly [`copy`](https://golang.org/pkg/builtin/#copy)
 it into a new slice.
 
-![What if I told you]({% link /img/articles/2017-07-20-golang-slices-gotcha/matrix.jpg %}){: .center-image }
+![What if I told you]({{site.baseurl}}/{% link /img/articles/2017-07-20-golang-slices-gotcha/matrix.jpg %}){: .center-image }

@@ -9,10 +9,10 @@ We often hear about the importance of exchanging knowledge and practices between
 often do we hear concrete suggestions for how to do it. In this article, we discuss one of our practices to address the
 problem.
 
-> This post is a part of a series of three posts about team tourism at [Allegro]({{site.baseurl}}{% link /about-us/ %} ).
+> This post is a part of a series of three posts about team tourism at [Allegro]({{ '/about-us' | prepend: site.url }}).
 > You can navigate directly to each part here: **Part 1** | [Part 2]({% post_url 2019-10-14-team-tourism-case-studies-1 %}) | [Part 3]({% post_url 2019-11-19-team-tourism-case-studies-2 %})
 
-![Team tourism]({% link /img/articles/2019-09-16-team-tourism-at-allegro/team-tourism.jpg %})
+![Team tourism]({{site.baseurl}}/{% link /img/articles/2019-09-16-team-tourism-at-allegro/team-tourism.jpg %})
 
 ## What is team tourism?
 

@@ -46,7 +46,7 @@ keeping the velocity at the roller coaster. We kept introducing improvements foc
 on different means of work organisation for the whole group of developers in a pool, i.e. grouping around the particular product
 with a majority of developers already familiar with it.
 
-![Velocity chart with % focus factor](/img/articles/2015-03-09-velocity.png "Velocity chart with % focus factor")
+![Velocity chart with % focus factor]({{site.baseurl}}/{% link /img/articles/2015-03-09-velocity.png %} "Velocity chart with % focus factor")
 
 Astonishingly enough, even though they almost never delivered what they had committed to, after
 few Sprints developers started to stress that they were somehow bored and that they did not create what

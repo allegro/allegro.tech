@@ -213,11 +213,11 @@ To run a single test in Firefox run:
 
 After the test completes you receive a report in html format. Below I placed examples of both a failed...
 
-![Test failure](/img/articles/2015-03-17-automated-tests-with-geb-spock-and-groovy/test_failure.png "Test failure")
+![Test failure]({{site.baseurl}}/{% link /img/articles/2015-03-17-automated-tests-with-geb-spock-and-groovy/test_failure.png %} "Test failure")
 
 ... and a successful test report.
 
-![Test success](/img/articles/2015-03-17-automated-tests-with-geb-spock-and-groovy/test_success.png "Test success")
+![Test success]({{site.baseurl}}/{% link /img/articles/2015-03-17-automated-tests-with-geb-spock-and-groovy/test_success.png %} "Test success")
 
 I think that they are quite readable.
 

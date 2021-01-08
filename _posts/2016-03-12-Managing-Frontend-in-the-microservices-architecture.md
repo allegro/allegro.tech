@@ -98,7 +98,7 @@ Therefore any page (or a page fragment) at Allegro
 can be a separate application.
 For example, main page is composed in the following way:
 
-![ESI Page Example](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/allegro_esi_homepage.jpg "esi page example")
+![ESI Page Example]({{site.baseurl}}/{% link /img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/allegro_esi_homepage.jpg %} "esi page example")
 
 Our Varnish farm also defines and greatly improves our overall performance.
 Varnish servers are exposed to users and they cache all requests for static content.
@@ -143,7 +143,7 @@ So Box is the main concept in our solution. What is Box after all?
 * Page is assembled from Boxes.
 
 <p style="text-align: center; background-color:#E3E3E3">
-    <img alt="OpBox goals" style="width:75%; padding-top:10px;" src="/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-goals.png" />
+    <img alt="OpBox goals" style="width:75%; padding-top:10px;" src="{{site.baseurl}}/{% link /img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-goals.png %}" />
 </p>
 
 ### OpBox principles
@@ -252,7 +252,7 @@ OpBox system is implemented in microservice architecture.
 As you can see below, it consists of four sub-systems: Core, Web, Admin and Mobile.
 
 <p style="text-align: center; background-color:#E3E3E3">
-    <img alt="OpBox architecture" style="width:75%; padding-top:10px;" src="/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-architecture.gif" />
+    <img alt="OpBox architecture" style="width:75%; padding-top:10px;" src="{{site.baseurl}}/{% link /img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-architecture.gif %}" />
 </p>
 
 #### OpBox Core
@@ -324,7 +324,7 @@ Showcase data parameter type:
 
 Rendered Showcase Box:
 
-![rendered showcase box](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/showcase_box.jpg "rendered showcase box")
+![rendered showcase box]({{site.baseurl}}/{% link /img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/showcase_box.jpg %} "rendered showcase box")
 
 **Data-source type** is our way to specify underlying backend microservice.
 It contains: service URL in Service Discovery, input parameters, timeout and caching configuration.
@@ -392,7 +392,7 @@ they manage page routing and publication criteria.
 We’ve implemented OpBox Admin using ES6, NodeJS and [React](https://facebook.github.io/react/).
 
 Here you can see the sample screen of our Admin GUI:
-![opbox admin](/img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-admin.png "Obpox Admin")
+![opbox admin]({{site.baseurl}}/{% link /img/articles/2016-01-31-Managing-Frontend-in-the-microservices-architecture/opbox-admin.png %} "Obpox Admin")
 
 ### Final thoughts
 Currently some of our marketing campaigns are published with OpBox.
