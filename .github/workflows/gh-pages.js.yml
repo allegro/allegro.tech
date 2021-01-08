@@ -7,6 +7,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      BASE_PATH: /allegro.tech
     steps:
     
     - uses: actions/checkout@v2

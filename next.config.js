@@ -1,3 +1,3 @@
 module.exports = {
-    basePath: '/allegro.tech'
+    basePath: process.env.BASE_PATH
 }
