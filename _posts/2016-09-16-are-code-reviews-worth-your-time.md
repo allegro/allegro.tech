@@ -5,7 +5,7 @@ author: michal.kosmulski
 tags: [tech, code review, peer review, source control, software quality, bitbucket, stash, gerrit, git]
 ---
 
-Code reviews play an important role in how we develop software at [Allegro]({{site.baseurl}}{% link /about-us/ %} ). All code we developers write is reviewed
+Code reviews play an important role in how we develop software at [Allegro]({{ '/about-us' | prepend: site.url }}). All code we developers write is reviewed
 by our peers. If you apply for a job with us, we may ask you to review a sample piece of code during your interview. A code review done
 right carries a lot of value, but if done wrong it can become a waste of time. In this article I will describe what I think makes a good
 code review, how reviews have evolved over time at the teams I worked with and what you can do in order to make code reviews worthwhile.
@@ -30,7 +30,7 @@ end up with some magic code which only one person can understand. It’s more ab
 ## What?
 
 <figure>
-<img alt="Sonar highlighting an issue" src="/img/articles/2016-08-01-are-code-reviews-worth-your-time/sonar-highlighted-issue.png" />
+<img alt="Sonar highlighting an issue" src="{{site.baseurl}}/{% link /img/articles/2016-08-01-are-code-reviews-worth-your-time/sonar-highlighted-issue.png %}"" />
 <figcaption>Automated tools such as Sonar can find many simple issues, so it’s better to concentrate your code reviews on more complex problems</figcaption>
 </figure>
 
@@ -69,7 +69,7 @@ attention to what the tests actually check, whether their names are true to thei
 development harder in the future, for example due to [overmocking]({% post_url 2015-05-26-is-overmocking-bad %}).
 
 <figure>
-<img alt="Functionality added through annotations tends to be not be tested so well as normal code" src="/img/articles/2016-08-01-are-code-reviews-worth-your-time/annotations.png" />
+<img alt="Functionality added through annotations tends to be not be tested so well as normal code" src="{{site.baseurl}}/{% link /img/articles/2016-08-01-are-code-reviews-worth-your-time/annotations.png %}"" />
 <figcaption>Check if functionality added using annotations, such as logging and validation, is not broken and if it is covered by
 tests</figcaption>
 </figure>
@@ -122,7 +122,7 @@ people who have not worked on it before it can be merged and the code passed on 
 
 <figure>
 <img alt="Some conventions, like the required number of approvers, can be configured in Bitbucket"
-src="/img/articles/2016-08-01-are-code-reviews-worth-your-time/pull-request-settings.png" />
+src="{{site.baseurl}}/{% link /img/articles/2016-08-01-are-code-reviews-worth-your-time/pull-request-settings.png %}"" />
 <figcaption>Some conventions, like the required number of approvers, can be configured in your review tool</figcaption>
 </figure>
 
@@ -175,7 +175,7 @@ on. Comment and make your suggestions known but don’t get into long and exhaus
 ### Do not be overly formal
 
 <figure>
-<img alt="Long review discussion" src="/img/articles/2016-08-01-are-code-reviews-worth-your-time/long-review-discussion.png" />
+<img alt="Long review discussion" src="{{site.baseurl}}/{% link /img/articles/2016-08-01-are-code-reviews-worth-your-time/long-review-discussion.png %}"" />
 <figcaption>Even without reading, you can easily see that this discussion would better be conducted face-to-face</figcaption>
 </figure>
 
@@ -208,7 +208,7 @@ them can understand the code and the changes they suggest are what shows how wel
 ## Going through changes
 
 Just like depending on experience, people spot different issues with the same piece of code, likewise teams learn to conduct better
-and better code reviews over time. When we started regular code reviews at [Allegro]({{site.baseurl}}{% link /about-us/ %} ), they often boiled down to minor
+and better code reviews over time. When we started regular code reviews at [Allegro]({{ '/about-us' | prepend: site.url }}), they often boiled down to minor
 issues such as code formatting, renaming variables and maybe extracting some code to a separate method here and there. We dubbed this stage
 _Sonar-Driven Development_ since most code reviews were about things which could be found by Sonar as well. Fortunately, with time we
 started paying attention to higher-level issues such as good design, separating business logic from the persistence layer or making sure

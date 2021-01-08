@@ -167,18 +167,18 @@ do not interfere with any other job on the cluster.
 
 The diagram below presents mean execution time of each query:
 
-![Mean execution times plot](/img/articles/2015-05-04-fast-data-hackathon/MeanExecution.png "Mean Execution times plot")
+![Mean execution times plot]({{site.baseurl}}/{% link /img/articles/2015-05-04-fast-data-hackathon/MeanExecution.png %} "Mean Execution times plot")
 
 Hive on Map-Reduce, unsurprisingly, is the slowest competitor while the fastest mean times were usually reported for Impala or Drill.
 When analyzing all the gathered results, presented in the diagram below, it can be noticed that the times seem to be consistent across
 different runs for different technologies. One possible exception is the first query, which was actually the fastest to execute
 &mdash; the observed execution time variance can be explained by possible minor system load fluctuations occurring throughout the Hadoop cluster.
 
-![All execution times plot](/img/articles/2015-05-04-fast-data-hackathon/AllExecutions.png "All execution times plot")
+![All execution times plot]({{site.baseurl}}/{% link /img/articles/2015-05-04-fast-data-hackathon/AllExecutions.png %} "All execution times plot")
 
 Although we cannot reveal our Allegro queries, we measured how query complexity influences execution time in different engines, which is depicted in the diagram below.
 
-![Execution time vs query complexity](/img/articles/2015-05-04-fast-data-hackathon/Complexity.png "Execution time vs query complexity")
+![Execution time vs query complexity]({{site.baseurl}}/{% link /img/articles/2015-05-04-fast-data-hackathon/Complexity.png %} "Execution time vs query complexity")
 
 ## Summary
 

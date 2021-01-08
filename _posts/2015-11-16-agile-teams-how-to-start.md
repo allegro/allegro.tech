@@ -98,7 +98,7 @@ if they are still valid and / or if there is anything we want to add.
 Whether it’s Scrum or something else, all of us work in roles. Some of them have been exercised and some might be new. It’s good to name them and
 relate to the rules in terms of our understanding and expectations. A good thing to do it is to use a simple matrix.
 
-![Contracting roles](/img/articles/2015-10-20-agile-teams-how-to-start/contracting_roles.jpeg "Contracting roles")
+![Contracting roles]({{site.baseurl}}/{% link /img/articles/2015-10-20-agile-teams-how-to-start/contracting_roles.jpeg "Contracting roles")
 
 It can be done in a way that each member writes his expectations on sticky notes and places them on the matrix. 10 minutes should be sufficient time to clear
 one’s mind and write a sufficient number of things down. When all participants have done it, it’s time for reading aloud and clarifying / responding. In my role as
@@ -110,7 +110,7 @@ work at hand. This has led to a couple big misunderstandings in terms of what th
 knowledge on Scrum roles were. This does not take huge amounts of time and can give you much more than you’d think in the long term when it’s sorted out.
 
 ### Contracting conflicts
-![Contracting conflicts](/img/articles/2015-10-20-agile-teams-how-to-start/contracting_conflict.jpeg "Contracting conflict")
+![Contracting conflicts]({{site.baseurl}}/{% link /img/articles/2015-10-20-agile-teams-how-to-start/contracting_conflict.jpeg "Contracting conflict")
 
 A sample contract for dealing with conflict. This can be customised to the teams needs.
 

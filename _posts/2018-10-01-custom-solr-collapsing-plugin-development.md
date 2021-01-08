@@ -5,7 +5,7 @@ author: andrzej.wislowski
 tags: [solr, lucene, deployment]
 ---
 
-At [Allegro]({{site.baseurl}}{% link /about-us/ %} ) we use Solr as our main search engine. Due to the traffic to our search engine being thousands of requests
+At [Allegro]({{ '/about-us' | prepend: site.url }}) we use Solr as our main search engine. Due to the traffic to our search engine being thousands of requests
 per second and index size on the order of a hundred million documents we need to develop custom optimizations. In this post I will
 describe the story of our Solr plugin development.
 
@@ -93,7 +93,7 @@ It is a queue sorted by the given list of fields. We have to return a list of th
 
 Below is the scheme of our filter implementation.
 
-![Scheme of our filter implementation]({% link /img/articles/2018-10-01-custom-solr-collapsing-plugin-development/algorithm.png %})
+![Scheme of our filter implementation]({{site.baseurl}}/{% link /img/articles/2018-10-01-custom-solr-collapsing-plugin-development/algorithm.png %})
 
 Finally, in the collector in the **finish** method, we return documents collected in the priority queue.
 

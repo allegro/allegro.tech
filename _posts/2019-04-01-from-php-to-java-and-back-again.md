@@ -7,7 +7,7 @@ tags: [tech, php, java, monolith, microservices]
 
 > This post was published on April 1st, 2019, and should not be taken too seriously.
 
-Five years ago we started a major technological transformation of the [Allegro]({{site.baseurl}}{% link /about-us/ %} ) platform.
+Five years ago we started a major technological transformation of the [Allegro]({{ '/about-us' | prepend: site.url }}) platform.
 Since then, we’ve been moving from a monolithic, 10 mln lines of code PHP application into a system of
 800+ JVM‑based microservices. This new architecture however turned out to be a dead‑end,
 that we can no longer afford to follow. Today, April 1 2019, we announce going back to
@@ -23,7 +23,7 @@ our system has become.
 
 <p align="center">
   <img alt="Complexity of our system over time"
-    src="/img/articles/2019-04-01-from-php-to-java-and-back-again/complexity.png">
+    src="{{site.baseurl}}/{% link /img/articles/2019-04-01-from-php-to-java-and-back-again/complexity.png %}"">
 </p>
 
 We need something radically simpler in order to stay at the top of our highly competitive
@@ -39,7 +39,7 @@ is essential in e‑commerce, we began to value the expressiveness of PHP.
 
 <p align="center">
   <img alt="Time it takes to develop a feature"
-    src="/img/articles/2019-04-01-from-php-to-java-and-back-again/time.png">
+    src="{{site.baseurl}}/{% link /img/articles/2019-04-01-from-php-to-java-and-back-again/time.png %}"">
 </p>
 
 Also, the PHP community is less obsessed with automatic testing. As a result, engineers
@@ -75,7 +75,7 @@ have the support they need.
 
 <p align="center">
   <img alt="Average anxiety levels in engineers about committing untested code"
-    src="/img/articles/2019-04-01-from-php-to-java-and-back-again/anxiety.png">
+    src="{{site.baseurl}}/{% link /img/articles/2019-04-01-from-php-to-java-and-back-again/anxiety.png %}"">
 </p>
 
 We also help in transitioning from microservices to monolithic architecture by organizing group
@@ -104,7 +104,7 @@ less cognitive load and a sense of security. We hope to release in even longer i
 
 <p align="center">
   <img alt="User happiness against release frequency"
-    src="/img/articles/2019-04-01-from-php-to-java-and-back-again/happiness.png">
+    src="{{site.baseurl}}/{% link /img/articles/2019-04-01-from-php-to-java-and-back-again/happiness.png %}"">
 </p>
 
 Lastly, by adopting PHP that is so widespread in startups, we hope to prove that when

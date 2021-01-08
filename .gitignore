@@ -1,7 +1,4 @@
 .sass-cache
 .jekyll-metadata
 _site
-scripts/open-source
-/.idea
-/*.iml
 vendor

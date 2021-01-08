@@ -29,7 +29,7 @@ In the example below, Spark creates two jobs on the driver and delegates work to
 nodes.
 The number of jobs depends on your application business logic and the number of tasks depends on data partitioning.
 
-![Spark driver and executors]({% link /img/articles/2015-07-16-spark-kafka-integration/spark-driver-executors.png %})
+![Spark driver and executors]({{site.baseurl}}/{% link /img/articles/2015-07-16-spark-kafka-integration/spark-driver-executors.png %})
 
 When you gain some experience with Spark, it should be easy to look at the code, and tell where it will be
 eventually executed.

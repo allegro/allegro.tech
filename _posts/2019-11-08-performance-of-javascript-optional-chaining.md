@@ -112,7 +112,7 @@ The amount of the code affects not only downloading a file but also the time of 
 the tool around 1000 times for all variants, each containing 100 equal optional chainings.
 
 [![code parsing
-time]({% link /img/articles/2019-11-08-performance-of-javascript-optional-chaining/jdgt6978sx3gnc7i63sj-1.png %})](https://docs.google.com/spreadsheets/d/17xD1LgKWQSoOYLRq-ZoMQr9s6LzwmF2i4_H39UquKAo/edit?usp=sharing)
+time]({{site.baseurl}}/{% link /img/articles/2019-11-08-performance-of-javascript-optional-chaining/jdgt6978sx3gnc7i63sj-1.png %})](https://docs.google.com/spreadsheets/d/17xD1LgKWQSoOYLRq-ZoMQr9s6LzwmF2i4_H39UquKAo/edit?usp=sharing)
 
 It seems that parsing time depends not only on the size of the code but also on the syntax used. Relatively big "old spice"
 variant gets significantly lower time than all the rest, even the smallest one (native optional chaining).
@@ -128,7 +128,7 @@ Performance is not only about the bundle size, though! How fast is optional chai
 answer is: it's incredibly fast. Using the new syntax, even transpiled to ES5 code, may give 30x (!) speedup comparing
 to `dlv`. If you use an array instead of a string, though, it's only 6x.
 
-![jsPerf results]({% link /img/articles/2019-11-08-performance-of-javascript-optional-chaining/wge5ljra79fxi6kr9i4w-1.png %})
+![jsPerf results]({{site.baseurl}}/{% link /img/articles/2019-11-08-performance-of-javascript-optional-chaining/wge5ljra79fxi6kr9i4w-1.png %})
 
 No matter whether you [access empty object](https://jsperf.com/optional-chaining-empty-object), [full
 one](https://jsperf.com/optional-chaining-full-path) or [one with null

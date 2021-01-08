@@ -47,7 +47,7 @@ features you plan to offer are not the actual customer needs, or that you graspe
 more ways to meet them than you first planned. “Well known” outcome is not so well known, it is barely what you have in
 mind thinking about one initiative.
 
-![MVP with Value Search Model]({% link /img/articles/2016-03-22-minimum-viable-product-cliche/MVP-with-Value-Search-model.jpg %} "MVP with Value Search Model")
+![MVP with Value Search Model]({{site.baseurl}}/{% link /img/articles/2016-03-22-minimum-viable-product-cliche/MVP-with-Value-Search-model.jpg %} "MVP with Value Search Model")
 
 Whatever you are currently working on, think first what value you want to deliver to your customers, and only then move
 to planning how to deliver this value fast. A bridge may seem to be a well-known outcome of a project. However,
@@ -69,7 +69,7 @@ innovative and dynamic environment by verifying hypotheses, e.g. Minimum Viable 
 the next crucial step is to plan your work so that you deliver end-to-end product soon. Small and prompt delivery enables
 you to verify whether you grasped this need correctly and to adapt your plans accordingly.
 
-![Dilts Neuro-Logical Levels Model]({% link /img/articles/2016-03-22-minimum-viable-product-cliche/Dilts-neuro-logical-levels-model.jpg %} "Dilts Neuro-Logical Levels Model")
+![Dilts Neuro-Logical Levels Model]({{site.baseurl}}/{% link /img/articles/2016-03-22-minimum-viable-product-cliche/Dilts-neuro-logical-levels-model.jpg %} "Dilts Neuro-Logical Levels Model")
 
 To sum up, it may feel like constant verification of what is needed, how it was understood and what is real vs. assumed.
 Indeed, I believe that assumptions are detrimental to any business and we should not only listen to our customers but

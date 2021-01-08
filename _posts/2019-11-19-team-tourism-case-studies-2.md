@@ -5,11 +5,11 @@ author: [bartosz.balukiewicz, adrian.rydzynski]
 tags: [tech]
 ---
 
-In this last instalment of our series about [team tourism]({% post_url 2019-09-16-team-tourism-at-allegro %}) at [Allegro]({{site.baseurl}}{% link /about-us/ %} ),
+In this last instalment of our series about [team tourism]({% post_url 2019-09-16-team-tourism-at-allegro %}) at [Allegro]({{ '/about-us' | prepend: site.url }}),
 our two engineers describe their eventful visits in two rather technical teams, one dealing with our message broker -
 [Hermes](https://hermes.allegro.tech/), the other with web performance.
 
-> This post is a part of a series of three posts about team tourism at [Allegro]({{site.baseurl}}{% link /about-us/ %} ).
+> This post is a part of a series of three posts about team tourism at [Allegro]({{ '/about-us' | prepend: site.url }}).
 > You can navigate directly to each part here: [Part 1]({% post_url 2019-09-16-team-tourism-at-allegro %}) | [Part 2]({% post_url 2019-10-14-team-tourism-case-studies-1 %}) | **Part 3**
 
 ## Case study 1
@@ -24,7 +24,7 @@ For these reasons, I decided to have my team tourism at the team which develops 
 My team’s stakeholders are mostly business people, so it was not only a great opportunity to change surroundings
 but also a chance to work for other engineers as well.
 
-<img alt="hermes" src="/img/articles/2019-11-19-team-tourism-case-studies-2/hermes-logo.png" />
+<img alt="hermes" src="{{site.baseurl}}/{% link /img/articles/2019-11-19-team-tourism-case-studies-2/hermes-logo.png %}"" />
 
 We decided not to set any single purpose for my tourism - I wanted to enter the team’s everyday work, learn about its work
 culture, and really feel as a part of the team.  During the intense month, I managed to touch the core components of Hermes,
@@ -61,7 +61,7 @@ and a view of a single offer. Their goal was to gain knowledge about listings, a
 Both sides had their goals, but it was clear that we were going in the same direction. We didn’t specify precisely
 how many story points I had to make or how many new features I had to transfer to my team. We wanted to do as much as possible.
 
-<img alt="webperf" src="/img/articles/2019-11-19-team-tourism-case-studies-2/webperf.jpg" />
+<img alt="webperf" src="{{site.baseurl}}/{% link /img/articles/2019-11-19-team-tourism-case-studies-2/webperf.jpg %}"" />
 
 My friends from the web performance team introduced me to their core project: a single page application called
 "mobile-web SPA". It is worth mentioning that in my daily job, we have a component structure. That means listings are

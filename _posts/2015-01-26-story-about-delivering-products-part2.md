@@ -68,7 +68,7 @@ The process defined how the majority of users would use our product. We prepared
 on each of them we put the stage/feature/big story name.
 Then, we ordered stickies according to user flow and placed them on the whiteboard. Our process looked like this:
 
-![Process in our product](/img/articles/2015-01-26-the-process.png "Process in our product")
+![Process in our product]({{site.baseurl}}/{% link /img/articles/2015-01-26-the-process.png %} "Process in our product")
 
 ### 4. Many small bricks
 
@@ -112,7 +112,7 @@ We started **moving stories on the board**, so that the top priority stories wer
 and less important stories were placed at the bottom.
 The final map looked like this:
 
-![Stories prioritization](/img/articles/2015-01-26-prioritized-stories.jpg "Stories prioritization")
+![Stories prioritization]({{site.baseurl}}/{% link /img/articles/2015-01-26-prioritized-stories.jpg %} "Stories prioritization")
 
 ### 6. Lines on the whiteboard
 
@@ -169,7 +169,7 @@ In our case, it wasn’t so easy. We were closely cooperating with our ERP partn
 so we had to adjust our plan to their schedule.
 Eventually, our roadmap looked more or less like this (the numbers in the picture represent consecutive sprints):
 
-![Project roadmap](/img/articles/2015-01-26-roadmap.jpg "Project roadmap")
+![Project roadmap]({{site.baseurl}}/{% link /img/articles/2015-01-26-roadmap.jpg %} "Project roadmap")
 
 We had our roadmap defined, so the next step was to... actually start working.
 

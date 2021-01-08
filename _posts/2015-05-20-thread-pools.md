@@ -135,7 +135,7 @@ In order to create a `ThreadPoolExecutor` manually you have to provide at least 
 after being idle for the given amount of time.
 * `BlockingQueue<Runnable> workQueue` — submitted tasks wait in this queue to be executed.
 
-![threadpool](/img/articles/2015-04-22-thread-pools/thread-pool.png "Thread pool")
+![threadpool]({{site.baseurl}}/{% link /img/articles/2015-04-22-thread-pools/thread-pool.png %} "Thread pool")
 
 (An image from [Wikipedia](http://en.wikipedia.org/wiki/Thread_pool_pattern))
 

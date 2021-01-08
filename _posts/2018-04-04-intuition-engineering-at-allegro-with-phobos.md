@@ -5,7 +5,7 @@ author: tetiana.khotiaintseva
 tags: [tech, 'data visualization']
 ---
 
-At [Allegro]({{site.baseurl}}{% link /about-us/ %} ), feature velocity is a top priority. We believe that one of our critical competitive advantages
+At [Allegro]({{ '/about-us' | prepend: site.url }}), feature velocity is a top priority. We believe that one of our critical competitive advantages
 is the rate at which we introduce new features. In order to achieve a high feature velocity, one of the architectural
 choices that Allegro made a while back was to move to microservice architecture. So when somebody uses Allegro, a
 request comes in (and we just have a hypothetical example here) to service D — and we can imagine a service D being a
@@ -64,7 +64,7 @@ we are interested in how connections between microservices relate to specific bu
 If something goes wrong with a service A, the questions we’re interested in are: which other services might have
 degraded performance? And which business processes may be affected by it?
 
-![Phobos area view]({% link /img/articles/2018-04-04-intuition-engineering-at-allegro-with-phobos/areas.png %})
+![Phobos area view]({{site.baseurl}}/{% link /img/articles/2018-04-04-intuition-engineering-at-allegro-with-phobos/areas.png %})
 
 Instead of datacentres or availability zones, the main view of Phobos shows business areas. Each area contains
 microservices related to a specific business process. For example, one area could contain all microservices that handle
@@ -83,7 +83,7 @@ To create a map of connections between services we use a combination of two sour
 While the original Vizceral operates on data about the volume of requests, in Phobos we use data about the number of TCP
 connections established between hosts.
 
-![Phobos service view]({% link /img/articles/2018-04-04-intuition-engineering-at-allegro-with-phobos/services.png %})
+![Phobos service view]({{site.baseurl}}/{% link /img/articles/2018-04-04-intuition-engineering-at-allegro-with-phobos/services.png %})
 
 The frontend part of Vizceral, which is opesourced by Netflix, is written in [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
 with [three.js](https://threejs.org/) library; and on top of Vizceral we use a [Vizceral-React](https://github.com/Netflix/vizceral-react)

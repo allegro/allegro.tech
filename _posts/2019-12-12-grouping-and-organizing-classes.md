@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Grouping and organizing Java classes 
+title: Grouping and organizing Java classes
 author: mariusz.kopylec
 tags: [tech, architecture, package, ddd, domain, hexagonal, clean, java]
 ---
@@ -25,7 +25,7 @@ The main part of it will be business logic, that is the use cases that we expose
 Let’s call this part of the application the **core**.
 This is where the most important but also the most complex source code will reside.
 Therefore we should limit the need to change the code to the minimum in the core part.
-To achieve that, we will make the **core completely independent** of the other application parts. 
+To achieve that, we will make the **core completely independent** of the other application parts.
 Users must be able to use available use cases, which is why they should be presented to them in some way.
 At the moment, the use cases are to be presented via the HTTP API that the frontend application will consume and via the operating system’s terminal.
 If we isolate the part responsible for presenting use cases, we can freely change the presentation methods in the future without affecting the core.
@@ -51,7 +51,7 @@ To get things working as described above the core must be completely independent
 This means that no class from outside the core can be used in the core.
 The relationships between the parts of the application will look like this:
 
-![Project Dependencies](/img/articles/2019-12-12-grouping-and-organizing-classes/project-dependencies.png "Project Dependencies")
+![Project Dependencies]({{site.baseurl}}/{% link /img/articles/2019-12-12-grouping-and-organizing-classes/project-dependencies.png %} "Project Dependencies")
 
 In Java we can represent each of the application part as a package.
 Let’s divide our project into main packages:
@@ -116,7 +116,7 @@ In this situation, the `team` package must also depend on the `project` package 
 Let’s try to make this relationship as loose as possible.
 Let’s present the dependencies between the packages in the `core` package on the diagram below:
 
-![Core Dependencies](/img/articles/2019-12-12-grouping-and-organizing-classes/core-dependencies.png "Core Dependencies")
+![Core Dependencies]({{site.baseurl}}/{% link /img/articles/2019-12-12-grouping-and-organizing-classes/core-dependencies.png %} "Core Dependencies")
 
 Now, let’s think about how to encapsulate the `project` package.
 Generally, the fewer public classes and methods the better.

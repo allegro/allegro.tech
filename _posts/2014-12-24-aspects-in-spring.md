@@ -276,14 +276,14 @@ mentioning that you can have many aspects with their advice and pointcuts focuse
 This will create an onion-like structure with the targeted class in the center. In this structure every call of
 ```proceedingJoinPoint.proceed()``` from outer layer calls an aspect method from inner layer.
 
-![aspects](/img/articles/2014-12-24-aspects-in-spring/aspects.png "Aspect structure")
+![aspects]({{site.baseurl}}/{% link /img/articles/2014-12-24-aspects-in-spring/aspects.png %} "Aspect structure")
 
 ### Aspects from the inside
 When it comes to aspects, it is essential to understand the difference between calling a plain old Java object
 versus calling a proxy:
 
-![](/img/articles/2014-12-24-aspects-in-spring/aop-proxy-plain-pojo-call.png "Plain POJO call")
-![](/img/articles/2014-12-24-aspects-in-spring/aop-proxy-call.png "Proxy call")
+![]({{site.baseurl}}/{% link /img/articles/2014-12-24-aspects-in-spring/aop-proxy-plain-pojo-call.png %} "Plain POJO call")
+![]({{site.baseurl}}/{% link /img/articles/2014-12-24-aspects-in-spring/aop-proxy-call.png %} "Proxy call")
 
 (images from the Spring documentation)
 

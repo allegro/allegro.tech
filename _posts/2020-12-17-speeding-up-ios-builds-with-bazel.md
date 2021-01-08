@@ -11,7 +11,7 @@ amount of code we had. Do these two metrics grow at the same pace?
 
 ### Slowing down
 
-![Build time chart]({% link /img/articles/2020-12-17-speeding-up-ios-builds-with-bazel/build_time_chart.png %})
+![Build time chart]({{site.baseurl}}/{% link /img/articles/2020-12-17-speeding-up-ios-builds-with-bazel/build_time_chart.png %})
 
 Our measurements started in May 2019 with combined 300k lines of Objective-C and Swift code that took around
 ~177 seconds to compile. One year later we increased code size by 33% but compilation time grew by 50%.
@@ -24,7 +24,7 @@ Even if we have split application into smaller projects it all needs to be built
 Since it's a monolith that needs to be linked together, one "service" cannot be changed in a running app as you would
 in microservice backend infrastructure.
 
-![Build details]({% link /img/articles/2020-12-17-speeding-up-ios-builds-with-bazel/build_details.png %})
+![Build details]({{site.baseurl}}/{% link /img/articles/2020-12-17-speeding-up-ios-builds-with-bazel/build_details.png %})
 
 At first we tried to speed things up with building our 3rd party dependencies with Carthage. However, this was not very
 efficient being only a small fraction of our code base. Any improvement was quickly eaten up by adding new code that
@@ -48,7 +48,7 @@ Bazel is Google's build system that supports C++, Android, iOS, Go and a wide va
 language platforms on Windows, macOS, and Linux. One of its key features is its caching mechanism - both local and
 remote.
 
-![Bazel logo]({% link /img/articles/2020-12-17-speeding-up-ios-builds-with-bazel/bazel_logo.png %})
+![Bazel logo]({{site.baseurl}}/{% link /img/articles/2020-12-17-speeding-up-ios-builds-with-bazel/bazel_logo.png %})
 
 Bazel already provides sets of Apple rules that can build a complete application but it didn’t meet our requirements
 since mixing Swift and Obj-C is not possible. Another problem is that we would need to do the whole transition at once
@@ -163,19 +163,19 @@ portion of tests affected by introduced changes. To achieve this we had to maint
 different projects and that was obviously very error prone.
 The chart below shows just a small portion of our dependency tree (generated in Bazel).
 
-![Dependency graph]({% link /img/articles/2020-12-17-speeding-up-ios-builds-with-bazel/dependency_graph.png %})
+![Dependency graph]({{site.baseurl}}/{% link /img/articles/2020-12-17-speeding-up-ios-builds-with-bazel/dependency_graph.png %})
 
 After the migration to Bazel we can query our dependency graph to get a list of targets that a given file affects
 and run unit tests for that target. That improved our experience since we used to manually maintain list of
 dependencies beetwen our module which was error prone and time consuming.
 
-![Sample query]({% link /img/articles/2020-12-17-speeding-up-ios-builds-with-bazel/query.png %})
+![Sample query]({{site.baseurl}}/{% link /img/articles/2020-12-17-speeding-up-ios-builds-with-bazel/query.png %})
 
 Build results can be cached the same way as build artifacts.
 This has dramatically reduced test times of our master branch test plan, as we can run `bazel test //...` and only test
 targets that have not been run previously. Take a look at the below chart to see how good our result are:
 
-![Tests time chart]({% link /img/articles/2020-12-17-speeding-up-ios-builds-with-bazel/tests_time_chart.png %})
+![Tests time chart]({{site.baseurl}}/{% link /img/articles/2020-12-17-speeding-up-ios-builds-with-bazel/tests_time_chart.png %})
 
 ### Conclusion
 
