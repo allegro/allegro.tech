@@ -124,7 +124,7 @@
         {
             "name": "node-worker-nodes",
             "url": "https://github.com/allegro/node-worker-nodes",
-            "stars": 460,
+            "stars": 462,
             "description": "A node.js library to run cpu-intensive tasks in a separate processes and not block the event loop.",
             "featured": {
                 "primary": false,
@@ -244,7 +244,7 @@
         {
             "name": "marathon-consul",
             "url": "https://github.com/allegro/marathon-consul",
-            "stars": 172,
+            "stars": 173,
             "description": "Integrates Marathon apps with Consul service discovery.",
             "featured": {
                 "primary": false,
