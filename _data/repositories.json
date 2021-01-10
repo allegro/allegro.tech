@@ -49,7 +49,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 4544,
+            "stars": 4545,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -124,7 +124,7 @@
         {
             "name": "node-worker-nodes",
             "url": "https://github.com/allegro/node-worker-nodes",
-            "stars": 463,
+            "stars": 464,
             "description": "A node.js library to run cpu-intensive tasks in a separate processes and not block the event loop.",
             "featured": {
                 "primary": false,
