@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "./Post.module.css";
-import {Card} from "react-bootstrap";
+import Heading from "../metrum/Heading";
+import Card from "../metrum/Card";
+import Link from "../metrum/Link";
+import Typography from "../metrum/Typography";
+import List from "../metrum/List";
 
 export interface IPost {
     title: string;
@@ -21,16 +25,16 @@ const Post: React.FunctionComponent<PostProps> = ({ title, categories, isoDate, 
     const day = date.getDate();
 
     return (
-        <Card>
-            <Card.Img variant="top" src="https://via.placeholder.com/300x150" />
-            <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <time><span className={styles.bold}>{month} {day}</span> {year}</time>
-                <ul className={styles.categories}>
-                    {categories.map(category => <li key={category}><a href="">#{category}</a></li>)}
-                </ul>
-                <Card.Text>{excerpt}</Card.Text>
-            </Card.Body>
+        <Card as="article" className="m-margin-bottom_16">
+            <img src="https://via.placeholder.com/340x170" alt="" className="m-display-block m-margin-bottom-16 m-width-fluid" />
+            <div>
+                <Heading size="medium">{title}</Heading>
+                <Typography as="time"><span className={styles.bold}>{month} {day}</span> {year}</Typography>
+                <List>
+                    {categories.map(category => <List.Item key={category} className="m-margin-right-8 m-display-inline-block"><Link href="#">#{category}</Link></List.Item>)}
+                </List>
+                <Typography>{excerpt}</Typography>
+            </div>
         </Card>
     );
 };

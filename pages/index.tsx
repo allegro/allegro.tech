@@ -1,8 +1,11 @@
 import React from 'react';
 import Parser from 'rss-parser';
 import Post, {IPost} from "../components/Post";
-import {Col, Container, Row} from "react-bootstrap";
 import Header from "../components/Header";
+import Grid from "../metrum/Grid";
+import Container from '../metrum/Container';
+import Heading from "../metrum/Heading";
+import Footer from "../components/Footer";
 
 interface HomePageProps {
     posts: IPost[]
@@ -11,16 +14,17 @@ interface HomePageProps {
 const HomePage: React.FunctionComponent<HomePageProps> = ({ posts }) => (
     <React.Fragment>
         <Header />
-        <Container>
-            <h2 className="m-3">Blog</h2>
-            <Row>
+        <Container className="m-padding-top-24">
+            <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Blog</Heading>
+            <Grid>
                 {posts.map(data => (
-                    <Col key={data.link} xs={3} className="mb-3">
+                    <Grid.Col key={data.link} size={3} className="m-display-flex">
                         <Post {...data} />
-                    </Col>
+                    </Grid.Col>
                 ))}
-            </Row>
+            </Grid>
         </Container>
+        <Footer />
     </React.Fragment>
 );
 
