@@ -3,8 +3,5 @@
 }
 
 .image {
-    display: flex;
     height: 500px;
-    flex-direction: column;
-    justify-content: flex-end;
 }
