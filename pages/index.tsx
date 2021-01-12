@@ -1,18 +1,21 @@
 import React from 'react';
 import Head from "next/head";
 import Parser from 'rss-parser';
-import Post, {IPost} from "../components/Post";
+import Post, { IPost } from "../components/Post";
 import Header from "../components/Header";
 import Grid from "../metrum/Grid";
 import Container from '../metrum/Container';
 import Heading from "../metrum/Heading";
 import Footer from "../components/Footer";
+import Job, { IJob } from "../components/Job";
+import Link from "../metrum/Link";
 
 interface HomePageProps {
-    posts: IPost[]
+    posts: IPost[],
+    jobs: IJob[]
 }
 
-const HomePage: React.FunctionComponent<HomePageProps> = ({ posts }) => {
+const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs = [] }) => {
     React.useEffect(() => {
         const script = document.createElement('script');
         script.src = '//allegrotechio.disqus.com/count.js';
@@ -24,9 +27,10 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts }) => {
     return (
         <React.Fragment>
             <Head>
-                <link rel="prefetch" href="//allegrotechio.disqus.com/count.js" />
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                <meta name="description" content="We use Open Source solutions on a daily basis here at Allegro Group. Why not work on our karma and give something in return? Welcome to our open source technology blog." />
+                <link rel="prefetch" href="https://allegrotechio.disqus.com/count.js"/>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+                <meta name="description"
+                      content="We use Open Source solutions on a daily basis here at Allegro. Why not work on our karma and give something in return? Welcome to our open source technology blog."/>
                 <title>Allegro Tech</title>
                 <meta property="og:site_name" content="allegro.tech"/>
                 <meta property="og:title" content="allegro.tech"/>
@@ -34,7 +38,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts }) => {
                 <meta property="og:type" content="site"/>
                 <meta property="og:image" content="https://allegro.tech/img/allegro-tech.png"/>
             </Head>
-            <Header />
+            <Header/>
             <Container className="m-padding-top-24">
                 <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Blog</Heading>
                 <Grid>
@@ -45,7 +49,18 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts }) => {
                     ))}
                 </Grid>
             </Container>
-            <Footer />
+            <Container className="m-padding-top-24">
+                <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Oferty pracy</Heading>
+                <Container>
+                    {jobs.map(job => (
+                        <Job key={job.id} id={job.id} name={job.name} location={job.location}/>
+                    ))}
+                </Container>
+                <Link
+                    className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_16 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
+                    href="https://careers.smartrecruiters.com/Allegro">Zobacz więcej ofert</Link>
+            </Container>
+            <Footer/>
         </React.Fragment>
     );
 }
@@ -53,6 +68,9 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts }) => {
 export async function getStaticProps() {
     const parser = new Parser({});
     const feed = await parser.parseURL('https://allegro.tech/feed.xml');
+    const jobs = await fetch('https://api.smartrecruiters.com/v1/companies/allegro/postings?custom_field.58c15608e4b01d4b19ddf790=c807eec2-8a53-4b55-b7c5-c03180f2059b')
+        .then(response => response.json())
+        .then(json => json.content)
 
     return {
         props: {
@@ -66,7 +84,8 @@ export async function getStaticProps() {
                     link,
                     excerpt
                 };
-            })
+            }),
+            jobs: jobs.slice(0, 5)
         },
     }
 }

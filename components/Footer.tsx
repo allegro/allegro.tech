@@ -23,7 +23,7 @@ const SOCIAL_MEDIA = [{
 }];
 
 const Footer: React.FunctionComponent = () => (
-    <footer className="m-color-bg_navy">
+    <footer className="m-color-bg_navy m-margin-top-32">
         <Container className="m-padding-top-24 m-padding-bottom-24 m-display-flex m-flex-justify-between m-flex-items-center">
             <Typography className="m-color_white m-padding-left-24">Proudly built by Allegro Tech <Link href="/" inverted>engineers</Link></Typography>
             <List className="m-display-flex">
