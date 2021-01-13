@@ -85,7 +85,7 @@ Our colleague Piotr Betkier presented the features of [Spock](http://docs.spockf
 that the tests written in Groovy and Spock are clear and simple. Reading tests written in Spock is very similar to reading a
 text in natural language sentence by sentence, like a book. The code presented during this talk is available at [Piotr’s github](https://github.com/pbetkier/spock-demo).
 
-Marcin Zajaczkowski in his lecture “Java 8 brings power to testing” presented how Java 8 supports testing. [Java 8](/2014/12/How-to-migrate-to-Java-8.html) provides
+Marcin Zajaczkowski in his lecture “Java 8 brings power to testing” presented how Java 8 supports testing. [Java 8]({% post_url 2014-12-09-How-to-migrate-to-Java-8 %}) provides
 fields extraction, clear and verbose error message and smart asynchronous call testing — no more `sleep()` in tests.
 
 The culmination of the all-day event was Nat Pryce’s lecture — “Lessons Learned Breaking the (TDD) Rules”. Nat Pryce talked

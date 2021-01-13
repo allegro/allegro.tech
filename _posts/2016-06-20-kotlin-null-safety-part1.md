@@ -8,7 +8,7 @@ tags: [tech, java, kotlin, jvm, performance, null, x86, x64, assembler]
 [Kotlin](http://kotlinlang.org) may seem like a new kid on the block — itʼs been officially released only in [February](http://blog.jetbrains.com/kotlin/2016/02/kotlin-1-0-released-pragmatic-language-for-jvm-and-android/).
 Its history however dates [a few years back](http://www.infoworld.com/article/2622405/java/jetbrains-readies-jvm-based-language.html)
 and itʼs mature and stable enough to be used for developing solid reliable applications.
-Therefore at [Allegro](/about-us/) we decided to give it a chance — we built our new
+Therefore at [Allegro]({% link about-us/index.html %}) we decided to give it a chance — we built our new
 shiny server-side system using Kotlin as its primary language and we do not regret it.
 
 One of the first features a Kotlin developer learns is the languageʼs approach to handling `null` values.
@@ -652,8 +652,8 @@ following stack trace:
 
 ```
 Exception in thread "main" java.lang.IllegalStateException: System.getProperty("key") must not be null
-	at pl.kk.test.kotlin.PlatformTypesKt.funnyCase(PlatformTypes.kt:54)
-	at pl.kk.test.kotlin.FunnyCaseCall.main(PlatformTypes.kt:60)
+    at pl.kk.test.kotlin.PlatformTypesKt.funnyCase(PlatformTypes.kt:54)
+    at pl.kk.test.kotlin.FunnyCaseCall.main(PlatformTypes.kt:60)
 ```
 
 ### Summary

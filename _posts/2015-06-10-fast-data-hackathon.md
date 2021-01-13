@@ -25,11 +25,11 @@ meets our expectations best.
 
 Our evaluation included the following technologies:
 
-*   [Hive on Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez),
-*   [Presto](https://prestodb.io/),
-*   [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html),
-*   [Drill](http://drill.apache.org/),
-*   [Spark SQL](https://spark.apache.org/sql/).
+* [Hive on Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez),
+* [Presto](https://prestodb.io/),
+* [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html),
+* [Drill](http://drill.apache.org/),
+* [Spark SQL](https://spark.apache.org/sql/).
 
 We also wanted to evaluate [Hive on Spark](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Spark%3A+Getting+Started)
 but (at the time of writing) issue [HIVE-7292](https://issues.apache.org/jira/browse/HIVE-7292)
@@ -46,19 +46,17 @@ to build a solution on top of existing infrastructure without additional resourc
 Due to data locality this also has an impact on performance, but
 this will be evaluated in Benchmark section.
 
-
 Another important criteria is query fault tolerance &mdash; we run plenty of long running
 queries on our existing cluster and want to know what happens if something goes wrong during query execution.
 All the evaluated engines handle failures on their own.
 Some are able to recompute only parts that got broken, some need to recompute the whole query from scratch.
 
-
 | [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 ----------------------- | ----- | ----- | ------------- | ----------------- | -----------------
-Evaluated version 		| 0.5.3 | 0.98 	| 2.1.1-cdh5 	| 0.9.0- SNAPSHOT 	| 1.4.0-SNAPSHOT
-Kerberos Support 		| Yes 	| No 	| Yes 			| No 				| Yes
-Yarn deployment			| Yes	| No	| Yes			| No				| Yes
-Query fault tolerance	| Yes 	| No 	| No 			| No 				| Yes
+Evaluated version         | 0.5.3 | 0.98     | 2.1.1-cdh5     | 0.9.0- SNAPSHOT     | 1.4.0-SNAPSHOT
+Kerberos Support         | Yes     | No     | Yes             | No                 | Yes
+Yarn deployment            | Yes    | No    | Yes            | No                | Yes
+Query fault tolerance    | Yes     | No     | No             | No                 | Yes
 
 ### User interfaces and APIs"s
 
@@ -71,8 +69,8 @@ This happened due to hackathon time box. Not everything can be verified empirica
 
 | [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 ----------------|---------------|-------------------------------------------|-------------------|---------------|----------
-User Interface 	| [Hue Tez UI](http://gethue.com/) 	| [Shib](https://github.com/tagomoris/shib) | [Hue](http://gethue.com/), impala-shell | admin panel 	| Spark UI
-JDBC Connector 	| Yes 			| Yes 										| Yes 				| Yes 			| Yes
+User Interface     | [Hue Tez UI](http://gethue.com/)     | [Shib](https://github.com/tagomoris/shib) | [Hue](http://gethue.com/), impala-shell | admin panel     | Spark UI
+JDBC Connector     | Yes             | Yes                                         | Yes                 | Yes             | Yes
 
 ### Query Language
 
@@ -92,17 +90,17 @@ The second group (Allegro-analytical) contained a representative sample of queri
 run by our [DWH (data warehouse)](http://en.wikipedia.org/wiki/Data_warehouse) team on commercial data warehouses. These queries were significantly
 more complex than the AmpLab ones. A brief description of the queries is given below:
 
-*   AmpLab01 - a simple two column select with filtering,
-*   AmpLab02 - data aggregation with a group by clause,
-*   AmpLab03 - joining two large tables with an order by,
-*   AmpLab04 - a two stage query with a transient table and json parsing,
-*   Analytic01 - searching clickstream by a given category,
-*   Analytic02 - custom filtering applied to transactions joined with user events,
-*   Analytic03 - a summary of clickstream data,
-*   Analytic04 - a summary of clickstream joined with transactions,
-*   Analytic05 - attribution workflow - part 1,
-*   Analytic06 - attribution workflow - part 2,
-*   Analytic07 - analysing search queries prior to transactions.
+* AmpLab01 - a simple two column select with filtering,
+* AmpLab02 - data aggregation with a group by clause,
+* AmpLab03 - joining two large tables with an order by,
+* AmpLab04 - a two stage query with a transient table and json parsing,
+* Analytic01 - searching clickstream by a given category,
+* Analytic02 - custom filtering applied to transactions joined with user events,
+* Analytic03 - a summary of clickstream data,
+* Analytic04 - a summary of clickstream joined with transactions,
+* Analytic05 - attribution workflow - part 1,
+* Analytic06 - attribution workflow - part 2,
+* Analytic07 - analysing search queries prior to transactions.
 
 Implementing our test queries in each technology turned out to be a really valuable
 experience as it allowed us to get a feel for working with these tools.
@@ -118,11 +116,11 @@ execute after modifications to fit engine syntax.
 
 | [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 ------------------------|-------|-----------------------------------|-----------|-------------------------------|--------
-Query Language 			| HiveQL| ~SQL 								| ~HiveQL 	|ANSI SQL? 						| ~HiveQL
-Can modify metastore? 	| Yes 	| Yes 								| Yes 		| No 							| Yes
-Can utilise views? 		| Yes 	| Views available only in Presto 	| Yes 		| Views available only in Drill | Yes
-UDF Support 			| Yes 	| Yes 								| Yes 		| Yes 							| Yes
-Allegro use cases 		| 11/11 | 11/11 							| 10/11 	| 8/11 							| 9/11
+Query Language             | HiveQL| ~SQL                                 | ~HiveQL     |ANSI SQL?                         | ~HiveQL
+Can modify metastore?     | Yes     | Yes                                 | Yes         | No                             | Yes
+Can utilise views?         | Yes     | Views available only in Presto     | Yes         | Views available only in Drill | Yes
+UDF Support             | Yes     | Yes                                 | Yes         | Yes                             | Yes
+Allegro use cases         | 11/11 | 11/11                             | 10/11     | 8/11                             | 9/11
 
 ### Supported data types and formats
 
@@ -139,10 +137,10 @@ which are important for Allegro users to query existing datasets.
 
 | [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 --------|-----|-----|--------|----------|----
-CSV 	| Yes | Yes | Hmm... | Yes 		| Yes
-JSON 	| Yes | Yes | Hmm... | Yes 		| Yes
-AVRO 	| Yes | Yes | Hmm... | Yes 		| Yes
-Parquet | Yes | Yes | Hmm... | Hmm... 	| Yes
+CSV     | Yes | Yes | Hmm... | Yes         | Yes
+JSON     | Yes | Yes | Hmm... | Yes         | Yes
+AVRO     | Yes | Yes | Hmm... | Yes         | Yes
+Parquet | Yes | Yes | Hmm... | Hmm...     | Yes
 
 ### Open Source Community
 
@@ -151,13 +149,12 @@ that maintains and develops the products as all evaluated projects are open-sour
 To gain some insight into that matter we checked [GitHub](https://github.com) stats, such as: numbers of commits,
 branches, releases and contributors
 
-
 | [Hive on Tez](http://tez.apache.org/) | [Presto](https://prestodb.io/) | [Impala](http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html) | [Drill](http://drill.apache.org/) | [Spark SQL](http://tez.apache.org/)
 ----------------|-------|-------|-------|-------|-------
-commits 		|  1458 |  4673 |  3427 |  1480 |  10264
-branches 		|  18 	|  2 	|  27	|  11 	|  13
-releases 		|  22 	|  104 	|  33 	|  5 	|  33
-contributors 	|  12 	|  59 	|  32 	|  42 	|  477
+commits         |  1458 |  4673 |  3427 |  1480 |  10264
+branches         |  18     |  2     |  27    |  11     |  13
+releases         |  22     |  104     |  33     |  5     |  33
+contributors     |  12     |  59     |  32     |  42     |  477
 
 ## Benchmark
 
@@ -189,12 +186,12 @@ When evaluating benchmark results, Hive MapReduce presented the poorest performa
 performance leader in the most queries.
 At the end we sum up our  results obtained for all the engines. Please note that these are our impressions based on our queries and functionality needs.
 
-*   **Hive on Spark** &mdash; The only technology which we were not able to set up. Important for further evaluations in the future as it runs on Hive and does not require significant changes in the query structure.
-*   **Hive on Tez** &mdash; The tool that does a great job on our Hadoop cluster. It allowed to run all queries and performance results appeared to be stable and satisfactory.
-*   **Spark SQL** &mdash; Spark SQL turned out to be useful, despite it lacks a `row_num` function. Surprisingly it still suffers some performance issues in some queries although performing better than average in general.
-*   **Presto** &mdash; Convenient to use, most of the queries run easily with small modifications and work stable. We expected better performance than achieved. This could have been influenced by data locality problems as Presto was run standalone and had to access HDFS data remotely.
-*   **Impala** &mdash; The best benchmark performer which additionally runs on YARN. On the other hand it still lacks some basic functionalities and has some limitations. It does not support CTAS (Create Table as Select) nor composite or nested data types. It also behaves unstable when running out of memory and the obtained execution times seem to have the highest variance among the competitors.
-*   **Drill** &mdash; If it is able to execute a query, it does so extremely fast. The benchmark results are comparable to Impala despite the fact that Drill has been set up on machines external to HDFS. Unfortunately we do not consider Drill as production ready yet as it has several gaps in the query language, especially the capabilities and stability of user defined functions  which are already used in lots of our Hive queries.
+* **Hive on Spark** &mdash; The only technology which we were not able to set up. Important for further evaluations in the future as it runs on Hive and does not require significant changes in the query structure.
+* **Hive on Tez** &mdash; The tool that does a great job on our Hadoop cluster. It allowed to run all queries and performance results appeared to be stable and satisfactory.
+* **Spark SQL** &mdash; Spark SQL turned out to be useful, despite it lacks a `row_num` function. Surprisingly it still suffers some performance issues in some queries although performing better than average in general.
+* **Presto** &mdash; Convenient to use, most of the queries run easily with small modifications and work stable. We expected better performance than achieved. This could have been influenced by data locality problems as Presto was run standalone and had to access HDFS data remotely.
+* **Impala** &mdash; The best benchmark performer which additionally runs on YARN. On the other hand it still lacks some basic functionalities and has some limitations. It does not support CTAS (Create Table as Select) nor composite or nested data types. It also behaves unstable when running out of memory and the obtained execution times seem to have the highest variance among the competitors.
+* **Drill** &mdash; If it is able to execute a query, it does so extremely fast. The benchmark results are comparable to Impala despite the fact that Drill has been set up on machines external to HDFS. Unfortunately we do not consider Drill as production ready yet as it has several gaps in the query language, especially the capabilities and stability of user defined functions  which are already used in lots of our Hive queries.
 
 We already use Hive MapReduce, Hive Tez and SparkSQL on our cluster.
 None of the evaluated technologies, absent in our Hadoop ecosystem, combined performance and functionalities good enough to drive a change in our ecosystem.

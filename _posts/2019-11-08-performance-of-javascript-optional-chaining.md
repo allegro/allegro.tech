@@ -75,7 +75,6 @@ Let's take a step back. Optional chaining isn't a new idea at all. Solutions for
 ampersands && chains` problem have already existed in the so-called userspace for quite some time. Jason Miller's
 [`dlv`](https://github.com/developit/dlv) is only one among many.
 
-
 ```js
 dlv(foo, 'bar.baz.qux');
 ```
@@ -83,7 +82,6 @@ dlv(foo, 'bar.baz.qux');
 Besides this approach isn't as good as the new syntax, because it's not type-safe, it requires slightly more code on the
 call site - 25 characters. Plus, you must import the function from the library. But, how does the code look in the final
 bundle?
-
 
 ```js
 d(u,'bar.baz.qux');
@@ -94,13 +92,11 @@ What a surprise! 19 characters, that's as concise as optional chaining syntax it
 If you feel uncomfortable with strings, you can pass an array of strings to the function. Although, there's more characters
 in both source and the final code, it may be worth doing. You will see later why.
 
-
 ```js
 dlv(foo, ['bar', 'baz', 'qux']);
 ```
 
 Implementation of the function itself takes only 101 characters after minification.
-
 
 ```js
 function d(n,t,o,i,l){for(t=t.split?t.split("."):t,i=0;i<t.length;i++)n=n?n[t[i]]:l;return n===l?o:n}
@@ -116,7 +112,7 @@ The amount of the code affects not only downloading a file but also the time of 
 the tool around 1000 times for all variants, each containing 100 equal optional chainings.
 
 [![code parsing
-time](/img/articles/2019-11-08-performance-of-javascript-optional-chaining/jdgt6978sx3gnc7i63sj-1.png)](https://docs.google.com/spreadsheets/d/17xD1LgKWQSoOYLRq-ZoMQr9s6LzwmF2i4_H39UquKAo/edit?usp=sharing)
+time]({% link /img/articles/2019-11-08-performance-of-javascript-optional-chaining/jdgt6978sx3gnc7i63sj-1.png %})](https://docs.google.com/spreadsheets/d/17xD1LgKWQSoOYLRq-ZoMQr9s6LzwmF2i4_H39UquKAo/edit?usp=sharing)
 
 It seems that parsing time depends not only on the size of the code but also on the syntax used. Relatively big "old spice"
 variant gets significantly lower time than all the rest, even the smallest one (native optional chaining).
@@ -132,7 +128,7 @@ Performance is not only about the bundle size, though! How fast is optional chai
 answer is: it's incredibly fast. Using the new syntax, even transpiled to ES5 code, may give 30x (!) speedup comparing
 to `dlv`. If you use an array instead of a string, though, it's only 6x.
 
-![jsPerf results](/img/articles/2019-11-08-performance-of-javascript-optional-chaining/wge5ljra79fxi6kr9i4w-1.png)
+![jsPerf results]({% link /img/articles/2019-11-08-performance-of-javascript-optional-chaining/wge5ljra79fxi6kr9i4w-1.png %})
 
 No matter whether you [access empty object](https://jsperf.com/optional-chaining-empty-object), [full
 one](https://jsperf.com/optional-chaining-full-path) or [one with null

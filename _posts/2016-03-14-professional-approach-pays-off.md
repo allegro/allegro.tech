@@ -29,7 +29,7 @@ hardly pay off in such dynamic environment. I’ll indicate what we paid attenti
 The first steps involved all the usual things, like building the application and automatic testing. Repetitive manual actions
 transforming the code into an application were arduous from the very start. As it was a Java project, we found a lot of ready-to-use tools
 and solutions that we could try out. The team selected the following testing frameworks:
-[JUnit + JBehave](/2015/03/acceptance-testing-with-jbehave-and-gradle.html), with the Gradle + Bamboo support as it
+[JUnit + JBehave]({% post_url 2015-03-02-acceptance-testing-with-jbehave-and-gradle %}), with the Gradle + Bamboo support as it
 allows you to automate all the manual work. As a result, you gain a lot almost effortlessly – you can check whether the product package
 can be built in almost no time. Mark my word – you do want to have your code clean and neat when you are about
 to make some serious decisions about your product.
@@ -72,7 +72,7 @@ Overwhelmed by technical issues, we couldn’t forget that the product were cons
 does using really mean in this particular context? How do users perceive the product? What do they click? How much time do they need to
 perform a certain action? It was time to carry out some quantitative product analyses to understand how users used our product. Eventually,
 we managed to notice some significant things with the help of [NewRelic](http://newrelic.com/), [Hadoop](http://hadoop.apache.org/),
-[Kibana](https://www.elastic.co/products/kibana) and some [internal tools](/2015/09/scaling-graphite.html). To examine
+[Kibana](https://www.elastic.co/products/kibana) and some [internal tools]({% post_url 2015-09-08-scaling-graphite %}). To examine
 the issue thoroughly, we carried out qualitative research using [UsabillaLive](https://usabilla.com/products/websites) to better understand
 the patterns we observed. Then we were able to determine what was important, what could be omitted
 and what was necessary. After all, we wanted our users to be happy and for this reason we wanted our features to be useful for them. We
@@ -106,15 +106,14 @@ working solution. As you can see, sometimes despite all the efforts, the outcome
 
 Let’s sum up:
 
- * We knew the project scale so we used solutions appropriate for the problem – minor workarounds solved the problem only temporarily and
+* We knew the project scale so we used solutions appropriate for the problem – minor workarounds solved the problem only temporarily and
 generated additional cost.
- * Thanks to complex programming knowledge we were able to polish every aspect of the code.
- * To keep everything under control, we wanted to build the product piece by piece. To do so, we needed development and release process.
- * To make sure no lines of code were wasted, we analyzed and measured users' behavior to pick only the most promising features.
- * To make sure the solution was reliable, we adjusted the infrastructure and monitoring to our product.
- * If you want to release anything while sitting in a bistro and be 100% confident, you have to take care of all the software development
+* Thanks to complex programming knowledge we were able to polish every aspect of the code.
+* To keep everything under control, we wanted to build the product piece by piece. To do so, we needed development and release process.
+* To make sure no lines of code were wasted, we analyzed and measured users' behavior to pick only the most promising features.
+* To make sure the solution was reliable, we adjusted the infrastructure and monitoring to our product.
+* If you want to release anything while sitting in a bistro and be 100% confident, you have to take care of all the software development
 aspects.
-
 
 _Dear developer! You will face deadlines. You will seek compromises. You will work under pressure. But the truth is that only you can
 guarantee that the product will work and be reliable. Any far-fetched compromise you accept is a serious threat.

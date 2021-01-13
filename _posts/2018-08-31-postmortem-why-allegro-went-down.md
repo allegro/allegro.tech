@@ -20,7 +20,6 @@ We prepare internal postmortems after any serious issue in order to analyze the 
 This text is based on such an internal postmortem, prepared by multiple people from the teams
 that took part in dealing with the outage.
 
-
 ## Architecture overview
 
 First of all, let’s start with an overview of our architecture. As you probably already know from [our blog](/blog/),
@@ -29,7 +28,7 @@ searching for an offer, clicking on it to view details, and then buying, followi
 * Listing — prepares data related to item listing (search result) pages
 * Search — responsible for low-level search in offers, based on keywords, parameters and other criteria
 * Transaction — allows items to be bought
-* [Opbox](/2016/03/Managing-Frontend-in-the-microservices-architecture.html) — responsible for frontend rendering
+* [Opbox]({% post_url 2016-03-12-Managing-Frontend-in-the-microservices-architecture %}) — responsible for frontend rendering
 of the data returned by backend services
 * Item — service for frontend rendering of item pages
 
@@ -39,7 +38,7 @@ The special offer was to start at noon sharp, and a direct link to its item page
 At&nbsp;11:15 we manually scaled out Listing service in order to be prepared for increased incoming traffic.
 
 <figure>
-<img alt="Search service traffic around noon" 
+<img alt="Search service traffic around noon"
 src="/img/articles/2018-08-31-postmortem-why-allegro-went-down/search-traffic.png" />
 <figcaption>
 Search service traffic around noon. The number of requests per unit of time rose before noon, causing some requests
@@ -66,7 +65,7 @@ being there. Some other compartments within the cluster were not even affected a
 and tons of RAM laying around unused.
 
 <figure>
-<img alt="Listing service response times" 
+<img alt="Listing service response times"
 src="/img/articles/2018-08-31-postmortem-why-allegro-went-down/listing-response-times.png" />
 <figcaption>
 Listing service response times (avg median - average between instances of the median value, max p99 - maximum between
@@ -111,7 +110,7 @@ to some of the backend services during the outage. By better tuning the configur
 as well as the retry policies, we will be able to mitigate the impact of high traffic the next time it happens.
 
 <figure>
-<img alt="Undertow thread count in Listing service" 
+<img alt="Undertow thread count in Listing service"
 src="/img/articles/2018-08-31-postmortem-why-allegro-went-down/undertow-threads.png" />
 <figcaption>
 Undertow thread count in Listing service. A sudden increase is visible during the time when there were too few instances
