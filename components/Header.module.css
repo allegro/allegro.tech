@@ -5,3 +5,42 @@
 .image {
     height: 500px;
 }
+
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+
+.menu {
+    border-top: 1px solid #ddd;
+    position: absolute;
+    left: 0;
+    top: 81px;
+    height: calc(100vh - 81px);
+    right: 0;
+    bottom: 0;
+    background: #fff;
+}
+
+.menu li {
+    border-bottom: 1px solid #ddd;
+}
+
+@media (min-width: 992px) {
+    .navbar {
+        position: static;
+    }
+
+    .menu {
+        position: static;
+        height: auto;
+        background: transparent;
+        border: 0;
+    }
+
+    .menu li {
+        border: 0;
+    }
+}

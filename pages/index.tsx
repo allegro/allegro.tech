@@ -67,10 +67,12 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs = [] }) 
 
 export async function getStaticProps() {
     const parser = new Parser({});
-    const feed = await parser.parseURL('https://allegro.tech/feed.xml');
-    const jobs = await fetch('https://api.smartrecruiters.com/v1/companies/allegro/postings?custom_field.58c15608e4b01d4b19ddf790=c807eec2-8a53-4b55-b7c5-c03180f2059b')
+    const feedPromise = parser.parseURL('https://allegro.tech/feed.xml');
+    const jobsPromise = fetch('https://api.smartrecruiters.com/v1/companies/allegro/postings?custom_field.58c15608e4b01d4b19ddf790=c807eec2-8a53-4b55-b7c5-c03180f2059b')
         .then(response => response.json())
-        .then(json => json.content)
+        .then(json => json.content);
+
+    const [feed, jobs] = await Promise.all([feedPromise, jobsPromise]);
 
     return {
         props: {

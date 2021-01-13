@@ -3,9 +3,15 @@
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 81px 0 0;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #eceff1;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 0;
+  }
 }

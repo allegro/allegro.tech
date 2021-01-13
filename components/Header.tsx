@@ -32,19 +32,36 @@ const MENU_ITEMS = [{
 }, {
     label: 'Video',
     url: '/blog'
-}]
+}];
+
+const ICON_CLOSE = 'https://assets.allegrostatic.com/metrum/icon/x-1a6f095eb2.svg';
+const ICON_MENU = 'https://assets.allegrostatic.com/metrum/icon/menu-23e046bf68.svg';
 
 const Header = () => {
+    const [menuVisible, setMenuVisible] = React.useState(false);
+    const isMobile = typeof window !== 'undefined' && window.matchMedia && !window.matchMedia('(min-width: 992px)').matches;
+
+    React.useEffect(() => {
+        document.body.style.overflow = isMobile && menuVisible ? 'hidden' : '';
+    }, [menuVisible, isMobile]);
+
+    const icon = menuVisible ? ICON_CLOSE : ICON_MENU;
+
     return (
         <header className={styles.header}>
-            <Card>
+            <Card className={styles.navbar}>
                 <Container as="nav" className="m-display-flex m-flex-justify-between m-flex-items-center">
                     <a href="/"><img src="images/logo.svg" alt="Allegro Tech" height={45} /></a>
-                    <List className="m-display-flex">
-                        {MENU_ITEMS.map(({ label, url }) => (
-                            <List.Item key={label} className="m-margin-left-16"><Link href={url} signal>{label}</Link></List.Item>
-                        ))}
-                    </List>
+                    <div>
+                        <List className={classnames("m-display-flex@lg", !menuVisible && "m-display-none", menuVisible && styles.menu)}>
+                            {MENU_ITEMS.map(({ label, url }) => (
+                                <List.Item key={label} className="m-margin-left-16@lg"><Link href={url} signal className="m-display-block m-display-inline@lg m-padding-left-16 m-padding-right-16 m-padding-top-16 m-padding-bottom-16 m-padding-left-0@lg m-padding-top-0@lg m-padding-right-0@lg m-padding-bottom-0@lg">{label}</Link></List.Item>
+                            ))}
+                        </List>
+                        <button onClick={() => setMenuVisible(!menuVisible)} className="m-display-none@lg m-height_40 m-line-height_40 m-border-style-top_none m-border-style-right_none m-border-style-bottom_none m-border-style-left_none m-border-radius-top-left_2 m-border-radius-top-right_2 m-border-radius-bottom-left_2 m-border-radius-bottom-right_2 m-cursor_pointer m-overflow_hidden m-appearance_none m-padding-left_4 m-padding-right_4 m-padding-top_4 m-padding-bottom_4 m-outline-style_dotted--focus m-outline-width_2 m-outline-color_teal m-outline-offset_n2 m-button" style={{ background: 'transparent' }}>
+                            <img src={icon} alt="" className="m-icon" />
+                        </button>
+                    </div>
                 </Container>
             </Card>
             <Container className={classnames("m-display-flex m-flex-column m-flex-justify-end", styles.image)}>
