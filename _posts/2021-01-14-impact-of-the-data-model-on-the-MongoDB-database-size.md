@@ -5,8 +5,6 @@ author: [michal.knasiecki]
 tags: [tech, mongodb]
 ---
 
-### Introduction
-
 So I was tuning one of our services in order to speed up some MongoDB queries. Incidentally, my attention was caught by
 the size of one of the collections that contains archived objects and therefore is rarely used. Unfortunately I wasn't
 able to reduce the size of the documents stored there, but I started to wonder: is it possible to store the same data
@@ -34,7 +32,7 @@ However, it turned out to be unnecessary, because the same data can be obtained 
 db.getCollection('COLLECTION_NAME').stats()
 ```
 
-![Collection stats](/img/articles/2020-12-04-impact-of-the-data-model-on-the-MongoDB-database-size/collection-stats.png)
+![Collection stats](/img/articles/2021-01-14-impact-of-the-data-model-on-the-MongoDB-database-size/collection-stats.png)
 
 The following fields are expressed in bytes:
 
@@ -77,7 +75,7 @@ and
 
 The values of identifiers were consecutive natural numbers. Here is the comparison of results:
 
-![String vs int32 size](/img/articles/2020-12-04-impact-of-the-data-model-on-the-MongoDB-database-size/chart-id.png)
+![String vs int32 size](/img/articles/2021-01-14-impact-of-the-data-model-on-the-MongoDB-database-size/chart-id.png)
 
 As you can see the difference is significant since the size on disk decreased by half. Additionally, it is worth
 noting here that my data is synthetic and the identifiers start from 1. The advantage of a numerical identifier over a
@@ -93,9 +91,9 @@ for both collections. Again, a missed shot: both tests ended up with a similar r
 it is worth using numerical identifiers, because they require less disk space, but we will not get additional benefits
 associated with indexes on these fields.
 
-![String vs int32 search time 1M](/img/articles/2020-12-04-impact-of-the-data-model-on-the-MongoDB-database-size/chart-search-1M.png)
+![String vs int32 search time 1M](/img/articles/2021-01-14-impact-of-the-data-model-on-the-MongoDB-database-size/chart-search-1M.png)
 
-![String vs int32 search time 10M](/img/articles/2020-12-04-impact-of-the-data-model-on-the-MongoDB-database-size/chart-search-10M.png)
+![String vs int32 search time 10M](/img/articles/2021-01-14-impact-of-the-data-model-on-the-MongoDB-database-size/chart-search-10M.png)
 
 ### Simple and complex structures
 
@@ -114,7 +112,7 @@ and
 
 In both cases we store identical data, the documents differ only in the schema. Take a look at the result:
 
-![complex vs simple size](/img/articles/2020-12-04-impact-of-the-data-model-on-the-MongoDB-database-size/chart-struct-1.png)
+![complex vs simple size](/img/articles/2021-01-14-impact-of-the-data-model-on-the-MongoDB-database-size/chart-struct-1.png)
 
 There is a slight reduction by 0.4MB. It may seem not much compared to the effect we achieved for the field
 containing an ID. However, we have to bear in mind that in this case we were dealing with a more complex document. It
@@ -149,7 +147,7 @@ I decided to add a third document for comparison, flattened and with shorter fie
 
 The results are shown in the chart below:
 
-![complex vs simple vs short size](/img/articles/2020-12-04-impact-of-the-data-model-on-the-MongoDB-database-size/chart-struct-2.png)
+![complex vs simple vs short size](/img/articles/2021-01-14-impact-of-the-data-model-on-the-MongoDB-database-size/chart-struct-2.png)
 
 The result is even better than just flattening. Apart from the document’s key size, we achieved a decrease from
 3.4MB to 2MB. Why does this happen even though we store exactly the same data?
@@ -194,7 +192,7 @@ document is different from the first one because it contains two fields.
 
 Here are the results:
 
-![null vs empty size](/img/articles/2020-12-04-impact-of-the-data-model-on-the-MongoDB-database-size/chart-null.png)
+![null vs empty size](/img/articles/2021-01-14-impact-of-the-data-model-on-the-MongoDB-database-size/chart-null.png)
 
 The results are quite surprising: saving a million null’s is quite expensive as it takes more than 1MB on a disk.
 
@@ -215,7 +213,7 @@ or by ordinal value:
 Here an analogy with the first experiment can be found: again we replace a character string with a numerical value.
 Since we got a great result the first time, maybe we could repeat it here?
 
-![label vs index size](/img/articles/2020-12-04-impact-of-the-data-model-on-the-MongoDB-database-size/chart-enums-1.png)
+![label vs index size](/img/articles/2021-01-14-impact-of-the-data-model-on-the-MongoDB-database-size/chart-enums-1.png)
 
 Unfortunately, the result is disappointing and the reduction in size is small. However, if we think more deeply, we will
 come to the conclusion that it could not have been otherwise. The enumerated types are not unique identifiers. We are
@@ -228,7 +226,7 @@ This is a good time to take a closer look at how [snappy](https://www.mongodb.co
 compression works in MongoDB. I've prepared two more collections, with identical data, but with data compression
 turned off. The results are shown in the chart below, compiled together with the collections with data compression turned on.
 
-![snappy vs plain size](/img/articles/2020-12-04-impact-of-the-data-model-on-the-MongoDB-database-size/chart-enums-2.png)
+![snappy vs plain size](/img/articles/2021-01-14-impact-of-the-data-model-on-the-MongoDB-database-size/chart-enums-2.png)
 
 It is clear that the use of an ordinal value instead of a label of the enumerated type brings considerable profit for
 collections with data compression disabled. In case of lack of compression it is definitely worth considering using numerical
@@ -251,7 +249,7 @@ and
 {"_id": 1, "_class": "pl.allegro.some.project.domain.sample"}
 ```
 
-![_class field size](/img/articles/2020-12-04-impact-of-the-data-model-on-the-MongoDB-database-size/chart-class.png)
+![_class field size](/img/articles/2021-01-14-impact-of-the-data-model-on-the-MongoDB-database-size/chart-class.png)
 
 The difference is considerable, over 50%. Bearing in mind that the compression is enabled, I believe that the impact of
 the data itself is small and the result is caused by the schema of the collection containing only the key being half as small
