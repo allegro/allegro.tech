@@ -10,14 +10,16 @@ import Footer from "../components/Footer";
 import Job, { IJob } from "../components/Job";
 import Link from "../metrum/Link";
 import Event, { IEvent } from "../components/Event";
+import Podcast, { IPodcast } from "../components/Podcast";
 
 interface HomePageProps {
     posts: IPost[];
     jobs: IJob[];
     events: IEvent[];
+    podcasts: IPodcast[];
 }
 
-const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events }) => {
+const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events , podcasts}) => {
     React.useEffect(() => {
         const script = document.createElement('script');
         script.src = '//allegrotechio.disqus.com/count.js';
@@ -52,10 +54,22 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events 
                 </Grid>
             </Container>
             <Container className="m-padding-top-24">
+                <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Podcasty</Heading>
+                <Container>
+                    {podcasts.map(podcast => (
+                        <Podcast key={podcast.guid} guid={podcast.guid} title={podcast.title} />
+                    ))}
+                </Container>
+                <Link
+                    className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_16 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
+                    href="https://www.meetup.com/allegrotech/events/">Zobacz więcej wydarzeń</Link>
+            </Container>
+            <Container className="m-padding-top-24">
                 <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Wydarzenia</Heading>
                 <Container>
                     {events.map(event => (
-                        <Event key={event.id} id={event.id} name={event.name} link={event.link} venue={event.venue} time={new Date(event.time)}/>
+                        <Event key={event.id} id={event.id} name={event.name} link={event.link} venue={event.venue}
+                               time={new Date(event.time)}/>
                     ))}
                 </Container>
                 <Link
@@ -81,13 +95,14 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events 
 export async function getStaticProps() {
     const parser = new Parser({});
     const feedPromise = parser.parseURL('https://allegro.tech/feed.xml');
+    const podcastsPromise = parser.parseURL('https://allegro.tech/podcast/feed.xml')
     const jobsPromise = fetch('https://api.smartrecruiters.com/v1/companies/allegro/postings?custom_field.58c15608e4b01d4b19ddf790=c807eec2-8a53-4b55-b7c5-c03180f2059b')
         .then(response => response.json())
         .then(json => json.content);
     const eventsPromise = fetch('https://api.meetup.com/allegrotech/events?status=past,upcoming&desc=true&photo-host=public&page=20')
         .then(response => response.json());
 
-    const [feed, jobs, events] = await Promise.all([feedPromise, jobsPromise, eventsPromise]);
+    const [feed, jobs, events, podcasts] = await Promise.all([feedPromise, jobsPromise, eventsPromise, podcastsPromise]);
 
     return {
         props: {
@@ -103,7 +118,8 @@ export async function getStaticProps() {
                 };
             }),
             jobs: jobs.slice(0, 5),
-            events: events.slice(0, 5)
+            events: events.slice(0, 5),
+            podcasts: podcasts.items.slice(0,5)
         },
     }
 }
