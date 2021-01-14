@@ -1,0 +1,241 @@
+
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>allegro.tech - podcast</title>
+      <link>https://allegro.tech/podcast/</link>
+      <description>Misją Allegro Tech jest dzielenie się wiedzą oraz dobrymi praktykami. Podcasty obok tech bloga są naszym sposobem aby opowiadać o tym jakie wyznajemy wartości oraz w jakim kierunku zmierzamy. Kolejne odcinki będą zbiorem angażujących historii, dobrych praktyk i inspirujących case-studies. Do usłyszenia!</description>
+      <language>pl</language>
+      <lastBuildDate>Mon, 29 Jun 2020 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://allegro.tech/podcast/feed.xml" rel="self" type="application/rss+xml"/>
+      <podcast:locked owner="hello@wiekszelogo.pl">yes</podcast:locked>
+      <itunes:subtitle><![CDATA[Misją Allegro Tech jest dzielenie się wiedzą oraz dobrymi praktykami. Podcasty, obok bloga, są naszym sposobem aby opowiadać o tym jakie wyznajemy wartości oraz w jakim kierunku zmierzamy. Kolejne odcinki są zbiorem angażujących historii, dobrych prakt...]]></itunes:subtitle>
+      <itunes:author>Powered by: Allegro Tech</itunes:author>
+      <itunes:summary><![CDATA[Misją Allegro Tech jest dzielenie się wiedzą oraz dobrymi praktykami. Podcasty, obok bloga, są naszym sposobem aby opowiadać o tym jakie wyznajemy wartości oraz w jakim kierunku zmierzamy. Kolejne odcinki są zbiorem angażujących historii, dobrych praktyk i inspirujących case-studies. Do usłyszenia!]]></itunes:summary>
+      <itunes:type>episodic</itunes:type>
+      <itunes:explicit>false</itunes:explicit>
+      <description><![CDATA[Misją Allegro Tech jest dzielenie się wiedzą oraz dobrymi praktykami. Podcasty, obok bloga, są naszym sposobem aby opowiadać o tym jakie wyznajemy wartości oraz w jakim kierunku zmierzamy. Kolejne odcinki są zbiorem angażujących historii, dobrych praktyk i inspirujących case-studies. Do usłyszenia!]]></description>
+      <itunes:keywords>allegro tech, allegro, tech, technologia</itunes:keywords>
+      <itunes:owner>
+        <itunes:name>Powered by: Allegro Tech</itunes:name>
+        <itunes:email>hello@wiekszelogo.pl</itunes:email>
+      </itunes:owner>
+      <image>
+         <url>https://allegro.tech/img/podcast-cover.jpg</url>
+         <title>Allegro Tech Podcast</title>
+         <link>https://allegro.tech/</link>
+      </image>
+      <itunes:image href="https://allegro.tech/img/podcast-cover.jpg" />
+      <itunes:category text="Technology" />
+
+
+      
+  <item>
+    <guid isPermaLink="true">https://allegro.tech/podcast/badania_i_rozwoj_ml_w_allegro</guid>
+    <title><![CDATA[Badania i rozwój ML w Allegro]]></title>
+    <itunes:title><![CDATA[Badania i rozwój ML w Allegro]]></itunes:title>
+    <itunes:author>Ireneusz Gawlik</itunes:author>
+    <itunes:summary><![CDATA[Gdzie kryje się Machine Learning w Allegro? Jakie projekty już dzisiaj korzystają z mocy sztucznej inteligencji? Jak na codzień pracuje grupa badaczy nie tylko aplikująca, ale też rozwijająca algorytmy uczenia maszynowego? Irek, Team Manager w grupie Allegro ML Research, opowiada więcej o tym jak się tworzy AI w Polsce.]]></itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://www.buzzsprout.com/887914/2998819-13-badania-i-rozwoj-ml-w-allegro-ireneusz-gawlik.mp3" type="audio/mpeg" />
+    <author>
+    <name>Ireneusz Gawlik</name>
+    </author>
+    <link>https://allegro.tech/podcast/badania_i_rozwoj_ml_w_allegro</link>
+    <description><![CDATA[Gdzie kryje się Machine Learning w Allegro? Jakie projekty już dzisiaj korzystają z mocy sztucznej inteligencji? Jak na codzień pracuje grupa badaczy nie tylko aplikująca, ale też rozwijająca algorytmy uczenia maszynowego? Irek, Team Manager w grupie Allegro ML Research, opowiada więcej o tym jak się tworzy AI w Polsce.]]></description>
+    <pubDate>Mon, 29 Jun 2020 00:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <guid isPermaLink="true">https://allegro.tech/podcast/projektowanie_ux_w_allegro</guid>
+    <title><![CDATA[Projektowanie UX w Allegro, czyli wszystko zależy od doświadczenia]]></title>
+    <itunes:title><![CDATA[Projektowanie UX w Allegro, czyli wszystko zależy od doświadczenia]]></itunes:title>
+    <itunes:author>Kasia Wróbel</itunes:author>
+    <itunes:summary><![CDATA[Projektowanie na styku produktu, biznesu i potrzeb użytkownika. Budzenie ciekawości, czyli czy jesteś w stanie zmienić coś, co sprawia problem tak wielu osobom na raz? Kasia opowiada o "układaniu klocków", których użytkownik wie jak użyć.]]></itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://www.buzzsprout.com/887914/3011998-11-projektowanie-ux-w-allegro-czyli-wszystko-zalezy-od-doswiadczenia-katarzyna-wrobel.mp3" type="audio/mpeg" />
+    <author>
+    <name>Kasia Wróbel</name>
+    </author>
+    <link>https://allegro.tech/podcast/projektowanie_ux_w_allegro</link>
+    <description><![CDATA[Projektowanie na styku produktu, biznesu i potrzeb użytkownika. Budzenie ciekawości, czyli czy jesteś w stanie zmienić coś, co sprawia problem tak wielu osobom na raz? Kasia opowiada o "układaniu klocków", których użytkownik wie jak użyć.]]></description>
+    <pubDate>Mon, 15 Jun 2020 00:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <guid isPermaLink="true">https://allegro.tech/podcast/mobile_w_allegro</guid>
+    <title><![CDATA[Mobile w Allegro]]></title>
+    <itunes:title><![CDATA[Mobile w Allegro]]></itunes:title>
+    <itunes:author>Kamil Borzym</itunes:author>
+    <itunes:summary><![CDATA[Cały świat obserwuje jak telefony przejmują władzę nad Internetem. Ponad połowa ruchu na Allegro pochodzi z urządzeń mobilnych, a większość tego ruchu to aplikacje natywne. Żarty się skończyły ;) Kamil opowie Wam jak specjaliści mobilni z Allegro skalują development swojej aplikacji.]]></itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://www.buzzsprout.com/887914/3011989-11-mobile-w-allegro-kamil-borzym.mp3" type="audio/mpeg" />
+    <author>
+    <name>Kamil Borzym</name>
+    </author>
+    <link>https://allegro.tech/podcast/mobile_w_allegro</link>
+    <description><![CDATA[Cały świat obserwuje jak telefony przejmują władzę nad Internetem. Ponad połowa ruchu na Allegro pochodzi z urządzeń mobilnych, a większość tego ruchu to aplikacje natywne. Żarty się skończyły ;) Kamil opowie Wam jak specjaliści mobilni z Allegro skalują development swojej aplikacji.]]></description>
+    <pubDate>Mon, 01 Jun 2020 00:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <guid isPermaLink="true">https://allegro.tech/podcast/misja_zmiana_branzy_zakonczona_sukcesem</guid>
+    <title><![CDATA[Misja zmiana branży zakończona sukcesem! Jak wygląda dzień Product Managera]]></title>
+    <itunes:title><![CDATA[Misja zmiana branży zakończona sukcesem! Jak wygląda dzień Product Managera]]></itunes:title>
+    <itunes:author>Martyna Niszczota</itunes:author>
+    <itunes:summary><![CDATA[Czy pracując w IT trzeba rozmawiać z ludźmi? Budowanie relacji to mity i każdy skupia się na swoim kodzie? Gdzie w całej tej układance jest Klient, czy jest tylko odbiorcą naszych rozwiązań? Martyna odpowie na te pytania i przybliży nam jak wygląda jej dzień w roli Product Managera. Posiada ona background HRowy, dlatego jej spojrzenie na świat IT może różnić się od tego standardowego.]]></itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://www.buzzsprout.com/887914/2799574-9-ep09_martyna_niszczota.mp3" type="audio/mpeg" />
+    <author>
+    <name>Martyna Niszczota</name>
+    </author>
+    <link>https://allegro.tech/podcast/misja_zmiana_branzy_zakonczona_sukcesem</link>
+    <description><![CDATA[Czy pracując w IT trzeba rozmawiać z ludźmi? Budowanie relacji to mity i każdy skupia się na swoim kodzie? Gdzie w całej tej układance jest Klient, czy jest tylko odbiorcą naszych rozwiązań? Martyna odpowie na te pytania i przybliży nam jak wygląda jej dzień w roli Product Managera. Posiada ona background HRowy, dlatego jej spojrzenie na świat IT może różnić się od tego standardowego.]]></description>
+    <pubDate>Mon, 18 May 2020 00:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <guid isPermaLink="true">https://allegro.tech/podcast/jak_testy_moga_wplynac_na_zycie</guid>
+    <title><![CDATA[Jak testy mogą wpłynąć na życie?]]></title>
+    <itunes:title><![CDATA[Jak testy mogą wpłynąć na życie?]]></itunes:title>
+    <itunes:author>Paweł Zwierzchowski</itunes:author>
+    <itunes:summary><![CDATA[Jaką wagę mają testy przy wytwarzaniu oprogramowania, pamiętając, że nie wszystkie testy są takie same? Jak ułożyć proces testowy, który się sprawdza? Czy tester powinien tylko testować i jak może zdjąć ogrom pracy ze swojego zespołu przy okazji żyjąc w zgodzie z developerami? Czyli praca testera w scrumie i nie tylko. Na te i inne pytania odpowiada Paweł Zwierzchowski - Senior Software Test Engineer w Allegro.]]></itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://www.buzzsprout.com/887914/2903665-9-jak-testy-moga-wplynac-na-zycie-pawel-zwierzchowski.mp3" type="audio/mpeg" />
+    <author>
+    <name>Paweł Zwierzchowski</name>
+    </author>
+    <link>https://allegro.tech/podcast/jak_testy_moga_wplynac_na_zycie</link>
+    <description><![CDATA[Jaką wagę mają testy przy wytwarzaniu oprogramowania, pamiętając, że nie wszystkie testy są takie same? Jak ułożyć proces testowy, który się sprawdza? Czy tester powinien tylko testować i jak może zdjąć ogrom pracy ze swojego zespołu przy okazji żyjąc w zgodzie z developerami? Czyli praca testera w scrumie i nie tylko. Na te i inne pytania odpowiada Paweł Zwierzchowski - Senior Software Test Engineer w Allegro.]]></description>
+    <pubDate>Mon, 04 May 2020 00:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <guid isPermaLink="true">https://allegro.tech/podcast/nie-tylko-jvm-czyli-jak-rozwijamy-uslugi-dotnet-w-allegro</guid>
+    <title><![CDATA[Nie tylko JVM, czyli jak rozwijamy usługi dotNET w Allegro]]></title>
+    <itunes:title><![CDATA[Nie tylko JVM, czyli jak rozwijamy usługi dotNET w Allegro]]></itunes:title>
+    <itunes:author>Piotr Stapp</itunes:author>
+    <itunes:summary><![CDATA[Jak to się stało, że spora grupa programistów .NET znalazła się w Allegro? Czy wprowadzenie kolejnej chmury publicznej do infrastruktury jest trudne? Czy da się programować w .NET na Mac, nie mając pod ręką Windows? Czym różni się bycie Microsoft MVP od Java Champion? Na te i inne pytania odpowiada Piotr Stapp -  Senior Software Engineer w Allegro]]></itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://www.buzzsprout.com/887914/2997940-8-nie-tylko-jvm-czyli-jak-rozwijamy-uslugi-net-w-allegro-piotr-stapp.mp3" type="audio/mpeg" />
+    <author>
+    <name>Piotr Stapp</name>
+    </author>
+    <link>https://allegro.tech/podcast/nie-tylko-jvm-czyli-jak-rozwijamy-uslugi-dotnet-w-allegro</link>
+    <description><![CDATA[Jak to się stało, że spora grupa programistów .NET znalazła się w Allegro? Czy wprowadzenie kolejnej chmury publicznej do infrastruktury jest trudne? Czy da się programować w .NET na Mac, nie mając pod ręką Windows? Czym różni się bycie Microsoft MVP od Java Champion? Na te i inne pytania odpowiada Piotr Stapp -  Senior Software Engineer w Allegro]]></description>
+    <pubDate>Mon, 20 Apr 2020 00:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <guid isPermaLink="true">https://allegro.tech/podcast/wydajnosc_frontendu</guid>
+    <title><![CDATA[Wydajność front-endu]]></title>
+    <itunes:title><![CDATA[Wydajność front-endu]]></itunes:title>
+    <itunes:author>Eryk Napierała</itunes:author>
+    <itunes:summary><![CDATA[Jak mierzymy wydajność Allegro i jak dbamy, by była jak najlepsza? Jakich narzędzi używamy? Przed jakimi wyzwaniami stajemy? Czym w ogóle jest dla nas wydajność? Jak przekłada się ona na odczucia użytkownika? Co się stało, że strona koszyka dwukrotnie przyspieszyła? Eryk wszystko Wam opowie.]]></itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://www.buzzsprout.com/887914/2903683-7-wydajnosc-front-endu-eryk-napierala.mp3" type="audio/mpeg" />
+    <author>
+    <name>Eryk Napierała</name>
+    </author>
+    <link>https://allegro.tech/podcast/wydajnosc_frontendu</link>
+    <description><![CDATA[Jak mierzymy wydajność Allegro i jak dbamy, by była jak najlepsza? Jakich narzędzi używamy? Przed jakimi wyzwaniami stajemy? Czym w ogóle jest dla nas wydajność? Jak przekłada się ona na odczucia użytkownika? Co się stało, że strona koszyka dwukrotnie przyspieszyła? Eryk wszystko Wam opowie.]]></description>
+    <pubDate>Mon, 06 Apr 2020 00:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <guid isPermaLink="true">https://allegro.tech/podcast/wyszukiwanie_w_allegro</guid>
+    <title><![CDATA[Wyszukiwanie w allegro - jak nie potknąć się o&nbsp;długi ogon?]]></title>
+    <itunes:title><![CDATA[Wyszukiwanie w allegro - jak nie potknąć się o&nbsp;długi ogon?]]></itunes:title>
+    <itunes:author>Adam Dudczak</itunes:author>
+    <itunes:summary><![CDATA[Dlaczego wyszukiwanie jest takie trudne? Jak często Polacy szukają czegoś na Allegro? Z jakimi danymi pracujemy tworząc wyszukiwarkę Allegro? Jakich technologii używamy by odpowiadać na zapytania użytkownika w ciągu kilku milisekund? Do czego używamy uczenia maszynowego i jak budujemy modele, które odpowiadają za sortowanie ofert w wynikach wyszukiwania? Na te i inne pytania odpowiada Adam Dudczak - Team Manager w zespole wyszukiwarki Allegro.]]></itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://www.buzzsprout.com/887914/2903653-6-wyszukiwanie-w-allegro-jak-nie-potknac-sie-o-dlugi-ogon-adam-dudczak.mp3" type="audio/mpeg" />
+    <author>
+    <name>Adam Dudczak</name>
+    </author>
+    <link>https://allegro.tech/podcast/wyszukiwanie_w_allegro</link>
+    <description><![CDATA[Dlaczego wyszukiwanie jest takie trudne? Jak często Polacy szukają czegoś na Allegro? Z jakimi danymi pracujemy tworząc wyszukiwarkę Allegro? Jakich technologii używamy by odpowiadać na zapytania użytkownika w ciągu kilku milisekund? Do czego używamy uczenia maszynowego i jak budujemy modele, które odpowiadają za sortowanie ofert w wynikach wyszukiwania? Na te i inne pytania odpowiada Adam Dudczak - Team Manager w zespole wyszukiwarki Allegro.]]></description>
+    <pubDate>Mon, 30 Mar 2020 00:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <guid isPermaLink="true">https://allegro.tech/podcast/badania_ux_w_allegro</guid>
+    <title><![CDATA[Badania UX w Allegro]]></title>
+    <itunes:title><![CDATA[Badania UX w Allegro]]></itunes:title>
+    <itunes:author>Justyna Osten-Sacken</itunes:author>
+    <itunes:summary><![CDATA[Jak wygląda dzień pracy badacza w Allegro? Co właściwie "badamy" i dlaczego to robimy? Jak opinie klientów wpływają na nasze produkty? Jeśli temat user experience jest Ci bliski i chcesz spróbować swoich sił w tej branży - posłuchaj rozmowy z Justyną Osten-Sacken badaczką UX w Allego - a dowiesz się jak to zrobić.]]></itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://www.buzzsprout.com/887914/2903638-5-badania-ux-w-allegro-justyna-osten-sacken.mp3" type="audio/mpeg" />
+    <author>
+    <name>Justyna Osten-Sacken</name>
+    </author>
+    <link>https://allegro.tech/podcast/badania_ux_w_allegro</link>
+    <description><![CDATA[Jak wygląda dzień pracy badacza w Allegro? Co właściwie "badamy" i dlaczego to robimy? Jak opinie klientów wpływają na nasze produkty? Jeśli temat user experience jest Ci bliski i chcesz spróbować swoich sił w tej branży - posłuchaj rozmowy z Justyną Osten-Sacken badaczką UX w Allego - a dowiesz się jak to zrobić.]]></description>
+    <pubDate>Mon, 23 Mar 2020 00:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <guid isPermaLink="true">https://allegro.tech/podcast/it_security_w_allegro</guid>
+    <title><![CDATA[IT security w Allegro]]></title>
+    <itunes:title><![CDATA[IT security w Allegro]]></itunes:title>
+    <itunes:author>Wojciech Lesicki</itunes:author>
+    <itunes:summary><![CDATA[Na czym skupiamy się w IT security w Allegro? Jak radzimy sobie z bezpieczeństwem w dynamicznym środowisku mikrousług przy setkach wdrożeń dziennie? Jakie testy robimy ciągle manualnie? Skąd czerpać informacje na temat bezpieczeństwa i czemu warto zainteresować się frameworkiem Att&ck MITRE?  Na te i więcej pytań odpowiada Wojciech Lesicki – Team Leader w Allegro.]]></itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://www.buzzsprout.com/887914/2903590-4-it-security-w-allegro-wojciechlesicki.mp3" type="audio/mpeg" />
+    <author>
+    <name>Wojciech Lesicki</name>
+    </author>
+    <link>https://allegro.tech/podcast/it_security_w_allegro</link>
+    <description><![CDATA[Na czym skupiamy się w IT security w Allegro? Jak radzimy sobie z bezpieczeństwem w dynamicznym środowisku mikrousług przy setkach wdrożeń dziennie? Jakie testy robimy ciągle manualnie? Skąd czerpać informacje na temat bezpieczeństwa i czemu warto zainteresować się frameworkiem Att&ck MITRE?  Na te i więcej pytań odpowiada Wojciech Lesicki – Team Leader w Allegro.]]></description>
+    <pubDate>Mon, 16 Mar 2020 00:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <guid isPermaLink="true">https://allegro.tech/podcast/jak_zostac_i_pozostac_dobrym_programista</guid>
+    <title><![CDATA[Jak zostać i pozostać dobrym programistą?]]></title>
+    <itunes:title><![CDATA[Jak zostać i pozostać dobrym programistą?]]></itunes:title>
+    <itunes:author>Tomasz Nurkiewicz</itunes:author>
+    <itunes:summary><![CDATA[Jak skutecznie dzielić się wiedzą w społeczności IT? Jaka przyszłość czeka Javę? A także jak wygląda praca programisty w Allegro i jak rekrutujemy?  Na te i więcej pytań odpowiada Tomek Nurkiewicz – Senior Software Engineer w Allegro, Java Champion.]]></itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://www.buzzsprout.com/887914/2799559-3-jak-zostac-i-pozostac-dobrym-programista-tomasz-nurkiewicz.mp3" type="audio/mpeg" />
+    <author>
+    <name>Tomasz Nurkiewicz</name>
+    </author>
+    <link>https://allegro.tech/podcast/jak_zostac_i_pozostac_dobrym_programista</link>
+    <description><![CDATA[Jak skutecznie dzielić się wiedzą w społeczności IT? Jaka przyszłość czeka Javę? A także jak wygląda praca programisty w Allegro i jak rekrutujemy?  Na te i więcej pytań odpowiada Tomek Nurkiewicz – Senior Software Engineer w Allegro, Java Champion.]]></description>
+    <pubDate>Mon, 09 Mar 2020 00:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <guid isPermaLink="true">https://allegro.tech/podcast/infrastruktura_dla_1000_mikrouslug</guid>
+    <title><![CDATA[Infrastruktura dla 1000 mikrousług w Allegro]]></title>
+    <itunes:title><![CDATA[Infrastruktura dla 1000 mikrousług w Allegro]]></itunes:title>
+    <itunes:author>Adam Dubiel</itunes:author>
+    <itunes:summary><![CDATA[Na serwis allegro.pl składa się już prawie 1000 mikrousług. Jaka filozofia stoi za budowaniem ich środowiska uruchomieniowego? Czy Allegro lubi się z Chmurą Publiczną? Jak rozumiemy powiedzenie “z wielką mocą idzie wielka odpowiedzialność” i dlaczego w Allegro zespół architektów platformy liczy tylko cztery osoby? Czy możliwa jest usługa w .net w Allegro?  Jak podbijać wersje Javy i utrzymać 1000 mikrousług w świeżości? Ne te pytania odpowiada Adam Dubiel - Team Manager w Allegro.]]></itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://www.buzzsprout.com/887914/2799484-2-infrastruktura-dla-1000-mikrouslug-w-allegro-adam-dubiel.mp3" type="audio/mpeg" />
+    <author>
+    <name>Adam Dubiel</name>
+    </author>
+    <link>https://allegro.tech/podcast/infrastruktura_dla_1000_mikrouslug</link>
+    <description><![CDATA[Na serwis allegro.pl składa się już prawie 1000 mikrousług. Jaka filozofia stoi za budowaniem ich środowiska uruchomieniowego? Czy Allegro lubi się z Chmurą Publiczną? Jak rozumiemy powiedzenie “z wielką mocą idzie wielka odpowiedzialność” i dlaczego w Allegro zespół architektów platformy liczy tylko cztery osoby? Czy możliwa jest usługa w .net w Allegro?  Jak podbijać wersje Javy i utrzymać 1000 mikrousług w świeżości? Ne te pytania odpowiada Adam Dubiel - Team Manager w Allegro.]]></description>
+    <pubDate>Mon, 02 Mar 2020 00:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <guid isPermaLink="true">https://allegro.tech/podcast/o_zatrudnianiu_rozwoju_i_nie_tylko</guid>
+    <title><![CDATA[O zatrudnianiu, rozwoju inżynierów i nie tylko]]></title>
+    <itunes:title><![CDATA[O zatrudnianiu, rozwoju inżynierów i nie tylko]]></itunes:title>
+    <itunes:author>Piotr Orłowski</itunes:author>
+    <itunes:summary><![CDATA[W Allegro pracuje prawie 800 specjalistów IT i ponad 100 liderów. Jak zbudować taki zespół i zatrudnić do niego lepszych od siebie? Jak pomóc inżynierom się rozwijać? Co jest ważne w byciu liderem i jak nim zostać? Czym jest Opbox i jak połączył frontend w świecie mikrousług? O tym jak powstało allegro.tech i jaką drodzę przeszliśmy, aby być w tym miejscu, w którym jesteśmy teraz oraz dlaczego warto uczyć dzieci programowania posłuchacie w rozmowie z Piotrem Orłowskim - Software Development Managerem w Allegro.]]></itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://www.buzzsprout.com/887914/2799460-1-o-zatrudnianiu-i-rozwoju-inzynierow-i-nie-tylko-piotr-orlowski.mp3" type="audio/mpeg" />
+    <author>
+    <name>Piotr Orłowski</name>
+    </author>
+    <link>https://allegro.tech/podcast/o_zatrudnianiu_rozwoju_i_nie_tylko</link>
+    <description><![CDATA[W Allegro pracuje prawie 800 specjalistów IT i ponad 100 liderów. Jak zbudować taki zespół i zatrudnić do niego lepszych od siebie? Jak pomóc inżynierom się rozwijać? Co jest ważne w byciu liderem i jak nim zostać? Czym jest Opbox i jak połączył frontend w świecie mikrousług? O tym jak powstało allegro.tech i jaką drodzę przeszliśmy, aby być w tym miejscu, w którym jesteśmy teraz oraz dlaczego warto uczyć dzieci programowania posłuchacie w rozmowie z Piotrem Orłowskim - Software Development Managerem w Allegro.]]></description>
+    <pubDate>Mon, 24 Feb 2020 00:00:00 GMT</pubDate>
+  </item>
+
+    </channel>
+  </rss>
