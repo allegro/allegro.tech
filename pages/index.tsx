@@ -74,7 +74,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events 
                 </Container>
                 <Link
                     className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_16 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
-                    href="https://www.meetup.com/allegrotech/events/">Zobacz więcej wydarzeń</Link>
+                    href="/podcast/">Zobacz więcej podcastów</Link>
             </Container>
             <Container className="m-padding-top-24">
                 <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Oferty pracy</Heading>
