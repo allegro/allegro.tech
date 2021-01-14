@@ -274,7 +274,7 @@
         {
             "name": "allegro-api",
             "url": "https://github.com/allegro/allegro-api",
-            "stars": 125,
+            "stars": 126,
             "description": "Issue tracker and wiki for Allegro REST API ",
             "featured": {
                 "primary": false,
