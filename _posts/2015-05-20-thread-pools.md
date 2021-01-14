@@ -274,7 +274,7 @@ public class Producer {
 
     @Autowired
     public Producer(DataRepository dataRepository, ExecutorService executorService,
-					ConsumerFactory consumerFactory) {
+                    ConsumerFactory consumerFactory) {
         this.dataRepository = dataRepository;
         this.executorService = executorService;
         this.consumerFactory = consumerFactory;

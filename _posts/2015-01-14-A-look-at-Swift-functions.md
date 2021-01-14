@@ -15,7 +15,7 @@ If you have ever seen some Objective-C (ancestor of Swift) code you probably rem
 ```objective-c
 // Method definition
 - (NSString *)personWithName:(NSString *)name lastName:(NSString *)lastName age:(NSInteger)age {
-	// Method body
+    // Method body
 }
 
 // Method call
@@ -27,7 +27,7 @@ Function declaration starts with `func` keyword followed by a list of parameters
 
 ```swift
 func person(name: String, lastName: String, age: Int) -> String {
-	return "\(name) \(lastName), \(age)."
+    return "\(name) \(lastName), \(age)."
 }
 
 var myDescription: String = person("Szymon", "Tur", 27)
@@ -39,7 +39,6 @@ One important thing which should be mentioned here is the difference between fun
 [Apple’s Swift book](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/index.html "Apple’s Swift book")
 functions are blocks of code that performs specific tasks. Methods are basically functions encapsulated in classes, structs, or enums.
 They’re similar but in some situations they behave differently.
-
 
 ### Parameters
 
@@ -79,7 +78,7 @@ Function parameters can have default values defined in their declarations.
 
 ```swift
 func hello(name: String = "stranger") {
-	println("Hello, \(name)")
+    println("Hello, \(name)")
 }
 
 hello(name: "world") // Hello, world
@@ -164,7 +163,7 @@ exceptions isn’t very popular — **NSErrors** are used instead. In the next e
 
 ```swift
 func processData(data: NSData) -> (processedData: NSData?, error: NSError?) {
-	// Function body
+    // Function body
 }
 
 var result = processData(NSData());

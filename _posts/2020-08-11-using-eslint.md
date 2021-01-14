@@ -5,40 +5,41 @@ author: [pawel.wolak]
 tags: [tech, eslint, performance, webperf, javascript, frontend]
 ---
 
-Let me start with a story. Once upon a time I stumbled upon an excellent 
-[article by Philip Walton](https://philipwalton.com/articles/idle-until-urgent/) where he describes how expensive 
-script evaluations could (and should!) be deferred until the browser is idle or they are actually needed. One of the 
-examples that awakened my interest was creating an instance of the `Intl.DateTimeFormat` object, as I was using this 
-great API quite often but never thought it can cause real performance problems. Turns out it can, especially if 
-[used inside loops](https://github.com/formatjs/formatjs/issues/27#issuecomment-61148808). Apart from the technique 
-described in Philip’s article, another solution is to simply reuse `Intl.DateTimeFormat` instances instead of creating 
+Let me start with a story. Once upon a time I stumbled upon an excellent
+[article by Philip Walton](https://philipwalton.com/articles/idle-until-urgent/) where he describes how expensive
+script evaluations could (and should!) be deferred until the browser is idle or they are actually needed. One of the
+examples that awakened my interest was creating an instance of the `Intl.DateTimeFormat` object, as I was using this
+great API quite often but never thought it can cause real performance problems. Turns out it can, especially if
+[used inside loops](https://github.com/formatjs/formatjs/issues/27#issuecomment-61148808). Apart from the technique
+described in Philip’s article, another solution is to simply reuse `Intl.DateTimeFormat` instances instead of creating
 them every time.
 
-And that’s what I always did out of force of habit — if I need something again, why not keep a reference to it instead  
-of adding garbage collector more work? But my curiosity told me to search through our git repository and as a result I 
-discovered multiple usages of `Intl.DateTimeFormat` without caching, some of which were inside loops, possibly leading 
-to performance problems. After I informed responsible teams and shared my discovery on our company-wide frontend chat, 
-one of my colleagues suggested that we should prevent similar issues in the future by writing an ESLint rule. I have 
+And that’s what I always did out of force of habit — if I need something again, why not keep a reference to it instead
+of adding garbage collector more work? But my curiosity told me to search through our git repository and as a result I
+discovered multiple usages of `Intl.DateTimeFormat` without caching, some of which were inside loops, possibly leading
+to performance problems. After I informed responsible teams and shared my discovery on our company-wide frontend chat,
+one of my colleagues suggested that we should prevent similar issues in the future by writing an ESLint rule. I have
 never done that so I eagerly took this opportunity to learn something new.
 
-For those who don’t know, ESLint is a very popular Javascript linter (a tool used to enforce certain code style), with 
-various applications: mainly error prevention and consistent formatting. Although sometimes it can be annoying 
-(imagine doing a quick fix and finding out that the line you have changed exceeds maximum length), it adds great value 
-to every Javascript application. One of its key features is the possibility of writing additional rules, which thanks 
-to the open source culture led to many useful projects like 
-[eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react) or 
-[typescript-eslint](https://github.com/typescript-eslint/typescript-eslint). 
+For those who don’t know, ESLint is a very popular Javascript linter (a tool used to enforce certain code style), with
+various applications: mainly error prevention and consistent formatting. Although sometimes it can be annoying
+(imagine doing a quick fix and finding out that the line you have changed exceeds maximum length), it adds great value
+to every Javascript application. One of its key features is the possibility of writing additional rules, which thanks
+to the open source culture led to many useful projects like
+[eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react) or
+[typescript-eslint](https://github.com/typescript-eslint/typescript-eslint).
 
-At Allegro we have our own sets of rules, one of which is enabled by default in every 
-[Opbox component](/2016/03/Managing-Frontend-in-the-microservices-architecture.html). It contains 
+At Allegro we have our own sets of rules, one of which is enabled by default in every
+[Opbox component]({% post_url 2016-03-12-Managing-Frontend-in-the-microservices-architecture %}). It contains
 mostly performance-oriented suggestions like:
-* avoid bloated libraries (eg. [lodash](https://lodash.com/), [moment](https://momentjs.com/)) and use lighter 
+* avoid bloated libraries (eg. [lodash](https://lodash.com/), [moment](https://momentjs.com/)) and use lighter
 alternatives (eg. [nanoutils](https://nanoutils.github.io/), [date-fns](https://date-fns.org/)),
- * when using optional chaining consider its 
-[impact on bundle size](/2019/11/performance-of-javascript-optional-chaining.html).
+* when using optional chaining consider its
+[impact on bundle size]({% post_url 2019-11-08-performance-of-javascript-optional-chaining %}).
 
-My task was to extend this set of rules to prevent calling `format(...)` method on `Intl.DateTimeFormat` instance 
+My task was to extend this set of rules to prevent calling `format(...)` method on `Intl.DateTimeFormat` instance
 immediately after creating it:
+
 ```javascript
 // good
 const formatter = new Intl.DateTimeFormat('en-US');
@@ -47,12 +48,14 @@ formatter.format(new Date());
 // bad
 new Intl.DateTimeFormat('en-US').format(new Date());
 ```
-In short, ESlint works by traversing an AST (abstract syntax tree) representation of the code and applying given rules 
-whenever it matches their pattern (and by the way 
-[this is also how Babel works](https://www.youtube.com/watch?v=fntd0sPMOtQ)). In order to create a rule we need to 
-take a look at 
-[bad code’s AST](https://astexplorer.net/#/gist/743d094bf4fb23aed76b86e9e5864bd4/07819291b22601e99c31420a5df4858873faaf9b) 
+
+In short, ESlint works by traversing an AST (abstract syntax tree) representation of the code and applying given rules
+whenever it matches their pattern (and by the way
+[this is also how Babel works](https://www.youtube.com/watch?v=fntd0sPMOtQ)). In order to create a rule we need to
+take a look at
+[bad code’s AST](https://astexplorer.net/#/gist/743d094bf4fb23aed76b86e9e5864bd4/07819291b22601e99c31420a5df4858873faaf9b)
 and try to make a pattern out of it:
+
 ```json
 {
   "type": "Program",
@@ -131,16 +134,18 @@ and try to make a pattern out of it:
   "sourceType": "module"
 }
 ```
+
 After looking at more examples of usage, we can deduct that we are looking for a node:
 * of type `MemberExpression` (because we want to prevent directly accessing members of a new instance),
-* with `object.type` equal `NewExpression` and `object.callee.object.name` equal `Intl` (because we want to apply our 
+* with `object.type` equal `NewExpression` and `object.callee.object.name` equal `Intl` (because we want to apply our
 rule only to new instances of Intl members)
 
-We could be more specific about the second point but we want to also cover other `Intl` utilities like 
+We could be more specific about the second point but we want to also cover other `Intl` utilities like
 `Intl.NumberFormat`, `Intl.Collator` and so on.
 
-Using [pathEq](https://nanoutils.github.io/docs/methods.html#patheq) from nanoutils for null-safety the complete code 
+Using [pathEq](https://nanoutils.github.io/docs/methods.html#patheq) from nanoutils for null-safety the complete code
 looks like this:
+
 ```javascript
 const { pathEq } = require('nanoutils');
 
@@ -167,6 +172,6 @@ module.exports = {
   },
 };
 ```
-Finally, we should add some tests to verify that we didn’t miss any cases. Then we can include the rule in our eslint 
-config and we are ready to go! I hope this post will encourage you to play a little bit with ESLint/Babel and AST.
 
+Finally, we should add some tests to verify that we didn’t miss any cases. Then we can include the rule in our eslint
+config and we are ready to go! I hope this post will encourage you to play a little bit with ESLint/Babel and AST.

@@ -11,23 +11,18 @@ In this post we show how you can preserve user's context when installing a mobil
 
 Have you ever seen this comic?
 
-
 ![xkcd comic](http://imgs.xkcd.com/comics/server_attention_span.png "Source http://xkcd.com/")
 <br/>
 (source: [http://xkcd.com/869/](http://xkcd.com/869/))
-
 
 Even though web developers did their homework, it is still a common scenario to install an application and
 just lose context of where you were just before.
 
 Let's say a user is browsing through offers on a real estate page. She notices a banner at the top which advertises her to install a mobile application.
 
-
-![banner advertising possibility to install a mobile application ](/img/articles/2014-11-19.install_banner.png)
-
+![banner advertising possibility to install a mobile application ]({% link /img/articles/2014-11-19.install_banner.png %})
 
 She clicks it, opens [Google Play Store](https://play.google.com/store/apps/details?id=pl.otodom), installs an application and totally loses content she saw at the beginning of the whole process.
-
 
 ## Solution
 

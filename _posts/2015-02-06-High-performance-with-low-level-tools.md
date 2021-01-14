@@ -15,7 +15,7 @@ access.
 Most have a number of advanced features which are not covered here.
 
 Interpreting the numbers these tools display is often a complex task and will not be explained here. Note that if you deploy your software
-to virtual machines in the cloud, as we usually do at [Allegro](/about-us/), interpretation of results becomes even harder than
+to virtual machines in the cloud, as we usually do at [Allegro]({% link about-us/index.html %}), interpretation of results becomes even harder than
 with physical machines since there is always an additional level of indirection above the machine you can directly observe. Performance
 tuning is quite complex, so explaining it is not the point of this post — I assume you already know the basics. The point is rather to
 draw your attention to the fact that the tools described here exist at all. I would especially like to highlight [`strace`](http://linux.die.net/man/1/strace) which
@@ -229,7 +229,7 @@ directory structure, but do not contain files stored on disk but rather gateways
 files in these filesystems are read-only but some can be written to in order to change kernel settings. For example, some files in
 `/proc` can be both read and written which can replace the use of [`sysctl`](http://linux.die.net/man/8/sysctl).
 
-#### /proc
+### /proc
 
 The [`proc`](http://linux.die.net/man/5/proc) pseudo-filesystem was designed in order to make accessing information about individual
 processes more convenient, but over time more unrelated features were added. For each PID there exists a subdirectory `/proc/PID`
@@ -261,7 +261,7 @@ The directories `/proc/sys` and `/proc/net` allow reading and tuning of many sys
 There are many very interesting things to be found in `/proc` which are outside the scope of this article, but they are certainly
 worth a look. Do be careful, however, before trying to modify any settings. Some are really dangerous.
 
-#### /sys
+### /sys
 
 One of the reasons for creating [`sysfs`](http://en.wikipedia.org/wiki/Sysfs) was that over time a lot of information was added to
 `/proc` which was not related to the original purpose of providing per-process information. Apart from introducing more order,

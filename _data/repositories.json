@@ -33,8 +33,8 @@
         "django-powerdns-dnssec",
         "ralph-cli",
         "HerBERT",
-        "swift-junit",
         "allegro.tech",
+        "swift-junit",
         "marathon-appcop",
         "grunt-maven-npm",
         "quanta",
@@ -49,7 +49,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 4534,
+            "stars": 4544,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -64,7 +64,7 @@
         {
             "name": "ralph",
             "url": "https://github.com/allegro/ralph",
-            "stars": 1492,
+            "stars": 1496,
             "description": "Ralph is the CMDB / Asset Management system for data center and back office hardware.",
             "featured": {
                 "primary": true,
@@ -139,7 +139,7 @@
         {
             "name": "turnilo",
             "url": "https://github.com/allegro/turnilo",
-            "stars": 399,
+            "stars": 400,
             "description": "Business intelligence, data exploration and visualization web application for Druid, formerly known as Swiv and Pivot",
             "featured": {
                 "primary": false,
@@ -154,7 +154,7 @@
         {
             "name": "axion-release-plugin",
             "url": "https://github.com/allegro/axion-release-plugin",
-            "stars": 364,
+            "stars": 365,
             "description": "Gradle release & version management plugin.",
             "featured": {
                 "primary": false,
@@ -169,7 +169,7 @@
         {
             "name": "embedded-elasticsearch",
             "url": "https://github.com/allegro/embedded-elasticsearch",
-            "stars": 257,
+            "stars": 258,
             "description": "Tool that ease up creation of integration tests with Elasticsearch",
             "featured": {
                 "primary": false,
@@ -184,7 +184,7 @@
         {
             "name": "allRank",
             "url": "https://github.com/allegro/allRank",
-            "stars": 236,
+            "stars": 237,
             "description": "allRank is a framework for training learning-to-rank neural models based on PyTorch.",
             "featured": {
                 "primary": false,
@@ -542,10 +542,10 @@
             }
         },
         {
-            "name": "swift-junit",
-            "url": "https://github.com/allegro/swift-junit",
-            "stars": 19,
-            "description": "A Swift library for creating JUnit XML test results that can be interpreted by tools such as Bamboo or Jenkins. Macos and Linux ready.",
+            "name": "allegro.tech",
+            "url": "https://github.com/allegro/allegro.tech",
+            "stars": 20,
+            "description": "Blog sources",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -557,10 +557,10 @@
             }
         },
         {
-            "name": "allegro.tech",
-            "url": "https://github.com/allegro/allegro.tech",
+            "name": "swift-junit",
+            "url": "https://github.com/allegro/swift-junit",
             "stars": 19,
-            "description": "Blog sources",
+            "description": "A Swift library for creating JUnit XML test results that can be interpreted by tools such as Bamboo or Jenkins. Macos and Linux ready.",
             "featured": {
                 "primary": false,
                 "secondary": false

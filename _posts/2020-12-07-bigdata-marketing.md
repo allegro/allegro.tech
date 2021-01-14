@@ -1,8 +1,8 @@
---- 
-layout: post 
-title: Big data marketing. The story of how technology behind Allegro marketing works. 
-author: [filip.blaszczyk, piotr.goralczyk, grzegorz.kaczmarczyk] 
-tags: [tech, architecture, bigdata, spark] 
+---
+layout: post
+title: Big data marketing. The story of how technology behind Allegro marketing works.
+author: [filip.blaszczyk, piotr.goralczyk, grzegorz.kaczmarczyk]
+tags: [tech, architecture, bigdata, spark]
 ---
 
 Marketing is a very important department in every company. In case of Allegro,
@@ -41,7 +41,7 @@ Parquet-based file called simply “aggregate” (we will use this name later on
 Second job, `FeedGeneratorJob` generated and uploaded a single feed (XML file)
 to S3. All jobs were run in parallel.
 
-![Old architecture diagram](/img/articles/2020-12-07-bigdata-marketing/old_arch.svg)
+![Old architecture diagram]({% link /img/articles/2020-12-07-bigdata-marketing/old_arch.svg %})
 
 But soon, against initial assumptions, a number of feeds exploded. Eventually,
 we encountered as much as... 1300 feeds! Updating all of them, to
@@ -90,7 +90,7 @@ the data. In Allegro most of the services use
 data that is sent by Hermes is dumped to HDFS in near real-time manner. To
 make this clearer, let me show you that on diagram:
 
-![Event flow in Allegro](/img/articles/2020-12-07-bigdata-marketing/hermes.svg)
+![Event flow in Allegro]({% link /img/articles/2020-12-07-bigdata-marketing/hermes.svg %})
 
 At that moment, we wondered which approach would suit our requirements
 best. We saw three options here:
@@ -119,7 +119,7 @@ Considering it was easy to implement we decided to simply measure it. In the end
 turned out not that bad: in typical cases we were able to maintain
 latency of about 30 minutes.
 
-![Aggregate job](/img/articles/2020-12-07-bigdata-marketing/aggregate-job.svg)
+![Aggregate job]({% link /img/articles/2020-12-07-bigdata-marketing/aggregate-job.svg %})
 
 That was acceptable for a start. In case of it being not enough, we could always transform
 it later into delta architecture and read the newest data (or at least some subset of it,
@@ -165,7 +165,7 @@ were able to recalculate all feeds in a little over 1h (comparing to 13h previou
 It wasn't all, though. Not only have we sped the process up 13 times, we also
 reduced memory usage twofold! And well, in the end we used the same tools, but in a better way.
 
-![How engine works](/img/articles/2020-12-07-bigdata-marketing/engine.svg)
+![How engine works]({% link /img/articles/2020-12-07-bigdata-marketing/engine.svg %})
 
 ## Streaming API
 
@@ -210,7 +210,7 @@ feed state**. How? Here’s a simplified version of algorithm for this approach:
  service (connector) responsible for sending offers to a marketing partner,
 - save snapshot X on HDFS (in the next run it will act as a snapshot Y)
 
-![Streaming API architecture](/img/articles/2020-12-07-bigdata-marketing/streaming-api.svg)
+![Streaming API architecture]({% link /img/articles/2020-12-07-bigdata-marketing/streaming-api.svg %})
 
 I'm sure you're wondering how much latency this solution adds.
 Well, it turned out to be only 20 minutes and in our case it is totally acceptable.
