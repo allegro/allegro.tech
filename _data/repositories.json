@@ -409,7 +409,7 @@
         {
             "name": "mesos-executor",
             "url": "https://github.com/allegro/mesos-executor",
-            "stars": 49,
+            "stars": 50,
             "description": "Customizable Apache Mesos task executor",
             "featured": {
                 "primary": false,
