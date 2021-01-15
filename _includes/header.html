@@ -1,41 +1,45 @@
 {% assign current = page.url | downcase | split: '/' %}
 {% assign currentSubPage = current[1] %}
 {% assign currentSubPageFirst2 = currentSubPage | slice: 0, 2 %}
-<a href="#main-content" class="skip-link">Skip to main content</a>
 <header class="site-header">
-    <div class="content"><h1>
-        <a href="{{site.baseurl}}/"><img src="{{site.baseurl}}{% link /img/allegro-tech.svg %}" alt="allegro.tech home"/></a>
-    </h1>
-        <nav class="site-nav">
-            <ul class="site-navlist social-icons">
-                <li>
-                    <a class="social icon-link" href="https://facebook.com/{{ site.facebook_username }}"
-                       title="Facebook">
-                        <img src="{{site.baseurl}}{% link /img/social/facebook.svg %}" alt="Facebook">
-                    </a>
-                </li>
-                <li>
-                    <a class="social icon-link" href="https://twitter.com/{{ site.twitter_username }}" title="Twitter">
-                        <img src="{{site.baseurl}}{% link /img/social/twitter.svg %}" alt="Twitter">
-                    </a>
-                </li>
-                <li>
-                    <a class="social icon-link" href="http://meetup.com/{{ site.meetup_username }}"
-                       title="Meetup Group">
-                        <img src="{{site.baseurl}}{% link /img/social/meetup.svg %}" alt="Meetup">
-                    </a>
-                </li>
-                <li>
-                    <a class="social icon-link" href="{{site.baseurl}}/feed.xml" title="RSS Feed">
-                        <img src="{{site.baseurl}}{% link /img/social/rss.svg %}" alt="RSS">
-                    </a>
-                </li>
-                <li>
-                    <a class="social icon-link" href="https://github.com/{{ site.github_username }}" title="Github">
-                        <img src="{{site.baseurl}}{% link /img/social/github.svg %}" alt="Github">
-                    </a>
-                </li>
-            </ul>
-        </nav>
+    <div class="back-link">
+        <a href="/">
+            <span>Back to</span>
+            <img src="{{site.baseurl}}{% link /img/allegro-tech.svg %}" alt="allegro.tech home"/>
+        </a>
     </div>
+    <h1 class="logo">
+        <a href="{{site.baseurl}}/"><img src="{{site.baseurl}}{% link /img/allegro-tech-blog.svg %}" alt="allegro.tech blog"/></a>
+    </h1>
+    <nav class="site-nav">
+        <ul class="site-navlist social-icons">
+            <li>
+                <a class="social icon-link" href="https://facebook.com/{{ site.facebook_username }}"
+                   title="Facebook">
+                    <img src="{{site.baseurl}}{% link /img/social/facebook.svg %}" alt="Facebook">
+                </a>
+            </li>
+            <li>
+                <a class="social icon-link" href="https://twitter.com/{{ site.twitter_username }}" title="Twitter">
+                    <img src="{{site.baseurl}}{% link /img/social/twitter.svg %}" alt="Twitter">
+                </a>
+            </li>
+            <li>
+                <a class="social icon-link" href="http://meetup.com/{{ site.meetup_username }}"
+                   title="Meetup Group">
+                    <img src="{{site.baseurl}}{% link /img/social/meetup.svg %}" alt="Meetup">
+                </a>
+            </li>
+            <li>
+                <a class="social icon-link" href="{{site.baseurl}}/feed.xml" title="RSS Feed">
+                    <img src="{{site.baseurl}}{% link /img/social/rss.svg %}" alt="RSS">
+                </a>
+            </li>
+            <li>
+                <a class="social icon-link" href="https://github.com/{{ site.github_username }}" title="Github">
+                    <img src="{{site.baseurl}}{% link /img/social/github.svg %}" alt="Github">
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>

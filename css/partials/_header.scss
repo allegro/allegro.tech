@@ -1,11 +1,70 @@
 @charset "utf-8";
 .site-header {
-    padding: 1em 0;
+    padding: 1em;
     background: rgba(255, 255, 255, 0.95);
 
-    .content {
-        display: flex;
-        flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 20% 30% 30% 20%;
+    grid-row-gap: 0.5em;
+    grid-template-areas:
+        "a b c d";
+
+    .back-link {
+        grid-column-start: center;
+        grid-area: a;
+        align-self: start;
+        justify-self: stretch;
+
+        line-height: 40px;
+
+        img {
+            height: 1.3em;
+            vertical-align: text-bottom;
+        }
+    }
+
+    .logo {
+        grid-column-start: center;
+        grid-area: b;
+        align-self: start;
+        justify-self: stretch;
+    }
+
+    .site-nav {
+        grid-column-start: center;
+        grid-area: c;
+        align-self: end;
+        justify-self: stretch;
+
+        line-height: 40px;
+
+        .site-navlist {
+            list-style: none;
+            display: inline-block;
+
+            li {
+                display: inline;
+            }
+        }
+    }
+
+    @media all and (max-width: 900px) {
+        grid-template-areas:
+            "a a a a"
+            "b b c c"
+            "d d d d";
+    }
+
+    @media all and (max-width: 400px) {
+        grid-template-areas:
+            "a a a a"
+            "b b b b"
+            "c c c c"
+            "d d d d";
+
+        .site-nav {
+            justify-self: start;
+        }
     }
 
     h1, p {
@@ -15,61 +74,12 @@
         max-width: 68%;
         flex: 1;
     }
+
     h1 img {
         width: 203px;
         height: 40px;
         display: block;
         border: 0;
         max-width: 100%;
-    }
-    .page-link {
-        padding: 5px 12px;
-    }
-}
-
-.site-nav {
-    padding: 10px 0 0;
-    line-height: 40px;
-
-
-}
-
-    .site-navlist {
-        list-style: none;
-        display: inline-block;
-
-        li {
-            display: inline;
-        }
-
-        li .page-link {
-            transition: all 75ms linear;
-        }
-
-        li .current {
-            color: #ff5a00;
-        }
-    }
-
-
-@media all and (min-width: 900px) {
-    .site-nav {
-        flex: 3;
-        padding: 0;
-    }
-    .site-navlist + .site-navlist {
-        float: right;
-    }
-}
-
-.skip-link { 
-    position: absolute;
-    left: -999em;
-    color: #006456;
-
-    &:focus {
-        position: absolute;
-        left: 10px;
-        top: 10px;
     }
 }
