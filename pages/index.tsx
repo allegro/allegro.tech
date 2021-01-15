@@ -47,7 +47,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events 
                 <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Blog</Heading>
                 <Grid>
                     {posts.map(data => (
-                        <Grid.Col key={data.link} size={12} smSize={6} lgSize={3} className="m-display-flex">
+                        <Grid.Col key={data.link} size={12} smSize={6} lgSize={3} className="m-display-flex m-flex-direction_column">
                             <Post {...data} />
                         </Grid.Col>
                     ))}
@@ -55,13 +55,15 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events 
             </Container>
             <Container className="m-padding-top-24">
                 <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Podcasty</Heading>
-                <Container>
+                <Grid>
                     {podcasts.map(podcast => (
-                        <Podcast key={podcast.guid} guid={podcast.guid} title={podcast.title} />
+                        <Grid.Col key={podcast.guid} size={12} smSize={6} lgSize={3} className="m-display-flex m-flex-direction_column">
+                            <Podcast {...podcast}/>
+                        </Grid.Col>
                     ))}
-                </Container>
+                </Grid>
                 <Link
-                    className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_16 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
+                    className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_8 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
                     href="/podcast/">Zobacz więcej podcastów</Link>
             </Container>
             <Container className="m-padding-top-24">
@@ -73,7 +75,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events 
                     ))}
                 </Container>
                 <Link
-                    className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_16 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
+                    className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_8 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
                     href="https://www.meetup.com/allegrotech/events/">Zobacz więcej wydarzeń</Link>
             </Container>
             <Container className="m-padding-top-24">
@@ -84,7 +86,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events 
                     ))}
                 </Container>
                 <Link
-                    className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_16 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
+                    className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_8 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
                     href="https://careers.smartrecruiters.com/Allegro">Zobacz więcej ofert</Link>
             </Container>
             <Footer/>
@@ -106,7 +108,7 @@ export async function getStaticProps() {
 
     return {
         props: {
-            posts: feed.items.slice(0, 8).map(({ title, categories, link, isoDate, contentSnippet }) => {
+            posts: feed.items.slice(0, 4).map(({ title, categories, link, isoDate, contentSnippet }) => {
                 const excerpt = contentSnippet.split(' ').slice(0, 15).join(' ') + '…';
 
                 return {
@@ -119,7 +121,7 @@ export async function getStaticProps() {
             }),
             jobs: jobs.slice(0, 5),
             events: events.slice(0, 5),
-            podcasts: podcasts.items.slice(0,5)
+            podcasts: podcasts.items.slice(0,4)
         },
     }
 }
