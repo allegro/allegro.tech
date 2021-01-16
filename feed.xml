@@ -24,9 +24,15 @@ layout: null
         {% for cat in post.categories %}
         <category>{{ cat | xml_escape }}</category>
         {% endfor %}
-	      {% for author in post.author %}
-    	  <author><name>{{site.data.members[author].name}}</name><photo>{{ site.url }}{{ site.baseurl }}/img/authors/{{author}}.jpg</photo></author>
-    	  {% endfor %}
+        <authors>
+          {% for author in post.author %}
+          <author>
+            <name>{{site.data.members[author].name}}</name>
+            <photo>{{ site.url }}{{ site.baseurl }}/img/authors/{{author}}.jpg</photo>
+            <url>{{ site.url }}{{ site.baseurl }}/authors/{{author}}</url>
+          </author>
+          {% endfor %}
+        </authors>
       </item>
     {% endfor %}
   </channel>
