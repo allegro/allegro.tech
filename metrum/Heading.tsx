@@ -7,6 +7,7 @@ interface HeadingProps {
     size?: Size;
     level?: number;
     className?: string;
+    maxLines?: number;
 }
 
 const classNames = {
@@ -18,9 +19,21 @@ const classNames = {
     xsmall: "m-line-height_130 m-font-weight_700 m-font-size_16 m-font-size_17_sm m-margin-bottom_8"
 };
 
-const Heading: React.FunctionComponent<HeadingProps> = ({ children, level = 2, size = "medium", className, ...props }) => {
+function clipping(maxLines) {
+    return {
+        textOverflow: 'ellipsis',
+        display: '-webkit-box',
+        '-webkit-box-orient': 'vertical',
+        '-webkit-line-clamp': `${maxLines}`,
+        minHeight: `${maxLines}em`,
+        overflow: 'hidden'
+    }
+}
+
+const Heading: React.FunctionComponent<HeadingProps> = ({ children, level = 2, size = "medium", maxLines = 0, className, ...props }) => {
     return React.createElement(`h${level}`, {
         className: classnames('m-font-family_roboto m-margin-left_0 m-margin-right_0 m-margin-top_0 m-color_text', classNames[size], className),
+        style: maxLines ? clipping(maxLines) : undefined,
         ...props
     }, children);
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from "next/head";
 import Parser from 'rss-parser';
-import Post, { IPost } from "../components/Post";
+import Post, { IAuthor, IPost } from "../components/Post";
 import Header from "../components/Header";
 import Grid from "../metrum/Grid";
 import Container from '../metrum/Container';
@@ -19,7 +19,7 @@ interface HomePageProps {
     podcasts: IPodcast[];
 }
 
-const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events , podcasts}) => {
+const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events, podcasts }) => {
     React.useEffect(() => {
         const script = document.createElement('script');
         script.src = '//allegrotechio.disqus.com/count.js';
@@ -46,34 +46,46 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events 
             <Container className="m-padding-top-24">
                 <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Blog</Heading>
                 <Grid>
-                    {posts.map(data => (
-                        <Grid.Col key={data.link} size={12} smSize={6} lgSize={3} className="m-display-flex m-flex-direction_column">
-                            <Post {...data} />
+                    {posts.map(post => (
+                        <Grid.Col key={post.guid} size={12} smSize={6} lgSize={3}
+                                  className="m-display-flex m-flex-direction_column">
+                            <Post {...post} />
                         </Grid.Col>
                     ))}
                 </Grid>
+                <Link
+                    className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_8 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
+                    href="/blog/">
+                    Zobacz więcej wpisów
+                </Link>
             </Container>
             <Container className="m-padding-top-24">
                 <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Podcasty</Heading>
                 <Grid>
                     {podcasts.map(podcast => (
-                        <Grid.Col key={podcast.guid} size={12} smSize={6} lgSize={3} className="m-display-flex m-flex-direction_column">
+                        <Grid.Col key={podcast.guid} size={12} smSize={6} lgSize={3}
+                                  className="m-display-flex m-flex-direction_column">
                             <Podcast {...podcast}/>
                         </Grid.Col>
                     ))}
                 </Grid>
                 <Link
                     className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_8 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
-                    href="/podcast/">Zobacz więcej podcastów</Link>
+                    href="/podcast/">
+                    Zobacz więcej podcastów
+                </Link>
             </Container>
             <Container className="m-padding-top-24">
                 <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Wydarzenia</Heading>
-                <Container>
+                <Grid>
                     {events.map(event => (
-                        <Event key={event.id} id={event.id} name={event.name} link={event.link} venue={event.venue}
-                               time={new Date(event.time)}/>
+                        <Grid.Col key={event.id} size={12} smSize={6} lgSize={6}
+                                  className="m-display-flex m-flex-direction_column">
+                            <Event id={event.id} name={event.name} link={event.link} venue={event.venue}
+                                   time={new Date(event.time)}/>
+                        </Grid.Col>
                     ))}
-                </Container>
+                </Grid>
                 <Link
                     className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_8 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
                     href="https://www.meetup.com/allegrotech/events/">Zobacz więcej wydarzeń</Link>
@@ -87,7 +99,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events 
                 </Container>
                 <Link
                     className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_8 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
-                    href="https://careers.smartrecruiters.com/Allegro">Zobacz więcej ofert</Link>
+                    href="https://allegro.pl/praca">Zobacz więcej ofert</Link>
             </Container>
             <Footer/>
         </React.Fragment>
@@ -95,8 +107,9 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events 
 }
 
 export async function getStaticProps() {
-    const parser = new Parser({});
-    const feedPromise = parser.parseURL('https://allegro.tech/feed.xml');
+    type CustomItem = { authors: IAuthor[] };
+    const parser: Parser<any, CustomItem> = new Parser({ customFields: { item: ['authors'] } });
+    const postsPromise = parser.parseURL('https://allegro.tech/feed.xml');
     const podcastsPromise = parser.parseURL('https://allegro.tech/podcast/feed.xml')
     const jobsPromise = fetch('https://api.smartrecruiters.com/v1/companies/allegro/postings?custom_field.58c15608e4b01d4b19ddf790=c807eec2-8a53-4b55-b7c5-c03180f2059b')
         .then(response => response.json())
@@ -104,24 +117,14 @@ export async function getStaticProps() {
     const eventsPromise = fetch('https://api.meetup.com/allegrotech/events?status=past,upcoming&desc=true&photo-host=public&page=20')
         .then(response => response.json());
 
-    const [feed, jobs, events, podcasts] = await Promise.all([feedPromise, jobsPromise, eventsPromise, podcastsPromise]);
+    const [posts, jobs, events, podcasts] = await Promise.all([postsPromise, jobsPromise, eventsPromise, podcastsPromise]);
 
     return {
         props: {
-            posts: feed.items.slice(0, 4).map(({ title, categories, link, isoDate, contentSnippet }) => {
-                const excerpt = contentSnippet.split(' ').slice(0, 15).join(' ') + '…';
-
-                return {
-                    title,
-                    isoDate,
-                    categories,
-                    link,
-                    excerpt
-                };
-            }),
+            posts: posts.items.slice(0, 4),
             jobs: jobs.slice(0, 5),
-            events: events.slice(0, 5),
-            podcasts: podcasts.items.slice(0,4)
+            events: events.slice(0, 4),
+            podcasts: podcasts.items.slice(0, 4)
         },
     }
 }
