@@ -5,7 +5,7 @@ import Link from "../metrum/Link";
 import List from "../metrum/List";
 
 const SOCIAL_MEDIA = [{
-    icon: '/images/rss.svg',
+    icon: 'images/rss.svg',
     label: 'RSS',
     url: '/feed.xml'
 }, {
