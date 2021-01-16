@@ -36,10 +36,10 @@
         "allegro.tech",
         "swift-junit",
         "marathon-appcop",
-        "grunt-maven-npm",
         "quanta",
-        "pyhermes",
+        "grunt-maven-npm",
         "swiftbox",
+        "pyhermes",
         "newrelic-gradle-plugin",
         "redux-storage-decorator-engines",
         "consul-registration-hook",
@@ -49,7 +49,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 4566,
+            "stars": 4567,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -109,7 +109,7 @@
         {
             "name": "hermes",
             "url": "https://github.com/allegro/hermes",
-            "stars": 658,
+            "stars": 659,
             "description": "Fast and reliable message broker built on top of Kafka.",
             "featured": {
                 "primary": true,
@@ -214,7 +214,7 @@
         {
             "name": "vaas",
             "url": "https://github.com/allegro/vaas",
-            "stars": 210,
+            "stars": 211,
             "description": "VaaS - Varnish as a Service",
             "featured": {
                 "primary": true,
@@ -289,7 +289,7 @@
         {
             "name": "restapi-guideline",
             "url": "https://github.com/allegro/restapi-guideline",
-            "stars": 111,
+            "stars": 112,
             "description": "Allegro REST API Guideline.",
             "featured": {
                 "primary": false,
@@ -587,6 +587,21 @@
             }
         },
         {
+            "name": "quanta",
+            "url": "https://github.com/allegro/quanta",
+            "stars": 17,
+            "description": "Fast image optimization as a service, based on mozjpeg, written in Swift",
+            "featured": {
+                "primary": false,
+                "secondary": false
+            },
+            "metadata": {
+                "docs": null,
+                "twitter": null,
+                "contact": null
+            }
+        },
+        {
             "name": "grunt-maven-npm",
             "url": "https://github.com/allegro/grunt-maven-npm",
             "stars": 17,
@@ -602,10 +617,10 @@
             }
         },
         {
-            "name": "quanta",
-            "url": "https://github.com/allegro/quanta",
+            "name": "swiftbox",
+            "url": "https://github.com/allegro/swiftbox",
             "stars": 16,
-            "description": "Fast image optimization as a service, based on mozjpeg, written in Swift",
+            "description": "SwiftBox is a package that helps building Swift/Vapor microservices.",
             "featured": {
                 "primary": false,
                 "secondary": false
@@ -621,21 +636,6 @@
             "url": "https://github.com/allegro/pyhermes",
             "stars": 16,
             "description": "The Python interface to the Hermes message broker.",
-            "featured": {
-                "primary": false,
-                "secondary": false
-            },
-            "metadata": {
-                "docs": null,
-                "twitter": null,
-                "contact": null
-            }
-        },
-        {
-            "name": "swiftbox",
-            "url": "https://github.com/allegro/swiftbox",
-            "stars": 16,
-            "description": "SwiftBox is a package that helps building Swift/Vapor microservices.",
             "featured": {
                 "primary": false,
                 "secondary": false
