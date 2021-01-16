@@ -52,7 +52,11 @@ const Post: React.FunctionComponent<PostProps> = ({ title, categories, pubDate, 
                     <div className="m-display-flex m-flex-items_center">
                         <AvatarGroup max={2} className={`m-padding-right_16 ${styles.avatars}`}>
                             {authors.author.map((author: IAuthor) => (
-                                <Avatar key={author.name} alt={author.name} src={author.photo}/>
+                                <Avatar key={author.name}
+                                        alt={author.name}
+                                        src={author.photo}
+                                        imgProps={{ width: 32, height: 32 }}
+                                />
                             ))}
                         </AvatarGroup>
                         <Link href={authors.author[0].url}>
