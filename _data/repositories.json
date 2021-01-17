@@ -109,7 +109,7 @@
         {
             "name": "hermes",
             "url": "https://github.com/allegro/hermes",
-            "stars": 659,
+            "stars": 660,
             "description": "Fast and reliable message broker built on top of Kafka.",
             "featured": {
                 "primary": true,
