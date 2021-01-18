@@ -12,7 +12,7 @@ const MENU_ITEMS = [
     { label: 'Blog', url: '/blog' },
     { label: 'Podcast', url: '/podcast' },
     { label: 'Open Source', url: 'https://github.com/Allegro' },
-    { label: 'Wydarzenia', url: '/wydarzenia' },
+    { label: 'Wydarzenia', url: 'https://www.meetup.com/allegrotech/events' },
     { label: 'Praca', url: 'https://praca.allegro.pl' }
 ];
 
