@@ -1,3 +1,6 @@
+const path = require('path');
+const fs = require('fs');
+
 import React from 'react';
 import Head from "next/head";
 import Parser from 'rss-parser';
@@ -138,11 +141,25 @@ export async function getStaticProps() {
 
     return {
         props: {
-            posts: posts.items.slice(0, 4),
+            posts: addThumbnails(posts).items.slice(0, 4),
             jobs: jobs.slice(0, 5),
             events: events.slice(0, 4),
             podcasts: podcasts.items.slice(0, 4)
         },
+    }
+
+    function addThumbnails(posts) {
+        const thumbnails = fs.readdirSync('./public/images/post-headers').map(file => file.split(".").shift());
+        posts.items.map(post => {
+            for (let i = 0; i < post.categories.length; i++) {
+                if (thumbnails.includes(post.categories[i])) {
+                    post.thumbnail = path.join('images/post-headers', `${post.categories[i]}.png`);
+                    return;
+                }
+            }
+            post.thumbnail = 'images/post-headers/default.png';
+        })
+        return posts;
     }
 }
 

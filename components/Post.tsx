@@ -19,6 +19,7 @@ export interface IPost {
     link: string;
     pubDate: string;
     contentSnippet: string;
+    thumbnail: string;
 }
 
 export interface IAuthor {
@@ -29,11 +30,11 @@ export interface IAuthor {
 
 type PostProps = IPost
 
-const Post: React.FunctionComponent<PostProps> = ({ title, categories, pubDate, contentSnippet, link, authors }) => {
+const Post: React.FunctionComponent<PostProps> = ({ title, categories, pubDate, contentSnippet, link, authors, thumbnail }) => {
     return (
         <React.Fragment>
             <a href={link} title={title}>
-                <img width="388" height="194" src="https://picsum.photos/seed/post/388/194" alt={title} className="m-display-block m-width-fluid"/>
+                <img width="388" height="194" src={thumbnail} alt={title} className="m-display-block m-width-fluid"/>
             </a>
             <Card as="article" className="m-margin-bottom_16 m-display-flex m-flex-column m-flex-grow_1">
                 <a href={link} title={title} className="m-text-decoration_none">
