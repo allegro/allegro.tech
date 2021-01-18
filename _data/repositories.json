@@ -49,7 +49,7 @@
         {
             "name": "bigcache",
             "url": "https://github.com/allegro/bigcache",
-            "stars": 4570,
+            "stars": 4572,
             "description": "Efficient cache for gigabytes of data written in Go.",
             "featured": {
                 "primary": false,
@@ -64,7 +64,7 @@
         {
             "name": "ralph",
             "url": "https://github.com/allegro/ralph",
-            "stars": 1498,
+            "stars": 1499,
             "description": "Ralph is the CMDB / Asset Management system for data center and back office hardware.",
             "featured": {
                 "primary": true,
@@ -334,7 +334,7 @@
         {
             "name": "envoy-control",
             "url": "https://github.com/allegro/envoy-control",
-            "stars": 61,
+            "stars": 62,
             "description": "Envoy Control is a platform-agnostic, production-ready Control Plane for Service Mesh based on Envoy Proxy.",
             "featured": {
                 "primary": false,
