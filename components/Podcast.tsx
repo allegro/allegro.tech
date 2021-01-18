@@ -21,7 +21,7 @@ const Podcast: React.FunctionComponent<PodcastProps> = ({ guid, title, contentSn
     return (
         <React.Fragment>
             <a href={link} title={title}>
-                <img src="https://picsum.photos/seed/podcaast/388/194" alt={title} className="m-display-block m-width-fluid"/>
+                <img width="388" height="194" src="https://picsum.photos/seed/podcaast/388/194" alt={title} className="m-display-block m-width-fluid"/>
             </a>
             <Card as="article" className="m-margin-bottom_16 m-display-flex m-flex-column m-flex-grow_1">
                 <a href={link} title={title} className="m-text-decoration_none">
