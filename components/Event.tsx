@@ -23,7 +23,9 @@ type EventProps = IEvent
 const Event: React.FunctionComponent<EventProps> = ({ id, name, link, venue, time }) => {
     return (
         <Card as="article" className="m-margin-bottom_16 m-display-flex m-flex-direction_column">
-            <Heading size="medium" maxLines={2}>{name}</Heading>
+            <a href={link} title={name} className="m-text-decoration_none">
+                <Heading size="medium" maxLines={2}>{name}</Heading>
+            </a>
             <Typography as="time" className="m-padding-top-16">
                 {formatDistance(new Date(time), new Date(), { locale: pl, addSuffix: true })}, {venue.name}
             </Typography>

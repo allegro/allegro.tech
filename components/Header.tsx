@@ -52,12 +52,13 @@ const Header = () => {
             </Card>
             <Container className={classnames("m-display-flex m-flex-column m-flex-justify-end", styles.image)}>
                 <Card className="m-color-bg_desk" transparent>
-                    <Heading size="hero">O Allegro Tech</Heading>
-                    <Typography>At Allegro, we build and maintain some of the most distributed and scalable applications
-                        in Central Europe. This poses many challenges, starting with architecture and design, through
-                        the choice of technologies, code quality and performance tuning, and ending with deployment and
-                        devops. In this blog, our engineers share their experiences and write about some of the
-                        interesting things taking place at the company.</Typography>
+                    <Heading size="hero">O nas</Heading>
+                    <Typography>Allegro to jedna z najbardziej zaawansowanych technologicznie firm w naszej części
+                        Europy. Allegro to również ponad 1000 specjalistów IT, różnych specjalizacji, rozwijających nasz
+                        serwis. Unikatowa skala i złożoność problemów, które rozwiązujemy na co dzień, dają nam
+                        możliwość rozwoju przy bardzo różnorodnych projektach.
+                        Allegro Tech to miejsce, w którym nasi inżynierowie dzielą się wiedzą oraz case study z
+                        wybranych projektów w firmie - w formie artykułów, podcastów oraz eventów.</Typography>
                 </Card>
             </Container>
         </header>

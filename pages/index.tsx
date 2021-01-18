@@ -11,6 +11,8 @@ import Job, { IJob } from "../components/Job";
 import Link from "../metrum/Link";
 import Event, { IEvent } from "../components/Event";
 import Podcast, { IPodcast } from "../components/Podcast";
+import EasterEgg from "../components/EasterEgg";
+import Tracking from "../components/Tracking";
 
 interface HomePageProps {
     posts: IPost[];
@@ -34,13 +36,26 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                 <link rel="prefetch" href="https://allegrotechio.disqus.com/count.js"/>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
                 <meta name="description"
-                      content="We use Open Source solutions on a daily basis here at Allegro. Why not work on our karma and give something in return? Welcome to our open source technology blog."/>
+                      content="Allegro Tech to miejsce, w którym nasi inżynierowie dzielą się wiedzą oraz case study z wybranych projektów w firmie - w formie artykułów, podcastów oraz eventów."/>
                 <title>Allegro Tech</title>
                 <meta property="og:site_name" content="allegro.tech"/>
                 <meta property="og:title" content="allegro.tech"/>
-                <meta property="og:url" content="https://allegro.tech/"/>
+                <meta property="og:url" content="https://allegro.tech"/>
                 <meta property="og:type" content="site"/>
-                <meta property="og:image" content="https://allegro.tech/img/allegro-tech.png"/>
+                <meta property="og:image" content="images/allegro-tech.png"/>
+                <link rel="shortcut icon" href="favicon.ico"/>
+                <link rel="canonical" href="https://allegro.tech" itemProp="url"/>
+                <script dangerouslySetInnerHTML={{
+                    __html: `
+                    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+                    ga('create', 'UA-55852483-1', 'auto');
+                    ga('send', 'pageview');
+                `
+                }}>
+                </script>
             </Head>
             <Header/>
             <Container className="m-padding-top-24">
@@ -102,6 +117,8 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                     href="https://allegro.pl/praca">Zobacz więcej ofert</Link>
             </Container>
             <Footer/>
+            <EasterEgg/>
+            <Tracking/>
         </React.Fragment>
     );
 }
