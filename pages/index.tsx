@@ -153,7 +153,7 @@ export async function getStaticProps() {
     function addThumbnails(posts) {
         const thumbnails = fs.readdirSync('./public/images/post-headers').map(file => file.split(".").shift());
         posts.items.map(post => {
-            for (let i = 0; i < post.categories.length; i++) {
+            for (let i = post.categories.length - 1; i >= 0; i--) {
                 if (thumbnails.includes(post.categories[i])) {
                     post.thumbnail = path.join('images/post-headers', `${post.categories[i]}.png`);
                     return;
