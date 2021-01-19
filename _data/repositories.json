@@ -334,7 +334,7 @@
         {
             "name": "envoy-control",
             "url": "https://github.com/allegro/envoy-control",
-            "stars": 62,
+            "stars": 63,
             "description": "Envoy Control is a platform-agnostic, production-ready Control Plane for Service Mesh based on Envoy Proxy.",
             "featured": {
                 "primary": false,
