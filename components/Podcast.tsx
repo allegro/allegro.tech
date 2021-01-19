@@ -19,11 +19,11 @@ type PodcastProps = IPodcast
 
 const Podcast: React.FunctionComponent<PodcastProps> = ({ guid, title, contentSnippet, link, pubDate }) => {
     return (
-        <React.Fragment>
+        <article className="m-margin-bottom_16 m-display-flex m-flex-column m-flex-grow_1">
             <a href={link} title={title}>
                 <img width="388" height="194" src="images/podcast.png" alt={title} className="m-display-block m-width-fluid"/>
             </a>
-            <Card as="article" className="m-margin-bottom_16 m-display-flex m-flex-column m-flex-grow_1">
+            <Card className="m-display-flex m-flex-column m-flex-grow_1 m-padding-bottom-0">
                 <a href={link} title={title} className="m-text-decoration_none">
                     <Heading size="medium" maxLines={2}>{title}</Heading>
                 </a>
@@ -33,12 +33,14 @@ const Podcast: React.FunctionComponent<PodcastProps> = ({ guid, title, contentSn
                 <Typography className="m-flex-grow-1">
                     {contentSnippet}
                 </Typography>
-                <Divider light style={{ marginTop: 16 }}/>
-                <Link className="m-padding-top_8 m-margin-top_8 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase" href={link}>
-                    posłuchaj odcinka
+                <Link
+                    button
+                    className="m-margin-top-16 m-display_block m-border-width_1 m-border-color_gray m-border-style-top_solid"
+                    href={link}>
+                    Posłuchaj odcinka
                 </Link>
             </Card>
-        </React.Fragment>
+        </article>
     );
 };
 

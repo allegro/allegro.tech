@@ -32,11 +32,11 @@ type PostProps = IPost
 
 const Post: React.FunctionComponent<PostProps> = ({ title, categories, pubDate, contentSnippet, link, authors, thumbnail }) => {
     return (
-        <React.Fragment>
+        <article className="m-margin-bottom_16 m-display-flex m-flex-column m-flex-grow_1">
             <a href={link} title={title}>
                 <img width="388" height="194" src={thumbnail} alt={title} className="m-display-block m-width-fluid"/>
             </a>
-            <Card as="article" className="m-margin-bottom_16 m-display-flex m-flex-column m-flex-grow_1">
+            <Card className="m-display-flex m-flex-column m-flex-grow_1 m-padding-bottom-0">
                 <a href={link} title={title} className="m-text-decoration_none">
                     <Heading size="medium" maxLines={2}>{title}</Heading>
                 </a>
@@ -70,14 +70,14 @@ const Post: React.FunctionComponent<PostProps> = ({ title, categories, pubDate, 
                     </div>
                     <Link href={`${link}#disqus_thread`}>0 Comments</Link>
                 </div>
-                <Divider light style={{ marginTop: 16 }}/>
                 <Link
-                    className="m-padding-top_8 m-margin-top_8 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
+                    button
+                    className="m-margin-top-16 m-display_block m-border-width_1 m-border-color_gray m-border-style-top_solid"
                     href={link}>
                     przejdź do wpisu
                 </Link>
             </Card>
-        </React.Fragment>
+        </article>
     );
 };
 

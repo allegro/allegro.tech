@@ -14,7 +14,6 @@ import Job, { IJob } from "../components/Job";
 import Link from "../metrum/Link";
 import Event, { IEvent } from "../components/Event";
 import Podcast, { IPodcast } from "../components/Podcast";
-import EasterEgg from "../components/EasterEgg";
 import Tracking from "../components/Tracking";
 
 interface HomePageProps {
@@ -72,7 +71,8 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                     ))}
                 </Grid>
                 <Link
-                    className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_8 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
+                    button
+                    className="m-display_block m-margin-bottom_8 m-width_100"
                     href="/blog/">
                     Zobacz więcej wpisów
                 </Link>
@@ -88,7 +88,8 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                     ))}
                 </Grid>
                 <Link
-                    className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_8 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
+                    button
+                    className="m-display_block m-margin-bottom_8 m-width_100"
                     href="/podcast/">
                     Zobacz więcej podcastów
                 </Link>
@@ -105,7 +106,8 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                     ))}
                 </Grid>
                 <Link
-                    className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_8 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
+                    button
+                    className="m-display_block m-margin-bottom_8 m-width_100"
                     href="https://www.meetup.com/allegrotech/events/">Zobacz więcej wydarzeń</Link>
             </Container>
             <Container className="m-padding-top-24">
@@ -116,11 +118,11 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                     ))}
                 </Container>
                 <Link
-                    className="m-padding-top_8 m-padding-bottom_8 m-margin-bottom_8 m-display-block m-width_100 m-text-align_center m-text-transform_uppercase"
+                    button
+                    className="m-display_block m-margin-bottom_8 m-width_100"
                     href="https://allegro.pl/praca">Zobacz więcej ofert</Link>
             </Container>
             <Footer/>
-            <EasterEgg/>
             <Tracking/>
         </React.Fragment>
     );

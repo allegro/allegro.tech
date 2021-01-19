@@ -3,7 +3,7 @@ import classnames from "clsx";
 
 type Size = "hero" | "xlarge" | "large" | "medium" | "small" | "xsmall";
 
-interface HeadingProps {
+interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
     size?: Size;
     level?: number;
     className?: string;
@@ -24,16 +24,16 @@ function clipping(maxLines) {
         textOverflow: 'ellipsis',
         display: '-webkit-box',
         '-webkit-box-orient': 'vertical',
-        '-webkit-line-clamp': `${maxLines}`,
+        WebkitLineClamp: maxLines,
         minHeight: `${maxLines}em`,
         overflow: 'hidden'
     }
 }
 
-const Heading: React.FunctionComponent<HeadingProps> = ({ children, level = 2, size = "medium", maxLines = 0, className, ...props }) => {
+const Heading: React.FunctionComponent<HeadingProps> = ({ children, level = 2, size = "medium", maxLines = 0, className, style = {}, ...props }) => {
     return React.createElement(`h${level}`, {
         className: classnames('m-font-family_roboto m-margin-left_0 m-margin-right_0 m-margin-top_0 m-color_text', classNames[size], className),
-        style: maxLines ? clipping(maxLines) : undefined,
+        style: maxLines ? { ...clipping(maxLines), ...style } : style,
         ...props
     }, children);
 }
