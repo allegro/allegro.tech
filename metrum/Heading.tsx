@@ -23,7 +23,7 @@ function clipping(maxLines) {
     return {
         textOverflow: 'ellipsis',
         display: '-webkit-box',
-        '-webkit-box-orient': 'vertical',
+        WebkitBoxOrient: 'vertical',
         WebkitLineClamp: maxLines,
         minHeight: `${maxLines}em`,
         overflow: 'hidden'

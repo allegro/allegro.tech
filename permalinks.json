@@ -1,0 +1,1266 @@
+{
+  "/2014/09/j.Piknik-2014-have-a-beer-with-Allegro-engineers.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "09",
+      "slug": "j.Piknik-2014-have-a-beer-with-Allegro-engineers.html"
+    }
+  },
+  "/2014/09/cassandra-modeling-kata.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "09",
+      "slug": "cassandra-modeling-kata.html"
+    }
+  },
+  "/2014/09/axion-release-plugin.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "09",
+      "slug": "axion-release-plugin.html"
+    }
+  },
+  "/2014/10/java-testing-toolbox.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "10",
+      "slug": "java-testing-toolbox.html"
+    }
+  },
+  "/2014/10/The-memory-game.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "10",
+      "slug": "The-memory-game.html"
+    }
+  },
+  "/2014/10/JDD.14-dev-contest.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "10",
+      "slug": "JDD.14-dev-contest.html"
+    }
+  },
+  "/2014/10/JDD.14-dev-contest-solution.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "10",
+      "slug": "JDD.14-dev-contest-solution.html"
+    }
+  },
+  "/2014/10/story-about-delivering-products-part1.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "10",
+      "slug": "story-about-delivering-products-part1.html"
+    }
+  },
+  "/2014/10/async-rest.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "10",
+      "slug": "async-rest.html"
+    }
+  },
+  "/2014/11/hadoop-world-2014-report.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "11",
+      "slug": "hadoop-world-2014-report.html"
+    }
+  },
+  "/2014/11/asynch-req-processing_p1.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "11",
+      "slug": "asynch-req-processing_p1.html"
+    }
+  },
+  "/2014/11/dont-lose-users-context-when-installing-android-app.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "11",
+      "slug": "dont-lose-users-context-when-installing-android-app.html"
+    }
+  },
+  "/2014/11/testing-restful-service-and-clients.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "11",
+      "slug": "testing-restful-service-and-clients.html"
+    }
+  },
+  "/2014/12/reinvent-conference-summary.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "12",
+      "slug": "reinvent-conference-summary.html"
+    }
+  },
+  "/2014/12/quick-introduction-to-Swift.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "12",
+      "slug": "quick-introduction-to-Swift.html"
+    }
+  },
+  "/2014/12/Allegro-engineers-at-PyWaw-meetup.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "12",
+      "slug": "Allegro-engineers-at-PyWaw-meetup.html"
+    }
+  },
+  "/2014/12/How-to-migrate-to-Java-8.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "12",
+      "slug": "How-to-migrate-to-Java-8.html"
+    }
+  },
+  "/2014/12/swift-method-dispatching.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "12",
+      "slug": "swift-method-dispatching.html"
+    }
+  },
+  "/2014/12/Big-Data-Spain-14.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "12",
+      "slug": "Big-Data-Spain-14.html"
+    }
+  },
+  "/2014/12/Designing-RESTful-API.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "12",
+      "slug": "Designing-RESTful-API.html"
+    }
+  },
+  "/2014/12/aspects-in-spring.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "12",
+      "slug": "aspects-in-spring.html"
+    }
+  },
+  "/2014/12/We-visited-Devoxx.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2014",
+      "month": "12",
+      "slug": "We-visited-Devoxx.html"
+    }
+  },
+  "/2015/01/allegro-cast-post-mortem.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "01",
+      "slug": "allegro-cast-post-mortem.html"
+    }
+  },
+  "/2015/01/A-look-at-Swift-functions.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "01",
+      "slug": "A-look-at-Swift-functions.html"
+    }
+  },
+  "/2015/01/we-were-at-Qcon.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "01",
+      "slug": "we-were-at-Qcon.html"
+    }
+  },
+  "/2015/01/working-with-legacy-architecture.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "01",
+      "slug": "working-with-legacy-architecture.html"
+    }
+  },
+  "/2015/01/story-about-delivering-products-part2.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "01",
+      "slug": "story-about-delivering-products-part2.html"
+    }
+  },
+  "/2015/01/Content-headers-or-how-to-version-api.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "01",
+      "slug": "Content-headers-or-how-to-version-api.html"
+    }
+  },
+  "/2015/02/custom-resource-in-Jersey-configured-by-annotations.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "02",
+      "slug": "custom-resource-in-Jersey-configured-by-annotations.html"
+    }
+  },
+  "/2015/02/High-performance-with-low-level-tools.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "02",
+      "slug": "High-performance-with-low-level-tools.html"
+    }
+  },
+  "/2015/02/Evolution-of-our-platform-architecture.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "02",
+      "slug": "Evolution-of-our-platform-architecture.html"
+    }
+  },
+  "/2015/02/tdd-is-not-dead-yet-geecon-poznan-2015.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "02",
+      "slug": "tdd-is-not-dead-yet-geecon-poznan-2015.html"
+    }
+  },
+  "/2015/02/search-engines-at-allegro.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "02",
+      "slug": "search-engines-at-allegro.html"
+    }
+  },
+  "/2015/02/Inner-energy.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "02",
+      "slug": "Inner-energy.html"
+    }
+  },
+  "/2015/02/digging-into-the-system.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "02",
+      "slug": "digging-into-the-system.html"
+    }
+  },
+  "/2015/03/acceptance-testing-with-jbehave-and-gradle.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "03",
+      "slug": "acceptance-testing-with-jbehave-and-gradle.html"
+    }
+  },
+  "/2015/03/browser-fingerprints.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "03",
+      "slug": "browser-fingerprints.html"
+    }
+  },
+  "/2015/03/shaken-not-stirred.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "03",
+      "slug": "shaken-not-stirred.html"
+    }
+  },
+  "/2015/03/Adopting-Gradle-at-allegro-pl-a-success-story.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "03",
+      "slug": "Adopting-Gradle-at-allegro-pl-a-success-story.html"
+    }
+  },
+  "/2015/03/frontend-made-simple.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "03",
+      "slug": "frontend-made-simple.html"
+    }
+  },
+  "/2015/03/better-coding-with-coaching.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "03",
+      "slug": "better-coding-with-coaching.html"
+    }
+  },
+  "/2015/03/braincode.mobi.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "03",
+      "slug": "braincode.mobi.html"
+    }
+  },
+  "/2015/04/to-the-woods-we-go-to-work-we-go.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "04",
+      "slug": "to-the-woods-we-go-to-work-we-go.html"
+    }
+  },
+  "/2015/04/tradukisto.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "04",
+      "slug": "tradukisto.html"
+    }
+  },
+  "/2015/04/a-flight-plan-for-deploying-a-nodejs-application.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "04",
+      "slug": "a-flight-plan-for-deploying-a-nodejs-application.html"
+    }
+  },
+  "/2015/04/spring-boot-starter-handlebars.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "04",
+      "slug": "spring-boot-starter-handlebars.html"
+    }
+  },
+  "/2015/04/search-ux-without-interface.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "04",
+      "slug": "search-ux-without-interface.html"
+    }
+  },
+  "/2015/04/testing-in-production-wait-what.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "04",
+      "slug": "testing-in-production-wait-what.html"
+    }
+  },
+  "/2015/04/diagnosing-mongodb-issue.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "04",
+      "slug": "diagnosing-mongodb-issue.html"
+    }
+  },
+  "/2015/05/automated-tests-with-geb-spock-and-groovy.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "05",
+      "slug": "automated-tests-with-geb-spock-and-groovy.html"
+    }
+  },
+  "/2015/05/elasticsearch-reindex-tool.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "05",
+      "slug": "elasticsearch-reindex-tool.html"
+    }
+  },
+  "/2015/05/JAX-RS-client-api.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "05",
+      "slug": "JAX-RS-client-api.html"
+    }
+  },
+  "/2015/05/thread-pools.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "05",
+      "slug": "thread-pools.html"
+    }
+  },
+  "/2015/05/is-overmocking-bad.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "05",
+      "slug": "is-overmocking-bad.html"
+    }
+  },
+  "/2015/05/Reasons-to-learn-groovy.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "05",
+      "slug": "Reasons-to-learn-groovy.html"
+    }
+  },
+  "/2015/06/webp.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "06",
+      "slug": "webp.html"
+    }
+  },
+  "/2015/06/fast-data-hackathon.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "06",
+      "slug": "fast-data-hackathon.html"
+    }
+  },
+  "/2015/06/Allegrotech-youth-our-educational-project.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "06",
+      "slug": "Allegrotech-youth-our-educational-project.html"
+    }
+  },
+  "/2015/06/Camus-Compressor.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "06",
+      "slug": "Camus-Compressor.html"
+    }
+  },
+  "/2015/07/pywaw-summit-a-python-conference-for-everybody.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "07",
+      "slug": "pywaw-summit-a-python-conference-for-everybody.html"
+    }
+  },
+  "/2015/07/testing-server-faults-with-Wiremock.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "07",
+      "slug": "testing-server-faults-with-Wiremock.html"
+    }
+  },
+  "/2015/07/it-stars.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "07",
+      "slug": "it-stars.html"
+    }
+  },
+  "/2015/08/spark-kafka-integration.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "08",
+      "slug": "spark-kafka-integration.html"
+    }
+  },
+  "/2015/08/allegrotech-youth-success-story-of-education-program.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "08",
+      "slug": "allegrotech-youth-success-story-of-education-program.html"
+    }
+  },
+  "/2015/08/introducing-slinger-library.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "08",
+      "slug": "introducing-slinger-library.html"
+    }
+  },
+  "/2015/08/android-fogger.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "08",
+      "slug": "android-fogger.html"
+    }
+  },
+  "/2015/09/vaas-open-source-management-tool-for-varnish-cache.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "09",
+      "slug": "vaas-open-source-management-tool-for-varnish-cache.html"
+    }
+  },
+  "/2015/09/scaling-graphite.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "09",
+      "slug": "scaling-graphite.html"
+    }
+  },
+  "/2015/09/scrum-ban-applied.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "09",
+      "slug": "scrum-ban-applied.html"
+    }
+  },
+  "/2015/09/comparison-of-webdriver-based-solutions-for-tests-automation.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "09",
+      "slug": "comparison-of-webdriver-based-solutions-for-tests-automation.html"
+    }
+  },
+  "/2015/10/there-is-more-to-logging-than-meets-the-eye.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "10",
+      "slug": "there-is-more-to-logging-than-meets-the-eye.html"
+    }
+  },
+  "/2015/10/mini-rant-gambling-at-work.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "10",
+      "slug": "mini-rant-gambling-at-work.html"
+    }
+  },
+  "/2015/11/real-time-web-application-with-websockets-and-vert-x.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "11",
+      "slug": "real-time-web-application-with-websockets-and-vert-x.html"
+    }
+  },
+  "/2015/11/agile-teams-how-to-start.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "11",
+      "slug": "agile-teams-how-to-start.html"
+    }
+  },
+  "/2015/11/let-your-tests-tell-a-story.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "11",
+      "slug": "let-your-tests-tell-a-story.html"
+    }
+  },
+  "/2015/12/mini-rant-v-for-viable.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2015",
+      "month": "12",
+      "slug": "mini-rant-v-for-viable.html"
+    }
+  },
+  "/2016/01/microservices-and-macro-mistakes.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "01",
+      "slug": "microservices-and-macro-mistakes.html"
+    }
+  },
+  "/2016/02/datacenter-migration-great-adventure.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "02",
+      "slug": "datacenter-migration-great-adventure.html"
+    }
+  },
+  "/2016/02/books-you-should-read-the-pragmatic-programmer.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "02",
+      "slug": "books-you-should-read-the-pragmatic-programmer.html"
+    }
+  },
+  "/2016/03/integrating-android-project-with-codecov.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "03",
+      "slug": "integrating-android-project-with-codecov.html"
+    }
+  },
+  "/2016/03/Managing-Frontend-in-the-microservices-architecture.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "03",
+      "slug": "Managing-Frontend-in-the-microservices-architecture.html"
+    }
+  },
+  "/2016/03/professional-approach-pays-off.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "03",
+      "slug": "professional-approach-pays-off.html"
+    }
+  },
+  "/2016/03/managing-environment-spotify.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "03",
+      "slug": "managing-environment-spotify.html"
+    }
+  },
+  "/2016/03/Minimum-Viable-Product-already-a-cliche-or-a-misunderstood-concept.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "03",
+      "slug": "Minimum-Viable-Product-already-a-cliche-or-a-misunderstood-concept.html"
+    }
+  },
+  "/2016/03/writing-fast-cache-service-in-go.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "03",
+      "slug": "writing-fast-cache-service-in-go.html"
+    }
+  },
+  "/2016/04/meet-retrofit2.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "04",
+      "slug": "meet-retrofit2.html"
+    }
+  },
+  "/2016/06/kotlin-null-safety-part1.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "06",
+      "slug": "kotlin-null-safety-part1.html"
+    }
+  },
+  "/2016/08/the-ios-bug-chase.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "08",
+      "slug": "the-ios-bug-chase.html"
+    }
+  },
+  "/2016/09/embedded-elasticsearch.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "09",
+      "slug": "embedded-elasticsearch.html"
+    }
+  },
+  "/2016/09/are-code-reviews-worth-your-time.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "09",
+      "slug": "are-code-reviews-worth-your-time.html"
+    }
+  },
+  "/2016/09/CQK-TOP-10-cache.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "09",
+      "slug": "CQK-TOP-10-cache.html"
+    }
+  },
+  "/2016/09/CQK-TOP-10-gc.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "09",
+      "slug": "CQK-TOP-10-gc.html"
+    }
+  },
+  "/2016/09/CQK-TOP-10-threadpools.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "09",
+      "slug": "CQK-TOP-10-threadpools.html"
+    }
+  },
+  "/2016/09/CQK-TOP-10.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "09",
+      "slug": "CQK-TOP-10.html"
+    }
+  },
+  "/2016/09/opel.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "09",
+      "slug": "opel.html"
+    }
+  },
+  "/2016/10/advances-in-information-retrieval.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "10",
+      "slug": "advances-in-information-retrieval.html"
+    }
+  },
+  "/2016/10/self-contained-UI-tests-for-ios-applications.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "10",
+      "slug": "self-contained-UI-tests-for-ios-applications.html"
+    }
+  },
+  "/2016/11/crafting-API-for-mobile-devices.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "11",
+      "slug": "crafting-API-for-mobile-devices.html"
+    }
+  },
+  "/2016/12/deep-learning-for-frame-detection.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "12",
+      "slug": "deep-learning-for-frame-detection.html"
+    }
+  },
+  "/2016/12/MongoDB-schema.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2016",
+      "month": "12",
+      "slug": "MongoDB-schema.html"
+    }
+  },
+  "/2017/01/estimating-the-cache-efficiency-using-big-data.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2017",
+      "month": "01",
+      "slug": "estimating-the-cache-efficiency-using-big-data.html"
+    }
+  },
+  "/2017/03/hitting-the-wall.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2017",
+      "month": "03",
+      "slug": "hitting-the-wall.html"
+    }
+  },
+  "/2017/04/hermes-max-rate.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2017",
+      "month": "04",
+      "slug": "hermes-max-rate.html"
+    }
+  },
+  "/2017/06/agile-testing-days.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2017",
+      "month": "06",
+      "slug": "agile-testing-days.html"
+    }
+  },
+  "/2017/06/presto-small-step-for-devops-engineer-big-step-for-big-data-analyst.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2017",
+      "month": "06",
+      "slug": "presto-small-step-for-devops-engineer-big-step-for-big-data-analyst.html"
+    }
+  },
+  "/2017/07/golang-slices-gotcha.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2017",
+      "month": "07",
+      "slug": "golang-slices-gotcha.html"
+    }
+  },
+  "/2017/11/fall-digest.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2017",
+      "month": "11",
+      "slug": "fall-digest.html"
+    }
+  },
+  "/2018/01/mesos_executor.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "01",
+      "slug": "mesos_executor.html"
+    }
+  },
+  "/2018/02/how-to-approach-testing-in-development-process.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "02",
+      "slug": "how-to-approach-testing-in-development-process.html"
+    }
+  },
+  "/2018/03/psychological-needs-at-work.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "03",
+      "slug": "psychological-needs-at-work.html"
+    }
+  },
+  "/2018/04/intuition-engineering-at-allegro-with-phobos.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "04",
+      "slug": "intuition-engineering-at-allegro-with-phobos.html"
+    }
+  },
+  "/2018/04/Spring-WebMvcTest-with-Spock.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "04",
+      "slug": "Spring-WebMvcTest-with-Spock.html"
+    }
+  },
+  "/2018/05/a-comedy-of-errors-debugging-java-memory-leaks.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "05",
+      "slug": "a-comedy-of-errors-debugging-java-memory-leaks.html"
+    }
+  },
+  "/2018/05/From-Java-to-Kotlin-and-Back-Again.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "05",
+      "slug": "From-Java-to-Kotlin-and-Back-Again.html"
+    }
+  },
+  "/2018/05/Static-linking-vs-dyld3.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "05",
+      "slug": "Static-linking-vs-dyld3.html"
+    }
+  },
+  "/2018/06/from-java-to-c-sharp-and-back-again.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "06",
+      "slug": "from-java-to-c-sharp-and-back-again.html"
+    }
+  },
+  "/2018/07/squeezing-performance-out-of-elasticsearch.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "07",
+      "slug": "squeezing-performance-out-of-elasticsearch.html"
+    }
+  },
+  "/2018/08/postmortem-why-allegro-went-down.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "08",
+      "slug": "postmortem-why-allegro-went-down.html"
+    }
+  },
+  "/2018/10/custom-solr-collapsing-plugin-development.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "10",
+      "slug": "custom-solr-collapsing-plugin-development.html"
+    }
+  },
+  "/2018/10/turnilo-lets-change-the-way-people-explore-big-data.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "10",
+      "slug": "turnilo-lets-change-the-way-people-explore-big-data.html"
+    }
+  },
+  "/2018/11/its-all-about-naming.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "11",
+      "slug": "its-all-about-naming.html"
+    }
+  },
+  "/2018/12/java-11-and-beyond-at-allegro.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2018",
+      "month": "12",
+      "slug": "java-11-and-beyond-at-allegro.html"
+    }
+  },
+  "/2019/01/making-friends-with-legacy-code.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "01",
+      "slug": "making-friends-with-legacy-code.html"
+    }
+  },
+  "/2019/04/from-php-to-java-and-back-again.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "04",
+      "slug": "from-php-to-java-and-back-again.html"
+    }
+  },
+  "/2019/04/why-allegro-ads-chose-typescript.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "04",
+      "slug": "why-allegro-ads-chose-typescript.html"
+    }
+  },
+  "/2019/05/hermes-1-0-released.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "05",
+      "slug": "hermes-1-0-released.html"
+    }
+  },
+  "/2019/06/allegro-culture-tech-leaders-meeting.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "06",
+      "slug": "allegro-culture-tech-leaders-meeting.html"
+    }
+  },
+  "/2019/07/migrating-microservice-to-spring-webflux.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "07",
+      "slug": "migrating-microservice-to-spring-webflux.html"
+    }
+  },
+  "/2019/08/ab-testing-calculating-required-sample-size.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "08",
+      "slug": "ab-testing-calculating-required-sample-size.html"
+    }
+  },
+  "/2019/09/page-visibility-and-performance-metrics.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "09",
+      "slug": "page-visibility-and-performance-metrics.html"
+    }
+  },
+  "/2019/09/team-tourism-at-allegro.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "09",
+      "slug": "team-tourism-at-allegro.html"
+    }
+  },
+  "/2019/10/share-what-you-dont-know.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "10",
+      "slug": "share-what-you-dont-know.html"
+    }
+  },
+  "/2019/10/team-tourism-case-studies-1.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "10",
+      "slug": "team-tourism-case-studies-1.html"
+    }
+  },
+  "/2019/11/performance-of-javascript-optional-chaining.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "11",
+      "slug": "performance-of-javascript-optional-chaining.html"
+    }
+  },
+  "/2019/11/team-tourism-case-studies-2.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "11",
+      "slug": "team-tourism-case-studies-2.html"
+    }
+  },
+  "/2019/12/grouping-and-organizing-classes.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "12",
+      "slug": "grouping-and-organizing-classes.html"
+    }
+  },
+  "/2019/12/allegro-tech-meeting.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2019",
+      "month": "12",
+      "slug": "allegro-tech-meeting.html"
+    }
+  },
+  "/2020/01/design-for-failure.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "01",
+      "slug": "design-for-failure.html"
+    }
+  },
+  "/2020/01/spring-boot-services-configuration-on-gcp.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "01",
+      "slug": "spring-boot-services-configuration-on-gcp.html"
+    }
+  },
+  "/2020/02/webflux-and-coroutines.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "02",
+      "slug": "webflux-and-coroutines.html"
+    }
+  },
+  "/2020/03/dotnet-new-templates.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "03",
+      "slug": "dotnet-new-templates.html"
+    }
+  },
+  "/2020/03/understanding-accessibility.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "03",
+      "slug": "understanding-accessibility.html"
+    }
+  },
+  "/2020/04/machine-learning-plus-agile-manifesto.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "04",
+      "slug": "machine-learning-plus-agile-manifesto.html"
+    }
+  },
+  "/2020/04/immutability-in-java.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "04",
+      "slug": "immutability-in-java.html"
+    }
+  },
+  "/2020/05/migrating-to-service-mesh.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "05",
+      "slug": "migrating-to-service-mesh.html"
+    }
+  },
+  "/2020/05/hexagonal-architecture-by-example.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "05",
+      "slug": "hexagonal-architecture-by-example.html"
+    }
+  },
+  "/2020/06/persisting-application-state.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "06",
+      "slug": "persisting-application-state.html"
+    }
+  },
+  "/2020/07/common-code-approach.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "07",
+      "slug": "common-code-approach.html"
+    }
+  },
+  "/2020/08/using-eslint.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "08",
+      "slug": "using-eslint.html"
+    }
+  },
+  "/2020/09/the-power-of-kata.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "09",
+      "slug": "the-power-of-kata.html"
+    }
+  },
+  "/2020/10/retrieving-application-state.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "10",
+      "slug": "retrieving-application-state.html"
+    }
+  },
+  "/2020/10/sureness.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "10",
+      "slug": "sureness.html"
+    }
+  },
+  "/2020/11/bigflow-a-python-framework-for-data-processing-on-gcp.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "11",
+      "slug": "bigflow-a-python-framework-for-data-processing-on-gcp.html"
+    }
+  },
+  "/2020/11/testing-react-applications.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "11",
+      "slug": "testing-react-applications.html"
+    }
+  },
+  "/2020/12/bigdata-marketing.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "12",
+      "slug": "bigdata-marketing.html"
+    }
+  },
+  "/2020/12/speeding-up-ios-builds-with-bazel.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "12",
+      "slug": "speeding-up-ios-builds-with-bazel.html"
+    }
+  },
+  "/2020/12/speeding-up-warm-builds.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2020",
+      "month": "12",
+      "slug": "speeding-up-warm-builds.html"
+    }
+  },
+  "/2021/01/impact-of-the-data-model-on-the-MongoDB-database-size.html": {
+    "page": "/[year]/[month]/[slug]",
+    "query": {
+      "year": "2021",
+      "month": "01",
+      "slug": "impact-of-the-data-model-on-the-MongoDB-database-size.html"
+    }
+  }
+}
