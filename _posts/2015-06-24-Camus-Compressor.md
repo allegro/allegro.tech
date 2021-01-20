@@ -2,7 +2,7 @@
 layout: post
 title: "Allegro OpenSource: Camus Compressor"
 author: mariusz.strzelecki
-tags: [tech, release, open source, hadoop, camus, bigdata]
+tags: [release, open source, hadoop, camus, bigdata]
 ---
 
 At Allegro we use many open-source tools that support our work.

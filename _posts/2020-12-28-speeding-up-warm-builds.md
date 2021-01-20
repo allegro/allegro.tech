@@ -2,7 +2,7 @@
 layout: post
 title: Speeding up warm builds in Xcode
 author: maciej.piotrowski
-tags: [tech, ios, xcode, swift, objectivec]
+tags: [ios, xcode, swift, objectivec]
 ---
 
 Programmers who have ever developed software for Apple platforms in the early days of **Swift** language might remember ridiculous

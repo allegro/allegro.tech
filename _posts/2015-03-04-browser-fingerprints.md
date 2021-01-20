@@ -2,7 +2,7 @@
 layout: post
 title: Browser Fingerprinting — introduction
 author: jacek.zoch
-tags: [tech,javascript, frontend, fingerprints, cookies]
+tags: [javascript, frontend, fingerprints, cookies]
 ---
 Any website finds identification of visitors crucial.
 Usually, [cookie files](http://en.wikipedia.org/wiki/HTTP_cookie) are used, but they have several drawbacks,

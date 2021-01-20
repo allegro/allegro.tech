@@ -2,7 +2,7 @@
 layout: post
 title: Impact of data model on MongoDB database size
 author: [michal.knasiecki]
-tags: [tech, mongodb]
+tags: [mongodb]
 ---
 
 So I was tuning one of our services in order to speed up some MongoDB queries. Incidentally, my attention was caught by

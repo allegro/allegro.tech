@@ -2,7 +2,7 @@
 layout: post
 title: Summarising the 2nd edition of BrainCode Mobi
 author: joanna.antkowiak
-tags: [tech, mobile, hackathon]
+tags: [mobile, hackathon]
 ---
 
 On 14 March, at 19.00 the 2nd edition of [BrainCode Mobi](http://braincode.mobi), i.e. a mobile hackathon organised by Allegro became history. This event was special because it was held in four cities: Poznań, Warsaw, Toruń and Kraków.

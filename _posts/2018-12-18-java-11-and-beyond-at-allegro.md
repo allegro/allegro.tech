@@ -2,7 +2,7 @@
 layout: post
 title: Java 11 and beyond at Allegro
 author: adam.dubiel
-tags: [tech, java]
+tags: [java]
 ---
 
 Since the beginning of my career as a Java developer, keeping up to date with Java was fairly straightforward.

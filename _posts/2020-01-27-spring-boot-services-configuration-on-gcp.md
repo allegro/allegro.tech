@@ -2,7 +2,7 @@
 layout: post
 title: How to manage Spring Boot services configuration on GCP
 author: karol.kuc
-tags: [tech, java, cloud, gcp, spring-boot]
+tags: [java, cloud, gcp, spring-boot]
 ---
 
 Configuration management is one of the key challenges you have to face when you decide to build an application as a distributed system based on microservices

@@ -2,7 +2,7 @@
 layout: post
 title: PyWaw Summit - a Python conference for everybody
 author: szymon.jasinski
-tags: [tech, python, PyWaw, PyWaw Summit, conference]
+tags: [python, PyWaw, PyWaw Summit, conference]
 ---
 
 Recently I had a chance to take part in the first edition of a new Python event in Poland, [PyWaw

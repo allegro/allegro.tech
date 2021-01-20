@@ -2,7 +2,7 @@
 layout: post
 title: This Fall digest
 author: [bartosz.galek, bartosz.walacik]
-tags: [tech, digest]
+tags: [digest]
 ---
 
 Some of our engineers run their own tech blogs.

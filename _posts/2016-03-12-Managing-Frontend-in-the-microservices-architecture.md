@@ -2,7 +2,7 @@
 layout: post
 title: Managing Frontend in the Microservices Architecture
 author: [bartosz.galek, bartosz.walacik, pawel.wieladek]
-tags: [tech, frontend, microservices, architecture]
+tags: [frontend, microservices, architecture]
 ---
 
 [Microservices](http://martinfowler.com/articles/microservices.html)

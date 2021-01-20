@@ -2,7 +2,7 @@
 layout: post
 title: Increasing Capacity and improving Resilience with asynchronous request processing, part I
 author: bartosz.walacik
-tags: [tech,java, capacity, resilience, NIO, undertow]
+tags: [java, capacity, resilience, NIO, undertow]
 ---
 
 There are two parts of this article. In first we define

@@ -2,7 +2,7 @@
 layout: post
 title: Meet Retrofit2
 author: rafal.glowinski
-tags: [tech, java, rxjava, rest, async rest, asynchronous rest, retrofit2, okhttp, http client]
+tags: [java, rxjava, rest, async rest, asynchronous rest, retrofit2, okhttp, http client]
 ---
 
 In this post I will introduce to you a recently released version of a well known library for consuming RESTful services — [Retrofit2](http://square.github.io/retrofit/). 

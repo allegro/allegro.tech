@@ -2,7 +2,7 @@
 layout: post
 title: Advances in Information Retrieval and Allegro use case at SIGIR 2016
 author: [anna.wroblewska, lukasz.raczkowski]
-tags: [tech, information retrieval, visual recommendation, image-based data, metrics, conference]
+tags: [information retrieval, visual recommendation, image-based data, metrics, conference]
 ---
 
 In July we attended the scientific conference SIGIR 2016 held in Pisa, Italy. SIGIR is an annual conference

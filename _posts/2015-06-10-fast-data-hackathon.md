@@ -2,7 +2,7 @@
 layout: post
 title: Fast Data Hackathon
 author: [pawel.leszczynski,pawel.zawistowski]
-tags: [tech, hadoop, sql, hive, spark sql, presto, drill, impala]
+tags: [hadoop, sql, hive, spark sql, presto, drill, impala]
 ---
 
 In the era of NoSQL, SQL language is becoming extremely popular in Hadoop Ecosystem.

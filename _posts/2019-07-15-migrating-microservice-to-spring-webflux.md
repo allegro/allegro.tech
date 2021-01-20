@@ -2,7 +2,7 @@
 layout: post
 title: Migrating a microservice to Spring WebFlux
 author: [filip.marszelewski]
-tags: [tech, reactive, microservices, webflux]
+tags: [reactive, microservices, webflux]
 ---
 
 Reactive programming has been a hot topic on many conference talks for at least several months.

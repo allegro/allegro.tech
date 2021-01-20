@@ -2,7 +2,7 @@
 layout: post
 title: Making Webflux code readable with Kotlin coroutines
 author: [zbigniew.kuzera]
-tags: [tech, kotlin, coroutines]
+tags: [kotlin, coroutines]
 ---
 
 Recently, our crucial microservice delivering listing data [switched]({% post_url 2019-07-15-migrating-microservice-to-spring-webflux %}) to

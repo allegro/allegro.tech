@@ -2,7 +2,7 @@
 layout: post
 title: "Allegro OpenSource: Elasticsearch reindex tool"
 author: andrzej.wislowski
-tags: [tech, release, open source, elasticsearch]
+tags: [release, open source, elasticsearch]
 ---
 
 At Allegro we use many open-source tools that support our work. Sometimes we are not able to find what we want and

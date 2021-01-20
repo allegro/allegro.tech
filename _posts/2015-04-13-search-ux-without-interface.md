@@ -2,7 +2,7 @@
 layout: post
 title: How to UX without interface
 author: [alicja.antkowiak, edyta.kopczynska, krystian.szczucki, piotr.plys]
-tags: [tech, ux]
+tags: [ux]
 ---
 
 [Allegro]({{ '/about-us' | prepend: site.url }}) is a leading Central European e-commerce platform, offering a vast diversity of new

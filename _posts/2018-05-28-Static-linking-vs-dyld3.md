@@ -2,7 +2,7 @@
 layout: post
 title: Static linking vs dyld3
 author: kamil.borzym
-tags: [tech, ios, macos, static linking, dyld, dyld3]
+tags: [ios, macos, static linking, dyld, dyld3]
 ---
 
 The following article has two parts. The first part describes improving

@@ -2,7 +2,7 @@
 layout: post
 title: BigFlow — a Python framework for data processing on GCP
 author: [bartlomiej.beczkowski,bartosz.walacik]
-tags: [tech, python, gcp, big data]
+tags: [python, gcp, big data]
 ---
 
 

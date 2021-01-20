@@ -2,7 +2,7 @@
 layout: post
 title: Comparison of WebDriver-based solutions for test automation
 author: ryszard.targonski
-tags: [tech, java, scala, groovy, geb, selenium, webrdriver, testing, automated testing]
+tags: [java, scala, groovy, geb, selenium, webrdriver, testing, automated testing]
 ---
 Today, in an age of great popularity of test automation, we can observe a growing number of different frameworks which
 allow us to write scripts and programs that simulate human actions performed on the website under test. The most popular

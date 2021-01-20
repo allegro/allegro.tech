@@ -2,7 +2,7 @@
 layout: post
 title: Understanding accessibility
 author: [rafal.guzniczak, katarzyna.malecka]
-tags: [tech, accessibility]
+tags: [accessibility]
 ---
 
 The group that you could help is huge. [The Polish Association of the Blind](https://pzn.org.pl/) reports that there are more

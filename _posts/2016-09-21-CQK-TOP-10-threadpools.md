@@ -2,7 +2,7 @@
 layout: post
 title: Thread pools — CQK Top 10
 author: piotr.betkier
-tags: [tech, cqk-top-10]
+tags: [cqk-top-10]
 ---
 
 > This article is a part of [CQK Top 10]({% post_url 2016-09-23-CQK-TOP-10 %}) series.

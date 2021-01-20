@@ -2,7 +2,7 @@
 layout: post
 title: Estimating the cache efficiency using big data
 author: [filip.marszelewski]
-tags: [tech, cache, big data]
+tags: [cache, big data]
 ---
 
 Caching is a good and well-known technique used to increase application performance and decrease overall system load.

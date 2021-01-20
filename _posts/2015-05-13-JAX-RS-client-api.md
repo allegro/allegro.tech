@@ -2,7 +2,7 @@
 layout: post
 title: How to write JAX-RS Client fast
 author: lukasz.przybyla
-tags: [tech, REST, client, JAX-RS]
+tags: [REST, client, JAX-RS]
 ---
 According to best practices, when developing a service, one should provide a client for it.
 If your service API undergoes changes quite often, constant client updates may become troublesome.

@@ -2,7 +2,7 @@
 layout: post
 title: API crafted for mobile
 author: [mariusz.wojtysiak]
-tags: [tech, api, rest api, mobile]
+tags: [api, rest api, mobile]
 ---
 
 Are you developing a service and planning to make it publicly available? Do you want developers of mobile applications to get integrated

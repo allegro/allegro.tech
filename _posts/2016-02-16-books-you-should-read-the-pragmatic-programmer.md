@@ -2,7 +2,7 @@
 layout: post
 title: Books you should read&#58; The Pragmatic Programmer
 author: michal.kosmulski
-tags: [tech, books, pragmatic programmer, software craftsmanship]
+tags: [books, pragmatic programmer, software craftsmanship]
 ---
 
 Some books on IT topics become outdated right after they are published while others stand the test of time.

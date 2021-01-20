@@ -2,7 +2,7 @@
 layout: post
 title: There is more to logging than meets the eye
 author: rafal.glowinski
-tags: [tech, java, logging, logback, slf4j, async appender, async logging]
+tags: [java, logging, logback, slf4j, async appender, async logging]
 ---
 
 In this article I will show you that if you want to implement good logging into your application then you should have

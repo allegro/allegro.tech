@@ -2,7 +2,7 @@
 layout: post
 title: Swift Method Dispatching — a summary of my talk at Swift Warsaw
 author: kamil.borzym
-tags: [tech,swift, runtime, vtable, virtual, method, table, dispatching]
+tags: [swift, runtime, vtable, virtual, method, table, dispatching]
 ---
 
 Two weeks ago, I attended [Swift Warsaw](http://swiftwarsaw.com/) as a speaker, holding a presentation on "Swift Runtime

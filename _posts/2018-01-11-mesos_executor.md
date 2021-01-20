@@ -2,7 +2,7 @@
 layout: post
 title: Mesos Executor
 author: [tomasz.janiszewski, adam.medzinski]
-tags: [tech, mesos, marathon, mesosphere]
+tags: [mesos, marathon, mesosphere]
 publish: true
 ---
 

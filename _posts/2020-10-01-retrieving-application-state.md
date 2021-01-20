@@ -2,7 +2,7 @@
 layout: post
 title: Retrieving application state
 author: mariusz.kopylec
-tags: [tech, architecture, persistence, aggregate, repository, ddd, domain, hexagonal, clean, java]
+tags: [architecture, persistence, aggregate, repository, ddd, domain, hexagonal, clean, java]
 ---
 
 Most applications need to be able to persist and retrieve their state to be fully functional.

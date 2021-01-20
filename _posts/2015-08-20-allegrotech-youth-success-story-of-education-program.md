@@ -2,7 +2,7 @@
 layout: post
 title: Allegrotech.youth – success story of an education program
 author: [pawel.rekowski,michal.karykowski,patryk.krawaczynski,krzysztof.muzalewski]
-tags: [tech, education, coding, infrastructure, web development]
+tags: [education, coding, infrastructure, web development]
 ---
 
 Development is an immanent part of every person’s life. Evolution-wise, whoever fails to develop, dies.

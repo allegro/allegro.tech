@@ -2,7 +2,7 @@
 layout: post
 title: Writing a very fast cache service with millions of entries in Go
 author: [lukasz.druminski,tomasz.janiszewski]
-tags: [tech, cache, service, golang, go, bigcache]
+tags: [cache, service, golang, go, bigcache]
 ---
 
 Recently our team has been tasked to write a very fast cache service. The goal was pretty clear but possible to achieve in many ways.

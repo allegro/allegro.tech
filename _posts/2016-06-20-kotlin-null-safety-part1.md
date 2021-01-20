@@ -2,7 +2,7 @@
 layout: post
 title: Kotlin null safety and its performance considerations -- part 1
 author: konrad.kaminski
-tags: [tech, java, kotlin, jvm, performance, null, x86, x64, assembler]
+tags: [java, kotlin, jvm, performance, null, x86, x64, assembler]
 ---
 
 [Kotlin](http://kotlinlang.org) may seem like a new kid on the block — itʼs been officially released only in [February](http://blog.jetbrains.com/kotlin/2016/02/kotlin-1-0-released-pragmatic-language-for-jvm-and-android/).

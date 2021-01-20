@@ -2,7 +2,7 @@
 layout: post
 title: A comedy of errors. Debugging Java memory leaks.
 author: [michal.kosmulski]
-tags: [tech, jvm, java, memory, leak, resources, garbage collection, gc]
+tags: [jvm, java, memory, leak, resources, garbage collection, gc]
 ---
 
 We all make errors, but some errors seem so ridiculous we wonder how anyone, let alone we ourselves, could have done such a thing.

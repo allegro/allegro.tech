@@ -2,7 +2,7 @@
 layout: post
 title: Design for failure - multiple layers of processing to protect against failures.
 author: [grzegorz.dziadosz, malgorzata.karmazyn]
-tags: [tech, architecture, big data]
+tags: [architecture, big data]
 ---
 When designing the architecture of a system, one always needs to think about what can go wrong and
 what kind of failures can occur in the system. This kind of problem analysis is especially hard in distributed systems.

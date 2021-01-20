@@ -2,7 +2,7 @@
 layout: post
 title: "Allegro OpenSource: axion-release-plugin"
 author: adam.dubiel
-tags: [tech,build, gradle, release, open source]
+tags: [build, gradle, release, open source]
 ---
 
 In the good old days of Maven releasing projects was straightforward. Everyone knew and used

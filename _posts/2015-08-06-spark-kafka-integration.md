@@ -2,7 +2,7 @@
 layout: post
 title: Spark and Kafka integration patterns
 author: marcin.kuthan
-tags: [tech, spark, spark streaming, apache kafka, scala]
+tags: [spark, spark streaming, apache kafka, scala]
 ---
 
 Today we would like to share our experience with [Apache Spark](http://spark.apache.org/),

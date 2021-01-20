@@ -2,7 +2,7 @@
 layout: post
 title: "Testing React applications with Jest and Enzyme"
 author: dariusz.wojtowicz
-tags: [tech, javascript, frontend, react, jest, enzyme, redux, typescript]
+tags: [javascript, frontend, react, jest, enzyme, redux, typescript]
 ---
 
 JavaScript Frameworks play an important role in creating modern web applications.

@@ -2,7 +2,7 @@
 layout: post
 title: Making friends with legacy code
 author: wojciech.jurczyk
-tags: [tech, cleancode, craftsmanship, tests, legacy]
+tags: [cleancode, craftsmanship, tests, legacy]
 ---
 
 What kind of builders do you use in your tests? Do you use the old good builders

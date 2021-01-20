@@ -2,7 +2,7 @@
 layout: post
 title: Persisting application state
 author: mariusz.kopylec
-tags: [tech, architecture, persistence, aggregate, repository, ddd, domain, hexagonal, clean, java]
+tags: [architecture, persistence, aggregate, repository, ddd, domain, hexagonal, clean, java]
 ---
 
 An application can be defined as a set of use cases.

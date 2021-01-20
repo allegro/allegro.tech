@@ -2,7 +2,7 @@
 layout: post
 title: Hexagonal Architecture by example - a hands-on introduction
 author: karol.kuc
-tags: [tech, ddd, hexagonal-architecture, java]
+tags: [ddd, hexagonal-architecture, java]
 ---
 
 When you go through articles related to Hexagonal Architecture (HA) you usually search for practical examples.

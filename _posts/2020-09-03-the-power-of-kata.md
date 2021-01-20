@@ -2,7 +2,7 @@
 layout: post
 title: The power of kata
 author: krzysztof.wedrowicz
-tags: [tech, craftsmanship, codekata]
+tags: [craftsmanship, codekata]
 ---
 
 Every day, many developers of enterprise systems have to face complex problems for which incorrect solutions often end with a loss of enormous amounts of money.

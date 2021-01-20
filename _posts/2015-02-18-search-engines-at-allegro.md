@@ -2,7 +2,7 @@
 layout: post
 title: Search Engines at Allegro — Part I — introduction
 author: zbyszko.papierski
-tags: [tech,java, search, lucene, solr, elasticsearch]
+tags: [java, search, lucene, solr, elasticsearch]
 ---
 
 There’s no denying that the most important way

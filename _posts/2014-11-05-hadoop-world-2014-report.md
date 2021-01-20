@@ -2,7 +2,7 @@
 layout: post
 title: Hadoop World 2014 New York from a developer’s point of view
 author: jaroslaw.grabowski
-tags: [tech,hadoop world, big data, hadoop, spark]
+tags: [hadoop world, big data, hadoop, spark]
 ---
 This year’s edition of [Strata Hadoop World](http://strataconf.com/stratany2014) held in New York was humongous, 16
 workshops, over 20 keynotes, over 130 talks and most importantly over 5000 attendees! This massive crowd wouldn’t fit in

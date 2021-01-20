@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Why Allegro Ads chose TypeScript
-tags: [tech, typescript, flow, javascript]
+tags: [typescript, flow, javascript]
 author: pawel.grzeszczak
 ---
 

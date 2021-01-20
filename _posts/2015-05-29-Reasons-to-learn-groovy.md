@@ -2,7 +2,7 @@
 layout: post
 title: 7 reasons why Java developer should consider learning Groovy
 author: michal.tydryszewski
-tags: [tech, java, groovy, functional language]
+tags: [java, groovy, functional language]
 ---
 
 [Groovy](http://www.groovy-lang.org/) is a dynamic, object-oriented programming language for the Java platform. Its name comes

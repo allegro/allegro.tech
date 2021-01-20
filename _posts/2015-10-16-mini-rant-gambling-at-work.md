@@ -2,7 +2,7 @@
 layout: post
 title: Mini rant&#58; gambling at work
 author: michal.kosmulski
-tags: [tech, project, change, decision making, risk management]
+tags: [project, change, decision making, risk management]
 ---
 I certainly do not recommend that you play poker or blackjack at work. However, there are situations where both you as an individual
 and your company as a whole must gamble. And the stakes are often high.

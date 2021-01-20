@@ -2,7 +2,7 @@
 layout: post
 title: Allegrotech.youth – our educational project
 author: pawel.rekowski
-tags: [tech, education, coding, infrastructure, web developing]
+tags: [education, coding, infrastructure, web developing]
 ---
 
 The pace of today’s world seems to be getting faster and faster. Trends, technologies, requirements and possibilities change in a blink of an eye. When I graduated from [the Complex of Mechanical, Electrical and Electronic Schools in Toruń (ZSMEiE)](http://www.zsmeie.torun.pl) 7 years ago,

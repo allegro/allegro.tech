@@ -2,7 +2,7 @@
 layout: post
 title: We visited Devoxx 2014
 author: adam.dubiel
-tags: [tech,devoxx, conference]
+tags: [devoxx, conference]
 ---
 
 [Devoxx](http://devoxx.be) (formerly JavaPolis) is an annual Java-centric conference organized by [BeJUG](http://www.bejug.org/) that

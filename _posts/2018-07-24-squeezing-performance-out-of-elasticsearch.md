@@ -2,7 +2,7 @@
 layout: post
 title: Squeezing performance out of Elasticsearch
 author: dorian.sarnowski
-tags: [tech, elasticsearch, performance]
+tags: [elasticsearch, performance]
 ---
 
 Lately [my colleague Michał](/authors/michal.kosmulski/) described how he tracked a

@@ -2,7 +2,7 @@
 layout: post
 title: Java Testing Toolbox
 author: rafal.glowinski
-tags: [tech,java, testing, mockito, junit, assertj]
+tags: [java, testing, mockito, junit, assertj]
 ---
 
 ## Introduction

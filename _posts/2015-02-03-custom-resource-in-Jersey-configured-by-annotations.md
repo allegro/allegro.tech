@@ -2,7 +2,7 @@
 layout: post
 title: Using Jersey model processor for supporting edge-service features
 author: piotr.glazar
-tags: [tech,java, jersey, annotation]
+tags: [java, jersey, annotation]
 ---
 
 In this post I would like to show you how to add a resource programatically in Jersey

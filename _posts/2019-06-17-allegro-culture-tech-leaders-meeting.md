@@ -2,7 +2,7 @@
 layout: post
 title: Allegro culture — Tech Leaders’ Meeting 2019
 author: [michal.kosmulski,bartosz.galek]
-tags: [tech, agile, culture, teamwork]
+tags: [agile, culture, teamwork]
 ---
 
 How many team leaders do you think there are at [Allegro]({{ '/about-us' | prepend: site.url }})? Earlier this year, about a hundred of us

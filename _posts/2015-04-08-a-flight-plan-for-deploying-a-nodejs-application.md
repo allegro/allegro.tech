@@ -2,7 +2,7 @@
 layout: post
 title: A flight plan for deploying a Node.js application
 author: krzysztof.kwiatkowski
-tags: [tech, node.js, deployment, javascript]
+tags: [node.js, deployment, javascript]
 ---
 
 So you have created a brand new and shiny [Node.js](https://nodejs.org/) based app. And now, how would you like it

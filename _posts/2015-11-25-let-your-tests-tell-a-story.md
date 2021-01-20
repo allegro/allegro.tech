@@ -2,7 +2,7 @@
 layout: post
 title: Let your tests tell a story
 author: mateusz.sulima
-tags: [tech, java, scala, testing, bdd, jbehave]
+tags: [java, scala, testing, bdd, jbehave]
 ---
 
 In the team that develops Allegro Recommendation Platform we weren’t happy with our integration tests. Long setup and

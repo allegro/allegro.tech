@@ -2,7 +2,7 @@
 layout: post
 title: Intuition Engineering at Allegro with Phobos
 author: tetiana.khotiaintseva
-tags: [tech, 'data visualization']
+tags: ['data visualization']
 ---
 
 At [Allegro]({{ '/about-us' | prepend: site.url }}), feature velocity is a top priority. We believe that one of our critical competitive advantages

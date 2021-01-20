@@ -2,7 +2,7 @@
 layout: post
 title: Introducing Slinger - deep linking library for Android
 author: krzysztof.kocel
-tags: [tech, android, Slinger]
+tags: [android, Slinger]
 ---
 
 Consider you are an Android application developer. You created a mobile application for your website and you would like to enable your

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Post-mortem report on 23-24, October 2014 failure
-tags: [tech,allegro, post-mortem, failure]
+tags: [allegro, post-mortem, failure]
 author: julian.szulc
 ---
 On 23rd and 24th October, the Allegro platform suffered a failure of a subsystem

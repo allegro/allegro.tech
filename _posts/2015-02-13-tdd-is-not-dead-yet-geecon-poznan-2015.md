@@ -2,7 +2,7 @@
 layout: post
 title: TDD is not dead yet — GeeCon Poznan 2015
 author: ewa.bugajska
-tags: [tech,tdd, geecon]
+tags: [tdd, geecon]
 ---
 On January 30<sup>th</sup> we made a visit to [GeeCon TDD](http://2015.tdd.geecon.org/) to find out what’s going on in the world of TDD. Allegro was one of the sponsors
 of the event and our colleague [Piotr Betkier](/authors/piotr.betkier/) appeared as a speaker. The theme of the conference was the broad subject of

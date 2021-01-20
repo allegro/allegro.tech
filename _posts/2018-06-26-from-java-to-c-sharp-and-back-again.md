@@ -2,7 +2,7 @@
 layout: post
 title: From Java to C# and back again
 author: hubert.gezikiewicz
-tags: [tech, java, C#]
+tags: [java, C#]
 ---
 
 Throughout my studies at university and work in the industry I switched my primary programming language from Java to 

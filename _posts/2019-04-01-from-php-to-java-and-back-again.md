@@ -2,7 +2,7 @@
 layout: post
 title: "[April 1st] From PHP to Java and back again: a retreat from microservices"
 author: piotr.betkier
-tags: [tech, php, java, monolith, microservices]
+tags: [php, java, monolith, microservices]
 ---
 
 > This post was published on April 1st, 2019, and should not be taken too seriously.

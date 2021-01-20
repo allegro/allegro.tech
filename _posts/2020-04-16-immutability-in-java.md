@@ -2,7 +2,7 @@
 layout: post
 title: The problem of immutability in Java
 author: [bartlomiej.mazur]
-tags: [tech, java, performance]
+tags: [java, performance]
 ---
 
 As a developer interested in both web technologies and game development I always found myself

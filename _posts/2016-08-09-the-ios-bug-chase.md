@@ -2,7 +2,7 @@
 layout: post
 title: The iOS bug chase
 author: kamil.borzym
-tags: [tech, ios, debugging, decompiling, MapKit, hopper, mitmproxy]
+tags: [ios, debugging, decompiling, MapKit, hopper, mitmproxy]
 ---
 
 This article tells a story of chasing an iOS bug – a bug hidden so deep that it

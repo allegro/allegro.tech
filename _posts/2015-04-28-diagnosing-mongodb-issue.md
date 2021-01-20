@@ -2,7 +2,7 @@
 layout: post
 title: Diagnosing a MongoDB issue
 author: rafal.staniszewski
-tags: [tech, mongodb, performance]
+tags: [mongodb, performance]
 ---
 You might have read a recent post by our developers concerning [performance analysis tools]({% post_url 2015-02-06-High-performance-with-low-level-tools %}) and its follow up concerning [sysdig]({% post_url 2015-02-26-digging-into-the-system %}).
 In the database world these tools come handy almost everyday. In this blog post

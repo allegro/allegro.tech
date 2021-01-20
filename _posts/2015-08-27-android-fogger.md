@@ -2,7 +2,7 @@
 layout: post
 title: Blur background under Android common UI elements
 author: pawel.byszewski
-tags: [tech, android, ui, blur, renderscript]
+tags: [android, ui, blur, renderscript]
 ---
 All over the Internet there are code snippets that show how to make a blur effect on Android. But if you want to
 introduce blur as a part of your app design and use it as an effect to hide content under dialogs, drawer etc. there is

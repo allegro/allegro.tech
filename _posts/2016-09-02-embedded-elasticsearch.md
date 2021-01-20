@@ -2,7 +2,7 @@
 layout: post
 title: Allegro OpenSource — embedded-elasticsearch
 author: grzegorz.kaczmarczyk
-tags: [tech, elasticsearch, open source]
+tags: [elasticsearch, open source]
 ---
 
 At Allegro we want to be sure that our software works as designed. That’s why tests are so important to us.

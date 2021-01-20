@@ -2,7 +2,7 @@
 layout: post
 title: Turnilo — let’s change the way people explore Big Data
 author: [piotr.szczepanik, piotr.guzik]
-tags: [tech, open source, big data]
+tags: [open source, big data]
 ---
 
 Two years ago at [Allegro]({{ '/about-us' | prepend: site.url }}) we used to have a very typical Big Data technology stack. The architecture was based

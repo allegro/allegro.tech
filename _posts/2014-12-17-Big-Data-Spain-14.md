@@ -2,7 +2,7 @@
 layout: post
 title: Big Data Spain 2014 review
 author: maciej.arciuch
-tags: [tech,conference, big data spain, bds, big data, spark, neo4j, hadoop]
+tags: [conference, big data spain, bds, big data, spark, neo4j, hadoop]
 ---
 
 [Big Data Spain](http://bigdataspain.org/2014/) is an annual conference on Big Data and related topics held in the

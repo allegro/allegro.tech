@@ -2,7 +2,7 @@
 layout: post
 title: Asynchronous REST Services with JAX-RS and CompletableFuture
 author: slawomir.bolimowski
-tags: [tech,java, async, rest]
+tags: [java, async, rest]
 ---
 
 One of new features introduced by [JAX-RS 2.0](https://jax-rs-spec.java.net/) is asynchronous processing in Server and Client APIs.

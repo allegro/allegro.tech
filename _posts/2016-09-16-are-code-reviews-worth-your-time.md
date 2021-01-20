@@ -2,7 +2,7 @@
 layout: post
 title: Are code reviews worth your time?
 author: michal.kosmulski
-tags: [tech, code review, peer review, source control, software quality, bitbucket, stash, gerrit, git]
+tags: [code review, peer review, source control, software quality, bitbucket, stash, gerrit, git]
 ---
 
 Code reviews play an important role in how we develop software at [Allegro]({{ '/about-us' | prepend: site.url }}). All code we developers write is reviewed

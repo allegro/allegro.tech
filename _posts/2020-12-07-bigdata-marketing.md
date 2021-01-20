@@ -2,7 +2,7 @@
 layout: post
 title: Big data marketing. The story of how technology behind Allegro marketing works.
 author: [filip.blaszczyk, piotr.goralczyk, grzegorz.kaczmarczyk]
-tags: [tech, architecture, bigdata, spark]
+tags: [architecture, bigdata, spark]
 ---
 
 Marketing is a very important department in every company. In case of Allegro,

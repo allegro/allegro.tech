@@ -2,7 +2,7 @@
 layout: post
 title: A look at Swift functions
 author: szymon.tur
-tags: [tech,ios, swift, objective-c, xcode, apple]
+tags: [ios, swift, objective-c, xcode, apple]
 ---
 
 At the beginning of December we published our [first post about Swift](/2014/12/quick-introduction-to-Swift.html "Quick introduction to Swift").

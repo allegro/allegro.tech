@@ -2,7 +2,7 @@
 layout: post
 title: Is overmocking bad? And if it is, then why?
 author: pawel.czubachowski
-tags: [tech, overmocking, java, testing, developer, mocking, spock]
+tags: [overmocking, java, testing, developer, mocking, spock]
 ---
 
 The first question is — what is overmocking? There are a couple of answers. When you mock something that you can leave or

@@ -2,7 +2,7 @@
 layout: post
 title: Testing in production... wait, what?
 author: karol.grabowski
-tags: [tech, ruby, testing, cucumber, production]
+tags: [ruby, testing, cucumber, production]
 ---
 
 If you are an agile developer who is fluent in multiple languages, you understand the importance of testing. You have

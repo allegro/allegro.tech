@@ -2,7 +2,7 @@
 layout: post
 title: Golang slices gotcha
 author: [tomasz.janiszewski]
-tags: [tech, go, golang]
+tags: [go, golang]
 ---
 
 In this post I present a story of a bug that hit us recently. Everything was

@@ -2,7 +2,7 @@
 layout: post
 title: Distributed rate limiting of delivery attempts
 author: dariusz.jedrzejczyk
-tags: [tech, distributed systems, hermes, architecture, algorithms, open source]
+tags: [distributed systems, hermes, architecture, algorithms, open source]
 ---
 
 In our services ecosystem it’s usually the case that services can handle

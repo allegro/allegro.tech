@@ -2,7 +2,7 @@
 layout: post
 title: Evolution of our platform architecture
 author: bartlomiej.ignasiak
-tags: [tech,architecture, strategy, refactoring]
+tags: [architecture, strategy, refactoring]
 ---
 
 Allegro was founded in 1999. As you can imagine, technology was quite different at that time.

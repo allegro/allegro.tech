@@ -2,7 +2,7 @@
 layout: post
 title: Using dotnet new templates to streamline microservices development
 author: [szymon.adach]
-tags: [tech, dotnet, template, microservices]
+tags: [dotnet, template, microservices]
 ---
 
 You may not know this, but there is a part of Allegro codebase which we started developing in C# due to some special

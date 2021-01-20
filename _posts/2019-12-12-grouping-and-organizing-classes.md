@@ -2,7 +2,7 @@
 layout: post
 title: Grouping and organizing Java classes
 author: mariusz.kopylec
-tags: [tech, architecture, package, ddd, domain, hexagonal, clean, java]
+tags: [architecture, package, ddd, domain, hexagonal, clean, java]
 ---
 
 One of the first challenges a programmer has to face is organizing classes within a project.

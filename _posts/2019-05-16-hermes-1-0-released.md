@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hermes 1.0 released
-tags: [tech, hermes, kafka, pubsub, broker]
+tags: [hermes, kafka, pubsub, broker]
 author: lukasz.druminski
 ---
 

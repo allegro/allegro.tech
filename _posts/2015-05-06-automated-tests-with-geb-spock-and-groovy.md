@@ -2,7 +2,7 @@
 layout: post
 title: Automated tests with Geb, Spock and Groovy
 author: miroslaw.golda
-tags: [tech, testing, groovy, geb, selenium, spock, webdriver]
+tags: [testing, groovy, geb, selenium, spock, webdriver]
 ---
 One of the major goals of software development, apart from actually delivering the product, is to guarantee it is of proper quality and not prone to
 errors. Big modern systems tend to consist of dozens of smaller pieces, often accompanied by some legacy core or part of legacy system.

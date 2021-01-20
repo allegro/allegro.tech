@@ -2,7 +2,7 @@
 layout: post
 title: Self-contained UI tests for iOS applications
 author: pawel.ustaborowicz
-tags: [tech, iOS, testing, UI testing, test automation, WireMock, Xcode]
+tags: [iOS, testing, UI testing, test automation, WireMock, Xcode]
 ---
 We’re all familiar with
 [TDD](https://en.wikipedia.org/wiki/Test-driven_development), or at least write unit tests for our software,

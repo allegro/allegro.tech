@@ -2,7 +2,7 @@
 layout: post
 title: We were at QCon SF 2014
 author: filip.marszelewski
-tags: [tech,qcon, conference]
+tags: [qcon, conference]
 ---
 
 [QCon](http://qconferences.com/) is one of the most identifiable conferences in IT world. Several times every year it connects IT professionals
