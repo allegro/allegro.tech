@@ -44,7 +44,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                 <meta property="og:title" content="allegro.tech"/>
                 <meta property="og:url" content="https://allegro.tech"/>
                 <meta property="og:type" content="site"/>
-                <meta property="og:image" content="images/allegro-tech.png"/>
+                <meta property="og:image" content="https://allegro.tech/images/allegro-tech.png"/>
                 <link rel="shortcut icon" href="favicon.ico"/>
                 <link rel="canonical" href="https://allegro.tech" itemProp="url"/>
                 <script dangerouslySetInnerHTML={{
