@@ -2,8 +2,8 @@
 layout: default
 ---
 <section class="post" itemscope itemtype="http://schema.org/TechArticle" id="main-content">
-    <header class="post-header">
-        <div class="content">
+    <header class="post-header responsive-content">
+        <div class="main-item">
             <time class="entry-date" datetime="{{ page.date}}"><span>{{ page.date | date: "<strong>%b %-d</strong> %Y" }}</span>
             </time>
             <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
@@ -32,13 +32,13 @@ layout: default
     <meta itemprop="datePublished" content="{{ page.date }}">
     <meta itemprop="image" content="{{ site.url }}{{site.baseurl}}/img/logo-allegro-tech.png">
 
-    <article class="post-content" itemprop="articleBody">
-        <div class="content"> {{ content }}</div>
+    <article class="post-content responsive-content" itemprop="articleBody">
+        <div class="main-item"> {{ content }}</div>
     </article>
 </section>
-<section id="author" class="post-author">
+<section id="author" class="post-author responsive-content">
     {% for author in page.author %}
-    <div class="content">
+    <div class="main-item">
         {%assign authorKey = author%}
         {%assign authorData = site.data.members[author] %}
         {% include single_author.html showLinkToPost=true %}
@@ -46,8 +46,8 @@ layout: default
     {% endfor %}
 </section>
 
-<section class="comments">
-    <div class="content">
+<section class="comments responsive-content">
+    <div class="main-item">
         <div class="site-navlist social-icons">
             <ul>
                 <li><strong>Share this post</strong></li>
@@ -62,7 +62,7 @@ layout: default
             </ul>
         </div>
     </div>
-    <div id="disqus_thread" class="content"></div>
+    <div id="disqus_thread" class="main-item"></div>
 </section>
 <script>
     (function () {

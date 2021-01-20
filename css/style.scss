@@ -24,6 +24,37 @@ body {
     color: #333;
 }
 
+.responsive-content {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 20% 30% 30% 20%;
+    grid-row-gap: 0.5em;
+    grid-template-areas:
+        "a b c d";
+
+    @media all and (max-width: 900px) {
+        grid-template-areas:
+            "a a a a"
+            "b b c c"
+            "d d d d";
+    }
+
+    @media all and (max-width: 400px) {
+        grid-template-areas:
+            "a a a a"
+            "b b b b"
+            "c c c c"
+            "d d d d";
+    }
+}
+
+.main-item {
+    grid-column-start: center;
+    grid-area: auto / b / auto / c;
+    align-self: start;
+    justify-self: stretch;
+}
+
 .content {
     max-width: 940px;
     padding: 0 20px;
@@ -40,6 +71,24 @@ h2 {
     font-weight: 300;
     margin-top: 0;
 }
+
+a:link {
+    color: #00a790;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #006456;
+}
+
+a:hover {
+    color: #54cab6;
+}
+
+a:active {
+    color: #7fdcca;
+}
+
 
 .title {
     font-size: 2em;

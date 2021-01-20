@@ -3,12 +3,6 @@
     padding: 1em;
     background: rgba(255, 255, 255, 0.95);
 
-    display: grid;
-    grid-template-columns: 20% 30% 30% 20%;
-    grid-row-gap: 0.5em;
-    grid-template-areas:
-        "a b c d";
-
     .back-link {
         grid-column-start: center;
         grid-area: a;
@@ -37,31 +31,9 @@
         justify-self: stretch;
 
         line-height: 40px;
-
-        .site-navlist {
-            list-style: none;
-            display: inline-block;
-
-            li {
-                display: inline;
-            }
-        }
-    }
-
-    @media all and (max-width: 900px) {
-        grid-template-areas:
-            "a a a a"
-            "b b c c"
-            "d d d d";
     }
 
     @media all and (max-width: 400px) {
-        grid-template-areas:
-            "a a a a"
-            "b b b b"
-            "c c c c"
-            "d d d d";
-
         .site-nav {
             justify-self: start;
         }

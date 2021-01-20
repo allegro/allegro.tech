@@ -8,8 +8,9 @@ title: blog authors
 {%assign authorData = site.data.members[page.author] %}
 
 <section id="main-content">
-    <header class="post-header">
-        <div class="content"><h1 class="post-title">All posts by {{authorData.name}}</h1>
+    <header class="post-header responsive-content">
+        <div class="main-item">
+            <h1 class="post-title">All posts by {{authorData.name}}</h1>
             <div class="post-meta">
                 <ul class="breadcrumb">
                     <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
@@ -26,8 +27,8 @@ title: blog authors
     </header>
 </section>
 
-<section class="section-posts desk ">
-    <div class="content">
+<section class="section-posts responsive-content">
+    <div class="main-item">
         {% assign index = true %}
         <section class="posts">
             {% for post in site.posts %}
@@ -39,8 +40,8 @@ title: blog authors
     </div>
 </section>
 
-<section id="author">
-    <div class="content post-author">
+<section id="author" class="responsive-content">
+    <div class="post-author main-item">
         {% include single_author.html %}
     </div>
 </section>
