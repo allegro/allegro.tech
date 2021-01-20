@@ -34,7 +34,7 @@ const Post: React.FunctionComponent<PostProps> = ({ title, categories, pubDate, 
     return (
         <article className="m-margin-bottom_16 m-display-flex m-flex-column m-flex-grow_1">
             <a href={link} title={title}>
-                <img width="388" height="194" src={thumbnail} alt={title} className="m-display-block m-width-fluid"/>
+                <img width="388" src={thumbnail} alt={title} className="m-display-block m-width-fluid"/>
             </a>
             <Card className="m-display-flex m-flex-column m-flex-grow_1 m-padding-bottom-0">
                 <a href={link} title={title} className="m-text-decoration_none">

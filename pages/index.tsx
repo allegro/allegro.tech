@@ -81,7 +81,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                 <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Podcasty</Heading>
                 <Grid>
                     {podcasts.map(podcast => (
-                        <Grid.Col key={podcast.guid} size={12} smSize={6} lgSize={3}
+                        <Grid.Col key={podcast.guid} size={12} smSize={6} mdSize={4} lgSize={3}
                                   className="m-display-flex m-flex-direction_column">
                             <Podcast {...podcast}/>
                         </Grid.Col>
