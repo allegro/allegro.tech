@@ -47,6 +47,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                 <meta property="og:image" content="https://allegro.tech/images/allegro-tech.png"/>
                 <link rel="shortcut icon" href="favicon.ico"/>
                 <link rel="canonical" href="https://allegro.tech" itemProp="url"/>
+                <link rel="preload" href="images/splash.jpg" as="image" />
                 <script dangerouslySetInnerHTML={{
                     __html: `
                     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
