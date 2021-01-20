@@ -65,7 +65,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                 <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Blog</Heading>
                 <Grid>
                     {posts.map(post => (
-                        <Grid.Col key={post.guid} size={12} smSize={6} lgSize={3}
+                        <Grid.Col key={post.guid} size={12} smSize={6} xlSize={3}
                                   className="m-display-flex m-flex-direction_column">
                             <Post {...post} />
                         </Grid.Col>
@@ -82,7 +82,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                 <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Podcasty</Heading>
                 <Grid>
                     {podcasts.map(podcast => (
-                        <Grid.Col key={podcast.guid} size={12} smSize={6} lgSize={3}
+                        <Grid.Col key={podcast.guid} size={12} smSize={6} xlSize={3}
                                   className="m-display-flex m-flex-direction_column">
                             <Podcast {...podcast}/>
                         </Grid.Col>
@@ -99,7 +99,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                 <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Wydarzenia</Heading>
                 <Grid>
                     {events.map(event => (
-                        <Grid.Col key={event.id} size={12} smSize={6} lgSize={6}
+                        <Grid.Col key={event.id} size={12} smSize={6} xlSize={6}
                                   className="m-display-flex m-flex-direction_column">
                             <Event {...event}/>
                         </Grid.Col>
