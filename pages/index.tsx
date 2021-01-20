@@ -47,7 +47,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                 <meta property="og:image" content="https://allegro.tech/images/allegro-tech.png"/>
                 <link rel="shortcut icon" href="favicon.ico"/>
                 <link rel="canonical" href="https://allegro.tech" itemProp="url"/>
-                <link rel="preload" href="images/splash.jpg" as="image" />
+                <link rel="preload" href="images/splash.webp" as="image" />
                 <script dangerouslySetInnerHTML={{
                     __html: `
                     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -159,11 +159,11 @@ export async function getStaticProps() {
         posts.items.map(post => {
             for (let i = post.categories.length - 1; i >= 0; i--) {
                 if (thumbnails.includes(post.categories[i])) {
-                    post.thumbnail = path.join('images/post-headers', `${post.categories[i]}.png`);
+                    post.thumbnail = path.join('images/post-headers', `${post.categories[i]}.webp`);
                     return;
                 }
             }
-            post.thumbnail = 'images/post-headers/default.png';
+            post.thumbnail = 'images/post-headers/default.webp';
         })
         return posts;
     }
