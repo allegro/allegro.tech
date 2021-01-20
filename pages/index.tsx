@@ -136,7 +136,11 @@ export async function getStaticProps() {
         .then(response => response.json())
         .then(json => json.content);
     const eventsPromise = fetch('https://api.meetup.com/allegrotech/events?status=past,upcoming&desc=true&photo-host=public&page=20')
-        .then(response => response.json());
+        .then(response => response.json())
+        .then(events => events.map(event => ({
+            ...event,
+            description: event.description.replace(/(<([^>]+)>)/gi, "").split(' ').slice(0, 25).join(' ') + '…'
+        })));
 
     const [posts, jobs, events, podcasts] = await Promise.all([postsPromise, jobsPromise, eventsPromise, podcastsPromise]);
 

@@ -37,7 +37,7 @@ const Event: React.FunctionComponent<EventProps> = ({ id, name, link, venue, tim
                     {formatDistance(new Date(time), new Date(), { locale: pl, addSuffix: true })}, {venue.name}
                 </Typography>
                 <Typography as="time" className="m-padding-top-8">
-                    {description.replace(/(<([^>]+)>)/gi, "").split(' ').slice(0, 25).join(' ') + '…'}
+                    {description}
                 </Typography>
                 <Link button
                       className="m-margin-top-16 m-display_block m-border-width_1 m-border-color_gray m-border-style-top_solid"
