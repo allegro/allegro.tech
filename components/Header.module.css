@@ -1,4 +1,4 @@
-.header {
+.hero {
     background: url('../public/images/splash.jpg') no-repeat center bottom;
 }
 
@@ -31,7 +31,7 @@
 
 @media (min-width: 992px) {
     .navbar {
-        position: static;
+        position: sticky;
     }
 
     .menu {

@@ -30,8 +30,8 @@ const Header = () => {
     const icon = menuVisible ? ICON_CLOSE : ICON_MENU;
 
     return (
-        <header className={styles.header}>
-            <Card className={styles.navbar}>
+        <React.Fragment>
+            <Card as="header" className={styles.navbar}>
                 <Container as="nav" className="m-display-flex m-flex-justify-between m-flex-items-center">
                     <a href="/"><img src="images/logo.svg" alt="Allegro Tech" height={45}/></a>
                     <div>
@@ -50,18 +50,21 @@ const Header = () => {
                     </div>
                 </Container>
             </Card>
-            <Container className={classnames("m-display-flex m-flex-column m-flex-justify-end", styles.image)}>
-                <Card className="m-color-bg_desk" transparent>
-                    <Heading size="hero">O nas</Heading>
-                    <Typography>Allegro to jedna z najbardziej zaawansowanych technologicznie firm w naszej części
-                        Europy. Allegro to również ponad 1000 specjalistów IT, różnych specjalizacji, rozwijających nasz
-                        serwis. Unikatowa skala i złożoność problemów, które rozwiązujemy na co dzień, dają nam
-                        możliwość rozwoju przy bardzo różnorodnych projektach.
-                        Allegro Tech to miejsce, w którym nasi inżynierowie dzielą się wiedzą oraz case study z
-                        wybranych projektów w firmie - w formie artykułów, podcastów oraz eventów.</Typography>
-                </Card>
-            </Container>
-        </header>
+            <div className={styles.hero}>
+                <Container className={classnames("m-display-flex m-flex-column m-flex-justify-end", styles.image)}>
+                    <Card className="m-color-bg_desk" transparent>
+                        <Heading size="hero">O nas</Heading>
+                        <Typography>Allegro to jedna z najbardziej zaawansowanych technologicznie firm w naszej części
+                            Europy. Allegro to również ponad 1000 specjalistów IT, różnych specjalizacji, rozwijających nasz
+                            serwis. Unikatowa skala i złożoność problemów, które rozwiązujemy na co dzień, dają nam
+                            możliwość rozwoju przy bardzo różnorodnych projektach.
+                            Allegro Tech to miejsce, w którym nasi inżynierowie dzielą się wiedzą oraz case study z
+                            wybranych projektów w firmie - w formie artykułów, podcastów oraz eventów.</Typography>
+                    </Card>
+                </Container>
+            </div>
+        </React.Fragment>
+
     )
 };
 
