@@ -100,8 +100,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                     {events.map(event => (
                         <Grid.Col key={event.id} size={12} smSize={6} lgSize={6}
                                   className="m-display-flex m-flex-direction_column">
-                            <Event id={event.id} name={event.name} link={event.link} venue={event.venue}
-                                   time={new Date(event.time)}/>
+                            <Event {...event}/>
                         </Grid.Col>
                     ))}
                 </Grid>
