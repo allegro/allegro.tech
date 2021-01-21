@@ -9,7 +9,7 @@ const OldPost = () => {
     return (
         <Head>
             <title>Redirecting...</title>
-            <meta http-equiv="refresh" content={`0;url=/blog/${year}/${month}/${slug}`}/>
+            <meta httpEquiv="refresh" content={`0;url=https://blog.allegro.tech/${year}/${month}/${slug}`}/>
         </Head>
     )
 }

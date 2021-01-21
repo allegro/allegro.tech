@@ -9,8 +9,8 @@ import Typography from "../metrum/Typography";
 import List from "../metrum/List";
 
 const MENU_ITEMS = [
-    { label: 'Blog', url: '/blog' },
-    { label: 'Podcast', url: '/podcast' },
+    { label: 'Blog', url: 'https://blog.allegro.tech' },
+    { label: 'Podcast', url: 'https://podcast.allegro.tech' },
     { label: 'Open Source', url: 'https://github.com/Allegro' },
     { label: 'Wydarzenia', url: 'https://www.meetup.com/allegrotech/events' },
     { label: 'Praca', url: 'https://praca.allegro.pl' }

@@ -74,7 +74,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                 <Link
                     button
                     className="m-display_block m-margin-bottom_8 m-width_100"
-                    href="/blog/">
+                    href="https://blog.allegro.tech">
                     Zobacz więcej wpisów
                 </Link>
             </Container>
@@ -91,7 +91,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                 <Link
                     button
                     className="m-display_block m-margin-bottom_8 m-width_100"
-                    href="/podcast/">
+                    href="https://podcast.allegro.tech">
                     Zobacz więcej podcastów
                 </Link>
             </Container>
