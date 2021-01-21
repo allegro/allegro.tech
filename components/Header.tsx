@@ -33,7 +33,7 @@ const Header = () => {
         <React.Fragment>
             <Card as="header" className={styles.navbar}>
                 <Container as="nav" className="m-display-flex m-flex-justify-between m-flex-items-center">
-                    <a href="/"><img src="images/logo.svg" alt="Allegro Tech" height={45}/></a>
+                    <a href="/"><img src="images/logo.svg" alt="Allegro Tech" width={205} height={45}/></a>
                     <div>
                         <List
                             className={classnames("m-display-flex@lg", !menuVisible && "m-display-none", menuVisible && styles.menu)}>
@@ -44,8 +44,10 @@ const Header = () => {
                         </List>
                         <button onClick={() => setMenuVisible(!menuVisible)}
                                 className="m-display-none@lg m-height_40 m-line-height_40 m-border-style-top_none m-border-style-right_none m-border-style-bottom_none m-border-style-left_none m-border-radius-top-left_2 m-border-radius-top-right_2 m-border-radius-bottom-left_2 m-border-radius-bottom-right_2 m-cursor_pointer m-overflow_hidden m-appearance_none m-padding-left_4 m-padding-right_4 m-padding-top_4 m-padding-bottom_4 m-outline-style_dotted--focus m-outline-width_2 m-outline-color_teal m-outline-offset_n2 m-button"
-                                style={{ background: 'transparent' }}>
-                            <img src={icon} alt="" className="m-icon"/>
+                                style={{ background: 'transparent' }}
+                                aria-label={menuVisible ? 'Zamknij menu' : 'Otwórz menu'}
+                        >
+                            <img src={icon} alt="" className="m-icon" width={32} height={32} />
                         </button>
                     </div>
                 </Container>
@@ -54,12 +56,12 @@ const Header = () => {
                 <Container className={classnames("m-display-flex m-flex-column m-flex-justify-end", styles.image)}>
                     <Card className="m-color-bg_desk" transparent>
                         <Heading size="hero">O nas</Heading>
-                        <Typography>Allegro to jedna z najbardziej zaawansowanych technologicznie firm w naszej części
+                        <Typography>Allegro to jedna z&nbsp;najbardziej zaawansowanych technologicznie firm w&nbsp;naszej części
                             Europy. Allegro to również ponad 1000 specjalistów IT, różnych specjalizacji, rozwijających nasz
-                            serwis. Unikatowa skala i złożoność problemów, które rozwiązujemy na co dzień, dają nam
+                            serwis. Unikatowa skala i&nbsp;złożoność problemów, które rozwiązujemy na co dzień, dają nam
                             możliwość rozwoju przy bardzo różnorodnych projektach.
-                            Allegro Tech to miejsce, w którym nasi inżynierowie dzielą się wiedzą oraz case study z
-                            wybranych projektów w firmie - w formie artykułów, podcastów oraz eventów.</Typography>
+                            Allegro Tech to miejsce, w&nbsp;którym nasi inżynierowie dzielą się wiedzą oraz case study
+                            z&nbsp;wybranych projektów w firmie &ndash; w&nbsp;formie artykułów, podcastów oraz eventów.</Typography>
                     </Card>
                 </Container>
             </div>
