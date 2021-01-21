@@ -6,7 +6,7 @@ tags: [release, open source, elasticsearch]
 ---
 
 At Allegro we use many open-source tools that support our work. Sometimes we are not able to find what we want and
-this is a perfect moment to fill the gap and to [share with the community](/open-source). We are proud to announce an
+this is a perfect moment to fill the gap and to [share with the community](https://github.com/allegro/). We are proud to announce an
  initial release of [Elasticsearch reindex tool](https://github.com/allegro/elasticsearch-reindex-tool) — a tool that
  provides an easy way to rebuild indexes in [elasticsearch](https://www.elastic.co/).
 

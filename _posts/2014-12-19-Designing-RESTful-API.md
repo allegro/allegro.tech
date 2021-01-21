@@ -30,8 +30,8 @@ Things not covered by this article (but worth further reading):
 
 * [Richardson Maturity Model](http://martinfowler.com/articles/richardsonMaturityModel.html)
 * [API Versioning and custom media types](http://pivotallabs.com/api-versioning/)
-* [Asynchronous operations]({% post_url 2014-10-29-async-rest %})
-* [Testing RESTful services]({% post_url 2014-11-26-testing-restful-service-and-clients %})
+* [Asynchronous operations]({{site.baseurl}}{% post_url  2014-10-29-async-rest %})
+* [Testing RESTful services]({{site.baseurl}}{% post_url  2014-11-26-testing-restful-service-and-clients %})
 
 ### Naming conventions
 

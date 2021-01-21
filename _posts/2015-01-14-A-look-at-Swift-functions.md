@@ -5,7 +5,7 @@ author: szymon.tur
 tags: [ios, swift, objective-c, xcode, apple]
 ---
 
-At the beginning of December we published our [first post about Swift](/2014/12/quick-introduction-to-Swift.html "Quick introduction to Swift").
+At the beginning of December we published our [first post about Swift]({{site.baseurl}}/2014/12/quick-introduction-to-Swift.html "Quick introduction to Swift").
 Today we want to continue the Swift thread and introduce a few interesting facts about functions in Swift language.
 
 ### Functions basics

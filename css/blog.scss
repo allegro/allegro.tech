@@ -322,10 +322,9 @@ figcaption {
 }
 
 .post-content img {
-    min-width: 100%;
     max-width: 100%;
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin: 8px auto;
+    display: block;
 }
 
 .post-content blockquote {

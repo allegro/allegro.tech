@@ -50,8 +50,8 @@ these obstacles and finally on March 5th at 17:00 we were able to present before
 
 ### First class
 
-The first class was a lecture about [agile methodologies](http://en.wikipedia.org/wiki/Agile_software_development) applied at [Allegro Group](http://blog.allegrogroup.com/). After 2 hours, the
-participants knew a bit more about working in IT in practice.
+The first class was a lecture about [agile methodologies](http://en.wikipedia.org/wiki/Agile_software_development) applied at Allegro Group.
+After 2 hours, the participants knew a bit more about working in IT in practice.
 A week later, we met in an equally large group again to discuss manifestos and paradigms we follow to face
 the everyday challenges of a digital world. We also presented some tools students can use on a daily basis,
 i.e. [GIT](http://git-scm.com/), [Trello](https://trello.com/), or a Linux terminal. :)

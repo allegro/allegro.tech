@@ -16,7 +16,7 @@ I also came up with my own variations.
 In this post I will make a subjective comparison of these methods based on specific criteria.
 
 ## Assumptions
-This post is a continuation of my [previous post]({% post_url 2019-12-12-grouping-and-organizing-classes %}) and is based on the application project called "Project Keeper" introduced there.
+This post is a continuation of my [previous post]({{site.baseurl}}{% post_url  2019-12-12-grouping-and-organizing-classes %}) and is based on the application project called "Project Keeper" introduced there.
 I will use Java with the help of the [Spring](https://spring.io/) framework to implement the source code of the application.
 The `Project` [aggregate](https://martinfowler.com/bliki/DDD_Aggregate.html) will represent the part of the "Project Keeper" application state, which is responsible for IT projects data.
 To save the state, I will use a `ProjectRepository` [repository](https://www.martinfowler.com/eaaCatalog/repository.html).

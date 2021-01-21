@@ -28,7 +28,7 @@ searching for an offer, clicking on it to view details, and then buying, followi
 * Listing — prepares data related to item listing (search result) pages
 * Search — responsible for low-level search in offers, based on keywords, parameters and other criteria
 * Transaction — allows items to be bought
-* [Opbox]({% post_url 2016-03-12-Managing-Frontend-in-the-microservices-architecture %}) — responsible for frontend rendering
+* [Opbox]({{site.baseurl}}{% post_url  2016-03-12-Managing-Frontend-in-the-microservices-architecture %}) — responsible for frontend rendering
 of the data returned by backend services
 * Item — service for frontend rendering of item pages
 
@@ -39,7 +39,7 @@ At&nbsp;11:15 we manually scaled out Listing service in order to be prepared for
 
 <figure>
 <img alt="Search service traffic around noon"
-src="{{site.baseurl}}/{% link /img/articles/2018-08-31-postmortem-why-allegro-went-down/search-traffic.png %}"" />
+src="{{site.baseurl}}/{% link /img/articles/2018-08-31-postmortem-why-allegro-went-down/search-traffic.png %}" />
 <figcaption>
 Search service traffic around noon. The number of requests per unit of time rose before noon, causing some requests
 to fail after reaching a high enough level. Apart from natural changes in traffic, this chart also shows the time
@@ -66,7 +66,7 @@ and tons of RAM laying around unused.
 
 <figure>
 <img alt="Listing service response times"
-src="{{site.baseurl}}/{% link /img/articles/2018-08-31-postmortem-why-allegro-went-down/listing-response-times.png %}"" />
+src="{{site.baseurl}}/{% link /img/articles/2018-08-31-postmortem-why-allegro-went-down/listing-response-times.png %}" />
 <figcaption>
 Listing service response times (avg median - average between instances of the median value, max p99 - maximum between
 instances of 99<sup>th</sup> percentile). Response times stayed stable despite growing traffic but after reaching saturation,
@@ -111,7 +111,7 @@ as well as the retry policies, we will be able to mitigate the impact of high tr
 
 <figure>
 <img alt="Undertow thread count in Listing service"
-src="{{site.baseurl}}/{% link /img/articles/2018-08-31-postmortem-why-allegro-went-down/undertow-threads.png %}"" />
+src="{{site.baseurl}}/{% link /img/articles/2018-08-31-postmortem-why-allegro-went-down/undertow-threads.png %}" />
 <figcaption>
 Undertow thread count in Listing service. A sudden increase is visible during the time when there were too few instances
 to handle incoming traffic. Compare with the graph of response times above.

@@ -5,7 +5,7 @@ author: piotr.betkier
 tags: [cqk-top-10]
 ---
 
-> This article is a part of [CQK Top 10]({% post_url 2016-09-23-CQK-TOP-10 %}) series.
+> This article is a part of [CQK Top 10]({{site.baseurl}}{% post_url  2016-09-23-CQK-TOP-10 %}) series.
 
 Modern applications process their work in multiple thread pools. Knowing where they are and
 how to set them up correctly is crucial for making sure applications behave well in production. We observe that

@@ -235,7 +235,7 @@ key aspects here:
   subqueries. Forget about waiting for several minutes before creating a new version of a query.
 * Flexibility: we have an adjustable tool that is easy to launch and configure.
 
-[1]: /2015/06/fast-data-hackathon.html
+[1]: /blog/2015/06/fast-data-hackathon.html
 [2]: https://github.com/prestodb/presto/issues/8133
 [3]: https://prestodb.io/
 [4]: https://impala.incubator.apache.org/

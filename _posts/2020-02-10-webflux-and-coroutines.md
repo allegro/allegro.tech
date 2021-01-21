@@ -5,7 +5,7 @@ author: [zbigniew.kuzera]
 tags: [kotlin, coroutines]
 ---
 
-Recently, our crucial microservice delivering listing data [switched]({% post_url 2019-07-15-migrating-microservice-to-spring-webflux %}) to
+Recently, our crucial microservice delivering listing data [switched]({{site.baseurl}}{% post_url  2019-07-15-migrating-microservice-to-spring-webflux %}) to
 [Spring WebFlux](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html).
 A non-blocking approach gave us the possibility to reduce the number of server worker threads compared to [Spring WebMvc](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html).
 The reactive approach helped us to effectively build a scalable solution.

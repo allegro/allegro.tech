@@ -6,13 +6,13 @@ tags: [release, open source, java]
 ---
 
 At Allegro we use many open-source tools that support our work. Sometimes we are not able to find what we want and this is a perfect moment to fill the gap and
-to [share with the community](/open-source). We are proud to announce an initial release of [Tradukisto](https://github.com/allegro/tradukisto) — a small Java library created to
+to [share with the community](https://github.com/allegro/). We are proud to announce an initial release of [Tradukisto](https://github.com/allegro/tradukisto) — a small Java library created to
 convert numbers to their word representations.
 
 ### Background and motivation
 
 I work as a software developer in a team which delivers solutions for the financial department. Currently we are
-[extracting the invoicing system]({% post_url 2015-01-21-working-with-legacy-architecture %}) from PHP monolith platform to the architecture of Java
+[extracting the invoicing system]({{site.baseurl}}{% post_url  2015-01-21-working-with-legacy-architecture %}) from PHP monolith platform to the architecture of Java
 microservices. One of the business requirements we had was to display amount as text in given languages on invoices and other financial documents.
 
 This is a quite common challenge. On the web there are many examples of code that does the job. The problem is that

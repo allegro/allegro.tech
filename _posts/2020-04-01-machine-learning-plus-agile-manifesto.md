@@ -16,7 +16,7 @@ You cannot be everywhere. But there is someone who can.
 
 Have you heard it in your team? Like a curse, the 'action point' stating that “we have to communicate better”.
 The agile manifesto states “Individuals and interactions over processes and tools”.
-We try to be aware of <a href="/2018/03/psychological-needs-at-work.html">psychological needs at work</a>
+We try to be aware of <a href="{{site.baseurl}}/2018/03/psychological-needs-at-work.html">psychological needs at work</a>
 but sometimes we fail to find what we do not want to do. Let’s face it, in IT we do not like communicating.
 It’s something we constantly avoid. We invented daily standups to squash all interactions into one.
 Why respond to N people when you can sacrifice two minutes to tell everything the world has to know?
@@ -34,12 +34,12 @@ we make a post-it during the next retrospective.
 </p>
 
 And because our team leaders know the importance of
-<a href="/2019/06/allegro-culture-tech-leaders-meeting.html">constant feedback</a> we adjust.
+<a href="/{{site.baseurl}}2019/06/allegro-culture-tech-leaders-meeting.html">constant feedback</a> we adjust.
 We start choosing team delegates to meetings, we introduce a “developer on duty”
 who takes care of all incoming communication. When it’s my turn I know it won’t be a good week.
 But at least the rest of the month is better. And then we are surprised that even in our small team
 information asymmetry starts destroying our decision-making process.
-When other teams are becoming involved situation gets even worse. Although <a href="/2019/09/team-tourism-at-allegro.html">team tourism</a> helps a little.
+When other teams are becoming involved situation gets even worse. Although <a href="{{site.baseurl}}/2019/09/team-tourism-at-allegro.html">team tourism</a> helps a little.
 We start seeking solution. And when we cannot find one what do tech guys do? Transform problems.
 So we introduce microservices to get a lot of technical problems in exchange for human resources problems.
 And this works brilliantly.
@@ -108,4 +108,3 @@ We are hiring remotely and HAL is not prepared yet for recruitment so you will h
 <p align="right">
 * Have you noticed? This article was written by our beloved HAL
 </p>
-

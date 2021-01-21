@@ -19,7 +19,7 @@ I’m going to show some common pitfalls as well as how performance metrics in p
 
 Before exploring the migration strategy in detail, let’s discuss the motivation for the change first.
 One of the microservices, which is developed and maintained by my team, was involved in the significant Allegro outage
-on 18th of July 2018 (see more details in [postmortem]({% post_url 2018-08-31-postmortem-why-allegro-went-down %})).
+on 18th of July 2018 (see more details in [postmortem]({{site.baseurl}}{% post_url  2018-08-31-postmortem-why-allegro-went-down %})).
 Although our microservice was not the root cause of problems, some of the instances also crashed because of thread pools saturation.
 Ad hoc fix was to increase thread pool sizes and to decrease timeouts in external service calls; however, this was not sufficient.
 The temporary solution only slightly increased throughput and resilience for external services latencies.

@@ -6,7 +6,7 @@ tags: [agile, minimum viable product, customer value, agile coach]
 ---
 
 In the beginning I would like to stress that this is not yet another article about Minimum Viable Product (MVP)
-mechanics. For theory and examples of its use in practice, please refer to the great article by [Andrzej Winnicki]({% post_url 2015-01-26-story-about-delivering-products-part2 %}). What made me share my thoughts on MVP is what
+mechanics. For theory and examples of its use in practice, please refer to the great article by [Andrzej Winnicki]({{site.baseurl}}{% post_url  2015-01-26-story-about-delivering-products-part2 %}). What made me share my thoughts on MVP is what
 I consider a prerequisite to start working with this method. Moreover, I also recognised this prerequisite as the
 biggest obstacle which is stopping many enthusiasts from fully understanding it.
 

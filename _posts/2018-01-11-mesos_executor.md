@@ -26,7 +26,7 @@ write custom integrations with your ecosystem.
 
 Apache Mesos is a tool to abstract your data center resources. In contrast to
 many container orchestrators such as
-[Kubernetes](kubernetes.io),
+[Kubernetes](https://kubernetes.io),
 [Nomad](https://www.nomadproject.io/) or
 [Swarm](https://docs.docker.com/engine/swarm/), Mesos makes
 use of two-level scheduling. This means Mesos is responsible only for offering

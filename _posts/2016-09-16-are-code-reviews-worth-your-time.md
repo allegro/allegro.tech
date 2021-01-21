@@ -66,7 +66,7 @@ the tip of the iceberg. Test coverage tools may be helpful but coverage is just 
 have high test coverage and yet the tests to be of little value. Such tools are also often slow and since they do not really understand
 what a test is supposed to do (and what the tested software is supposed to do), their application is limited. When reviewing tests, pay
 attention to what the tests actually check, whether their names are true to their actual content, and whether they won’t make your
-development harder in the future, for example due to [overmocking]({% post_url 2015-05-26-is-overmocking-bad %}).
+development harder in the future, for example due to [overmocking]({{site.baseurl}}{% post_url  2015-05-26-is-overmocking-bad %}).
 
 <figure>
 <img alt="Functionality added through annotations tends to be not be tested so well as normal code" src="{{site.baseurl}}/{% link /img/articles/2016-08-01-are-code-reviews-worth-your-time/annotations.png %}"" />

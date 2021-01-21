@@ -184,7 +184,7 @@ With most urgent fixes out of the way we could start developing new features. We
 that have turned integrating and using Turnilo into a more pleasant user experience.
 
 We needed to integrate Turnilo with
-[Opbox Admin](/2016/03/Managing-Frontend-in-the-microservices-architecture.html#opbox-admin)
+[Opbox Admin]({{site.baseurl}}/2016/03/Managing-Frontend-in-the-microservices-architecture.html#opbox-admin)
 so that users could easily navigate from the web component definition into a well-crafted component usage report.
 Turnilo already implemented */mkurl* endpoint which allowed
 [generating links](https://github.com/allegro/turnilo/blob/master/docs/generating-links.md) to a view

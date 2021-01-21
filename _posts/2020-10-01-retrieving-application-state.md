@@ -6,12 +6,12 @@ tags: [architecture, persistence, aggregate, repository, ddd, domain, hexagonal,
 ---
 
 Most applications need to be able to persist and retrieve their state to be fully functional.
-In my [previous post]({% post_url 2020-06-22-persisting-application-state %}) I compared methods for persisting application state.
+In my [previous post]({{site.baseurl}}{% post_url  2020-06-22-persisting-application-state %}) I compared methods for persisting application state.
 In this post I will compare the methods for retrieving this state.
 
 ## Assumptions
-This post, similarly to my [post]({% post_url 2020-06-22-persisting-application-state %}) about persisting application state, will be based on the
-“Project Keeper” application project introduced [here]({% post_url 2019-12-12-grouping-and-organizing-classes %}).
+This post, similarly to my [post]({{site.baseurl}}{% post_url  2020-06-22-persisting-application-state %}) about persisting application state, will be based on the
+“Project Keeper” application project introduced [here]({{site.baseurl}}{% post_url  2019-12-12-grouping-and-organizing-classes %}).
 I strongly recommend that you read both, especially the first one, because the assumptions and part of the source code presented there also apply to this post.
 
 The evaluation criteria for the state retrieving methods will be the same as for the state persisting methods:
@@ -46,7 +46,7 @@ com.itcompany.projectkeeper
         └── ProjectResponse.java
 </pre>
 The source code of the `infrastructure.httpclient` and `infrastructure.mongodb` packages was shown in the
-[previous post]({% post_url 2020-06-22-persisting-application-state %}).
+[previous post]({{site.baseurl}}{% post_url  2020-06-22-persisting-application-state %}).
 We will be retrieving the `Project` aggregate by its identifier using the `ProjectRepository`:
 
 ```java
@@ -70,7 +70,7 @@ class ProjectResponse {
 ```
 
 The source code of the `ProjectPersistenceMapper` will depend on the retrieving method type.
-The [previous post]({% post_url 2020-06-22-persisting-application-state %}) introduced the assumption that the `Project` is persisted in two data sources.
+The [previous post]({{site.baseurl}}{% post_url  2020-06-22-persisting-application-state %}) introduced the assumption that the `Project` is persisted in two data sources.
 Those are [MongoDB](https://www.mongodb.com/) database and the internal [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) service.
 The adapter for the `ProjectRepository` will have the following form:
 
@@ -184,7 +184,7 @@ Thus, it can be confusing for developers as they can start thinking what `Featur
 A much more serious violation of the `Project` encapsulation is making the additional factory methods public.
 This makes it possible to create the `Project` anywhere in the `core` package.
 Only the `core.project` package should have control over the `Project` aggregate’s state (more on this can be found in the “Project Keeper” application
-architecture [post]({% post_url 2019-12-12-grouping-and-organizing-classes %})).
+architecture [post]({{site.baseurl}}{% post_url  2019-12-12-grouping-and-organizing-classes %})).
 We can make it a bit clearer to other developers why these factory methods were created by naming them `fromPersistenceState`.<br>
 **No additional code in the aggregate, rating ★★★:**
 The amount of additional code is small, it’s just one additional method per aggregate’s component.<br>
@@ -296,7 +296,7 @@ That’s why it will be hard to maintain the correct number and types of the fac
 The next method relies on extracting the aggregate state into a separate object and creating a public factory method that constructs the aggregate from
 that object.
 This method is highly bound to the similar method for persisting aggregates, which I have described in my
-[previous post]({% post_url 2020-06-22-persisting-application-state %}), and should be used together with it.
+[previous post]({{site.baseurl}}{% post_url  2020-06-22-persisting-application-state %}), and should be used together with it.
 Used alone, it’s just a variation of “public factory methods” that adds an extra state object.
 Aggregate components’ code:
 
@@ -410,7 +410,7 @@ State objects make the code slightly more complicated.
 ### State objects with reflection
 A method similar to the above one, except that the aggregate is constructed using Java reflection API.
 This method is also highly bound to the similar method for persisting aggregates, which I have described in my
-[previous post]({% post_url 2020-06-22-persisting-application-state %}), and should be used together with it.
+[previous post]({{site.baseurl}}{% post_url  2020-06-22-persisting-application-state %}), and should be used together with it.
 Aggregate components’ code:
 
 ```java
@@ -535,7 +535,7 @@ doesn’t have to be changed in the future.
 ### State creators
 A “state objects” method inversion.
 Here, instead of creating a state object, we create a stateless state creator which creates the aggregate.
-This method combined with “state readers” method from my [previous post]({% post_url 2020-06-22-persisting-application-state %}) lets us create one additional
+This method combined with “state readers” method from my [previous post]({{site.baseurl}}{% post_url  2020-06-22-persisting-application-state %}) lets us create one additional
 object instead of two (state reader and state creator can be joined into one state manager).
 Aggregate components’ code:
 

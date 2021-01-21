@@ -8,7 +8,7 @@ tags: [release, open source, hadoop, camus, bigdata]
 At Allegro we use many open-source tools that support our work.
 Sometimes we are not able to find what we want and this is
 a perfect moment to fill the gap and to
-[share with the community](/open-source). We are proud to announce
+[share with the community](https://github.com/allegro). We are proud to announce
 [Camus Compressor](https://github.com/allegro/camus-compressor) — a tool
 that merges files created by [Camus](https://github.com/linkedin/camus)
 on [HDFS](http://en.wikipedia.org/wiki/Apache_Hadoop#HDFS) and saves
