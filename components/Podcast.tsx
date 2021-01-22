@@ -21,7 +21,7 @@ const Podcast: React.FunctionComponent<PodcastProps> = ({ guid, title, contentSn
     return (
         <article className="m-margin-bottom_16 m-display-flex m-flex-column m-flex-grow_1">
             <a href={link} title={title}>
-                <img src="images/podcast.webp" alt={title} className="m-display-block m-width-fluid"/>
+                <img src="images/podcast.png" alt={title} className="m-display-block m-width-fluid"/>
             </a>
             <Card className="m-display-flex m-flex-column m-flex-grow_1 m-padding-bottom-0">
                 <a href={link} title={title} className="m-text-decoration_none">
