@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React from "react";
 
-const OldPodcastUrl = () => {
+const OldOpenSourceUrl = () => {
     return (
         <Head>
             <title>Redirecting...</title>
@@ -10,6 +10,6 @@ const OldPodcastUrl = () => {
     )
 }
 
-OldPodcastUrl.getInitialProps = async () => ({});
+OldOpenSourceUrl.getInitialProps = async () => ({});
 
-export default OldPodcastUrl;
+export default OldOpenSourceUrl;
