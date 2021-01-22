@@ -2,18 +2,18 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import React from "react";
 
-const OldPost = () => {
+const OldPodcastEpisode = () => {
     const router = useRouter()
     const { slug } = router.query
 
     return (
-        <Head>
-            <title>Redirecting...</title>
-            <meta httpEquiv="refresh" content={`0;url=https://podcast.allegro.tech/${slug}`}/>
-        </Head>
+            <Head>
+                <title>Redirecting...</title>
+                <meta httpEquiv="refresh" content={`0;url=https://podcast.allegro.tech/${slug}`}/>
+            </Head>
     )
 }
 
-OldPost.getInitialProps = async () => ({});
+OldPodcastEpisode.getInitialProps = async () => ({});
 
-export default OldPost;
+export default OldPodcastEpisode;
