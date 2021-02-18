@@ -16,12 +16,18 @@ import Event, { IEvent } from "../components/Event";
 import Podcast, { IPodcast } from "../components/Podcast";
 import Tracking from "../components/Tracking";
 
+export const config = {
+    unstable_runtimeJS: false
+  };
+
 interface HomePageProps {
     posts: IPost[];
     jobs: IJob[];
     events: IEvent[];
     podcasts: IPodcast[];
 }
+
+
 
 const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events, podcasts }) => {
     React.useEffect(() => {
