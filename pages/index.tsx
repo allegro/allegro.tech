@@ -168,7 +168,7 @@ export async function getStaticProps() {
                     return;
                 }
             }
-            post.thumbnail = 'images/post-headers/default.png';
+            post.thumbnail = 'images/post-headers/default.jpg';
         })
         return posts;
     }
