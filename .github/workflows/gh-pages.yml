@@ -27,9 +27,10 @@ jobs:
           ${{ runner.os }}-node-
     
     - run: npm ci
-    - run: npm run build --if-present
+    - run: npm run build
     - run: npm run export
-    - run: '[[ -z `git status --porcelain` ]] && exit 0'
+    - run: find -s out -type f -exec md5 {} \; | md5 > out/version.txt
+    - run: '[[ curl -s https://allegro.tech/version.txt == cat out/version.txt ]] && exit 0'
     - run: touch out/.nojekyll
       
     - name: Deploy
