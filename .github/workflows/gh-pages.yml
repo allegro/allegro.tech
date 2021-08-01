@@ -30,7 +30,7 @@ jobs:
     - run: npm run build
     - run: npm run export
     - run: find out -type f -exec md5sum {} \; | sort | md5sum > out/version.txt
-    - run: '[[ $(curl -s https://allegro.tech/version.txt) == $(cat out/version.txt) ]] && exit 0'
+    - run: '[[ $(curl -s https://allegro.tech/version.txt) != $(cat out/version.txt) ]]'
     - run: touch out/.nojekyll
       
     - name: Deploy
