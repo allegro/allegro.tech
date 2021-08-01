@@ -3,8 +3,8 @@ name: github pages
 on:
   push:
     branches: [ main ]
-  schedule:
-    - cron: "0 * * * *"
+  repository_dispatch:
+    types: [ blog-update ]
 
 jobs:
   deploy:
@@ -29,8 +29,6 @@ jobs:
     - run: npm ci
     - run: npm run build
     - run: npm run export
-    - run: find out -type f -exec md5sum {} \; | sort | md5sum > out/version.txt
-    - run: '[[ $(curl -s https://allegro.tech/version.txt) != $(cat out/version.txt) ]]'
     - run: touch out/.nojekyll
       
     - name: Deploy
