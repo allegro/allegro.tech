@@ -29,6 +29,7 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm run export
+    - run: git diff
     - run: touch out/.nojekyll
       
     - name: Deploy
