@@ -35,7 +35,7 @@ const Event: React.FunctionComponent<EventProps> = ({ id, name, link, venue, tim
                     <Heading size="medium" maxLines={2}>{name}</Heading>
                 </a>
                 <Typography as="time">
-                    {formatDistance(new Date(time), new Date(), { locale: pl, addSuffix: true })}, {venue.name}
+                    {formatDistance(new Date(time), new Date(), { locale: pl, addSuffix: true })}{venue ? `, ${venue.name}` : ''}
                 </Typography>
                 <Typography as="time" className="m-padding-top-8">
                     {description}
