@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   repository_dispatch:
     types: [ blog-update ]
-
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
