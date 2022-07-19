@@ -27,6 +27,10 @@ jobs:
           ${{ runner.os }}-node-
     
     - run: npm ci
+    - name: sleep for 90s (blog gh-pages cache)
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '90s'
     - run: npm run build
     - run: npm run export
     - run: touch out/.nojekyll
