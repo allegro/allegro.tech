@@ -50,6 +50,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                 <link rel="shortcut icon" href="favicon.ico"/>
                 <link rel="canonical" href="https://allegro.tech" itemProp="url"/>
                 <link rel="preload" href="images/splash.jpg" as="image" />
+                <link rel="author" href="humans.txt" />
                 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1M1FJ5PXWW"></script>
                 <script dangerouslySetInnerHTML={{
                     __html: `
