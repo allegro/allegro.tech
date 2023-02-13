@@ -7,7 +7,6 @@ body {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #eceff1;
 }
 
 @media (min-width: 992px) {
@@ -17,7 +16,13 @@ body {
 }
 
 :root {
-  --m-color-link: #3bbdc4;
-  --m-color-link-visited: #3bbdc4;
-  --m-color-link-hover: #3bbdc4;
+  --m-color-link: hsl(183, 54%, 50%);
+  --m-color-link-visited: hsl(183, 54%, 50%);
+  --m-color-link-hover: hsl(183, 54%, 50%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .m-button--secondary:active {
+    background-image: radial-gradient(circle,hsla(0,0%,87%,.1) 1%,hsla(0,0%,100%,0) 0);
+  }
 }
