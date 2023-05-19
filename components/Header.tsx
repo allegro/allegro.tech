@@ -56,13 +56,15 @@ const Header = () => {
             <div className={styles.hero}>
                 <Container className={classnames("m-display-flex m-flex-column m-flex-justify-end", styles.image)}>
                     <Card className="m-color-bg_desk" transparent>
-                        <Heading size="hero">O nas</Heading>
-                        <Typography>Allegro to jedna z&nbsp;najbardziej zaawansowanych technologicznie firm w&nbsp;naszej części
-                            Europy. Allegro to również ponad 1000 specjalistów IT, różnych specjalizacji, rozwijających nasz
-                            serwis. Unikatowa skala i&nbsp;złożoność problemów, które rozwiązujemy na co dzień, dają nam
-                            możliwość rozwoju przy bardzo różnorodnych projektach.
-                            Allegro Tech to miejsce, w&nbsp;którym nasi inżynierowie dzielą się wiedzą oraz case study
-                            z&nbsp;wybranych projektów w firmie &ndash; w&nbsp;formie artykułów, podcastów oraz eventów.</Typography>
+                        <Heading size="hero">About us</Heading>
+                        <Typography>
+                            Allegro is one of the most technologically advanced companies in our part of Europe.
+                            Allegro is also over 1700&nbsp;IT specialists of various specializations, developing our website.
+                            The unique scale and complexity of the problems that we solve on a daily basis give us
+                            the opportunity to develop on a wide variety of projects.
+                            Allegro Tech is a place where our engineers share knowledge and case studies from
+                            selected projects in the company&nbsp;&ndash; in the form of articles, podcasts and events.
+                        </Typography>
                     </Card>
                 </Container>
             </div>
