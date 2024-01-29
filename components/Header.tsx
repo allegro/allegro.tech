@@ -14,7 +14,7 @@ const MENU_ITEMS = [
     { label: 'Podcast', url: 'https://podcast.allegro.tech' },
     { label: 'Open Source', url: 'https://github.com/Allegro' },
     { label: 'Wydarzenia', url: 'https://www.meetup.com/allegrotech/events' },
-    { label: 'Praca', url: 'https://praca.allegro.pl' }
+    { label: 'Praca', url: 'https://jobs.allegro.eu' }
 ];
 
 const ICON_CLOSE = 'https://assets.allegrostatic.com/metrum/icon/x-1a6f095eb2.svg';

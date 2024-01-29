@@ -5,7 +5,7 @@ const OldJobsUrl = () => {
     return (
         <Head>
             <title>Redirecting...</title>
-            <meta httpEquiv="refresh" content={`0;url=https://allegro.pl/praca`}/>
+            <meta httpEquiv="refresh" content={`0;url=https://jobs.allegro.eu`}/>
         </Head>
     )
 }

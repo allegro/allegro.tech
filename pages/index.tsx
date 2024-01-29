@@ -1,19 +1,16 @@
-const path = require('path');
-const fs = require('fs');
-
 import React from 'react';
 import Head from "next/head";
 import Parser from 'rss-parser';
-import Post, { IAuthor, IPost } from "../components/Post";
+import Post, {IAuthor, IPost} from "../components/Post";
 import Header from "../components/Header";
 import Grid from "../metrum/Grid";
 import Container from '../metrum/Container';
 import Heading from "../metrum/Heading";
 import Footer from "../components/Footer";
-import Job, { IJob } from "../components/Job";
+import Job, {IJob} from "../components/Job";
 import Link from "../metrum/Link";
-import Event, { IEvent } from "../components/Event";
-import Podcast, { IPodcast } from "../components/Podcast";
+import Event, {IEvent} from "../components/Event";
+import Podcast, {IPodcast} from "../components/Podcast";
 import Tracking from "../components/Tracking";
 
 interface HomePageProps {
@@ -24,8 +21,7 @@ interface HomePageProps {
 }
 
 
-
-const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events, podcasts }) => {
+const HomePage: React.FunctionComponent<HomePageProps> = ({posts, jobs, events, podcasts}) => {
     React.useEffect(() => {
         const script = document.createElement('script');
         script.src = '//allegrotechio.disqus.com/count.js';
@@ -49,8 +45,8 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                 <meta property="og:image" content="https://allegro.tech/images/allegro-tech.png"/>
                 <link rel="shortcut icon" href="favicon.ico"/>
                 <link rel="canonical" href="https://allegro.tech" itemProp="url"/>
-                <link rel="preload" href="images/splash.jpg" as="image" />
-                <link rel="author" href="humans.txt" />
+                <link rel="preload" href="images/splash.jpg" as="image"/>
+                <link rel="author" href="humans.txt"/>
                 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1M1FJ5PXWW"></script>
                 <script dangerouslySetInnerHTML={{
                     __html: `
@@ -122,7 +118,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
                 <Link
                     button
                     className="m-display_block m-margin-bottom_8 m-width_100"
-                    href="https://allegro.pl/praca">Zobacz więcej ofert</Link>
+                    href="https://jobs.allegro.eu">Zobacz więcej ofert</Link>
             </Container>
             <Footer/>
             <Tracking/>
@@ -132,7 +128,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({ posts, jobs, events,
 
 export async function getStaticProps() {
     type CustomItem = { authors: IAuthor[] };
-    const parser: Parser<any, CustomItem> = new Parser({ customFields: { item: ['authors'] } });
+    const parser: Parser<any, CustomItem> = new Parser({customFields: {item: ['authors']}});
     const postsPromise = parser.parseURL('https://blog.allegro.tech/feed.xml');
     const podcastsPromise = parser.parseURL('https://podcast.allegro.tech/feed.xml')
     const jobsPromise = fetch('https://api.smartrecruiters.com/v1/companies/allegro/postings?custom_field.58c13159e4b01d4b19ddf729=2572770')
@@ -149,25 +145,11 @@ export async function getStaticProps() {
 
     return {
         props: {
-            posts: addThumbnails(posts).items.slice(0, 4),
+            posts: posts.items.slice(0, 4),
             jobs: jobs.slice(0, 5),
             events: events.slice(0, 4),
             podcasts: podcasts.items.slice(0, 4)
         },
-    }
-
-    function addThumbnails(posts) {
-        const thumbnails = fs.readdirSync('./public/images/post-headers').map(file => file.split(".").shift());
-        posts.items.map(post => {
-            for (let i = post.categories.length - 1; i >= 0; i--) {
-                if (thumbnails.includes(post.categories[i])) {
-                    post.thumbnail = path.join('images/post-headers', `${post.categories[i]}.png`);
-                    return;
-                }
-            }
-            post.thumbnail = 'images/post-headers/default.jpg';
-        })
-        return posts;
     }
 }
 
