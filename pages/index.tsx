@@ -47,16 +47,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({posts, jobs, events, 
                 <link rel="canonical" href="https://allegro.tech" itemProp="url"/>
                 <link rel="preload" href="images/splash.jpg" as="image"/>
                 <link rel="author" href="humans.txt"/>
-                <script async src="https://www.googletagmanager.com/gtag/js?id=G-1M1FJ5PXWW"></script>
-                <script dangerouslySetInnerHTML={{
-                    __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'G-1M1FJ5PXWW');
-                `
-                }}>
-                </script>
+                <script defer data-domain="allegro.tech" src="https://plausible.io/js/script.js"></script>
             </Head>
             <Header/>
             <Container className="m-padding-top-24">
