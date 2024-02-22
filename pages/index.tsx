@@ -30,6 +30,8 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({posts, jobs, events, 
         document.body.appendChild(script);
     }, []);
 
+    const clearCookies = "document.cookie.split(\";\").forEach(function(c) { document.cookie = c.replace(/^ +/, \"\").replace(/=.*/, \"=;expires=\" + new Date().toUTCString() + \";path=/\"); });";
+
     return (
         <React.Fragment>
             <Head>
@@ -48,6 +50,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({posts, jobs, events, 
                 <link rel="preload" href="images/splash.jpg" as="image"/>
                 <link rel="author" href="humans.txt"/>
                 <script defer data-domain="allegro.tech" src="https://plausible.io/js/script.js"></script>
+                <script type="text/javascript">{clearCookies}</script>
             </Head>
             <Header/>
             <Container className="m-padding-top-24">
