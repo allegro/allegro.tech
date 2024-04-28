@@ -4,7 +4,7 @@ import Typography from "../metrum/Typography";
 import Heading from "../metrum/Heading";
 import Link from "../metrum/Link";
 import { Divider } from "@material-ui/core";
-import formatDistance from "date-fns/formatDistance";
+import { formatDistance } from 'date-fns'
 import { pl } from "date-fns/locale";
 
 export interface IPodcast {

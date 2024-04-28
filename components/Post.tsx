@@ -7,7 +7,7 @@ import Typography from "../metrum/Typography";
 import List from "../metrum/List";
 import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
-import formatDistance from 'date-fns/formatDistance'
+import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
 import { Divider } from "@material-ui/core";
 
