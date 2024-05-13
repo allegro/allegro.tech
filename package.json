@@ -30,7 +30,7 @@
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
-    "@types/node": "^20.12.7",
+    "@types/node": "^20.12.11",
     "@types/react": "^17.0.3",
     "sass": "^1.75.0",
     "typescript": "^5.4.5"
