@@ -58,10 +58,10 @@ const Header = () => {
                     <Card className="m-color-bg_desk" transparent>
                         <Heading size="hero">About us</Heading>
                         <Typography>
-                            Allegro is one of the most technologically advanced companies in our part of Europe.
-                            Allegro is also over 1700&nbsp;IT specialists of various specializations, developing our website.
+                            [Allegro](https://about.allegro.eu/who-we-are/at-a-glance) is one of the most technologically advanced companies in our part of Europe.
+                            Allegro is also over 2300&nbsp;IT specialists of various specializations, developing our e-commerce platform.
                             The unique scale and complexity of the problems that we solve on a daily basis give us
-                            the opportunity to develop on a wide variety of projects.
+                            the opportunity to work on a wide variety of projects.
                             Allegro Tech is a place where our engineers share knowledge and case studies from
                             selected projects in the company&nbsp;&ndash; in the form of articles, podcasts and events.
                         </Typography>
