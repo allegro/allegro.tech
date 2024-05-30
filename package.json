@@ -32,7 +32,7 @@
   "devDependencies": {
     "@types/node": "^20.12.7",
     "@types/react": "^17.0.3",
-    "sass": "^1.75.0",
+    "sass": "^1.77.3",
     "typescript": "^5.4.5"
   }
 }
