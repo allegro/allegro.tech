@@ -34,10 +34,10 @@ const Header = () => {
         <React.Fragment>
             <Card as="header" className={styles.navbar}>
                 <Container as="nav" className="m-display-flex m-flex-justify-between m-flex-items-center">
-                    <a href="/"><img src="images/logo.svg" alt="Allegro Tech" width={205} height={45}/></a>
+                    <a href="/"><img src="/images/logo.svg" alt="Allegro Tech" width={205} height={45}/></a>
                     <div>
                         <List
-                            className={classnames("m-display-flex@lg", !menuVisible && "m-display-none", menuVisible && styles.menu)}>
+                            className={classnames("m-display-flex@lg", "m-color-bg_card", !menuVisible && "m-display-none", menuVisible && styles.menu)}>
                             {MENU_ITEMS.map(({ label, url }) => (
                                 <List.Item key={label} className="m-margin-left-16@lg"><Link href={url} signal
                                                                                              className="m-display-block m-display-inline@lg m-padding-left-16 m-padding-right-16 m-padding-top-16 m-padding-bottom-16 m-padding-left-0@lg m-padding-top-0@lg m-padding-right-0@lg m-padding-bottom-0@lg">{label}</Link></List.Item>
@@ -58,7 +58,7 @@ const Header = () => {
                     <Card className="m-color-bg_desk" transparent>
                         <Heading size="hero">About us</Heading>
                         <Typography>
-                            <a href="https://about.allegro.eu/who-we-are/at-a-glance">Allegro</a> is one of the most technologically advanced companies in our part of Europe.
+                            <Link href="https://about.allegro.eu/who-we-are/at-a-glance">Allegro</Link> is one of the most technologically advanced companies in our part of Europe.
                             Allegro is also over 2300&nbsp;IT specialists of various specializations, developing our e-commerce platform.
                             The unique scale and complexity of the problems that we solve on a daily basis give us
                             the opportunity to work on a wide variety of projects.
