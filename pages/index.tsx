@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from "next/head";
-import Parser from 'rss-parser';
-import Post, {IAuthor, IPost} from "../components/Post";
+import Post, {IPost} from "../components/Post";
 import Header from "../components/Header";
 import Grid from "../metrum/Grid";
 import Container from '../metrum/Container';
@@ -12,6 +11,7 @@ import Link from "../metrum/Link";
 import Event, {IEvent} from "../components/Event";
 import Podcast, {IPodcast} from "../components/Podcast";
 import Tracking from "../components/Tracking";
+import {extract} from '@extractus/feed-extractor'
 
 interface HomePageProps {
     posts: IPost[];
@@ -54,7 +54,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({posts, jobs, events, 
                 <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Blog</Heading>
                 <Grid>
                     {posts.map(post => (
-                        <Grid.Col key={post.guid} size={12} smSize={6} xlSize={3}
+                        <Grid.Col key={post.id} size={12} smSize={6} xlSize={3}
                                   className="m-display-flex m-flex-direction_column">
                             <Post {...post} />
                         </Grid.Col>
@@ -71,7 +71,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({posts, jobs, events, 
                 <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Podcasty</Heading>
                 <Grid>
                     {podcasts.map(podcast => (
-                        <Grid.Col key={podcast.guid} size={12} smSize={6} xlSize={3}
+                        <Grid.Col key={podcast.id} size={12} smSize={6} xlSize={3}
                                   className="m-display-flex m-flex-direction_column">
                             <Podcast {...podcast}/>
                         </Grid.Col>
@@ -118,10 +118,8 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({posts, jobs, events, 
 }
 
 export async function getStaticProps() {
-    type CustomItem = { authors: IAuthor[] };
-    const parser: Parser<any, CustomItem> = new Parser({customFields: {item: ['authors']}});
-    const postsPromise = parser.parseURL('https://blog.allegro.tech/feed.xml');
-    const podcastsPromise = parser.parseURL('https://podcast.allegro.tech/feed.xml')
+    const posts = await extract('https://blog.allegro.tech/feed.xml');
+    const podcasts = await extract('https://podcast.allegro.tech/feed.xml');
     const jobsPromise = fetch('https://api.smartrecruiters.com/v1/companies/allegro/postings?custom_field.58c13159e4b01d4b19ddf729=2572770')
         .then(response => response.json())
         .then(json => json.content);
@@ -132,14 +130,14 @@ export async function getStaticProps() {
             description: event.description.replace(/(<([^>]+)>)/gi, "").split(' ').slice(0, 25).join(' ') + '…'
         })));
 
-    const [posts, jobs, events, podcasts] = await Promise.all([postsPromise, jobsPromise, eventsPromise, podcastsPromise]);
+    const [jobs, events] = await Promise.all([jobsPromise, eventsPromise]);
 
     return {
         props: {
-            posts: posts.items.slice(0, 4),
+            posts: posts.entries.slice(0, 4),
             jobs: jobs.slice(0, 5),
             events: events.slice(0, 4),
-            podcasts: podcasts.items.slice(0, 4)
+            podcasts: podcasts.entries.slice(0, 4)
         },
     }
 }

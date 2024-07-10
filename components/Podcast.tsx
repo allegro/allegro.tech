@@ -8,16 +8,16 @@ import { formatDistance } from 'date-fns'
 import { pl } from "date-fns/locale";
 
 export interface IPodcast {
-    guid: string;
+    id: string;
     title: string;
-    contentSnippet: string;
+    description: string;
     link: string;
-    pubDate: string;
+    published: string;
 }
 
 type PodcastProps = IPodcast
 
-const Podcast: React.FunctionComponent<PodcastProps> = ({ guid, title, contentSnippet, link, pubDate }) => {
+const Podcast: React.FunctionComponent<PodcastProps> = ({ id, title, description, link, published }) => {
     return (
         <article className="m-margin-bottom_16 m-display-flex m-flex-column m-flex-grow_1">
             <a href={link} title={title}>
@@ -28,10 +28,10 @@ const Podcast: React.FunctionComponent<PodcastProps> = ({ guid, title, contentSn
                     <Heading size="medium" maxLines={2}>{title}</Heading>
                 </a>
                 <Typography as="time" className="m-padding-bottom-16">
-                    {formatDistance(new Date(pubDate), new Date(), { locale: pl, addSuffix: true })}
+                    {formatDistance(new Date(published), new Date(), { locale: pl, addSuffix: true })}
                 </Typography>
                 <Typography className="m-flex-grow-1">
-                    {contentSnippet}
+                    {description}
                 </Typography>
                 <Link
                     button
