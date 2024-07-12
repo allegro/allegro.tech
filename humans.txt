@@ -1,5 +1,6 @@
 /* THANKS */
 
+Marcin Mazurek - Allegro Tech community wouldn't exist without your support! Many thanks!
 Milena Kulon - Allegro Tech would never shine so much without You! Many thanks!
 
 
