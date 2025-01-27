@@ -9,7 +9,7 @@ const OldPodcastEpisode = () => {
     return (
             <Head>
                 <title>Redirecting...</title>
-                <meta httpEquiv="refresh" content={`0;url=https://podcast.allegro.tech/${slug}`}/>
+                <meta httpEquiv="refresh" content={`0;url=https://podcast.allegro.tech/#${slug}`}/>
             </Head>
     )
 }
