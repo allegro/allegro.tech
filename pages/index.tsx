@@ -120,23 +120,15 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({posts, jobs, events, 
 export async function getStaticProps() {
     const posts = await extract('https://blog.allegro.tech/feed.xml');
     const podcasts = await extract('https://podcast.allegro.tech/feed.xml');
-    const jobsPromise = fetch('https://api.smartrecruiters.com/v1/companies/allegro/postings?custom_field.58c13159e4b01d4b19ddf729=2572770')
+    const jobsPromise = await fetch('https://api.smartrecruiters.com/v1/companies/allegro/postings?custom_field.58c13159e4b01d4b19ddf729=2572770')
         .then(response => response.json())
         .then(json => json.content);
-    const eventsPromise = fetch('https://api.meetup.com/allegrotech/events?status=past,upcoming&desc=true&photo-host=public&page=20')
-        .then(response => response.json())
-        .then(events => events.map(event => ({
-            ...event,
-            description: event.description.replace(/(<([^>]+)>)/gi, "").split(' ').slice(0, 25).join(' ') + '…'
-        })));
-
-    const [jobs, events] = await Promise.all([jobsPromise, eventsPromise]);
 
     return {
         props: {
             posts: posts.entries.slice(0, 4),
             jobs: jobs.slice(0, 5),
-            events: events.slice(0, 4),
+            events: [],
             podcasts: podcasts.entries.slice(0, 4)
         },
     }
