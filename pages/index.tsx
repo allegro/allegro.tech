@@ -120,7 +120,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({posts, jobs, events, 
 export async function getStaticProps() {
     const posts = await extract('https://blog.allegro.tech/feed.xml');
     const podcasts = await extract('https://podcast.allegro.tech/feed.xml');
-    const jobsPromise = await fetch('https://api.smartrecruiters.com/v1/companies/allegro/postings?custom_field.58c13159e4b01d4b19ddf729=2572770')
+    const jobs = await fetch('https://api.smartrecruiters.com/v1/companies/allegro/postings?custom_field.58c13159e4b01d4b19ddf729=2572770')
         .then(response => response.json())
         .then(json => json.content);
 
