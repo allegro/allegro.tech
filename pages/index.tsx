@@ -84,33 +84,39 @@ const HomePage: React.FunctionComponent<HomePageProps> = ({posts, jobs, events, 
                     Zobacz więcej podcastów
                 </Link>
             </Container>
-            <Container className="m-padding-top-24">
-                <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Wydarzenia</Heading>
-                <Grid>
-                    {events.map(event => (
-                        <Grid.Col key={event.id} size={12} smSize={6} xlSize={6}
-                                  className="m-display-flex m-flex-direction_column">
-                            <Event {...event}/>
-                        </Grid.Col>
-                    ))}
-                </Grid>
-                <Link
-                    button
-                    className="m-display_block m-margin-bottom_8 m-width_100"
-                    href="https://www.meetup.com/allegrotech/events/">Zobacz więcej wydarzeń</Link>
-            </Container>
-            <Container className="m-padding-top-24">
-                <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Oferty pracy</Heading>
-                <Container>
-                    {jobs.map(job => (
-                        <Job key={job.id} id={job.id} name={job.name} location={job.location}/>
-                    ))}
-                </Container>
-                <Link
-                    button
-                    className="m-display_block m-margin-bottom_8 m-width_100"
-                    href="https://jobs.allegro.eu">Zobacz więcej ofert</Link>
-            </Container>
+            {
+                events.length > 0 ?
+                    <Container className="m-padding-top-24">
+                        <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Wydarzenia</Heading>
+                        <Grid>
+                            {events.map(event => (
+                                <Grid.Col key={event.id} size={12} smSize={6} xlSize={6}
+                                        className="m-display-flex m-flex-direction_column">
+                                    <Event {...event}/>
+                                </Grid.Col>
+                            ))}
+                        </Grid>
+                        <Link
+                            button
+                            className="m-display_block m-margin-bottom_8 m-width_100"
+                            href="https://www.meetup.com/allegrotech/events/">Zobacz więcej wydarzeń</Link>
+                    </Container> : null
+            }
+            {
+                jobs.length > 0 ? 
+                    <Container className="m-padding-top-24">
+                        <Heading size="xlarge" className="m-padding-left-24 m-padding-right-24">Oferty pracy</Heading>
+                        <Container>
+                            {jobs.map(job => (
+                                <Job key={job.id} id={job.id} name={job.name} location={job.location}/>
+                            ))}
+                        </Container>
+                        <Link
+                            button
+                            className="m-display_block m-margin-bottom_8 m-width_100"
+                            href="https://jobs.allegro.eu">Zobacz więcej ofert</Link>
+                    </Container> : null
+            }
             <Footer/>
             <Tracking/>
         </React.Fragment>
