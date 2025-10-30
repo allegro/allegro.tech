@@ -12,6 +12,7 @@ const MENU_ITEMS = [
     { label: 'Blog', url: 'https://blog.allegro.tech' },
     { label: 'Machine Learning', url: 'https://ml.allegro.tech' },
     { label: 'Podcast', url: 'https://podcast.allegro.tech' },
+    { label: 'Tech Radar', url: 'https://radar.allegro.tech' },
     { label: 'Open Source', url: 'https://github.com/Allegro' },
     { label: 'Wydarzenia', url: 'https://www.meetup.com/allegrotech/events' },
     { label: 'Praca', url: 'https://jobs.allegro.eu' }
