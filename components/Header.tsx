@@ -10,7 +10,7 @@ import List from "../metrum/List";
 
 const MENU_ITEMS = [
     { label: 'Blog', url: 'https://blog.allegro.tech' },
-    { label: 'Machine Learning', url: 'https://ml.allegro.tech' },
+    { label: 'AI Hub', url: 'https://ai.allegro.tech' },
     { label: 'Podcast', url: 'https://podcast.allegro.tech' },
     { label: 'Tech Radar', url: 'https://radar.allegro.tech' },
     { label: 'Open Source', url: 'https://github.com/Allegro' },
